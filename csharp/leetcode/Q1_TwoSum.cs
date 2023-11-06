@@ -37,8 +37,8 @@ public class TwoSum {
         }
         for(var i=0; i<input.Length-1; i++) {
             var lookingFor = target - input[i];
-            
             for (int j=i+1; j<input.Length; j++) {
+                Console.WriteLine($"input: [{string.Join(",", input)}], i:{i}, j:{j}, Looking for {lookingFor}");
                 if (input[j] == lookingFor) 
                 {
                     return new int[]{i, j};
@@ -50,6 +50,19 @@ public class TwoSum {
 
     // Try to be bettter
     public int[] Solve2(int[] input, int target) {
-
+        if (input.Length < 2 || input.Length > 10000) {
+            return new int[]{0};
+        }
+        for(var i=0; i<input.Length-1; i++) {
+            var lookingFor = target - input[i];
+            
+            for (int j=i+1; j<input.Length; j++) {
+                if (input[j] == lookingFor) 
+                {
+                    return new int[]{i, j};
+                }
+            }
+        }
+        return new[]{0};
     }
 }

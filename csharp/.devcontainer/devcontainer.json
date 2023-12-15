@@ -8,7 +8,7 @@
 	},
 	// "workspaceMount": "source=/Users/ferrywlto/Documents/GitHub/Personal/kata-dojo/,target=/workspace,type=bind,consistency=cached",
 	"workspaceFolder": "/workspace",
-	"dockerComposeFile": "docker-compose.yml",
+	"dockerComposeFile": "/docker-compose.yml",
 	"service": "csharp"
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},

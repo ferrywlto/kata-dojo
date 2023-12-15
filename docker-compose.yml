@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  csharp:
+    volumes:
+      - ../:/workspace  # Mounts the parent directory of the current folder
+  nodejs:
+    volumes:
+      - ../:/workspace  # Mounts the parent directory of the current folder

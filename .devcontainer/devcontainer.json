@@ -6,9 +6,7 @@
 	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
 	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
 	"dockerComposeFile": [
-		// this line is required
-		"../docker-compose.yml",
-		"docker-compose.yml"
+		"../docker-compose.yml"
 	],
 	"userEnvProbe": "interactiveShell",
 	// The 'service' property is the name of the service for the container that VS Code should
@@ -18,7 +16,7 @@
 	// as this is the current only way to pass environment variables to devcontainer.json as of 2023-12-12,
 	// otherwise it have to be hardcoding the service to use "csharp/nodejs". See "userEnvProbe" in https://containers.dev/implementors/json_reference/ 
 	// "service": "${localEnv:DEV_SERVICE}",
-	"service": "nodejs",
+	"service": "csharp",
 
 	// The optional 'workspaceFolder' property is the path VS Code should open by default when
 	// connected. This is typically a file mount in .devcontainer/docker-compose.yml

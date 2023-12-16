@@ -6,13 +6,13 @@ namespace csharp.leetcode
     public class TwoSumTestData : IEnumerable<object[]>
     {
         private readonly List<object[]> _data = new()
-    {
-        new object[] {new int[]{2, 7, 11, 15}, 9, new int[]{0, 1}},
-        new object[] {new int[]{3, 2, 4}, 6, new int[]{1, 2}},
-        new object[] {new int[]{3, 3, 5, 5}, 6, new int[]{0, 1}},
-        new object[] {new int[]{3, 5, 3, -5}, 6, new int[]{0, 2}},
-        new object[] {new int[]{-1,-2,-3,-4,-5}, -8, new int[]{2, 4}},
-    };
+        {
+            new object[] {new int[]{2, 7, 11, 15}, 9, new int[]{0, 1}},
+            new object[] {new int[]{3, 2, 4}, 6, new int[]{1, 2}},
+            new object[] {new int[]{3, 3, 5, 5}, 6, new int[]{0, 1}},
+            new object[] {new int[]{3, 5, 3, -5}, 6, new int[]{0, 2}},
+            new object[] {new int[]{-1,-2,-3,-4,-5}, -8, new int[]{2, 4}},
+        };
 
         public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();
 

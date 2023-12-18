@@ -104,6 +104,22 @@ public class AddTwoNumbersTestData : IEnumerable<object[]>
 public class AddTwoNumbersTests
 {
     [Fact]
+    public void ShouldFailOnInvalidNumber_LargerThanNine() {
+        var x = new AddTwoNumbers();
+        var l1 = GenerateListNode(3, 10);
+        var l2 = GenerateListNode(3, 1);
+        Assert.Throws<Exception>(() => x.Solve(l1, l2));
+    }
+
+    [Fact]
+    public void ShouldFailOnInvalidNumber_LessThanZero() {
+        var x = new AddTwoNumbers();
+        var l1 = GenerateListNode(3, -1);
+        var l2 = GenerateListNode(3, 1);
+        Assert.Throws<Exception>(() => x.Solve(l1, l2));
+    }
+
+    [Fact]
     public void ShouldFailOnTooLargeList_List2() {
         var x = new AddTwoNumbers();
         var l1 = GenerateListNode(10, 9);

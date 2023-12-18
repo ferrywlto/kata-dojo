@@ -42,21 +42,37 @@ public class AddTwoNumbers {
             return new ListNode(0);
         
         var sumList = new ListNode();
-        var sum = l1.val + l2.val;
 
-        if(sum >= 10)
-        {
-            sumList.val = sum % 10;
-            sumList.next = new ListNode(1);
-        }
-        else
-        {
-            sumList.val = sum;
-        }
-
+        Recursion(l1, l2, sumList);
         return sumList;
     }
+
+    public void Recursion(ListNode? l1, ListNode? l2, ListNode current, bool carryOver = false) {
+        if(l1 != null && l2 != null) {
+            var sum = l1.val + l2.val;
+            if (carryOver)
+                sum += 1;
+            var reminder = sum % 10;
+            current.val = reminder;
+            current.next = new ListNode();
+            Recursion(l1.next, l2.next, current.next, sum >= 10);
+        }
+        else if(l1 != null && l2 == null) {
+            current = l1.next;
+        }
+        else if(l1 == null && l2 != null) {
+            current = l2.next;
+        }
+        else {
+            if (carryOver) {
+                current.val = 1;
+            }
+        }
+    }
 }
+
+
+
 
 public class AddTwoNumbersTestData : IEnumerable<object[]>
 {
@@ -75,12 +91,36 @@ public class AddTwoNumbersTestData : IEnumerable<object[]>
 public class AddTwoNumbersTests
 {
     [Fact]
+    public void ShouldAbleToPerformDoubleDigitsAddition_SingleCarryOver() {
+        var x = new AddTwoNumbers();
+        var l1 = new ListNode(4, new ListNode(3));
+        var l2 = new ListNode(7, new ListNode(4));
+        var expected = new ListNode(1, new ListNode(8));
+        var actual = x.Solve(l1, l2);
+        AssertListNodeEquals(expected, actual);
+    }
+
+    [Fact]
+    public void ShouldAbleToPerformDoubleDigitsAddition_NoCarryOver() {
+        var x = new AddTwoNumbers();
+        var l1 = new ListNode(2, new ListNode(3));
+        var l2 = new ListNode(3, new ListNode(4));
+        var expected = new ListNode(5, new ListNode(7));
+        var actual = x.Solve(l1, l2);
+        AssertListNodeEquals(expected, actual);
+    }
+
+    [Fact]
     public void ShouldAbleToPerformSingleDigitAddition_TwoDigitsResult() {
         var x = new AddTwoNumbers();
         var l1 = new ListNode(9);
         var l2 = new ListNode(9);
         var expected = new ListNode(8, new ListNode(1));
         var actual = x.Solve(l1, l2);
+        AssertListNodeEquals(expected, actual);
+    }
+
+    private static void AssertListNodeEquals(ListNode? expected, ListNode? actual) {
         while (expected != null && actual != null) {
             Assert.Equal(expected.val, actual.val);
             expected = expected.next;
@@ -104,6 +144,16 @@ public class AddTwoNumbersTests
         var l1 = new ListNode(0);
         var l2 = new ListNode(0);
         var expected = new ListNode(0);
+        var actual = x.Solve(l1, l2);
+        Assert.Equal(expected.val, actual.val);
+    }
+
+    [Fact]
+    public void ShouldAbleToPerformSingleDigitAddition_Default() {
+        var x = new AddTwoNumbers();
+        var l1 = new ListNode();
+        var l2 = new ListNode();
+        var expected = new ListNode();
         var actual = x.Solve(l1, l2);
         Assert.Equal(expected.val, actual.val);
     }

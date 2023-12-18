@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Xunit;
+using Xunit.Sdk;
 
 public class ListNode 
 {
@@ -39,7 +40,7 @@ public class AddTwoNumbers {
 
     public ListNode Solve(ListNode l1, ListNode l2) {
         if (!ValidateInput(l1) || !ValidateInput(l2))
-            return new ListNode(0);
+            throw new Exception("Invalid input");
         
         var sumList = new ListNode();
 
@@ -58,10 +59,22 @@ public class AddTwoNumbers {
             Recursion(l1.next, l2.next, current.next, sum >= 10);
         }
         else if(l1 != null && l2 == null) {
-            current = l1.next;
+            var sum = l1.val;
+            if (carryOver)
+                sum += 1;
+            var reminder = sum % 10;
+            current.val = reminder;
+            current.next = new ListNode();
+            Recursion(l1.next, null, current.next, sum >= 10);
         }
         else if(l1 == null && l2 != null) {
-            current = l2.next;
+            var sum = l2.val;
+            if (carryOver)
+                sum += 1;
+            var reminder = sum % 10;
+            current.val = reminder;
+            current.next = new ListNode();
+            Recursion(null, l2.next, current.next, sum >= 10);
         }
         else {
             if (carryOver) {
@@ -90,6 +103,62 @@ public class AddTwoNumbersTestData : IEnumerable<object[]>
 
 public class AddTwoNumbersTests
 {
+    [Fact]
+    public void ShouldFailOnTooLargeList_List2() {
+        var x = new AddTwoNumbers();
+        var l1 = GenerateListNode(10, 9);
+        var l2 = GenerateListNode(101, 9);
+        Assert.Throws<Exception>(() => x.Solve(l1, l2));
+    }
+
+    [Fact]
+    public void ShouldFailOnTooLargeList_List1() {
+        var x = new AddTwoNumbers();
+        var l1 = GenerateListNode(101, 9);
+        var l2 = GenerateListNode(10, 9);
+        Assert.Throws<Exception>(() => x.Solve(l1, l2));
+    }
+
+    private ListNode GenerateListNode(int numDigits, int digitValue) {
+        var head = new ListNode(digitValue);
+        var current = head;
+        for (int i = 1; i < numDigits; i++) {
+            current.next = new ListNode(digitValue);
+            current = current.next;
+        }
+        return head;
+    }
+
+    [Fact]
+    public void ShouldAbleToPerformUnequalLengthAddition_List1Shorter() {
+        var x = new AddTwoNumbers();
+        var l1 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9))));
+        var l2 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9)))))));
+        var expected = new ListNode(8, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(1))))))));
+        var actual = x.Solve(l1, l2);
+        AssertListNodeEquals(expected, actual);
+    }
+
+    [Fact]
+    public void ShouldAbleToPerformUnequalLengthAddition_List2Shorter() {
+        var x = new AddTwoNumbers();
+        var l1 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9)))))));
+        var l2 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9))));
+        var expected = new ListNode(8, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(1))))))));
+        var actual = x.Solve(l1, l2);
+        AssertListNodeEquals(expected, actual);
+    }
+
+    [Fact]
+    public void ShouldAbleToPerformThreeDigitsAddition_CasadeCarryOver() {
+        var x = new AddTwoNumbers();
+        var l1 = new ListNode(9, new ListNode(9, new ListNode(9)));
+        var l2 = new ListNode(9, new ListNode(9, new ListNode(9)));
+        var expected = new ListNode(8, new ListNode(9, new ListNode(9, new ListNode(1))));
+        var actual = x.Solve(l1, l2);
+        AssertListNodeEquals(expected, actual);
+    }
+
     [Fact]
     public void ShouldAbleToPerformDoubleDigitsAddition_SingleCarryOver() {
         var x = new AddTwoNumbers();

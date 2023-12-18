@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Xunit;
+using Xunit.Abstractions;
 using Xunit.Sdk;
 
 public class ListNode 
@@ -48,13 +49,13 @@ public class AddTwoNumbers {
         return sumList;
     }
 
-    public void Recursion(ListNode? l1, ListNode? l2, ListNode current, bool carryOver = false) {
+    public void Recursion(ListNode? l1, ListNode? l2, ListNode? current, bool carryOver = false) {
         if(l1 != null && l2 != null) {
             var sum = l1.val + l2.val;
             if (carryOver)
                 sum += 1;
             var reminder = sum % 10;
-            current.val = reminder;
+            current!.val = reminder;
             current.next = new ListNode();
             Recursion(l1.next, l2.next, current.next, sum >= 10);
         }
@@ -63,7 +64,7 @@ public class AddTwoNumbers {
             if (carryOver)
                 sum += 1;
             var reminder = sum % 10;
-            current.val = reminder;
+            current!.val = reminder;
             current.next = new ListNode();
             Recursion(l1.next, null, current.next, sum >= 10);
         }
@@ -72,13 +73,17 @@ public class AddTwoNumbers {
             if (carryOver)
                 sum += 1;
             var reminder = sum % 10;
-            current.val = reminder;
+            current!.val = reminder;
             current.next = new ListNode();
             Recursion(null, l2.next, current.next, sum >= 10);
         }
         else {
             if (carryOver) {
-                current.val = 1;
+                current!.val = 1;
+                current.next = null;
+            }
+            else {
+                current = null;
             }
         }
     }
@@ -103,6 +108,24 @@ public class AddTwoNumbersTestData : IEnumerable<object[]>
 
 public class AddTwoNumbersTests
 {
+    private readonly ITestOutputHelper output;
+
+    public AddTwoNumbersTests(ITestOutputHelper output)
+    {
+        this.output = output;
+    }
+
+    [Fact]
+    public void CheckCase1() {
+        var x = new AddTwoNumbers();
+        var l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
+        var l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
+        var expected = new ListNode(7, new ListNode(0, new ListNode(8)));
+        var actual = x.Solve(l1, l2);
+        PrintList(actual);
+        AssertListNodeEquals(expected, actual);
+    }
+
     [Fact]
     public void ShouldFailOnInvalidNumber_LargerThanNine() {
         var x = new AddTwoNumbers();
@@ -205,14 +228,37 @@ public class AddTwoNumbersTests
         AssertListNodeEquals(expected, actual);
     }
 
-    private static void AssertListNodeEquals(ListNode? expected, ListNode? actual) {
+    private void AssertListNodeEquals(ListNode? expected, ListNode? actual) {
+        Assert.Equal(CountList(expected), CountList(actual));
+
         while (expected != null && actual != null) {
+            output.WriteLine($"expected:{expected.val} actual:{actual.val}");
             Assert.Equal(expected.val, actual.val);
             expected = expected.next;
             actual = actual.next;
         }
     }
 
+    private long CountList(ListNode? list) {
+        var count = 0;
+        while (list != null) {
+            count++;
+            list = list.next;
+        }
+        output.WriteLine($"count:{count}");
+        return count;
+    }
+
+    private void PrintList(ListNode? list) {
+        var numList = new List<int>();
+        while (list != null) {
+            numList.Add(list.val);
+            list = list.next;
+        }
+        var outputTxt = $"[{string.Join(",", numList)}]";
+        output.WriteLine(outputTxt);
+    }
+    
     [Fact]
     public void ShouldAbleToPerformSingleDigitAddition_SingleDigitResult() {
         var x = new AddTwoNumbers();

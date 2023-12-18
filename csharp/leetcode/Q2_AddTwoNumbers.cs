@@ -49,15 +49,20 @@ public class AddTwoNumbers {
         return sumList;
     }
 
-    public void Recursion(ListNode? l1, ListNode? l2, ListNode? current, bool carryOver = false) {
+    public void Recursion(ListNode? l1, ListNode? l2, ListNode current, bool carryOver = false) {
         if(l1 != null && l2 != null) {
             var sum = l1.val + l2.val;
             if (carryOver)
                 sum += 1;
             var reminder = sum % 10;
             current!.val = reminder;
-            current.next = new ListNode();
-            Recursion(l1.next, l2.next, current.next, sum >= 10);
+            if (l1.next != null || l2.next != null) {
+                current.next = new ListNode();
+                Recursion(l1.next, l2.next, current.next, sum >= 10);
+            }
+            else if (sum >= 10) {
+                current.next = new ListNode(1);
+            }
         }
         else if(l1 != null && l2 == null) {
             var sum = l1.val;
@@ -65,8 +70,13 @@ public class AddTwoNumbers {
                 sum += 1;
             var reminder = sum % 10;
             current!.val = reminder;
-            current.next = new ListNode();
-            Recursion(l1.next, null, current.next, sum >= 10);
+            if (l1.next != null) {
+                current.next = new ListNode();
+                Recursion(l1.next, null, current.next, sum >= 10);
+            }
+            else if (sum >= 10) {
+                current.next = new ListNode(1);
+            }
         }
         else if(l1 == null && l2 != null) {
             var sum = l2.val;
@@ -74,18 +84,19 @@ public class AddTwoNumbers {
                 sum += 1;
             var reminder = sum % 10;
             current!.val = reminder;
-            current.next = new ListNode();
-            Recursion(null, l2.next, current.next, sum >= 10);
-        }
-        else {
-            if (carryOver) {
-                current!.val = 1;
-                current.next = null;
+            if (l2.next != null) {
+                current.next = new ListNode();
+                Recursion(null, l2.next, current.next, sum >= 10);
             }
-            else {
-                current = null;
+            else if (sum >= 10) {
+                current.next = new ListNode(1);
             }
         }
+        // else {
+        //     if (carryOver) {
+        //         current.val = 1;
+        //     }
+        // }
     }
 }
 
@@ -258,7 +269,7 @@ public class AddTwoNumbersTests
         var outputTxt = $"[{string.Join(",", numList)}]";
         output.WriteLine(outputTxt);
     }
-    
+
     [Fact]
     public void ShouldAbleToPerformSingleDigitAddition_SingleDigitResult() {
         var x = new AddTwoNumbers();

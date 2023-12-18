@@ -6,6 +6,57 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using Xunit;
 
+public class ListNode 
+{
+    public int val;
+    public ListNode? next;
+    public ListNode(int val=0, ListNode? next=null) 
+    {
+        this.val = val;
+        this.next = next;
+    }
+}
+
+public class AddTwoNumbers {
+    /// <summary>
+    /// It doesn't have to check for null as the question stated the list will never be empty, just keep it until performance optimization stage 
+    /// </summary>
+    /// <param name="input"></param>
+    /// <param name="count"></param>
+    /// <returns></returns>
+    public static bool ValidateInput(ListNode? input, int count = 1)  {
+        if (input == null || count > 100 || !IsValidNumber(input)) {
+            Console.WriteLine($"Q2: validation failed, count:{count} input:{input?.val}");
+            return false;
+        }
+        else if (input.next == null) // last node
+            return true;
+        else
+            return ValidateInput(input.next, count+1);
+    }
+
+    public static bool IsValidNumber(ListNode input) => input.val is >= 0 and <= 9;
+
+    public ListNode Solve(ListNode l1, ListNode l2) {
+        if (!ValidateInput(l1) || !ValidateInput(l2))
+            return new ListNode(0);
+        
+        var sumList = new ListNode();
+        var sum = l1.val + l2.val;
+
+        if(sum >= 10)
+        {
+            sumList.val = sum % 10;
+            sumList.next = new ListNode(1);
+        }
+        else
+        {
+            sumList.val = sum;
+        }
+
+        return sumList;
+    }
+}
 
 public class AddTwoNumbersTestData : IEnumerable<object[]>
 {
@@ -23,144 +74,41 @@ public class AddTwoNumbersTestData : IEnumerable<object[]>
 
 public class AddTwoNumbersTests
 {
-    [Theory]
-    [ClassData(typeof(AddTwoNumbersTestData))]
-    public void AddTwoNumbersTest(int input1, int input2, int input3)
-    {
-        var subject = new AddTwoNumbers();
-        var l1 = subject.NumToList(input1);
-        var l2 = subject.NumToList(input2);
-        var expectedList = subject.NumToList(input3);
-        var actualList = subject.Solve(l1, l2);
-
-        var expected = subject.ListToNum(expectedList);
-        var actual = subject.ListToNum(actualList);
-        Console.WriteLine($"Q2: AddTwoNumbersTest: expected:{expected} actual:{actual}");
-        Assert.Equal(expected, actual);
-    }
-
-    [Theory]
-    [InlineData(243)]
-    [InlineData(564)]
-    [InlineData(708)]
-    [InlineData(0)]
-    [InlineData(9999999)]
-    public void ShouldAbleToTransfromBetweenListAndNum(int input) {
+    [Fact]
+    public void ShouldAbleToPerformSingleDigitAddition_TwoDigitsResult() {
         var x = new AddTwoNumbers();
-        var list = x.NumToList(input);
-        var num = x.ListToNum(list); 
-        Console.WriteLine($"Q2: ShouldAbleToTransfromBetweenListAndNum concat:{AddTwoNumbers.Concat(list)}  toNum:{num}");
-        Assert.Equal(input, num);
+        var l1 = new ListNode(9);
+        var l2 = new ListNode(9);
+        var expected = new ListNode(8, new ListNode(1));
+        var actual = x.Solve(l1, l2);
+        while (expected != null && actual != null) {
+            Assert.Equal(expected.val, actual.val);
+            expected = expected.next;
+            actual = actual.next;
+        }
+    }
+
+    [Fact]
+    public void ShouldAbleToPerformSingleDigitAddition_SingleDigitResult() {
+        var x = new AddTwoNumbers();
+        var l1 = new ListNode(2);
+        var l2 = new ListNode(3);
+        var expected = new ListNode(5);
+        var actual = x.Solve(l1, l2);
+        Assert.Equal(expected.val, actual.val);
+    }
+
+    [Fact]
+    public void ShouldAbleToPerformSingleDigitAddition_ZeroResult() {
+        var x = new AddTwoNumbers();
+        var l1 = new ListNode(0);
+        var l2 = new ListNode(0);
+        var expected = new ListNode(0);
+        var actual = x.Solve(l1, l2);
+        Assert.Equal(expected.val, actual.val);
     }
 }
 
 
-  public class ListNode {
-      public int val;
-      public ListNode? next;
-      public ListNode(int val=0, ListNode? next=null) {
-          this.val = val;
-          this.next = next;
-      }
-  }
+// it have to be per digit calculation in order to support 100 digits 
 
-public class AddTwoNumbers {
-    // public static void ValidateInput(LinkedList<byte> input)  {
-    //     if ((input.Count == 0) || (input.Count > 100)) 
-    //         throw new Exception("List size should be between 1-100");
-
-    //     var invalid = input.FirstOrDefault(i => i < 0 || i > 9);
-        
-    //     if (invalid != default) 
-    //         throw new Exception("Number should within 0-9");
-    // }
-    public static bool ValidateInput(ListNode? input, int count = 1)  {
-        if (input == null || count > 100 || !IsValidNumber(input)) {
-            Console.WriteLine($"Q2: validation failed, count:{count} input:{input?.val}");
-            return false;
-        }
-        else if (input.next == null) // last node
-            return true;
-        else
-            return ValidateInput(input.next, count+1);
-    }
-
-    public static bool IsValidNumber(ListNode input) => input.val is >= 0 and <= 9;
-
-    public static string Concat(ListNode? input) {
-        if (input == null) 
-            return string.Empty;
-        
-        var buffer = new StringBuilder();
-        var current = input;
-        do {
-            buffer.Append(input.val);
-            input = input.next;
-        } while (input != null);
-        
-        return buffer.ToString();
-    }
-
-    // public LinkedList<byte> Solve(LinkedList<byte> list1, LinkedList<byte> list2) {
-    //     ValidateInput(list1);
-    //     ValidateInput(list2);
-
-    //     var num1 = ListToInt(list1);
-    //     var num2 = ListToInt(list2);
-    //     var sum = num1 + num2;
-    //     var sumInText = sum.ToString();
-    //     var sumInList = StringToList(sumInText);
-    //     return sumInList;
-    // }
-    public long ListToNum(ListNode? input) {
-        var @string = Concat(input);
-        Console.WriteLine($"Q2 ListToNum1: {@string}");
-        var reversed = @string.Reverse();
-        @string = string.Join(string.Empty, reversed);
-        Console.WriteLine($"Q2 ListToNum2: {@string}");
-        return long.Parse(@string);
-    }
-
-
-    public ListNode NumToList(long input) {
-        var numInText = input.ToString();
-        var lastDigit = int.Parse(numInText[0].ToString());
-        var lastNode = new ListNode(lastDigit);
-
-        for (var i = 1; i < numInText.Length; i++) {
-            var currentNum = int.Parse(numInText[i].ToString());
-            var currentNode = new ListNode(currentNum, lastNode);
-            lastNode = currentNode;
-        }
-
-        return lastNode;
-    }
-
-    public ListNode Solve(ListNode l1, ListNode l2) {
-        if (!ValidateInput(l1) || !ValidateInput(l2))
-            return new ListNode(0);
-        
-        var num1 = ListToNum(l1);
-        var num2 = ListToNum(l2);
-
-        var sum = num1 + num2;
-        Console.WriteLine($"Q2: Solve: sum: ${sum}");
-        var sumInList = NumToList(sum);
-        
-        return sumInList;
-    }
-
-    // public static uint ListToInt(LinkedList<byte> input) {
-    //     var reversed = input.Reverse();
-    //     var numInText = string.Join(string.Empty, reversed.Select(i => i.ToString()).ToArray());
-    //     return uint.Parse(numInText);
-    // }
-
-    // public static LinkedList<byte> StringToList(string input) {
-    //     var list = new LinkedList<byte>();
-    //     foreach (var c in input) {
-    //         list.AddFirst(byte.Parse(c.ToString()));
-    //     }
-    //     return list;
-    // } 
-}

@@ -72,16 +72,15 @@ public class AddTwoNumbers {
             }
         }
         else if(l1 == null && l2 != null) {
-            var sum = l2.val;
             if (carryOver)
-                sum += 1;
-            var reminder = sum % 10;
-            current!.val = reminder;
+                l2.val += 1;
+            carryOver = l2.val >= 10;
+            current!.val = l2.val % 10;
             if (l2.next != null) {
                 current.next = new ListNode();
-                Recursion(null, l2.next, current.next, sum >= 10);
+                Recursion(null, l2.next, current.next, carryOver);
             }
-            else if (sum >= 10) {
+            else if (carryOver) {
                 current.next = new ListNode(1);
             }
         }

@@ -14,30 +14,8 @@ public class ListNode
 }
 // it have to be per digit calculation in order to support 100 digits 
 public class AddTwoNumbers {
-    /// <summary>
-    /// It doesn't have to check for null as the question stated the list will never be empty, just keep it until performance optimization stage 
-    /// </summary>
-    /// <param name="input"></param>
-    /// <param name="count"></param>
-    /// <returns></returns>
-    public static bool ValidateInput(ListNode? input, int count = 1)  {
-        if (input == null || count > 100 || !IsValidNumber(input)) {
-            throw new Exception($"Q2: validation failed, count:{count} input:{input?.val}");
-        }
-        else if (input.next == null) // last node
-            return true;
-        else
-            return ValidateInput(input.next, count+1);
-    }
-
-    public static bool IsValidNumber(ListNode input) => input.val is >= 0 and <= 9;
-
     public ListNode Solve(ListNode l1, ListNode l2) {
-        // if (!ValidateInput(l1) || !ValidateInput(l2))
-        //     throw new Exception("Invalid input");
-        
         var sumList = new ListNode();
-
         Recursion(l1, l2, sumList);
         return sumList;
     }

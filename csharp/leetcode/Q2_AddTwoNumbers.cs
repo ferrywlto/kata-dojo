@@ -45,44 +45,39 @@ public class AddTwoNumbers {
     public void Recursion(ListNode? l1, ListNode? l2, ListNode current, bool carryOver = false) {
         if(l1 != null && l2 != null) {
             var sum = l1.val + l2.val;
-            if (carryOver)
-                sum += 1;
-            var reminder = sum % 10;
-            current!.val = reminder;
+            if (carryOver) sum += 1;
+            
+            carryOver = sum >= 10;
+            current!.val = sum % 10;
+
             if (l1.next != null || l2.next != null) {
                 current.next = new ListNode();
-                Recursion(l1.next, l2.next, current.next, sum >= 10);
-            }
-            else if (sum >= 10) {
-                current.next = new ListNode(1);
-            }
-        }
-        else if(l1 != null && l2 == null) {
-            var sum = l1.val;
-            if (carryOver)
-                sum += 1;
-            var reminder = sum % 10;
-            current!.val = reminder;
-            if (l1.next != null) {
-                current.next = new ListNode();
-                Recursion(l1.next, null, current.next, sum >= 10);
-            }
-            else if (sum >= 10) {
-                current.next = new ListNode(1);
-            }
-        }
-        else if(l1 == null && l2 != null) {
-            if (carryOver)
-                l2.val += 1;
-            carryOver = l2.val >= 10;
-            current!.val = l2.val % 10;
-            if (l2.next != null) {
-                current.next = new ListNode();
-                Recursion(null, l2.next, current.next, carryOver);
+                Recursion(l1.next, l2.next, current.next, carryOver);
             }
             else if (carryOver) {
                 current.next = new ListNode(1);
             }
+        }
+        else if(l1 != null && l2 == null) {
+            RecursionSingle(l1, current, carryOver);
+        }
+        else if(l1 == null && l2 != null) {
+            RecursionSingle(l2, current, carryOver);
+        }
+    }
+
+    public void RecursionSingle(ListNode input, ListNode current, bool carryOver) {
+        if (carryOver) input.val += 1;
+
+        carryOver = input.val >= 10;
+        current!.val = input.val % 10;
+
+        if (input.next != null) {
+            current.next = new ListNode();
+            RecursionSingle(input.next, current.next, carryOver);
+        }
+        else if (carryOver) {
+            current.next = new ListNode(1);
         }
     }
 }

@@ -1,13 +1,7 @@
-namespace dojo.leetcode;
-
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Text;
 using Xunit;
 using Xunit.Abstractions;
-using Xunit.Sdk;
 
+namespace dojo.leetcode;
 public class ListNode 
 {
     public int val;
@@ -18,7 +12,7 @@ public class ListNode
         this.next = next;
     }
 }
-
+// it have to be per digit calculation in order to support 100 digits 
 public class AddTwoNumbers {
     /// <summary>
     /// It doesn't have to check for null as the question stated the list will never be empty, just keep it until performance optimization stage 
@@ -28,8 +22,7 @@ public class AddTwoNumbers {
     /// <returns></returns>
     public static bool ValidateInput(ListNode? input, int count = 1)  {
         if (input == null || count > 100 || !IsValidNumber(input)) {
-            Console.WriteLine($"Q2: validation failed, count:{count} input:{input?.val}");
-            return false;
+            throw new Exception($"Q2: validation failed, count:{count} input:{input?.val}");
         }
         else if (input.next == null) // last node
             return true;
@@ -92,39 +85,12 @@ public class AddTwoNumbers {
                 current.next = new ListNode(1);
             }
         }
-        // else {
-        //     if (carryOver) {
-        //         current.val = 1;
-        //     }
-        // }
     }
 }
 
-
-
-
-public class AddTwoNumbersTestData : IEnumerable<object[]>
+public class AddTwoNumbersTests(ITestOutputHelper output)
 {
-    private readonly List<object[]> _data =
-    [
-        [243, 564, 708],
-        [0, 0, 0],
-        [9999999, 9999, 89990001]
-    ];
-
-    public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();
-
-    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-}
-
-public class AddTwoNumbersTests
-{
-    private readonly ITestOutputHelper output;
-
-    public AddTwoNumbersTests(ITestOutputHelper output)
-    {
-        this.output = output;
-    }
+    private readonly ITestOutputHelper output = output;
 
     [Fact]
     public void CheckCase1() {
@@ -133,7 +99,6 @@ public class AddTwoNumbersTests
         var l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
         var expected = new ListNode(7, new ListNode(0, new ListNode(8)));
         var actual = x.Solve(l1, l2);
-        PrintList(actual);
         AssertListNodeEquals(expected, actual);
     }
 
@@ -167,16 +132,6 @@ public class AddTwoNumbersTests
         var l1 = GenerateListNode(101, 9);
         var l2 = GenerateListNode(10, 9);
         Assert.Throws<Exception>(() => x.Solve(l1, l2));
-    }
-
-    private ListNode GenerateListNode(int numDigits, int digitValue) {
-        var head = new ListNode(digitValue);
-        var current = head;
-        for (int i = 1; i < numDigits; i++) {
-            current.next = new ListNode(digitValue);
-            current = current.next;
-        }
-        return head;
     }
 
     [Fact]
@@ -239,37 +194,6 @@ public class AddTwoNumbersTests
         AssertListNodeEquals(expected, actual);
     }
 
-    private void AssertListNodeEquals(ListNode? expected, ListNode? actual) {
-        Assert.Equal(CountList(expected), CountList(actual));
-
-        while (expected != null && actual != null) {
-            output.WriteLine($"expected:{expected.val} actual:{actual.val}");
-            Assert.Equal(expected.val, actual.val);
-            expected = expected.next;
-            actual = actual.next;
-        }
-    }
-
-    private long CountList(ListNode? list) {
-        var count = 0;
-        while (list != null) {
-            count++;
-            list = list.next;
-        }
-        output.WriteLine($"count:{count}");
-        return count;
-    }
-
-    private void PrintList(ListNode? list) {
-        var numList = new List<int>();
-        while (list != null) {
-            numList.Add(list.val);
-            list = list.next;
-        }
-        var outputTxt = $"[{string.Join(",", numList)}]";
-        output.WriteLine(outputTxt);
-    }
-
     [Fact]
     public void ShouldAbleToPerformSingleDigitAddition_SingleDigitResult() {
         var x = new AddTwoNumbers();
@@ -299,8 +223,44 @@ public class AddTwoNumbersTests
         var actual = x.Solve(l1, l2);
         Assert.Equal(expected.val, actual.val);
     }
+
+    private static ListNode GenerateListNode(int numDigits, int digitValue) {
+        var head = new ListNode(digitValue);
+        var current = head;
+        for (int i = 1; i < numDigits; i++) {
+            current.next = new ListNode(digitValue);
+            current = current.next;
+        }
+        return head;
+    }
+
+    private long CountList(ListNode? list) {
+        var count = 0;
+        while (list != null) {
+            count++;
+            list = list.next;
+        }
+        output.WriteLine($"count:{count}");
+        return count;
+    }
+
+    private void PrintList(ListNode? list) {
+        var numList = new List<int>();
+        while (list != null) {
+            numList.Add(list.val);
+            list = list.next;
+        }
+        var outputTxt = $"[{string.Join(",", numList)}]";
+        output.WriteLine(outputTxt);
+    }
+
+    private void AssertListNodeEquals(ListNode? expected, ListNode? actual) {
+        Assert.Equal(CountList(expected), CountList(actual));
+
+        while (expected != null && actual != null) {
+            Assert.Equal(expected.val, actual.val);
+            expected = expected.next;
+            actual = actual.next;
+        }
+    }
 }
-
-
-// it have to be per digit calculation in order to support 100 digits 
-

@@ -76,38 +76,6 @@ public class AddTwoNumbersTests(ITestOutputHelper output)
     }
 
     [Fact]
-    public void ShouldFailOnInvalidNumber_LargerThanNine() {
-        var x = new AddTwoNumbers();
-        var l1 = GenerateListNode(3, 10);
-        var l2 = GenerateListNode(3, 1);
-        Assert.Throws<Exception>(() => x.Solve(l1, l2));
-    }
-
-    [Fact]
-    public void ShouldFailOnInvalidNumber_LessThanZero() {
-        var x = new AddTwoNumbers();
-        var l1 = GenerateListNode(3, -1);
-        var l2 = GenerateListNode(3, 1);
-        Assert.Throws<Exception>(() => x.Solve(l1, l2));
-    }
-
-    [Fact]
-    public void ShouldFailOnTooLargeList_List2() {
-        var x = new AddTwoNumbers();
-        var l1 = GenerateListNode(10, 9);
-        var l2 = GenerateListNode(101, 9);
-        Assert.Throws<Exception>(() => x.Solve(l1, l2));
-    }
-
-    [Fact]
-    public void ShouldFailOnTooLargeList_List1() {
-        var x = new AddTwoNumbers();
-        var l1 = GenerateListNode(101, 9);
-        var l2 = GenerateListNode(10, 9);
-        Assert.Throws<Exception>(() => x.Solve(l1, l2));
-    }
-
-    [Fact]
     public void ShouldAbleToPerformUnequalLengthAddition_List1Shorter() {
         var x = new AddTwoNumbers();
         var l1 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9))));

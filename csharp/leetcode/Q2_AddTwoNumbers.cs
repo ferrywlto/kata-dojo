@@ -33,8 +33,8 @@ public class AddTwoNumbers {
     public static bool IsValidNumber(ListNode input) => input.val is >= 0 and <= 9;
 
     public ListNode Solve(ListNode l1, ListNode l2) {
-        if (!ValidateInput(l1) || !ValidateInput(l2))
-            throw new Exception("Invalid input");
+        // if (!ValidateInput(l1) || !ValidateInput(l2))
+        //     throw new Exception("Invalid input");
         
         var sumList = new ListNode();
 
@@ -42,31 +42,32 @@ public class AddTwoNumbers {
         return sumList;
     }
 
-    public void Recursion(ListNode? l1, ListNode? l2, ListNode current, bool carryOver = false) {
+    private bool carryOver = false;
+    public void Recursion(ListNode? l1, ListNode? l2, ListNode current) {
         if(l1 != null && l2 != null) {
             var sum = l1.val + l2.val;
             if (carryOver) sum += 1;
-            
+
             carryOver = sum >= 10;
             current!.val = sum % 10;
 
             if (l1.next != null || l2.next != null) {
                 current.next = new ListNode();
-                Recursion(l1.next, l2.next, current.next, carryOver);
+                Recursion(l1.next, l2.next, current.next);
             }
             else if (carryOver) {
                 current.next = new ListNode(1);
             }
         }
         else if(l1 != null && l2 == null) {
-            RecursionSingle(l1, current, carryOver);
+            RecursionSingle(l1, current);
         }
         else if(l1 == null && l2 != null) {
-            RecursionSingle(l2, current, carryOver);
+            RecursionSingle(l2, current);
         }
     }
 
-    public void RecursionSingle(ListNode input, ListNode current, bool carryOver) {
+    public void RecursionSingle(ListNode input, ListNode current) {
         if (carryOver) input.val += 1;
 
         carryOver = input.val >= 10;
@@ -74,7 +75,7 @@ public class AddTwoNumbers {
 
         if (input.next != null) {
             current.next = new ListNode();
-            RecursionSingle(input.next, current.next, carryOver);
+            RecursionSingle(input.next, current.next);
         }
         else if (carryOver) {
             current.next = new ListNode(1);

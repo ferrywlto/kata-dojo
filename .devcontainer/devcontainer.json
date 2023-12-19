@@ -16,7 +16,7 @@
 	// as this is the current only way to pass environment variables to devcontainer.json as of 2023-12-12,
 	// otherwise it have to be hardcoding the service to use "csharp/nodejs". See "userEnvProbe" in https://containers.dev/implementors/json_reference/ 
 	// "service": "${localEnv:DEV_SERVICE}",
-	"service": "nodejs",
+	"service": "csharp",
 
 	// The optional 'workspaceFolder' property is the path VS Code should open by default when
 	// connected. This is typically a file mount in .devcontainer/docker-compose.yml

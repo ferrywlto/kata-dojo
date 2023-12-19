@@ -39,12 +39,11 @@ namespace csharp.leetcode
         {
             if (input.Length < 2 || input.Length > 10000)
             {
-                return new int[] { 0 };
+                return [0];
             }
             int[] sorted = new int[input.Length];
             Array.Copy(input, sorted, input.Length);
             Array.Sort(sorted);
-            Console.WriteLine($"Input: [{string.Join(",", input)}]");
 
             for (var i = 0; i < sorted.Length - 1; i++)
             {
@@ -54,21 +53,15 @@ namespace csharp.leetcode
 
                 for (int j = i + 1; j < sorted.Length; j++)
                 {
-                    Console.Write($"sorted: [{string.Join(",", sorted)}], i:{i}, j:{j}, Looking for: {lookingFor}");
                     if (sorted[j] == lookingFor)
                     {
-                        Console.WriteLine($" Found");
                         var result = new int[] { Array.IndexOf(input, sorted[i]), Array.LastIndexOf(input, sorted[j]) };
                         Array.Sort(result);
                         return result;
                     }
-                    else
-                    {
-                        Console.WriteLine($" Not Found");
-                    }
                 }
             }
-            return new[] { 0 };
+            return [0];
         }
     }
 }

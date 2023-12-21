@@ -1,7 +1,3 @@
-using System.Collections.Immutable;
-using System.Runtime.CompilerServices;
-using System.Text.RegularExpressions;
-
 namespace dojo.leetcode;
 
 public class Q13_RomashortoshortegerTests {
@@ -38,14 +34,51 @@ public class Q13_RomashortoshortegerTests {
     [InlineData("III", 3)]
     [InlineData("LVIII", 58)]
     [InlineData("MCMXCIV", 1994)]
+    [InlineData("IV", 4)]
     public void RomanToshort_ShouldReturnshorteger(string input, short expected) {
         var sut = new Q13_Romashortoshorteger();
-        Assert.Equal(expected, sut.RomanToshort(input));
+        Assert.Equal(expected, sut.RomanToInt_CorrectImplementation(input));
     }
 }
 
+// Tried even enum approach, but it still use 1MB more memory and took 10ms more time than my Dictionary approach
+// Inspired by other developers, modified the implemenation to:
+// 1. use char array instaed of string
+// 2. use switch instead of dictionary
+// 3. consider the nature that if the smaller value followed by a larger value, it should be minus instead of addition.
+// Runtime: 46ms, beats 99.75%, Memory: 47.29MB, beats 73.03%
 public class Q13_Romashortoshorteger {
-    public int RomanToshort(string s) {
+    public int RomanToInt_CorrectImplementation(string s) {
+        if (!ValidateInput(s))
+            return -1;
+        
+        short sum = 0;
+        var chars = s.ToCharArray(); 
+        for(var i=0; i<chars.Length - 1; i++) {
+            if (GetValue(chars[i+1]) > GetValue(chars[i]))
+                sum -= GetValue(chars[i]);
+            else
+                sum += GetValue(chars[i]);
+            Console.WriteLine($"i:{chars[i]}, i-value:{GetValue(chars[i])}, i+1:{chars[i+1]}, i+1-value:{GetValue(chars[i+1])}, sum:{sum}");
+        }
+        return sum + GetValue(chars[^1]);
+    }
+
+    private static short GetValue(char c) {
+        return c switch
+        {
+            'I' => 1,
+            'V' => 5,
+            'X' => 10,
+            'L' => 50,
+            'C' => 100,
+            'D' => 500,
+            'M' => 1000,
+            _ => 0,
+        };
+    }
+    
+    public int RomanToInt(string s) {
         if (!ValidateInput(s))
             return -1;
         
@@ -69,7 +102,6 @@ public class Q13_Romashortoshorteger {
         }
         return sum;
     }
-
     private const string roman = "IVXLCDM";
     private readonly Dictionary<string, ushort> table = new()
     {

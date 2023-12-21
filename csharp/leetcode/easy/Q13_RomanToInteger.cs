@@ -59,7 +59,6 @@ public class Q13_Romashortoshorteger {
                 sum -= GetValue(chars[i]);
             else
                 sum += GetValue(chars[i]);
-            Console.WriteLine($"i:{chars[i]}, i-value:{GetValue(chars[i])}, i+1:{chars[i+1]}, i+1-value:{GetValue(chars[i+1])}, sum:{sum}");
         }
         return sum + GetValue(chars[^1]);
     }

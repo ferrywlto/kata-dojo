@@ -1,4 +1,5 @@
 using System.Collections.Immutable;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 
 namespace dojo.leetcode;
@@ -48,30 +49,29 @@ public class Q13_Romashortoshorteger {
         if (!ValidateInput(s))
             return -1;
         
-        short sum = 0;
-        while(s.Length > 0) {
-            if (s.Length >= 2) {
-                if (table.TryGetValue(s[..2], out short value)) {
+        ushort sum = 0;
+        byte idx = 0;
+        while(idx < s.Length) {
+            if (idx <= s.Length - 2) {
+                if(table.TryGetValue(s.Substring(idx, 2), out ushort value)) {
                     sum += value;
-                    s = s[2..];
-                    continue;
+                    idx+=2;
                 }
                 else {
-                    sum += table[s[..1]];
-                    s = s[1..];
+                    sum += table[s.Substring(idx, 1)];
+                    idx+=1;
                 }
-            }
+            } 
             else {
-                sum += table[s[..1]];
-                s = s[1..];
+                sum += table[s.Substring(idx, 1)];
+                idx+=1;
             }
         }
-
         return sum;
     }
 
     private const string roman = "IVXLCDM";
-    private readonly Dictionary<string, short> table = new Dictionary<string, short>()
+    private readonly Dictionary<string, ushort> table = new()
     {
         {"I", 1},
         {"IV", 4},

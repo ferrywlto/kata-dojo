@@ -1,7 +1,4 @@
-using System.Collections;
-using Xunit;
-
-namespace csharp.leetcode
+namespace dojo.leetcode
 {
     public class TwoSumTestData : IEnumerable<object[]>
     {

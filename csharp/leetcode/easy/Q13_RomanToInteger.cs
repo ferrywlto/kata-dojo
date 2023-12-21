@@ -1,3 +1,5 @@
+using System.Collections.Immutable;
+
 namespace dojo.leetcode;
 
 public class Q13_RomainToIntegerTests {
@@ -45,11 +47,58 @@ public class Q13_RomainToInteger {
         if (!ValidateInput(s))
             return -1;
         
+        var sum = 0;
+        while(s.Length > 0) {
+            if (s.Length >= 2) {
+                var key = s[..2];
+                if (table.TryGetValue(key, out int value)) {
+                    sum += value;
+                    s = s[2..];
+                    Console.WriteLine($"key:{key}, value:{value}, s:{s}, sum:{sum}");
+                    continue;
+                }
+                else {
+                    key = s[..1];
+                    if (table.TryGetValue(key, out value)) {
+                        sum += value;
+                        s = s[1..];
+                        Console.WriteLine($"key:{key}, value:{value}, s:{s}, sum:{sum}");
+                        continue;
+                    }
+                }
+            }
+            else {
+                var key = s[..1];
+                if (table.TryGetValue(key, out int value)) {
+                    sum += value;
+                    s = s[1..];
+                    Console.WriteLine($"key:{key}, value:{value}, s:{s}, sum:{sum}");
+                    continue;
+                }
+            }
+        }
 
-        return 0;
+        return sum;
     }
 
-    const string roman = "IVXLCDM";
+    private const string roman = "IVXLCDM";
+    private readonly ImmutableDictionary<string, int> table = new Dictionary<string, int>()
+    {
+        {"I", 1},
+        {"IV", 4},
+        {"V", 5},
+        {"IX", 9},
+        {"X", 10},
+        {"XL", 40},
+        {"L", 50},
+        {"XC", 90},
+        {"C", 100},
+        {"CD", 400},
+        {"D", 500},
+        {"CM", 900},
+        {"M", 1000},
+    }.ToImmutableDictionary();
+
     public bool ValidateInput(string input) {
         foreach(var c in input) {
             if (!roman.Contains(c)) return false;

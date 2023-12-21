@@ -1,80 +1,69 @@
 using System.Collections.Immutable;
+using System.Text.RegularExpressions;
 
 namespace dojo.leetcode;
 
-public class Q13_RomainToIntegerTests {
+public class Q13_RomashortoshortegerTests {
     [Theory]
     [InlineData("I")]
     [InlineData("III")]
     [InlineData("IIIIVIIIIVIIIIV")]
     public void ValidateInput_ShouldReturnTrue_LengthWithinRnage(string input) {
-        var sut = new Q13_RomainToInteger();
+        var sut = new Q13_Romashortoshorteger();
         Assert.True(sut.ValidateInput(input));
     }
     [Theory]
     [InlineData("")]
     [InlineData("IIIIVIIIIVIIIIVI")]
     public void ValidateInput_ShouldReturnFalse_LengthOutOfRange(string input) {
-        var sut = new Q13_RomainToInteger();
+        var sut = new Q13_Romashortoshorteger();
         Assert.False(sut.ValidateInput(input));
     }
     [Theory]
     [InlineData("I")]
     [InlineData("IVXLCDM")]
     public void ValidateInput_ShouldReturnTrue_ContainsRomanOnly(string input) {
-        var sut = new Q13_RomainToInteger();
+        var sut = new Q13_Romashortoshorteger();
         Assert.True(sut.ValidateInput(input));
     }
     [Theory]
     [InlineData("A")]
     [InlineData("IVXLBCDM")]
     public void ValidateInput_ShouldReturnFalse_ContainsNonRoman(string input) {
-        var sut = new Q13_RomainToInteger();
+        var sut = new Q13_Romashortoshorteger();
         Assert.False(sut.ValidateInput(input));
     }
     [Theory]
     [InlineData("III", 3)]
     [InlineData("LVIII", 58)]
     [InlineData("MCMXCIV", 1994)]
-    public void RomanToInt_ShouldReturnInteger(string input, int expected) {
-        var sut = new Q13_RomainToInteger();
-        Assert.Equal(expected, sut.RomanToInt(input));
+    public void RomanToshort_ShouldReturnshorteger(string input, short expected) {
+        var sut = new Q13_Romashortoshorteger();
+        Assert.Equal(expected, sut.RomanToshort(input));
     }
 }
 
-public class Q13_RomainToInteger {
-    public int RomanToInt(string s) {
+public class Q13_Romashortoshorteger {
+    public int RomanToshort(string s) {
         if (!ValidateInput(s))
             return -1;
         
-        var sum = 0;
+        short sum = 0;
         while(s.Length > 0) {
             if (s.Length >= 2) {
-                var key = s[..2];
-                if (table.TryGetValue(key, out int value)) {
+                if (table.TryGetValue(s[..2], out short value)) {
                     sum += value;
                     s = s[2..];
-                    Console.WriteLine($"key:{key}, value:{value}, s:{s}, sum:{sum}");
                     continue;
                 }
                 else {
-                    key = s[..1];
-                    if (table.TryGetValue(key, out value)) {
-                        sum += value;
-                        s = s[1..];
-                        Console.WriteLine($"key:{key}, value:{value}, s:{s}, sum:{sum}");
-                        continue;
-                    }
+                    sum += table[s[..1]];
+                    s = s[1..];
                 }
             }
             else {
-                var key = s[..1];
-                if (table.TryGetValue(key, out int value)) {
-                    sum += value;
-                    s = s[1..];
-                    Console.WriteLine($"key:{key}, value:{value}, s:{s}, sum:{sum}");
-                    continue;
-                }
+                sum += table[s[..1]];
+                s = s[1..];
             }
         }
 
@@ -82,7 +71,7 @@ public class Q13_RomainToInteger {
     }
 
     private const string roman = "IVXLCDM";
-    private readonly ImmutableDictionary<string, int> table = new Dictionary<string, int>()
+    private readonly Dictionary<string, short> table = new Dictionary<string, short>()
     {
         {"I", 1},
         {"IV", 4},
@@ -97,7 +86,7 @@ public class Q13_RomainToInteger {
         {"D", 500},
         {"CM", 900},
         {"M", 1000},
-    }.ToImmutableDictionary();
+    };
 
     public bool ValidateInput(string input) {
         foreach(var c in input) {

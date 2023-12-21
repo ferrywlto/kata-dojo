@@ -30,10 +30,22 @@ public class Q13_RomainToIntegerTests {
         var sut = new Q13_RomainToInteger();
         Assert.False(sut.ValidateInput(input));
     }
+    [Theory]
+    [InlineData("III", 3)]
+    [InlineData("LVIII", 58)]
+    [InlineData("MCMXCIV", 1994)]
+    public void RomanToInt_ShouldReturnInteger(string input, int expected) {
+        var sut = new Q13_RomainToInteger();
+        Assert.Equal(expected, sut.RomanToInt(input));
+    }
 }
 
 public class Q13_RomainToInteger {
     public int RomanToInt(string s) {
+        if (!ValidateInput(s))
+            return -1;
+        
+
         return 0;
     }
 

@@ -198,6 +198,9 @@ public class Q9_PalindromeNumber
     }
 
     // The correct appraoch is to constract a reverse number and compare with input
+    // It has not much to do with the performance as most solutions are just 3-lines string approach
+    // Not sure how could the performance improve further
+    // Speed: 38ms (55.1%) | Memory: 31.5MB (30.8%)  
     public bool IsPalindrome_CorrectApproach(int x) {
         if (x<0) return false;
         if (x%10 == 0 && x!=0) return false;

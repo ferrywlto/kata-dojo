@@ -9,7 +9,9 @@ public class ListNode
         this.next = next;
     }
 }
-// it have to be per digit calculation in order to support 100 digits 
+// It have to be per digit calculation in order to support 100 digits 
+// The performance can be improved by not using recursion and short circuiting the calculation of unequal length lists
+// Speed: 89ms (53.44%), Memory: 49.2MB(79.69%) 
 public class AddTwoNumbers {
     public ListNode Solve(ListNode l1, ListNode l2) {
         var sumList = new ListNode();

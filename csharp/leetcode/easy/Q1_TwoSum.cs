@@ -29,6 +29,7 @@ namespace dojo.leetcode
         }
     }
 
+    // Speed: 118ms (99.30%), Memory: 44.5MB (46.24%)
     public class TwoSum
     {
         // Best in speed, average in memory

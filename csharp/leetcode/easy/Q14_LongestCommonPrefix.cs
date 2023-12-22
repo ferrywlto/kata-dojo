@@ -9,7 +9,7 @@ public class Q14_LongestCommonPrefixTests
     [InlineData(new string[] { "dog", "racecar", "car" }, "")]
     public void OfficialTestCases(string[] strs, string expected)
     {
-        var result = new Q14_LongestCommonPrefix().LongestCommonPrefix_Reverse(strs);
+        var result = new Q14_LongestCommonPrefix().LongestCommonPrefix_Char(strs);
         Assert.Equal(expected, result);
     }
 }
@@ -22,6 +22,29 @@ public class Q14_LongestCommonPrefixTests
 // The possible longest prefix is "abcd", so the first fail case indicate the existing prefix is already the longest  
 public class Q14_LongestCommonPrefix
 {
+    // Inspired by others, use char instead of string, once the first char has been proved common prefix, no need to keep checking in other rounds
+    public string LongestCommonPrefix_Char(string[] strs)
+    {
+        if (strs.Length == 0) return "";
+        if (strs.Length == 1) return strs[0];
+
+        var word = strs[0].ToCharArray();
+        var wordLength = word.Length;
+        if (wordLength == 0 || word.Equals("")) return "";
+
+        byte idx = 0;
+        for (byte i = 0; i<wordLength; i++ ) {
+            var current = word[i];
+            for (byte j=1; j<strs.Length; j++) {
+                if (strs[j][i] != current) {
+                    return strs[0][..idx];
+                }
+            }
+            idx++;
+        }
+        return strs[0][..idx];
+    }
+
     // Speed: 69ms (99.92%), Memory: 42.99MB (7.97%)
     public string LongestCommonPrefix(string[] strs)
     {

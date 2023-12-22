@@ -24,7 +24,7 @@ public class Q20_ValidParentheses
         {'}', '{'},
     };
 
-    // Speed: 53ms (98.57%), Memory: 39.4MB (9.55%)
+    // Speed: 47ms (99.96%), Memory: 38.8MB (10.62%)
     public bool IsValid(string input) {
         if (input.Length % 2 != 0) {
             return false;
@@ -34,16 +34,16 @@ public class Q20_ValidParentheses
         var stack = new Stack<char>();
         for(ushort i=0; i<charArr.Length; i++)
         {
-            if(charArr[i] == '(' || charArr[i] == '[' || charArr[i] == '{') {
-                Console.WriteLine($"Push: {charArr[i]}");
-                stack.Push(charArr[i]);
+            char c = charArr[i];
+            if(c == '(' || c == '[' || c == '{') {
+                stack.Push(c);
             }
             else if(stack.Count == 0) {
                 return false;
             }
             else {
                 var last = stack.Pop();
-                if(_dict[charArr[i]] != last) {
+                if(_dict[c] != last) {
                     return false;
                 }
             }   

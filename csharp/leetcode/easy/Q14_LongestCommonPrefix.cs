@@ -7,6 +7,7 @@ public class Q14_LongestCommonPrefixTests
     [InlineData(new string[] { "flower", "flow", "flight" }, "fl")]
     [InlineData(new string[] { "flower", "flower", "flower", "flower" }, "flower")]
     [InlineData(new string[] { "dog", "racecar", "car" }, "")]
+    [InlineData(new string[] { "ab", "a" }, "a")]
     public void OfficialTestCases(string[] strs, string expected)
     {
         var result = new Q14_LongestCommonPrefix().LongestCommonPrefix_Char(strs);
@@ -23,6 +24,7 @@ public class Q14_LongestCommonPrefixTests
 public class Q14_LongestCommonPrefix
 {
     // Inspired by others, use char instead of string, once the first char has been proved common prefix, no need to keep checking in other rounds
+    // Speed: 61ms (100%), Memory: 42.1MB (8.55%)
     public string LongestCommonPrefix_Char(string[] strs)
     {
         if (strs.Length == 0) return "";
@@ -35,8 +37,10 @@ public class Q14_LongestCommonPrefix
         byte idx = 0;
         for (byte i = 0; i<wordLength; i++ ) {
             var current = word[i];
+            Console.WriteLine($"current: {current}");
             for (byte j=1; j<strs.Length; j++) {
-                if (strs[j][i] != current) {
+
+                if (i >= strs[j].Length || strs[j][i] != current) {
                     return strs[0][..idx];
                 }
             }

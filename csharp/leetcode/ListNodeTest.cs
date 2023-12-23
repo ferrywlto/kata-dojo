@@ -1,7 +1,7 @@
 using dojo.leetcode;
 
 public class ListNodeTest(ITestOutputHelper output) {
-    private readonly ITestOutputHelper output = output;
+    protected readonly ITestOutputHelper output = output;
     public static ListNode GenerateListNode(int numDigits, int digitValue) {
         var head = new ListNode(digitValue);
         var current = head;

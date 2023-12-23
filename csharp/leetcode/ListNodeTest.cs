@@ -13,6 +13,9 @@ public class ListNodeTest(ITestOutputHelper output) {
     }
 
     protected void AssertListNodeEquals(ListNode? expected, ListNode? actual) {
+        if (expected == null && actual == null)
+            return;
+            
         Assert.Equal(CountList(expected), CountList(actual));
 
         while (expected != null && actual != null) {

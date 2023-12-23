@@ -50,10 +50,8 @@ public class AddTwoNumbers {
     }
 }
 
-public class AddTwoNumbersTests(ITestOutputHelper output)
+public class AddTwoNumbersTests(ITestOutputHelper output) : ListNodeTest(output)
 {
-    private readonly ITestOutputHelper output = output;
-
     [Fact]
     public void CheckCase1() {
         var x = new AddTwoNumbers();
@@ -152,45 +150,5 @@ public class AddTwoNumbersTests(ITestOutputHelper output)
         var expected = new ListNode();
         var actual = x.Solve(l1, l2);
         Assert.Equal(expected.val, actual.val);
-    }
-
-    private static ListNode GenerateListNode(int numDigits, int digitValue) {
-        var head = new ListNode(digitValue);
-        var current = head;
-        for (int i = 1; i < numDigits; i++) {
-            current.next = new ListNode(digitValue);
-            current = current.next;
-        }
-        return head;
-    }
-
-    private long CountList(ListNode? list) {
-        var count = 0;
-        while (list != null) {
-            count++;
-            list = list.next;
-        }
-        output.WriteLine($"count:{count}");
-        return count;
-    }
-
-    private void PrintList(ListNode? list) {
-        var numList = new List<int>();
-        while (list != null) {
-            numList.Add(list.val);
-            list = list.next;
-        }
-        var outputTxt = $"[{string.Join(",", numList)}]";
-        output.WriteLine(outputTxt);
-    }
-
-    private void AssertListNodeEquals(ListNode? expected, ListNode? actual) {
-        Assert.Equal(CountList(expected), CountList(actual));
-
-        while (expected != null && actual != null) {
-            Assert.Equal(expected.val, actual.val);
-            expected = expected.next;
-            actual = actual.next;
-        }
     }
 }

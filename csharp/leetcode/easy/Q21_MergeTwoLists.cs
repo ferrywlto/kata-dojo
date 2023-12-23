@@ -17,7 +17,8 @@ public class Q21_MergeTwoListsTests(ITestOutputHelper output) : ListNodeTest(out
 public class Q21_MergeTwoLists {
     
     // Speed: 45ms (100%), Memory: 41.4MB (8.83%)
-    // Don't think there is room to use less memory as there is only references to the nodes, no data/node created. 
+    // Don't think there is room to use less memory as there is only references to the nodes, no data/node created.
+    // From AI analysis, this is already O(1) in memory and O(n+m) in speed.
     public static ListNode? MergeTwoLists(ListNode? l1, ListNode? l2) {
         if (l1 == null && l2 == null)
             return null;

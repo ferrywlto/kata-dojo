@@ -16,34 +16,36 @@ public class Q26_RemoveDuplicates
     // From the problem description and others discussion, the answer needed to switch the value in place because the auto judge will check the array element by element for the first K elements.
     // Where K is the distinct number of elements in the array.
     // The input array is sorted.
-    // Speed: 132ms (74.57%), Memory: 52.26MB (5.02%)
+    // Speed: 105ms (99.98%), Memory: 49.3MB (5.2%)
+    // Even faster edition. The idea is since the array is sorted, whenever we encounter a bigger number, swap it to the front, after the loop, the first K(i.e swapped) elements will be the distinct elements. 
+    // Such that the array will be sorted inplace, no need to call .Distainct().Count() and then copy the values back to fulfill the hidden auto judge requirements.
+    // The complexity is O(n-1) where n is the length of the array.
     public int RemoveDuplicates(int[] nums) 
     {
         if (nums.Length == 0) return 0;
         if (nums.Length == 1) return 1;
         if (nums.Length == 2) return (nums[0] == nums[1]) ? 1 : 2;
 
-        var currnet = nums[0];
-        for(short i=1; i<nums.Length-1; i++)
+        var smallest = nums[0];
+        // used to keep track the index of the next element to swap.
+        var idxToSwap = 1;
+        int temp;
+        Console.WriteLine($"nums={string.Join(",", nums)}, i={0}, idxToSwap={idxToSwap}, smallest={smallest}");
+        for(ushort i=1; i<nums.Length; i++)
         {
-            // compare the current element with the next element
-            if (nums[i] == currnet)
+            // whenever we found something larger, swap it to the front.
+            if (nums[i] > smallest)
             {
-                nums[i] = nums[^1];
-                Console.WriteLine($"i={i}, nums={string.Join(",", nums)}");
-            }
-            else {
-                currnet = nums[i];
+                Console.WriteLine($"num[{i}]={nums[i]} > smallest={smallest}, should swap]");
+                temp = nums[idxToSwap];
+                nums[idxToSwap] = nums[i];
+                nums[i] = temp;
+                smallest = nums[idxToSwap];
+                idxToSwap++;
+                Console.WriteLine($"nums={string.Join(",", nums)}, i={i}, idxToSwap={idxToSwap}, smallest={smallest}");
             }
         }
         
-        int[] num2 = [.. nums.OrderBy(n => n)];
-        for(short i=0; i<nums.Length; i++)
-        {
-            nums[i] = num2[i];
-        }
-        Console.WriteLine($"nums={string.Join(",", nums)}, nums.Length={nums.Length}");
-        return nums.Distinct().Count();
+        return idxToSwap;
     }
 }
-// it will need kind of bubble sort otherwise

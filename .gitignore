@@ -1,3 +1,6 @@
+# VSCode
+.vscode
+
 # Environment config files
 .env
 .env.*

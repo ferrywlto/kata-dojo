@@ -1,14 +1,4 @@
 namespace dojo.leetcode;
-public class ListNode 
-{
-    public int val;
-    public ListNode? next;
-    public ListNode(int val=0, ListNode? next=null) 
-    {
-        this.val = val;
-        this.next = next;
-    }
-}
 // It have to be per digit calculation in order to support 100 digits 
 // The performance can be improved by not using recursion and short circuiting the calculation of unequal length lists
 // Speed: 89ms (53.44%), Memory: 49.2MB(79.69%) 

@@ -9,8 +9,12 @@ public class Q28_NeedleInHaystackTests {
     }
 }
 
+// Speed: 39ms (99.54%), Memory: 38.77MB (6.67%)
 public class Q28_NeedleInHaystack {
     public int StrStr(string haystack, string needle) {
-        return 0;
+        if (needle.Length == 0 || haystack.Length == 0) return -1;
+        if (needle.Length > haystack.Length) return -1;
+
+        return haystack.IndexOf(needle);
     }
 }

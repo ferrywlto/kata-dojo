@@ -31,17 +31,22 @@ public class Q35_SearchInsertPosition {
         ushort end = (ushort)(nums.Length - 1);
         ushort middle;
         while(start != end && end-start != 1) {
-            middle = (ushort)Math.Ceiling((decimal)((end+start) / 2));
+            middle = (ushort)Math.Ceiling((double)((end+start) / 2));
 
             if(target == nums[middle]) {
                 return middle;
             }
             else if(target > nums[middle]) {
-                // search right
+                // Introducing early termination by doing next element check does not improve performance
+                // if (target == nums[middle + 1]) {
+                //     return middle + 1;
+                // }
                 start = middle;
             }
             else {
-                // search left
+                // if (target == nums[middle - 1]) {
+                //     return middle - 1;
+                // }
                 end = middle;
             }
             Console.WriteLine($"start: {start}, end: {end}, middle: {middle}");

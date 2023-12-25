@@ -38,6 +38,11 @@ public class Q66_PlusOne {
             }
         }
 
-        return input[0] == 0 ? new int[]{1}.Concat(input).ToArray() : input;
+        if (input[0] != 0) return input;
+
+        var newArray = new int[input.Length + 1];
+        newArray[0] = 1;
+        Array.Copy(input, 0, newArray, 1, input.Length);
+        return newArray;
     }
 }

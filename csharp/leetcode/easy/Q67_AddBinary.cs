@@ -1,3 +1,5 @@
+using System.Text;
+
 public class Q67_AddBinaryTests {
     [Theory]
     [InlineData("11", "1", "100")]
@@ -26,7 +28,7 @@ a and b consist only of '0' or '1' characters.
 Each string does not contain leading zeros except for the zero itself.
 */
 public class Q67_AddBinary {
-    // Speed: 51ms (99.39%), Memory: 40.08MB (44.57%)
+    // Speed: 51ms (99.39%), Memory: 40.08MB (46.25%)
     public string AddBinary(string a, string b) {
         string shorterStr;
         string longerStr; 
@@ -38,68 +40,66 @@ public class Q67_AddBinary {
             longerStr = b;
             shorterStr = a;
         }
-        var result = new char[longerStr.Length];
+        var result = new StringBuilder();
 
         bool carryOver = false;
         
-        for (int i=1; i<=shorterStr.Length; i++) {
-            
-            if (carryOver) {
-                if (shorterStr[^i] == '0' && longerStr[^i] == '0') {
-                    result[^i] = '1';
-                    carryOver = false;
-                } 
-                else if (shorterStr[^i] == '1' && longerStr[^i] == '1') {
-                    result[^i] = '1';
-                    carryOver = true;
+        for (int i=1; i<=shorterStr.Length; i++) 
+        {
+            if (carryOver) 
+            {
+                if (shorterStr[^i] == longerStr[^i])
+                {
+                    result.Insert(0, '1');
+                    carryOver = longerStr[^i] == '1';
                 }
-                else {
-                    result[^i] = '0';
+                else 
+                {
+                    result.Insert(0, '0');
                     carryOver = true;
                 }
             }
-            else {
-                if (shorterStr[^i] == '0' && longerStr[^i] == '0') {
-                    result[^i] = '0';
-                    carryOver = false;
+            else
+            {
+                if (shorterStr[^i] == longerStr[^i]) 
+                {
+                    result.Insert(0, '0');
+                    carryOver = longerStr[^i] == '1';
                 } 
-                else if (shorterStr[^i] == '1' && longerStr[^i] == '1') {
-                    result[^i] = '0';
-                    carryOver = true;
-                }
-                else {
-                    result[^i] = '1';
+                else 
+                {
+                    result.Insert(0, '1');
                     carryOver = false;
                 }
             }
         }
 
         var diff = longerStr.Length - shorterStr.Length;
-        if (diff > 0) {
-            for (int j= diff-1; j>=0; j--) {
-                if(carryOver) {
+        if (diff > 0) 
+        {
+            for (int j= diff-1; j>=0; j--) 
+            {
+                if(carryOver) 
+                {
                     if (longerStr[j]=='0')
                     {
-                        result[j] = '1';
+                        result.Insert(0, '1');
                         carryOver = false;
                     }
-                    else {
-                        result[j] = '0';
+                    else 
+                    {
+                        result.Insert(0, '0');
                         carryOver = true;
                     }
-                } else {
-                    result[j] = longerStr[j];
+                } else 
+                {
+                    result.Insert(0,longerStr[j]);
                 }
             }        
         }
 
-        if (!carryOver)
-            return new string(result);
-        else {
-            char[] x = new char[result.Length+1];
-            Array.Copy(result, 0, x, 1, result.Length);
-            x[0] = '1';
-            return new string(x);
-        }
+        if (carryOver) result.Insert(0, '1');
+        
+        return result.ToString();
     }
 }

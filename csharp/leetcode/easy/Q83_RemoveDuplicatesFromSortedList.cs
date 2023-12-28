@@ -11,12 +11,37 @@ public class Q83_RemoveDuplicatesFromSortedListTests(ITestOutputHelper output) :
         var head = ListNode.FromArray(input);
         var actual = sut.DeleteDuplicates(head!);
         var expectedList = ListNode.FromArray(expected);
+        PrintList(actual);
         AssertListNodeEquals(expectedList, actual);
     }
 }
 
 public class Q83_RemoveDuplicatesFromSortedList {
+    // TC: O(n), SC: O(1)
     public ListNode DeleteDuplicates(ListNode head) {
-        return new ListNode();    
+        var current = head;
+
+        while(current != null) {
+            var input = current;
+            var nextNode = input.next;
+            // For each node, skip all the duplicates behind
+            while (nextNode != null) {
+                
+                if (input.val != nextNode.val) {
+                    input.next = nextNode;
+                    break;
+                }
+                if (nextNode.next == null)
+                {
+                    // Terminate the last duplicate pointer
+                    input.next = null;
+                    break;    
+                }
+                nextNode = nextNode.next;
+            }
+            current = current.next;
+        }
+
+        return head;    
     }
 }

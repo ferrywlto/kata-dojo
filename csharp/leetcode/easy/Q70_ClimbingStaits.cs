@@ -12,13 +12,13 @@ public class Q70_ClimbingStairsTests {
         Assert.Equal(expected, sut.ClimbStairs(input));
     }
 }
-
+// From other developers this question is about the fibonacci sequence that "each number is the sum of the two preceding ones, starting from 0 and 1"
 public class Q70_ClimbingStairs {
     
-    Dictionary<int, int> dict = new() {{1,1}, {2,2}, {3,3} };
-    // Speed:26ms (19.89%), Memory: 27.1MB (12.73%)
+    // Using memorization technique can make TC from O(2^n) down to O(n)
+    Dictionary<int, int> dict = new() {{ 1, 1 }, { 2, 2 }, { 3, 3 }, { 4, 5 }, { 5, 8 }};
+    // TC: O(n), SC: O(n)
     public int ClimbStairs(int n) {
-
         if (dict.TryGetValue(n, out int value)) {
             return value;
         }

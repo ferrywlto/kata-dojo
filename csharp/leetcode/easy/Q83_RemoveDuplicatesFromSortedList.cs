@@ -5,6 +5,7 @@ public class Q83_RemoveDuplicatesFromSortedListTests(ITestOutputHelper output) :
     [Theory]
     [InlineData(new int[]{1,1,2}, new int[]{1,2})]
     [InlineData(new int[]{1,1,2,3,3}, new int[]{1,2,3})]
+    [InlineData(new int[]{1,1,1,2,2,2,3,3,4,5,6}, new int[]{1,2,3,4,5,6})]
     public void OfficialTestCases(int[] input, int[] expected) {
         
         var sut = new Q83_RemoveDuplicatesFromSortedList();
@@ -13,6 +14,15 @@ public class Q83_RemoveDuplicatesFromSortedListTests(ITestOutputHelper output) :
         var expectedList = ListNode.FromArray(expected);
         PrintList(actual);
         AssertListNodeEquals(expectedList, actual);
+    }
+
+    [Fact]
+    public void ExtraCases() {
+        var input = Enumerable.Repeat(1,300).ToArray();
+        var longList = ListNode.FromArray(input);
+        var sut = new Q83_RemoveDuplicatesFromSortedList();
+        var expected = ListNode.FromArray([1]);
+        AssertListNodeEquals(expected, sut.DeleteDuplicates(longList!));
     }
 }
 

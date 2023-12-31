@@ -185,11 +185,11 @@ public class TreeNode
     //   / \
     // null null 
 
-    public static TreeNode FromLevelOrderingIntArray(int?[] input)
+    public static TreeNode? FromLevelOrderingIntArray(int?[] input)
     {
         if (input.Length == 0 || input[0] == null)
         {
-            return new TreeNode();
+            return null;
         }
         var root = new TreeNode(input[0] ?? int.MinValue);
         if (input.Length == 1)

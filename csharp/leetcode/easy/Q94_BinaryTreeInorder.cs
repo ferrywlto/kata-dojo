@@ -92,10 +92,26 @@ public class Q94_BinaryTreeInorder
         }
     }
 
+    public void InorderTraversal_Loop(TreeNode root, IList<int> result) {
+        var stack = new Stack<TreeNode>();
+        TreeNode? current = root;
+
+        while (current != null || stack.Count > 0) {
+            // Down to deepest left first
+            while (current != null) {
+                stack.Push(current);
+                current = current.left;
+            }
+            current = stack.Pop();
+            result.Add(current.val);
+            current = current.right;
+        }
+    }
+
     public IList<int> InorderTraversal(TreeNode? root)
     {
         var result = new List<int>();
-        InorderTraversal_Recursion(root, result);
+        InorderTraversal_Loop(root!, result);
         return result;
     }
 }

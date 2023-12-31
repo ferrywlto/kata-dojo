@@ -18,7 +18,7 @@ public class Q94_BinaryTreeInorderTests {
     [ClassData(typeof(Q94_BinaryTreeInorderTestData))]
     public void OfficialTestCases(int?[] input, int[] expected) {
         var sut = new Q94_BinaryTreeInorder();
-        var root = TreeNode.FromIntArray(input);
+        var root = TreeNode.FromLevelOrderingIntArray(input);
         var actual = sut.InorderTraversal(root);
         Assert.Equal(expected, actual);
     }

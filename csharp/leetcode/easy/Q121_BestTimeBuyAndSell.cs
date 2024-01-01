@@ -23,8 +23,6 @@ Constraints:
 0 <= prices[i] <= 10^4
 */
 public class Q121_BestTimeBuyAndSell {
-
-    // This one shrink to O(n) but seems still slow.
     // TC: O(n), SC:O(1)
     public int MaxProfit(int[] prices) {
         if (prices.Length == 1) return 0;
@@ -37,7 +35,9 @@ public class Q121_BestTimeBuyAndSell {
             if (prices[i] < smallest)
             {
                 smallest = prices[i];
-            } else {
+            } 
+            else 
+            {
                 var diff = prices[i] - smallest;
                 if (diff > maxProfit) {
                     maxProfit = diff;

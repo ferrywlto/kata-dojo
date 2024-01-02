@@ -10,7 +10,7 @@ public class Q136_SingleNumberTests
     [InlineData(new int[] {1,2,1,3,3}, 2)]
     public void OfficialTestCases(int[] input, int expected) {
         var sut = new Q136_SingleNumber();
-        var actual = sut.SingleNumber(input);
+        var actual = sut.SingleNumber_XOR(input);
         Assert.Equal(expected, actual);
      }
 }
@@ -24,6 +24,7 @@ Each element in the array appears twice except for one element which appears onl
 public class Q136_SingleNumber {
     // The length of of input must be odd number in order to have n pairs and 1 single number
     // Complexity requirement: TC: O(n), SC: O(1)
+    // But Array.Sort() is TC: O(nlogn)
     public int SingleNumber(int[] nums) 
     {
         if(nums.Length == 1) return nums[0];
@@ -33,10 +34,20 @@ public class Q136_SingleNumber {
         {
             if (nums[i] != nums[i + 1])
             {
-                // Console.WriteLine($"Found single number: {nums[i]}");
                 return nums[i];
             }
         }
-        return nums[nums.Length-1];    
+        return nums[^1];    
+    }
+
+    // TC: O(n), SC: O(1) approach from Copilot using XOR
+    public int SingleNumber_XOR(int[] nums) 
+    {
+        int result = 0;
+        foreach (int num in nums)
+        {
+            result ^= num;
+        }
+        return result;
     }
 }

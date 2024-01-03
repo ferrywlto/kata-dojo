@@ -9,18 +9,6 @@ public class Q58_LengthOfLastWordTests {
     public void OfficalTestCases(string s, int expected) {
         Assert.Equal(expected, new Q58_LengthOfLastWord().LengthOfLastWord_CharByChar(s));
     }
-
-    [Fact]
-    public void Nothing() {
-        var str = "   fly me   to   the moon  ";
-        var arr = str.Split(' ');
-        Console.WriteLine(arr.Length);
-        foreach (var item in arr) {
-            Console.WriteLine(item);
-        }
-        var last = arr.Where(x => !x.Equals(string.Empty)).ToArray()[^1];
-        Console.WriteLine(last.Length);
-    }
 }
 
 /*

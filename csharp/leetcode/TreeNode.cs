@@ -117,7 +117,7 @@ public class TreeNodeTests
     [Fact]
     public void ShouldEqualOnNullOnly()
     {
-        var expected = new TreeNode();
+        TreeNode? expected = null;
         int?[] input = [];
         var actual = TreeNode.FromLevelOrderingIntArray(input);
         AssertTreeNodeEqual(expected, actual);
@@ -145,6 +145,9 @@ public class TreeNodeTests
         actualQ.Enqueue(actual);
 
         while(expectedQ.Count > 0 && actualQ.Count > 0) {
+            // early termination if structure is not the same (i.e. one tree has subtee while the other doesn't)
+            Assert.Equal(expectedQ.Count, actualQ.Count);
+
             var expectedCurrent = expectedQ.Dequeue();
             var actualCurrent = actualQ.Dequeue();
 

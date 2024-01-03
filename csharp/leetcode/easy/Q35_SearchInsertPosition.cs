@@ -1,3 +1,4 @@
+namespace dojo.leetcode;
 public class Q35_SearchInsertPositionTests {
     [Theory]
     [InlineData(new int[] { 1, 3, 5, 6 }, 5, 2)]
@@ -49,7 +50,7 @@ public class Q35_SearchInsertPosition {
                 // }
                 end = middle;
             }
-            Console.WriteLine($"start: {start}, end: {end}, middle: {middle}");
+            // Console.WriteLine($"start: {start}, end: {end}, middle: {middle}");
         }
         return end;
     }   

@@ -1,3 +1,4 @@
+namespace dojo.leetcode;
 
 public class Q119_PascelTriangle2TestData : IEnumerable<object[]>
 {

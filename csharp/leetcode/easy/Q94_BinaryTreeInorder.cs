@@ -1,3 +1,4 @@
+namespace dojo.leetcode;
 public class Q94_BinaryTreeInorderTestData : IEnumerable<object[]>
 {
     private readonly List<object[]> _data = new()

@@ -1,3 +1,4 @@
+namespace dojo.leetcode;
 public class Q58_LengthOfLastWordTests {
     [Theory]
     [InlineData("Hello World", 5)]

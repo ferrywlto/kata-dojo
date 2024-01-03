@@ -1,4 +1,4 @@
-using System.Security.Principal;
+namespace dojo.leetcode;
 using System.Text;
 
 public class Q14_LongestCommonPrefixTests 
@@ -37,7 +37,6 @@ public class Q14_LongestCommonPrefix
         byte idx = 0;
         for (byte i = 0; i<wordLength; i++ ) {
             var current = word[i];
-            Console.WriteLine($"current: {current}");
             for (byte j=1; j<strs.Length; j++) {
 
                 if (i >= strs[j].Length || strs[j][i] != current) {

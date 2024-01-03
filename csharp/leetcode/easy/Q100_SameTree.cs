@@ -1,3 +1,4 @@
+namespace dojo.leetcode;
 
 public class Q100_SameTreeTestData : IEnumerable<object[]>
 {

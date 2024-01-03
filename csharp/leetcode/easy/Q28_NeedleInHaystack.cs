@@ -1,3 +1,4 @@
+namespace dojo.leetcode;
 public class Q28_NeedleInHaystackTests {
     [Theory]
     [InlineData("sadbutsad", "sad", 0)]

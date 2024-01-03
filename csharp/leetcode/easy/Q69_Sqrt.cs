@@ -1,3 +1,4 @@
+namespace dojo.leetcode;
 public class Q69_SqrtTests {
     [Theory]
     [InlineData(2, 1)]
@@ -22,7 +23,7 @@ public class Q69_SqrtTests {
 public class Q69_Sqrt {
     // Speed: 41ms (14.67%), Memory: 26.8MB (59.46%)
     public int MySqrt(int x) {
-        Console.WriteLine($"int.MaxValue: {int.MaxValue}, 2147395600");
+        // Console.WriteLine($"int.MaxValue: {int.MaxValue}, 2147395600");
         if(x == 0) return 0;
         if(x == 1) return 1;
         if(x == 2) return 1;
@@ -31,7 +32,7 @@ public class Q69_Sqrt {
             // This line is very tricky for i = 46341, it will cause int overflow without exception and i will become 289398 if not cast to uint 
             uint z = (uint)(i*i);
             if (z > x) {
-                Console.WriteLine($"x:{x}, i:{i}, sq:{i*i}. {int.MaxValue-i*i}");
+                // Console.WriteLine($"x:{x}, i:{i}, sq:{i*i}. {int.MaxValue-i*i}");
                 return i - 1;
             }
         }
@@ -49,7 +50,7 @@ public class Q69_Sqrt {
     public void NumberTheory() {
         for(var i = 1; i<100; i++) {
             double j = (double)i/2;
-            Console.WriteLine($"i: {i}, i/2:{j}, i^2: {j*j}");
+            // Console.WriteLine($"i: {i}, i/2:{j}, i^2: {j*j}");
         }
     }
 
@@ -68,37 +69,36 @@ public class Q69_Sqrt {
             decimal length = end+start;
             var middle = (ulong)length/2;
             var middleSq = middle * middle;
-            Console.WriteLine($"start: {start}, end: {end}, middle: {middle}, x:{x}");
+            // Console.WriteLine($"start: {start}, end: {end}, middle: {middle}, x:{x}");
 
             if (middleSq == longX) {
-                Console.WriteLine($"steps: {steps}");
+                // Console.WriteLine($"steps: {steps}");
                 return (int)middle;
             }
             else if (middleSq > longX) {
                 // check if (middle-1)^2 < x
                 var middleMinusOneSq = (middle - 1) * (middle - 1);
                 if (middleMinusOneSq < longX) {
-                    Console.WriteLine($"steps: {steps}");
+                    // Console.WriteLine($"steps: {steps}");
                     return (int)(middle -1);
                 } 
                 else {
                     end = middle;
-                    Console.WriteLine($"shrink right end: {end}");
+                    // Console.WriteLine($"shrink right end: {end}");
                 }
             } else { // middleSq < x
                 // check if (middle+1)^2 > x
                 var middlePlusOneSq = (middle + 1) * (middle + 1);
                 if (middlePlusOneSq > longX) {
-                    Console.WriteLine($"steps: {steps}");
+                    // Console.WriteLine($"steps: {steps}");
                     return (int)middle; 
                 }
                 else {
                     start = middle;
-                    Console.WriteLine($"shrink left start: {start}");
+                    // Console.WriteLine($"shrink left start: {start}");
                 }
             }
         }
         return -1;
     }
 }
-

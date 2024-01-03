@@ -1,3 +1,4 @@
+namespace dojo.leetcode;
 public class Q26_RemoveDuplicatesTests
 {
     [Theory]
@@ -30,19 +31,19 @@ public class Q26_RemoveDuplicates
         // used to keep track the index of the next element to swap.
         var idxToSwap = 1;
         int temp;
-        Console.WriteLine($"nums={string.Join(",", nums)}, i={0}, idxToSwap={idxToSwap}, smallest={smallest}");
+        // Console.WriteLine($"nums={string.Join(",", nums)}, i={0}, idxToSwap={idxToSwap}, smallest={smallest}");
         for(ushort i=1; i<nums.Length; i++)
         {
             // whenever we found something larger, swap it to the front.
             if (nums[i] > smallest)
             {
-                Console.WriteLine($"num[{i}]={nums[i]} > smallest={smallest}, should swap]");
+                // Console.WriteLine($"num[{i}]={nums[i]} > smallest={smallest}, should swap]");
                 temp = nums[idxToSwap];
                 nums[idxToSwap] = nums[i];
                 nums[i] = temp;
                 smallest = nums[idxToSwap];
                 idxToSwap++;
-                Console.WriteLine($"nums={string.Join(",", nums)}, i={i}, idxToSwap={idxToSwap}, smallest={smallest}");
+                // Console.WriteLine($"nums={string.Join(",", nums)}, i={i}, idxToSwap={idxToSwap}, smallest={smallest}");
             }
         }
         

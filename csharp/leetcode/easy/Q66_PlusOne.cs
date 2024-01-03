@@ -1,3 +1,4 @@
+namespace dojo.leetcode;
 public class Q66_PlusOneTests {
     [Theory]
     [InlineData(new int[] { 1, 2, 3 }, new int[] { 1, 2, 4 })]

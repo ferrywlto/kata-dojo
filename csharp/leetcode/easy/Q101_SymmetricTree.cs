@@ -1,3 +1,5 @@
+namespace dojo.leetcode;
+
 public class Q101_SymmetricTreeTestData : IEnumerable<object[]>
 {
     private readonly List<object[]> _data =

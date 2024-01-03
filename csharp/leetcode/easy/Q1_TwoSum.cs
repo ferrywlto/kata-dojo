@@ -1,19 +1,19 @@
 namespace dojo.leetcode
 {
-    public class TwoSumTestData : IEnumerable<object[]>
+
+    public class TwoSumTestData : LeetCodeTestData
     {
-        private readonly List<object[]> _data = new()
+        protected override List<object[]> Data()
         {
-            new object[] {new int[]{2, 7, 11, 15}, 9, new int[]{0, 1}},
-            new object[] {new int[]{3, 2, 4}, 6, new int[]{1, 2}},
-            new object[] {new int[]{3, 3, 5, 5}, 6, new int[]{0, 1}},
-            new object[] {new int[]{3, 5, 3, -5}, 6, new int[]{0, 2}},
-            new object[] {new int[]{-1,-2,-3,-4,-5}, -8, new int[]{2, 4}},
-        };
-
-        public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();
-
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+            return
+            [
+                [new int[]{2, 7, 11, 15}, 9, new int[]{0, 1}],
+                [new int[]{3, 2, 4}, 6, new int[]{1, 2}],
+                [new int[]{3, 3, 5, 5}, 6, new int[]{0, 1}],
+                [new int[]{3, 5, 3, -5}, 6, new int[]{0, 2}],
+                [new int[]{-1,-2,-3,-4,-5}, -8, new int[]{2, 4}],
+            ];
+        }
     }
 
     public class TwoSumTests

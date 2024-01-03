@@ -1,16 +1,12 @@
 namespace dojo.leetcode;
 
-public class Q101_SymmetricTreeTestData : IEnumerable<object[]>
+public class Q101_SymmetricTreeTestData : LeetCodeTestData
 {
-    private readonly List<object[]> _data =
+    protected override List<object[]> Data() =>
     [
         [new int?[]{1, 2, 2, 3, 4, 4, 3}, true],
         [new int?[]{1, 2, 2, null, 3, null, 3}, false],
     ];
-
-    public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();
-
-    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 }
 
 public class Q101_SymmetricTreeTests : TreeNodeTests

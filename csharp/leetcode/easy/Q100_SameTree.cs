@@ -1,18 +1,14 @@
 namespace dojo.leetcode;
 
-public class Q100_SameTreeTestData : IEnumerable<object[]>
+public class Q100_SameTreeTestData : LeetCodeTestData
 {
-    private readonly List<object[]> _data =
+    protected override List<object[]> Data() =>
     [
         [new int?[]{1, 2, 3}, new int?[]{1, 2, 3}, true],
         [new int?[]{1, 2}, new int?[]{1, null, 2}, false],
         [new int?[]{1 ,2, 1}, new int?[]{1, 1, 2}, false],
         [new int?[]{1 }, new int?[]{1, null, 2}, false],
     ];
-
-    public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();
-
-    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 }
 
 public class Q100_SameTreeTests : TreeNodeTests 

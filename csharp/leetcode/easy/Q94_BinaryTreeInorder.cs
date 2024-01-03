@@ -1,22 +1,18 @@
 namespace dojo.leetcode;
-public class Q94_BinaryTreeInorderTestData : IEnumerable<object[]>
+public class Q94_BinaryTreeInorderTestData : LeetCodeTestData
 {
-    private readonly List<object[]> _data = new()
-    {
-        new object[] {new int?[]{1, null, 2, 3}, new int[]{1, 3, 2}},
-        new object[] {Array.Empty<int?>(), Array.Empty<int>()},
-        new object[] {new int?[]{1}, new int[]{1}},
-    };
-
-    public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();
-
-    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+    protected override List<object[]> Data() =>
+    [
+        [new int?[] { 1, null, 2, 3 }, new int[] { 1, 3, 2 }],
+        [Array.Empty<int?>(), Array.Empty<int>()],
+        [new int?[] { 1 }, new int[] { 1 }],
+    ];
 }
 
 // Extra test cases provided by other developers
-internal class Q94_BinaryTreeInorderExtraTestData : IEnumerable<object[]>
+internal class Q94_BinaryTreeInorderExtraTestData : LeetCodeTestData
 {
-    private readonly List<object[]> _data =
+    protected override List<object[]> Data() =>
     [
         [
             new int?[]{-26},
@@ -49,10 +45,6 @@ internal class Q94_BinaryTreeInorderExtraTestData : IEnumerable<object[]>
             new int?[]{9,null,34,6,-17,null,-94,-54,60,-99,-30,null,100,null,-16,57,null,-90,-11,null,-17,null,-72,null,70,null,56,null,4,-65,null,-75,null,20,71,null,1,-7,-54,30,null,66,null,59,98,null,31,78,-7,-87,null,-4,25,96,-56,null,39,-63,null,-95,null,-37,80,null,-52,null,-85,31,null,51,null,3,82,null,-50,null,95,60,null,49,75,null,91,36,null,-27,null,-87,-13,null,96,null,87,null,19,null,-96,-69,null,-2},
             new int[]{9, 6, 57, 49, -63, 75, 59, 20, -95, 91, 98,  70, 71, 36, -37, 31, -27, 80, -99, -94,-90, 56, 78, -87, -52, -13,1, -7, -85,96, -30, -11,31, 87, -87,-7, 4, 51, 19, -4, -54, 3, -96, 25, -69, 82, 34, -54, 100, 96, -2, -50, 30,-56, 95, -65,-17, -17, 60,-16, 66, 60,39, -75, -72}],
     ];
-
-    public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();
-
-    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 }
 
 public class Q94_BinaryTreeInorderTests

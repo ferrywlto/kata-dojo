@@ -1,8 +1,8 @@
 namespace dojo.leetcode;
 
-public class Q119_PascelTriangle2TestData : IEnumerable<object[]>
+public class Q119_PascelTriangle2TestData : LeetCodeTestData
 {
-    private readonly List<object[]> _data =
+    protected override List<object[]> Data() =>
     [
         [0, new List<int>() {1}],
         [1, new List<int>() {1, 1}],
@@ -10,11 +10,6 @@ public class Q119_PascelTriangle2TestData : IEnumerable<object[]>
         [3, new List<int>() {1, 3, 3, 1}],
         [4, new List<int>() {1, 4, 6, 4, 1}],
     ];
-
-    public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();
-
-    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-
 }
 public class Q119_PascelTriangle2Tests
 {

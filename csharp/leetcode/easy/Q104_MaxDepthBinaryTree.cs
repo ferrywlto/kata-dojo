@@ -11,11 +11,11 @@ public class Q104_MaxDepthBinaryTreeTestData : LeetCodeTestData
         [new int?[]{1,2}, 2],
     ];
 }
-public class Q104_MaxDepthBinaryTreeTests 
+public class Q104_MaxDepthBinaryTreeTests
 {
     [Theory]
     [ClassData(typeof(Q104_MaxDepthBinaryTreeTestData))]
-    public void OfficialTestCases(int?[] input, int expected) 
+    public void OfficialTestCases(int?[] input, int expected)
     {
         var sut = new Q104_MaxDepthBinaryTree();
         var tree = TreeNode.FromLevelOrderingIntArray(input);
@@ -29,7 +29,6 @@ public class Q104_MaxDepthBinaryTree
     // TC: O(n), SC: O(n)
     public int MaxDepth(TreeNode root)
     {
-        if (root == null) return 0;
-        return 1 + Math.Max(MaxDepth(root.left!),MaxDepth(root?.right!));
+        return root == null? 0 : 1 + Math.Max(MaxDepth(root.left!), MaxDepth(root?.right!));
     }
- } 
+}

@@ -27,7 +27,8 @@ public class Q112_BinaryTreePathSum
     // TC: O(n), SC: O(n)
     public bool HasPathSum(TreeNode root, int targetSum) 
     {
-        return SumRecursive(root, 0, targetSum); 
+        // return SumRecursive(root, 0, targetSum); 
+        return SumIterative(root, targetSum);
     } 
 
     public bool SumRecursive(TreeNode? node, int sum, int targetSum)
@@ -38,4 +39,26 @@ public class Q112_BinaryTreePathSum
         return SumRecursive(node.left, sum + node.val, targetSum) || SumRecursive(node.right, sum + node.val, targetSum);
     }
     public bool IsLeaf(TreeNode node) => node.left == null && node.right == null;
+
+    // Demonostrate iterative solution in addition to recursive solution
+    public bool SumIterative(TreeNode? node, int targetSum) 
+    {
+        if (node == null) return false;
+
+        var queue = new Queue<(TreeNode, int)>();
+        queue.Enqueue((node, 0));
+
+        while (queue.Count > 0) 
+        {
+            var (current, levelSum) = queue.Dequeue();
+            if (IsLeaf(current))
+            {
+                if(levelSum + current.val == targetSum) 
+                    return true;
+            }
+            if (current.left != null) queue.Enqueue((current.left, levelSum + current.val));
+            if (current.right != null) queue.Enqueue((current.right, levelSum + current.val));
+        }
+        return false;
+    }
 }

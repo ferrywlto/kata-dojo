@@ -1,4 +1,4 @@
-using dojo.leetcode;
+namespace dojo.leetcode;
 
 public class Q111_MinDepthBinaryTreeTestData : LeetCodeTestData
 {
@@ -6,9 +6,10 @@ public class Q111_MinDepthBinaryTreeTestData : LeetCodeTestData
     [
         [new int?[]{3,9,20,null,null,15,7}, 2],
         [new int?[]{2,null,3,null,4,null,5,null,6}, 5],
+        [Array.Empty<int?>(), 0],
     ];
 }
-public class Q111_MinDepthBinaryTreeTests
+public class Q111_MinDepthBinaryTreeTests 
 {
     [Theory]
     [ClassData(typeof(Q111_MinDepthBinaryTreeTestData))]
@@ -21,34 +22,56 @@ public class Q111_MinDepthBinaryTreeTests
     }
 }
 
-public class Q111_MinDepthBinaryTree
+public class Q111_MinDepthBinaryTree 
 {
-    // TC: O(n), SC: O(n)
-    public int MinDepth(TreeNode root)
-    {
-        return root == null? 0 : 1 + Math.Min(MinDepth(root.left!), MinDepth(root?.right!));
-    }
-
-    // Demonstrate iterative solution in addition to recursive solution
-    public int MinDepth_Iterative(TreeNode root)
+    public int MinDepth(TreeNode? root) 
     {
         if (root == null) return 0;
-
-        var stack = new Stack<(TreeNode, int)>();
-        stack.Push((root, 1));
-        var max = 1;
-
-        while (stack.Count > 0) 
+        else if (root.left == null && root.right == null) return 1;
+        else return CountMinIterative(root);
+        // else return CountMinRecursive(root, 1);
+    }
+    public int CountMinRecursive(TreeNode? node, int depth)
+    {
+        // is leaf
+        if (node?.left == null && node?.right == null) 
         {
-            var (node, depth) = stack.Pop();
+            return depth;
+        }
+        else 
+        {
+            var leftCount = node?.left == null? int.MaxValue : CountMinRecursive(node?.left, depth + 1);
+            var rightCount = node?.right == null? int.MaxValue : CountMinRecursive(node?.right, depth + 1);
+            return Math.Min(leftCount, rightCount);
+        }
+    }
 
-            if (node != null) 
+    // TC: O(n), SC: O(n)
+    public int CountMinIterative(TreeNode root)
+    {
+        var queue = new Queue<(TreeNode, int)>();
+        queue.Enqueue((root, 1));
+        var min = int.MaxValue;
+
+        while (queue.Count > 0)
+        {
+            var (current, depth) = queue.Dequeue();
+
+            if (current.left == null && current.right == null)
             {
-                max = Math.Max(max, depth);
-                stack.Push((node.left!, depth + 1));
-                stack.Push((node.right!, depth + 1));
+                if (depth < min) min = depth;
+            }
+            // Early termination as we are finding min depth, any further drill down of a tree with depth >= min is not necessary
+            else if (depth >= min)
+            {
+                continue;
+            }
+            else
+            {
+                if (current.left != null) queue.Enqueue((current.left, depth + 1));
+                if (current.right != null) queue.Enqueue((current.right, depth + 1));
             }
         }
-        return max;
+        return min;
     }
 }

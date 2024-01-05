@@ -25,7 +25,7 @@ public class Q160_IntersactionTwoLinkedListTests(ITestOutputHelper output) : Lis
         while (headB!.next != null) headB = headB.next;
         headB.next = tail;
 
-        var actual = sut.GetIntersectionNode(headA, headB);
+        var actual = sut.GetIntersectionNodeO1(headA, headB);
 
         if (listTail.Length == 0)
             Assert.Null(actual);
@@ -35,6 +35,7 @@ public class Q160_IntersactionTwoLinkedListTests(ITestOutputHelper output) : Lis
 }
 public class Q160_IntersactionTwoLinkedList 
 {
+    // TC: O(length of list A + length of list B), SC: O(length of listA)
     public ListNode? GetIntersectionNode(ListNode? headA, ListNode? headB) 
     {
         if (headA == headB) return headA;
@@ -52,5 +53,31 @@ public class Q160_IntersactionTwoLinkedList
             headB = headB.next;
         }
         return null;
+    }
+
+    // TC: O(length of list A + length of list B), SC: O(1)
+    // This make use a technique to form a loop in a linked list
+    // Then eventually the two pointers will meet at the intersection node
+    public ListNode? GetIntersectionNodeO1(ListNode? headA, ListNode? headB) 
+    {
+        if (headA == null || headB == null) return null;
+
+        ListNode? pointer1 = headA, pointer2 = headB;
+
+        // if there is no intersection, then the loop is not formed.
+        // pointer1 will be null after run through the list A then B 
+        // pointer2 will be null after run through the list B then A
+        // which break the while loop and return null
+        while (pointer1 != pointer2) 
+        {
+            pointer1 = (pointer1 == null) 
+                    ? headB 
+                    : pointer1.next;
+            pointer2 = (pointer2 == null)
+                    ? headA 
+                    : pointer2.next;
+        }
+
+        return pointer1;
     }
 }

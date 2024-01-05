@@ -27,21 +27,21 @@ public class Q111_MinDepthBinaryTree
     public int MinDepth(TreeNode? root) 
     {
         if (root == null) return 0;
-        else if (root.left == null && root.right == null) return 1;
+        else if (root.IsLeaf) return 1;
         else return CountMinIterative(root);
         // else return CountMinRecursive(root, 1);
     }
-    public int CountMinRecursive(TreeNode? node, int depth)
+    public int CountMinRecursive(TreeNode node, int depth)
     {
         // is leaf
-        if (node?.left == null && node?.right == null) 
+        if (node.IsLeaf) 
         {
             return depth;
         }
         else 
         {
-            var leftCount = node?.left == null? int.MaxValue : CountMinRecursive(node?.left, depth + 1);
-            var rightCount = node?.right == null? int.MaxValue : CountMinRecursive(node?.right, depth + 1);
+            var leftCount = node?.left == null? int.MaxValue : CountMinRecursive(node.left, depth + 1);
+            var rightCount = node?.right == null? int.MaxValue : CountMinRecursive(node.right, depth + 1);
             return Math.Min(leftCount, rightCount);
         }
     }
@@ -57,7 +57,7 @@ public class Q111_MinDepthBinaryTree
         {
             var (current, depth) = queue.Dequeue();
 
-            if (current.left == null && current.right == null)
+            if (current.IsLeaf)
             {
                 if (depth < min) min = depth;
             }

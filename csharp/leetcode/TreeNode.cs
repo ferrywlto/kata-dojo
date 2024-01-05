@@ -175,6 +175,8 @@ public class TreeNode
         this.left = left;
         this.right = right;
     }
+    public bool IsLeaf => left == null && right == null;
+    
 
     // From Q100 & Q101, actually the input is in level order.
     // That means from top-to-down, left-to-right

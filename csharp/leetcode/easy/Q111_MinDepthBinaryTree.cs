@@ -28,7 +28,8 @@ public class Q111_MinDepthBinaryTree
     {
         if (root == null) return 0;
         else if (root.left == null && root.right == null) return 1;
-        else return CountMinRecursive(root, 1);
+        else return CountMinIterative(root);
+        // else return CountMinRecursive(root, 1);
     }
     public int CountMinRecursive(TreeNode? node, int depth)
     {
@@ -43,5 +44,34 @@ public class Q111_MinDepthBinaryTree
             var rightCount = node?.right == null? int.MaxValue : CountMinRecursive(node?.right, depth + 1);
             return Math.Min(leftCount, rightCount);
         }
-    }   
+    }
+
+    // TC: O(n), SC: O(n)
+    public int CountMinIterative(TreeNode root)
+    {
+        var queue = new Queue<(TreeNode, int)>();
+        queue.Enqueue((root, 1));
+        var min = int.MaxValue;
+
+        while (queue.Count > 0)
+        {
+            var (current, depth) = queue.Dequeue();
+
+            if (current.left == null && current.right == null)
+            {
+                if (depth < min) min = depth;
+            }
+            // Early termination as we are finding min depth, any further drill down of a tree with depth >= min is not necessary
+            else if (depth >= min)
+            {
+                continue;
+            }
+            else
+            {
+                if (current.left != null) queue.Enqueue((current.left, depth + 1));
+                if (current.right != null) queue.Enqueue((current.right, depth + 1));
+            }
+        }
+        return min;
+    }
 }

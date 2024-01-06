@@ -31,7 +31,8 @@ public class Q144_PreorderTraversal
     public IList<int> PreorderTraversal(TreeNode? root) {
         if (root == null) return new List<int>();
         var result = new List<int>();
-        PreorderTraversal_Recursion(root, result);
+        // PreorderTraversal_Recursion(root, result);
+        result = PreorderTraversal_Iteration(root);
         return result;
     }
 
@@ -44,30 +45,21 @@ public class Q144_PreorderTraversal
     }
 
     // TC: O(num_nodes), SC: O(height_of_tree)
-    public IList<int> PreorderTraversal_Iteration(TreeNode? root) 
+    public List<int> PreorderTraversal_Iteration(TreeNode? root) 
     {
-        if (root == null) return new List<int>();
+        if (root == null) return [];
         var result = new List<int>();
-        var queue = new Queue<TreeNode>();
-        queue.Enqueue(root);
+        var stack = new Stack<TreeNode>();
+        stack.Push(root);
 
         TreeNode? node;
-        while (queue.Count > 0) 
+        while (stack.Count > 0) 
         {
-            node = queue.Dequeue();
+            node = stack.Pop();
             result.Add(node.val);
-            Console.WriteLine($"node.val: {node.val}");
-            var current = node;
-            while (current.left != null)
-            {                
-                queue.Enqueue(current.left);
-                current = current.left;
-            }
-            while (current.right != null) 
-            {
-                queue.Enqueue(current.right);
-                current = current.right;
-            }
+
+            if (node.right != null) stack.Push(node.right);
+            if (node.left != null) stack.Push(node.left);
         }
 
         return result;

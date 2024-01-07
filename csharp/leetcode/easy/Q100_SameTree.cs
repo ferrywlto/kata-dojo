@@ -1,6 +1,6 @@
 namespace dojo.leetcode;
 
-public class Q100_SameTreeTestData : TestData
+public class Q100_SameTreeTestData : TestDataBase
 {
     protected override List<object[]> Data() =>
     [

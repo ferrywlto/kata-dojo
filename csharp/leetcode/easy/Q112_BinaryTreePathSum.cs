@@ -1,6 +1,6 @@
 namespace dojo.leetcode;
 
-public class Q112_BinaryTreePathSumTestData :TestData 
+public class Q112_BinaryTreePathSumTestData :TestDataBase 
 {
     protected override List<object[]> Data() =>
     [

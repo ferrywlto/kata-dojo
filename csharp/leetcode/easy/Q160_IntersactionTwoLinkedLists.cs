@@ -1,6 +1,6 @@
 using dojo.leetcode;
 
-public class Q160_IntersactionTwoLinkedListTestData : TestData
+public class Q160_IntersactionTwoLinkedListTestData : TestDataBase
 {
     protected override List<object[]> Data() =>
     [

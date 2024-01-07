@@ -1,6 +1,6 @@
 namespace dojo.leetcode;
 
-public class Q111_MinDepthBinaryTreeTestData : TestData
+public class Q111_MinDepthBinaryTreeTestData : TestDataBase
 {
     protected override List<object[]> Data() =>
     [

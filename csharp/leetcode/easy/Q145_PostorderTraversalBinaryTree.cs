@@ -1,6 +1,6 @@
 using dojo.leetcode;
 
-public class Q145_PostorderTraversalBinaryTreeTestData : TestData
+public class Q145_PostorderTraversalBinaryTreeTestData : TestDataBase
 {
     protected override List<object[]> Data() =>
     [

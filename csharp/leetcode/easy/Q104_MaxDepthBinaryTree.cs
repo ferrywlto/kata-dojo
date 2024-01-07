@@ -1,6 +1,6 @@
 using dojo.leetcode;
 
-public class Q104_MaxDepthBinaryTreeTestData : TestData
+public class Q104_MaxDepthBinaryTreeTestData : TestDataBase
 {
     protected override List<object[]> Data() =>
     [

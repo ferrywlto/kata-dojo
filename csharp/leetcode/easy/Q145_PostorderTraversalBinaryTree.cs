@@ -29,6 +29,16 @@ public class Q145_PostorderTraversalBinaryTree
 {
     public IList<int> PostorderTraversal(TreeNode? root)
     {
-        return new List<int>();
+        var result = new List<int>();
+        PostorderTraversal_Recursion(root, result);
+        return result;
+    }
+    // TC: O(num_nodes), SC: O(height_of_tree)
+    public void PostorderTraversal_Recursion(TreeNode? node, List<int> result)
+    {
+        if (node == null) return;
+        PostorderTraversal_Recursion(node.left, result);
+        PostorderTraversal_Recursion(node.right, result);
+        result.Add(node.val);
     }
 }

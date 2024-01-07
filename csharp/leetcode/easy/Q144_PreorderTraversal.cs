@@ -1,6 +1,6 @@
 using dojo.leetcode;
 
-public class Q144_PreorderTraversalTestData :LeetCodeTestData
+public class Q144_PreorderTraversalTestData :TestData
  {
     protected override List<object[]> Data() => 
     [

@@ -1,6 +1,6 @@
 namespace dojo.leetcode
 {
-    public class LeetCodeTestData: IEnumerable<object[]>
+    public class TestData: IEnumerable<object[]>
     {
         protected virtual List<object[]> Data(){ return [];}
 

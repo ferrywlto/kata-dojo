@@ -1,6 +1,6 @@
 namespace dojo.leetcode;
 
-public class Q119_PascelTriangle2TestData : LeetCodeTestData
+public class Q119_PascelTriangle2TestData : TestData
 {
     protected override List<object[]> Data() =>
     [

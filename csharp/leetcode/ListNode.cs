@@ -26,9 +26,10 @@ public class ListNode
     }
 }
 
-public class ListNodeTest(ITestOutputHelper output) {
-    protected readonly ITestOutputHelper output = output;
-    public static ListNode GenerateListNode(int numDigits, int digitValue) {
+public class ListNodeTest(ITestOutputHelper output) : TestBase(output) 
+{
+    public static ListNode GenerateListNode(int numDigits, int digitValue) 
+    {
         var head = new ListNode(digitValue);
         var current = head;
         for (int i = 1; i < numDigits; i++) {
@@ -38,7 +39,8 @@ public class ListNodeTest(ITestOutputHelper output) {
         return head;
     }
 
-    protected void AssertListNodeEquals(ListNode? expected, ListNode? actual) {
+    protected void AssertListNodeEquals(ListNode? expected, ListNode? actual) 
+    {
         if (expected == null && actual == null)
             return;
             
@@ -51,7 +53,8 @@ public class ListNodeTest(ITestOutputHelper output) {
         }
     }
 
-    protected long CountList(ListNode? list) {
+    protected long CountList(ListNode? list) 
+    {
         var count = 0;
         while (list != null) {
             count++;
@@ -61,7 +64,8 @@ public class ListNodeTest(ITestOutputHelper output) {
         return count;
     }
 
-    protected void PrintList(ListNode? list) {
+    protected void PrintList(ListNode? list) 
+    {
         var numList = new List<int>();
         while (list != null) {
             numList.Add(list.val);

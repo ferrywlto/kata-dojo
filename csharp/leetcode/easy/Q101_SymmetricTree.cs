@@ -9,7 +9,7 @@ public class Q101_SymmetricTreeTestData : TestDataBase
     ];
 }
 
-public class Q101_SymmetricTreeTests : TreeNodeTests
+public class Q101_SymmetricTreeTests(ITestOutputHelper output) : TreeNodeTests(output)
 {
     [Theory]
     [ClassData(typeof(Q101_SymmetricTreeTestData))]

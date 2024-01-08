@@ -1,3 +1,4 @@
+using System.Text;
 using dojo.leetcode;
 
 public class Q168_ExcelSheetColumnTitleTestData : TestDataBase 
@@ -6,7 +7,8 @@ public class Q168_ExcelSheetColumnTitleTestData : TestDataBase
     [
         [1, "A"],
         [28, "AB"],
-        [701, "ZY"]
+        [701, "ZY"],
+        [52, "AZ"]
     ];
 }
 
@@ -14,7 +16,7 @@ public class Q168_ExcelSheetColumnTitleTests(ITestOutputHelper output) : TestBas
 {
     [Theory]
     [ClassData(typeof(Q168_ExcelSheetColumnTitleTestData))]
-    public void Test(int columnNumber, string expected) 
+    public void OfficialTestCases(int columnNumber, string expected) 
     {
         var sut = new Q168_ExcelSheetColumnTitle();
         var res = sut.ConvertToTitle(columnNumber);
@@ -25,8 +27,24 @@ public class Q168_ExcelSheetColumnTitleTests(ITestOutputHelper output) : TestBas
 
 public class Q168_ExcelSheetColumnTitle 
 {
+    // O(log n)
     public string ConvertToTitle(int columnNumber) 
     {
-        return string.Empty;
+        var stringBuilder = new StringBuilder();
+        while(columnNumber > 26) 
+        {
+            var reminder = columnNumber % 26;
+            stringBuilder.Insert(0, GetChar(reminder));
+            columnNumber /= 26;
+            // Tricky part
+            if (reminder == 0) columnNumber -= 1;
+        }
+        stringBuilder.Insert(0, GetChar(columnNumber));
+        return stringBuilder.ToString();
     }
+    // O(1)
+    public char GetChar(int input) => 
+        input == 0 
+        ? (char)90 // handle Z 
+        : (char)(input+64);
 }

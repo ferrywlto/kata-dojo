@@ -26,6 +26,22 @@ public class Q171_ExcelSheetColumnNumber
 {
     public int TitleToNumber(string columnTitle) 
     {
-        return 0;
+        var result = 0;
+
+        var charArray = columnTitle.ToCharArray().ToList();
+        while (charArray.Count > 0) 
+        {
+            var number = GetNumber(charArray[0]);
+            // Console.WriteLine($"char: {charArray[0]}, number: {number}, length: {charArray.Count}");
+            result += number * (int)Math.Pow(26, charArray.Count-1);
+            charArray.RemoveAt(0);
+        }
+
+        return result;
     }
+
+    public int GetNumber(char input) => 
+        input == 'Z' 
+        ? 26 // handle Z 
+        : input - 64;
 }

@@ -24,22 +24,23 @@ public class Q171_ExcelSheetColumnNumberTests(ITestOutputHelper output): TestBas
 }
 public class Q171_ExcelSheetColumnNumber 
 {
+    // Improved to TC: O(n), SC: O(n)
     public int TitleToNumber(string columnTitle) 
     {
-        var result = 0;
+        int result = 0;
+        int multiplier = 1;
 
-        var charArray = columnTitle.ToCharArray().ToList();
-        while (charArray.Count > 0) 
+        for (int i = columnTitle.Length - 1; i >= 0; i--)
         {
-            var number = GetNumber(charArray[0]);
-            // Console.WriteLine($"char: {charArray[0]}, number: {number}, length: {charArray.Count}");
-            result += number * (int)Math.Pow(26, charArray.Count-1);
-            charArray.RemoveAt(0);
+            int number = GetNumber(columnTitle[i]);
+            result += number * multiplier;
+            multiplier *= 26;
         }
 
         return result;
     }
 
+    // O(1)
     public int GetNumber(char input) => 
         input == 'Z' 
         ? 26 // handle Z 

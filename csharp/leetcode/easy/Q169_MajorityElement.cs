@@ -25,6 +25,20 @@ public class Q169_MajorityElement
 {
     public int MajorityElement(int[] nums)
     {
+        var dict = new Dictionary<int, int>();
+        var half = nums.Length / 2;
+        for(var i=0; i<nums.Length; i++) 
+        {
+            if (dict.TryGetValue(nums[i], out int value)) 
+            {
+                dict[nums[i]] = ++value;
+            }
+            else 
+            {
+                dict.Add(nums[i], 1);
+            }
+            if (dict[nums[i]] > half) return nums[i];
+        }
         return 0;
     }
 }

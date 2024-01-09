@@ -22,6 +22,7 @@ public class Q171_ExcelSheetColumnNumberTests(ITestOutputHelper output): TestBas
         Assert.Equal(expected, res);
     }
 }
+
 public class Q171_ExcelSheetColumnNumber 
 {
     // Improved to TC: O(n), SC: O(n)

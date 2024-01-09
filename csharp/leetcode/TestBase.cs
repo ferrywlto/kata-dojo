@@ -9,7 +9,7 @@ public class TestBase(ITestOutputHelper output)
 }
 
 
-public class DatabaseTest : TestBase
+public class DatabaseTest : TestBase, IDisposable
 {
     protected readonly SqliteConnection connection;
     public DatabaseTest(ITestOutputHelper output) : base(output) 
@@ -50,7 +50,7 @@ public class DatabaseTest : TestBase
         return command;
     }
 
-    ~DatabaseTest() 
+    public void Dispose()
     {
         connection.Dispose();
     }

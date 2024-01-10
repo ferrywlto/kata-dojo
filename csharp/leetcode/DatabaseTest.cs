@@ -11,11 +11,18 @@ public class DatabaseTest : TestBase, IDisposable
         connection = new SqliteConnection("Filename=:memory:");
         connection.Open();
 
-        InitializeTestData();
+        CreateTestDatabase();
     }
 
     protected bool IsDatabaseConnectionOpened() => connection.State == System.Data.ConnectionState.Open;
-    protected void InitializeTestData()
+
+    protected virtual string GetTestSchema() => string.Empty;
+
+    protected void InputTestData(string Sql) => CreateCommand(Sql).ExecuteNonQuery();
+
+    protected SqliteDataReader Execute(string Sql) => CreateCommand(Sql).ExecuteReader();
+
+    private void CreateTestDatabase()
     {
         if (!IsDatabaseConnectionOpened()) throw new Exception("Database connection is not opened.");
 
@@ -28,13 +35,6 @@ public class DatabaseTest : TestBase, IDisposable
         command.CommandText = testSchema;
         command.ExecuteNonQuery();
     }
-
-    protected virtual string GetTestSchema() => string.Empty;
-
-    protected void InputTestData(string Sql) => CreateCommand(Sql).ExecuteNonQuery();
-
-    protected SqliteDataReader Execute(string Sql) => CreateCommand(Sql).ExecuteReader();
-
 
     private SqliteCommand CreateCommand(string Sql) 
     {

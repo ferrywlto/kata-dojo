@@ -32,7 +32,7 @@ public class Q181_EmployeesEarningMoreThanTheirManagersTests(ITestOutputHelper o
 
         var sut = new Q181_EmployeesEarningMoreThanTheirManagers();
         
-        var reader = Execute(sut.Query);
+        var reader = ExecuteQuery(sut.Query);
 
         Assert.True(reader.HasRows);
         Assert.Equal(1, reader.FieldCount);

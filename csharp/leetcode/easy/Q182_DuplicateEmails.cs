@@ -31,7 +31,7 @@ public class Q182_DuplicateEmailsTests(ITestOutputHelper output) : DatabaseTest(
 
         var sut = new Q182_DuplicateEmails();
         
-        var reader = Execute(sut.Query);
+        var reader = ExecuteQuery(sut.Query);
 
         Assert.True(reader.HasRows);
         Assert.Equal(1, reader.FieldCount);

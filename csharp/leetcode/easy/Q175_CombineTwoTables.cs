@@ -30,7 +30,7 @@ public class Q175_CombineTwoTablesTests(ITestOutputHelper output) : DatabaseTest
         InputTestData(input);
 
         var sut = new Q175_CombineTwoTables();
-        var actual = Execute(sut.Query);
+        var actual = ExecuteQuery(sut.Query);
         
         Assert.True(actual.HasRows);
         

@@ -20,7 +20,7 @@ public class DatabaseTest : TestBase, IDisposable
 
     protected void InputTestData(string Sql) => CreateCommand(Sql).ExecuteNonQuery();
 
-    protected SqliteDataReader Execute(string Sql) => CreateCommand(Sql).ExecuteReader();
+    protected SqliteDataReader ExecuteQuery(string Sql) => CreateCommand(Sql).ExecuteReader();
 
     private void CreateTestDatabase()
     {

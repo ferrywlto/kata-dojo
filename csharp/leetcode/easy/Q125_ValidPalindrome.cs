@@ -3,7 +3,7 @@ namespace dojo.leetcode;
 using System.Collections.Generic;
 using System.Text;
 
-public class Q125_ValidPalindromeTestData : TestDataBase
+public class Q125_ValidPalindromeTestData : TestData
 {
     protected override List<object[]> Data =>
     [

@@ -1,6 +1,6 @@
 namespace dojo.leetcode;
 
-public class Q182_DuplicateEmailsTestData : TestDataBase
+public class Q182_DuplicateEmailsTestData : TestData
 {
     protected override List<object[]> Data =>
     [

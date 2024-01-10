@@ -1,5 +1,5 @@
 namespace dojo.leetcode;
-public class Q21_MergeTwoListsTestData : TestDataBase
+public class Q21_MergeTwoListsTestData : TestData
 {
     protected override List<object[]> Data =>
     [

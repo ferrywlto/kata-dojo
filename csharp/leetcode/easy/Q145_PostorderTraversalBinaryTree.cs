@@ -1,6 +1,6 @@
 namespace dojo.leetcode;
 
-public class Q145_PostorderTraversalBinaryTreeTestData : TestDataBase
+public class Q145_PostorderTraversalBinaryTreeTestData : TestData
 {
     protected override List<object[]> Data =>
     [

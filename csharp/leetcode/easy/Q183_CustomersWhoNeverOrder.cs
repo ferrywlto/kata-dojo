@@ -1,6 +1,6 @@
 namespace dojo.leetcode;
 
-public class Q183_CustomersWhoNeverOrderTestData : TestDataBase
+public class Q183_CustomersWhoNeverOrderTestData : TestData
 {
     protected override List<object[]> Data =>
     [

@@ -3,7 +3,7 @@ namespace dojo.leetcode;
 using System.Collections.Generic;
 using System.Text;
 
-public class Q14_LongestCommonPrefixTestData : TestDataBase
+public class Q14_LongestCommonPrefixTestData : TestData
 {
     protected override List<object[]> Data => 
     [

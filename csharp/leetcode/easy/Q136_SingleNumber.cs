@@ -1,5 +1,5 @@
 namespace dojo.leetcode;
-public class Q136_SingleNumberTestData : TestDataBase
+public class Q136_SingleNumberTestData : TestData
 {
     protected override List<object[]> Data =>
     [

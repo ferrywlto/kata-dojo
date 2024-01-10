@@ -1,6 +1,6 @@
 namespace dojo.leetcode;
 
-public class TwoSumTestData : TestDataBase
+public class TwoSumTestData : TestData
 {
     protected override List<object[]> Data =>
     [

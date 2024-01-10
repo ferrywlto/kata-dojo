@@ -1,6 +1,6 @@
 namespace dojo.leetcode;
 
-public class Q181_EmployeesEarningMoreThanTheirManagersTestData : TestDataBase
+public class Q181_EmployeesEarningMoreThanTheirManagersTestData : TestData
 {
     protected override List<object[]> Data =>
     [

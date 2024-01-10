@@ -1,6 +1,6 @@
 namespace dojo.leetcode;
 
-public class Q70_ClimbingStairsTestData : TestDataBase
+public class Q70_ClimbingStairsTestData : TestData
 {
     protected override List<object[]> Data =>
     [

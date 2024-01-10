@@ -1,6 +1,6 @@
 namespace dojo.leetcode;
 
-public class Q83_RemoveDuplicatesFromSortedListTestData : TestDataBase
+public class Q83_RemoveDuplicatesFromSortedListTestData : TestData
 {
     protected override List<object[]> Data =>
     [

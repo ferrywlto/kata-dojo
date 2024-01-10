@@ -1,6 +1,6 @@
 namespace dojo.leetcode;
 
-public class Q175_CombineTwoTablesTestData : TestDataBase
+public class Q175_CombineTwoTablesTestData : TestData
 {
     protected override List<object[]> Data =>
     [

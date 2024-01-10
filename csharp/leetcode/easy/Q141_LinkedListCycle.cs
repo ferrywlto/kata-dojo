@@ -1,6 +1,6 @@
 
 namespace dojo.leetcode;
-public class Q141_LinkedListCycleTestData : TestDataBase
+public class Q141_LinkedListCycleTestData : TestData
 {
     protected override List<object[]> Data => 
     [

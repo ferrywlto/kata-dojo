@@ -1,6 +1,6 @@
 namespace dojo.leetcode;
 
-public class Q160_IntersactionTwoLinkedListTestData : TestDataBase
+public class Q160_IntersactionTwoLinkedListTestData : TestData
 {
     protected override List<object[]> Data =>
     [

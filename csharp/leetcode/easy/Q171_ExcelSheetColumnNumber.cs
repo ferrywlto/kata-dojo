@@ -1,6 +1,6 @@
 namespace dojo.leetcode;
 
-public class Q171_ExcelSheetColumnNumberTestData : TestDataBase
+public class Q171_ExcelSheetColumnNumberTestData : TestData
 {
     protected override List<object[]> Data =>
     [

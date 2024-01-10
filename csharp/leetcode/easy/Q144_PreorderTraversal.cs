@@ -1,6 +1,6 @@
 namespace dojo.leetcode;
 
-public class Q144_PreorderTraversalTestData : TestDataBase
+public class Q144_PreorderTraversalTestData : TestData
 {
     protected override List<object[]> Data =>
     [

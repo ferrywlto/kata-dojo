@@ -1,7 +1,7 @@
 namespace dojo.leetcode;
 using System.Text;
 
-public class Q168_ExcelSheetColumnTitleTestData : TestDataBase
+public class Q168_ExcelSheetColumnTitleTestData : TestData
 {
     protected override List<object[]> Data =>
     [

@@ -1,7 +1,7 @@
 namespace dojo.leetcode;
 using System.Text;
 
-public class Q67_AddBinaryTestData : TestDataBase
+public class Q67_AddBinaryTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -10,7 +10,7 @@ public class Q67_AddBinaryTestData : TestDataBase
     ];
 }
 
-public class Q67_AddBinaryExtraTestData : TestDataBase
+public class Q67_AddBinaryExtraTestData : TestData
 {
     protected override List<object[]> Data =>
     [

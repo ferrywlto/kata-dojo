@@ -1,5 +1,5 @@
 namespace dojo.leetcode;
-public class Q94_BinaryTreeInorderTestData : TestDataBase
+public class Q94_BinaryTreeInorderTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -10,7 +10,7 @@ public class Q94_BinaryTreeInorderTestData : TestDataBase
 }
 
 // Extra test cases provided by other developers
-internal class Q94_BinaryTreeInorderExtraTestData : TestDataBase
+internal class Q94_BinaryTreeInorderExtraTestData : TestData
 {
     protected override List<object[]> Data =>
     [

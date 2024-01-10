@@ -1,6 +1,6 @@
 namespace dojo.leetcode;
 
-public class Q35_SearchInsertPositionTestData : TestDataBase
+public class Q35_SearchInsertPositionTestData : TestData
 {
     protected override List<object[]> Data =>
     [

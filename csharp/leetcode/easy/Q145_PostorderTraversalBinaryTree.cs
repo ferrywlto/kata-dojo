@@ -2,7 +2,7 @@ using dojo.leetcode;
 
 public class Q145_PostorderTraversalBinaryTreeTestData : TestDataBase
 {
-    protected override List<object[]> Data() =>
+    protected override List<object[]> Data =>
     [
         [new int?[] { 1, 2, 3, 4, 5, 6, 7 }, new int[] { 4, 5, 2, 6, 7, 3, 1 }],
         [new int?[] { 1, null, 2, 3 }, new int[] { 3, 2, 1 }],

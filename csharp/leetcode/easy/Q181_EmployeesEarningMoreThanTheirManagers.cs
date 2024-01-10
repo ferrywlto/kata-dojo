@@ -4,7 +4,7 @@ using dojo.leetcode;
 
 public class Q181_EmployeesEarningMoreThanTheirManagersTestData : TestDataBase
 {
-    protected override List<object[]> Data() =>
+    protected override List<object[]> Data =>
     [
         [
             """

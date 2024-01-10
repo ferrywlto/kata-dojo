@@ -2,7 +2,7 @@ using dojo.leetcode;
 
 public class Q160_IntersactionTwoLinkedListTestData : TestDataBase
 {
-    protected override List<object[]> Data() =>
+    protected override List<object[]> Data =>
     [
         [new int[]{4,1}, new int[]{5,6,1}, new int[]{8,4,5}],
         [new int[]{1,9,1}, new int[]{3}, new int[]{2}],

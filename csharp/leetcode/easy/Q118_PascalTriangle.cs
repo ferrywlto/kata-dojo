@@ -2,7 +2,7 @@ namespace dojo.leetcode;
 
 public class Q118_PascalTriangleTestsData : TestDataBase
 {
-    protected override List<object[]> Data() =>
+    protected override List<object[]> Data =>
     [
         [1, new List<IList<int>>{new List<int>() {1}}],
         [5, new List<IList<int>>{

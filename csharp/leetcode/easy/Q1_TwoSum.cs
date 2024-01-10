@@ -2,17 +2,14 @@ namespace dojo.leetcode;
 
 public class TwoSumTestData : TestDataBase
 {
-    protected override List<object[]> Data()
-    {
-        return
-        [
-            [new int[]{2, 7, 11, 15}, 9, new int[]{0, 1}],
-            [new int[]{3, 2, 4}, 6, new int[]{1, 2}],
-            [new int[]{3, 3, 5, 5}, 6, new int[]{0, 1}],
-            [new int[]{3, 5, 3, -5}, 6, new int[]{0, 2}],
-            [new int[]{-1,-2,-3,-4,-5}, -8, new int[]{2, 4}],
-        ];
-    }
+    protected override List<object[]> Data =>
+    [
+        [new int[]{2, 7, 11, 15}, 9, new int[]{0, 1}],
+        [new int[]{3, 2, 4}, 6, new int[]{1, 2}],
+        [new int[]{3, 3, 5, 5}, 6, new int[]{0, 1}],
+        [new int[]{3, 5, 3, -5}, 6, new int[]{0, 2}],
+        [new int[]{-1,-2,-3,-4,-5}, -8, new int[]{2, 4}],
+    ];
 }
 
 public class TwoSumTests

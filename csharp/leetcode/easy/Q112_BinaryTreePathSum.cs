@@ -2,7 +2,7 @@ namespace dojo.leetcode;
 
 public class Q112_BinaryTreePathSumTestData :TestDataBase 
 {
-    protected override List<object[]> Data() =>
+    protected override List<object[]> Data =>
     [
         [new int?[]{5,4,8,11,null,13,4,7,2,null,null,null,1}, 22, true],
         [new int?[]{1,2,3}, 5, false],

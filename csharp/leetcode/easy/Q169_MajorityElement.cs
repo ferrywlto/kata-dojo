@@ -2,7 +2,7 @@ using dojo.leetcode;
 
 public class Q169_MajorityElementTestData : TestDataBase
 {
-    protected override List<object[]> Data() =>
+    protected override List<object[]> Data =>
     [
         [new int[] { 3, 2, 3 }, 3],
         [new int[] { 2, 2, 1, 1, 1, 2, 2}, 2]

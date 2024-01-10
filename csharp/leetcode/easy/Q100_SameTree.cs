@@ -2,7 +2,7 @@ namespace dojo.leetcode;
 
 public class Q100_SameTreeTestData : TestDataBase
 {
-    protected override List<object[]> Data() =>
+    protected override List<object[]> Data =>
     [
         [new int?[]{1, 2, 3}, new int?[]{1, 2, 3}, true],
         [new int?[]{1, 2}, new int?[]{1, null, 2}, false],

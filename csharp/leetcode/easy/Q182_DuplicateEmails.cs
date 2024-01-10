@@ -4,7 +4,7 @@ using dojo.leetcode;
 
 public class Q182_DuplicateEmailsTestData : TestDataBase
 {
-    protected override List<object[]> Data() =>
+    protected override List<object[]> Data =>
     [
         [
             """

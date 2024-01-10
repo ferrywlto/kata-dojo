@@ -4,7 +4,7 @@ using dojo.leetcode;
 
 public class Q183_CustomersWhoNeverOrderTestData : TestDataBase
 {
-    protected override List<object[]> Data() =>
+    protected override List<object[]> Data =>
     [
         [
             """

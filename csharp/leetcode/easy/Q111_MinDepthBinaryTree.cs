@@ -2,7 +2,7 @@ namespace dojo.leetcode;
 
 public class Q111_MinDepthBinaryTreeTestData : TestDataBase
 {
-    protected override List<object[]> Data() =>
+    protected override List<object[]> Data =>
     [
         [new int?[]{3,9,20,null,null,15,7}, 2],
         [new int?[]{2,null,3,null,4,null,5,null,6}, 5],

@@ -2,7 +2,7 @@ using dojo.leetcode;
 
 public class Q144_PreorderTraversalTestData :TestDataBase
  {
-    protected override List<object[]> Data() => 
+    protected override List<object[]> Data => 
     [
         [new int?[] { 2,3,null,1 }, new int[] { 2,3,1 }],
         [new int?[] { 1, null, 2, 3 }, new int[] { 1, 2, 3 }],

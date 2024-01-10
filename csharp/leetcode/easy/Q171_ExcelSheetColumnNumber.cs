@@ -2,7 +2,7 @@ using dojo.leetcode;
 
 public class Q171_ExcelSheetColumnNumberTestData: TestDataBase 
 {
-    protected override List<object[]> Data() => 
+    protected override List<object[]> Data => 
     [
         ["A", 1],
         ["AB", 28],

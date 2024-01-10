@@ -2,7 +2,7 @@ namespace dojo.leetcode;
 
 public class Q175_CombineTwoTablesTestData : TestDataBase 
 {
-    protected override List<object[]> Data() => 
+    protected override List<object[]> Data => 
     [
         [
             """

@@ -2,7 +2,7 @@ using dojo.leetcode;
 
 public class Q104_MaxDepthBinaryTreeTestData : TestDataBase
 {
-    protected override List<object[]> Data() =>
+    protected override List<object[]> Data =>
     [
         [new int?[]{3, 9, 20, null, null, 15, 7}, 3],
         [new int?[]{1, null, 2}, 2],

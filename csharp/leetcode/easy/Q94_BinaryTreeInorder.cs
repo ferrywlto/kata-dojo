@@ -1,7 +1,7 @@
 namespace dojo.leetcode;
 public class Q94_BinaryTreeInorderTestData : TestDataBase
 {
-    protected override List<object[]> Data() =>
+    protected override List<object[]> Data =>
     [
         [new int?[] { 1, null, 2, 3 }, new int[] { 1, 3, 2 }],
         [Array.Empty<int?>(), Array.Empty<int>()],
@@ -12,7 +12,7 @@ public class Q94_BinaryTreeInorderTestData : TestDataBase
 // Extra test cases provided by other developers
 internal class Q94_BinaryTreeInorderExtraTestData : TestDataBase
 {
-    protected override List<object[]> Data() =>
+    protected override List<object[]> Data =>
     [
         [
             new int?[]{-26},

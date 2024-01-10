@@ -2,7 +2,7 @@ namespace dojo.leetcode;
 
 public class Q101_SymmetricTreeTestData : TestDataBase
 {
-    protected override List<object[]> Data() =>
+    protected override List<object[]> Data =>
     [
         [new int?[]{1, 2, 2, 3, 4, 4, 3}, true],
         [new int?[]{1, 2, 2, null, 3, null, 3}, false],

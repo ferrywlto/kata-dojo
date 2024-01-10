@@ -1,13 +1,23 @@
 namespace dojo.leetcode;
+
+using System.Collections.Generic;
 using System.Text;
+
+public class Q14_LongestCommonPrefixTestData : TestDataBase
+{
+    protected override List<object[]> Data => 
+    [
+        [new string[] { "flower", "flow", "flight" }, "fl"],
+        [new string[] { "flower", "flower", "flower", "flower" }, "flower"],
+        [new string[] { "dog", "racecar", "car" }, ""],
+        [new string[] { "ab", "a" }, "a"]
+    ];
+}
 
 public class Q14_LongestCommonPrefixTests
 {
     [Theory]
-    [InlineData(new string[] { "flower", "flow", "flight" }, "fl")]
-    [InlineData(new string[] { "flower", "flower", "flower", "flower" }, "flower")]
-    [InlineData(new string[] { "dog", "racecar", "car" }, "")]
-    [InlineData(new string[] { "ab", "a" }, "a")]
+    [ClassData(typeof(Q14_LongestCommonPrefixTestData))]
     public void OfficialTestCases(string[] strs, string expected)
     {
         var result = new Q14_LongestCommonPrefix().LongestCommonPrefix_Char(strs);

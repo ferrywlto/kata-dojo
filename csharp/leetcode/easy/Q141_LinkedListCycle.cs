@@ -1,5 +1,5 @@
 
-using dojo.leetcode;
+namespace dojo.leetcode;
 public class Q141_LinkedListCycleTestData : TestDataBase
 {
     protected override List<object[]> Data => 

@@ -1,4 +1,4 @@
-using dojo.leetcode;
+namespace dojo.leetcode;
 
 public class Q83_RemoveDuplicatesFromSortedListTestData : TestDataBase
 {

@@ -1,5 +1,5 @@
+namespace dojo.leetcode;
 using System.Text;
-using dojo.leetcode;
 
 public class Q168_ExcelSheetColumnTitleTestData : TestDataBase
 {

@@ -1,15 +1,22 @@
 
 using dojo.leetcode;
+public class Q141_LinkedListCycleTestData : TestDataBase
+{
+    protected override List<object[]> Data => 
+    [
+        [new int[] { 3, 2, 0, -4 }, 1, true],
+        [new int[] { 1, 2 }, 0, true],
+        [new int[] { 1 }, -1, false],
+        [Array.Empty<int>(), -1, false],        
+    ];
+}
 
 public class Q141_LinkedListCycleTests : ListNodeTest
 {
     public Q141_LinkedListCycleTests(ITestOutputHelper output) : base(output) { }
 
     [Theory]
-    [InlineData(new int[] { 3, 2, 0, -4 }, 1, true)]
-    [InlineData(new int[] { 1, 2 }, 0, true)]
-    [InlineData(new int[] { 1 }, -1, false)]
-    [InlineData(new int[] { }, -1, false)]
+    [ClassData(typeof(Q141_LinkedListCycleTestData))]
     public void OfficialTestCases(int[] input, int pos, bool expected)
     {
         var sut = new Q141_LinkedListCycle();

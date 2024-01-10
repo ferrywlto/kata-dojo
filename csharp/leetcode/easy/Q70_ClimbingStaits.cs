@@ -1,13 +1,21 @@
 namespace dojo.leetcode;
 
+public class Q70_ClimbingStairsTestData : TestDataBase
+{
+    protected override List<object[]> Data =>
+    [
+        [2, 2],
+        [3, 3],
+        [4, 5],
+        [5, 8],
+        [45, 1836311903],
+    ];
+}
+
 public class Q70_ClimbingStairsTests
 {
     [Theory]
-    [InlineData(2, 2)]
-    [InlineData(3, 3)]
-    [InlineData(4, 5)]
-    [InlineData(5, 8)]
-    [InlineData(45, 1836311903)]
+    [ClassData(typeof(Q70_ClimbingStairsTestData))]
     public void OfficialTestCases(int input, int expected)
     {
         var sut = new Q70_ClimbingStairs();

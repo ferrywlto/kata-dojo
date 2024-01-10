@@ -1,18 +1,25 @@
 namespace dojo.leetcode;
 
+public class Q121_BestTimeBuyAndSellTestData : TestDataBase
+{
+    protected override List<object[]> Data =>
+    [
+        [new int[] { 7, 1, 5, 3, 6, 4 }, 5],
+        [new int[] { 7, 1, 6, 3, 5, 4 }, 5],
+        [new int[] { 7, 1, 6, 1, 7, 0, 9, 5, 4 }, 9],
+        [new int[] { 7, 6, 4, 3, 1 }, 0],
+        [new int[] { 1 }, 0],
+        [new int[] { 1, 2 }, 1],
+        [new int[] { 1, 2, 4 }, 3],
+        [new int[] { 2, 4, 1 }, 2],
+        [new int[] { 2, 1, 2, 0, 1 }, 1],
+        [new int[] { 3, 3, 5, 0, 0, 3, 1, 4 }, 4],
+    ];
+}
 public class Q121_BestTimeBuyAndSellTests
 {
     [Theory]
-    [InlineData(new int[] { 7, 1, 5, 3, 6, 4 }, 5)]
-    [InlineData(new int[] { 7, 1, 6, 3, 5, 4 }, 5)]
-    [InlineData(new int[] { 7, 1, 6, 1, 7, 0, 9, 5, 4 }, 9)]
-    [InlineData(new int[] { 7, 6, 4, 3, 1 }, 0)]
-    [InlineData(new int[] { 1 }, 0)]
-    [InlineData(new int[] { 1, 2 }, 1)]
-    [InlineData(new int[] { 1, 2, 4 }, 3)]
-    [InlineData(new int[] { 2, 4, 1 }, 2)]
-    [InlineData(new int[] { 2, 1, 2, 0, 1 }, 1)]
-    [InlineData(new int[] { 3, 3, 5, 0, 0, 3, 1, 4 }, 4)]
+    [ClassData(typeof(Q121_BestTimeBuyAndSellTestData))]
     public void OfficialTestCases(int[] input, int expected)
     {
         var sut = new Q121_BestTimeBuyAndSell();

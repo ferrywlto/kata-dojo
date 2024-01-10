@@ -1,14 +1,22 @@
 namespace dojo.leetcode;
+public class Q136_SingleNumberTestData : TestDataBase
+{
+    protected override List<object[]> Data =>
+    [
+        [new int[] { 2, 2, 1 }, 1],
+        [new int[] { 4, 1, 2, 1, 2 }, 4],
+        [new int[] { 1 }, 1],
+        [new int[] { 1, 2, 3, 4, 5, 5, 4, 3, 2, 1, 7, 6, 6 }, 7],
+        [new int[] { 1, 1, 2, 3, 3 }, 2],
+        [new int[] { 1, 2, 2, 3, 3 }, 1],
+        [new int[] { 1, 2, 1, 3, 3 }, 2],
+    ];
+}
+
 public class Q136_SingleNumberTests
 {
     [Theory]
-    [InlineData(new int[] { 2, 2, 1 }, 1)]
-    [InlineData(new int[] { 4, 1, 2, 1, 2 }, 4)]
-    [InlineData(new int[] { 1 }, 1)]
-    [InlineData(new int[] { 1, 2, 3, 4, 5, 5, 4, 3, 2, 1, 7, 6, 6 }, 7)]
-    [InlineData(new int[] { 1, 1, 2, 3, 3 }, 2)]
-    [InlineData(new int[] { 1, 2, 2, 3, 3 }, 1)]
-    [InlineData(new int[] { 1, 2, 1, 3, 3 }, 2)]
+    [ClassData(typeof(Q136_SingleNumberTestData))]
     public void OfficialTestCases(int[] input, int expected)
     {
         var sut = new Q136_SingleNumber();

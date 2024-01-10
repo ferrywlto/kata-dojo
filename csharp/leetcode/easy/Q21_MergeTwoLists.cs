@@ -1,11 +1,18 @@
 using dojo.leetcode;
+public class Q21_MergeTwoListsTestData : TestDataBase
+{
+    protected override List<object[]> Data =>
+    [
+        [new int[] { 1, 2, 4 }, new int[] { 1, 3, 4 }, new int[] { 1, 1, 2, 3, 4, 4 }], // 1->2->4, 1->3->4
+        [Array.Empty<int>(), Array.Empty<int>(), Array.Empty<int>()], // [], []
+        [Array.Empty<int>(), new int[] { 0 }, new int[] { 0 }], // [], [0]
+    ];
+}
 
 public class Q21_MergeTwoListsTests(ITestOutputHelper output) : ListNodeTest(output)
 {
     [Theory]
-    [InlineData(new int[] { 1, 2, 4 }, new int[] { 1, 3, 4 }, new int[] { 1, 1, 2, 3, 4, 4 })]
-    [InlineData(new int[] { }, new int[] { }, new int[] { })]
-    [InlineData(new int[] { }, new int[] { 0 }, new int[] { 0 })]
+    [ClassData(typeof(Q21_MergeTwoListsTestData))]
     public void OfficialTestCases(int[] l1, int[] l2, int[] expected)
     {
         var list1 = ListNode.FromArray(l1);

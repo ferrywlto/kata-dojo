@@ -1,12 +1,22 @@
 namespace dojo.leetcode;
+
+public class Q58_LengthOfLastWordTestData : TestDataBase
+{
+    protected override List<object[]> Data =>
+    [
+        ["Hello World", 5],
+        ["   fly me   to   the moon  ", 4],
+        ["luffy is still joyboy", 6],
+        ["day", 3],
+        ["day    ", 3],
+    ];
+
+}
+
 public class Q58_LengthOfLastWordTests
 {
     [Theory]
-    [InlineData("Hello World", 5)]
-    [InlineData("   fly me   to   the moon  ", 4)]
-    [InlineData("luffy is still joyboy", 6)]
-    [InlineData("day", 3)]
-    [InlineData("day    ", 3)]
+    [ClassData(typeof(Q58_LengthOfLastWordTestData))]
     public void OfficalTestCases(string s, int expected)
     {
         Assert.Equal(expected, new Q58_LengthOfLastWord().LengthOfLastWord_CharByChar(s));

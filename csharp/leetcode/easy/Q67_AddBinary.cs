@@ -1,11 +1,30 @@
 namespace dojo.leetcode;
 using System.Text;
 
+public class Q67_AddBinaryTestData : TestDataBase
+{
+    protected override List<object[]> Data =>
+    [
+        ["11", "1", "100"],
+        ["1010", "1011", "10101"],
+    ];
+}
+
+public class Q67_AddBinaryExtraTestData : TestDataBase
+{
+    protected override List<object[]> Data =>
+    [
+        ["0", "0", "0"],
+        ["0", "1", "1"],
+        ["1", "0", "1"],
+        ["1", "1", "10"],
+    ];
+}
+
 public class Q67_AddBinaryTests
 {
     [Theory]
-    [InlineData("11", "1", "100")]
-    [InlineData("1010", "1011", "10101")]
+    [ClassData(typeof(Q67_AddBinaryTestData))]
     public void OfficialTestCases(string a, string b, string expected)
     {
         var sut = new Q67_AddBinary();
@@ -13,10 +32,7 @@ public class Q67_AddBinaryTests
     }
 
     [Theory]
-    [InlineData("0", "0", "0")]
-    [InlineData("0", "1", "1")]
-    [InlineData("1", "0", "1")]
-    [InlineData("1", "1", "10")]
+    [ClassData(typeof(Q67_AddBinaryExtraTestData))]
     public void ExtraTestCases(string a, string b, string expected)
     {
         var sut = new Q67_AddBinary();

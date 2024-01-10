@@ -1,9 +1,18 @@
 namespace dojo.leetcode;
+
+public class Q28_NeedleInHaystackTestData : TestDataBase
+{
+    protected override List<object[]> Data =>
+    [
+        ["sadbutsad", "sad", 0],
+        ["leetcode", "leeto", -1],
+    ];
+}
+
 public class Q28_NeedleInHaystackTests
 {
     [Theory]
-    [InlineData("sadbutsad", "sad", 0)]
-    [InlineData("leetcode", "leeto", -1)]
+    [ClassData(typeof(Q28_NeedleInHaystackTestData))]
     public void OfficialTestCases(string haystack, string needle, int expected)
     {
         var sut = new Q28_NeedleInHaystack();

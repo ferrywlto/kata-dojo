@@ -1,11 +1,20 @@
 namespace dojo.leetcode;
+
+public class Q35_SearchInsertPositionTestData : TestDataBase
+{
+    protected override List<object[]> Data =>
+    [
+        [new int[] { 1, 3, 5, 6 }, 5, 2],
+        [new int[] { 1, 3, 5, 6 }, 2, 1],
+        [new int[] { 1, 3, 5, 6 }, 7, 4],
+        [new int[] { 2, 7, 8, 9, 10 }, 9, 3],
+    ];
+}
+
 public class Q35_SearchInsertPositionTests
 {
     [Theory]
-    [InlineData(new int[] { 1, 3, 5, 6 }, 5, 2)]
-    [InlineData(new int[] { 1, 3, 5, 6 }, 2, 1)]
-    [InlineData(new int[] { 1, 3, 5, 6 }, 7, 4)]
-    [InlineData(new int[] { 2, 7, 8, 9, 10 }, 9, 3)]
+    [ClassData(typeof(Q35_SearchInsertPositionTestData))]
     public void OfficialTestCases(int[] nums, int target, int expected)
     {
         var sut = new Q35_SearchInsertPosition();

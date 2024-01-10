@@ -1,19 +1,28 @@
 namespace dojo.leetcode;
+
+public class Q69_SqrtTestData : TestDataBase
+{
+    protected override List<object[]> Data =>
+    [
+        [2, 1],
+        [3, 1],
+        [4, 2],
+        [5, 2],
+        [7, 2],
+        [6, 2],
+        [8, 2],
+        [100, 10],
+        [81, 9],
+        [64, 8],
+        [256, 16],
+        [2147395600, 46340],
+    ];
+}
+
 public class Q69_SqrtTests
 {
     [Theory]
-    [InlineData(2, 1)]
-    [InlineData(3, 1)]
-    [InlineData(4, 2)]
-    [InlineData(5, 2)]
-    [InlineData(7, 2)]
-    [InlineData(6, 2)]
-    [InlineData(8, 2)]
-    [InlineData(100, 10)]
-    [InlineData(81, 9)]
-    [InlineData(64, 8)]
-    [InlineData(256, 16)]
-    [InlineData(2147395600, 46340)]
+    [ClassData(typeof(Q69_SqrtTestData))]
     public void OfficialTestCases(int input, int expected)
     {
         var sut = new Q69_Sqrt();

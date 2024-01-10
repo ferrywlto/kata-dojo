@@ -1,11 +1,19 @@
 namespace dojo.leetcode;
+public class Q66_PlusOneTestData : TestDataBase
+{
+    protected override List<object[]> Data =>
+    [
+        [new int[] { 1, 2, 3 }, new int[] { 1, 2, 4 }],
+        [new int[] { 4, 3, 2, 1 }, new int[] { 4, 3, 2, 2 }],
+        [new int[] { 9 }, new int[] { 1, 0 }],
+        [new int[] { 9, 9, 9 }, new int[] { 1, 0, 0, 0 }],
+    ];
+}
+
 public class Q66_PlusOneTests
 {
     [Theory]
-    [InlineData(new int[] { 1, 2, 3 }, new int[] { 1, 2, 4 })]
-    [InlineData(new int[] { 4, 3, 2, 1 }, new int[] { 4, 3, 2, 2 })]
-    [InlineData(new int[] { 9 }, new int[] { 1, 0 })]
-    [InlineData(new int[] { 9, 9, 9 }, new int[] { 1, 0, 0, 0 })]
+    [ClassData(typeof(Q66_PlusOneTestData))]
     public void OfficalTestCases(int[] input, int[] expected)
     {
         var solution = new Q66_PlusOne();

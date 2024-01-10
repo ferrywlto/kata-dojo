@@ -1,15 +1,24 @@
 namespace dojo.leetcode;
+
+using System.Collections.Generic;
 using System.Text;
 
+public class Q125_ValidPalindromeTestData : TestDataBase
+{
+    protected override List<object[]> Data =>
+    [
+        [true, "A man, a plan, a canal: Panama"],
+        [false, "race a car"],
+        [true, " "],
+        [true, ".,"],
+        [true, "......a....."],
+        [true, "0z;z   ; 0"],
+    ];
+}
 public class Q125_ValidPalindromeTests
 {
     [Theory]
-    [InlineData(true, "A man, a plan, a canal: Panama")]
-    [InlineData(false, "race a car")]
-    [InlineData(true, " ")]
-    [InlineData(true, ".,")]
-    [InlineData(true, "......a.....")]
-    [InlineData(true, "0z;z   ; 0")]
+    [ClassData(typeof(Q125_ValidPalindromeTestData))]
     public void OfficialTestCases(bool expected, string input)
     {
         var sut = new Q125_ValidPalindrome();

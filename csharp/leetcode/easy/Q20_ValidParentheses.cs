@@ -1,13 +1,21 @@
 namespace dojo.leetcode;
+public class Q20_ValidParenthesesTestData : TestDataBase
+{
+    protected override List<object[]> Data =>
+    [
+        ["()", true],
+        ["()[]{}", true],
+        ["(]", false],
+        ["]", false],
+        ["){", false],
+        ["(){}}{", false],
+    ];
+}
+
 public class Q20_ValidParenthesesTests
 {
     [Theory]
-    [InlineData("()", true)]
-    [InlineData("()[]{}", true)]
-    [InlineData("(]", false)]
-    [InlineData("]", false)]
-    [InlineData("){", false)]
-    [InlineData("(){}}{", false)]
+    [ClassData(typeof(Q20_ValidParenthesesTestData))]
     public void OfficialTestCases(string input, bool expected)
     {
         var sut = new Q20_ValidParentheses();

@@ -45,6 +45,6 @@ public class Q182_DuplicateEmails
 {
     public string Query() =>
     """
-    
+    SELECT Email FROM Person GROUP BY Email HAVING COUNT(Email) > 1;
     """;
 }

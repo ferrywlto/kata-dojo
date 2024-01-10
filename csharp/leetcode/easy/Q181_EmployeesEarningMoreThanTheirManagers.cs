@@ -31,7 +31,7 @@ public class Q181_EmployeesEarningMoreThanTheirManagersTests(ITestOutputHelper o
         InputTestData(input);
 
         var sut = new Q181_EmployeesEarningMoreThanTheirManagers();
-        
+
         var reader = ExecuteQuery(sut.Query);
 
         Assert.True(reader.HasRows);
@@ -39,7 +39,7 @@ public class Q181_EmployeesEarningMoreThanTheirManagersTests(ITestOutputHelper o
         Assert.True(reader.Read());
         Assert.Equal("Joe", reader.GetString(0));
     }
-    
+
 }
 
 public class Q181_EmployeesEarningMoreThanTheirManagers

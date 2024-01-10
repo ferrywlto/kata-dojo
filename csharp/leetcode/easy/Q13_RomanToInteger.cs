@@ -1,32 +1,37 @@
 namespace dojo.leetcode;
 
-public class Q13_RomashortoshortegerTests {
+public class Q13_RomashortoshortegerTests
+{
     [Theory]
     [InlineData("I")]
     [InlineData("III")]
     [InlineData("IIIIVIIIIVIIIIV")]
-    public void ValidateInput_ShouldReturnTrue_LengthWithinRnage(string input) {
+    public void ValidateInput_ShouldReturnTrue_LengthWithinRnage(string input)
+    {
         var sut = new Q13_Romashortoshorteger();
         Assert.True(sut.ValidateInput(input));
     }
     [Theory]
     [InlineData("")]
     [InlineData("IIIIVIIIIVIIIIVI")]
-    public void ValidateInput_ShouldReturnFalse_LengthOutOfRange(string input) {
+    public void ValidateInput_ShouldReturnFalse_LengthOutOfRange(string input)
+    {
         var sut = new Q13_Romashortoshorteger();
         Assert.False(sut.ValidateInput(input));
     }
     [Theory]
     [InlineData("I")]
     [InlineData("IVXLCDM")]
-    public void ValidateInput_ShouldReturnTrue_ContainsRomanOnly(string input) {
+    public void ValidateInput_ShouldReturnTrue_ContainsRomanOnly(string input)
+    {
         var sut = new Q13_Romashortoshorteger();
         Assert.True(sut.ValidateInput(input));
     }
     [Theory]
     [InlineData("A")]
     [InlineData("IVXLBCDM")]
-    public void ValidateInput_ShouldReturnFalse_ContainsNonRoman(string input) {
+    public void ValidateInput_ShouldReturnFalse_ContainsNonRoman(string input)
+    {
         var sut = new Q13_Romashortoshorteger();
         Assert.False(sut.ValidateInput(input));
     }
@@ -35,7 +40,8 @@ public class Q13_RomashortoshortegerTests {
     [InlineData("LVIII", 58)]
     [InlineData("MCMXCIV", 1994)]
     [InlineData("IV", 4)]
-    public void RomanToshort_ShouldReturnshorteger(string input, short expected) {
+    public void RomanToshort_ShouldReturnshorteger(string input, short expected)
+    {
         var sut = new Q13_Romashortoshorteger();
         Assert.Equal(expected, sut.RomanToInt_CorrectImplementation(input));
     }
@@ -47,15 +53,18 @@ public class Q13_RomashortoshortegerTests {
 // 2. use switch instead of dictionary
 // 3. consider the nature that if the smaller value followed by a larger value, it should be minus instead of addition.
 // Speed: 46ms (99.75%), Memory: 47.29MB (73.03%)
-public class Q13_Romashortoshorteger {
-    public int RomanToInt_CorrectImplementation(string s) {
+public class Q13_Romashortoshorteger
+{
+    public int RomanToInt_CorrectImplementation(string s)
+    {
         if (!ValidateInput(s))
             return -1;
-        
+
         short sum = 0;
-        var chars = s.ToCharArray(); 
-        for(var i=0; i<chars.Length - 1; i++) {
-            if (GetValue(chars[i+1]) > GetValue(chars[i]))
+        var chars = s.ToCharArray();
+        for (var i = 0; i < chars.Length - 1; i++)
+        {
+            if (GetValue(chars[i + 1]) > GetValue(chars[i]))
                 sum -= GetValue(chars[i]);
             else
                 sum += GetValue(chars[i]);
@@ -63,7 +72,8 @@ public class Q13_Romashortoshorteger {
         return sum + GetValue(chars[^1]);
     }
 
-    private static short GetValue(char c) {
+    private static short GetValue(char c)
+    {
         return c switch
         {
             'I' => 1,
@@ -76,27 +86,33 @@ public class Q13_Romashortoshorteger {
             _ => 0,
         };
     }
-    
-    public int RomanToInt(string s) {
+
+    public int RomanToInt(string s)
+    {
         if (!ValidateInput(s))
             return -1;
-        
+
         ushort sum = 0;
         byte idx = 0;
-        while(idx < s.Length) {
-            if (idx <= s.Length - 2) {
-                if(table.TryGetValue(s.Substring(idx, 2), out ushort value)) {
+        while (idx < s.Length)
+        {
+            if (idx <= s.Length - 2)
+            {
+                if (table.TryGetValue(s.Substring(idx, 2), out ushort value))
+                {
                     sum += value;
-                    idx+=2;
+                    idx += 2;
                 }
-                else {
+                else
+                {
                     sum += table[s.Substring(idx, 1)];
-                    idx+=1;
+                    idx += 1;
                 }
-            } 
-            else {
+            }
+            else
+            {
                 sum += table[s.Substring(idx, 1)];
-                idx+=1;
+                idx += 1;
             }
         }
         return sum;
@@ -119,8 +135,10 @@ public class Q13_Romashortoshorteger {
         {"M", 1000},
     };
 
-    public bool ValidateInput(string input) {
-        foreach(var c in input) {
+    public bool ValidateInput(string input)
+    {
+        foreach (var c in input)
+        {
             if (!roman.Contains(c)) return false;
         }
         return input.Length > 0 && input.Length <= 15;

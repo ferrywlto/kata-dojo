@@ -1,8 +1,8 @@
 namespace dojo.leetcode;
 
-public class Q175_CombineTwoTablesTestData : TestDataBase 
+public class Q175_CombineTwoTablesTestData : TestDataBase
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -31,9 +31,9 @@ public class Q175_CombineTwoTablesTests(ITestOutputHelper output) : DatabaseTest
 
         var sut = new Q175_CombineTwoTables();
         var reader = ExecuteQuery(sut.Query);
-        
+
         Assert.True(reader.HasRows);
-        
+
         Assert.True(reader.Read());
         Assert.Equal("Allen", reader.GetString(0));
         Assert.Equal("Wang", reader.GetString(1));
@@ -52,7 +52,7 @@ public class Q175_CombineTwoTablesTests(ITestOutputHelper output) : DatabaseTest
 
 public class Q175_CombineTwoTables
 {
-    public string Query => 
+    public string Query =>
     """
     SELECT Person.FirstName, Person.LastName, Address.City, Address.State
     FROM Person

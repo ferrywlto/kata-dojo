@@ -1,40 +1,53 @@
 namespace dojo.leetcode;
-public class Q66_PlusOneTests {
+public class Q66_PlusOneTests
+{
     [Theory]
     [InlineData(new int[] { 1, 2, 3 }, new int[] { 1, 2, 4 })]
     [InlineData(new int[] { 4, 3, 2, 1 }, new int[] { 4, 3, 2, 2 })]
     [InlineData(new int[] { 9 }, new int[] { 1, 0 })]
     [InlineData(new int[] { 9, 9, 9 }, new int[] { 1, 0, 0, 0 })]
-    public void OfficalTestCases(int[] input, int[] expected) {
+    public void OfficalTestCases(int[] input, int[] expected)
+    {
         var solution = new Q66_PlusOne();
         var result = solution.PlusOne(input);
         Assert.Equal(expected, result);
     }
 }
 
-public class Q66_PlusOne {
+public class Q66_PlusOne
+{
     // Using string representation of the number will not work as the number can be too big to parse
     // Speed: 99ms (98.33%), Memory: 45.33MB (5.01%)
-    public int[] PlusOne(int[] input) {
-        if (input[^1] < 9) {
+    public int[] PlusOne(int[] input)
+    {
+        if (input[^1] < 9)
+        {
             input[^1]++;
             return input;
         }
-        else {
+        else
+        {
             input[^1] = 0;
         }
 
         bool carryOver = true;
-        for (int i = input.Length - 2; i >= 0; i--) {
-            if (carryOver) {
-                if (input[i] == 9) {
+        for (int i = input.Length - 2; i >= 0; i--)
+        {
+            if (carryOver)
+            {
+                if (input[i] == 9)
+                {
                     input[i] = 0;
                     carryOver = true;
-                } else {
+                }
+                else
+                {
                     input[i]++;
                     return input;
                 }
-            } else {
+            }
+            else
+            {
                 return input;
             }
         }

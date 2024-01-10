@@ -1,15 +1,15 @@
 using dojo.leetcode;
 
-public class Q144_PreorderTraversalTestData :TestDataBase
- {
-    protected override List<object[]> Data => 
+public class Q144_PreorderTraversalTestData : TestDataBase
+{
+    protected override List<object[]> Data =>
     [
         [new int?[] { 2,3,null,1 }, new int[] { 2,3,1 }],
         [new int?[] { 1, null, 2, 3 }, new int[] { 1, 2, 3 }],
         [new int?[] { 1 }, new int[] { 1 }],
         [Array.Empty<int?>(), Array.Empty<int>()],
     ];
-    
+
 }
 public class Q144_PreorderTraversalTests(ITestOutputHelper output) : TreeNodeTests(output)
 {
@@ -20,15 +20,16 @@ public class Q144_PreorderTraversalTests(ITestOutputHelper output) : TreeNodeTes
         var sut = new Q144_PreorderTraversal();
         var tree = TreeNode.FromLevelOrderingIntArray(input);
         var actual = sut.PreorderTraversal(tree);
-         
+
         output.WriteLine($"expected: {string.Join(',', expected)}");
         output.WriteLine($"actual: {string.Join(',', actual.ToArray())}");
         Assert.True(Enumerable.SequenceEqual(expected, actual.ToArray()));
     }
- }
-public class Q144_PreorderTraversal 
+}
+public class Q144_PreorderTraversal
 {
-    public IList<int> PreorderTraversal(TreeNode? root) {
+    public IList<int> PreorderTraversal(TreeNode? root)
+    {
         if (root == null) return new List<int>();
         var result = new List<int>();
         // PreorderTraversal_Recursion(root, result);
@@ -45,7 +46,7 @@ public class Q144_PreorderTraversal
     }
 
     // TC: O(num_nodes), SC: O(height_of_tree)
-    public List<int> PreorderTraversal_Iteration(TreeNode? root) 
+    public List<int> PreorderTraversal_Iteration(TreeNode? root)
     {
         if (root == null) return [];
         var result = new List<int>();
@@ -53,7 +54,7 @@ public class Q144_PreorderTraversal
         stack.Push(root);
 
         TreeNode? node;
-        while (stack.Count > 0) 
+        while (stack.Count > 0)
         {
             node = stack.Pop();
             result.Add(node.val);
@@ -64,4 +65,4 @@ public class Q144_PreorderTraversal
 
         return result;
     }
- }
+}

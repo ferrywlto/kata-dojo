@@ -33,7 +33,7 @@ public class Q183_CustomersWhoNeverOrderTests(ITestOutputHelper output) : Databa
         InputTestData(input);
 
         var sut = new Q183_CustomersWhoNeverOrder();
-        
+
         var reader = ExecuteQuery(sut.Query);
 
         Assert.True(reader.HasRows);

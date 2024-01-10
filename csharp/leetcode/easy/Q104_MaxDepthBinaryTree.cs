@@ -29,7 +29,7 @@ public class Q104_MaxDepthBinaryTree
     // TC: O(n), SC: O(n)
     public int MaxDepth(TreeNode root)
     {
-        return root == null? 0 : 1 + Math.Max(MaxDepth(root.left!), MaxDepth(root?.right!));
+        return root == null ? 0 : 1 + Math.Max(MaxDepth(root.left!), MaxDepth(root?.right!));
     }
 
     // Demonstrate iterative solution in addition to recursive solution
@@ -41,11 +41,11 @@ public class Q104_MaxDepthBinaryTree
         stack.Push((root, 1));
         var max = 1;
 
-        while (stack.Count > 0) 
+        while (stack.Count > 0)
         {
             var (node, depth) = stack.Pop();
 
-            if (node != null) 
+            if (node != null)
             {
                 max = Math.Max(max, depth);
                 stack.Push((node.left!, depth + 1));

@@ -47,7 +47,7 @@ public class Q145_PostorderTraversalBinaryTree
     // Demonstration of using iterative approach, which needs to do a reverse at the end
     // Another approach I can think of is to use two stacks, one for traversal, one for result
     // This is because no matter what approach we use, the result is always in reverse postorder traversal 
-    public List<int> PostorderTraversal_Iteration(TreeNode? root) 
+    public List<int> PostorderTraversal_Iteration(TreeNode? root)
     {
         var result = new List<int>();
         if (root == null) return result;
@@ -65,7 +65,7 @@ public class Q145_PostorderTraversalBinaryTree
             if (node.left != null)
                 stack.Push(node.left);
             if (node.right != null)
-                stack.Push(node.right);                
+                stack.Push(node.right);
         }
         result.Reverse();
         return result;

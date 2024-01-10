@@ -15,11 +15,12 @@ public class Q119_PascelTriangle2Tests
 {
     [Theory]
     [ClassData(typeof(Q119_PascelTriangle2TestData))]
-    public void OfficialTestCases(int nthRow, IList<int> expected) {
+    public void OfficialTestCases(int nthRow, IList<int> expected)
+    {
         var sut = new Q119_PascelTriangle2();
         var actual = sut.GetRow(nthRow);
         Assert.True(Enumerable.SequenceEqual(expected, actual));
-     }
+    }
 }
 
 /*
@@ -35,7 +36,8 @@ public class Q119_PascelTriangle2
         rowIndex++;
         var input = new List<int>() { 1 };
         if (rowIndex == 1) return input;
-        else if(rowIndex == 2) {
+        else if (rowIndex == 2)
+        {
             input.Add(1);
             return input;
         }
@@ -49,7 +51,7 @@ public class Q119_PascelTriangle2
             // add generated from input 
             for (var i = input.Count - 1; i >= 1; i--)
             {
-                input[i] = input[i] + input[i- 1];
+                input[i] = input[i] + input[i - 1];
             }
             // append 1 at the end
             input.Add(1);

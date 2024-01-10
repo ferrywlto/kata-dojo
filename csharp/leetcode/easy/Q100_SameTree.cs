@@ -11,11 +11,11 @@ public class Q100_SameTreeTestData : TestDataBase
     ];
 }
 
-public class Q100_SameTreeTests(ITestOutputHelper output) : TreeNodeTests(output) 
-{ 
+public class Q100_SameTreeTests(ITestOutputHelper output) : TreeNodeTests(output)
+{
     [Theory]
     [ClassData(typeof(Q100_SameTreeTestData))]
-    public void OfficialTestCases(int?[] p, int?[] q, bool expected) 
+    public void OfficialTestCases(int?[] p, int?[] q, bool expected)
     {
         var sut = new Q100_SameTree();
         var pTree = TreeNode.FromLevelOrderingIntArray(p);
@@ -36,7 +36,8 @@ public class Q100_SameTree
         p_queue.Enqueue(p);
         q_queue.Enqueue(q);
 
-        while(p_queue.Count > 0 && q_queue.Count > 0) {
+        while (p_queue.Count > 0 && q_queue.Count > 0)
+        {
             // early termination if structure is not the same (i.e. one tree has subtee while the other doesn't)
             if (p_queue.Count != q_queue.Count) return false;
 

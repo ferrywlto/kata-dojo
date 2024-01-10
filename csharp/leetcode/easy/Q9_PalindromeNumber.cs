@@ -1,5 +1,5 @@
 namespace dojo.leetcode;
-public class Q9_PalindromeNumberTests 
+public class Q9_PalindromeNumberTests
 {
     private readonly ITestOutputHelper _outputHelper;
     public Q9_PalindromeNumberTests(ITestOutputHelper outputHelper)
@@ -14,7 +14,7 @@ public class Q9_PalindromeNumberTests
         var result = sut.IsPalindrome_CorrectApproach(-121);
         Assert.False(result);
     }
-    
+
     [Theory]
     [InlineData(0)]
     [InlineData(1)]
@@ -104,7 +104,8 @@ public class Q9_PalindromeNumberTests
     }
 
     [Fact]
-    public void TestDigitValue() {
+    public void TestDigitValue()
+    {
         var sut = new Q9_PalindromeNumber();
         var numToTest = 12345;
         Assert.Equal(5, sut.DigitValue(numToTest, 0));
@@ -115,7 +116,8 @@ public class Q9_PalindromeNumberTests
     }
 
     [Fact]
-    public void TestRemoveLeft() {
+    public void TestRemoveLeft()
+    {
         var sut = new Q9_PalindromeNumber();
         var numToTest = 12345;
         Assert.Equal(12345, sut.RemoveLeft(numToTest, 5));
@@ -136,8 +138,9 @@ public class Q9_PalindromeNumber
         if (str.Length == 1) return true;
         var times = Math.Floor((float)(str.Length / 2));
 
-        for(var i = 0; i < times; i++) {
-            if (str[i] != str[^(i+1)]) return false;
+        for (var i = 0; i < times; i++)
+        {
+            if (str[i] != str[^(i + 1)]) return false;
         }
         return true;
     }
@@ -162,17 +165,19 @@ public class Q9_PalindromeNumber
         else if (x == 0) return true;
 
         var digitCount = DigitCount(x);
-        switch (digitCount) {
+        switch (digitCount)
+        {
             case 1: return true;
-            case 2: return x % 11 == 0; 
+            case 2: return x % 11 == 0;
         }
-        
+
         var times = Math.Truncate((decimal)(digitCount / 2));
-        var left = digitCount-1;
+        var left = digitCount - 1;
         var right = 0;
-        for(var i = 0; i < times; i++) {
+        for (var i = 0; i < times; i++)
+        {
             var leftDigit = DigitValue(x, left);
-            var rightDigit = DigitValue(x, right);  
+            var rightDigit = DigitValue(x, right);
             if (leftDigit != rightDigit) return false;
             left--;
             right++;
@@ -180,18 +185,21 @@ public class Q9_PalindromeNumber
         return true;
     }
 
-    public int DigitCount(int digit) {
+    public int DigitCount(int digit)
+    {
         return (int)Math.Ceiling(Math.Log10(digit));
     }
 
-    public int RemoveLeft(int input, int position) {
-        var divisor = (int)Math.Pow(10, position+1);
+    public int RemoveLeft(int input, int position)
+    {
+        var divisor = (int)Math.Pow(10, position + 1);
         return (input % divisor);
     }
 
     // remove left
     // Call this after remove both left and right, the result should always an integer
-    public int DigitValue(int input, int position) {
+    public int DigitValue(int input, int position)
+    {
         var removedLeft = RemoveLeft(input, position);
         var divisor = (int)Math.Pow(10, position);
         return (int)Math.Truncate((decimal)(removedLeft / divisor));
@@ -201,14 +209,16 @@ public class Q9_PalindromeNumber
     // It has not much to do with the performance as most solutions are just 3-lines string approach
     // Not sure how could the performance improve further
     // Speed: 38ms (55.1%) | Memory: 31.5MB (30.8%)  
-    public bool IsPalindrome_CorrectApproach(int x) {
-        if (x<0) return false;
-        if (x%10 == 0 && x!=0) return false;
-        if (x<10) return true;
+    public bool IsPalindrome_CorrectApproach(int x)
+    {
+        if (x < 0) return false;
+        if (x % 10 == 0 && x != 0) return false;
+        if (x < 10) return true;
 
         var input = x;
-        var reverse = 0; 
-        while(input > 0) {
+        var reverse = 0;
+        while (input > 0)
+        {
             reverse = reverse * 10 + input % 10;
             input /= 10;
         }

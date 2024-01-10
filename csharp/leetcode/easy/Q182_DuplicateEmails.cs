@@ -30,7 +30,7 @@ public class Q182_DuplicateEmailsTests(ITestOutputHelper output) : DatabaseTest(
         InputTestData(input);
 
         var sut = new Q182_DuplicateEmails();
-        
+
         var reader = ExecuteQuery(sut.Query);
 
         Assert.True(reader.HasRows);
@@ -38,7 +38,7 @@ public class Q182_DuplicateEmailsTests(ITestOutputHelper output) : DatabaseTest(
         Assert.True(reader.Read());
         Assert.Equal("a@b.com", reader.GetString(0));
     }
-    
+
 }
 
 public class Q182_DuplicateEmails

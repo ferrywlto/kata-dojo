@@ -9,7 +9,7 @@ public class Q111_MinDepthBinaryTreeTestData : TestDataBase
         [Array.Empty<int?>(), 0],
     ];
 }
-public class Q111_MinDepthBinaryTreeTests 
+public class Q111_MinDepthBinaryTreeTests
 {
     [Theory]
     [ClassData(typeof(Q111_MinDepthBinaryTreeTestData))]
@@ -22,9 +22,9 @@ public class Q111_MinDepthBinaryTreeTests
     }
 }
 
-public class Q111_MinDepthBinaryTree 
+public class Q111_MinDepthBinaryTree
 {
-    public int MinDepth(TreeNode? root) 
+    public int MinDepth(TreeNode? root)
     {
         if (root == null) return 0;
         else if (root.IsLeaf) return 1;
@@ -34,14 +34,14 @@ public class Q111_MinDepthBinaryTree
     public int CountMinRecursive(TreeNode node, int depth)
     {
         // is leaf
-        if (node.IsLeaf) 
+        if (node.IsLeaf)
         {
             return depth;
         }
-        else 
+        else
         {
-            var leftCount = node?.left == null? int.MaxValue : CountMinRecursive(node.left, depth + 1);
-            var rightCount = node?.right == null? int.MaxValue : CountMinRecursive(node.right, depth + 1);
+            var leftCount = node?.left == null ? int.MaxValue : CountMinRecursive(node.left, depth + 1);
+            var rightCount = node?.right == null ? int.MaxValue : CountMinRecursive(node.right, depth + 1);
             return Math.Min(leftCount, rightCount);
         }
     }

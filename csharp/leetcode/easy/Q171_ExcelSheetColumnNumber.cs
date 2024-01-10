@@ -1,8 +1,8 @@
 using dojo.leetcode;
 
-public class Q171_ExcelSheetColumnNumberTestData: TestDataBase 
+public class Q171_ExcelSheetColumnNumberTestData : TestDataBase
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["A", 1],
         ["AB", 28],
@@ -10,11 +10,11 @@ public class Q171_ExcelSheetColumnNumberTestData: TestDataBase
         ["AZ", 52]
     ];
 }
-public class Q171_ExcelSheetColumnNumberTests(ITestOutputHelper output): TestBase(output) 
+public class Q171_ExcelSheetColumnNumberTests(ITestOutputHelper output) : TestBase(output)
 {
     [Theory]
     [ClassData(typeof(Q171_ExcelSheetColumnNumberTestData))]
-    public void OfficialTestCases(string columnTitle, int expected) 
+    public void OfficialTestCases(string columnTitle, int expected)
     {
         var sut = new Q171_ExcelSheetColumnNumber();
         var res = sut.TitleToNumber(columnTitle);
@@ -23,10 +23,10 @@ public class Q171_ExcelSheetColumnNumberTests(ITestOutputHelper output): TestBas
     }
 }
 
-public class Q171_ExcelSheetColumnNumber 
+public class Q171_ExcelSheetColumnNumber
 {
     // Improved to TC: O(n), SC: O(n)
-    public int TitleToNumber(string columnTitle) 
+    public int TitleToNumber(string columnTitle)
     {
         int result = 0;
         int multiplier = 1;
@@ -42,8 +42,8 @@ public class Q171_ExcelSheetColumnNumber
     }
 
     // O(1)
-    public int GetNumber(char input) => 
-        input == 'Z' 
+    public int GetNumber(char input) =>
+        input == 'Z'
         ? 26 // handle Z 
         : input - 64;
 }

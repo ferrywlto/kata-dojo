@@ -1,7 +1,7 @@
 namespace dojo.leetcode;
 using System.Text;
 
-public class Q14_LongestCommonPrefixTests 
+public class Q14_LongestCommonPrefixTests
 {
     [Theory]
     [InlineData(new string[] { "flower", "flow", "flight" }, "fl")]
@@ -35,11 +35,14 @@ public class Q14_LongestCommonPrefix
         if (wordLength == 0 || word.Equals("")) return "";
 
         byte idx = 0;
-        for (byte i = 0; i<wordLength; i++ ) {
+        for (byte i = 0; i < wordLength; i++)
+        {
             var current = word[i];
-            for (byte j=1; j<strs.Length; j++) {
+            for (byte j = 1; j < strs.Length; j++)
+            {
 
-                if (i >= strs[j].Length || strs[j][i] != current) {
+                if (i >= strs[j].Length || strs[j][i] != current)
+                {
                     return strs[0][..idx];
                 }
             }
@@ -60,10 +63,13 @@ public class Q14_LongestCommonPrefix
         if (wordLength == 0 || word.Equals("")) return "";
 
         string prefix = "";
-        for (byte i = 0; i<=wordLength; i++ ) {
-            var current = word.Substring(0,i);
-            for (byte j=1; j<strs.Length; j++) {
-                if (!strs[j].StartsWith(current)) {
+        for (byte i = 0; i <= wordLength; i++)
+        {
+            var current = word.Substring(0, i);
+            for (byte j = 1; j < strs.Length; j++)
+            {
+                if (!strs[j].StartsWith(current))
+                {
                     return prefix;
                 }
             }
@@ -82,18 +88,23 @@ public class Q14_LongestCommonPrefix
         StringBuilder word = new(strs[0]);
         if (word.Length == 0 || word.Equals("")) return "";
 
-        for (byte j=1; j<strs.Length; j++) {
-            if (word.Length > strs[j].Length) {
+        for (byte j = 1; j < strs.Length; j++)
+        {
+            if (word.Length > strs[j].Length)
+            {
                 word.Remove(strs[j].Length, word.Length - strs[j].Length);
             }
 
-            for (var i = word.Length-1; i>=0; i-- ) {
-                if (!strs[j][i].Equals(word[i])) {
+            for (var i = word.Length - 1; i >= 0; i--)
+            {
+                if (!strs[j][i].Equals(word[i]))
+                {
                     word.Remove(i, word.Length - i);
                 }
             }
 
-            if (word.Length <= 0) {
+            if (word.Length <= 0)
+            {
                 return "";
             }
         }

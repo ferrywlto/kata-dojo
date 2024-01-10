@@ -50,7 +50,7 @@ public class Q118_PascalTriangle
     public static IList<int> GenerateNext(IList<int> input)
     {
         // set the starting 1
-        var output = new List<int>{1};
+        var output = new List<int> { 1 };
 
         // add generated from input 
         for (var i = 0; i < input.Count - 1; i++)

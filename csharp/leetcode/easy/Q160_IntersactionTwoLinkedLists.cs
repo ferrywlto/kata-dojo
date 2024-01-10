@@ -33,21 +33,21 @@ public class Q160_IntersactionTwoLinkedListTests(ITestOutputHelper output) : Lis
             Assert.Equal(tail, actual);
     }
 }
-public class Q160_IntersactionTwoLinkedList 
+public class Q160_IntersactionTwoLinkedList
 {
     // TC: O(length of list A + length of list B), SC: O(length of listA)
-    public ListNode? GetIntersectionNode(ListNode? headA, ListNode? headB) 
+    public ListNode? GetIntersectionNode(ListNode? headA, ListNode? headB)
     {
         if (headA == headB) return headA;
         if (headA?.next == null && headB?.next == null) return null;
 
         var hashTable = new HashSet<ListNode>();
-        while(headA != null) 
+        while (headA != null)
         {
             hashTable.Add(headA);
             headA = headA.next;
         }
-        while(headB != null) 
+        while (headB != null)
         {
             if (hashTable.Contains(headB)) return headB;
             headB = headB.next;
@@ -58,7 +58,7 @@ public class Q160_IntersactionTwoLinkedList
     // TC: O(length of list A + length of list B), SC: O(1)
     // This make use a technique to form a loop in a linked list
     // Then eventually the two pointers will meet at the intersection node
-    public ListNode? GetIntersectionNodeO1(ListNode? headA, ListNode? headB) 
+    public ListNode? GetIntersectionNodeO1(ListNode? headA, ListNode? headB)
     {
         if (headA == null || headB == null) return null;
 
@@ -68,13 +68,13 @@ public class Q160_IntersactionTwoLinkedList
         // pointer1 will be null after run through the list A then B 
         // pointer2 will be null after run through the list B then A
         // which break the while loop and return null
-        while (pointer1 != pointer2) 
+        while (pointer1 != pointer2)
         {
-            pointer1 = (pointer1 == null) 
-                    ? headB 
+            pointer1 = (pointer1 == null)
+                    ? headB
                     : pointer1.next;
             pointer2 = (pointer2 == null)
-                    ? headA 
+                    ? headA
                     : pointer2.next;
         }
 

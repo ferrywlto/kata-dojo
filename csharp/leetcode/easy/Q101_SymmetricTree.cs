@@ -27,21 +27,21 @@ public class Q101_SymmetricTree
 {
     // the idea is, given two trees, A.left should equals to B.right and vice versa.
     // Linear complexity using recursion. TC: O(nodes_of_tree), SC: O(height_of_tree)
-    public bool IsSymmetric_Recursion(TreeNode root) 
+    public bool IsSymmetric_Recursion(TreeNode root)
     {
-        if (root == null || (root.left == null && root.right == null ) )
+        if (root == null || (root.left == null && root.right == null))
             return true;
 
-        return IsSymmetric_Recursion(root.left, root.right);    
+        return IsSymmetric_Recursion(root.left, root.right);
     }
 
-    public bool IsSymmetric_Recursion(TreeNode? leftTree, TreeNode? rightTree) 
+    public bool IsSymmetric_Recursion(TreeNode? leftTree, TreeNode? rightTree)
     {
         if (leftTree == null && rightTree == null) return true;
-        else 
+        else
         {
-            return leftTree?.val == rightTree?.val 
-                && IsSymmetric_Recursion(leftTree?.left, rightTree?.right) 
+            return leftTree?.val == rightTree?.val
+                && IsSymmetric_Recursion(leftTree?.left, rightTree?.right)
                 && IsSymmetric_Recursion(leftTree?.right, rightTree?.left);
         }
     }
@@ -49,7 +49,7 @@ public class Q101_SymmetricTree
     // Demonstration purpose of not using recursion.
     public bool IsSymmetric_Loop(TreeNode root)
     {
-        if (root == null || (root.left == null && root.right == null ) )
+        if (root == null || (root.left == null && root.right == null))
             return true;
 
         var leftQueue = new Queue<TreeNode?>();
@@ -58,7 +58,7 @@ public class Q101_SymmetricTree
         leftQueue.Enqueue(root.left);
         rightQueue.Enqueue(root.right);
 
-        while(leftQueue.Count > 0 && rightQueue.Count > 0) 
+        while (leftQueue.Count > 0 && rightQueue.Count > 0)
         {
             var leftCurrent = leftQueue.Dequeue();
             var rightCurrent = rightQueue.Dequeue();

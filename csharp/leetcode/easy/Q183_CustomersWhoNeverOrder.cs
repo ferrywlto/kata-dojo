@@ -21,7 +21,7 @@ public class Q183_CustomersWhoNeverOrderTestData : TestDataBase
 
 public class Q183_CustomersWhoNeverOrderTests(ITestOutputHelper output) : DatabaseTest(output)
 {
-    protected override string GetTestSchema() =>
+    protected override string TestSchema =>
     """
     CREATE TABLE IF NOT EXISTS Customers (id INT, name VARCHAR(255));
     CREATE TABLE IF NOT EXISTS Orders (id INT, customerId VARCHAR(255));

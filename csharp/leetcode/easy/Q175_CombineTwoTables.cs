@@ -17,7 +17,7 @@ public class Q175_CombineTwoTablesTestData : TestDataBase
 
 public class Q175_CombineTwoTablesTests(ITestOutputHelper output) : DatabaseTest(output)
 {
-    protected override string GetTestSchema() =>
+    protected override string TestSchema =>
     """
     CREATE TABLE IF NOT EXISTS Person (personId int, lastName varchar(255), firstName varchar(255));
     CREATE TABLE IF NOT EXISTS Address (addressId int, personId, city varchar(255), state varchar(255));

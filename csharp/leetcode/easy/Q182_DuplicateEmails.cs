@@ -18,7 +18,7 @@ public class Q182_DuplicateEmailsTestData : TestDataBase
 
 public class Q182_DuplicateEmailsTests(ITestOutputHelper output) : DatabaseTest(output)
 {
-    protected override string GetTestSchema() =>
+    protected override string TestSchema =>
     """
     CREATE TABLE IF NOT EXISTS Person (id INT, email VARCHAR(255));
     """;

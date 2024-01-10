@@ -19,7 +19,7 @@ public class Q181_EmployeesEarningMoreThanTheirManagersTestData : TestDataBase
 
 public class Q181_EmployeesEarningMoreThanTheirManagersTests(ITestOutputHelper output) : DatabaseTest(output)
 {
-    protected override string GetTestSchema() =>
+    protected override string TestSchema =>
     """
     CREATE TABLE IF NOT EXISTS Employee (id INT, name VARCHAR(255), salary INT, managerId INT);
     """;

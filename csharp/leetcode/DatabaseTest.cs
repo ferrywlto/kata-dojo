@@ -16,7 +16,7 @@ public class DatabaseTest : TestBase, IDisposable
 
     protected bool IsDatabaseConnectionOpened() => connection.State == System.Data.ConnectionState.Open;
 
-    protected virtual string GetTestSchema() => string.Empty;
+    protected virtual string TestSchema => string.Empty;
 
     protected void InputTestData(string Sql) => CreateCommand(Sql).ExecuteNonQuery();
 
@@ -29,10 +29,9 @@ public class DatabaseTest : TestBase, IDisposable
         var command = connection.CreateCommand();
         command.CommandType = System.Data.CommandType.Text;
         
-        var testSchema = GetTestSchema();
-        if (string.IsNullOrEmpty(testSchema)) throw new Exception("Test schema is empty.");
+        if (string.IsNullOrEmpty(TestSchema)) throw new Exception("Test schema is empty.");
 
-        command.CommandText = testSchema;
+        command.CommandText = TestSchema;
         command.ExecuteNonQuery();
     }
 

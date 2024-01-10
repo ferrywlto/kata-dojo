@@ -35,7 +35,7 @@ public class Q183_CustomersWhoNeverOrderTests(ITestOutputHelper output) : Databa
 
         var sut = new Q183_CustomersWhoNeverOrder();
         
-        var reader = Execute(sut.Query());
+        var reader = Execute(sut.Query);
 
         Assert.True(reader.HasRows);
         Assert.Equal(1, reader.FieldCount);
@@ -51,7 +51,7 @@ public class Q183_CustomersWhoNeverOrderTests(ITestOutputHelper output) : Databa
 
 public class Q183_CustomersWhoNeverOrder
 {
-    public string Query() =>
+    public string Query =>
     """
     SELECT name as Customers FROM Customers WHERE id NOT IN (Select customerId from Orders) 
     """;

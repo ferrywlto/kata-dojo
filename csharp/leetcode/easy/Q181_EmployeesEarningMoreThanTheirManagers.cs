@@ -32,7 +32,7 @@ public class Q181_EmployeesEarningMoreThanTheirManagersTests(ITestOutputHelper o
 
         var sut = new Q181_EmployeesEarningMoreThanTheirManagers();
         
-        var reader = Execute(sut.Query());
+        var reader = Execute(sut.Query);
 
         Assert.True(reader.HasRows);
         Assert.Equal(1, reader.FieldCount);
@@ -44,7 +44,7 @@ public class Q181_EmployeesEarningMoreThanTheirManagersTests(ITestOutputHelper o
 
 public class Q181_EmployeesEarningMoreThanTheirManagers
 {
-    public string Query() =>
+    public string Query =>
     """
     SELECT e1.Name AS Employee From Employee e1 LEFT JOIN Employee e2 on e1.managerId = e2.id WHERE e1.salary > e2.salary  
     """;

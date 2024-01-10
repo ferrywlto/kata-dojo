@@ -30,7 +30,7 @@ public class Q175_CombineTwoTablesTests(ITestOutputHelper output) : DatabaseTest
         InputTestData(input);
 
         var sut = new Q175_CombineTwoTables();
-        var actual = Execute(sut.SQL());
+        var actual = Execute(sut.Query);
         
         Assert.True(actual.HasRows);
         
@@ -52,7 +52,7 @@ public class Q175_CombineTwoTablesTests(ITestOutputHelper output) : DatabaseTest
 
 public class Q175_CombineTwoTables
 {
-    public string SQL() => 
+    public string Query => 
     """
     SELECT Person.FirstName, Person.LastName, Address.City, Address.State
     FROM Person

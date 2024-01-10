@@ -31,7 +31,7 @@ public class Q182_DuplicateEmailsTests(ITestOutputHelper output) : DatabaseTest(
 
         var sut = new Q182_DuplicateEmails();
         
-        var reader = Execute(sut.Query());
+        var reader = Execute(sut.Query);
 
         Assert.True(reader.HasRows);
         Assert.Equal(1, reader.FieldCount);
@@ -43,7 +43,7 @@ public class Q182_DuplicateEmailsTests(ITestOutputHelper output) : DatabaseTest(
 
 public class Q182_DuplicateEmails
 {
-    public string Query() =>
+    public string Query =>
     """
     SELECT Email FROM Person GROUP BY Email HAVING COUNT(Email) > 1;
     """;

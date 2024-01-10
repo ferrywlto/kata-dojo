@@ -1,3 +1,4 @@
+using System.Text;
 using Microsoft.Data.Sqlite;
 using Xunit.Sdk;
 
@@ -21,6 +22,33 @@ public class DatabaseTest : TestBase, IDisposable
     protected void InputTestData(string Sql) => CreateCommand(Sql).ExecuteNonQuery();
 
     protected SqliteDataReader ExecuteQuery(string Sql) => CreateCommand(Sql).ExecuteReader();
+
+    const int ColumnWidth = 10;
+
+    protected virtual string FormatOutput(string input) => $" {(input.Length <= ColumnWidth ? input.PadRight(ColumnWidth) : input)} |";
+    
+    protected void DebugReader(SqliteDataReader reader) 
+    {
+        if (!reader.HasRows) return;
+
+        var stringBuilder = new StringBuilder("|");
+        for(var i=0; i < reader.FieldCount; i++) 
+            stringBuilder.Append(FormatOutput(reader.GetName(i)));
+
+        output.WriteLine(stringBuilder.ToString());
+
+        while(reader.Read()) 
+        {
+            stringBuilder.Clear();
+            stringBuilder.Append("|");
+            for(var i=0; i < reader.FieldCount; i++) 
+            {
+                var colValue = reader.IsDBNull(i) ? "NULL" : reader.GetString(i);
+                stringBuilder.Append(FormatOutput(colValue));
+            }
+            output.WriteLine(stringBuilder.ToString());
+        }
+    }
 
     private void CreateTestDatabase()
     {

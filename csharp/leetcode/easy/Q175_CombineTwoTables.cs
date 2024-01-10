@@ -30,23 +30,23 @@ public class Q175_CombineTwoTablesTests(ITestOutputHelper output) : DatabaseTest
         InputTestData(input);
 
         var sut = new Q175_CombineTwoTables();
-        var actual = ExecuteQuery(sut.Query);
+        var reader = ExecuteQuery(sut.Query);
         
-        Assert.True(actual.HasRows);
+        Assert.True(reader.HasRows);
         
-        Assert.True(actual.Read());
-        Assert.Equal("Allen", actual.GetString(0));
-        Assert.Equal("Wang", actual.GetString(1));
-        Assert.True(actual.IsDBNull(2));
-        Assert.True(actual.IsDBNull(3));
+        Assert.True(reader.Read());
+        Assert.Equal("Allen", reader.GetString(0));
+        Assert.Equal("Wang", reader.GetString(1));
+        Assert.True(reader.IsDBNull(2));
+        Assert.True(reader.IsDBNull(3));
 
-        Assert.True(actual.Read());
-        Assert.Equal("Bob", actual.GetString(0));
-        Assert.Equal("Alice", actual.GetString(1));
-        Assert.Equal("New York City", actual.GetString(2));
-        Assert.Equal("New York", actual.GetString(3));
+        Assert.True(reader.Read());
+        Assert.Equal("Bob", reader.GetString(0));
+        Assert.Equal("Alice", reader.GetString(1));
+        Assert.Equal("New York City", reader.GetString(2));
+        Assert.Equal("New York", reader.GetString(3));
 
-        Assert.False(actual.Read());
+        Assert.False(reader.Read());
     }
 }
 

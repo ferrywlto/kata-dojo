@@ -39,19 +39,20 @@ public class Q183_CustomersWhoNeverOrderTests(ITestOutputHelper output) : Databa
 
         Assert.True(reader.HasRows);
         Assert.Equal(1, reader.FieldCount);
+        Assert.Equal("Customers", reader.GetName(0));
+
         Assert.True(reader.Read());
         Assert.Equal("Henry", reader.GetString(0));
 
         Assert.True(reader.Read());
         Assert.Equal("Max", reader.GetString(0));
     }
-    
 }
 
 public class Q183_CustomersWhoNeverOrder
 {
     public string Query() =>
     """
-    
+    SELECT name as Customers FROM Customers WHERE id NOT IN (Select customerId from Orders) 
     """;
 }

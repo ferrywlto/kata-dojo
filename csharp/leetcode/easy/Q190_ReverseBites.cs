@@ -17,7 +17,7 @@ public class Q190_ReverseBitsTests(ITestOutputHelper output) : TestBase(output)
     public void OfficialTestCases(uint input, uint expected)
     {
         var sut = new Q190_ReverseBits();
-        var actual = sut.reverseBits(input);
+        var actual = sut.reverseBits_BitWiseOps(input);
         Assert.Equal(expected, actual);
     }
 }
@@ -39,6 +39,29 @@ public class Q190_ReverseBits
         }
 
         return result;    
+    }
+
+    public uint reverseBits_BitWiseOps(uint n) 
+    {
+        uint result = 0;
+        int bits = 32;
+
+        while (bits-- > 0)
+        {
+            // Provided by Copilot, the idea is to shifting n leftward and shifting result rightward
+            // n -> 
+            // 1111111111111111111111111111110 1
+            // <- result
+            // 0000000000000000000000000000000 1 
+            // 1. result << 1 left shift result once
+            // 2. n & 1 means check if the right most bit is 1
+            // 3. right most bit of result must be 0, OR with right most bit of n
+            // 4. n = n right shift once 
+            result = (result << 1) | (n & 1);
+            n >>= 1;
+        }
+
+        return result;
     }
 }
 

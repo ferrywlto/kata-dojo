@@ -14,10 +14,11 @@ public class Q190_ReverseBitsTests(ITestOutputHelper output) : TestBase(output)
 {
     [Theory]
     [ClassData(typeof(Q190_ReverseBitsTestData))]
-    public void OfficialTestCases(int input, int expected)
+    public void OfficialTestCases(uint input, uint expected)
     {
-        var solution = new Q190_ReverseBits();
-        Assert.Equal(input, expected);
+        var sut = new Q190_ReverseBits();
+        var actual = sut.reverseBits(input);
+        Assert.Equal(expected, actual);
     }
 }
 
@@ -25,7 +26,19 @@ public class Q190_ReverseBits
 {
     public uint reverseBits(uint n) 
     {
-        return 0;    
+        var binaryString = Convert.ToString(n, 2).PadLeft(32, '0');;
+        var reversedString = new string(binaryString.Reverse().ToArray());
+        
+        uint result = 0;
+        for (int i = 0; i < reversedString!.Length; i++)
+        {
+            if (reversedString[i] == '1')
+            {
+                result += (uint)Math.Pow(2, reversedString.Length - 1 - i);
+            }
+        }
+
+        return result;    
     }
 }
 

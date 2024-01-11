@@ -27,6 +27,17 @@ public class Q191_NumberOfOneBits
 {
     public int HammingWeight(uint n) 
     {
-        return 0;
+        var result = 0;
+        var bits = 32;
+        while (bits > 0)
+        {
+            if ((n & 1) == 1) 
+            {
+                result++;
+            }
+            n >>= 1;
+            bits--;
+        }
+        return result;
     }
 }

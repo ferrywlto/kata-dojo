@@ -1,4 +1,5 @@
 namespace dojo.leetcode;
+
 public class Q136_SingleNumberTestData : TestData
 {
     protected override List<object[]> Data =>
@@ -24,6 +25,7 @@ public class Q136_SingleNumberTests
         Assert.Equal(expected, actual);
     }
 }
+
 /*
 Constraints:
 

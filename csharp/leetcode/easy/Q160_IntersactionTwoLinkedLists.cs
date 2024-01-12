@@ -9,6 +9,7 @@ public class Q160_IntersactionTwoLinkedListTestData : TestData
         [new int[]{2,6,4}, new int[]{1,5}, Array.Empty<int>()],
     ];
 }
+
 public class Q160_IntersactionTwoLinkedListTests(ITestOutputHelper output) : ListNodeTest(output)
 {
     [Theory]
@@ -33,6 +34,7 @@ public class Q160_IntersactionTwoLinkedListTests(ITestOutputHelper output) : Lis
             Assert.Equal(tail, actual);
     }
 }
+
 public class Q160_IntersactionTwoLinkedList
 {
     // TC: O(length of list A + length of list B), SC: O(length of listA)

@@ -11,6 +11,7 @@ public class Q104_MaxDepthBinaryTreeTestData : TestData
         [new int?[]{1,2}, 2],
     ];
 }
+
 public class Q104_MaxDepthBinaryTreeTests
 {
     [Theory]

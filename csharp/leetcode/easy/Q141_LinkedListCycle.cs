@@ -1,5 +1,6 @@
 
 namespace dojo.leetcode;
+
 public class Q141_LinkedListCycleTestData : TestData
 {
     protected override List<object[]> Data => 
@@ -52,6 +53,7 @@ public class Q141_LinkedListCycleTests : ListNodeTest
         }
     }
 }
+
 public class Q141_LinkedListCycle
 {
     // Technique: Race of Tortoise and Hare

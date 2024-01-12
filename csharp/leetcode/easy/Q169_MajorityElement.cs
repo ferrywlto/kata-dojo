@@ -8,6 +8,7 @@ public class Q169_MajorityElementTestData : TestData
         [new int[] { 2, 2, 1, 1, 1, 2, 2}, 2]
     ];
 }
+
 public class Q169_MajorityElementTests(ITestOutputHelper output) : TestBase(output)
 {
     [Theory]

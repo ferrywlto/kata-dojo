@@ -27,7 +27,6 @@ public class Q69_SqrtTests
     {
         var sut = new Q69_Sqrt();
         Assert.Equal(expected, sut.MySqrt_Binary(input));
-
     }
 }
 

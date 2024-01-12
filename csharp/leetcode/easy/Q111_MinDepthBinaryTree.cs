@@ -9,6 +9,7 @@ public class Q111_MinDepthBinaryTreeTestData : TestData
         [Array.Empty<int?>(), 0],
     ];
 }
+
 public class Q111_MinDepthBinaryTreeTests
 {
     [Theory]

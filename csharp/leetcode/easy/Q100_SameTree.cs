@@ -24,6 +24,7 @@ public class Q100_SameTreeTests(ITestOutputHelper output) : TreeNodeTests(output
         Assert.Equal(expected, actual);
     }
 }
+
 public class Q100_SameTree
 {
     // This one can solve from the utility class created for previous tree questions, just need some tweak from Assert to return boolean.

@@ -10,6 +10,7 @@ public class Q171_ExcelSheetColumnNumberTestData : TestData
         ["AZ", 52]
     ];
 }
+
 public class Q171_ExcelSheetColumnNumberTests(ITestOutputHelper output) : TestBase(output)
 {
     [Theory]

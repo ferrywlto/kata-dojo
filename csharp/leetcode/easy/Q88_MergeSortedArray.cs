@@ -1,4 +1,5 @@
 namespace dojo.leetcode;
+
 public class Q88_MergeSortedArrayTestData : TestData
 {
     protected override List<object[]> Data =>
@@ -9,6 +10,7 @@ public class Q88_MergeSortedArrayTestData : TestData
         [new int[] { 1, 0 }, 1, new int[] { 2 }, 1, new int[] { 1, 2 }], // Single element in nums1 and nums2
     ];
 }
+
 public class Q88_MergeSortedArrayTests
 {
     [Theory]

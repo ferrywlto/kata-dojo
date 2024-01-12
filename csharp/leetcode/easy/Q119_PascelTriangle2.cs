@@ -11,6 +11,7 @@ public class Q119_PascelTriangle2TestData : TestData
         [4, new List<int>() {1, 4, 6, 4, 1}],
     ];
 }
+
 public class Q119_PascelTriangle2Tests
 {
     [Theory]

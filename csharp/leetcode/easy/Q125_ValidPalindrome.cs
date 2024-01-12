@@ -15,6 +15,7 @@ public class Q125_ValidPalindromeTestData : TestData
         [true, "0z;z   ; 0"],
     ];
 }
+
 public class Q125_ValidPalindromeTests
 {
     [Theory]

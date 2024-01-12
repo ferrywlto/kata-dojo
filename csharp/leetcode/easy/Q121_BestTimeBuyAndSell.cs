@@ -16,6 +16,7 @@ public class Q121_BestTimeBuyAndSellTestData : TestData
         [new int[] { 3, 3, 5, 0, 0, 3, 1, 4 }, 4],
     ];
 }
+
 public class Q121_BestTimeBuyAndSellTests
 {
     [Theory]

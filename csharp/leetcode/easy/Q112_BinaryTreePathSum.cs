@@ -10,6 +10,7 @@ public class Q112_BinaryTreePathSumTestData : TestData
         [Array.Empty<int?>(), 0, false],
     ];
 }
+
 public class Q112_BinaryTreePathSumTests
 {
     [Theory]

@@ -22,6 +22,7 @@ public class Q70_ClimbingStairsTests
         Assert.Equal(expected, sut.ClimbStairs(input));
     }
 }
+
 // From other developers this question is about the fibonacci sequence that "each number is the sum of the two preceding ones, starting from 0 and 1"
 public class Q70_ClimbingStairs
 {

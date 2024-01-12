@@ -23,6 +23,7 @@ public class Q191_NumberOfOneBitsTests(ITestOutputHelper output): TestBase(outpu
         Assert.Equal(expected, actual);
     }
 }
+
 public class Q191_NumberOfOneBits
 {
     public int HammingWeight(uint n) 

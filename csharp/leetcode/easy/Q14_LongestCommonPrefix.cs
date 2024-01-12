@@ -25,7 +25,6 @@ public class Q14_LongestCommonPrefixTests
     }
 }
 
-
 // Consider the following case: ["abcde","abcd","abcdef","abcdefg","something else"]
 // Always only need to check the first character in first word, which is "a"
 // Obviously "" is the longest common prefix

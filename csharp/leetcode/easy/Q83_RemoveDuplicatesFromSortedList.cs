@@ -9,6 +9,7 @@ public class Q83_RemoveDuplicatesFromSortedListTestData : TestData
         [new int[] { 1, 1, 1, 2, 2, 2, 3, 3, 4, 5, 6 }, new int[] { 1, 2, 3, 4, 5, 6 }]
     ];
 }
+
 public class Q83_RemoveDuplicatesFromSortedListTests(ITestOutputHelper output) : ListNodeTest(output)
 {
     [Theory]

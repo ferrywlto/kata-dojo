@@ -1,4 +1,3 @@
-
 namespace dojo.leetcode;
 
 public class Q190_ReverseBitsTestData : TestData
@@ -64,4 +63,3 @@ public class Q190_ReverseBits
         return result;
     }
 }
-

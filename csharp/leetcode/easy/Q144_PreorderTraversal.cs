@@ -11,6 +11,7 @@ public class Q144_PreorderTraversalTestData : TestData
     ];
 
 }
+
 public class Q144_PreorderTraversalTests(ITestOutputHelper output) : TreeNodeTests(output)
 {
     [Theory]
@@ -26,6 +27,7 @@ public class Q144_PreorderTraversalTests(ITestOutputHelper output) : TreeNodeTes
         Assert.True(Enumerable.SequenceEqual(expected, actual.ToArray()));
     }
 }
+
 public class Q144_PreorderTraversal
 {
     public IList<int> PreorderTraversal(TreeNode? root)

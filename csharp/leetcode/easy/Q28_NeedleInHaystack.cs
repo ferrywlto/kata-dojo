@@ -20,6 +20,7 @@ public class Q28_NeedleInHaystackTests
         Assert.Equal(expected, actual);
     }
 }
+
 public class Q28_NeedleInHaystack
 {
 

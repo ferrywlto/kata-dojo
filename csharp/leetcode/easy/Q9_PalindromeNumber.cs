@@ -1,12 +1,7 @@
 namespace dojo.leetcode;
-public class Q9_PalindromeNumberTests
-{
-    private readonly ITestOutputHelper _outputHelper;
-    public Q9_PalindromeNumberTests(ITestOutputHelper outputHelper)
-    {
-        _outputHelper = outputHelper;
-    }
 
+public class Q9_PalindromeNumberTests(ITestOutputHelper output) : BaseTest(output)
+{
     [Fact]
     public void ShouldReturnFalseForNegativeNumber()
     {

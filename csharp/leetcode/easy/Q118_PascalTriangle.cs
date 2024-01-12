@@ -32,6 +32,7 @@ public class Q118_PascalTriangleTests
         }
     }
 }
+
 public class Q118_PascalTriangle
 {
     // TC: O(n^2), SC: O(n^2) - Cannot be improved as we need to return the entire triangle

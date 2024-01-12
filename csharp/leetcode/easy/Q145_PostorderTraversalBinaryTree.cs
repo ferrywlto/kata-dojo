@@ -10,6 +10,7 @@ public class Q145_PostorderTraversalBinaryTreeTestData : TestData
         [Array.Empty<int?>(), Array.Empty<int>()],
     ];
 }
+
 public class Q145_PostorderTraversalBinaryTreeTests(ITestOutputHelper output) : TreeNodeTests(output)
 {
     [Theory]

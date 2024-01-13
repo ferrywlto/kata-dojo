@@ -1,3 +1,4 @@
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using Microsoft.Data.Sqlite;
 using Xunit.Sdk;
@@ -19,7 +20,9 @@ public class DatabaseTest : TestBase, IDisposable
 
     protected virtual string TestSchema => string.Empty;
 
-    protected void InputTestData(string Sql) => CreateCommand(Sql).ExecuteNonQuery();
+    protected int ExecuteCommand(string Sql) => CreateCommand(Sql).ExecuteNonQuery();
+    
+    protected void InputTestData(string Sql) => ExecuteCommand(Sql);
 
     protected SqliteDataReader ExecuteQuery(string Sql) => CreateCommand(Sql).ExecuteReader();
 

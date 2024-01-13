@@ -8,6 +8,9 @@ public class Q196_DeleteDuplicateEmailsTestData : TestData
         INSERT INTO Person VALUES (1, 'john@example.com');
         INSERT INTO Person VALUES (2, 'bob@example.com');
         INSERT INTO Person VALUES (3, 'john@example.com');
+        """,
+        """
+        SELECT * FROM Person;
         """]
     ];
 }
@@ -21,15 +24,15 @@ public class Q196_DeleteDuplicateEmailsTests(ITestOutputHelper output) : Databas
 
     [Theory]
     [ClassData(typeof(Q196_DeleteDuplicateEmailsTestData))]
-    public void OfficialTestCases(string input)
+    public void OfficialTestCases(string input, string expected)
     {
         InputTestData(input);
 
         var sut = new Q196_DeleteDuplicateEmails();
-        InputTestData(sut.Command);
+        var deleteCount = ExecuteCommand(sut.Command);
+        Assert.Equal(1, deleteCount);
 
-        var expectedQuery = "SELECT * FROM Person";
-        var result = ExecuteQuery(expectedQuery);
+        var result = ExecuteQuery(expected);
 
         Assert.True(result.Read());
         Assert.Equal(1, result.GetInt32(0));

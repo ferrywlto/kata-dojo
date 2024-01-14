@@ -33,14 +33,48 @@ public class Q203_RemoveLinkeListElementsTestData : TestData
             Array.Empty<int>(),
             1,
             Array.Empty<int>()
+        ],
+        [
+            new int[]{1,2},
+            1,
+            new int[]{2}
         ]
     ];
 }
 
 public class Q203_RemoveLinkeListElements
 {
+    // TC:O(n), SC:O(1)
     public ListNode? RemoveElements(ListNode? head, int val)
     {
-        return null;
-    }   
+        if (head == null) return null;
+
+        var current = head;
+        while(current != null)
+        {
+            while (current.next != null) 
+            {
+                if (current.next.val == val)
+                {
+                    current.next = current.next.next;
+                    continue;
+                }
+                break;
+            }
+            current = current.next;
+        }
+
+        if (head.val == val)
+        {
+            if (head.next == null)
+            {
+                return null;
+            }
+            else 
+            {
+                head = head.next;
+            }
+        }
+        return head;
+    }
 }

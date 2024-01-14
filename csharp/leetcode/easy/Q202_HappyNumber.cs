@@ -1,10 +1,37 @@
+using System.Text;
+
 namespace dojo.leetcode;
 
 public class Q202_HappyNumbers
 {
+    // each digit could only be 0-9, can store the sum first
+    private readonly Dictionary<int,int> dictOfSq = 
+        Enumerable
+            .Range(0, 10)
+            .Select(n => n.ToString()[0])
+            .Select(n => new KeyValuePair<int,int>(n, (int)Math.Pow(n - 48, 2)))
+            .ToDictionary();
+
+    // TC:O(log n), SC:O(long n)
     public bool IsHappy(int n)
+    {        
+        var seen = new HashSet<int>();
+
+        while(n != 1) {
+            n = SumOfDigitSquare(n);
+            if (seen.Contains(n)) return false;
+            seen.Add(n);
+        }
+
+        return true;
+    }
+
+    private int SumOfDigitSquare(long n) 
     {
-        return false;
+        var result = 0;
+        var str = n.ToString();
+        foreach(var i in str) result += dictOfSq[i];
+        return result; 
     }
 }
 

@@ -33,6 +33,36 @@ public class Q206_ReverseLinkedList
         head = curr;
         return head;
     }
+
+    public ListNode? ReveseListRecursive(ListNode? head)
+    {
+        if (head == null) return null;
+        if (head.next == null) return head;
+
+        var prev = head;
+        var curr = prev.next;
+        var next = curr.next;
+        // important, end the loop
+        prev.next = null;
+
+        return Reverse(prev, curr, next);
+    }
+
+    public ListNode? Reverse(ListNode? prev, ListNode? curr, ListNode? next)
+    {
+        if (next == null)
+        {
+            curr!.next = prev;
+            return curr;
+        }
+
+        curr!.next = prev;
+        prev = curr;
+        curr = next;
+        next = next.next;
+
+        return Reverse(prev, curr, next);
+    }
 }
 
 public class Q206_ReverseLinkedListTestData : TestData
@@ -63,7 +93,7 @@ public class Q206_ReverseLinkedListTests(ITestOutputHelper output) : ListNodeTes
         var expectedList = ListNode.FromArray(expected);
         var inputList = ListNode.FromArray(input);
         var sut = new Q206_ReverseLinkedList();
-        var actualList = sut.ReverseList(inputList);
+        var actualList = sut.ReveseListRecursive(inputList);
 
         AssertListNodeEquals(expectedList, actualList);
     }

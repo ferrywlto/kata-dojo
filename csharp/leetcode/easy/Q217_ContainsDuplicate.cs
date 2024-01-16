@@ -7,21 +7,21 @@ public class Q217_ContainsDuplicate
     // TC:O(n), SC:O(n)
     public bool ContainsDuplicate(int[] nums)
     {
-        var dict = new Dictionary<int, int>();
+        var dict = new HashSet<int>();
 
         for (var i=0; i<nums.Length; i++)
         {
-            if (dict.ContainsKey(nums[i])) 
+            if (dict.Contains(nums[i])) 
             {
-                dict[nums[i]]++;
+                return true;
             }
             else
             {
-                dict.Add(nums[i], 1);
+                dict.Add(nums[i]);
             }
         }
 
-        return dict.Any(x => x.Value > 1);
+        return false;
     }
 }
 

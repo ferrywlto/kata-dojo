@@ -68,6 +68,7 @@ public class ListNodeTest(ITestOutputHelper output) : TestBase(output)
     {
         var numList = new List<int>();
         while (list != null) {
+            output.WriteLine(list.val.ToString());
             numList.Add(list.val);
             list = list.next;
         }

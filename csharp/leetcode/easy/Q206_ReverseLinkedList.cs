@@ -1,11 +1,37 @@
-
 namespace dojo.leetcode;
 
 public class Q206_ReverseLinkedList
 {
-    public ListNode ReverseList(ListNode? head)
+    // TC: O(n), SC:O(1)
+    public ListNode? ReverseList(ListNode? head)
     {
-        return new ListNode();
+        if (head == null) return null;
+        if (head.next == null) return head;
+        if (head.next.next == null)
+        {
+            var tail = head.next;
+            tail.next = head;
+            head.next = null;
+            head = tail;
+            return head;
+        }
+
+        var prev = head;
+        var curr = prev.next;
+        var next = curr.next;
+        // important, end the loop
+        prev.next = null;
+
+        while (next != null)
+        {
+            curr!.next = prev;
+            prev = curr;
+            curr = next;
+            next = next?.next;
+        }
+        curr!.next = prev;
+        head = curr;
+        return head;
     }
 }
 
@@ -38,9 +64,6 @@ public class Q206_ReverseLinkedListTests(ITestOutputHelper output) : ListNodeTes
         var inputList = ListNode.FromArray(input);
         var sut = new Q206_ReverseLinkedList();
         var actualList = sut.ReverseList(inputList);
-        PrintList(inputList);
-        PrintList(actualList);
-
 
         AssertListNodeEquals(expectedList, actualList);
     }

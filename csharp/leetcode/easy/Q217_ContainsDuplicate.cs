@@ -7,22 +7,25 @@ public class Q217_ContainsDuplicate
     // TC:O(n), SC:O(n)
     public bool ContainsDuplicate(int[] nums)
     {
-        var dict = new HashSet<int>();
+        var set = new HashSet<int>();
 
         for (var i=0; i<nums.Length; i++)
         {
-            if (dict.Contains(nums[i])) 
+            if (set.Contains(nums[i])) 
             {
                 return true;
             }
             else
             {
-                dict.Add(nums[i]);
+                set.Add(nums[i]);
             }
         }
 
         return false;
     }
+
+    // possible to have a SC:O(1) solution but have to exchange TC to O(n log n), which is not worth at this point.
+    // The idea is to sort first, then check if next element is the same
 }
 
 public class Q217_ContainsDuplicateTestData: TestData

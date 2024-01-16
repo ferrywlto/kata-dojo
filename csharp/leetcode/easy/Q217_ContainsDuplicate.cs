@@ -3,9 +3,25 @@ namespace dojo.leetcode;
 
 public class Q217_ContainsDuplicate
 {
+    // Inefficient way first
+    // TC:O(n), SC:O(n)
     public bool ContainsDuplicate(int[] nums)
     {
-        return false;
+        var dict = new Dictionary<int, int>();
+
+        for (var i=0; i<nums.Length; i++)
+        {
+            if (dict.ContainsKey(nums[i])) 
+            {
+                dict[nums[i]]++;
+            }
+            else
+            {
+                dict.Add(nums[i], 1);
+            }
+        }
+
+        return dict.Any(x => x.Value > 1);
     }
 }
 

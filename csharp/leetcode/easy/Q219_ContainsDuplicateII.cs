@@ -9,18 +9,26 @@ public class Q219_ContainsDuplicateII
     -109 <= nums[i] <= 109
     0 <= k <= 105
     */
+    // TC:O(n), SC:O(n)
     public bool ContainsNearbyDuplicate(int[] nums, int k)
     {
-        // TC:O(n), SC:O(n)
-        // dict<int, int>
-        // key -> num[i], value -> last idx
-        // if dict.ContainsKey(key)
-        // if Math.abs(dict[key] - idx) <= k
-        // return true
-        // else 
-        // return false
-        //  else
-        //  dict.Add(key, idx)
+        var dict = new Dictionary<int, int>();
+
+        for (var i = 0; i < nums.Length; i++)
+        {
+            if (dict.ContainsKey(nums[i]))
+            {
+                var lastIdx = dict[nums[i]];
+                var diff = i - lastIdx;
+                if (diff <= k) return true;
+                else dict[nums[i]] = i;
+            }
+            else
+            {
+                dict.Add(nums[i], i);
+            }
+        }
+
         return false;
     }
 }

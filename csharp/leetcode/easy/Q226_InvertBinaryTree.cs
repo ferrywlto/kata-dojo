@@ -62,7 +62,7 @@ public class Q226_InvertBinaryTreeTests(ITestOutputHelper output): TreeNodeTests
 
         var expectedTree = TreeNode.FromLevelOrderingIntArray(expectedConverted);
         var tree = TreeNode.FromLevelOrderingIntArray(inputConverted);
-        var actualTree = sut.InvertTree(tree);
+        var actualTree = sut.InvertTree_Iterative(tree);
 
         AssertTreeNodeEqual(expectedTree, actualTree);
     }

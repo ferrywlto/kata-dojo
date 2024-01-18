@@ -19,6 +19,25 @@ public class Q226_InvertBinaryTree
 
         (node.left, node.right) = (node.right, node.left);
     }
+
+    // TC:O(n), SC:O(1)
+    public TreeNode? InvertTree_Iterative(TreeNode? root) 
+    {
+        if (root == null) return null;
+
+        Stack<TreeNode> stack = new();
+        stack.Push(root);
+
+        while (stack.Count > 0)
+        {
+            var node = stack.Pop();
+            (node.right, node.left) = (node.left, node.right);
+            if (node.left != null) stack.Push(node.left);
+            if (node.right != null) stack.Push(node.right);
+        }
+
+        return root;
+    }
 }
 
 public class Q226_InvertBinaryTreeTestData: TestData

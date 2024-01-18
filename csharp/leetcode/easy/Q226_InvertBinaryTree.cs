@@ -5,7 +5,19 @@ public class Q226_InvertBinaryTree
 {
     public TreeNode? InvertTree(TreeNode? root) 
     {
-        return null;    
+        if (root == null) return null;
+        Invert(root);
+        return root;    
+    }
+    // TC:O(n), SC:O(n)
+    public void Invert(TreeNode? node) 
+    {
+        if (node == null) return;
+
+        Invert(node.left);
+        Invert(node.right);
+
+        (node.left, node.right) = (node.right, node.left);
     }
 }
 

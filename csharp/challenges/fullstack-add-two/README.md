@@ -1,8 +1,17 @@
 # This resembles the live coding challenge I created for candidates in WATI
 
 ### Notes:
-
-- Time allowed: within 1 hour.
+- Time allowed: 1-2 hours. 
+    - It is possible if all the docker images are pulled in advance.  
+        - It could take long to pull Nginx, .NET SDK & MongoDB images
+    - Beware of Frontend talking to Backend CORS issue, this could pull your hairs out easily.
+        - `fetch()` not allow `mode: 'no-cors'` or content-type will always set to `text/plain`
+        - That means allow CORS need to set in backend side
+    - Connect database from backend in docker compose:
+        - Beware of `mongodb://localhost:27017` not working, it have to be `mongodb://<service_name_in_docker_compose>:27017`
+    - Check you are working in the correct folder in VSCode
+        - VSCode will not regconize nested dotnet project dependencies and packages if you opened the parent folder instead
+        
 - You need to use Visual Studio Code with C# and/or JavaScript programming language to finish your tasks.
 - You need to create the project from scratch, without copying code from other project or from the Internet.
 - Please share your whole desktop instead of just a single window so we can see what you are doing.
@@ -12,9 +21,9 @@
 
 Below are what you need to prepare in order to ensure you perform the best in the interview:
 
-- Development environment you used in your daily work.
+- Development environment you used in your daily work. For example:
     - Visual Studio Code
-    - .NET6+ or NodeJS 18+ or Python 3 SDK
+    - .NET8+ or NodeJS 18+ or Python 3 SDK
     - git and GitHub CLI
     - Docker desktop with common images pulled from your daily development tasks
     - NPM/YARN with Frontend SDK of your choice installed

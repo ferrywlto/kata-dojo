@@ -10,26 +10,24 @@
         var num1 = document.getElementById('num1').value;
         var num2 = document.getElementById('num2').value;
         var data = JSON.stringify({num1: num1, num2: num2});
-        var myheaders = new Headers();
-        myheaders.append("content-type", "application/json");
-    
+        var headers = new Headers();
+        headers.append("content-type", "application/json");
+        
         var options = {
+            // This "no-cors" mode will force content-type to text/plain-text
+            // https://stackoverflow.com/questions/45655216/setting-content-type-in-fetch-request-not-working
+            // mode: "no-cors"
             method: 'POST',
-            headers: myheaders,
+            headers: headers,
             body: data,
             caches: 'no-cache'
         }
 
-        var handle = await fetch("http://localhost:5001/Add", options
-        )
+        await fetch("http://localhost:5001/Add", options)
         .then(x => x.json())
-        .then(x => {
-            console.log(x);
-            
+        .then(x => {            
             var resultElemenet = document.getElementById('result');
             resultElemenet.innerHTML = x; 
-
         });
-
     }
 </script>

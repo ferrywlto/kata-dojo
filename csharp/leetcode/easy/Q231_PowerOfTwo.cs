@@ -4,7 +4,7 @@ public class Q231_PowerOfTwo
 {
     public bool IsPowerOfTwo(int n) 
     {
-        return false;
+        return Math.Log2(n) % 1 == 0;
     }
 }
 

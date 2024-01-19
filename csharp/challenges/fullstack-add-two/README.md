@@ -1,5 +1,14 @@
 # This resembles the live coding challenge I created for candidates in WATI
 
+### Steps to run
+```shell
+docker compose build && docker compose up
+```
+- Connect to `mongodb://localhost:27017` from VSCode / Studio3T to inspect data
+- Browse `https://localhost:27018` to view Mongo Express dashboard
+- Browse `http://localhost` to view the minimal HTML frontend
+- Call `http://localhost:5001/Add` from POSTMAN to test backend   
+
 ### Notes:
 - Time allowed: 1-2 hours. 
     - It is possible if all the docker images are pulled in advance.  

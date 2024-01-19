@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  database:
+    image: "mongo"
+    restart: always
+    ports:
+      - 27017:27017
+  frontend:
+    build: frontend
+    ports:
+      - 80:80
+  backend:
+    build: backend
+    ports:
+      - 5001:5001
+    depends_on:
+      - database
+      - frontend
+ 

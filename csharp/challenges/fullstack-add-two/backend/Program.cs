@@ -1,10 +1,17 @@
 
-
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Builder;
 using MongoDB.Driver;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddCors(options => 
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+    });
+});
 var app = builder.Build();
 
 app.MapPost("/add", async (AddModel model) =>
@@ -19,6 +26,7 @@ app.MapPost("/add", async (AddModel model) =>
 
     return result;
 });
+app.UseCors();
 
 app.Run();
 

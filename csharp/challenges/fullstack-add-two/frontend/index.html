@@ -1,10 +1,26 @@
 <h1>Hello Code Challange - Fullstack Add Two</h1>
 <input type="number" id="num1" >num1</input>
 <input type="number" id="num2" >num2</input>
+<div onclick="Send()" title="submit" label="submit" >submit</div>
 
 <script>
     function Send() {
-        fetch("http://localhost:5001/Add", {num1: 1, num2: 2}).then(() => {
+        var data = JSON.stringify({num1: 1, num2: 2});
+        var myheaders = new Headers();
+
+        myheaders.append("content-type", "application/json");
+        
+        var options = {
+            method: 'POST',
+            headers: myheaders,
+            body: data,
+            caches: 'no-cache'
+        }
+
+        fetch("http://localhost:5001/Add", options
+        ).then(x => {
+            console.log(x);
+            alert("clicked 2");
 
         });
     }

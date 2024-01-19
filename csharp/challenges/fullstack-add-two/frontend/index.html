@@ -2,14 +2,17 @@
 <input type="number" id="num1" >num1</input>
 <input type="number" id="num2" >num2</input>
 <div onclick="Send()" title="submit" label="submit" >submit</div>
+<br/>
+<div>Answer is: <div id="result"></div></div>
 
 <script>
-    function Send() {
-        var data = JSON.stringify({num1: 1, num2: 2});
+    async function Send() {
+        var num1 = document.getElementById('num1').value;
+        var num2 = document.getElementById('num2').value;
+        var data = JSON.stringify({num1: num1, num2: num2});
         var myheaders = new Headers();
-
         myheaders.append("content-type", "application/json");
-        
+    
         var options = {
             method: 'POST',
             headers: myheaders,
@@ -17,11 +20,16 @@
             caches: 'no-cache'
         }
 
-        fetch("http://localhost:5001/Add", options
-        ).then(x => {
+        var handle = await fetch("http://localhost:5001/Add", options
+        )
+        .then(x => x.json())
+        .then(x => {
             console.log(x);
-            alert("clicked 2");
+            
+            var resultElemenet = document.getElementById('result');
+            resultElemenet.innerHTML = x; 
 
         });
+
     }
 </script>

@@ -5,35 +5,10 @@ public class Q242_ValidAnagram
 {
     public bool IsAnagram(string s, string t) 
     {
-        // First analysis s
-        // Then analysis t
+        if (s.Length != t.Length) return false;
 
-        var dict_s = new Dictionary<string, int>();
-        var dict_t = new Dictionary<string, int>();
-
-        foreach(var str in s)
-        {
-            if(dict_s.TryGetValue(str.ToString(), out var value)) 
-            {
-                dict_s[str.ToString()]++;
-            }
-            else 
-            {
-                dict_s.Add(str.ToString(), 1);
-            }
-        }
-
-        foreach(var str in t)
-        {
-            if(dict_t.TryGetValue(str.ToString(), out var value)) 
-            {
-                dict_t[str.ToString()]++;
-            }
-            else 
-            {
-                dict_t.Add(str.ToString(), 1);
-            }
-        }
+        var dict_s = CharacterAnalysis(s);
+        var dict_t = CharacterAnalysis(t);
 
         foreach(var pair in dict_t)
         {
@@ -41,15 +16,26 @@ public class Q242_ValidAnagram
 
             if (!(value == pair.Value)) return false;
         }
-
-        foreach(var pair in dict_s)
-        {
-            if (!dict_t.TryGetValue(pair.Key, out int value)) return false;
-
-            if (!(value == pair.Value)) return false;
-        }
-
         return true;
+    }
+
+    private Dictionary<string, int> CharacterAnalysis(string input)
+    {
+        var dict = new Dictionary<string, int>();
+
+        foreach(var c in input)
+        {
+            var str = c.ToString();
+            if(dict.TryGetValue(str, out var value)) 
+            {
+                dict[str]++;
+            }
+            else 
+            {
+                dict.Add(str, 1);
+            }
+        }
+        return dict;
     }
 }
 

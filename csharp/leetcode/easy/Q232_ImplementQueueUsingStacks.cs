@@ -7,34 +7,41 @@ public class Q232_ImplementQueueUsingStacks
     // push new to stack 1
     // push all stack2 back to stack 1  
 
-    private readonly Stack<int> Main = new();
+    private readonly Stack<int> In = new();
+    private readonly Stack<int> Out = new();
+
     public void Push(int x)
     {
-        var buffer = new Stack<int>();
-        while(Main.Count > 0) 
-        {
-            buffer.Push(Main.Pop());
-        }
-        Main.Push(x);
-        while(buffer.Count > 0)
-        {
-            Main.Push(buffer.Pop());
-        }
+        In.Push(x);
     }
 
     public int Pop()
     {
-        return Main.Pop();
+        if(Out.Count == 0) 
+        {
+            while(In.Count > 0) 
+            {
+                Out.Push(In.Pop());
+            }
+        }
+        return Out.Pop();
     }
 
     public int Peek()
     {
-        return Main.Peek();
+        if(Out.Count == 0) 
+        {
+            while(In.Count > 0) 
+            {
+                Out.Push(In.Pop());
+            }
+        }
+        return Out.Peek();
     }
 
     public bool Empty()
     {
-        return Main.Count == 0;
+        return In.Count + Out.Count == 0;
     }
 }
 

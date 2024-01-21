@@ -2,11 +2,6 @@ using dojo.leetcode;
 
 public class Q232_ImplementQueueUsingStacks
 {
-    // need 2 stacks
-    // whenever push, pop all stack 1 to stack 2
-    // push new to stack 1
-    // push all stack2 back to stack 1  
-
     private readonly Stack<int> In = new();
     private readonly Stack<int> Out = new();
 
@@ -15,6 +10,8 @@ public class Q232_ImplementQueueUsingStacks
         In.Push(x);
     }
 
+    // Actually it didn't need to pop and restack the whole list whenever we push.
+    // Do it once only when the output list is empty is more efficient
     public int Pop()
     {
         if(Out.Count == 0) 

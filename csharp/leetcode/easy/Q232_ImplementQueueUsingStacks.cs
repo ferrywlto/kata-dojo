@@ -6,24 +6,35 @@ public class Q232_ImplementQueueUsingStacks
     // whenever push, pop all stack 1 to stack 2
     // push new to stack 1
     // push all stack2 back to stack 1  
+
+    private readonly Stack<int> Main = new();
     public void Push(int x)
     {
-
+        var buffer = new Stack<int>();
+        while(Main.Count > 0) 
+        {
+            buffer.Push(Main.Pop());
+        }
+        Main.Push(x);
+        while(buffer.Count > 0)
+        {
+            Main.Push(buffer.Pop());
+        }
     }
 
     public int Pop()
     {
-        return 0;
+        return Main.Pop();
     }
 
     public int Peek()
     {
-        return 0;
+        return Main.Peek();
     }
 
     public bool Empty()
     {
-        return false;
+        return Main.Count == 0;
     }
 }
 

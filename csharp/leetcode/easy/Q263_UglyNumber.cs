@@ -2,6 +2,7 @@ using dojo.leetcode;
 
 public class Q263_UglyNumber
 {
+    // TC: O(log n), SC:O(1)
     public bool IsUgly(int n)
     {
         if (n <= 0) return false;

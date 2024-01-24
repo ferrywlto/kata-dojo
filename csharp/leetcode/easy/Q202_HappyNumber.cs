@@ -1,5 +1,3 @@
-using System.Text;
-
 namespace dojo.leetcode;
 
 public class Q202_HappyNumbers

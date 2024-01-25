@@ -2,8 +2,13 @@ namespace dojo.leetcode;
 
 public class Q268_MissingNumber
 {
+    // TC: O(n), SC:O(1)
     public int MissingNumber(int[] nums)
     {
+        for(var i=0; i<=nums.Length; i++)
+        {
+            if (!nums.Contains(i)) return i;
+        }
         return 0;
     }
 }

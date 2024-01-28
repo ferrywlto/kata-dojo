@@ -1,11 +1,38 @@
 
+using System.Reflection.Metadata.Ecma335;
+
 namespace dojo.leetcode;
 
 public class Q108_SortedArrayToBST
 {
     public TreeNode SortedArrayToBST(int[] nums)
     {
-        return new TreeNode();
+        return CreateNode(nums);
+    }
+    
+    // since the input is sorted, it should be height balanced when constructed 
+    // recursively create node from middle, then split the left elements from middle to create left subtree, to the same for the right
+    public TreeNode CreateNode(int[] nums)
+    {
+        if (nums.Length == 3)
+        {
+            return new TreeNode(nums[1], new TreeNode(nums[0]), new TreeNode(nums[2]));
+        }
+        else if (nums.Length == 2)
+        {
+            return new TreeNode(nums[1], new TreeNode(nums[0]));
+        }
+        else if (nums.Length == 1)
+        {
+            return new TreeNode(nums[0]);
+        }
+
+        var middleIdx = nums.Length / 2;
+        var middle = nums[middleIdx];
+        var leftArray = nums[..middleIdx];
+        var rightArray = nums[(middleIdx + 1)..];
+        
+        return new TreeNode(middle, CreateNode(leftArray), CreateNode(rightArray));
     }
 }
 

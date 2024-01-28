@@ -3,11 +3,14 @@ namespace dojo.leetcode;
 
 public class Q257_BinaryTreePaths
 {
-    public IList<string> BinaryTreePaths(TreeNode root)
+    public IList<string> BinaryTreePaths(TreeNode? root)
     {
-        var result = new List<string>();
+        if (root == null) return [];
+        if (root.IsLeaf) return [root.val.ToString()];
 
-        return [];
+        var result = new List<string>();
+        PrintPath(root, [], result);
+        return result;
     }
 
     public void PrintPath(TreeNode node, int[] path, List<string> result) 

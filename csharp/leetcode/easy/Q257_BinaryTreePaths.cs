@@ -13,24 +13,22 @@ public class Q257_BinaryTreePaths
         return result;
     }
 
-    public void PrintPath(TreeNode node, int[] path, List<string> result) 
+    public void PrintPath(TreeNode? node, List<int> path, List<string> result) 
     {
-        if(node != null)
+        if (node == null) return;
+
+        path.Add(node.val);
+        if (node.IsLeaf) 
         {
-            if (node.IsLeaf) 
-            {
-                result.Add($"{string.Join("->", path)}->{node.val}");
-                return;
-            }
-            if (node.left != null) 
-            {
-                PrintPath(node.left, [.. path, .. new int[] { node.val }], result);
-            }
-            if (node.right != null)
-            {
-                PrintPath(node.right, [.. path, .. new int[] { node.val }], result);
-            }
+            result.Add(string.Join("->", path));
         }
+        else 
+        {
+            PrintPath(node.left, path, result);
+            PrintPath(node.right, path, result);
+        }
+
+        path.RemoveAt(path.Count - 1);
     }
 }
 

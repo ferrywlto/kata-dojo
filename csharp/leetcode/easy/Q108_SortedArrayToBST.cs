@@ -11,12 +11,9 @@ public class Q108_SortedArrayToBST
     // recursively create node from middle, then split the left elements from middle to create left subtree, to the same for the right
     public TreeNode CreateNode(int[] nums, int startIdx, int endIdx)
     {
-        var middleIdx = (startIdx + endIdx) / 2;
-        var middle = nums[middleIdx];
-
         if (endIdx == startIdx + 2)
         {
-            return new TreeNode(nums[middleIdx], new TreeNode(nums[startIdx]), new TreeNode(nums[endIdx]));
+            return new TreeNode(nums[startIdx+1], new TreeNode(nums[startIdx]), new TreeNode(nums[endIdx]));
         }
         else if (endIdx == startIdx + 1)
         {
@@ -27,7 +24,9 @@ public class Q108_SortedArrayToBST
             return new TreeNode(nums[startIdx]);
         }
 
-        return new TreeNode(middle, CreateNode(nums, startIdx, middleIdx-1), CreateNode(nums, middleIdx+1, endIdx));
+        var middleIdx = (startIdx + endIdx) / 2;
+        
+        return new TreeNode(nums[middleIdx], CreateNode(nums, startIdx, middleIdx-1), CreateNode(nums, middleIdx+1, endIdx));
     }
 }
 

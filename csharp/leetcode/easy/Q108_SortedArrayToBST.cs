@@ -1,38 +1,33 @@
-
-using System.Reflection.Metadata.Ecma335;
-
 namespace dojo.leetcode;
 
 public class Q108_SortedArrayToBST
 {
     public TreeNode SortedArrayToBST(int[] nums)
     {
-        return CreateNode(nums);
+        return CreateNode(nums, 0, nums.Length - 1);
     }
-    
+
     // since the input is sorted, it should be height balanced when constructed 
     // recursively create node from middle, then split the left elements from middle to create left subtree, to the same for the right
-    public TreeNode CreateNode(int[] nums)
+    public TreeNode CreateNode(int[] nums, int startIdx, int endIdx)
     {
-        if (nums.Length == 3)
+        var middleIdx = (startIdx + endIdx) / 2;
+        var middle = nums[middleIdx];
+
+        if (endIdx == startIdx + 2)
         {
-            return new TreeNode(nums[1], new TreeNode(nums[0]), new TreeNode(nums[2]));
+            return new TreeNode(nums[middleIdx], new TreeNode(nums[startIdx]), new TreeNode(nums[endIdx]));
         }
-        else if (nums.Length == 2)
+        else if (endIdx == startIdx + 1)
         {
-            return new TreeNode(nums[1], new TreeNode(nums[0]));
+            return new TreeNode(nums[endIdx], new TreeNode(nums[startIdx]));
         }
-        else if (nums.Length == 1)
+        else if (startIdx == endIdx)
         {
-            return new TreeNode(nums[0]);
+            return new TreeNode(nums[startIdx]);
         }
 
-        var middleIdx = nums.Length / 2;
-        var middle = nums[middleIdx];
-        var leftArray = nums[..middleIdx];
-        var rightArray = nums[(middleIdx + 1)..];
-        
-        return new TreeNode(middle, CreateNode(leftArray), CreateNode(rightArray));
+        return new TreeNode(middle, CreateNode(nums, startIdx, middleIdx-1), CreateNode(nums, middleIdx+1, endIdx));
     }
 }
 
@@ -42,6 +37,7 @@ public class Q108_SortedArrayToBSTTestData: TestData
     [
         [new int[]{-10,-3,0,5,9}, new int?[]{0,-3,9,-10,null,5}],
         [new int[]{1,3}, new int?[]{3,1}],
+        [new int[]{3,5,8}, new int?[]{5,3,8}],
     ];
 }
 

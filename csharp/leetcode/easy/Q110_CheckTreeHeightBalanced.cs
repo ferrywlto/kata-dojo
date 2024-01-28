@@ -4,42 +4,28 @@ public class Q110_CheckTreeHeightBalanced
 {   
     public bool IsBalanced(TreeNode? root)
     {
-        if (root == null || root.IsLeaf) return true;
-
-        var stack = new Stack<TreeNode>();
-        
-        stack.Push(root);
-        while(stack.Count > 0)
-        {
-            var node = stack.Pop();
-
-            if (node.IsLeaf) continue;
-
-            var leftHeight = 0;
-            var rightHeight = 0;
-            if(node.left != null)
-            {
-                stack.Push(node.left);
-                leftHeight = GetHeight(node.left);
-            } 
-            if(node.right != null)
-            {
-                stack.Push(node.right);
-                rightHeight = GetHeight(node.right);
-            }
-
-            if (!HeightBalanced(leftHeight, rightHeight)) return false;
-            
-            bool HeightBalanced(int leftHeight, int rightHeight) => Math.Abs(leftHeight - rightHeight) <= 1;
-        }
-        return true;
+        return CheckHeight(root) != -1;
     }
 
-    public int GetHeight(TreeNode? node)
+    private int CheckHeight(TreeNode? node)
     {
         if (node == null) return 0;
-        if (node.IsLeaf) return 1;
-        return 1 + Math.Max(GetHeight(node.left), GetHeight(node.right));
+
+        int leftHeight = CheckHeight(node.left);
+        if (leftHeight == -1) return -1;
+
+        int rightHeight = CheckHeight(node.right);
+        if (rightHeight == -1) return -1;
+
+        int heightDiff = Math.Abs(leftHeight - rightHeight);
+        if (heightDiff > 1)
+        {
+            return -1;
+        }
+        else
+        {
+            return Math.Max(leftHeight, rightHeight) + 1;
+        }
     }
 }
 

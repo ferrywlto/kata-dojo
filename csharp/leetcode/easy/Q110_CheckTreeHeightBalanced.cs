@@ -1,17 +1,11 @@
 namespace dojo.leetcode;
 
 public class Q110_CheckTreeHeightBalanced
-{
-    record HeightRecord(TreeNode Node, int LeftHeight, int RightHeight) 
-    {
-        public bool HeightBalanced => Math.Abs(LeftHeight - RightHeight) <= 1;
-    } 
-    
+{   
     public bool IsBalanced(TreeNode? root)
     {
         if (root == null || root.IsLeaf) return true;
 
-        var records = new List<HeightRecord>();
         var stack = new Stack<TreeNode>();
         
         stack.Push(root);
@@ -19,10 +13,8 @@ public class Q110_CheckTreeHeightBalanced
         {
             var node = stack.Pop();
 
-            if(node.IsLeaf) 
-            {
-                records.Add(new HeightRecord(node, 0, 0));
-            }
+            if (node.IsLeaf) continue;
+
             var leftHeight = 0;
             var rightHeight = 0;
             if(node.left != null)
@@ -36,9 +28,9 @@ public class Q110_CheckTreeHeightBalanced
                 rightHeight = GetHeight(node.right);
             }
 
-            var record = new HeightRecord(node, leftHeight, rightHeight);
-            if (!record.HeightBalanced) return false;
-            records.Add(record);
+            if (!HeightBalanced(leftHeight, rightHeight)) return false;
+            
+            bool HeightBalanced(int leftHeight, int rightHeight) => Math.Abs(leftHeight - rightHeight) <= 1;
         }
         return true;
     }

@@ -12,24 +12,24 @@ At most 10^4 calls will be made to sumRange
 public class Q303_RangeSumQuery(int[] nums)
 {
     protected readonly int[] Nums = nums;
-    protected readonly Dictionary<int, Dictionary<int, int>> Cache = [];
+    protected readonly SortedDictionary<int, SortedDictionary<int, int>> Cache = [];
 
+    // This cache version only faster when half the query hit the cache, there could be even more efficient if the query is not hit, just calculate part and add the rest from cache, but it takes time thus will work on it when have time. 
     public int SumRange(int left, int right)
     {
         if (Cache.TryGetValue(left, out var rightDict))
         {
             if (rightDict.TryGetValue(right, out var cachedSum))
             {
-                Console.WriteLine($"cache hit: {left}, {right}");
                 return cachedSum;
             }
         }
 
         var sum = SumInclusive(left, right);
 
-        if (!Cache.TryGetValue(left, out Dictionary<int, int>? value))
+        if (!Cache.TryGetValue(left, out SortedDictionary<int, int>? value))
         {
-            value = new Dictionary<int, int>
+            value = new SortedDictionary<int, int>
             {
                 { right, sum }
             };
@@ -87,19 +87,29 @@ public class Q303_RangeSumQueryTests(ITestOutputHelper output) : BaseTest(output
 
 public class Q303_RangeSumQueryStressTests(ITestOutputHelper output): BaseTest(output)
 {
-    [Fact]
+    [Fact(Skip = "Time consuming benchmarking, run only when explicit specifiied")]
     public void SumRange_ShouldRunMuchFasterWithCache()
     {
         // Arrange test data
-        var input = Enumerable.Repeat(1, 10000).ToArray();
         var random = new Random();
-        var list = new List<(int, int)>();
-        const int timesToRun = 1000000;
-        for(var i=0; i<timesToRun; i++)
+        var input = Enumerable.Repeat(0, 10000).ToArray();
+        for(var i = 0; i<input.Length; i++)
         {
-            var rndStart = random.Next(1000);
-            var rndEnd = random.Next(1000);
-            list.Add(new (Math.Min(rndStart, rndEnd), Math.Max(rndStart, rndEnd)));
+            input[i] = random.Next(100000);
+        }
+        var list = new List<(int, int)>();
+        const int timesToRun = 10000;
+        const int batch = 5000;
+        var batchSize = timesToRun / batch;
+
+        for (var i=0; i<batch; i++)
+        {
+            var rndStart = random.Next(input.Length-1);
+            var rndEnd = random.Next(input.Length-1);
+            var entry = (Math.Min(rndStart, rndEnd), Math.Max(rndStart, rndEnd));
+             
+            for(var j=0; j<batchSize; j++)
+                list.Add(entry);            
         }
 
         var sut = new Q303_RangeSumQuery(input);

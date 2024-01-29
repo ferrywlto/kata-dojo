@@ -51,7 +51,6 @@ public class Q225_ImnplementStackUsingQueuesTests(ITestOutputHelper output): Bas
         var sut = new Q225_ImnplementStackUsingQueues();
         sut.Push(1);
         sut.Push(2);
-        output.WriteLine($"Fake Stack: {sut.Print()}");
         var top = sut.Top();
         Assert.Equal(2, top);
         var pop = sut.Pop();

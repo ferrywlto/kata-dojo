@@ -1,6 +1,10 @@
 namespace dojo.leetcode;
 
-public class BaseTest(ITestOutputHelper output)
+public class BaseTest
 {
-    protected readonly ITestOutputHelper output = output;
+    protected readonly ITestOutputHelper? Output;
+
+    public BaseTest(ITestOutputHelper output) { Output = output; }
+    
+    public BaseTest() => Output = null;
 }

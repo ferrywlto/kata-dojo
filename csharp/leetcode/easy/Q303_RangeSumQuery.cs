@@ -115,10 +115,10 @@ public class Q303_RangeSumQueryStressTests(ITestOutputHelper output): BaseTest(o
         var sut = new Q303_RangeSumQuery(input);
 
         var timePassedFast = Benchmark(list, sut.SumRange);
-        output.WriteLine($"Fast: {timePassedFast}");
+        Output?.WriteLine($"Fast: {timePassedFast}");
 
         var timePassedSlow = Benchmark(list, sut.SumRange_Slow);
-        output.WriteLine($"Slow: {timePassedSlow}");
+        Output?.WriteLine($"Slow: {timePassedSlow}");
 
         Assert.True(timePassedFast < timePassedSlow);
     }

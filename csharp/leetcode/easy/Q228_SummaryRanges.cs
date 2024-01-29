@@ -39,7 +39,6 @@ public class Q228_SummaryRanges
                 : $"{nums[x.Key]}->{nums[x.Value]}")
             .ToList();
 
-        foreach (var range in result) Console.WriteLine(range);
         return result;
     }
 }

@@ -43,12 +43,12 @@ public class Q195_TenthLineTests(ITestOutputHelper output) : ShellTest(output)
     [ClassData(typeof(Q195_TenthLineTestData))]
     public void Test(string input, string expected) 
     {
-        File.WriteAllText("./file.txt", input.Trim());
+        File.WriteAllText("./q195.txt", input.Trim());
 
         var sut = new Q195_TenthLine();
         var actual = Run(sut.Command);
         
-        File.Delete("./file.txt");
+        File.Delete("./q195.txt");
 
         var expectedLines = expected.Trim().Split(Environment.NewLine);
         var actualLines = actual.Trim().Split(Environment.NewLine);
@@ -65,6 +65,6 @@ public class Q195_TenthLine
 {
     public string Command =>
     """
-    awk 'NR == 10' file.txt
+    awk 'NR == 10' q195.txt
     """;
 }

@@ -74,7 +74,7 @@ public class Q222_CountCompleteTreeNodesTests(ITestOutputHelper output): BaseTes
         var converted = Array.ConvertAll<int, int?>(input, x => x);
         var tree = TreeNode.FromLevelOrderingIntArray(converted);
         var sut = new Q222_CountCompleteTreeNodes();
-        var actual = sut.CountNodes(tree);
+        var actual = sut.CountRecursive(tree);
         Assert.Equal(expected, actual);
     }
 }

@@ -26,12 +26,12 @@ public class Q193_ValidPhoneNumbersTests(ITestOutputHelper output) : ShellTest(o
     [ClassData(typeof(Q193_ValidPhoneNumbersTestData))]
     public void Test(string input, string expected) 
     {
-        File.WriteAllText("./file.txt", input.Trim());
+        File.WriteAllText("./q193.txt", input.Trim());
 
         var sut = new Q193_ValidPhoneNumbers();
         var actual = Run(sut.Command);
         
-        File.Delete("./file.txt");
+        File.Delete("./q193.txt");
 
         var expectedLines = expected.Trim().Split(Environment.NewLine);
         var actualLines = actual.Trim().Split(Environment.NewLine);
@@ -48,6 +48,6 @@ public class Q193_ValidPhoneNumbers
 {
     public string Command =>
     """
-    cat file.txt | awk '/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-[0-9]{4}$/'
+    cat q193.txt | awk '/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-[0-9]{4}$/'
     """;
 }

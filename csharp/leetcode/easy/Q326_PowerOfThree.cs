@@ -20,7 +20,7 @@ public class Q326_PowerOfThree
         return Math.Abs(logResult - Math.Round(logResult)) < 1E-14;
     }
 
-    public bool IsPowerOfThree2(int n)
+    public bool IsPowerOfThree_Loop(int n)
     {
         if (n <= 0) return false;
         if (n == 1 || n == 3) return true;
@@ -33,6 +33,15 @@ public class Q326_PowerOfThree
         }
         
         return false;
+    }
+
+    // This one make use of a power of X M can be divided by another power of X N, where N < M
+    // e.g. 2^3 = 8 can divided by 2^2 = 4;
+    // Max power of 3 of C# int32 is 3^19 = 1162261467, if n is any 3^x,
+    // it should divide completely
+    public bool IsPowerOfThree_1Line(int n)
+    {
+        return n > 0 && 1162261467 % n == 0;
     }
 }
 
@@ -56,7 +65,7 @@ public class Q326_PowerOfThreeTests: BaseTest
     public void OfficialTestCases(int input, bool expected)
     {
         var sut = new Q326_PowerOfThree();
-        var actual = sut.IsPowerOfThree2(input);
+        var actual = sut.IsPowerOfThree_1Line(input);
         Assert.Equal(expected, actual);
     }
 }

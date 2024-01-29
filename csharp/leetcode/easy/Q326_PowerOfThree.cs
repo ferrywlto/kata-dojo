@@ -19,6 +19,21 @@ public class Q326_PowerOfThree
         
         return Math.Abs(logResult - Math.Round(logResult)) < 1E-14;
     }
+
+    public bool IsPowerOfThree2(int n)
+    {
+        if (n <= 0) return false;
+        if (n == 1 || n == 3) return true;
+        
+        long temp = 1;
+        while(temp <= n) 
+        {
+            temp *= 3;
+            if (temp == n) return true;
+        }
+        
+        return false;
+    }
 }
 
 public class Q326_PowerOfThreeTestData: TestData
@@ -29,6 +44,8 @@ public class Q326_PowerOfThreeTestData: TestData
         [0, false],
         [-1, false],
         [243, true],
+        [2188, false],
+        [int.MaxValue, false],
     ];
 }
 
@@ -39,7 +56,7 @@ public class Q326_PowerOfThreeTests: BaseTest
     public void OfficialTestCases(int input, bool expected)
     {
         var sut = new Q326_PowerOfThree();
-        var actual = sut.IsPowerOfThree(input);
+        var actual = sut.IsPowerOfThree2(input);
         Assert.Equal(expected, actual);
     }
 }

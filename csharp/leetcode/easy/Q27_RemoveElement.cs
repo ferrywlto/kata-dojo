@@ -12,19 +12,19 @@ public class Q27_RemoveElement
         if (nums.Length == 0) return 0;
         if (nums.Length == 1) return nums[0] == val ? 0 : 1;
 
-        return RemoveElement_Sort(nums, val);
+        return RemoveElement_Swap(nums, val);
     }
 
     // TC:O(n), SC:O(n)
     public int RemoveElement_Swap(int[] nums, int val)
     {
-        var stack = new Stack<int>();
+        var stack = new Queue<int>();
         var end = 0;
         for(var i=0; i<nums.Length; i++) 
         {
             if (nums[i] == val)
             {
-                stack.Push(i);
+                stack.Enqueue(i);
             }
             else 
             {
@@ -36,12 +36,14 @@ public class Q27_RemoveElement
 
         var result = nums.Length - stack.Count;
         
-        
-        while(stack.Count > 0) 
+        while(stack.Count > 0 && end >= 0) 
         {
             if (nums[end] != val)
             {
-                nums[stack.Pop()] = nums[end];
+                var swapIdx = stack.Dequeue();
+                if (swapIdx >= end) break;
+
+                nums[swapIdx] = nums[end];
                 nums[end] = val;
             }
             end--;

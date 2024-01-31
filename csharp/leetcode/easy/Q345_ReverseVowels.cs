@@ -3,6 +3,7 @@ namespace dojo.leetcode;
 public class Q345_ReverseVowels
 {
     private readonly HashSet<char> vows = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+    // TC: O(n), SC: O(n)
     public string ReverseVowels(string s) 
     {
         var temp = ' ';
@@ -25,12 +26,9 @@ public class Q345_ReverseVowels
 
             if (vows.Contains(charArr[start]) && vows.Contains(charArr[end]))
             {
-                if (charArr[start] != charArr[end]) 
-                {
-                    temp = charArr[start];
-                    charArr[start] = charArr[end];
-                    charArr[end] = temp;
-                }
+                temp = charArr[start];
+                charArr[start] = charArr[end];
+                charArr[end] = temp;
             }
             start++;
             end--;

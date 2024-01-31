@@ -85,7 +85,7 @@ public class Q303_RangeSumQueryTests
     }
 }
 
-public class Q303_RangeSumQueryStressTests(ITestOutputHelper output): BaseTest(output)
+public class Q303_RangeSumQueryStressTests(ITestOutputHelper output)
 {
     [Fact(Skip = "Time consuming benchmarking, run only when explicit specifiied")]
     public void SumRange_ShouldRunMuchFasterWithCache()
@@ -115,10 +115,10 @@ public class Q303_RangeSumQueryStressTests(ITestOutputHelper output): BaseTest(o
         var sut = new Q303_RangeSumQuery(input);
 
         var timePassedFast = Benchmark(list, sut.SumRange);
-        Output?.WriteLine($"Fast: {timePassedFast}");
+        output.WriteLine($"Fast: {timePassedFast}");
 
         var timePassedSlow = Benchmark(list, sut.SumRange_Slow);
-        Output?.WriteLine($"Slow: {timePassedSlow}");
+        output.WriteLine($"Slow: {timePassedSlow}");
 
         Assert.True(timePassedFast < timePassedSlow);
     }

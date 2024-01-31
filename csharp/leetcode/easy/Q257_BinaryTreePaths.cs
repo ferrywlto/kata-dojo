@@ -42,7 +42,7 @@ public class Q257_BinaryTreePathsTestData: TestData
 }
 
 
-public class Q257_BinaryTreePathsTests(ITestOutputHelper output):TreeNodeTests(output)
+public class Q257_BinaryTreePathsTests
 {
     [Theory]
     [ClassData(typeof(Q257_BinaryTreePathsTestData))]

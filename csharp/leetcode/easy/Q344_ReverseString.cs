@@ -1,4 +1,3 @@
-
 namespace dojo.leetcode;
 
 public class Q344_ReverseString

@@ -12,7 +12,7 @@ public class Q168_ExcelSheetColumnTitleTestData : TestData
     ];
 }
 
-public class Q168_ExcelSheetColumnTitleTests(ITestOutputHelper output) : BaseTest(output)
+public class Q168_ExcelSheetColumnTitleTests
 {
     [Theory]
     [ClassData(typeof(Q168_ExcelSheetColumnTitleTestData))]

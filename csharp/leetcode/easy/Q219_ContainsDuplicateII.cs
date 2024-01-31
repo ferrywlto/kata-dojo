@@ -43,7 +43,7 @@ public class Q219_ContainsDuplicateIITestData: TestData
     ];
 }
 
-public class Q219_ContainsDuplicateIITests(ITestOutputHelper output): BaseTest(output)
+public class Q219_ContainsDuplicateIITests
 {
     [Theory]
     [ClassData(typeof(Q219_ContainsDuplicateIITestData))]

@@ -43,7 +43,7 @@ public class Q225_ImnplementStackUsingQueues
     }
 }
 
-public class Q225_ImnplementStackUsingQueuesTests(ITestOutputHelper output): BaseTest(output)
+public class Q225_ImnplementStackUsingQueuesTests
 {
     [Fact]
     public void OfficialTestCase() 

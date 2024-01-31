@@ -27,7 +27,7 @@ public class Q292_NimGameTestData: TestData
     ];
 }
 
-public class Q292_NimGameTests(ITestOutputHelper output): BaseTest(output)
+public class Q292_NimGameTests
 {
     [Theory]
     [ClassData(typeof(Q292_NimGameTestData))]

@@ -48,7 +48,7 @@ public class Q345_ReverseVowelsTestData: TestData
     ];
 }
 
-public class Q345_ReverseVowelsTests: BaseTest
+public class Q345_ReverseVowelsTests
 {
     [Theory]
     [ClassData(typeof(Q345_ReverseVowelsTestData))]

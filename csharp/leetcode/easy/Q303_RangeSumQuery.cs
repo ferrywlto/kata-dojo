@@ -70,7 +70,7 @@ public class Q303_RangeSumQueryTestData : TestData
     ];
 }
 
-public class Q303_RangeSumQueryTests(ITestOutputHelper output) : BaseTest(output)
+public class Q303_RangeSumQueryTests
 {
     [Theory]
     [ClassData(typeof(Q303_RangeSumQueryTestData))]

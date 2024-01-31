@@ -52,7 +52,7 @@ public class Q278_FirstBadVersionTestData: TestData
     ];
 }
 
-public class Q278_FirstBadVersionTests(ITestOutputHelper output): BaseTest(output)
+public class Q278_FirstBadVersionTests
 {
     [Theory]
     [ClassData(typeof(Q278_FirstBadVersionTestData))]

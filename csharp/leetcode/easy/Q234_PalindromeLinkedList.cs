@@ -90,7 +90,7 @@ public class Q234_PalindromeLinkedListTestData: TestData
 }
 
 
-public class Q234_PalindromeLinkedListTests(ITestOutputHelper output): BaseTest(output)
+public class Q234_PalindromeLinkedListTests
 {
     [Theory]
     [ClassData(typeof(Q234_PalindromeLinkedListTestData))]

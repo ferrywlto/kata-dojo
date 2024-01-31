@@ -78,7 +78,7 @@ public class Q27_RemoveElementTestData: TestData
     ];
 }
 
-public class Q27_RemoveElementTests: BaseTest
+public class Q27_RemoveElementTests
 {
     [Theory]
     [ClassData(typeof(Q27_RemoveElementTestData))]

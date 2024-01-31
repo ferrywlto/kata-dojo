@@ -41,7 +41,7 @@ public class Q110_CheckTreeHeightBalancedTestData : TestData
     ];
 }
 
-public class Q110_CheckTreeHeightBalancedTests(ITestOutputHelper output) : BaseTest(output)
+public class Q110_CheckTreeHeightBalancedTests
 {
     [Theory]
     [ClassData(typeof(Q110_CheckTreeHeightBalancedTestData))]

@@ -58,7 +58,7 @@ public class Q326_PowerOfThreeTestData: TestData
     ];
 }
 
-public class Q326_PowerOfThreeTests: BaseTest
+public class Q326_PowerOfThreeTests
 {
     [Theory]
     [ClassData(typeof(Q326_PowerOfThreeTestData))]

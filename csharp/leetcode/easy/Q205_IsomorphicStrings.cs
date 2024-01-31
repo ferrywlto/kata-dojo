@@ -44,7 +44,7 @@ public class Q205_IsomorphicStringsTestData : TestData
     ];
 }
 
-public class Q205_IsomorphicStringsTest(ITestOutputHelper output): BaseTest(output)
+public class Q205_IsomorphicStringsTest
 {
     [Theory]
     [ClassData(typeof(Q205_IsomorphicStringsTestData))]

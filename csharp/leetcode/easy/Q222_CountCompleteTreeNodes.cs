@@ -65,7 +65,7 @@ public class Q222_CountCompleteTreeNodesTestData: TestData
     ];
 }
 
-public class Q222_CountCompleteTreeNodesTests(ITestOutputHelper output): BaseTest(output)
+public class Q222_CountCompleteTreeNodesTests
 {
     [Theory]
     [ClassData(typeof(Q222_CountCompleteTreeNodesTestData))]

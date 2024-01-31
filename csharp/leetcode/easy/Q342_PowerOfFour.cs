@@ -46,7 +46,7 @@ public class Q342_PowerOfFourTestData: TestData
     ];
 }
 
-public class Q342_PowerOfFourTests: BaseTest
+public class Q342_PowerOfFourTests
 {
     [Theory]
     [ClassData(typeof(Q342_PowerOfFourTestData))]

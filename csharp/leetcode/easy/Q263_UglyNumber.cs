@@ -51,7 +51,7 @@ public class Q263_UglyNumberTestData: TestData
 }
 
 
-public class Q263_UglyNumberTests(ITestOutputHelper output):BaseTest(output)
+public class Q263_UglyNumberTests
 {
     [Theory]
     [ClassData(typeof(Q263_UglyNumberTestData))]

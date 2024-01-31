@@ -42,7 +42,7 @@ public class Q232_ImplementQueueUsingStacks
     }
 }
 
-public class Q232_ImplementQueueUsingStacksTests(ITestOutputHelper output) : BaseTest(output)
+public class Q232_ImplementQueueUsingStacksTests
 {
     [Fact]
     public void OfficialTestCases()

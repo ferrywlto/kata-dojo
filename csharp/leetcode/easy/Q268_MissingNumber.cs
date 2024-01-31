@@ -29,7 +29,7 @@ public class Q268_MissingNumberTestData : TestData
     ];
 }
 
-public class Q268_MissingNumberTests(ITestOutputHelper output) : BaseTest(output)
+public class Q268_MissingNumberTests
 {
     [Theory]
     [ClassData(typeof(Q268_MissingNumberTestData))]

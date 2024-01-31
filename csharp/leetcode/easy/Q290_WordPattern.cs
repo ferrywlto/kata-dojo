@@ -39,7 +39,7 @@ public class Q290_WordPatternTestData: TestData
     ];
 }
 
-public class Q290_WordPatternTests(ITestOutputHelper output): BaseTest(output)
+public class Q290_WordPatternTests
 {
     [Theory]
     [ClassData(typeof(Q290_WordPatternTestData))]

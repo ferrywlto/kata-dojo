@@ -58,7 +58,7 @@ public class Q258_AddDigitsTestData: TestData
     ];
 }
 
-public class Q258_AddDigitsTest(ITestOutputHelper output): BaseTest(output)
+public class Q258_AddDigitsTest
 {
     [Theory]
     [ClassData(typeof(Q258_AddDigitsTestData))]

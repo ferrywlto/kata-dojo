@@ -45,7 +45,7 @@ public class Q283_MoveZerosTestData: TestData
     ];
 }
 
-public class Q283_MoveZerosTests(ITestOutputHelper output): BaseTest(output)
+public class Q283_MoveZerosTests
 {
     [Theory]
     [ClassData(typeof(Q283_MoveZerosTestData))]

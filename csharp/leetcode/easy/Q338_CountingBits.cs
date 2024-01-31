@@ -64,7 +64,7 @@ public class Q338_CountingBitsTestData: TestData
     ];
 }
 
-public class Q338_CountingBitsTests(ITestOutputHelper output): BaseTest(output)
+public class Q338_CountingBitsTests
 {
     [Theory]
     [ClassData(typeof(Q338_CountingBitsTestData))]
@@ -72,7 +72,6 @@ public class Q338_CountingBitsTests(ITestOutputHelper output): BaseTest(output)
     {
         var sut = new Q338_CountingBits();
         var actual = sut.CountBits(input);
-        Output?.WriteLine($"{string.Join(",", actual)}");
         Assert.True(Enumerable.SequenceEqual(expected, actual));
     }
 

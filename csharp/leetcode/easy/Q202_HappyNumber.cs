@@ -42,7 +42,7 @@ public class Q202_HappyNumbersTestData: TestData
     ];
 }
 
-public class Q202_HappyNumbersTests(ITestOutputHelper output): BaseTest(output)
+public class Q202_HappyNumbersTests
 {
     [Theory]
     [ClassData(typeof(Q202_HappyNumbersTestData))]

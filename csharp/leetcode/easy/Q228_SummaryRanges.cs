@@ -53,7 +53,7 @@ public class Q228_SummaryRangesTestData: TestData
     ];
 }
 
-public class Q228_SummaryRangesTests(ITestOutputHelper output): BaseTest(output)
+public class Q228_SummaryRangesTests
 {
     [Theory]
     [ClassData(typeof(Q228_SummaryRangesTestData))]

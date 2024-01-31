@@ -49,7 +49,7 @@ public class Q231_PowerOfTwoTestData: TestData
     ];
 }
 
-public class Q231_PowerOfTwoTests(ITestOutputHelper output): BaseTest(output)
+public class Q231_PowerOfTwoTests
 {
     [Theory]
     [ClassData(typeof(Q231_PowerOfTwoTestData))]

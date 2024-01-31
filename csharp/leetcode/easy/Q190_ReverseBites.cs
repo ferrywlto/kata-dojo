@@ -1,26 +1,5 @@
 namespace dojo.leetcode;
 
-public class Q190_ReverseBitsTestData : TestData
-{
-    protected override List<object[]> Data => 
-    [
-        [43261596, 964176192],
-        [4294967293, 3221225471],
-    ];
-}
-
-public class Q190_ReverseBitsTests(ITestOutputHelper output) : BaseTest(output)
-{
-    [Theory]
-    [ClassData(typeof(Q190_ReverseBitsTestData))]
-    public void OfficialTestCases(uint input, uint expected)
-    {
-        var sut = new Q190_ReverseBits();
-        var actual = sut.reverseBits_BitWiseOps(input);
-        Assert.Equal(expected, actual);
-    }
-}
-
 public class Q190_ReverseBits
 {
     public uint reverseBits(uint n) 
@@ -61,5 +40,26 @@ public class Q190_ReverseBits
         }
 
         return result;
+    }
+}
+
+public class Q190_ReverseBitsTestData : TestData
+{
+    protected override List<object[]> Data => 
+    [
+        [43261596, 964176192],
+        [4294967293, 3221225471],
+    ];
+}
+
+public class Q190_ReverseBitsTests
+{
+    [Theory]
+    [ClassData(typeof(Q190_ReverseBitsTestData))]
+    public void OfficialTestCases(uint input, uint expected)
+    {
+        var sut = new Q190_ReverseBits();
+        var actual = sut.reverseBits_BitWiseOps(input);
+        Assert.Equal(expected, actual);
     }
 }

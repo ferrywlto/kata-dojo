@@ -26,7 +26,7 @@ public class Q344_ReverseStringTestData: TestData
     ];
 }
 
-public class Q344_ReverseStringTests(ITestOutputHelper output): BaseTest(output)
+public class Q344_ReverseStringTests
 {
     [Theory]
     [ClassData(typeof(Q344_ReverseStringTestData))]
@@ -34,7 +34,6 @@ public class Q344_ReverseStringTests(ITestOutputHelper output): BaseTest(output)
     {
         var sut = new Q344_ReverseString();
         sut.ReverseString(input);
-        Output?.WriteLine(string.Join(",", input));
         Assert.True(Enumerable.SequenceEqual(expected, input));
     }
 }

@@ -50,7 +50,7 @@ public class Q242_ValidAnagramTestData: TestData
     ];
 }
 
-public class Q242_ValidAnagramTests(ITestOutputHelper output): BaseTest(output)
+public class Q242_ValidAnagramTests
 {
     [Theory]
     [ClassData(typeof(Q242_ValidAnagramTestData))]

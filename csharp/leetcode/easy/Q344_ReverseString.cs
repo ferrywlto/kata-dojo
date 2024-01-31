@@ -3,13 +3,13 @@ namespace dojo.leetcode;
 
 public class Q344_ReverseString
 {
+    // TC:O(n), SC:O(1)
     public void ReverseString(char[] s)
     {
         char temp = ' ';
         var times = s.Length / 2;
         for (var i = 0; i < times; i++ )
         {
-            if (s[i] == s[^(i + 1)]) continue;
             temp = s[i];
             s[i] = s[^(i+1)];
             s[^(i+1)] = temp;

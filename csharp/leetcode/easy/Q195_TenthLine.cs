@@ -55,7 +55,7 @@ public class Q195_TenthLineTests(ITestOutputHelper output) : ShellTest(output)
 
         foreach(var line in actualLines)
         {
-            output.WriteLine(line);
+            Output!.WriteLine(line);
             Assert.Contains(line, expectedLines);
         }
     }

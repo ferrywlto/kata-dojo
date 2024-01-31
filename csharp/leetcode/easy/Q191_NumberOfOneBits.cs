@@ -12,7 +12,7 @@ public class Q191_NumberOfOneBitsTestData : TestData
     ];
 }
 
-public class Q191_NumberOfOneBitsTests(ITestOutputHelper output): TestBase(output)
+public class Q191_NumberOfOneBitsTests(ITestOutputHelper output): BaseTest(output)
 {
     [Theory]
     [ClassData(typeof(Q191_NumberOfOneBitsTestData))]

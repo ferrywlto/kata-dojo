@@ -2,7 +2,7 @@ using System.Diagnostics;
 
 namespace dojo.leetcode;
 
-public class ShellTest(ITestOutputHelper output) : TestBase(output)
+public class ShellTest(ITestOutputHelper output) : BaseTest(output)
 {
     // Use "/bin/bash" for Linux/Mac, "cmd.exe" for Windows
     protected virtual string Shell => "/bin/bash";
@@ -25,7 +25,7 @@ public class ShellTest(ITestOutputHelper output) : TestBase(output)
             process.WaitForExit();
 
             // log the output
-            output.WriteLine(result);
+            Output!.WriteLine(result);
         }
         return result;
     }

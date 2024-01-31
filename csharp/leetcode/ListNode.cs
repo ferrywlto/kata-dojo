@@ -26,7 +26,7 @@ public class ListNode
     }
 }
 
-public class ListNodeTest(ITestOutputHelper output) : TestBase(output) 
+public class ListNodeTest(ITestOutputHelper output) : BaseTest(output) 
 {
     public static ListNode GenerateListNode(int numDigits, int digitValue) 
     {
@@ -60,7 +60,7 @@ public class ListNodeTest(ITestOutputHelper output) : TestBase(output)
             count++;
             list = list.next;
         }
-        output.WriteLine($"count:{count}");
+        Output!.WriteLine($"count:{count}");
         return count;
     }
 
@@ -68,11 +68,11 @@ public class ListNodeTest(ITestOutputHelper output) : TestBase(output)
     {
         var numList = new List<int>();
         while (list != null) {
-            output.WriteLine(list.val.ToString());
+            Output!.WriteLine(list.val.ToString());
             numList.Add(list.val);
             list = list.next;
         }
         var outputTxt = $"[{string.Join(",", numList)}]";
-        output.WriteLine(outputTxt);
+        Output!.WriteLine(outputTxt);
     }
 }

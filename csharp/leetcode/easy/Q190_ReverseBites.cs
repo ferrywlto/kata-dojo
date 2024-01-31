@@ -9,7 +9,7 @@ public class Q190_ReverseBitsTestData : TestData
     ];
 }
 
-public class Q190_ReverseBitsTests(ITestOutputHelper output) : TestBase(output)
+public class Q190_ReverseBitsTests(ITestOutputHelper output) : BaseTest(output)
 {
     [Theory]
     [ClassData(typeof(Q190_ReverseBitsTestData))]

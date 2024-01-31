@@ -4,7 +4,7 @@ using Xunit.Sdk;
 
 namespace dojo.leetcode;
 
-public class DatabaseTest : TestBase, IDisposable
+public class DatabaseTest : BaseTest, IDisposable
 {
     protected readonly SqliteConnection connection;
     public DatabaseTest(ITestOutputHelper output) : base(output) 
@@ -37,7 +37,7 @@ public class DatabaseTest : TestBase, IDisposable
         for(var i=0; i < reader.FieldCount; i++) 
             stringBuilder.Append(FormatOutput(reader.GetName(i)));
 
-        output.WriteLine(stringBuilder.ToString());
+        Output!.WriteLine(stringBuilder.ToString());
 
         while(reader.Read()) 
         {
@@ -48,7 +48,7 @@ public class DatabaseTest : TestBase, IDisposable
                 var colValue = reader.IsDBNull(i) ? "NULL" : reader.GetString(i);
                 stringBuilder.Append(FormatOutput(colValue));
             }
-            output.WriteLine(stringBuilder.ToString());
+            Output.WriteLine(stringBuilder.ToString());
         }
     }
 

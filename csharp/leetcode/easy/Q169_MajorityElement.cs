@@ -9,7 +9,7 @@ public class Q169_MajorityElementTestData : TestData
     ];
 }
 
-public class Q169_MajorityElementTests(ITestOutputHelper output) : TestBase(output)
+public class Q169_MajorityElementTests(ITestOutputHelper output) : BaseTest(output)
 {
     [Theory]
     [ClassData(typeof(Q169_MajorityElementTestData))]

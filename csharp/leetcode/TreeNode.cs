@@ -1,5 +1,5 @@
 namespace dojo.leetcode;
-public class TreeNodeTests(ITestOutputHelper output) : TestBase(output)
+public class TreeNodeTests(ITestOutputHelper output) : BaseTest(output)
 {
     [Fact]
     public void ShouldEqualOnPerfectTree()

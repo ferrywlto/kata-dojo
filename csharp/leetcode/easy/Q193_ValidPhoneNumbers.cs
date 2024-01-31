@@ -38,7 +38,7 @@ public class Q193_ValidPhoneNumbersTests(ITestOutputHelper output) : ShellTest(o
 
         foreach(var line in actualLines)
         {
-            output.WriteLine(line);
+            Output!.WriteLine(line);
             Assert.Contains(line, expectedLines);
         }
     }

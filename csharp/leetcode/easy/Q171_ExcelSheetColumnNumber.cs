@@ -11,7 +11,7 @@ public class Q171_ExcelSheetColumnNumberTestData : TestData
     ];
 }
 
-public class Q171_ExcelSheetColumnNumberTests(ITestOutputHelper output) : TestBase(output)
+public class Q171_ExcelSheetColumnNumberTests(ITestOutputHelper output) : BaseTest(output)
 {
     [Theory]
     [ClassData(typeof(Q171_ExcelSheetColumnNumberTestData))]

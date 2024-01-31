@@ -1,10 +1,43 @@
-
 namespace dojo.leetcode;
 
 public class Q345_ReverseVowels
 {
-    public string ReverseVowels(string s) {
-        return string.Empty;   
+    private readonly char[] vows = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+    public string ReverseVowels(string s) 
+    {
+        var temp = ' ';
+        var charArr = s.ToCharArray();
+        var start = 0;
+        var end = s.Length - 1;
+
+        while(start < end)
+        {
+            while (!vows.Contains(charArr[start]))
+            {
+                start++;
+                if (start >= end) break;
+            }
+            while (!vows.Contains(charArr[end]))
+            {
+                end--;
+                if (start >= end) break;
+            }
+
+            if (vows.Contains(charArr[start]) && vows.Contains(charArr[end]))
+            {
+                if (charArr[start] != charArr[end]) 
+                {
+                    temp = charArr[start];
+                    charArr[start] = charArr[end];
+                    charArr[end] = temp;
+                }
+            }
+            start++;
+            end--;
+        }
+
+        var result = string.Join(string.Empty, charArr);
+        return result;
     }
 }
 

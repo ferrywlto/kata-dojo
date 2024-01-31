@@ -12,7 +12,7 @@ public class Q144_PreorderTraversalTestData : TestData
 
 }
 
-public class Q144_PreorderTraversalTests(ITestOutputHelper output) : TreeNodeTests(output)
+public class Q144_PreorderTraversalTests(ITestOutputHelper output) : TreeNodeTests
 {
     [Theory]
     [ClassData(typeof(Q144_PreorderTraversalTestData))]
@@ -22,8 +22,8 @@ public class Q144_PreorderTraversalTests(ITestOutputHelper output) : TreeNodeTes
         var tree = TreeNode.FromLevelOrderingIntArray(input);
         var actual = sut.PreorderTraversal(tree);
 
-        Output!.WriteLine($"expected: {string.Join(',', expected)}");
-        Output.WriteLine($"actual: {string.Join(',', actual.ToArray())}");
+        output!.WriteLine($"expected: {string.Join(',', expected)}");
+        output.WriteLine($"actual: {string.Join(',', actual.ToArray())}");
         Assert.True(Enumerable.SequenceEqual(expected, actual.ToArray()));
     }
 }

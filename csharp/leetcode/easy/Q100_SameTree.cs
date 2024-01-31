@@ -11,7 +11,7 @@ public class Q100_SameTreeTestData : TestData
     ];
 }
 
-public class Q100_SameTreeTests(ITestOutputHelper output) : TreeNodeTests(output)
+public class Q100_SameTreeTests: TreeNodeTests
 {
     [Theory]
     [ClassData(typeof(Q100_SameTreeTestData))]

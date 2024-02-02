@@ -1,8 +1,4 @@
-
 namespace dojo.leetcode;
-using dojo;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
-
 /*
 Follow up:
 

@@ -1,6 +1,6 @@
 
 namespace dojo.leetcode;
-
+using dojo;
 /*
 Follow up:
 
@@ -19,28 +19,19 @@ public class Q350_IntersectionTwoArrays2
     // Use trival approach, TC: O(n^2), SC: O(n) 
     public int[] Intersect_Inefficient(int[] nums1, int[] nums2)
     {
-        List<int> longer;
-        int[] shorter;
-        if (nums1.Length > nums2.Length) 
-        {
-            longer = nums1.ToList();
-            shorter = nums2;
-        }
-        else
-        {
-            longer = nums2.ToList();
-            shorter = nums1;
-        }
+        int[] longer, shorter;
+        (longer, shorter) = Longer(nums1, nums2);
+        List<int> longerList = longer.ToList();
 
         var result = new List<int>();
         foreach(var i in shorter) 
         {            
-            for(var j=0; j<longer.Count; j++)
+            for(var j=0; j<longerList.Count; j++)
             {
                 if(longer[j] == i)
                 {
                     result.Add(i);
-                    longer.RemoveAt(j);
+                    longerList.RemoveAt(j);
                     break;
                 }
             }
@@ -52,29 +43,10 @@ public class Q350_IntersectionTwoArrays2
     public int[] Intersect_Analysis(int[] nums1, int[] nums2)
     {
         int[] longer, shorter;
-        if (nums1.Length > nums2.Length) 
-        {
-            longer = nums1;
-            shorter = nums2;
-        }
-        else
-        {
-            longer = nums2;
-            shorter = nums1;
-        }
+        (longer, shorter) = Longer(nums1, nums2);
 
-        var dict = new Dictionary<int, int>();
-        foreach (var n in shorter)
-        {
-            if(dict.TryGetValue(n, out var value))
-            {
-                dict[n]++;
-            }
-            else
-            {
-                dict[n] = 1;
-            }
-        } 
+        var dict = shorter.Analyze();
+         
         var result = new List<int>();
         foreach (var l in longer)
         {
@@ -88,6 +60,11 @@ public class Q350_IntersectionTwoArrays2
 
         return result.ToArray();
     }
+
+    public (int[] longer, int[] shorter) Longer(int[] input1, int[] input2) =>
+        input1.Length > input2.Length
+            ? (input1, input2)
+            : (input2, input1);
 }
 
 public class Q350_IntersectionTwoArrays2TestData : TestData

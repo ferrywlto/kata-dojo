@@ -3,9 +3,19 @@ namespace dojo.leetcode;
 
 public class Q383_RansomNote
 {
+    // TC: O(n), SC: O(n)
     public bool CanConstruct(string ransomNote, string magazine)
     {
-        return false;
+        var dict = magazine.ToCharArray().Analyze();
+        foreach (var c in ransomNote)
+        {
+            if (!dict.TryGetValue(c, out int value) || value == 0)
+            {
+                return false;
+            }
+            dict[c] = --value;
+        }
+        return true;
     }
 }
 

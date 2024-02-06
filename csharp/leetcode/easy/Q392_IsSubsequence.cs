@@ -4,7 +4,21 @@ public class Q392_IsSubsequence
 {
     public bool IsSubsequence(string s, string t)
     {
-        return false;
+        if (s.Length == 0) return true;
+        else if (s.Length != 0 && t.Length == 0) return false;
+
+        var longIdx = 0;
+        var shortIdx = 0;
+
+        while(longIdx < t.Length && shortIdx < s.Length)
+        {
+            if(t[longIdx] == s[shortIdx])
+            {
+                shortIdx++;
+            }
+            longIdx++;
+        }
+        return shortIdx >= s.Length;
     }
 }
 
@@ -13,7 +27,9 @@ public class Q392_IsSubsequenceTestData: TestData
     protected override List<object[]> Data =>
     [
         ["abc", "ahbgdc", true],
+        ["abc", "hagbdc", true],
         ["axc", "ahbgdc", false],
+        ["b", "abc", true],
     ];
 }
 

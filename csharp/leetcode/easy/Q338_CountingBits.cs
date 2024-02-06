@@ -2,7 +2,25 @@ namespace dojo.leetcode;
 
 public class Q338_CountingBits
 {
-    // Provided by Copilot, use fewer memory and loop less
+    // Suggested by Copilot in Q401 but only fast for single number 
+    int CountBits_Single(int num)
+    {
+        int count = 0;
+        while (num > 0)
+        {
+            count += num & 1;
+            num >>= 1;
+        }
+        return count;
+    }
+
+    // TC: O(mn), not faster
+    public int[] CountBits_OneLine(int n)
+    {
+        return Enumerable.Range(0, n+1).Select(CountBits_Single).ToArray();
+    }
+
+    // Provided by Copilot, use fewer memory and loop less, fastest among 3
     public int[] CountBits_Faster(int n)
     {
         var head = new List<int> { 0, 1 };
@@ -19,7 +37,7 @@ public class Q338_CountingBits
         return head.ToArray();
     }
 
-    // TC:O(n), SC:O(n)
+    // TC:O(n), SC:O(n), Second fastest in 3, slighty slower than CountBits_Faster because of extra elements generated
     public int[] CountBits(int n)
     {
         var num = n;
@@ -63,14 +81,15 @@ public class Q338_CountingBitsTestData: TestData
     ];
 }
 
-public class Q338_CountingBitsTests
+public class Q338_CountingBitsTests(ITestOutputHelper helper)
 {
     [Theory]
     [ClassData(typeof(Q338_CountingBitsTestData))]
     public void OfficialTestCases(int input, int[] expected)
     {
         var sut = new Q338_CountingBits();
-        var actual = sut.CountBits(input);
+        var actual = sut.CountBits_Faster(input);
+        helper.WriteLine(string.Join(",", actual));
         Assert.True(Enumerable.SequenceEqual(expected, actual));
     }
 

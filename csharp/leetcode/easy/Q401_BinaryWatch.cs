@@ -3,14 +3,12 @@ namespace dojo.leetcode;
 public class Q401_BinaryWatch
 {
     int[]? Bits;
-    // int[]? HourBits;
-    Dictionary<int, List<string>> PossibleTime = new Dictionary<int, List<string>>();
+    Dictionary<int, List<string>> PossibleTime = [];
 
     // 1111 111111 4bits for hour and 6bits for minute
-    // 0011 1100 0000
-    // hour mask 0x03C0  
-    // minute mask 0011 1111 -> 0x3f
+    // minute mask 0011 1111 -> 0b111111
 
+    // TC: O(n) for first pass, O(1) afterwards, SC: O(n)
     public IList<string> ReadBinaryWatch(int turnedOn)
     {
         // for hour, at most 3 bits on as 4 bits on will > 12
@@ -23,12 +21,12 @@ public class Q401_BinaryWatch
             return timeList;
         }
 
+        // 1024 because of 10 bits
         Bits ??= new Q338_CountingBits().CountBits_Faster(1024);
         var result = new List<string>();
 
-        var list = Bits.Select((i, idx) => (idx, i));
-        
-        var filtered = list
+        var filtered = Bits
+            .Select((i, idx) => (idx, i))
             .Where(x => x.i == turnedOn)
             .Select(x => (x.idx >> 6, x.idx & 0b111111))
             .Where(x => x.Item1 < 12 && x.Item2 < 60)

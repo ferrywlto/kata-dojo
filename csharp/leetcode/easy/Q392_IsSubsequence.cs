@@ -2,10 +2,11 @@ namespace dojo.leetcode;
 
 public class Q392_IsSubsequence
 {
+    // TC: O(n), SC: O(1)
     public bool IsSubsequence(string s, string t)
     {
         if (s.Length == 0) return true;
-        else if (s.Length != 0 && t.Length == 0) return false;
+        else if (t.Length == 0) return false;
 
         var longIdx = 0;
         var shortIdx = 0;

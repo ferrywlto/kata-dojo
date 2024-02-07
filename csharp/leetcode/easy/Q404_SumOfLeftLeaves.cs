@@ -3,9 +3,25 @@ namespace dojo.leetcode;
 
 public class Q404_SumOfLeftLeaves
 {
+    // TC: O(n), SC: O(n)
     public int SumOfLeftLeaves(TreeNode? root)
     {
-        return 0;
+        var result = 0;        
+        var stack = new Stack<TreeNode>();
+        
+        if (root != null) stack.Push(root);
+
+        while(stack.Count > 0)
+        {
+            var node = stack.Pop();
+            if(node.left != null && node.left.IsLeaf) 
+            {
+                result += node.left.val;
+            }
+            if (node.left != null) stack.Push(node.left);
+            if (node.right != null) stack.Push(node.right);
+        }
+        return result;
     }
 }
 

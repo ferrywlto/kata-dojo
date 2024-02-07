@@ -2,21 +2,32 @@ namespace dojo.leetcode;
 
 public class Q405_ConvertNumToHex
 {
+    const string hex = "0123456789abcdef";
+    // TC: O(1), SC: O(1)
     public string ToHex(int num)
     {
-        return string.Empty;
+        if (num == 0) return "0";
+        int x = num;
+        var result = new Stack<char>();
+        while ((x & 0xffffffff) != 0)
+        {
+            var temp = hex[x & 0xf];
+            result.Push(temp);
+            x = x >>> 4;
+        }
+
+        return string.Join(string.Empty, result);
     }
 }
 
 public class Q405_ConvertNumToHexTestData : TestData
 {
     protected override List<object[]> Data =>
-        new()
-        {
-            new object[] {26, "1a"},
-            new object[] {-1, "ffffffff"},
-            new object[] {0, "0"},
-        };
+    [
+        [26, "1a"],
+        [-1, "ffffffff"],            
+        [0, "0"],
+    ];
 }
 
 public class Q405_ConvertNumToHexTests

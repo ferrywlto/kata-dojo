@@ -2,29 +2,31 @@ namespace dojo.leetcode;
 
 public class Q409_LongestPalindrome
 {
+    // TC: O(n), SC: O(n)
     public int LongestPalindrome(string s)
     {
         // 1. analyze
         // 2. if s.length is odd, check dict have only 1 odd char and all others are even
         // 3. if s.length is even, check if all chars are even 
         var dict = s.Analyze();
-        List<KeyValuePair<char, int>> odds = [];
-        List<KeyValuePair<char, int>> evens = [];
-
+        var hasOdd = false;
+        var sumOfEven = 0;
+        var sumOfOdd = 0;
         foreach(var kv in dict)
         {
-            if (kv.Value % 2 == 0) evens.Add(kv);
-            else odds.Add(kv);
+            if (kv.Value % 2 == 0)
+            {
+                sumOfEven += kv.Value;
+            }
+            else
+            {
+                hasOdd = true;
+                sumOfOdd += kv.Value - 1;
+            }
         }
+        var result = sumOfEven + sumOfOdd;
 
-        int sumOfEven = evens.Sum(x => x.Value);
-
-        if (odds.Count > 0)
-        {
-            var sumOfOdd = odds.Sum(x => x.Value - 1);
-            return sumOfEven + sumOfOdd + 1;
-        }
-        return sumOfEven;
+        return hasOdd ? result + 1 : result;
     }
 }
 

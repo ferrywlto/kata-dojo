@@ -20,6 +20,41 @@ public class Q412_FizzBuzz
         if (n % 5 == 0) return "Buzz";
         return n.ToString();
     }
+
+    // Same efficiency, slightly faster only if n is very large
+    public IList<string> FizzBuzz_NoModulo(int n) 
+    {
+        var result = new List<string>();
+        int fizz = 0, buzz = 0;
+
+        for (int i = 1; i <= n; i++) 
+        {
+            fizz++;
+            buzz++;
+            if (fizz == 3 && buzz == 5) 
+            {
+                result.Add("FizzBuzz");
+                fizz = 0;
+                buzz = 0;
+            } 
+            else if (fizz == 3) 
+            {
+                result.Add("Fizz");
+                fizz = 0;
+            } 
+            else if (buzz == 5) 
+            {
+                result.Add("Buzz");
+                buzz = 0;
+            } 
+            else 
+            {
+                result.Add(i.ToString());
+            }
+        }
+
+        return result;
+    }
 }
 
 public class Q412_FizzBuzzTestData: TestData
@@ -39,7 +74,7 @@ public class Q412_FizzBuzzTests
     public void Test_FizzBuzz(int n, List<string> expected)
     {
         var q = new Q412_FizzBuzz();
-        var result = q.FizzBuzz(n);
+        var result = q.FizzBuzz_NoModulo(n);
         Assert.Equal(expected, result);
     }
 }

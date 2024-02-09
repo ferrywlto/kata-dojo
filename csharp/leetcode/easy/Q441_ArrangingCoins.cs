@@ -5,16 +5,36 @@ public class Q441_ArrangingCoins
     // Constraints
     // 1 <= n <= 2^31 - 1
     // TC: O(n), SC: O(1)
+    // Math: Sum(1 to n) = (n * (n + 1)) / 2
+    public long SumFromOneTo(long n) => n * (n + 1) / 2;
     public int ArrangeCoins(int n)
     {
-        // if (n == 0 || n == 1) return n;
-        int count = 0;
+        if (n == 0 || n == 1) return n;
+        // actually it is also a binary search problem
+        // find SumFromOneTo(middle) >= n
+        long start = 0;
+        long end = n;
+        
+        long middle = (end + start) / 2;
         long temp = 0;
-        while (temp <= n)
+        while (end - start > 1)
         {
-            temp += ++count;
+            temp = SumFromOneTo(middle);
+            if (temp == n)
+            {
+                return (int)middle;
+            }
+            else if (temp > n)
+            {
+                end = middle;
+            }
+            else
+            {
+                start = middle;
+            }
+            middle = (end + start) / 2;
         }
-        return count-1;
+        return (int)middle;
     }
 }
 

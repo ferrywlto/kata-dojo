@@ -4,12 +4,17 @@ public class Q441_ArrangingCoins
 {
     // Constraints
     // 1 <= n <= 2^31 - 1
-
+    // TC: O(n), SC: O(1)
     public int ArrangeCoins(int n)
     {
+        // if (n == 0 || n == 1) return n;
         int count = 0;
-        
-        return count;
+        long temp = 0;
+        while (temp <= n)
+        {
+            temp += ++count;
+        }
+        return count-1;
     }
 }
 
@@ -20,8 +25,10 @@ public class Q441_ArrangingCoinsTestData: TestData
         [5, 2],
         [8, 3],
         [1, 1],
+        [3, 2],
         [0, 0],
         [1804289383, 60070],
+        [2147483647, 65535],
     ];
 }
 

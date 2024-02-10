@@ -2,9 +2,18 @@ namespace dojo.leetcode;
 
 public class Q455_AssignCookies
 {
+    // TC: O(n log n), SC: O(1)
     public int FindContentChildren(int[] g, int[] s)
     {
-        return 0;
+        var match = 0;
+        Array.Sort(g);
+        Array.Sort(s);
+        for(var i = 0; i<s.Length; i++)
+        {
+            if(s[i] >= g[match]) { match++; }
+            if (match >= g.Length) break;
+        }
+        return match;
     }
 }
 

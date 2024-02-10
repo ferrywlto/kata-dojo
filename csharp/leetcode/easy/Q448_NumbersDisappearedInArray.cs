@@ -2,11 +2,15 @@ namespace dojo.leetcode;
 
 public class Q448_NumbersDisappearedInArray
 {
+    // TC: O(n), SC: O(n)
     public IList<int> FindDisappearedNumbers(int[] nums)
     {
-        var result = new List<int>();
-        
-        return result;
+        var disappeared = Enumerable.Range(1, nums.Length).ToHashSet();
+        for(var i=0; i<nums.Length; i++)
+        {
+            disappeared.Remove(nums[i]);
+        }         
+        return disappeared.ToList();
     }
 }
 

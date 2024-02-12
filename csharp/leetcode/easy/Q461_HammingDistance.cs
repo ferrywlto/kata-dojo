@@ -2,9 +2,26 @@ namespace dojo.leetcode;
 
 public class Q461_HammingDistance
 {
+    // TC: O(num of bits in int) -> O(1), SC: O(1)
     public int HammingDistance(int x, int y)
     {
-        return 0;
+        // Hamming distance of bits is the number of bits different.
+        // https://en.wikipedia.org/wiki/Hamming_distance
+        // 111
+        // 000 
+        // xor = 111 -> 3 bits different -> Hamming Distance is 3
+        // 101
+        // 100
+        // xor = 001 -> 1 bit different -> Hamming Distance is 1 
+        // which is number of 1s after XOR literally
+        var xor = x ^ y;
+        var count = 0;
+        while (xor != 0)
+        {
+            if((xor & 1) == 1) count++;
+            xor >>= 1;
+        } 
+        return count;
     }
 }
 

@@ -29,6 +29,18 @@ public class Q459_RepeatedSubstring
         }
         return false;
     }
+
+    // TC: O(n), SC: O(n)
+    // This make use of the property of duplicating a string, the original string will appear in the middle only if the original string compose of repeated substring
+    // e.g. bbc -> bbcbbc -> bcbb -> false
+    // e.g. bcbc -> bcbcbcbc -> cbcbcb -> true
+    public bool RepeatedSubstringPattern_Faster(string s)
+    {
+        if (s.Length == 0) return false;
+
+        var dup = s + s;
+        return dup[1..^1].Contains(s);
+    }
 }
 
 public class Q459_RepeatedSubstringTestData: TestData
@@ -61,7 +73,7 @@ public class Q459_RepeatedSubstringTests
     public void Test_RepeatedSubstringPattern(string s, bool expected)
     {
         var sut = new Q459_RepeatedSubstring();
-        var actual = sut.RepeatedSubstringPattern(s);
+        var actual = sut.RepeatedSubstringPattern_Faster(s);
         Assert.Equal(expected, actual);
     }
 }

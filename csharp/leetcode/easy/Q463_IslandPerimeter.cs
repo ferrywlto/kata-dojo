@@ -41,7 +41,8 @@ public class Q463_IslandPerimeter
 
     public int CheckWest(int[][] grid, int row, int col) => col == left ? 1 : CheckIsLand(grid, row, col - 1);
 
-    public int CheckIsLand(int[][] grid, int row, int col) => grid[row][col] == 1 ? 0 : 1;
+    // XOR: 0 -> 1, 1 -> 0 
+    public int CheckIsLand(int[][] grid, int row, int col) => grid[row][col] ^ 1;
 }
 
 public class Q463_IslandPerimeterTestData : TestData

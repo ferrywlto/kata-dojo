@@ -16,6 +16,18 @@ public class Q476_NumberComplement
 
         return result;
     }
+
+    // save memory from string and less operations
+    public int FindComplementWithMask(int num)
+    {
+        // e.g. 5 -> 101, 3 bits needed
+        var bitsOfNum = (int)Math.Log(num, 2) + 1;
+        // e.g. 5, 2^3 = 8 -> 1000, 8 - 1 -> 0111, this is the mask needed to XOR 0101
+        var bitMask = (int)Math.Pow(2, bitsOfNum) - 1;
+        // 0111 xor
+        // 0101 -> 0010 -> 2
+        return num ^ bitMask;
+    }
 }
 
 public class Q476_NumberComplementTestData: TestData
@@ -35,7 +47,7 @@ public class Q476_NumberComplementTest
     public void Test(int input, int expected)
     {
         var sut = new Q476_NumberComplement();
-        var actual = sut.FindComplement(input);
+        var actual = sut.FindComplementWithMask(input);
         Assert.Equal(expected, actual);
     }
 }

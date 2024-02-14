@@ -46,7 +46,7 @@ public class Q482_LicenseKeyFormattingTests
     public void OfficialTestCases(string input, int k, string expected)
     {
         var sut = new Q482_LicenseKeyFormatting();
-        var actual = sut.LicenseKeyFormatting2(input, k);
+        var actual = sut.LicenseKeyFormatting(input, k);
         Assert.Equal(expected, actual);
     }
 }

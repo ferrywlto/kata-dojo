@@ -13,7 +13,7 @@ public class Q482_LicenseKeyFormatting
         Console.WriteLine($"after replace: {sb}");
         for(var i=0; i<sb.Length; i++)
         {
-            sb[i] = ToUpper(sb[i]);
+            sb[i] = char.ToUpper(sb[i]);
         }
         if (k >= sb.Length) return sb.ToString();
 
@@ -28,11 +28,6 @@ public class Q482_LicenseKeyFormatting
         Console.WriteLine(sb);
         return sb.ToString();
     }
-
-    public char ToUpper(char input) 
-        => (input >= 97 && input <= 122) 
-        ? (char)(input - 32) 
-        : input;
  }
 
 public class Q482_LicenseKeyFormattingTestData : TestData

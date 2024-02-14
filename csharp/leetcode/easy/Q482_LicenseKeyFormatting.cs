@@ -1,4 +1,3 @@
-
 using System.Text;
 
 namespace dojo.leetcode;
@@ -8,24 +7,21 @@ public class Q482_LicenseKeyFormatting
     // TC: O(n), SC: O(n)
     public string LicenseKeyFormatting(string s, int k)
     {
-        var sb = new StringBuilder(s);
-        sb.Replace("-", string.Empty);
-        Console.WriteLine($"after replace: {sb}");
-        for(var i=0; i<sb.Length; i++)
-        {
-            sb[i] = char.ToUpper(sb[i]);
-        }
-        if (k >= sb.Length) return sb.ToString();
+        var sb = new StringBuilder();
+        int count = 0;
 
-        Console.WriteLine(sb);
-
-        for (var j=sb.Length-k; j>=1; j-=k) 
+        for (int i = s.Length - 1; i >= 0; i--)
         {
-            sb.Insert(j, "-");
-            Console.WriteLine(sb);
+            if (s[i] != '-')
+            {
+                if (count != 0 && count % k == 0)
+                {
+                    sb.Insert(0, '-');
+                }
+                sb.Insert(0, char.ToUpper(s[i]));
+                count++;
+            }
         }
-        
-        Console.WriteLine(sb);
         return sb.ToString();
     }
  }
@@ -50,7 +46,7 @@ public class Q482_LicenseKeyFormattingTests
     public void OfficialTestCases(string input, int k, string expected)
     {
         var sut = new Q482_LicenseKeyFormatting();
-        var actual = sut.LicenseKeyFormatting(input, k);
+        var actual = sut.LicenseKeyFormatting2(input, k);
         Assert.Equal(expected, actual);
     }
 }

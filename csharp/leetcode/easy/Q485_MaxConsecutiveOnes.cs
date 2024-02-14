@@ -3,9 +3,27 @@ namespace dojo.leetcode;
 
 public class Q485_MaxConsecutiveOnes
 {
+    // TC: O(n), SC: O(1)
     public int FindMaxConsecutiveOnes(int[] nums)
     {
-        return 0;
+        var max = 0;
+        var oneSoFar = 0;
+        for (var i=0; i<nums.Length; i++)
+        {
+            if(nums[i] == 1) 
+            {
+                oneSoFar++;
+                if (oneSoFar > max) 
+                {
+                    max = oneSoFar;
+                }
+            }
+            else
+            {
+                oneSoFar = 0;
+            }
+        }
+        return max;
     }
 }
 

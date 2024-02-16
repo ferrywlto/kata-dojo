@@ -2,16 +2,9 @@ namespace dojo.leetcode;
 
 public class Q500_KeyboardRow
 {
-    private const string row1 = "qwertyuiop";
-    private const string row2 = "asdfghjkl";
-    private const string row3 = "zxcvbnm";
-    private readonly string rowAll = row1 + row2 + row3;
-    private readonly Dictionary<int, (int, int)> Ranges = new()
-    {
-        {1, (0, row1.Length-1) },
-        {2, (row1.Length, row1.Length + row2.Length-1) },
-        {3, (row1.Length + row2.Length, row1.Length + row2.Length + row3.Length-1) },
-    };
+    private readonly HashSet<char> row1 = new("qwertyuiop");
+    private readonly HashSet<char> row2 = new("asdfghjkl");
+    private readonly HashSet<char> row3 = new("zxcvbnm");
 
     private bool InOneRow(string input)
     {
@@ -19,30 +12,18 @@ public class Q500_KeyboardRow
 
         var firstChar = input[0];
 
-        int range;
-        if (row1.Contains(firstChar))
-        {
-            range = 1;
-        }
-        else if (row2.Contains(firstChar))
-        {
-            range = 2;
-        }
-        else
-        {
-            range = 3;
-        }
-        var (min, max) = Ranges[range];
+        HashSet<char> row;
+        if (row1.Contains(firstChar)) row = row1;
+        else if (row2.Contains(firstChar)) row = row2;
+        else row = row3;
 
         for(var i=1; i<input.Length; i++)
         {
-            var idx = rowAll.IndexOf(input[i]);
-
-            if (idx < min || idx > max) return false;
+            if (!row.Contains(input[i])) return false;
         }
         return true;
     }
-    
+
     // TC: O(n), SC: O(n)
     public string[] FindWords(string[] words)
     {

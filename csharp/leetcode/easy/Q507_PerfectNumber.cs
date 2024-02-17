@@ -4,11 +4,12 @@ namespace dojo.leetcode;
 public class Q507_PerfectNumber
 {
     readonly HashSet<int> cache = [1];
-    // TC: O(n), SC: O(n)
+    // TC: O(sqrt(n)), SC: O(n)
     public bool CheckPerfectNumber(int num)
     {
         if (num <= 1) return false;
-        for(var i=2; i<num/2; i++)
+        // biggest divisor is sqrt(num), not num/2. Run up to sqrt(num) means all smaller integer divisor already exist in cache
+        for(var i=2; i*i<num; i++)
         {
             if(!cache.Contains(i) && num % i == 0)
             {
@@ -17,7 +18,7 @@ public class Q507_PerfectNumber
                 cache.Add(temp);
             }
         }
-        return cache.Sum(x => x) == num;
+        return cache.Sum() == num;
     }
 }
 

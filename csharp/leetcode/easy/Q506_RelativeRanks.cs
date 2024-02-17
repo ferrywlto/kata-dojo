@@ -21,7 +21,7 @@ public class Q506_RelativeRanksTests
 {
     [Theory]
     [ClassData(typeof(Q506_RelativeRanksTestData))]
-    public void Test_FindRelativeRanks(int[] score, string[] expected)
+    public void OfficialTestCases(int[] score, string[] expected)
     {
         var sut = new Q506_RelativeRanks();
         var actual = sut.FindRelativeRanks(score);

@@ -83,7 +83,7 @@ public class Q507_PerfectNumberTests
 {
     [Theory]
     [ClassData(typeof(Q507_PerfectNumberTestData))]
-    public void Test_CheckPerfectNumber(int num, bool expected)
+    public void OfficialTestCases(int num, bool expected)
     {
         var sut = new Q507_PerfectNumber();
         var actual = sut.CheckPerfectNumber(num);

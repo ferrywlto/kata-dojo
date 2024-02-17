@@ -1,25 +1,35 @@
 namespace dojo.leetcode;
 
+public class ReverseComparer : IComparer<int>
+{
+    public int Compare(int x, int y)
+    {
+        // Reverse the order of comparison to sort in descending order
+        return y.CompareTo(x);
+    }
+}
+
 public class Q506_RelativeRanks
 {
-    // TC: O(n^2), SC: O(n)
+    // TC: O(n log n), SC: O(n)
     public string[] FindRelativeRanks(int[] score)
     {
-        int[] copy = new int[score.Length];
-        Array.Copy(score, copy, score.Length);
-        Array.Sort(copy);
-        Array.Reverse(copy);
-        var result = new string[score.Length];
-
-        for(var i=0; i<score.Length; i++)
+        int[] copy = (int[])score.Clone();
+        Array.Sort(copy, (a,b) => b.CompareTo(a));
+        
+        var rank = new Dictionary<int, string>();
+        for(var i=0; i<copy.Length; i++)
         {
-            var idx = Array.IndexOf(copy, score[i]);
-            if (idx == 0) result[i] = "Gold Medal";
-            else if (idx == 1) result[i] = "Silver Medal";
-            else if (idx == 2) result[i] = "Bronze Medal";
-            else result[i] = (idx+1).ToString();
+            if(i == 0) 
+                rank.Add(copy[i], "Gold Medal");
+            else if (i == 1) 
+                rank.Add(copy[i], "Silver Medal");
+            else if (i == 2)
+                rank.Add(copy[i], "Bronze Medal");
+            else
+                rank.Add(copy[i], (i+1).ToString());
         }
-        return result;
+        return score.Select(x => rank[x]).ToArray();
     }
 }
 

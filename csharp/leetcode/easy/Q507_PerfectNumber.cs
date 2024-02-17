@@ -3,9 +3,21 @@ namespace dojo.leetcode;
 
 public class Q507_PerfectNumber
 {
+    readonly HashSet<int> cache = [1];
+    // TC: O(n), SC: O(n)
     public bool CheckPerfectNumber(int num)
     {
-        return false;
+        if (num <= 1) return false;
+        for(var i=2; i<num/2; i++)
+        {
+            if(!cache.Contains(i) && num % i == 0)
+            {
+                var temp = num/i;
+                cache.Add(i);
+                cache.Add(temp);
+            }
+        }
+        return cache.Sum(x => x) == num;
     }
 }
 
@@ -17,6 +29,7 @@ public class Q507_PerfectNumberTestData: TestData
         [6, true],
         [496, true],
         [8128, true],
+        [1, false],
         [2, false],
         [3, false],
         [4, false],

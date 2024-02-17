@@ -2,9 +2,24 @@ namespace dojo.leetcode;
 
 public class Q506_RelativeRanks
 {
+    // TC: O(n^2), SC: O(n)
     public string[] FindRelativeRanks(int[] score)
     {
-        return [];
+        int[] copy = new int[score.Length];
+        Array.Copy(score, copy, score.Length);
+        Array.Sort(copy);
+        Array.Reverse(copy);
+        var result = new string[score.Length];
+
+        for(var i=0; i<score.Length; i++)
+        {
+            var idx = Array.IndexOf(copy, score[i]);
+            if (idx == 0) result[i] = "Gold Medal";
+            else if (idx == 1) result[i] = "Silver Medal";
+            else if (idx == 2) result[i] = "Bronze Medal";
+            else result[i] = (idx+1).ToString();
+        }
+        return result;
     }
 }
 

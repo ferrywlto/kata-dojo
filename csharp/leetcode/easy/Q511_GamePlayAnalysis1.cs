@@ -7,7 +7,8 @@ public class Q511_GamePlayAnalysis1 : SqlQuestion
 {
     public override string Query => 
     """
-    SELECT * FROM Activity;
+    SELECT player_id, MIN(event_date) FROM Activity
+    GROUP BY player_id;
     """;
 }
 
@@ -46,7 +47,7 @@ public class Q511_GamePlayAnalysis1Tests(ITestOutputHelper output): DatabaseTest
         var sut = new Q511_GamePlayAnalysis1();
 
         var reader = ExecuteQuery(sut.Query);
-
+        
         AssertResultSchema(reader);
         AssertRow(reader, 1, new DateTime(2016, 3, 1));
         AssertRow(reader, 2, new DateTime(2017, 6, 25));

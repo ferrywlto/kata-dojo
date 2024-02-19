@@ -3,12 +3,21 @@ namespace dojo.leetcode;
 
 public class Q509_FibonacciNumber
 {
+    // TC: From O(n^2) with recursion to O(n) with dynamic programming
+    // SC: O(n)
     public int Fib(int n)
     {
-        if (n == 0) return 0;
-        if (n == 1) return 1;
+        if (n <= 1) return n;
 
-        return Fib(n - 2) + Fib(n - 1);
+        // The n + 1 because zero-based index
+        int[] nums = new int[n + 1];
+        nums[0] = 0;
+        nums[1] = 1;
+
+        for (var i=2; i<=n; i++)
+            nums[i] = nums[i - 2] + nums[i - 1];
+
+        return nums[n];
     }
 }
 

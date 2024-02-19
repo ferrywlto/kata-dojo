@@ -5,7 +5,10 @@ public class Q509_FibonacciNumber
 {
     public int Fib(int n)
     {
-        return 0;
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+
+        return Fib(n - 2) + Fib(n - 1);
     }
 }
 

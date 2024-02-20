@@ -3,9 +3,13 @@ namespace dojo.leetcode;
 
 public class Q521_LongestUncommonSubsequence
 {
+    // TC: O(n), because of == operator
+    // SC: O(1)
     public int FindLUSlength(string a, string b) 
     {
-        return 0;
+        if (a == b) return -1;
+        if (a.Length > b.Length) return a.Length;
+        return b.Length;
     }
 }
 

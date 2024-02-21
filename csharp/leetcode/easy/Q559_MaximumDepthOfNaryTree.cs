@@ -7,7 +7,7 @@ public class Node {
     public int val;
     public IList<Node>? children;
 
-    public Node() {}
+    public Node(int?[] nums) {}
 
     public Node(int _val) {
         val = _val;
@@ -44,7 +44,7 @@ public class Q559_MaximumDepthOfNaryTreeTests
     public void OfficialTestCases(int?[] input, int expected)
     {
         var sut = new Q559_MaximumDepthOfNaryTree();
-        var tree = new Node.FromLevelOrderingIntArray(input);
+        var tree = new Node(input);
         var actual = sut.MaxDepth(tree!);
         Assert.Equal(expected, actual);
     }

@@ -2,6 +2,9 @@ namespace dojo.leetcode;
 
 public class Q566_ReshapeTheMatrix
 {
+    // check r * c == mat.length * mat[0].length
+    // transform to linear first 1*n vector
+    // resharpe to r * c    
     public int[][] MatrixReshape(int[][] mat, int r, int c)
     {
         return [];

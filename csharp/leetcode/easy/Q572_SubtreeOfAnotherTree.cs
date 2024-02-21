@@ -2,6 +2,9 @@ namespace dojo.leetcode;
 
 public class Q572_SubtreeOfAnotherTree
 {
+    // find the node with in root tree that have val == subroot.val
+    // do a double tree traverse in same node, if in any step the node value is not equal, return false;
+    // return true if all nodes values are the same
     public bool IsSubtree(TreeNode? root, TreeNode? subRoot)
     {
         return false;

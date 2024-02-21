@@ -12,7 +12,8 @@ public class Node {
     public Node(int _val) {
         val = _val;
     }
-
+    // use depth first search
+    // update max depth whenever stack.count > max depth when push
     public Node(int _val, IList<Node> _children) {
         val = _val;
         children = _children;

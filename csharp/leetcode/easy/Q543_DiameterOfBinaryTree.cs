@@ -2,6 +2,9 @@ namespace dojo.leetcode;
 
 public class Q543_DiameterOfBinaryTree
 {
+    // recursive check Math.Max(left depth, max left depth so far)
+    // recursive check Math.Max(right depth, max right depth so far)
+    // return max left depth + max right depth?
     public int DiameterOfBinaryTree(TreeNode root)
     {
         return 0;

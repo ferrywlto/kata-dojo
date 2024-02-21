@@ -2,6 +2,8 @@ namespace dojo.leetcode;
 
 public class Q561_ArrayPartition
 {
+    // example 1: nums.length = 4, n = 2, get 2 pairs -> 4C2 = 6 possible pairs
+    // example 2: nums.length = 6, n = 3, get 3 pairs -> 6C2 = 15 possible pairs
     public int ArrayPairSum(int[] nums)
     {
         return 0;

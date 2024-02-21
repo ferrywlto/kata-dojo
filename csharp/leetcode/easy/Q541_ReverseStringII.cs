@@ -5,6 +5,8 @@ namespace dojo.leetcode;
 
 public class Q541_ReverseStringII
 {
+    // TC: O(n)
+    // SC: O(n)
     public string ReverseStr(string s, int k) 
     {
         if (s.Length == 1 || k == 1) return s;

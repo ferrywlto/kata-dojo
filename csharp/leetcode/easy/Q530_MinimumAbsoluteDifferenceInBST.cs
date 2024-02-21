@@ -6,41 +6,46 @@ public class Q530_MinimumAbsoluteDifferenceInBST
     {
         if (root.IsLeaf) return 0;
 
-        var queue = new Queue<TreeNode>();
-        queue.Enqueue(root);
-
-        var hashset = new HashSet<int>();
-
-        while(queue.Count > 0)
-        {
-            var node = queue.Dequeue();
-            hashset.Add(node.val);
-
-            if (node.left != null)
-                queue.Enqueue(node.left);
-
-            if (node.right != null)
-                queue.Enqueue(node.right);
-        }
-
-        var temp = hashset.ToArray();
-        Array.Sort(temp);
+        TreeNode? current = root;
+        TreeNode? prev = null;
 
         var smallest = int.MaxValue;
-        for(var i=0; i<temp.Length - 1; i++)
+        var stack = new Stack<TreeNode>();
+        var result = new List<int>();
+
+        while (current != null || stack.Count > 0)
         {
-            var diff = Math.Abs(temp[i] - temp[i + 1]);
+            // Down to deepest left first
+            while (current != null)
+            {
+                stack.Push(current);
+                current = current.left;
+            }
+            current = stack.Pop();
+            if (prev != null)
+            {
+                // Since BST with inorder traversal -> sorted 
+                smallest = Math.Min(smallest, current.val - prev.val);
+            }
+            prev = current;
+
+            result.Add(current.val);
+            current = current.right;
+        }
+
+        for (var i = 0; i < result.Count - 1; i++)
+        {
+            var diff = Math.Abs(result[i] - result[i + 1]);
             if (diff < smallest)
                 smallest = diff;
         }
-
         return smallest;
     }
 }
 
-public class Q530_MinimumAbsoluteDifferenceInBSTTestData: TestData
+public class Q530_MinimumAbsoluteDifferenceInBSTTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int?[]{1,0,48,null,null,12,49}, 1],
         [new int?[]{4,2,6,1,3}, 1],

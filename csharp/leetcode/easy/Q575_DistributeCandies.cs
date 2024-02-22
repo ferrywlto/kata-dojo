@@ -8,7 +8,9 @@ public class Q575_DistributeCandies
     // [1,2,3,3,3,4] -> 3
     public int DistributeCandies(int[] candyType)
     {
-        return 0;
+        var hashset = candyType.ToHashSet<int>();
+        
+        return Math.Min(hashset.Count, candyType.Length/2);
     }
 }
 

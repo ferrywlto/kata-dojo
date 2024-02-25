@@ -21,7 +21,7 @@ public class Q572_SubtreeOfAnotherTree
             if (node.val == subRoot.val)
             {
                 nodeOfSubRoot = node;
-                Console.WriteLine($"node found: root:{node.val}, sub:{subRoot.val}");
+                // Console.WriteLine($"node found: root:{node.val}, sub:{subRoot.val}");
                 break;
             }
             if (node.left != null)
@@ -45,7 +45,7 @@ public class Q572_SubtreeOfAnotherTree
         while (parallelStack.Count > 0)
         {
             var (nodeFromRoot, nodeFromSubRoot) = parallelStack.Pop();
-            Console.WriteLine($"parallel: root:{nodeFromRoot.val}, sub:{nodeFromSubRoot.val}");
+            // Console.WriteLine($"parallel: root:{nodeFromRoot.val}, sub:{nodeFromSubRoot.val}");
             if(nodeFromRoot.val != nodeFromSubRoot.val)
             {
                 return false;

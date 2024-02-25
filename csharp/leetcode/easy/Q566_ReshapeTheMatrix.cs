@@ -22,7 +22,7 @@ public class Q566_ReshapeTheMatrix
                 var linearIdx = i * mat[i].Length + j;
                 // consider 3x3, target 5 -> row 2, col 2 -> 1,1
                 // new row = target / c,  new col = target % c
-                Console.WriteLine($"i:{i}, j:{j}, val:{mat[i][j]}, r:{linearIdx / c}, c:{linearIdx % c}");
+                // Console.WriteLine($"i:{i}, j:{j}, val:{mat[i][j]}, r:{linearIdx / c}, c:{linearIdx % c}");
                 targetMatrix[linearIdx / c][linearIdx % c] = mat[i][j]; 
             }
         }

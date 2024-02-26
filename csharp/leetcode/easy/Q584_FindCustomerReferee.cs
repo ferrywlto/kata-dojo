@@ -4,7 +4,7 @@ public class Q584_FindCustomerReferee: SqlQuestion
 {
     public override string Query => 
     """
-    SELECT 1;
+    SELECT name FROM Customer WHERE referee_id IS NULL OR referee_id IS NOT 2;
     """;
 }
 
@@ -42,6 +42,20 @@ public class Q584_FindCustomerRefereeTests(ITestOutputHelper output): DatabaseTe
 
         var sut = new Q584_FindCustomerReferee();
         var reader = ExecuteQuery(sut.Query);
-        DebugReader(reader);
+        
+        Assert.True(reader.HasRows);
+        Assert.Equal(1, reader.FieldCount);
+
+        Assert.True(reader.Read());
+        Assert.Equal("Will", reader.GetString(0));
+
+        Assert.True(reader.Read());
+        Assert.Equal("Jane", reader.GetString(0));
+
+        Assert.True(reader.Read());
+        Assert.Equal("Bill", reader.GetString(0));
+
+        Assert.True(reader.Read());
+        Assert.Equal("Zack", reader.GetString(0));
     }
 }

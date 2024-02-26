@@ -10,42 +10,30 @@ public class Q572_SubtreeOfAnotherTree
     public bool IsSubtree(TreeNode? root, TreeNode? subRoot)
     {
         if (root == null || subRoot == null) return false;
-        //get the node that is the root of subroot
-        var stack = new Stack<TreeNode>();
-        stack.Push(root!);
+        
+        var traverseStack = new Stack<TreeNode>();
+        traverseStack.Push(root);
 
-        TreeNode? nodeOfSubRoot = null;
-        while (stack.Count > 0)
+        while (traverseStack.Count > 0)
         {
-            var node = stack.Pop();
-            if (node.val == subRoot.val)
-            {
-                nodeOfSubRoot = node;
-                // Console.WriteLine($"node found: root:{node.val}, sub:{subRoot.val}");
-                break;
-            }
-            if (node.left != null)
-            {
-                stack.Push(node.left);
-            }
-            if (node.right != null)
-            {
-                stack.Push(node.right);
-            }
+            var node = traverseStack.Pop();
+            if (node.val == subRoot.val && CompareTreeEqual(node, subRoot)) return true;
+
+            if (node.left != null) traverseStack.Push(node.left);
+
+            if (node.right != null) traverseStack.Push(node.right);
         }
 
-        if (nodeOfSubRoot == null)
-        {
-            return false;
-        }
-
+        return false;
+    }
+    public bool CompareTreeEqual(TreeNode inputTree, TreeNode targetTree)
+    {
         var parallelStack = new Stack<(TreeNode nodeFromRoot, TreeNode nodeFromSubRoot)>();
-        parallelStack.Push((nodeOfSubRoot, subRoot));
+        parallelStack.Push((inputTree, targetTree));
 
         while (parallelStack.Count > 0)
         {
             var (nodeFromRoot, nodeFromSubRoot) = parallelStack.Pop();
-            // Console.WriteLine($"parallel: root:{nodeFromRoot.val}, sub:{nodeFromSubRoot.val}");
             if(nodeFromRoot.val != nodeFromSubRoot.val)
             {
                 return false;
@@ -69,7 +57,6 @@ public class Q572_SubtreeOfAnotherTree
                 return false;
             }
         }
-
         return true;
     }
 }
@@ -78,6 +65,7 @@ public class Q572_SubtreeOfAnotherTreeTestData : TestData
 {
     protected override List<object[]> Data =>
     [
+        [new int?[] {1, 1}, new int?[] {1}, true],
         [new int?[] {3, 4, 5, 1, 2}, new int?[] {4, 1, 2}, true],
         [new int?[] {3, 4, 5, 1, 2, null, null, null, null, 0}, new int?[] {4, 1, 2}, false],
     ];

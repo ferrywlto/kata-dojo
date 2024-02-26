@@ -6,6 +6,8 @@ public class Q575_DistributeCandies
     // [1,2,3,4] -> 2
     // [1,2,3,4,1,2,3,4] -> 4
     // [1,2,3,3,3,4] -> 3
+    // TC: O(n)
+    // SC: O(n)
     public int DistributeCandies(int[] candyType)
     {
         var hashset = candyType.ToHashSet<int>();

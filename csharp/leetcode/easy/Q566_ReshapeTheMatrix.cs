@@ -6,7 +6,11 @@ public class Q566_ReshapeTheMatrix
 {
     // check r * c == mat.length * mat[0].length
     // transform to linear first 1*n vector
-    // resharpe to r * c    
+    // resharpe to r * c
+    // consider 3x3, target 5 -> row 2, col 2 -> 1,1
+    // new row = target / c,  new col = target % c
+    // TC: O(n)
+    // SC: O(n)
     public int[][] MatrixReshape(int[][] mat, int r, int c)
     {
         if (r * c != mat.Length * mat[0].Length) return mat;
@@ -20,8 +24,6 @@ public class Q566_ReshapeTheMatrix
             for(var j=0; j<mat[i].Length; j++)
             {
                 var linearIdx = i * mat[i].Length + j;
-                // consider 3x3, target 5 -> row 2, col 2 -> 1,1
-                // new row = target / c,  new col = target % c
                 // Console.WriteLine($"i:{i}, j:{j}, val:{mat[i][j]}, r:{linearIdx / c}, c:{linearIdx % c}");
                 targetMatrix[linearIdx / c][linearIdx % c] = mat[i][j]; 
             }

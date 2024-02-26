@@ -4,9 +4,9 @@ namespace dojo.leetcode;
 
 public class Q557_ReverseWordInStringIII
 {
-    // TC: O(n)
+    // TC: O(n^2)
     // SC: O(n)
-    public string ReverseWords(string s)
+    public string ReverseWords_Simple(string s)
     {
         var newStr = string.Join(" ", s.Split(" ").Select(s => string.Join(string.Empty, s.Reverse().ToArray())));
 
@@ -14,7 +14,9 @@ public class Q557_ReverseWordInStringIII
     }
 
     // this is slightly faster and use fewer memory caused by addition array creation
-    public string ReverseWords2(string s)
+    // TC: O(n)
+    // SC: O(n)
+    public string ReverseWords_Efficient(string s)
     {
         var helper = new Q541_ReverseStringII();
         // this use index approach
@@ -27,18 +29,18 @@ public class Q557_ReverseWordInStringIII
             if(s[i] == ' ')
             {
                 endIdx = i - 1;
-                helper.ReverseString(sb, startIdx, endIdx);
+                ReverseStringByIndex(sb, startIdx, endIdx);
                 startIdx = ++i;
             }
             else if(i == s.Length-1)
             {
-                helper.ReverseString(sb, startIdx, s.Length-1);
+                ReverseStringByIndex(sb, startIdx, s.Length-1);
             }
         }
         return sb.ToString();
     }
 
-    public void ReverseString(StringBuilder sb, int startIdx, int endIdx)
+    public void ReverseStringByIndex(StringBuilder sb, int startIdx, int endIdx)
     {
         char temp = ' ';
         var times = (endIdx - startIdx) / 2;
@@ -70,7 +72,7 @@ public class Q557_ReverseWordInStringIIITests
     public void OfficialTestCases(string input, string expected)
     {
         var sut = new Q557_ReverseWordInStringIII();
-        var actual = sut.ReverseWords2(input);
+        var actual = sut.ReverseWords_Efficient(input);
         Assert.Equal(expected, actual);
     }
 }

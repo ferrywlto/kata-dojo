@@ -4,18 +4,17 @@ public class Q563_BinaryTreeTilt
 {
     public int FindTilt(TreeNode? root)
     {
-        if (root == null) return 0;
-
-        var leftSum = SumOfTree(root.left);
-        var rightSum = SumOfTree(root.right);
-        var diff = Math.Abs(leftSum - rightSum);
-        // Console.WriteLine($"node: {root.val}, diff: {diff}, leftSum: {leftSum}, rightSum: {rightSum}");
-        return diff + FindTilt(root.left) + FindTilt(root.right);
+        return FindSumAndTilt(root).tilt;
     }
 
-    public int SumOfTree(TreeNode? tree)
+    public (int tilt, int sum) FindSumAndTilt(TreeNode? node)
     {
-        return tree == null ? 0 : tree.val + SumOfTree(tree.left) + SumOfTree(tree.right);
+        if (node == null) return (0, 0);
+
+        var (leftTilt, leftSum) = FindSumAndTilt(node.left);
+        var (rightTilt, rightSum) = FindSumAndTilt(node.right);
+        var diff = Math.Abs(leftSum - rightSum) + leftTilt + rightTilt;
+        return (diff, node.val + leftSum + rightSum);
     }
 }
 

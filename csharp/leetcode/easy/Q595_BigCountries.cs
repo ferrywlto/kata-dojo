@@ -4,7 +4,10 @@ public class Q595_BigCountries : SqlQuestion
 {
     public override string Query => 
     """
-    SELECT 1;
+    SELECT name, population, area
+    FROM World
+    WHERE population >= 25000000
+    OR area >= 3000000;
     """;
 }
 
@@ -38,8 +41,6 @@ public class Q595_BigCountriesTests(ITestOutputHelper output) : DatabaseTest(out
 
         var sut = new Q595_BigCountries();
         var reader = ExecuteQuery(sut.Query);
-
-        DebugReader(reader);
 
         Assert.True(reader.HasRows);
         Assert.Equal(3, reader.FieldCount);

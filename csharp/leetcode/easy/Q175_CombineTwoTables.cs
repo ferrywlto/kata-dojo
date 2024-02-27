@@ -16,10 +16,13 @@ public class Q175_CombineTwoTablesTestData : TestData
     protected override List<object[]> Data =>
     [[
         """
-        INSERT INTO Person VALUES(1, 'Wang', 'Allen');
-        INSERT INTO Person VALUES(2, 'Alice', 'Bob');
-        INSERT INTO Address VALUES(1, 2, 'New York City', 'New York');
-        INSERT INTO Address VALUES(2, 3, 'Leetcode', 'California');
+        INSERT INTO Person VALUES
+        (1, 'Wang', 'Allen'),
+        (2, 'Alice', 'Bob');
+
+        INSERT INTO Address VALUES
+        (1, 2, 'New York City', 'New York'),
+        (2, 3, 'Leetcode', 'California');
         """
     ]];
 }
@@ -28,8 +31,8 @@ public class Q175_CombineTwoTablesTests(ITestOutputHelper output) : SqlTest(outp
 {
     protected override string TestSchema =>
     """
-    CREATE TABLE IF NOT EXISTS Person (personId int, lastName varchar(255), firstName varchar(255));
-    CREATE TABLE IF NOT EXISTS Address (addressId int, personId, city varchar(255), state varchar(255));
+    CREATE TABLE IF NOT EXISTS Person (personId INT, lastName VARCHAR, firstName VARCHAR);
+    CREATE TABLE IF NOT EXISTS Address (addressId INT, personId INT, city VARCHAR, state VARCHAR);
     """;
 
     [Theory]

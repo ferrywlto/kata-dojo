@@ -7,7 +7,8 @@ public class Q511_GamePlayAnalysis1 : SqlQuestion
 {
     public override string Query =>
     """
-    SELECT player_id, MIN(event_date) FROM Activity
+    SELECT player_id, MIN(event_date) 
+    FROM Activity
     GROUP BY player_id;
     """;
 }

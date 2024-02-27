@@ -5,9 +5,10 @@ public class Q577_EmployeeBonus : SqlQuestion
     public override string Query =>
     """
     SELECT name, bonus FROM Employee emp 
-    LEFT JOIN 
-    Bonus b on emp.empId = b.empId
-    WHERE bonus is NULL or bonus < 1000;
+    LEFT JOIN Bonus b 
+    ON emp.empId = b.empId
+    WHERE bonus is NULL
+    OR bonus < 1000;
     """;
 }
 

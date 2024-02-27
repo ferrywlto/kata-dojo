@@ -4,7 +4,8 @@ public class Q197_RisingTemperature : SqlQuestion
 {
     public override string Query =>
     """
-    SELECT w1.id FROM Weather w1, Weather w2 
+    SELECT w1.id 
+    FROM Weather w1, Weather w2 
     WHERE w1.recordDate = Date(w2.recordDate, '+1 days') 
     AND w1.temperature > w2.temperature; 
     """;
@@ -15,10 +16,11 @@ public class Q197_RisingTemperatureTestData : TestData
     protected override List<object[]> Data =>
     [[
         """
-        INSERT INTO Weather VALUES (1, '2015-01-01', 10);
-        INSERT INTO Weather VALUES (2, '2015-01-02', 25);
-        INSERT INTO Weather VALUES (3, '2015-01-03', 20);
-        INSERT INTO Weather VALUES (4, '2015-01-04', 30);
+        INSERT INTO Weather VALUES 
+        (1, '2015-01-01', 10),
+        (2, '2015-01-02', 25),
+        (3, '2015-01-03', 20),
+        (4, '2015-01-04', 30);
         """
     ]];
 }

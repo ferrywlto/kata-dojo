@@ -4,7 +4,10 @@ public class Q584_FindCustomerReferee : SqlQuestion
 {
     public override string Query =>
     """
-    SELECT name FROM Customer WHERE referee_id IS NULL OR referee_id IS NOT 2;
+    SELECT name 
+    FROM Customer 
+    WHERE referee_id IS NULL 
+    OR referee_id IS NOT 2;
     """;
 }
 
@@ -13,8 +16,7 @@ public class Q584_FindCustomerRefereeTestData : TestData
     protected override List<object[]> Data =>
     [[
         """
-        INSERT INTO Customer
-        VALUES
+        INSERT INTO Customer VALUES
         (1, 'Will', null),
         (2, 'Jane', null),
         (3, 'Alex', 2),

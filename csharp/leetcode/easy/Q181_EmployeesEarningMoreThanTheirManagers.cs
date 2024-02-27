@@ -4,7 +4,11 @@ public class Q181_EmployeesEarningMoreThanTheirManagers : SqlQuestion
 {
     public override string Query =>
     """
-    SELECT e1.Name AS Employee From Employee e1 LEFT JOIN Employee e2 on e1.managerId = e2.id WHERE e1.salary > e2.salary  
+    SELECT e1.Name AS Employee 
+    FROM Employee e1 
+    LEFT JOIN Employee e2 
+    ON e1.managerId = e2.id 
+    WHERE e1.salary > e2.salary;  
     """;
 }
 
@@ -14,10 +18,11 @@ public class Q181_EmployeesEarningMoreThanTheirManagersTestData : TestData
     [
         [
             """
-            INSERT INTO Employee VALUES (1, 'Joe', 70000, 3);
-            INSERT INTO Employee VALUES (2, 'Henry', 80000, 4);
-            INSERT INTO Employee VALUES (3, 'Sam', 60000, NULL);
-            INSERT INTO Employee VALUES (4, 'Max', 90000, NULL);
+            INSERT INTO Employee VALUES
+            (1, 'Joe', 70000, 3),
+            (2, 'Henry', 80000, 4),
+            (3, 'Sam', 60000, NULL),
+            (4, 'Max', 90000, NULL);
             """
         ],
     ];
@@ -27,7 +32,7 @@ public class Q181_EmployeesEarningMoreThanTheirManagersTests(ITestOutputHelper o
 {
     protected override string TestSchema =>
     """
-    CREATE TABLE IF NOT EXISTS Employee (id INT, name VARCHAR(255), salary INT, managerId INT);
+    CREATE TABLE IF NOT EXISTS Employee (id INT, name VARCHAR, salary INT, managerId INT);
     """;
 
     [Theory]

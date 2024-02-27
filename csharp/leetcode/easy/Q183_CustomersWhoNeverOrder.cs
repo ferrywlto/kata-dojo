@@ -4,7 +4,13 @@ public class Q183_CustomersWhoNeverOrder : SqlQuestion
 {
     public override string Query =>
     """
-    SELECT name as Customers FROM Customers WHERE id NOT IN (Select customerId from Orders) 
+    SELECT name as Customers 
+    FROM Customers 
+    WHERE id NOT IN 
+    (
+        SELECT customerId 
+        FROM Orders
+    );
     """;
 }
 
@@ -13,12 +19,15 @@ public class Q183_CustomersWhoNeverOrderTestData : TestData
     protected override List<object[]> Data =>
     [[
         """
-        INSERT INTO Customers VALUES (1, 'Joe');
-        INSERT INTO Customers VALUES (2, 'Henry');
-        INSERT INTO Customers VALUES (3, 'Sam');
-        INSERT INTO Customers VALUES (4, 'Max');
-        INSERT INTO Orders VALUES (1, 3);
-        INSERT INTO Orders VALUES (2, 1);
+        INSERT INTO Customers VALUES 
+        (1, 'Joe'),
+        (2, 'Henry'),
+        (3, 'Sam'),
+        (4, 'Max');
+
+        INSERT INTO Orders VALUES
+        (1, 3),
+        (2, 1);
         """
     ]];
 }
@@ -27,8 +36,8 @@ public class Q183_CustomersWhoNeverOrderTests(ITestOutputHelper output) : SqlTes
 {
     protected override string TestSchema =>
     """
-    CREATE TABLE IF NOT EXISTS Customers (id INT, name VARCHAR(255));
-    CREATE TABLE IF NOT EXISTS Orders (id INT, customerId VARCHAR(255));
+    CREATE TABLE IF NOT EXISTS Customers (id INT, name VARCHAR);
+    CREATE TABLE IF NOT EXISTS Orders (id INT, customerId VARCHAR);
     """;
 
     [Theory]

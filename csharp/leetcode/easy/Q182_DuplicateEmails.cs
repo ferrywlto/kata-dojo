@@ -4,29 +4,31 @@ public class Q182_DuplicateEmails : SqlQuestion
 {
     public override string Query =>
     """
-    SELECT Email FROM Person GROUP BY Email HAVING COUNT(Email) > 1;
+    SELECT Email 
+    FROM Person 
+    GROUP BY Email 
+    HAVING COUNT(Email) > 1;
     """;
 }
 
 public class Q182_DuplicateEmailsTestData : TestData
 {
     protected override List<object[]> Data =>
-    [
-        [
-            """
-            INSERT INTO Person VALUES (1, 'a@b.com');
-            INSERT INTO Person VALUES (2, 'c@d.com');
-            INSERT INTO Person VALUES (3, 'a@b.com');
-            """
-        ],
-    ];
+    [[
+        """
+        INSERT INTO Person VALUES
+        (1, 'a@b.com'),
+        (2, 'c@d.com'),
+        (3, 'a@b.com');
+        """
+    ]];
 }
 
 public class Q182_DuplicateEmailsTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
     """
-    CREATE TABLE IF NOT EXISTS Person (id INT, email VARCHAR(255));
+    CREATE TABLE IF NOT EXISTS Person (id INT, email VARCHAR);
     """;
 
     [Theory]

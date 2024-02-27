@@ -23,7 +23,7 @@ public class Q183_CustomersWhoNeverOrderTestData : TestData
     ]];
 }
 
-public class Q183_CustomersWhoNeverOrderTests(ITestOutputHelper output) : DatabaseTest(output)
+public class Q183_CustomersWhoNeverOrderTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
     """

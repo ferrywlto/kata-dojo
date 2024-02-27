@@ -4,10 +4,10 @@ using Xunit.Sdk;
 
 namespace dojo.leetcode;
 
-public abstract class DatabaseTest : BaseTest, IDisposable
+public abstract class SqlTest : BaseTest, IDisposable
 {
     protected readonly SqliteConnection connection;
-    public DatabaseTest(ITestOutputHelper output) : base(output)
+    public SqlTest(ITestOutputHelper output) : base(output)
     {
         connection = new SqliteConnection("Filename=:memory:");
         connection.Open();
@@ -86,7 +86,7 @@ public abstract class DatabaseTest : BaseTest, IDisposable
     }
 }
 
-public class TestDatabaseTestClass(ITestOutputHelper output) : DatabaseTest(output)
+public class TestDatabaseTestClass(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema => string.Empty;
 

@@ -27,7 +27,7 @@ public class Q511_GamePlayAnalysis1TestData : TestData
     ]];
 }
 
-public class Q511_GamePlayAnalysis1Tests(ITestOutputHelper output) : DatabaseTest(output)
+public class Q511_GamePlayAnalysis1Tests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
     """

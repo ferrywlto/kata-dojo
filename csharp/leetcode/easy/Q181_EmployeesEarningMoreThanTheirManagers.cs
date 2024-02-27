@@ -23,7 +23,7 @@ public class Q181_EmployeesEarningMoreThanTheirManagersTestData : TestData
     ];
 }
 
-public class Q181_EmployeesEarningMoreThanTheirManagersTests(ITestOutputHelper output) : DatabaseTest(output)
+public class Q181_EmployeesEarningMoreThanTheirManagersTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
     """

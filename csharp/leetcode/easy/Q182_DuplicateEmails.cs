@@ -22,7 +22,7 @@ public class Q182_DuplicateEmailsTestData : TestData
     ];
 }
 
-public class Q182_DuplicateEmailsTests(ITestOutputHelper output) : DatabaseTest(output)
+public class Q182_DuplicateEmailsTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
     """

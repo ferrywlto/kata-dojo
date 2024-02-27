@@ -30,7 +30,7 @@ public class Q596_ClassesMoreThanFiceStudentsTestData : TestData
     ]];
 }
 
-public class Q596_ClassesMoreThanFiceStudentsTest(ITestOutputHelper output) : DatabaseTest(output)
+public class Q596_ClassesMoreThanFiceStudentsTest(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
     """

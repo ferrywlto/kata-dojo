@@ -21,7 +21,7 @@ public class Q196_DeleteDuplicateEmailsTestData : TestData
     ]];
 }
 
-public class Q196_DeleteDuplicateEmailsTests(ITestOutputHelper output) : DatabaseTest(output)
+public class Q196_DeleteDuplicateEmailsTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
     """

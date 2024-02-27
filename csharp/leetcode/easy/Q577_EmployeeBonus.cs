@@ -29,7 +29,7 @@ public class Q577_EmployeeBonusTestData : TestData
     ]];
 }
 
-public class Q577_EmployeeBonusTests(ITestOutputHelper output) : DatabaseTest(output)
+public class Q577_EmployeeBonusTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
     """

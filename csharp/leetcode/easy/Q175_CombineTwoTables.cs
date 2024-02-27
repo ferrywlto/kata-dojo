@@ -24,7 +24,7 @@ public class Q175_CombineTwoTablesTestData : TestData
     ]];
 }
 
-public class Q175_CombineTwoTablesTests(ITestOutputHelper output) : DatabaseTest(output)
+public class Q175_CombineTwoTablesTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
     """

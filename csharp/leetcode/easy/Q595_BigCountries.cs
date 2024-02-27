@@ -26,7 +26,7 @@ public class Q595_BigCountriesTestData : TestData
     ]];
 }
 
-public class Q595_BigCountriesTests(ITestOutputHelper output) : DatabaseTest(output)
+public class Q595_BigCountriesTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
     """

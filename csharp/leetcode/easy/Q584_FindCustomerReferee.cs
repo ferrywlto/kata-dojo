@@ -25,7 +25,7 @@ public class Q584_FindCustomerRefereeTestData : TestData
     ]];
 }
 
-public class Q584_FindCustomerRefereeTests(ITestOutputHelper output) : DatabaseTest(output)
+public class Q584_FindCustomerRefereeTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
     """

@@ -23,7 +23,7 @@ public class Q197_RisingTemperatureTestData : TestData
     ]];
 }
 
-public class Q197_RisingTemperatureTests(ITestOutputHelper output) : DatabaseTest(output)
+public class Q197_RisingTemperatureTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
     """

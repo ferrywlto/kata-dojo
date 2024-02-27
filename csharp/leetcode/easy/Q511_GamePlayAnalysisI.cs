@@ -39,7 +39,7 @@ public class Q511_GamePlayAnalysis1Tests(ITestOutputHelper output) : SqlTest(out
     [ClassData(typeof(Q511_GamePlayAnalysis1TestData))]
     public override void OfficialTestCases(string input)
     {
-        InputTestData(input);
+        ArrangeTestData(input);
 
         var sut = new Q511_GamePlayAnalysis1();
 

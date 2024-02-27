@@ -35,7 +35,7 @@ public class Q182_DuplicateEmailsTests(ITestOutputHelper output) : SqlTest(outpu
     [ClassData(typeof(Q182_DuplicateEmailsTestData))]
     public override void OfficialTestCases(string input)
     {
-        InputTestData(input);
+        ArrangeTestData(input);
 
         var sut = new Q182_DuplicateEmails();
 

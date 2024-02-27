@@ -41,7 +41,7 @@ public class Q596_ClassesMoreThanFiceStudentsTest(ITestOutputHelper output) : Sq
     [ClassData(typeof(Q596_ClassesMoreThanFiceStudentsTestData))]
     public override void OfficialTestCases(string testDataSql)
     {
-        InputTestData(testDataSql);
+        ArrangeTestData(testDataSql);
 
         var sut = new Q596_ClassesMoreThanFiceStudents();
         var reader = ExecuteQuery(sut.Query);

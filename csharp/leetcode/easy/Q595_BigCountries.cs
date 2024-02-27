@@ -37,7 +37,7 @@ public class Q595_BigCountriesTests(ITestOutputHelper output) : SqlTest(output)
     [ClassData(typeof(Q595_BigCountriesTestData))]
     public override void OfficialTestCases(string testDataSql)
     {
-        InputTestData(testDataSql);
+        ArrangeTestData(testDataSql);
 
         var sut = new Q595_BigCountries();
         var reader = ExecuteQuery(sut.Query);

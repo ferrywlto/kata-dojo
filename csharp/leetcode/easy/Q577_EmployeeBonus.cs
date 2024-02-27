@@ -42,7 +42,7 @@ public class Q577_EmployeeBonusTests(ITestOutputHelper output) : SqlTest(output)
     [ClassData(typeof(Q577_EmployeeBonusTestData))]
     public override void OfficialTestCases(string testDataSql)
     {
-        InputTestData(testDataSql);
+        ArrangeTestData(testDataSql);
 
         var sut = new Q577_EmployeeBonus();
         var reader = ExecuteQuery(sut.Query);

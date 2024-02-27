@@ -23,7 +23,7 @@ public abstract class SqlTest : BaseTest, IDisposable
 
     protected int ExecuteCommand(string Sql) => CreateCommand(Sql).ExecuteNonQuery();
 
-    protected void InputTestData(string Sql) => ExecuteCommand(Sql);
+    protected void ArrangeTestData(string Sql) => ExecuteCommand(Sql);
 
     protected SqliteDataReader ExecuteQuery(string Sql, bool debug = false)
     {

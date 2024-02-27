@@ -39,7 +39,7 @@ public class Q181_EmployeesEarningMoreThanTheirManagersTests(ITestOutputHelper o
     [ClassData(typeof(Q181_EmployeesEarningMoreThanTheirManagersTestData))]
     public override void OfficialTestCases(string input)
     {
-        InputTestData(input);
+        ArrangeTestData(input);
 
         var sut = new Q181_EmployeesEarningMoreThanTheirManagers();
 

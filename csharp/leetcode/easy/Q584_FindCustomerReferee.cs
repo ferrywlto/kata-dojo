@@ -38,7 +38,7 @@ public class Q584_FindCustomerRefereeTests(ITestOutputHelper output) : SqlTest(o
     [ClassData(typeof(Q584_FindCustomerRefereeTestData))]
     public override void OfficialTestCases(string testDataSql)
     {
-        InputTestData(testDataSql);
+        ArrangeTestData(testDataSql);
 
         var sut = new Q584_FindCustomerReferee();
         var reader = ExecuteQuery(sut.Query);

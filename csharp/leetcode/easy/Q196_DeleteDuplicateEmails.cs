@@ -39,7 +39,7 @@ public class Q196_DeleteDuplicateEmailsTests(ITestOutputHelper output) : SqlTest
     [ClassData(typeof(Q196_DeleteDuplicateEmailsTestData))]
     public override void OfficialTestCases(string input)
     {
-        InputTestData(input);
+        ArrangeTestData(input);
 
         var sut = new Q196_DeleteDuplicateEmails();
         var deleteCount = ExecuteCommand(sut.Query);

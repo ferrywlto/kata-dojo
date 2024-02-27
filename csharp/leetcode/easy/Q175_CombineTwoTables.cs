@@ -39,7 +39,7 @@ public class Q175_CombineTwoTablesTests(ITestOutputHelper output) : SqlTest(outp
     [ClassData(typeof(Q175_CombineTwoTablesTestData))]
     public override void OfficialTestCases(string input)
     {
-        InputTestData(input);
+        ArrangeTestData(input);
 
         var sut = new Q175_CombineTwoTables();
         var reader = ExecuteQuery(sut.Query);

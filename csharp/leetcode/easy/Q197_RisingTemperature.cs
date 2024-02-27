@@ -36,7 +36,7 @@ public class Q197_RisingTemperatureTests(ITestOutputHelper output) : SqlTest(out
     [ClassData(typeof(Q197_RisingTemperatureTestData))]
     public override void OfficialTestCases(string input)
     {
-        InputTestData(input);
+        ArrangeTestData(input);
 
         var sut = new Q197_RisingTemperature();
         var result = ExecuteQuery(sut.Query);

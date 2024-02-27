@@ -4,7 +4,7 @@ using Xunit.Sdk;
 
 namespace dojo.leetcode;
 
-public class DatabaseTest : BaseTest, IDisposable
+public abstract class DatabaseTest : BaseTest, IDisposable
 {
     protected readonly SqliteConnection connection;
     public DatabaseTest(ITestOutputHelper output) : base(output)
@@ -87,6 +87,8 @@ public class DatabaseTest : BaseTest, IDisposable
     }
 }
 
+
+public class TestDatabaseTestClass(ITestOutputHelper output): DatabaseTest(output) {}
 public class TestsOfDatabaseTest
 {
     [Fact]
@@ -94,7 +96,7 @@ public class TestsOfDatabaseTest
     {
         var exception = Record.Exception(() =>
         {
-            var sut = new DatabaseTest(new TestOutputHelper());
+            var sut = new TestDatabaseTestClass(new TestOutputHelper());
         });
         Assert.NotNull(exception);
         Assert.StartsWith("Test schema is empty", exception.Message);

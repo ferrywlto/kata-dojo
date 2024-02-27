@@ -17,7 +17,7 @@ public abstract class DatabaseTest : BaseTest, IDisposable
 
     protected bool IsDatabaseConnectionOpened() => connection.State == System.Data.ConnectionState.Open;
 
-    protected virtual string TestSchema => string.Empty;
+    protected abstract string TestSchema { get; }
 
     protected int ExecuteCommand(string Sql) => CreateCommand(Sql).ExecuteNonQuery();
 
@@ -88,7 +88,10 @@ public abstract class DatabaseTest : BaseTest, IDisposable
 }
 
 
-public class TestDatabaseTestClass(ITestOutputHelper output): DatabaseTest(output) {}
+public class TestDatabaseTestClass(ITestOutputHelper output) : DatabaseTest(output)
+{
+    protected override string TestSchema => string.Empty;
+}
 public class TestsOfDatabaseTest
 {
     [Fact]

@@ -4,9 +4,10 @@ public class Q596_ClassesMoreThanFiceStudents : SqlQuestion
 {
     public override string Query => 
     """
-    SELECT class FROM 
-        (SELECT class, count(class) as count FROM courses GROUP BY class) t
-    WHERE t.count > 4;
+    SELECT class 
+    FROM courses 
+    GROUP BY class
+    HAVING count(class) > 4;
     """;
 }
 

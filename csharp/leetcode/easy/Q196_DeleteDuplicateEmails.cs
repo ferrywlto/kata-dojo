@@ -28,7 +28,7 @@ public class Q196_DeleteDuplicateEmailsTests(ITestOutputHelper output) : Databas
         InputTestData(input);
 
         var sut = new Q196_DeleteDuplicateEmails();
-        var deleteCount = ExecuteCommand(sut.Command);
+        var deleteCount = ExecuteCommand(sut.Query);
         Assert.Equal(1, deleteCount);
 
         var result = ExecuteQuery("SELECT * FROM Person;");
@@ -43,9 +43,9 @@ public class Q196_DeleteDuplicateEmailsTests(ITestOutputHelper output) : Databas
     }
 }
 
-public class Q196_DeleteDuplicateEmails
+public class Q196_DeleteDuplicateEmails: SqlQuestion
 {
-    public string Command =>
+    public override string Query =>
     """
     DELETE FROM Person WHERE id IN
      (SELECT p1.id FROM Person p1, Person p2 WHERE p1.email = p2.email AND p1.id > p2.id)

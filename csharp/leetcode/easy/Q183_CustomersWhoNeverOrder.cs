@@ -47,9 +47,9 @@ public class Q183_CustomersWhoNeverOrderTests(ITestOutputHelper output) : Databa
     }
 }
 
-public class Q183_CustomersWhoNeverOrder
+public class Q183_CustomersWhoNeverOrder : SqlQuestion
 {
-    public string Query =>
+    public override string Query =>
     """
     SELECT name as Customers FROM Customers WHERE id NOT IN (Select customerId from Orders) 
     """;

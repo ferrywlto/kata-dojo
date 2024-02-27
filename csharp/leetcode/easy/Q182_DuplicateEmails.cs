@@ -39,9 +39,9 @@ public class Q182_DuplicateEmailsTests(ITestOutputHelper output) : DatabaseTest(
 
 }
 
-public class Q182_DuplicateEmails
+public class Q182_DuplicateEmails : SqlQuestion
 {
-    public string Query =>
+    public override string Query =>
     """
     SELECT Email FROM Person GROUP BY Email HAVING COUNT(Email) > 1;
     """;

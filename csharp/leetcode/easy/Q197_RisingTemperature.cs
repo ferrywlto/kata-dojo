@@ -29,7 +29,7 @@ public class Q197_RisingTemperatureTests(ITestOutputHelper output): DatabaseTest
         InputTestData(input);
 
         var sut = new Q197_RisingTemperature();
-        var result = ExecuteQuery(sut.Command);
+        var result = ExecuteQuery(sut.Query);
 
         Assert.True(result.Read());
         Assert.Equal(2, result.GetInt32(0));
@@ -40,9 +40,9 @@ public class Q197_RisingTemperatureTests(ITestOutputHelper output): DatabaseTest
 }
 
 
-public class Q197_RisingTemperature
+public class Q197_RisingTemperature : SqlQuestion
 {
-    public string Command =>
+    public override string Query =>
     """
     SELECT w1.id FROM Weather w1, Weather w2 
     WHERE w1.recordDate = Date(w2.recordDate, '+1 days') 

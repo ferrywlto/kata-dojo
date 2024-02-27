@@ -50,9 +50,9 @@ public class Q175_CombineTwoTablesTests(ITestOutputHelper output) : DatabaseTest
     }
 }
 
-public class Q175_CombineTwoTables
+public class Q175_CombineTwoTables : SqlQuestion
 {
-    public string Query =>
+    public override string Query =>
     """
     SELECT Person.FirstName, Person.LastName, Address.City, Address.State
     FROM Person

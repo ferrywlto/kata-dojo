@@ -3,19 +3,21 @@ namespace dojo.leetcode;
 
 public class Q598_RangeAdditionII
 {
+    // TC: O(n)
+    // SC: O(1)
     public int MaxCount(int m, int n, int[][] ops) 
     {
         if (ops.Length == 0) return m * n;
 
         // only need to take care of the smallest 
-        var setX = new HashSet<int>();
-        var setY = new HashSet<int>();
+        var minX = m;
+        var minY = n;
         foreach(var op in ops)
         {
-            setX.Add(op[0]);
-            setY.Add(op[1]);
+            if (op[0] < minX) minX = op[0];
+            if (op[1] < minY) minY = op[1];
         }
-        return setX.Min() * setY.Min();
+        return minX * minY;
     }
 }
 

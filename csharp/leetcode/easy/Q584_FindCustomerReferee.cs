@@ -1,35 +1,33 @@
 namespace dojo.leetcode;
 
-public class Q584_FindCustomerReferee: SqlQuestion
+public class Q584_FindCustomerReferee : SqlQuestion
 {
-    public override string Query => 
+    public override string Query =>
     """
     SELECT name FROM Customer WHERE referee_id IS NULL OR referee_id IS NOT 2;
     """;
 }
 
-public class Q584_FindCustomerRefereeTestData: TestData
+public class Q584_FindCustomerRefereeTestData : TestData
 {
-    protected override List<object[]> Data => 
-    [
-        [
-            """
-            INSERT INTO Customer
-            VALUES
-            (1, 'Will', null),
-            (2, 'Jane', null),
-            (3, 'Alex', 2),
-            (4, 'Bill', null),
-            (5, 'Zack', 1),
-            (6, 'Mark', 2);
-            """
-        ]
-    ];
+    protected override List<object[]> Data =>
+    [[
+        """
+        INSERT INTO Customer
+        VALUES
+        (1, 'Will', null),
+        (2, 'Jane', null),
+        (3, 'Alex', 2),
+        (4, 'Bill', null),
+        (5, 'Zack', 1),
+        (6, 'Mark', 2);
+        """
+    ]];
 }
 
-public class Q584_FindCustomerRefereeTests(ITestOutputHelper output): DatabaseTest(output)
+public class Q584_FindCustomerRefereeTests(ITestOutputHelper output) : DatabaseTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     CREATE TABLE IF NOT EXISTS Customer (id INT, name VARCHAR, referee_id INT); 
     """;
@@ -42,7 +40,7 @@ public class Q584_FindCustomerRefereeTests(ITestOutputHelper output): DatabaseTe
 
         var sut = new Q584_FindCustomerReferee();
         var reader = ExecuteQuery(sut.Query);
-        
+
         Assert.True(reader.HasRows);
         Assert.Equal(1, reader.FieldCount);
 

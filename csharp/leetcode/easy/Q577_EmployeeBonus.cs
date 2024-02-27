@@ -1,8 +1,8 @@
 namespace dojo.leetcode;
 
-public class Q577_EmployeeBonus: SqlQuestion
+public class Q577_EmployeeBonus : SqlQuestion
 {
-    public override string Query => 
+    public override string Query =>
     """
     SELECT name, bonus FROM Employee emp 
     LEFT JOIN 
@@ -11,27 +11,25 @@ public class Q577_EmployeeBonus: SqlQuestion
     """;
 }
 
-public class Q577_EmployeeBonusTestData: TestData
+public class Q577_EmployeeBonusTestData : TestData
 {
-    protected override List<object[]> Data => 
-    [
-        [
-            """
-            INSERT INTO Employee VALUES 
-            (3, 'Brad', null, 4000), 
-            (1, 'John', 3, 1000),
-            (2, 'Dan', 3, 2000),
-            (4, 'Thomas', 3, 4000);
+    protected override List<object[]> Data =>
+    [[
+        """
+        INSERT INTO Employee VALUES 
+        (3, 'Brad', null, 4000), 
+        (1, 'John', 3, 1000),
+        (2, 'Dan', 3, 2000),
+        (4, 'Thomas', 3, 4000);
 
-            INSERT INTO Bonus VALUES
-            (2, 500),
-            (4, 2000);
-            """
-        ]
-    ];
+        INSERT INTO Bonus VALUES
+        (2, 500),
+        (4, 2000);
+        """
+    ]];
 }
 
-public class Q577_EmployeeBonusTests(ITestOutputHelper output): DatabaseTest(output)
+public class Q577_EmployeeBonusTests(ITestOutputHelper output) : DatabaseTest(output)
 {
     protected override string TestSchema =>
     """

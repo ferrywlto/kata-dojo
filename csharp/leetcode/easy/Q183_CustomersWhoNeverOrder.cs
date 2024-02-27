@@ -1,20 +1,26 @@
 namespace dojo.leetcode;
 
+public class Q183_CustomersWhoNeverOrder : SqlQuestion
+{
+    public override string Query =>
+    """
+    SELECT name as Customers FROM Customers WHERE id NOT IN (Select customerId from Orders) 
+    """;
+}
+
 public class Q183_CustomersWhoNeverOrderTestData : TestData
 {
     protected override List<object[]> Data =>
-    [
-        [
-            """
-            INSERT INTO Customers VALUES (1, 'Joe');
-            INSERT INTO Customers VALUES (2, 'Henry');
-            INSERT INTO Customers VALUES (3, 'Sam');
-            INSERT INTO Customers VALUES (4, 'Max');
-            INSERT INTO Orders VALUES (1, 3);
-            INSERT INTO Orders VALUES (2, 1);
-            """
-        ],
-    ];
+    [[
+        """
+        INSERT INTO Customers VALUES (1, 'Joe');
+        INSERT INTO Customers VALUES (2, 'Henry');
+        INSERT INTO Customers VALUES (3, 'Sam');
+        INSERT INTO Customers VALUES (4, 'Max');
+        INSERT INTO Orders VALUES (1, 3);
+        INSERT INTO Orders VALUES (2, 1);
+        """
+    ]];
 }
 
 public class Q183_CustomersWhoNeverOrderTests(ITestOutputHelper output) : DatabaseTest(output)
@@ -45,12 +51,4 @@ public class Q183_CustomersWhoNeverOrderTests(ITestOutputHelper output) : Databa
         Assert.True(reader.Read());
         Assert.Equal("Max", reader.GetString(0));
     }
-}
-
-public class Q183_CustomersWhoNeverOrder : SqlQuestion
-{
-    public override string Query =>
-    """
-    SELECT name as Customers FROM Customers WHERE id NOT IN (Select customerId from Orders) 
-    """;
 }

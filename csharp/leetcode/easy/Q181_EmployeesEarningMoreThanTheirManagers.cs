@@ -1,5 +1,13 @@
 namespace dojo.leetcode;
 
+public class Q181_EmployeesEarningMoreThanTheirManagers : SqlQuestion
+{
+    public override string Query =>
+    """
+    SELECT e1.Name AS Employee From Employee e1 LEFT JOIN Employee e2 on e1.managerId = e2.id WHERE e1.salary > e2.salary  
+    """;
+}
+
 public class Q181_EmployeesEarningMoreThanTheirManagersTestData : TestData
 {
     protected override List<object[]> Data =>
@@ -38,12 +46,4 @@ public class Q181_EmployeesEarningMoreThanTheirManagersTests(ITestOutputHelper o
         Assert.Equal("Joe", reader.GetString(0));
     }
 
-}
-
-public class Q181_EmployeesEarningMoreThanTheirManagers : SqlQuestion
-{
-    public override string Query =>
-    """
-    SELECT e1.Name AS Employee From Employee e1 LEFT JOIN Employee e2 on e1.managerId = e2.id WHERE e1.salary > e2.salary  
-    """;
 }

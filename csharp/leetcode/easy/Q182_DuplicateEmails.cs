@@ -1,5 +1,13 @@
 namespace dojo.leetcode;
 
+public class Q182_DuplicateEmails : SqlQuestion
+{
+    public override string Query =>
+    """
+    SELECT Email FROM Person GROUP BY Email HAVING COUNT(Email) > 1;
+    """;
+}
+
 public class Q182_DuplicateEmailsTestData : TestData
 {
     protected override List<object[]> Data =>
@@ -37,12 +45,4 @@ public class Q182_DuplicateEmailsTests(ITestOutputHelper output) : DatabaseTest(
         Assert.Equal("a@b.com", reader.GetString(0));
     }
 
-}
-
-public class Q182_DuplicateEmails : SqlQuestion
-{
-    public override string Query =>
-    """
-    SELECT Email FROM Person GROUP BY Email HAVING COUNT(Email) > 1;
-    """;
 }

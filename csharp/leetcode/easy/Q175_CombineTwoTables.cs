@@ -1,18 +1,27 @@
 namespace dojo.leetcode;
 
+public class Q175_CombineTwoTables : SqlQuestion
+{
+    public override string Query =>
+    """
+    SELECT Person.FirstName, Person.LastName, Address.City, Address.State
+    FROM Person
+    LEFT JOIN Address
+    ON Person.PersonId = Address.PersonId;
+    """;
+}
+
 public class Q175_CombineTwoTablesTestData : TestData
 {
     protected override List<object[]> Data =>
-    [
-        [
-            """
-            INSERT INTO Person VALUES(1, 'Wang', 'Allen');
-            INSERT INTO Person VALUES(2, 'Alice', 'Bob');
-            INSERT INTO Address VALUES(1, 2, 'New York City', 'New York');
-            INSERT INTO Address VALUES(2, 3, 'Leetcode', 'California');
-            """
-        ]
-    ];
+    [[
+        """
+        INSERT INTO Person VALUES(1, 'Wang', 'Allen');
+        INSERT INTO Person VALUES(2, 'Alice', 'Bob');
+        INSERT INTO Address VALUES(1, 2, 'New York City', 'New York');
+        INSERT INTO Address VALUES(2, 3, 'Leetcode', 'California');
+        """
+    ]];
 }
 
 public class Q175_CombineTwoTablesTests(ITestOutputHelper output) : DatabaseTest(output)
@@ -48,15 +57,4 @@ public class Q175_CombineTwoTablesTests(ITestOutputHelper output) : DatabaseTest
 
         Assert.False(reader.Read());
     }
-}
-
-public class Q175_CombineTwoTables : SqlQuestion
-{
-    public override string Query =>
-    """
-    SELECT Person.FirstName, Person.LastName, Address.City, Address.State
-    FROM Person
-    LEFT JOIN Address
-    ON Person.PersonId = Address.PersonId;
-    """;
 }

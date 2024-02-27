@@ -2,7 +2,7 @@ namespace dojo.leetcode;
 
 public class Q595_BigCountries : SqlQuestion
 {
-    public override string Query => 
+    public override string Query =>
     """
     SELECT name, population, area
     FROM World
@@ -13,7 +13,7 @@ public class Q595_BigCountries : SqlQuestion
 
 public class Q595_BigCountriesTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [[
         """
         INSERT INTO World VALUES
@@ -26,9 +26,9 @@ public class Q595_BigCountriesTestData : TestData
     ]];
 }
 
-public class Q595_BigCountriesTests(ITestOutputHelper output) : DatabaseTest(output) 
+public class Q595_BigCountriesTests(ITestOutputHelper output) : DatabaseTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     CREATE TABLE IF NOT EXISTS World (name VARCHAR, continent VARCHAR, area INT, population INT, gdp BIGINT);
     """;

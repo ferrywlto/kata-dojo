@@ -86,7 +86,6 @@ public abstract class DatabaseTest : BaseTest, IDisposable
     }
 }
 
-
 public class TestDatabaseTestClass(ITestOutputHelper output) : DatabaseTest(output)
 {
     protected override string TestSchema => string.Empty;
@@ -96,6 +95,7 @@ public class TestDatabaseTestClass(ITestOutputHelper output) : DatabaseTest(outp
         throw new NotImplementedException();
     }
 }
+
 public class TestsOfDatabaseTest
 {
     [Fact]

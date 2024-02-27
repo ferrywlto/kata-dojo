@@ -2,7 +2,7 @@ namespace dojo.leetcode;
 
 public class Q596_ClassesMoreThanFiceStudents : SqlQuestion
 {
-    public override string Query => 
+    public override string Query =>
     """
     SELECT class 
     FROM courses 
@@ -13,7 +13,7 @@ public class Q596_ClassesMoreThanFiceStudents : SqlQuestion
 
 public class Q596_ClassesMoreThanFiceStudentsTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [[
         """
         INSERT INTO Courses VALUES
@@ -30,9 +30,9 @@ public class Q596_ClassesMoreThanFiceStudentsTestData : TestData
     ]];
 }
 
-public class Q596_ClassesMoreThanFiceStudentsTest(ITestOutputHelper output): DatabaseTest(output)
+public class Q596_ClassesMoreThanFiceStudentsTest(ITestOutputHelper output) : DatabaseTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     CREATE TABLE IF NOT EXISTS Courses (student VARCHAR, class VARCHAR);
     """;

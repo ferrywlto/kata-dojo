@@ -5,7 +5,7 @@ namespace dojo.leetcode;
 
 public class Q511_GamePlayAnalysis1 : SqlQuestion
 {
-    public override string Query => 
+    public override string Query =>
     """
     SELECT player_id, MIN(event_date) FROM Activity
     GROUP BY player_id;
@@ -15,23 +15,19 @@ public class Q511_GamePlayAnalysis1 : SqlQuestion
 public class Q511_GamePlayAnalysis1TestData : TestData
 {
     protected override List<object[]> Data =>
-    [
-        [
-            """
-            INSERT INTO Activity 
-                (player_id, device_id, event_date, games_played) 
-            VALUES 
-                ('1', '2', '2016-03-01', 5),
-                ('1', '2', '2016-05-02', 6),
-                ('2', '3', '2017-06-25', 1),
-                ('3', '1', '2016-03-02', 0),
-                ('3', '4', '2016-03-02', 5);
-            """
-        ]
-    ];
+    [[
+        """
+        INSERT INTO Activity VALUES 
+        ('1', '2', '2016-03-01', 5),
+        ('1', '2', '2016-05-02', 6),
+        ('2', '3', '2017-06-25', 1),
+        ('3', '1', '2016-03-02', 0),
+        ('3', '4', '2016-03-02', 5);
+        """
+    ]];
 }
 
-public class Q511_GamePlayAnalysis1Tests(ITestOutputHelper output): DatabaseTest(output)
+public class Q511_GamePlayAnalysis1Tests(ITestOutputHelper output) : DatabaseTest(output)
 {
     protected override string TestSchema =>
     """
@@ -47,7 +43,7 @@ public class Q511_GamePlayAnalysis1Tests(ITestOutputHelper output): DatabaseTest
         var sut = new Q511_GamePlayAnalysis1();
 
         var reader = ExecuteQuery(sut.Query);
-        
+
         AssertResultSchema(reader);
         AssertRow(reader, 1, new DateTime(2016, 3, 1));
         AssertRow(reader, 2, new DateTime(2017, 6, 25));

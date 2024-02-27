@@ -23,7 +23,7 @@ public class Q182_DuplicateEmailsTests(ITestOutputHelper output) : DatabaseTest(
 
     [Theory]
     [ClassData(typeof(Q182_DuplicateEmailsTestData))]
-    public void OfficialTestCases(string input)
+    public override void OfficialTestCases(string input)
     {
         InputTestData(input);
 

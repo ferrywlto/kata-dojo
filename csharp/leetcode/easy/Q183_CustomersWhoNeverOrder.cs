@@ -27,7 +27,7 @@ public class Q183_CustomersWhoNeverOrderTests(ITestOutputHelper output) : Databa
 
     [Theory]
     [ClassData(typeof(Q183_CustomersWhoNeverOrderTestData))]
-    public void OfficialTestCases(string input)
+    public override void OfficialTestCases(string input)
     {
         InputTestData(input);
 

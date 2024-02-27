@@ -36,7 +36,7 @@ public class Q584_FindCustomerRefereeTests(ITestOutputHelper output): DatabaseTe
 
     [Theory]
     [ClassData(typeof(Q584_FindCustomerRefereeTestData))]
-    public void OfficialTestCases(string testDataSql)
+    public override void OfficialTestCases(string testDataSql)
     {
         InputTestData(testDataSql);
 

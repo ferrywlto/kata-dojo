@@ -25,7 +25,7 @@ public class Q175_CombineTwoTablesTests(ITestOutputHelper output) : DatabaseTest
 
     [Theory]
     [ClassData(typeof(Q175_CombineTwoTablesTestData))]
-    public void OfficialTestCases(string input)
+    public override void OfficialTestCases(string input)
     {
         InputTestData(input);
 

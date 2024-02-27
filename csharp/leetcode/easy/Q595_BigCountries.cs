@@ -35,7 +35,7 @@ public class Q595_BigCountriesTests(ITestOutputHelper output) : DatabaseTest(out
 
     [Theory]
     [ClassData(typeof(Q595_BigCountriesTestData))]
-    public void OfficialTestCases(string testDataSql)
+    public override void OfficialTestCases(string testDataSql)
     {
         InputTestData(testDataSql);
 

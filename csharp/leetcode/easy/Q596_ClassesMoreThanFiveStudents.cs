@@ -39,7 +39,7 @@ public class Q596_ClassesMoreThanFiceStudentsTest(ITestOutputHelper output): Dat
 
     [Theory]
     [ClassData(typeof(Q596_ClassesMoreThanFiceStudentsTestData))]
-    public void OfficialTestCases(string testDataSql)
+    public override void OfficialTestCases(string testDataSql)
     {
         InputTestData(testDataSql);
 

@@ -40,7 +40,7 @@ public class Q511_GamePlayAnalysis1Tests(ITestOutputHelper output): DatabaseTest
 
     [Theory]
     [ClassData(typeof(Q511_GamePlayAnalysis1TestData))]
-    public void OfficialTestCases(string input)
+    public override void OfficialTestCases(string input)
     {
         InputTestData(input);
 

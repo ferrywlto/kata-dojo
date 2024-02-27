@@ -4,14 +4,13 @@ public class Q196_DeleteDuplicateEmailsTestData : TestData
 {
     protected override List<object[]> Data =>
     [
-        ["""
-        INSERT INTO Person VALUES (1, 'john@example.com');
-        INSERT INTO Person VALUES (2, 'bob@example.com');
-        INSERT INTO Person VALUES (3, 'john@example.com');
-        """,
-        """
-        SELECT * FROM Person;
-        """]
+        [
+            """
+            INSERT INTO Person VALUES (1, 'john@example.com');
+            INSERT INTO Person VALUES (2, 'bob@example.com');
+            INSERT INTO Person VALUES (3, 'john@example.com');
+            """
+        ]
     ];
 }
 
@@ -24,7 +23,7 @@ public class Q196_DeleteDuplicateEmailsTests(ITestOutputHelper output) : Databas
 
     [Theory]
     [ClassData(typeof(Q196_DeleteDuplicateEmailsTestData))]
-    public void OfficialTestCases(string input, string expected)
+    public override void OfficialTestCases(string input)
     {
         InputTestData(input);
 
@@ -32,7 +31,7 @@ public class Q196_DeleteDuplicateEmailsTests(ITestOutputHelper output) : Databas
         var deleteCount = ExecuteCommand(sut.Command);
         Assert.Equal(1, deleteCount);
 
-        var result = ExecuteQuery(expected);
+        var result = ExecuteQuery("SELECT * FROM Person;");
 
         Assert.True(result.Read());
         Assert.Equal(1, result.GetInt32(0));

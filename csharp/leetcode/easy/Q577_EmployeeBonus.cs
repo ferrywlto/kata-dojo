@@ -41,7 +41,7 @@ public class Q577_EmployeeBonusTests(ITestOutputHelper output): DatabaseTest(out
 
     [Theory]
     [ClassData(typeof(Q577_EmployeeBonusTestData))]
-    public void OfficialTestCases(string testDataSql)
+    public override void OfficialTestCases(string testDataSql)
     {
         InputTestData(testDataSql);
 

@@ -24,7 +24,7 @@ public class Q197_RisingTemperatureTests(ITestOutputHelper output): DatabaseTest
 
     [Theory]
     [ClassData(typeof(Q197_RisingTemperatureTestData))]
-    public void OfficialTestCases(string input)
+    public override void OfficialTestCases(string input)
     {
         InputTestData(input);
 

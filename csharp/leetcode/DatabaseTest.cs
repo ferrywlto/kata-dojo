@@ -15,9 +15,11 @@ public abstract class DatabaseTest : BaseTest, IDisposable
         CreateTestDatabase();
     }
 
-    protected bool IsDatabaseConnectionOpened() => connection.State == System.Data.ConnectionState.Open;
-
+    const int ColumnWidth = 10;
     protected abstract string TestSchema { get; }
+    public abstract void OfficialTestCases(string testDataSql);
+    protected virtual string FormatOutput(string input) => $" {(input.Length <= ColumnWidth ? input.PadRight(ColumnWidth) : input)} |";
+    protected bool IsDatabaseConnectionOpened() => connection.State == System.Data.ConnectionState.Open;
 
     protected int ExecuteCommand(string Sql) => CreateCommand(Sql).ExecuteNonQuery();
 
@@ -33,9 +35,6 @@ public abstract class DatabaseTest : BaseTest, IDisposable
         return command.ExecuteReader();
     }
 
-    const int ColumnWidth = 10;
-
-    protected virtual string FormatOutput(string input) => $" {(input.Length <= ColumnWidth ? input.PadRight(ColumnWidth) : input)} |";
 
     protected void DebugReader(SqliteDataReader reader)
     {
@@ -91,6 +90,11 @@ public abstract class DatabaseTest : BaseTest, IDisposable
 public class TestDatabaseTestClass(ITestOutputHelper output) : DatabaseTest(output)
 {
     protected override string TestSchema => string.Empty;
+
+    public override void OfficialTestCases(string testDataSql)
+    {
+        throw new NotImplementedException();
+    }
 }
 public class TestsOfDatabaseTest
 {

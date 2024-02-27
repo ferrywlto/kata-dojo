@@ -2,7 +2,8 @@ namespace dojo.leetcode;
 
 public class Q599_MinIndexSumOfTwoList
 {
-    // Use O(n+m) approach
+    // TC: O(n+m)
+    // SC: O(n+m)
     public string[] FindRestaurant(string[] list1, string[] list2) 
     {
         var dict = new Dictionary<string, int>();
@@ -10,19 +11,26 @@ public class Q599_MinIndexSumOfTwoList
         {
             dict.Add(list1[i], i);
         }
-        var result = new Dictionary<string, int>();
+        
+        var minSum = int.MaxValue;
+        List<string> result = [];
         for(var j=0; j<list2.Length; j++)
         {
             if(dict.TryGetValue(list2[j], out int value))
             {
-                result.Add(list2[j], value + j);
+                var sum = value + j;
+                if(sum < minSum)
+                {
+                    minSum = value + j;
+                    result = [list2[j]];
+                }
+                else if(sum == minSum)
+                {
+                    result.Add(list2[j]);
+                }
             }
         }
-        var minSum = result.Min(x => x.Value);
-        return result
-            .Where(x => x.Value == minSum)
-            .Select(x => x.Key)
-            .ToArray();
+        return result.ToArray();
     }
 }
 

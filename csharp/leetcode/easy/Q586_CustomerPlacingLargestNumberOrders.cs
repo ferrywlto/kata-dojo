@@ -1,12 +1,15 @@
-
-
 namespace dojo.leetcode;
 
 public class Q586_CustomerPlacingLargestNumberOrders : SqlQuestion
 {
     public override string Query => 
+    // This SQL is for PostgreSQL as some syntax of T-SQL are not supported in SQLite 
     """
-    SELECT 1;
+    SELECT customer_number 
+    FROM Orders
+    GROUP BY customer_number
+    ORDER BY count(order_number) DESC
+    LIMIT 1;
     """;
 }
 

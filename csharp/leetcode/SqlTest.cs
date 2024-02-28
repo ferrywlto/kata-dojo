@@ -49,7 +49,7 @@ public abstract class SqlTest : BaseTest, IDisposable
         while (reader.Read())
         {
             stringBuilder.Clear();
-            stringBuilder.Append("|");
+            stringBuilder.Append('|');
             for (var i = 0; i < reader.FieldCount; i++)
             {
                 var colValue = reader.IsDBNull(i) ? "NULL" : reader.GetString(i);
@@ -57,6 +57,7 @@ public abstract class SqlTest : BaseTest, IDisposable
             }
             Output.WriteLine(stringBuilder.ToString());
         }
+        reader.Close();
     }
 
     private void CreateTestDatabase()

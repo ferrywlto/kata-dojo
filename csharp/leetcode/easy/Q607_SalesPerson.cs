@@ -5,14 +5,16 @@ public class Q607_SalesPerson : SqlQuestion
 {
     public override string Query => 
     """
-    SELECT name FROM SalesPerson
-    WHERE sales_id NOT IN
-    (
-        SELECT sales_id FROM Orders o 
-        JOIN Company c
-            ON o.com_id = c.com_id
-        WHERE name = 'RED'
-    )
+    SELECT s.name
+    FROM SalesPerson s
+    WHERE NOT EXISTS (
+        SELECT 1 
+        FROM Orders o 
+        JOIN Company c 
+        ON o.com_id = c.com_id 
+        WHERE o.sales_id = s.sales_id 
+        AND c.name = 'RED'
+    );    
     """;
 }
 
@@ -59,7 +61,7 @@ public class Q607_SalesPersonTests(ITestOutputHelper output) : SqlTest(output)
         ArrangeTestData(testDataSql);
 
         var sut = new Q607_SalesPerson();
-        var reader = ExecuteQuery(sut.Query, true);
+        var reader = ExecuteQuery(sut.Query);
 
         Assert.True(reader.HasRows);
         Assert.Equal(1, reader.FieldCount);

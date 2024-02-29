@@ -5,7 +5,14 @@ public class Q607_SalesPerson : SqlQuestion
 {
     public override string Query => 
     """
-
+    SELECT name FROM SalesPerson
+    WHERE sales_id NOT IN
+    (
+        SELECT sales_id FROM Orders o 
+        JOIN Company c
+            ON o.com_id = c.com_id
+        WHERE name = 'RED'
+    )
     """;
 }
 
@@ -31,7 +38,7 @@ public class Q607_SalesPersonTestData : TestData
         (1, '1/1/2014', 3, 4, 10000),
         (2, '2/1/2014', 4, 5, 5000),
         (3, '3/1/2014', 1, 1, 50000),
-        (4, '4/1/2014', 1, 4, 25000),
+        (4, '4/1/2014', 1, 4, 25000);
         """
     ]];
 }

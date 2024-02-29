@@ -4,47 +4,25 @@ namespace dojo.leetcode;
 public class Q605_CanPlaceFlowers
 {
     // Siliding window, 1 pass
+    // TC: O(n)
+    // SC: O(1)
     public bool CanPlaceFlowers(int[] flowerbed, int n) 
     {
-        if (n == 0) return true;
-        if (flowerbed.Length == 1)
+        int i = 0, count = 0;
+        while (i < flowerbed.Length)
         {
-            if (n > 1) return false;
-            else if (n == 1) return flowerbed[0] == 0;
-        }
-        else if (flowerbed.Length == 2)
-        {
-            if (n > 1) return false;
-            else if (n == 1) return flowerbed[0] == 0 && flowerbed[1] == 0;
-        }
-
-        for(var i=0; i<flowerbed.Length; i++)
-        {
-            // special case for start and end
-            if(i == 0)
+            if (flowerbed[i] == 0 && 
+                (i == 0 || flowerbed[i - 1] == 0) &&
+                (i == flowerbed.Length - 1 || flowerbed[i + 1] == 0))
             {
-                if (flowerbed[0] == 0 && flowerbed[1] == 0)
-                {
-                    flowerbed[0] = 1;
-                    n--;
-                }
+                flowerbed[i++] = 1;
+                count++;
             }
-            else if(i == flowerbed.Length - 1)
-            {
-                if (flowerbed[^1] == 0 && flowerbed[^2] == 0)
-                {
-                    flowerbed[^1] = 1;
-                    n--;
-                }
-            }
-            else if(flowerbed[i] == 0 && flowerbed[i-1] == 0 && flowerbed[i+1] == 0)
-            {
-                flowerbed[i] = 1;
-                n--;
-            }
-            if (n == 0) return true;
+            if(count>=n)
+                return true;
+            i++;
         }
-        return n == 0;   
+        return false;
     }
 }
 

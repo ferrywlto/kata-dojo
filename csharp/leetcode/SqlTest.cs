@@ -27,12 +27,11 @@ public abstract class SqlTest : BaseTest, IDisposable
 
     protected SqliteDataReader ExecuteQuery(string Sql, bool debug = false)
     {
-        var command = CreateCommand(Sql);
         if (debug)
         {
-            DebugReader(command.ExecuteReader());
+            DebugReader(CreateCommand(Sql).ExecuteReader());
         }
-        return command.ExecuteReader();
+        return CreateCommand(Sql).ExecuteReader();
     }
 
 

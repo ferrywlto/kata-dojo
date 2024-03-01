@@ -5,7 +5,11 @@ public class Q620_NotBoringMovies : SqlQuestion
 {
     public override string Query => 
     """
-    SELECT 1;
+    SELECT *
+    FROM Cinema
+    WHERE description <> 'boring'
+    AND id % 2 = 1
+    ORDER BY rating DESC;
     """;
 }
 
@@ -51,13 +55,13 @@ public class Q620_NotBoringMoviesTests(ITestOutputHelper output) : SqlTest(outpu
         Assert.Equal(5, reader.GetInt32(0));
         Assert.Equal("House card", reader.GetString(1));
         Assert.Equal("Interesting", reader.GetString(2));
-        Assert.Equal(9.1, reader.GetFloat(3));
+        Assert.Equal(Math.Round(9.1, 2), Math.Round(reader.GetFloat(3), 2));
 
         Assert.True(reader.Read());
         Assert.Equal(1, reader.GetInt32(0));
         Assert.Equal("War", reader.GetString(1));
         Assert.Equal("great 3D", reader.GetString(2));
-        Assert.Equal(8.9, reader.GetFloat(3));
+        Assert.Equal(Math.Round(8.9, 2), Math.Round(reader.GetFloat(3), 2));
 
         Assert.False(reader.Read());
     }

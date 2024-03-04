@@ -9,30 +9,29 @@ public class Q496_NextGreaterElementI
     // All integers in nums1 and nums2 are unique.
     // All the integers of nums1 also appear in nums2.
 
-    // TC: O(n^2)
+    // TC: O(n)
     // SC: O(n)
     public int[] NextGreaterElement(int[] nums1, int[] nums2)
     {
         var dict = new Dictionary<int, int>();
+        var stack = new Stack<int>();
         
-        for(var i = 0; i<nums2.Length; i++)
+        foreach(var n in nums2)
         {
-            foreach(var p in dict)
+            while(stack.Count > 0 && stack.Peek() < n)
             {
-                if (nums2[i] > p.Key && p.Value == -1)
-                {
-                    dict[p.Key] = nums2[i];
-                }
+                // n is just larger than stack top item, pop it and set next larger 
+                dict[stack.Pop()] = n;
             }
-            dict.Add(nums2[i], -1);
+            // keep adding if not larger
+            stack.Push(n);
+        }
+        for(var i = 0; i<nums1.Length; i++)
+        {
+            nums1[i] = dict.ContainsKey(nums1[i]) ? dict[nums1[i]] : -1;
         }
 
-        var result = new List<int>();
-        for(var j = 0; j<nums1.Length; j++)
-        {
-            result.Add(dict[nums1[j]]);
-        }
-        return result.ToArray();
+        return nums1;
     }
 }
 

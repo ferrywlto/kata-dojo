@@ -3,9 +3,36 @@ namespace dojo.leetcode;
 
 public class Q496_NextGreaterElementI
 {
+    // Constraints:
+    // 1 <= nums1.length <= nums2.length <= 1000
+    // 0 <= nums1[i], nums2[i] <= 104
+    // All integers in nums1 and nums2 are unique.
+    // All the integers of nums1 also appear in nums2.
+
+    // TC: O(n^2)
+    // SC: O(n)
     public int[] NextGreaterElement(int[] nums1, int[] nums2)
     {
-        return [];
+        var dict = new Dictionary<int, int>();
+        
+        for(var i = 0; i<nums2.Length; i++)
+        {
+            foreach(var p in dict)
+            {
+                if (nums2[i] > p.Key && p.Value == -1)
+                {
+                    dict[p.Key] = nums2[i];
+                }
+            }
+            dict.Add(nums2[i], -1);
+        }
+
+        var result = new List<int>();
+        for(var j = 0; j<nums1.Length; j++)
+        {
+            result.Add(dict[nums1[j]]);
+        }
+        return result.ToArray();
     }
 }
 

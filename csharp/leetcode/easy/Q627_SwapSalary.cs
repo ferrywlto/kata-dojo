@@ -7,7 +7,11 @@ public class Q627_SwapSalary : SqlQuestion
 {
     public override string Query =>
     """
-    SELECT 1
+    UPDATE Salary SET sex =
+        CASE
+            WHEN sex = 'm' THEN 'f' 
+            ELSE 'm' 
+        END
     """;
 }
 
@@ -55,13 +59,15 @@ public class Q627_SwapSalaryTests(ITestOutputHelper output) : SqlTest(output)
         Assert.Equal("salary", reader.GetName(3));
 
         AssertRow(reader, 1, "A", 'f', 2500);
-        AssertRow(reader, 2, "B", 'm', 2500);
-        AssertRow(reader, 3, "C", 'f', 2500);
-        AssertRow(reader, 4, "D", 'm', 2500);
+        AssertRow(reader, 2, "B", 'm', 1500);
+        AssertRow(reader, 3, "C", 'f', 5500);
+        AssertRow(reader, 4, "D", 'm', 500);
+        Assert.False(reader.Read());
     }
 
     private void AssertRow(DbDataReader reader, int id, string name, char sex, int salary)
     {
+        Assert.True(reader.Read());
         Assert.Equal(id, reader.GetInt32(0));
         Assert.Equal(name, reader.GetString(1));
         Assert.Equal(sex, reader.GetChar(2));

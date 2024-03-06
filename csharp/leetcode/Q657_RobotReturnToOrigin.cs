@@ -2,9 +2,24 @@ namespace dojo.leetcode;
 
 public class Q657_RobotReturnToOrigin
 {
+    // TC: O(n)
+    // SC: O(1)
     public bool JudgeCircle(string moves) 
     {
-        return false;    
+        var x = 0;
+        var y = 0;
+        for(var i=0; i<moves.Length; i++)
+        {
+            switch(moves[i]) 
+            {
+                case 'U': y++; break;
+                case 'D': y--; break;
+                case 'R': x++; break;
+                case 'L': x--; break;
+                default: break;
+            }
+        }
+        return x == 0 && y == 0;    
     }
 }
 

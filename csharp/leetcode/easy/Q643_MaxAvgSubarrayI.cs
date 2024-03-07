@@ -2,9 +2,31 @@ namespace dojo.leetcode;
 
 public class Q643_MaxAvgSubarrayI
 {
+    // TC: O(n^2)
+    // SC: O(1)
     public double FindMaxAverage(int[] nums, int k) 
     {
-        return 0;    
+        if (nums.Length <= k) return nums.Average();
+
+        var maxAvg = double.MinValue;
+
+        for(var i=0; i<nums.Length-(k-1); i++)
+        {
+            var sum = 0;
+            for(var j=i; j<i+k; j++)
+            {
+                sum += nums[j];
+                Console.WriteLine($"n: {nums[j]}, currentSum: {sum}");
+            }
+            var avg = (double)sum / k;
+            if (avg > maxAvg)
+            {
+                maxAvg = avg;
+            }
+            Console.WriteLine($"range: {i}-{i + k - 1}, sum: {sum}, avg: {avg}");
+        }
+        
+        return maxAvg;
     }
 }
 

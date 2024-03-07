@@ -6,24 +6,18 @@ public class Q643_MaxAvgSubarrayI
     // SC: O(1)
     public double FindMaxAverage(int[] nums, int k) 
     {
-        if (nums.Length <= k) return nums.Average();
+        double known = 0;
+        for (var i=0; i<k; i++) known += nums[i];
 
-        var maxAvg = double.MinValue;
-
-        for(var i=0; i<nums.Length-(k-1); i++)
+        var maxAvg = known/k;
+        for(var j=1; j<nums.Length-(k-1); j++)
         {
-            var sum = 0;
-            for(var j=i; j<i+k; j++)
-            {
-                sum += nums[j];
-                Console.WriteLine($"n: {nums[j]}, currentSum: {sum}");
-            }
-            var avg = (double)sum / k;
-            if (avg > maxAvg)
-            {
-                maxAvg = avg;
-            }
-            Console.WriteLine($"range: {i}-{i + k - 1}, sum: {sum}, avg: {avg}");
+            var prevHead = nums[j - 1];
+            var nextTail = nums[j + k - 1];
+            known = known - prevHead + nextTail;
+
+            var movingAvg = known / k;
+            if (movingAvg > maxAvg) maxAvg = movingAvg;
         }
         
         return maxAvg;
@@ -35,6 +29,8 @@ public class Q643_MaxAvgSubarrayITestData : TestData
     protected override List<object[]> Data => 
     [
         [new int[]{1,12,-5,-6,50,3}, 4, 12.75000],
+        [new int[]{4,2,1,3,3}, 2, 3.00000],
+        [new int[]{7,4,5,8,8,3,9,8,7,6}, 7, 7.00000],
         [new int[]{5}, 1, 5.00000],
     ];
 }

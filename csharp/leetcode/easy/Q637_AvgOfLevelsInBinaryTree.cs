@@ -3,9 +3,31 @@ namespace dojo.leetcode;
 
 public class Q637_AvgOfLevelsInBinaryTree
 {
-    public IList<double> AverageOfLevels(TreeNode root) 
+    // TC: O(n)
+    // SC: O(n)
+    public IList<double> AverageOfLevels(TreeNode? root) 
     {
-        return [];    
+        if (root == null) return [0];
+        
+        List<double> result = [];
+
+        var queue = new Queue<TreeNode>();
+        queue.Enqueue(root);
+
+        while(queue.Count > 0)
+        {
+            double levelSum = 0;
+            var levelCount = queue.Count;
+            for(var i=0; i<levelCount; i++)
+            {
+                var node = queue.Dequeue();
+                levelSum += node.val;
+                if (node.left != null) queue.Enqueue(node.left);
+                if (node.right != null) queue.Enqueue(node.right);
+            }
+            result.Add(levelSum / levelCount);
+        }
+        return result;
     }
 }
 
@@ -28,6 +50,7 @@ public class Q637_AvgOfLevelsInBinaryTreeTests : TreeNodeTests
         var tree = TreeNode.FromLevelOrderingIntArray(input);
         var actual = sut.AverageOfLevels(tree!);
 
+        Console.WriteLine($"actual: {string.Join(',', actual)}");
         Assert.True(Enumerable.SequenceEqual(expected, actual));
     }
 }

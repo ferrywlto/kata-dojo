@@ -3,8 +3,23 @@ namespace dojo.leetcode;
 
 public class Q653_TwoSumIV
 {
+    // TC: O(n)
+    // SC: O(n)
     public bool FindTarget(TreeNode root, int k) 
     {
+        var hashset = new HashSet<int>();
+        var stack = new Stack<TreeNode>();
+        stack.Push(root);
+
+        while(stack.Count > 0)
+        {
+            var node = stack.Pop();
+            if(hashset.Contains(k-node.val)) return true;
+            else hashset.Add(node.val);
+
+            if (node.left != null) stack.Push(node.left);
+            if (node.right != null) stack.Push(node.right);
+        }
         return false;    
     }
 }

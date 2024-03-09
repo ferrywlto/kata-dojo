@@ -3,24 +3,15 @@ namespace dojo.leetcode;
 
 public class Q628_MaxProductOfThreeNumbers
 {
+    // TC: O(n log n)
+    // SC: O(1)
     public int MaximumProduct(int[] nums) 
     {
         if (nums.Length == 3) 
             return nums[0] * nums[1] * nums[2];
 
-        var max = int.MinValue;
-        for(var i=0; i<nums.Length; i++)
-        {
-            for(var j=i+1; j<nums.Length; j++)
-            {
-                for(var k=j+1; k<nums.Length; k++)
-                {
-                    var product = nums[i] * nums[j] * nums[k];
-                    if (product > max) max = product;
-                }
-            }
-        }
-        return max;
+        Array.Sort(nums);
+        return Math.Max(nums[0] * nums[1] * nums[^1], nums[^3] * nums[^2] * nums[^1]);
     }
 }
 

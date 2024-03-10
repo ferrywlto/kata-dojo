@@ -6,7 +6,9 @@ namespace dojo.leetcode;
 
 public abstract class SqlTest : BaseTest, IDisposable
 {
+    const int ColumnWidth = 10;
     protected readonly SqliteConnection connection;
+
     public SqlTest(ITestOutputHelper output) : base(output)
     {
         connection = new SqliteConnection("Filename=:memory:");
@@ -15,11 +17,11 @@ public abstract class SqlTest : BaseTest, IDisposable
         CreateTestDatabase();
     }
 
-    const int ColumnWidth = 10;
     public abstract void OfficialTestCases(string testDataSql);
     protected abstract string TestSchema { get; }
     protected virtual string FormatOutput(string input) => $" {(input.Length <= ColumnWidth ? input.PadRight(ColumnWidth) : input)} |";
-    protected bool IsDatabaseConnectionOpened() => connection.State == System.Data.ConnectionState.Open;
+    
+    protected bool IsDatabaseConnectionOpened() => connection?.State == System.Data.ConnectionState.Open;
 
     protected int ExecuteCommand(string Sql) => CreateCommand(Sql).ExecuteNonQuery();
 

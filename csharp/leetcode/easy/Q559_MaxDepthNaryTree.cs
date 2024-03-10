@@ -41,7 +41,7 @@ public class Q559_MaxDepthNaryTreeTestData : TestData
 
 public class Q559_MaxDepthNaryTreeTests : NaryTreeTest
 {
-    public Q559_MaxDepthNaryTreeTests(ITestOutputHelper output) : base(output) {}
+    // public Q559_MaxDepthNaryTreeTests(ITestOutputHelper output) : base(output) {}
 
     [Theory]
     [ClassData(typeof(Q559_MaxDepthNaryTreeTestData))]
@@ -49,6 +49,7 @@ public class Q559_MaxDepthNaryTreeTests : NaryTreeTest
     {
         var sut = new Q559_MaxDepthNaryTree();
         var tree = NaryTreeNode.FromLevelOrderIntArray(input);
+        DebugTree(tree!);
         var actual = sut.MaxDepth(tree!);
         Assert.Equal(expected, actual);
     }

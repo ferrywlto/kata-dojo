@@ -2,10 +2,14 @@ namespace dojo.leetcode;
 
 public abstract class NaryTreeTest : BaseTest
 {
+    public NaryTreeTest() {}
     public NaryTreeTest(ITestOutputHelper output) : base(output) {}
 
     protected void DebugTree(NaryTreeNode root)
     {
+        if (Output == null) 
+            throw new Exception("Pass ITestOutputHelper in constructor first!");
+
         var queue = new Queue<NaryTreeNode>();
         queue.Enqueue(root);
         while(queue.Count > 0)

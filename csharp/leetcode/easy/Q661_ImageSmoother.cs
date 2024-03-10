@@ -2,9 +2,8 @@ namespace dojo.leetcode;
 
 public class Q661_ImageSmoother
 {
-    public int[][] HandleSingleRow(int[][] input)
+    public int[] HandleSingleRow(int[] row)
     {
-        var row = input[0];
         var result = new int[row.Length];
         var lastKnown = row[0] + row[1];
         result[0] = lastKnown / 2;
@@ -21,36 +20,40 @@ public class Q661_ImageSmoother
                 lastKnown = row[i] + row[i + 1];
             }
         }
-        return [result];
+        return result;
     }
 
-    // TODO: Resume afterwards
-    // public int[][] HandleTwoRows(int[][] input)
-    // {
-    //     var results = new int[input.Length][];
+    public int[][] HandleTwoRows(int[][] input)
+    {
+        var colCount = input[0].Length;
+        var results = new int[2][];
+        results[0] = new int[colCount];
+        results[1] = new int[colCount];
 
-    //     for(var i=0; i<input.Length; i++)
-    //     {
-    //         var row = input[i];
-    //         results[i] = new int[]();
-    //         var lastKnown = row[0] + row[1];
-    //         result[0] = lastKnown / 2;
-            
-    //         for (var j=1; j<row.Length; j++) 
-    //         {
-    //             if(j == row.Length - 1)
-    //             {
-    //                 result[j] = lastKnown / 2;
-    //             }
-    //             else
-    //             {
-    //                 result[j] = (lastKnown + row[j + 1])/3;
-    //                 lastKnown = row[j] + row[j + 1];
-    //             }
-    //         }
-    //     } 
-    //     return [result];
-    // }
+        // the top and bottom row is the same so just need to do one pass
+
+        var lastKnown = 0;
+        for(var i=0; i<colCount; i++)
+        {
+            if(i == colCount-1)
+            {
+                results[0][i] = lastKnown / 4;
+            }
+            else if(i == 0) 
+            {
+                lastKnown =
+                    input[0][i] + input[0][i + 1] +
+                    input[1][i] + input[1][i + 1];
+
+                results[0][i] = lastKnown / 4;
+            }
+            else 
+            {
+
+            }
+        } 
+        return results;
+    }
 
     // TC: O(n^2)
     // SC: O(n)
@@ -60,7 +63,7 @@ public class Q661_ImageSmoother
         if (img.Length == 0 || img[0].Length == 0) return [[0]];
         if (img.Length == 1 && img[0].Length == 1) return [[1]];
         // handle single row
-        // if (img.Length == 1) return HandleSingleRow(img);
+        if (img.Length == 1) return [HandleSingleRow(img[0])];
         // if (img.Length == 2) return HandleTwoRows(img);
 
         var result = new int[img.Length][];

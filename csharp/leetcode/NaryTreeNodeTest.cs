@@ -1,9 +1,9 @@
 namespace dojo.leetcode;
 
-public abstract class NaryTreeNodeTest : BaseTest
+public abstract class NaryTreeTest : BaseTest
 {
-    public NaryTreeNodeTest() {}
-    public NaryTreeNodeTest(ITestOutputHelper output) : base(output) {}
+    public NaryTreeTest() {}
+    public NaryTreeTest(ITestOutputHelper output) : base(output) {}
 
     protected void DebugTree(NaryTreeNode root)
     {

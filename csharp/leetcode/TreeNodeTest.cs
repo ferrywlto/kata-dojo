@@ -1,6 +1,6 @@
 namespace dojo.leetcode;
 
-public class TreeNodeTest
+public abstract class TreeNodeTest
 {
     [Fact]
     public void ShouldEqualOnPerfectTree()

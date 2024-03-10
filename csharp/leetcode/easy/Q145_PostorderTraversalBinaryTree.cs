@@ -11,7 +11,7 @@ public class Q145_PostorderTraversalBinaryTreeTestData : TestData
     ];
 }
 
-public class Q145_PostorderTraversalBinaryTreeTests(ITestOutputHelper output) : TreeNodeTests
+public class Q145_PostorderTraversalBinaryTreeTests(ITestOutputHelper output) : TreeNodeTest
 {
     [Theory]
     [ClassData(typeof(Q145_PostorderTraversalBinaryTreeTestData))]

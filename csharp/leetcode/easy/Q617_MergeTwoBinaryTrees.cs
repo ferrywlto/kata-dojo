@@ -47,7 +47,7 @@ public class Q617_MergeTwoBinaryTreesTestData : TestData
     ];
 }
 
-public class Q617_MergeTwoBinaryTreesTests : TreeNodeTests
+public class Q617_MergeTwoBinaryTreesTests : TreeNodeTest
 {
     [Theory]
     [ClassData(typeof(Q617_MergeTwoBinaryTreesTestData))]

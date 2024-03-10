@@ -56,7 +56,7 @@ public class Q671_SecondMinNodeInBinaryTreeTestData : TestData
     ];
 }
 
-public class Q671_SecondMinNodeInBinaryTreeTests : TreeNodeTests
+public class Q671_SecondMinNodeInBinaryTreeTests : TreeNodeTest
 {
     [Theory]
     [ClassData(typeof(Q671_SecondMinNodeInBinaryTreeTestData))]

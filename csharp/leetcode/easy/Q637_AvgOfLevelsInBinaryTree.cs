@@ -40,7 +40,7 @@ public class Q637_AvgOfLevelsInBinaryTreeTestData : TestData
     ];
 }
 
-public class Q637_AvgOfLevelsInBinaryTreeTests : TreeNodeTests
+public class Q637_AvgOfLevelsInBinaryTreeTests : TreeNodeTest
 {
     [Theory]
     [ClassData(typeof(Q637_AvgOfLevelsInBinaryTreeTestData))]

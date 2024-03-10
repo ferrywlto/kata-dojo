@@ -50,7 +50,7 @@ public class Q226_InvertBinaryTreeTestData: TestData
     ];
 }
 
-public class Q226_InvertBinaryTreeTests: TreeNodeTests
+public class Q226_InvertBinaryTreeTests: TreeNodeTest
 {
     [Theory]
     [ClassData(typeof(Q226_InvertBinaryTreeTestData))]

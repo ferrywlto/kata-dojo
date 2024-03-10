@@ -12,7 +12,7 @@ public class Q144_PreorderTraversalTestData : TestData
 
 }
 
-public class Q144_PreorderTraversalTests(ITestOutputHelper output) : TreeNodeTests
+public class Q144_PreorderTraversalTests(ITestOutputHelper output) : TreeNodeTest
 {
     [Theory]
     [ClassData(typeof(Q144_PreorderTraversalTestData))]

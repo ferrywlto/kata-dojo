@@ -49,8 +49,6 @@ public class Q637_AvgOfLevelsInBinaryTreeTests : TreeNodeTest
         var sut = new Q637_AvgOfLevelsInBinaryTree();
         var tree = TreeNode.FromLevelOrderingIntArray(input);
         var actual = sut.AverageOfLevels(tree!);
-
-        Console.WriteLine($"actual: {string.Join(',', actual)}");
         Assert.Equal(expected, actual);
     }
 }

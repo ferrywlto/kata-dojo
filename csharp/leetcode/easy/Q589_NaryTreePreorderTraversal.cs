@@ -3,9 +3,32 @@ namespace dojo.leetcode;
 
 public class Q589_NaryTreePreorderTraversal
 {
+    // TC: O(n)
+    // SC: O(n)
     public IList<int> Preorder(NaryTreeNode root) 
     {
-        return [];    
+        if (root == null) return [];
+
+        var result = new List<int>();
+        var stack = new Stack<NaryTreeNode>();
+        stack.Push(root);
+
+        NaryTreeNode? node;
+        while (stack.Count > 0)
+        {
+            node = stack.Pop();
+            result.Add(node.val);
+
+            for(var i=node.children.Count-1; i>=0; i--)
+            {
+                if(node.children[i] != null)
+                {
+                    stack.Push(node.children[i]);
+                }
+            }
+        }
+
+        return result;
     }
 }
 
@@ -24,7 +47,7 @@ public class Q589_NaryTreePreorderTraversalTestData : TestData
     ];
 }
 
-public class Q589_NaryTreePreorderTraversalTests : NaryTreeNodeTest
+public class Q589_NaryTreePreorderTraversalTests(ITestOutputHelper output) : NaryTreeNodeTest(output)
 {
     [Theory]
     [ClassData(typeof(Q589_NaryTreePreorderTraversalTestData))]
@@ -32,7 +55,11 @@ public class Q589_NaryTreePreorderTraversalTests : NaryTreeNodeTest
     {
         var sut = new Q589_NaryTreePreorderTraversal();
         var tree = NaryTreeNode.FromLevelOrderIntArray(input);
+        DebugTree(tree!);
         var actual = sut.Preorder(tree!);
+
+        Output!.WriteLine($"expected: {string.Join(',', expected)}");
+        Output!.WriteLine($"actual: {string.Join(',', actual)}");
         Assert.True(Enumerable.SequenceEqual(expected, actual));
     }
 }

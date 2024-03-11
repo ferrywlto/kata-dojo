@@ -3,9 +3,22 @@ namespace dojo.leetcode;
 
 public class Q590_NaryTreePostorderTraversal
 {
+    List<int> result = [];
     public IList<int> Postorder(NaryTreeNode root) 
     {
-        return [];    
+        Traverse(root);
+        return result;    
+    }
+    public void Traverse(NaryTreeNode node)
+    {
+        if (node != null)
+        {
+            for(var i=0; i<node.children.Count; i++)
+            {
+                Postorder(node.children[i]);
+            }
+            result.Add(node.val);
+        }
     }
 }
 

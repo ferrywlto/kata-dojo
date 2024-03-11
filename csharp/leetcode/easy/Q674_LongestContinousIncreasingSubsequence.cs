@@ -2,9 +2,22 @@ namespace dojo.leetcode;
 
 public class Q674_LongestContinuousIncreasingSubSequence
 {
+    // TC: O(n)
+    // SC: O(1)
     public int FindLengthOfLCIS(int[] nums) 
     {
-        return 0;    
+        var maxLength = 1;
+        var currentLength = 1;
+        for(var i=0; i<nums.Length-1; i++)
+        {
+            if(nums[i] < nums[i+1])
+            {
+                currentLength++;
+                maxLength = Math.Max(maxLength, currentLength);
+            }
+            else currentLength = 1;
+        }
+        return maxLength;    
     }
 }
 
@@ -17,7 +30,7 @@ public class Q674_LongestContinuousIncreasingSubSequenceTestData : TestData
     ];
 }
 
-public class Q674_LongestContinuousIncreasingSubSequenceTest
+public class Q674_LongestContinuousIncreasingSubSequenceTestc
 {
     [Theory]
     [ClassData(typeof(Q674_LongestContinuousIncreasingSubSequenceTestData))]

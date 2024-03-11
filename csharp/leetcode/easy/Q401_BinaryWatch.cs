@@ -60,6 +60,6 @@ public class Q401_BinaryWatchTests(ITestOutputHelper helper)
         var q = new Q401_BinaryWatch();
         IList<string> result = q.ReadBinaryWatch(turnedOn);
         helper.WriteLine(string.Join(",", result));
-        Assert.True(Enumerable.SequenceEqual(expected, result));
+        Assert.Equal(expected, result);
     }
 }

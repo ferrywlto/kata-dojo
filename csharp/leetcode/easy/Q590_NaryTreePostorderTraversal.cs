@@ -74,6 +74,6 @@ public class Q590_NaryTreePostorderTraversalTest : NaryTreeNodeTest
         var sut = new Q590_NaryTreePostorderTraversal();
         var tree = NaryTreeNode.FromLevelOrderIntArray(input);
         var actual = sut.Postorder(tree!);
-        Assert.True(Enumerable.SequenceEqual(expected, actual));
+        Assert.Equal(expected, actual);
     }
 }

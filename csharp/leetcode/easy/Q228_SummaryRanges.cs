@@ -62,6 +62,6 @@ public class Q228_SummaryRangesTests
         var sut = new Q228_SummaryRanges();
         var actual = sut.SummaryRanges(input);
 
-        Assert.True(Enumerable.SequenceEqual(expected, actual));
+        Assert.Equal(expected, actual);
     }
 }

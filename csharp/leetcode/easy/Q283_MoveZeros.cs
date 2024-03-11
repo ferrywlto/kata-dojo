@@ -52,6 +52,6 @@ public class Q283_MoveZerosTests
     {
         var sut = new Q283_MoveZeros();
         sut.MoveZeroes(input);
-        Assert.True(Enumerable.SequenceEqual(expected, input));
+        Assert.Equal(expected, input);
     }
 }

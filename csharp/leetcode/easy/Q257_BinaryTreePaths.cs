@@ -51,6 +51,6 @@ public class Q257_BinaryTreePathsTests
         var sut = new Q257_BinaryTreePaths();
         var tree = TreeNode.FromLevelOrderingIntArray(input);
         var actual = sut.BinaryTreePaths(tree!);
-        Assert.True(Enumerable.SequenceEqual(expected, actual));
+        Assert.Equal(expected, actual);
     }
 }

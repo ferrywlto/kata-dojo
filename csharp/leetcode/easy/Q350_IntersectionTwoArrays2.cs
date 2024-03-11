@@ -114,6 +114,6 @@ public class Q350_IntersectionTwoArrays2Tests(ITestOutputHelper output)
         var sut = new Q350_IntersectionTwoArrays2();
         var actual = sut.Intersect_Sorted(input1, input2);
         output.WriteLine(string.Join(",", actual));
-        Assert.True(Enumerable.SequenceEqual(expected, actual));
+        Assert.Equal(expected, actual);
     }
 }

@@ -199,24 +199,6 @@ public class Q661_ImageSmootherTests
     {
         var sut = new Q661_ImageSmoother();
         var actual = sut.ImageSmoother(input);
-        // var expectedLines = expected.Select(row => $"[{string.Join(',', row)}]");
-        // Console.WriteLine($"expected: {string.Join(',', expectedLines)}");
-        // var actualLines = actual.Select(row => $"[{string.Join(',', row)}]");
-        // Console.WriteLine($"actual: {string.Join(',', actualLines)}");
-        Assert.True(AreEqual2D(expected, actual));
-    }
-
-    public bool AreEqual2D(int[][] expected, int[][] actual)
-    {
-        if (actual.Length != expected.Length) 
-            return false;
-
-        for(var i = 0; i<actual.Length; i++)
-        {
-            if (!Enumerable.SequenceEqual(expected[i], actual[i])) 
-                return false;
-        }
-
-        return true;
+        Assert.Equal(expected, actual);
     }
 }

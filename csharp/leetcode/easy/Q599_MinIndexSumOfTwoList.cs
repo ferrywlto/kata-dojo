@@ -67,6 +67,6 @@ public class Q599_MinIndexSumOfTwoListTests
 
         Array.Sort(expected);
         Array.Sort(actual);
-        Assert.True(Enumerable.SequenceEqual(expected, actual));
+        Assert.Equal(expected, actual);
     }
 }

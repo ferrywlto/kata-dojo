@@ -33,6 +33,6 @@ public class Q344_ReverseStringTests
     {
         var sut = new Q344_ReverseString();
         sut.ReverseString(input);
-        Assert.True(Enumerable.SequenceEqual(expected, input));
+        Assert.Equal(expected, input);
     }
 }

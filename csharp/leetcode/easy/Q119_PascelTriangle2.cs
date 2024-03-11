@@ -20,7 +20,7 @@ public class Q119_PascelTriangle2Tests
     {
         var sut = new Q119_PascelTriangle2();
         var actual = sut.GetRow(nthRow);
-        Assert.True(Enumerable.SequenceEqual(expected, actual));
+        Assert.Equal(expected, actual);
     }
 }
 

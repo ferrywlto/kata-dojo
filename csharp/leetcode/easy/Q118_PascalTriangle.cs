@@ -26,10 +26,7 @@ public class Q118_PascalTriangleTests
         var actual = sut.Generate(numRows);
         var expectedList = expected.Select(x => x.ToList()).ToList();
 
-        for (var i = 0; i < expectedList.Count; i++)
-        {
-            Assert.True(Enumerable.SequenceEqual(expectedList[i], actual[i]));
-        }
+        Assert.Equal(expected, actual);
     }
 }
 

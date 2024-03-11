@@ -31,6 +31,6 @@ public class Q448_NumbersDisappearedInArrayTest
     {
         var sut = new Q448_NumbersDisappearedInArray();
         var actual = sut.FindDisappearedNumbers(input);
-        Assert.True(Enumerable.SequenceEqual(expected, actual));
+        Assert.Equal(expected, actual);
     }
 }

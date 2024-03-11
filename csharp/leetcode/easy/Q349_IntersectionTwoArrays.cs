@@ -42,6 +42,6 @@ public class Q349_IntersectionOfTwoArraysTests
     {
         var sut = new Q349_IntersectionOfTwoArrays();
         var actual = sut.IntersectionSet(input1, input2);
-        Assert.True(Enumerable.SequenceEqual(expected, actual));
+        Assert.Equal(expected, actual);
     }
 }

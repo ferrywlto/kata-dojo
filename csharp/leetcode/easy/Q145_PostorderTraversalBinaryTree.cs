@@ -23,7 +23,7 @@ public class Q145_PostorderTraversalBinaryTreeTests(ITestOutputHelper output) : 
 
         output.WriteLine($"expected: {string.Join(',', expected)}");
         output.WriteLine($"actual: {string.Join(',', actual.ToArray())}");
-        Assert.True(Enumerable.SequenceEqual(expected, actual.ToArray()));
+        Assert.Equal(expected, actual.ToArray());
     }
 }
 

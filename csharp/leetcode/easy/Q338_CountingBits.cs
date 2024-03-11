@@ -90,7 +90,7 @@ public class Q338_CountingBitsTests(ITestOutputHelper helper)
         var sut = new Q338_CountingBits();
         var actual = sut.CountBits_Faster(input);
         helper.WriteLine(string.Join(",", actual));
-        Assert.True(Enumerable.SequenceEqual(expected, actual));
+        Assert.Equal(expected, actual);
     }
 
     [Theory]
@@ -99,7 +99,7 @@ public class Q338_CountingBitsTests(ITestOutputHelper helper)
     {
         var sut = new Q338_CountingBits();
         var actual = sut.ReplicateThenExpand(input);
-        Assert.True(Enumerable.SequenceEqual(expected, actual));
+        Assert.Equal(expected, actual);
     }
 }
 

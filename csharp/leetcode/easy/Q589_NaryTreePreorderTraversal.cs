@@ -60,6 +60,6 @@ public class Q589_NaryTreePreorderTraversalTests(ITestOutputHelper output) : Nar
 
         Output!.WriteLine($"expected: {string.Join(',', expected)}");
         Output!.WriteLine($"actual: {string.Join(',', actual)}");
-        Assert.True(Enumerable.SequenceEqual(expected, actual));
+        Assert.Equal(expected, actual);
     }
 }

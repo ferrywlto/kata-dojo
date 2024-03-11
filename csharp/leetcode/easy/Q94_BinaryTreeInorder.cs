@@ -58,7 +58,6 @@ public class Q94_BinaryTreeInorderTests
         var root = TreeNode.FromLevelOrderingIntArray(input);
         var actual = sut.InorderTraversal(root);
         Assert.Equal(expected, actual.ToArray());
-        Assert.True(Enumerable.SequenceEqual(expected, actual));
     }
 
     [Theory]
@@ -69,7 +68,6 @@ public class Q94_BinaryTreeInorderTests
         var root = TreeNode.FromLevelOrderingIntArray(input);
         var actual = sut.InorderTraversal(root);
         Assert.Equal(expected, actual.ToArray());
-        Assert.True(Enumerable.SequenceEqual(expected, actual));
     }
 }
 

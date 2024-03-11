@@ -58,6 +58,6 @@ public class Q501_FindModeInBSTTests
         var actual = sut.FindMode(root);
         Array.Sort(expected);
         Array.Sort(actual);
-        Assert.True(Enumerable.SequenceEqual(expected, actual));
+        Assert.Equal(expected, actual);
     }
 }

@@ -24,7 +24,7 @@ public class Q144_PreorderTraversalTests(ITestOutputHelper output) : TreeNodeTes
 
         output!.WriteLine($"expected: {string.Join(',', expected)}");
         output.WriteLine($"actual: {string.Join(',', actual.ToArray())}");
-        Assert.True(Enumerable.SequenceEqual(expected, actual.ToArray()));
+        Assert.Equal(expected, actual.ToArray());
     }
 }
 

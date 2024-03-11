@@ -6,7 +6,7 @@ public class Q590_NaryTreePostorderTraversal
     List<int> result = [];
     public IList<int> Postorder(NaryTreeNode root) 
     {
-        Traverse(root);
+        var result = Traverse_Iterative(root);
         return result;    
     }
     public void Traverse(NaryTreeNode node)
@@ -15,10 +15,38 @@ public class Q590_NaryTreePostorderTraversal
         {
             for(var i=0; i<node.children.Count; i++)
             {
-                Postorder(node.children[i]);
+                Traverse(node.children[i]);
             }
             result.Add(node.val);
         }
+    }
+
+    // TC: O(n)
+    // SC: O(n)
+    public List<int> Traverse_Iterative(NaryTreeNode root)
+    {
+        if (root == null) return [];
+
+        var stack = new Stack<NaryTreeNode>();
+        stack.Push(root);
+
+        var resultStack = new Stack<NaryTreeNode>();
+        NaryTreeNode? node;
+        while (stack.Count > 0)
+        {
+            node = stack.Pop();
+            resultStack.Push(node);
+
+            for(var i=0; i<node.children.Count; i++)
+            {
+                if(node.children[i] != null)
+                {
+                    stack.Push(node.children[i]);
+                }
+            }
+        }
+
+        return resultStack.Select(x => x.val).ToList();
     }
 }
 

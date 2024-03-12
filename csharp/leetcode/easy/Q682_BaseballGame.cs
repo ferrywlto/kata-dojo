@@ -2,9 +2,35 @@ namespace dojo.leetcode;
 
 public class Q682_BaseballGame
 {
+    // TC: O(n)
+    // SC: O(n)
     public int CalPoints(string[] operations) 
     {
-        return 0;    
+        var records = new Stack<int>();
+
+        for(var i=0; i<operations.Length; i++)
+        {
+            switch(operations[i]) 
+            {
+                case "C":
+                    if (records.Count > 0) records.Pop();
+                    break;
+
+                case "D":
+                    if (records.Count > 0) records.Push(records.Peek() * 2);
+                    break;
+
+                case "+":
+                    records.Push(records.Take(2).Sum());
+                    break;
+
+                default:
+                    var point = int.Parse(operations[i]);
+                    records.Push(point);
+                    break;
+            }
+        }
+        return records.Sum();  
     }
 }
 

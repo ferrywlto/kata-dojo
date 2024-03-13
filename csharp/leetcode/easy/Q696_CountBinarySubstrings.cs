@@ -1,113 +1,50 @@
-
-using System.Diagnostics.CodeAnalysis;
-using System.Text;
-using System.Text.RegularExpressions;
-
 namespace dojo.leetcode;
 
 public class Q696_CountBinarySubstring
 {
-    public int CountBinarySubstrings(string s) 
-    {
-        var longest = s.Length % 2 == 0 ? s.Length : s.Length - 1;
-        var sb0 = new StringBuilder();
-        var sb1 = new StringBuilder();
-
-        var dict = new Dictionary<string, int>();
-        for (var i=0; i<s.Length; i++)
-        {
-            if (dict.ContainsKey(s[i..2])) dict[s[i..2]]++;
-            else dict[s[i..2]] = 1;
-        }
-
-        var result = 0;
-        for(var i=0; i<longest/2; i++)
-        {
-            sb0.Append('0');
-            sb1.Append('1');
-            var regex = new Regex(sb0.ToString()+sb1.ToString());
-            var matches = regex.Matches(s);
-            result += matches.Count;
-
-            regex = new Regex(sb1.ToString()+sb0.ToString());
-            matches = regex.Matches(s);
-            result += matches.Count;
-        }
-
-        return result;
-    }
-
     const short ZERO = 48;
     const short ONE = 49;
     private readonly Dictionary<string, int> groups = [];
 
-    public int CountBinarySubstringsLinear(string s) 
+    public int CountBinarySubstrings(string s) 
     {
+        if (s.Length == 1) return 0;
         // get the greedy longest patterns in one pass whenever bit change
         // for each group count = length / 2, e.g "11100" = 2 (1100 and 10), "000111" = 3 (000111, 0011, 01)
         // return sum 
 
-        var lastZeroIdx = -1;
-        var lastOneIdx = -1;
         var groupSum = 0;
-
-        if (s[0] == ZERO) lastZeroIdx = 0;
-        else if (s[0] == ONE) lastOneIdx = 0;
+        var idxQueue = new Queue<int>();
+        idxQueue.Enqueue(0);
 
         for(var i=1; i<s.Length; i++)
         {
             if(s[i] != s[i-1])
             {
-                if (s[i] == ZERO)
+                if (idxQueue.Count == 2)
                 {
-                    if(lastZeroIdx != -1)
-                    {
-                        groupSum += CalculateGroups(s, lastZeroIdx, i);
-                    }
-                    lastZeroIdx = i;
+                    groupSum += CalculateGroups(s, idxQueue.Peek(), i);
+                    idxQueue.Dequeue();
                 }
-                else 
-                {
-                    if(lastOneIdx != -1)
-                    {
-                        groupSum += CalculateGroups(s, lastOneIdx, i);
-                    }
-                    lastOneIdx = i;
-                }
+       
+                idxQueue.Enqueue(i);
             }
         }
 
-        if (s[^1] == ZERO)
-        {
-            if(lastOneIdx != -1)
-            {
-                groupSum += CalculateGroups(s, lastOneIdx, s.Length);
-            }
-        }
-        else 
-        {
-            if(lastZeroIdx != -1)
-            {
-                groupSum += CalculateGroups(s, lastZeroIdx, s.Length);
-            }
-        }
+        groupSum += CalculateGroups(s, idxQueue.Peek(), s.Length);
         return groupSum;
     }
 
     public int CalculateGroups(string input, int lastIdx, int currentIdx)
     {
         var str = input[lastIdx..currentIdx];
-        if(groups.TryGetValue(str, out var count))
-        {
-            // Console.WriteLine($"extracted str: {str}, groups:{count}");
-            return count;
-        }
+        if(groups.TryGetValue(str, out var count)) return count;
+
         var groupCount = CountGroup(str);
         groups.Add(str, groupCount);
-        // Console.WriteLine($"extracted str: {str}, groups:{groupCount}");
         return groupCount;
     }
-    
+
     // the input will only have one change in bit, it won't change back as change onward must got splited by the algorithm
     public int CountGroup(string input)
     {
@@ -145,7 +82,7 @@ public class Q696_CountBinarySubstringTests
     public void OfficialTestCases(string input, int expected)
     {
         var sut = new Q696_CountBinarySubstring();
-        var actual = sut.CountBinarySubstringsLinear(input);
+        var actual = sut.CountBinarySubstrings(input);
         Assert.Equal(expected, actual);
     }
 }

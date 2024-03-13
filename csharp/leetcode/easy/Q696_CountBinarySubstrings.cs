@@ -2,60 +2,27 @@ namespace dojo.leetcode;
 
 public class Q696_CountBinarySubstring
 {
-    const short ZERO = 48;
-    const short ONE = 49;
-    private readonly Dictionary<string, int> groups = [];
-
+    // The fact is for each group, the number of groups inside determines by Min(0s, 1s)
+    // e.g. 00011 = 2, 111000 = 3, 10 = 1
+    // TC: O(n)
+    // SC: O(1)
     public int CountBinarySubstrings(string s) 
     {
         if (s.Length == 1) return 0;
-        // get the greedy longest patterns in one pass whenever bit change
-        // for each group count = length / 2, e.g "11100" = 2 (1100 and 10), "000111" = 3 (000111, 0011, 01)
-        // return sum 
 
-        var groupSum = 0;
-        var idxQueue = new Queue<int>();
-        idxQueue.Enqueue(0);
-
-        for(var i=1; i<s.Length; i++)
+        int prevGroup = 0, currentGroup = 1, count = 0;
+        for(var i=1; i< s.Length; i++)
         {
-            if(s[i] != s[i-1])
+            if (s[i] != s[i-1]) 
             {
-                if (idxQueue.Count == 2)
-                {
-                    groupSum += CalculateGroups(s, idxQueue.Peek(), i);
-                    idxQueue.Dequeue();
-                }
-       
-                idxQueue.Enqueue(i);
-            }
+                count += Math.Min(prevGroup, currentGroup);
+                prevGroup = currentGroup;
+                currentGroup = 1;
+            } 
+            else currentGroup++;
         }
-
-        groupSum += CalculateGroups(s, idxQueue.Peek(), s.Length);
-        return groupSum;
-    }
-
-    public int CalculateGroups(string input, int lastIdx, int currentIdx)
-    {
-        var str = input[lastIdx..currentIdx];
-        if(groups.TryGetValue(str, out var count)) return count;
-
-        var groupCount = CountGroup(str);
-        groups.Add(str, groupCount);
-        return groupCount;
-    }
-
-    // the input will only have one change in bit, it won't change back as change onward must got splited by the algorithm
-    public int CountGroup(string input)
-    {
-        var oneCount = 0;
-        var zeroCount = 0;
-        for(var i=0; i<input.Length; i++) 
-        {
-            if (input[i] == ZERO) zeroCount++;
-            else if(input[i] == ONE) oneCount++;
-        }
-        return Math.Min(zeroCount, oneCount);
+        count += Math.Min(prevGroup, currentGroup);
+        return count;
     }
 }
 

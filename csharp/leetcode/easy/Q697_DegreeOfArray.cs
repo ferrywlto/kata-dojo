@@ -21,6 +21,37 @@ public class Q697_DegreeOfArray
 
         return minLength;
     }
+
+    // TC: O(n)
+    // SC: O(n)
+    public int FindShortestSubArrayMoreEfficient(int[] nums)
+    {
+        var tracking = new Dictionary<int, (int firstIdx, int lastIdx, int count)>();
+        for(var i=0; i<nums.Length; i++)
+        {
+            if (!tracking.TryGetValue(nums[i], out var value))
+            {
+                tracking.Add(nums[i], (i, i, 1));
+            }
+            else 
+            {
+                var tuple = tracking[nums[i]];
+                tuple.lastIdx = i;
+                tuple.count++;
+                tracking[nums[i]] = tuple;
+            }
+        }
+        var degree = tracking.Max(x => { return x.Value.count; });
+        var mode = tracking.Where(x => x.Value.count == degree).ToList();
+        var minLength = int.MaxValue;
+        foreach(var m in mode)
+        {
+            var length = m.Value.lastIdx - m.Value.firstIdx + 1;
+            if (length < minLength) minLength = length;
+        }
+
+        return minLength;
+    }
 }
 
 public class Q697_DegreeOfArrayTestData : TestData
@@ -41,7 +72,7 @@ public class Q697_DegreeOfArrayTests
     public void OfficialTestCases(int[] input, int expected)
     {
         var sut = new Q697_DegreeOfArray();
-        var actual = sut.FindShortestSubArray(input);
+        var actual = sut.FindShortestSubArrayMoreEfficient(input);
         Assert.Equal(expected, actual);
     }
 }

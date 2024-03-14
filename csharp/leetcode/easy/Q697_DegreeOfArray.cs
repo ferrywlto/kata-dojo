@@ -3,9 +3,23 @@ namespace dojo.leetcode;
 
 public class Q697_DegreeOfArray
 {
+    // TC: O(n^2)
+    // SC: O(n)
     public int FindShortestSubArray(int[] nums)
     {
-        return 0;
+        var analysis = nums.GroupBy(x => x).ToDictionary(g => g.Key, g => g.Count());
+        var degree = analysis.Max(x => x.Value);
+        var mode = analysis.Where(x => x.Value == degree).ToList();
+        var minLength = int.MaxValue;
+        foreach(var m in mode)
+        {
+            var start = Array.IndexOf(nums, m.Key);
+            var end = Array.LastIndexOf(nums, m.Key);
+            var length = end - start + 1;
+            if (length < minLength) minLength = length;
+        }
+
+        return minLength;
     }
 }
 
@@ -13,6 +27,7 @@ public class Q697_DegreeOfArrayTestData : TestData
 {
     protected override List<object[]> Data =>
     [
+        [new int[]{1}, 1],
         [new int[]{1, 2, 2, 3, 1}, 2],
         [new int[]{1, 2, 2, 3, 1, 4, 2}, 6],
         [new int[]{1, 5, 2, 3, 5, 4, 5, 6}, 6],

@@ -8,7 +8,6 @@ public class Q693_BinaryNumberWithAlternatingBits
     public bool HasAlternatingBits(int n)
     {
         var binaryStr = Convert.ToString(n, 2);
-        Console.WriteLine(binaryStr);
         for (var i = 0; i < binaryStr.Length - 1; i++)
         {
             if (binaryStr[i] == binaryStr[i + 1]) return false;

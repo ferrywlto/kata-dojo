@@ -1,6 +1,6 @@
 namespace dojo.leetcode;
 
-public abstract class TreeNodeTest
+public abstract class TreeNodeTest : BaseTest
 {
     [Fact]
     public void ShouldEqualOnPerfectTree()
@@ -119,6 +119,8 @@ public abstract class TreeNodeTest
         AssertTreeNodeEqual(expected, actual);
     }
 
+    public TreeNodeTest() {}
+    public TreeNodeTest(ITestOutputHelper output) : base(output) {}
 
     protected void AssertTreeNodeEqual(TreeNode? expected, TreeNode? actual)
     {
@@ -128,7 +130,6 @@ public abstract class TreeNodeTest
         AssertTreeNodeEqual(expected?.left, actual?.left);
         AssertTreeNodeEqual(expected?.right, actual?.right);
     }
-
 
     // Demonstration purpose of not using recursion.
     protected void AssertTreeNodeEqual_Loop(TreeNode expected, TreeNode actual)
@@ -160,13 +161,16 @@ public abstract class TreeNodeTest
 
     protected void DebugTree(TreeNode root)
     {
+        if (Output == null) 
+            throw new Exception("Pass ITestOutputHelper in constructor first!");
+
         var queue = new Queue<TreeNode>();
         queue.Enqueue(root);
 
         while(queue.Count > 0)
         {
             var node = queue.Dequeue();
-            Console.WriteLine($"node.val: {node.val}, left: {node.left?.val.ToString() ?? "null"}, right: {node.right?.val.ToString() ?? "null"}");
+            Output!.WriteLine($"node.val: {node.val}, left: {node.left?.val.ToString() ?? "null"}, right: {node.right?.val.ToString() ?? "null"}");
             if (node.left != null) queue.Enqueue(node.left);
             if (node.right != null) queue.Enqueue(node.right);
         }

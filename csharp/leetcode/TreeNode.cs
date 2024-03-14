@@ -44,7 +44,7 @@ public class TreeNode
 
         // Construct the tree from root
         int idx = 0;
-        while (idx < input.Length)
+        while (idx < input.Length && queue.Count > 0)
         {
             var parent = queue.Dequeue();
 

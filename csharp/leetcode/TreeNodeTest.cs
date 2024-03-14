@@ -157,4 +157,18 @@ public abstract class TreeNodeTest
             actualQ.Enqueue(actualCurrent?.right);
         }
     }
+
+    protected void DebugTree(TreeNode root)
+    {
+        var queue = new Queue<TreeNode>();
+        queue.Enqueue(root);
+
+        while(queue.Count > 0)
+        {
+            var node = queue.Dequeue();
+            Console.WriteLine($"node.val: {node.val}, left: {node.left?.val.ToString() ?? "null"}, right: {node.right?.val.ToString() ?? "null"}");
+            if (node.left != null) queue.Enqueue(node.left);
+            if (node.right != null) queue.Enqueue(node.right);
+        }
+    }
 }

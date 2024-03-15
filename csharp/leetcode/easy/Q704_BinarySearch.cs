@@ -3,7 +3,7 @@ namespace dojo.leetcode;
 
 public class Q704_BinarySearch
 {
-    // TC: O(n)
+    // TC: O(log n)
     // SC: O(1)
     public int Search(int[] nums, int target) 
     {
@@ -14,19 +14,14 @@ public class Q704_BinarySearch
         while(right-left > 1)
         {
             var middle = (right + left)/2;
-            if (target > nums[middle])
-            {
-                left = middle;
-            }
-            else if (target < nums[middle])
-            {
-                right = middle;
-            }
-            else return middle;
+            
+            if (target == nums[middle]) return middle;
+            if (target > nums[middle]) left = middle;
+            else right = middle;
         }
         if (nums[left] == target) return left;
         if (nums[right] == target) return right;
-        return -1;    
+        return -1; 
     }
 }
 

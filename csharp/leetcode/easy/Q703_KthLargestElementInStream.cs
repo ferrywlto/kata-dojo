@@ -10,17 +10,20 @@ public abstract class Kthlargest
 
 public class Q703_KthLargestElementInStream : Kthlargest
 {
-    protected readonly int _k;
-    protected readonly int[] _nums;
+    protected readonly int targetRank;
+    protected readonly List<int> _nums = [];
     public Q703_KthLargestElementInStream(int k, int[] nums) : base(k, nums)
     {
-        _k = k;
-        _nums = nums;
+        targetRank = k;
+        _nums.AddRange(nums);
     }
 
     public override int Add(int val)
     {
-        return 0;
+        _nums.Add(val);
+        _nums.Sort();
+        var largestK = _nums.TakeLast(targetRank);
+        return largestK.First();
     }
 }
 
@@ -28,7 +31,7 @@ public class Q703_KthLargestElementInStreamTestData : TestData
 {
     protected override List<object[]> Data =>
     [
-        [3, new int[] {4, 5, 6, 2}, new int[]{3, 5, 10, 9, 4}, new int?[] {null, 4, 5, 5, 8, 8}],
+        [3, new int[] {4, 5, 8, 2}, new int[]{3, 5, 10, 9, 4}, new int?[] {null, 4, 5, 5, 8, 8}],
     ];
 }
 

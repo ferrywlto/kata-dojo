@@ -2,20 +2,22 @@ namespace dojo.leetcode;
 
 public class Q705_DesignHashSet
 {
-    public Q705_DesignHashSet() {
-        
+    private readonly Dictionary<int, int> dict = [];
+    
+    public void Add(int key) 
+    {
+        var hash = key.GetHashCode();
+        dict.TryAdd(hash, key);
     }
     
-    public void Add(int key) {
-        
+    public void Remove(int key) 
+    {
+        dict.Remove(key.GetHashCode());
     }
     
-    public void Remove(int key) {
-        
-    }
-    
-    public bool Contains(int key) {
-        return false;
+    public bool Contains(int key) 
+    {
+        return dict.ContainsKey(key.GetHashCode());
     }
 }
 

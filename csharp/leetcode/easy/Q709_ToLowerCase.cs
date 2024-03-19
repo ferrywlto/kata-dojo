@@ -3,9 +3,20 @@ namespace dojo.leetcode;
 
 public class Q709_ToLowerCase
 {
+    // TC: O(n)
+    // SC: O(n)
     public string ToLowerCase(string s) 
     {
-        return string.Empty;       
+        var arr = s.ToCharArray();
+        for (var i = 0; i < arr.Length; i++)
+        {
+            char c = arr[i];
+            if (c >= 65 && c <= 90)
+            {
+                arr[i] = (char)(c + 32);
+            }
+        }
+        return new string(arr);
     }    
 }
 

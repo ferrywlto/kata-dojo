@@ -2,14 +2,15 @@ namespace dojo.leetcode;
 
 public class Q733_FloodFill
 {
-    public int[][] FloodFill(int[][] image, int sr, int sc, int color) 
+    public int[][] FloodFill(int[][] image, int sr, int sc, int color)
     {
         var queue = new Queue<(int row, int col)>();
         var sourceColor = image[sr][sc];
 
+        if (sourceColor == color) return image;
         AddIfCellValid(sr, sc, sourceColor);
 
-        while(queue.Count > 0)
+        while (queue.Count > 0)
         {
             var (r, c) = queue.Dequeue();
             image[r][c] = color;
@@ -20,7 +21,7 @@ public class Q733_FloodFill
             AddIfCellValid(r, c + 1, sourceColor);
         }
 
-        void AddIfCellValid(int row, int col, int color) 
+        void AddIfCellValid(int row, int col, int color)
         {
             if (row >= 0 && row < image.Length &&
                 col >= 0 && col < image[0].Length &&
@@ -30,13 +31,13 @@ public class Q733_FloodFill
             }
         }
 
-        return image;   
-    }    
+        return image;
+    }
 }
 
 public class Q733_FloodFillTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             new int[][]

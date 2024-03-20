@@ -5,7 +5,28 @@ public class Q728_SelfDividingNumbers
 {
     public IList<int> SelfDividingNumbers(int left, int right) 
     {
-        return [];    
+        var result = new List<int>();
+        
+        for(var i=left; i<=right; i++)
+        {
+            if (i < 10) result.Add(i);
+            else
+            {
+                var str = i.ToString();
+                var selfDividing = true;
+                foreach(var c in str) 
+                {
+                    var x = c - 48;
+                    if (x == 0 || i % x != 0)
+                    {
+                        selfDividing = false;
+                        break;
+                    }
+                }
+                if (selfDividing) result.Add(i);
+            }
+        }
+        return result;    
     }
 }
 

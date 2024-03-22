@@ -3,15 +3,26 @@ namespace dojo.leetcode;
 
 public class Q724_FindPivotIndex
 {
-    public int PivotIndex(int[] nums) 
+    // TC: O(n)
+    // SC: O(1)
+    public int PivotIndex(int[] nums)
     {
-        return -1;    
-    }   
+        var sum = nums.Sum();
+        var leftSum = 0;
+        var rightSum = sum;
+        for (var i = 0; i < nums.Length; i++)
+        {
+            rightSum -= nums[i];
+            if (leftSum == rightSum) return i;
+            leftSum += nums[i];
+        }
+        return -1;
+    }
 }
 
 public class Q724_FindPivotIndexTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[] {1,7,3,6,5,6}, 3],
         [new int[] {1,2,3}, -1],

@@ -3,9 +3,15 @@ namespace dojo.leetcode;
 
 public class Q744_FindSmallestLetterGreaterThanTarget
 {
+    // TC: O(n)
+    // SC: O(1)
     public char NextGreatestLetter(char[] letters, char target) 
     {
-        return letters[0];    
+        for(var i=0; i<letters.Length; i++)
+        {
+            if(target < letters[i]) return letters[i];
+        }
+        return letters[0];
     }
 }
 

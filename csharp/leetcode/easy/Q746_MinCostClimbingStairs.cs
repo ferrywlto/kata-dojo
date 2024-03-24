@@ -5,7 +5,14 @@ public class Q746_MinCostClimbingStairs
 {
     public int MinCostClimbingStairs(int[] cost) 
     {
-        return 0;    
+        return Math.Min(PayCost(cost, 0), PayCost(cost, 1));    
+    }
+
+    public int PayCost(int[] input, int idx)
+    {
+        if (idx >= input.Length) return 0;
+
+        return input[idx] + Math.Min(PayCost(input, idx + 1), PayCost(input, idx + 2));
     }
 }
 

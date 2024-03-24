@@ -4,7 +4,7 @@ public class Q746_MinCostClimbingStairs
 {
     // TC: O(n)
     // SC: O(1)
-    public int MinCostClimbingStairs(int[] cost) 
+    public int MinCostClimbingStairs(int[] cost)
     {
         int prevCost = 0, currCost = 0;
         for (int i = cost.Length - 1; i >= 0; i--)
@@ -13,13 +13,13 @@ public class Q746_MinCostClimbingStairs
             currCost = cost[i] + Math.Min(prevCost, currCost);
             prevCost = temp;
         }
-        return Math.Min(prevCost, currCost);   
-    }        
+        return Math.Min(prevCost, currCost);
+    }
 }
 
 public class Q746_MinCostClimbingStairsTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[]{0,0,1,1}, 1],
         [new int[]{10,15,20}, 15],

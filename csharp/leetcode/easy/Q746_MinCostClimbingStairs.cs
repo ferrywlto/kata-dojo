@@ -3,32 +3,18 @@ namespace dojo.leetcode;
 public class Q746_MinCostClimbingStairs
 {
     // TC: O(n)
-    // SC: O(n)
+    // SC: O(1)
     public int MinCostClimbingStairs(int[] cost) 
     {
-        for(var i=cost.Length-1; i>=0; i--)
+        int prevCost = 0, currCost = 0;
+        for (int i = cost.Length - 1; i >= 0; i--)
         {
-            PayCost(cost, i);
+            int temp = currCost;
+            currCost = cost[i] + Math.Min(prevCost, currCost);
+            prevCost = temp;
         }
-        return Math.Min(dict[0], dict[1]);    
-    }
-
-    Dictionary<int, int> dict = [];
-    public int PayCost(int[] input, int idx)
-    {
-        if (!dict.TryGetValue(idx, out var value))
-        {
-            if (idx >= input.Length)
-            {
-                dict.Add(idx, 0);    
-            }
-            else 
-            {
-                dict.Add(idx, input[idx] + Math.Min(PayCost(input, idx + 1), PayCost(input, idx + 2)));
-            }
-        }
-        return dict[idx];
-    }
+        return Math.Min(prevCost, currCost);   
+    }        
 }
 
 public class Q746_MinCostClimbingStairsTestData : TestData

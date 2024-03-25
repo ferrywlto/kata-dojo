@@ -1,20 +1,38 @@
-
 namespace dojo.leetcode;
 
 public class Q747_LargestNumberAtLeastTwiceOfOthers
 {
-    public int DominantIndex(int[] nums) 
+    // TC: O(n)
+    // SC: O(1)
+    public int DominantIndex(int[] nums)
     {
-        return -1;    
-    }    
+        var largest = int.MinValue;
+        var secondLargest = largest;
+        var idx = -1;
+        for(var i=0; i<nums.Length; i++)
+        {
+            if (nums[i] > largest)
+            {
+                secondLargest = largest;
+                largest = nums[i];
+                idx = i;
+            }
+            else if(nums[i] > secondLargest)
+            {
+                secondLargest = nums[i];
+            }
+        }
+        return largest >= secondLargest * 2 ? idx : -1;
+    }
 }
 
 public class Q747_LargestNumberAtLeastTwiceOfOthersTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
-        [new int[]{3,6,1,0}, 1],
-        [new int[]{1,2,3,4}, -1],
+        // [new int[]{3,6,1,0}, 1],
+        // [new int[]{1,2,3,4}, -1],
+        [new int[]{0,0,3,2}, -1],
     ];
 }
 

@@ -2,44 +2,46 @@ namespace dojo.leetcode;
 
 public class Q748_ShortestCompletingWord
 {
-     public string ShortestCompletingWord(string licensePlate, string[] words) 
-     {
+    // TC: O(n*m)
+    // SC: less than O(n)
+    public string ShortestCompletingWord(string licensePlate, string[] words)
+    {
         var lpDict = licensePlate
             .ToLower()
             .Where(c => c != 32 && c > 96 && c < 123)
             .GroupBy(c => c)
             .ToDictionary(g => g.Key, g => g.Count());
 
-        foreach(var key in lpDict.Keys)
+        var lpKeyCount = lpDict.Keys.Count;
+        IEnumerable<string> filter = words;
+        foreach (var key in lpDict.Keys)
         {
-            words = words
-                .Where(w => w.Contains(key))
-                .ToArray();
+            filter = filter.Where(w => w.Contains(key));
         }
 
         var shortestLength = int.MaxValue;
         var shortestWord = string.Empty;
-        foreach (var word in words)
+        foreach (var word in filter)
         {
-            var wordDict = word
+            var valid = word
                 .GroupBy(c => c)
                 .Where(g => lpDict.ContainsKey(g.Key))
-                .ToDictionary(g => g.Key, g => g.Count());
+                .Where(g => g.Count() >= lpDict[g.Key])
+                .Count() == lpKeyCount;
 
-            bool valid = wordDict.Aggregate(true, (result, pair) => result && wordDict[pair.Key] >= lpDict[pair.Key]);
-            if(valid && word.Length < shortestLength)
+            if (valid && word.Length < shortestLength)
             {
                 shortestLength = word.Length;
                 shortestWord = word;
             }
         }
         return shortestWord;
-    }   
+    }
 }
 
 public class Q748_ShortestCompletingWordTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["1s3 PSt", new string[]{"step","steps","stripe","stepple"}, "steps"],
         ["1s3 456", new string[]{"looks","pest","stew","show"}, "pest"],

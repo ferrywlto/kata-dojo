@@ -1,11 +1,39 @@
-
 namespace dojo.leetcode;
 
 public class Q748_ShortestCompletingWord
 {
      public string ShortestCompletingWord(string licensePlate, string[] words) 
      {
-        return string.Empty;   
+        var lpDict = licensePlate
+            .ToLower()
+            .Where(c => c != 32 && c > 96 && c < 123)
+            .GroupBy(c => c)
+            .ToDictionary(g => g.Key, g => g.Count());
+
+        foreach(var key in lpDict.Keys)
+        {
+            words = words
+                .Where(w => w.Contains(key))
+                .ToArray();
+        }
+
+        var shortestLength = int.MaxValue;
+        var shortestWord = string.Empty;
+        foreach (var word in words)
+        {
+            var wordDict = word
+                .GroupBy(c => c)
+                .Where(g => lpDict.ContainsKey(g.Key))
+                .ToDictionary(g => g.Key, g => g.Count());
+
+            bool valid = wordDict.Aggregate(true, (result, pair) => result && wordDict[pair.Key] >= lpDict[pair.Key]);
+            if(valid && word.Length < shortestLength)
+            {
+                shortestLength = word.Length;
+                shortestWord = word;
+            }
+        }
+        return shortestWord;
     }   
 }
 

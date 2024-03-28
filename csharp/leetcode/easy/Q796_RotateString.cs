@@ -5,6 +5,15 @@ public class Q796_RotateString
 {
     public bool RotateString(string s, string goal) 
     {
+        var sourceList = s.ToList();
+        for(var i=0; i<s.Length; i++)
+        {
+            var first = sourceList[0];
+            sourceList.RemoveAt(0);
+            sourceList.Add(first);
+            if (string.Join(string.Empty, sourceList) == goal)
+                return true;
+        }
         return false;    
     }
 }

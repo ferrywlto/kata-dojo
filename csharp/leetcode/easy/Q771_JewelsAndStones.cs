@@ -1,12 +1,21 @@
-
 namespace dojo.leetcode;
 
 public class Q771_JewelsAndStones
 {
-    public int NumJewelsInStones(string jewels, string stones) 
+    // TC: O(j+s)
+    // SC: O(j)
+    public int NumJewelsInStones(string jewels, string stones)
     {
-        return 0;    
-    }    
+        var jDict = new Dictionary<char, int>();
+        foreach (var j in jewels) jDict.Add(j, 0);
+
+        var count = 0;
+        foreach (var s in stones)
+        {
+            if (jDict.ContainsKey(s)) count++;
+        }
+        return count;
+    }
 }
 
 public class Q771_JewelsAndStonesTestData : TestData

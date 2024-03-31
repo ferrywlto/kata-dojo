@@ -3,9 +3,18 @@ namespace dojo.leetcode;
 
 public class Q766_ToeplitzMatrix
 {
+    // TC: O(n*m)
+    // SC: O(1)
     public bool IsToeplitzMatrix(int[][] matrix)
     {
-        return false;
+        for (var row = 1; row < matrix.Length; row++)
+        {
+            for (var col = 1; col < matrix[row].Length; col++)
+            {
+                if (matrix[row][col] != matrix[row - 1][col - 1]) return false;
+            }
+        }
+        return true;
     }
 }
 

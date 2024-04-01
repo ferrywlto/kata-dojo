@@ -4,7 +4,27 @@ public class Q762_PrimeNumberOfSetBitsInBinaryRepresentation
 {
     public int CountPrimeSetBits(int left, int right) 
     {
-        return 0;
+        var dict = new Dictionary<int, int>();
+        for(var i=left; i<=right; i++)
+        {
+            var numBitsSet = NumBitsSet(i);
+            if(dict.TryGetValue(numBitsSet, out int value))
+            {
+                dict[numBitsSet] = ++value;
+            }
+            else 
+            {
+                dict.Add(numBitsSet, 1);
+            }
+        }
+
+        var primes = 0;
+        foreach(var bits in dict)
+        {
+            if (IsPrime(bits.Key)) primes += bits.Value;
+        }
+
+        return primes;
     }
 
     public int NumBitsSet(int input)
@@ -12,13 +32,23 @@ public class Q762_PrimeNumberOfSetBitsInBinaryRepresentation
         var result = 0;
         while(input != 0)
         {
-            if((input & 1) == 1)
-            {
-                result++;
-            }
+            if((input & 1) == 1) result++;
+
             input >>= 1;
         }
         return result;
+    }
+
+    public bool IsPrime(int input)
+    {
+        if (input == 1) return false;
+        var i = 2;
+        while (i < input)
+        {
+            if (input % i == 0) return false;
+            i++;
+        }
+        return true;
     }
 }
 
@@ -56,6 +86,24 @@ public class Q762_PrimeNumberOfSetBitsInBinaryRepresentationTests
     {
         var sut = new Q762_PrimeNumberOfSetBitsInBinaryRepresentation();
         var actual = sut.NumBitsSet(input);
+        Assert.Equal(expected, actual);
+    }
+
+    [Theory]
+    [InlineData(1, false)]
+    [InlineData(2, true)]
+    [InlineData(3, true)]
+    [InlineData(4, false)]
+    [InlineData(5, true)]
+    [InlineData(6, false)]
+    [InlineData(7, true)]
+    [InlineData(8, false)]
+    [InlineData(9, false)]
+    [InlineData(10, false)]
+    public void IsPrime_ReturnTrueOnPrimes(int input, bool expected)
+    {
+        var sut = new Q762_PrimeNumberOfSetBitsInBinaryRepresentation();
+        var actual = sut.IsPrime(input);
         Assert.Equal(expected, actual);
     }
 }

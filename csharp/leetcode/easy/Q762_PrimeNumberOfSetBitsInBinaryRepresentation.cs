@@ -2,24 +2,26 @@ namespace dojo.leetcode;
 
 public class Q762_PrimeNumberOfSetBitsInBinaryRepresentation
 {
-    public int CountPrimeSetBits(int left, int right) 
+    // TC: O((right-left*)*num_bits_1)
+    // SC: O(distinct_bits_count)
+    public int CountPrimeSetBits(int left, int right)
     {
         var dict = new Dictionary<int, int>();
-        for(var i=left; i<=right; i++)
+        for (var i = left; i <= right; i++)
         {
             var numBitsSet = NumBitsSet(i);
-            if(dict.TryGetValue(numBitsSet, out int value))
+            if (dict.TryGetValue(numBitsSet, out int value))
             {
                 dict[numBitsSet] = ++value;
             }
-            else 
+            else
             {
                 dict.Add(numBitsSet, 1);
             }
         }
 
         var primes = 0;
-        foreach(var bits in dict)
+        foreach (var bits in dict)
         {
             if (IsPrime(bits.Key)) primes += bits.Value;
         }
@@ -30,10 +32,9 @@ public class Q762_PrimeNumberOfSetBitsInBinaryRepresentation
     public int NumBitsSet(int input)
     {
         var result = 0;
-        while(input != 0)
+        while (input != 0)
         {
-            if((input & 1) == 1) result++;
-
+            result += input & 1;
             input >>= 1;
         }
         return result;
@@ -41,12 +42,12 @@ public class Q762_PrimeNumberOfSetBitsInBinaryRepresentation
 
     public bool IsPrime(int input)
     {
-        if (input == 1) return false;
-        var i = 2;
-        while (i < input)
+        if (input <= 1) return false;
+        if (input == 2) return true;
+        if (input % 2 == 0) return false;
+        for (int i = 3; i * i <= input; i += 2)
         {
             if (input % i == 0) return false;
-            i++;
         }
         return true;
     }
@@ -54,7 +55,7 @@ public class Q762_PrimeNumberOfSetBitsInBinaryRepresentation
 
 public class Q762_PrimeNumberOfSetBitsInBinaryRepresentationTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [6,10,4],
         [10,15,5],

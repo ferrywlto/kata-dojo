@@ -4,15 +4,18 @@ namespace dojo.leetcode;
 
 public class Q804_UniqueMoreseCodeWords
 {
-    public readonly string[] MorseCode = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."];
+    public static readonly string[] MorseCode = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."];
+ 
     public string GetMorseCodeFromChar(char c)
     {
-        if (c < 65 || c > 122 || (c > 90 && c < 97)) 
+        c = char.ToLower(c);
+        if (c < 'a' || c > 'z') 
             return string.Empty;
-        if (c > 64 && c < 91) 
-            return MorseCode[c - 65];
-        return MorseCode[c - 97];
+        return MorseCode[c - 'a'];
     }
+
+    // TC: O(num_of_total_chars)
+    // SC: O(num_of_unique_representation)
     public int UniqueMorseRepresentations(string[] words)
     {
         var hashset = new HashSet<string>();

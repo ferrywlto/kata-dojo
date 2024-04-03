@@ -1,26 +1,42 @@
-
 namespace dojo.leetcode;
 
 public class Q806_NumLinesToWriteString
 {
-    public int[] NumberOfLines(int[] widths, string s) 
+    // TC: O(n), where n = total characters in string s
+    // SC: O(1)
+    public int[] NumberOfLines(int[] widths, string s)
     {
-        return [];    
+        var lines = 0;
+        var currentWidth = 0;
+        foreach (var c in s)
+        {
+            var charWidth = widths[c - 97];
+            if (100 - currentWidth >= charWidth)
+            {
+                currentWidth += charWidth;
+            }
+            else
+            {
+                lines++;
+                currentWidth = charWidth;
+            }
+        }
+        return [lines + 1, currentWidth];
     }
 }
 
 public class Q806_NumLinesToWriteStringTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             new int[]{10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10},
-            "abcdefghijklmnopqrstuvwxyz", 
+            "abcdefghijklmnopqrstuvwxyz",
             new int[]{3,60}
         ],
         [
             new int[]{4,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10},
-            "bbbcccdddaaa", 
+            "bbbcccdddaaa",
             new int[]{2,4}
         ],
     ];

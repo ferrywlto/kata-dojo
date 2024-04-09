@@ -8,28 +8,22 @@ public class Q832_FlippingImage
     public int[][] FlipAndInvertImage(int[][] image)
     {
         // since this is a n x n matrix, only need to find the row size at fisrt row
-        var rowWidth = image[0].Length / 2;
-        for(var row=0; row<image.Length; row++)
+        var rowWidth = image[0].Length;
+        var halfRowWidth = rowWidth / 2;
+        var isOddWidth = rowWidth % 2 == 1;
+        for (var row = 0; row < image.Length; row++)
         {
-            for(var col=0; col<rowWidth; col++)
+            for (var col = 0; col < halfRowWidth; col++)
             {
-                // Console.WriteLine($"row: {row}, col: {col}");
                 var colIdx = col + 1;
                 var temp = image[row][col];
-                image[row][col] = image[row][^colIdx];
-                image[row][^colIdx] = temp;
-
-                if (image[row][col] == 0) image[row][col] = 1;
-                else image[row][col] = 0;
-
-                if (image[row][^colIdx] == 0) image[row][^colIdx] = 1;
-                else image[row][^colIdx] = 0; 
+                image[row][col] = image[row][^colIdx] == 0 ? 1 : 0;
+                image[row][^colIdx] = temp == 0 ? 1 : 0;
             }
             // invert middle item if rowWidth is odd
-            if(image[0].Length % 2 == 1)
+            if (isOddWidth)
             {
-                if (image[row][rowWidth] == 0) image[row][rowWidth] = 1;
-                else image[row][rowWidth] = 0;
+                image[row][halfRowWidth] = image[row][halfRowWidth] == 0 ? 1 : 0;
             }
         }
         return image;
@@ -40,6 +34,10 @@ public class Q832_FlippingImageTestData : TestData
 {
     protected override List<object[]> Data =>
     [
+        [
+            new int[][] {[1]},
+            new int[][] {[0]},
+        ],
         [
             new int[][] {
                 [1,1,0],

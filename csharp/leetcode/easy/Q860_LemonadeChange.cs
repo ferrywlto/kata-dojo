@@ -47,6 +47,11 @@ public class Q860_LemonadeChangeTestData : TestData
     [
         [new int[] {5,5,5,10,20}, true],
         [new int[] {5,5,10,10,20}, false],
+        [new int[] {5}, true],
+        [new int[] {10}, false],
+        [new int[] {20}, false],
+        [new int[] {5,20}, false],
+        [new int[] {10,20,5}, false],
     ];
 }
 

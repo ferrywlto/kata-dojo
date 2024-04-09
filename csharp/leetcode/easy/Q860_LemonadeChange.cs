@@ -1,11 +1,43 @@
-
 namespace dojo.leetcode;
 
 public class Q860_LemonadeChange
 {
+    // TC: O(n), n is length of bills
+    // SC: O(1), the dictionry size is fixed
     public bool LemonadeChange(int[] bills) 
     {
-        return false;    
+        var cashier = new Dictionary<int, int>()
+        {
+            {5,0},
+            {10,0},
+        };
+
+        for(var i=0; i<bills.Length; i++)
+        {
+            if(bills[i] == 5)
+            {
+                cashier[5]++;
+            } 
+            else if(bills[i] == 10 && cashier[5] > 0)
+            {
+                cashier[10]++;
+                cashier[5]--;
+            }
+            else
+            {
+                if (cashier[10] > 0 && cashier[5] > 0)
+                {
+                    cashier[10]--;
+                    cashier[5]--;
+                }
+                else if (cashier[5] > 2)
+                {
+                    cashier[5] -= 3;
+                }
+                else return false;
+            }
+        }
+        return true;    
     }
 }
 

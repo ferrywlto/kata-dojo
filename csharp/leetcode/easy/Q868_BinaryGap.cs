@@ -3,9 +3,30 @@ namespace dojo.leetcode;
 
 public class Q868_BinaryGap
 {
+    // TC: O(n), n is number of bits of input
+    // SC: O(1), no extra memory used
     public int BinaryGap(int n) 
     {
-        return 0;    
+        var maxDistance = 0;
+        var initialized = false;
+        var numZeros = 0;
+
+        while(n > 0)
+        {
+            if ((n & 1) == 1)
+            {
+                if(numZeros + 1 > maxDistance)
+                {
+                    if (initialized) maxDistance = numZeros + 1;
+                    else initialized = true;
+                }
+                numZeros = 0;
+            }
+            else numZeros++;
+
+            n >>= 1;
+        }
+        return maxDistance;    
     }
 }
 

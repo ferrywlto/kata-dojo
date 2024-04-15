@@ -24,4 +24,16 @@ public class ListNode
         }
         return head;
     }
+
+    public static int[] ToArray(ListNode head)
+    {
+        var list = new List<int>();
+        var current = head;
+        while(current != null)
+        {
+            list.Add(current.val);
+            current = current.next;
+        }
+        return list.ToArray();
+    }
 }

@@ -25,6 +25,19 @@ public class Q876_MiddleOfLinkedList
 
         return current!;
     }
+
+    // Add faster 2 pointer approach for reference
+    public ListNode MiddleNode_Faster(ListNode head) 
+    {
+        var slow = head;
+        var fast = head;
+        while (fast != null && fast.next != null)
+        {
+            slow = slow?.next;
+            fast = fast.next.next;
+        }
+        return slow!;
+    }
 }
 
 public class Q876_MiddleOfLinkedListTestData : TestData

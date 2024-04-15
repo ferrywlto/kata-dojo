@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q190_ReverseBits
 {
     public uint reverseBits(uint n) 

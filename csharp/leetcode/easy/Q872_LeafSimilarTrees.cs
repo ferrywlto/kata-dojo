@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 // TC: O(n), all nodes need to traverse once
 // SC: O(tree1.depth + tree2.depth)
 public class Q872_LeafSimilarTrees

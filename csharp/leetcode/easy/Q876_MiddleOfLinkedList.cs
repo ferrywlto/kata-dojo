@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 // TC: O(n), n is 1.5 * list length
 // SC: O(1), no extra space used
 public class Q876_MiddleOfLinkedList

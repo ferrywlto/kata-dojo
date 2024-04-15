@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q599_MinIndexSumOfTwoList
 {
     // TC: O(n+m)

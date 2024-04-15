@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q501_FindModeInBST
 {
     // TC: O(n) as have to traverse each node at least once

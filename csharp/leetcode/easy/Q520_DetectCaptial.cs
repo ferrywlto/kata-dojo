@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q520_DetectCaptial
 {
     // TC: O(n)

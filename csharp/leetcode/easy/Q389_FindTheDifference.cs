@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q389_FindTheDifference
 {
     // Constaints

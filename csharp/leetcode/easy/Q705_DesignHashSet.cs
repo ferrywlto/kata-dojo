@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q705_DesignHashSet
 {
     private readonly Dictionary<int, int> dict = [];

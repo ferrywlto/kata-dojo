@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q590_NaryTreePostorderTraversal
 {
     List<int> result = [];

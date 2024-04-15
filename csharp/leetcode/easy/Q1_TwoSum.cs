@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class TwoSumTestData : TestData
 {
     protected override List<object[]> Data =>

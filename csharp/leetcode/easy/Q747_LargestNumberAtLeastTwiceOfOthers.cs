@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q747_LargestNumberAtLeastTwiceOfOthers
 {
     // TC: O(n)

@@ -2,8 +2,6 @@ using System.Text;
 using Microsoft.Data.Sqlite;
 using Xunit.Sdk;
 
-namespace dojo.leetcode;
-
 public abstract class SqlTest : BaseTest, IDisposable
 {
     const int ColumnWidth = 10;

@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q704_BinarySearch
 {
     // TC: O(log n)

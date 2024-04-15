@@ -1,8 +1,6 @@
 
 using System.Text;
 
-namespace dojo.leetcode;
-
 public class Q541_ReverseStringII
 {
     // TC: O(n)

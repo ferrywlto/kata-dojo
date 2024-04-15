@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q28_NeedleInHaystackTestData : TestData
 {
     protected override List<object[]> Data =>

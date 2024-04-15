@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q205_IsomorphicStrings
 {
     public bool IsIsomorphic(string s, string t)

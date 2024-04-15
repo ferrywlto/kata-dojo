@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q169_MajorityElementTestData : TestData
 {
     protected override List<object[]> Data =>

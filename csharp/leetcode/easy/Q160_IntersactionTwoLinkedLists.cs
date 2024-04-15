@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q160_IntersactionTwoLinkedListTestData : TestData
 {
     protected override List<object[]> Data =>

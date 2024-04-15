@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q181_EmployeesEarningMoreThanTheirManagers : SqlQuestion
 {
     public override string Query =>

@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q595_BigCountries : SqlQuestion
 {
     public override string Query =>

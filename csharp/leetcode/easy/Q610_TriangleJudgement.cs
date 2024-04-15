@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q610_TriangleJudgement : SqlQuestion
 {
     public override string Query =>

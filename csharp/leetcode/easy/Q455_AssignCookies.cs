@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q455_AssignCookies
 {
     // TC: O(n log n), SC: O(1)

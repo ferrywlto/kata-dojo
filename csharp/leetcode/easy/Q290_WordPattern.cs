@@ -1,8 +1,6 @@
 
 using System.Text;
 
-namespace dojo.leetcode;
-
 public class Q290_WordPattern
 {
     public bool WordPattern(string pattern, string s)

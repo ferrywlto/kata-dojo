@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q463_IslandPerimeter
 {
     private const int top = 0;

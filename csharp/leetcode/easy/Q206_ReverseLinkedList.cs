@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q206_ReverseLinkedList
 {
     // TC: O(n), SC:O(1)

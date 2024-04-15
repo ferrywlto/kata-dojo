@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q202_HappyNumbers
 {
     // each digit could only be 0-9, can store the sum first

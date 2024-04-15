@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q682_BaseballGame
 {
     // TC: O(n)

@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q674_LongestContinuousIncreasingSubSequence
 {
     // TC: O(n)

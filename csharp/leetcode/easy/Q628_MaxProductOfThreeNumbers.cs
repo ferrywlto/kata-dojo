@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q628_MaxProductOfThreeNumbers
 {
     // TC: O(n log n)

@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q195_TenthLineTestData : TestData
 {
     protected override List<object[]> Data => 

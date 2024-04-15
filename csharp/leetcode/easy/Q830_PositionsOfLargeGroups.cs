@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q830_PositionsOfLargeGroups
 {
     // TC: O(n), n is length of s

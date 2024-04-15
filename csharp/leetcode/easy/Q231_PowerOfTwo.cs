@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q231_PowerOfTwo
 {
     // TC:O(1), SC:O(1)

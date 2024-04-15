@@ -1,4 +1,3 @@
-namespace dojo.leetcode;
 using System.Text;
 
 public class Q168_ExcelSheetColumnTitleTestData : TestData

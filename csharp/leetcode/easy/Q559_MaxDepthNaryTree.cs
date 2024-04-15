@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q559_MaxDepthNaryTree
 {
     // TC: O(n)

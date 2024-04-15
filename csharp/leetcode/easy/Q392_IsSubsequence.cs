@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q392_IsSubsequence
 {
     // TC: O(n), SC: O(1)

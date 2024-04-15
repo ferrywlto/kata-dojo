@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q561_ArrayPartition
 {
     // TC: O(n log n)

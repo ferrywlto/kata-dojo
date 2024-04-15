@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q596_ClassesMoreThanFiceStudents : SqlQuestion
 {
     public override string Query =>

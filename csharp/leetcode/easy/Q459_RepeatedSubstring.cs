@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q459_RepeatedSubstring
 {
     // TC: O(n^2), SC: O(n)

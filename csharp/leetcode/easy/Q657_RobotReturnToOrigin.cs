@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q657_RobotReturnToOrigin
 {
     // TC: O(n)

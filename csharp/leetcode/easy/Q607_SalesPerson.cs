@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q607_SalesPerson : SqlQuestion
 {
     public override string Query => 

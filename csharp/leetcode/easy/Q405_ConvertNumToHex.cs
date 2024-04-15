@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q405_ConvertNumToHex
 {
     const string hex = "0123456789abcdef";

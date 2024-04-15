@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q100_SameTreeTestData : TestData
 {
     protected override List<object[]> Data =>

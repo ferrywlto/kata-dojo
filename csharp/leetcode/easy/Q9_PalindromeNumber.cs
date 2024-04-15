@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q9_PalindromeNumberTests
 {
     [Fact]

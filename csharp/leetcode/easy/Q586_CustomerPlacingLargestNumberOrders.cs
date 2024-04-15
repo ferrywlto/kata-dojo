@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q586_CustomerPlacingLargestNumberOrders : SqlQuestion
 {
     public override string Query => 

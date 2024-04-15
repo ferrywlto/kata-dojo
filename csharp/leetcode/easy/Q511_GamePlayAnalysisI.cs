@@ -1,8 +1,6 @@
 using System.Data;
 using Microsoft.Data.Sqlite;
 
-namespace dojo.leetcode;
-
 public class Q511_GamePlayAnalysis1 : SqlQuestion
 {
     public override string Query =>

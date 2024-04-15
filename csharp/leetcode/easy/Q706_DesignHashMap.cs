@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public abstract class MyHashMap 
 {
 

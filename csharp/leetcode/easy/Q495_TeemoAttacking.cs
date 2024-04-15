@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q495_TeemoAttacking
 {
     // TC:O(n), SC: O(1)

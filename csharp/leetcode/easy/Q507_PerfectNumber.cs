@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q507_PerfectNumber
 {
     readonly HashSet<int> cache = [1];

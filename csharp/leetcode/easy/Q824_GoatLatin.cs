@@ -1,7 +1,5 @@
 using System.Text;
 
-namespace dojo.leetcode;
-
 public class Q824_GoatLatin
 {
     // TC: O(n), n is total words in sentence

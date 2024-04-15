@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q717_OneAndTwoBitCharacters
 {
     public bool IsOneBitCharacter(int[] bits)

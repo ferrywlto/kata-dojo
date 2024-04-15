@@ -1,4 +1,3 @@
-namespace dojo.leetcode;
 /*
 Follow up:
 

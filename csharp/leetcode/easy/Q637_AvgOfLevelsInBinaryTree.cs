@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q637_AvgOfLevelsInBinaryTree
 {
     // TC: O(n)

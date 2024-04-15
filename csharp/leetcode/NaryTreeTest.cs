@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public abstract class NaryTreeNodeTest : BaseTest
 {
     public NaryTreeNodeTest() {}

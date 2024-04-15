@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q197_RisingTemperature : SqlQuestion
 {
     public override string Query =>

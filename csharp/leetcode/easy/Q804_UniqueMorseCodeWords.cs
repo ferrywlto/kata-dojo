@@ -1,7 +1,5 @@
 using System.Text;
 
-namespace dojo.leetcode;
-
 public class Q804_UniqueMoreseCodeWords
 {
     public static readonly string[] MorseCode = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."];

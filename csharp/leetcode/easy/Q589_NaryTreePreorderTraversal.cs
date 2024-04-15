@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q589_NaryTreePreorderTraversal
 {
     // TC: O(n)

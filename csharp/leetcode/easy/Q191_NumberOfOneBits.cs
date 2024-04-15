@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q191_NumberOfOneBitsTestData : TestData
 {
     // 0b means binary literal

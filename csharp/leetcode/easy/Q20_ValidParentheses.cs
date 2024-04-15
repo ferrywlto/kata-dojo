@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q20_ValidParenthesesTestData : TestData
 {
     protected override List<object[]> Data =>

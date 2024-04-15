@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q617_MergeTwoBinaryTrees
 {
     // TC: O(n)

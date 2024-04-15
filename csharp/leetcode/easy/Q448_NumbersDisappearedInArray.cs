@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q448_NumbersDisappearedInArray
 {
     // TC: O(n), SC: O(n)

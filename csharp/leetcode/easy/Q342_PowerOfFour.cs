@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q342_PowerOfFour
 {
     // Max power of 4 of a Int32 is 1073741824 = 4^15 = 2^2^15 = 2^30

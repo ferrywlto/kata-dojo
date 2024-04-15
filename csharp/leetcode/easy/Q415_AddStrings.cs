@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q415_AddStrings
 {
     private const int charBase = 48;

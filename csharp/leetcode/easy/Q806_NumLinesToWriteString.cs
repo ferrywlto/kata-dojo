@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q806_NumLinesToWriteString
 {
     // TC: O(n), where n = total characters in string s

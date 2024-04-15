@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 using System.Collections.Generic;
 using System.Text;
 

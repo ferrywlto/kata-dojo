@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q867_TransposeMatrix
 {
     // TC: O(n), n is total elements in matrix

@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q819_MostCommonWord
 {
     // TC: O(n), n is length of paragraph

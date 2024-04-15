@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q412_FizzBuzz
 {
     // TC: O(n), SC: O(n)

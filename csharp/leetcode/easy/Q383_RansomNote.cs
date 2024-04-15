@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q383_RansomNote
 {
     // TC: O(n), SC: O(n)

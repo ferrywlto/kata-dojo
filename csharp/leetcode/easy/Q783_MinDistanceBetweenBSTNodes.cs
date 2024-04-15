@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q783_MinDistanceBetweenBSTNodes
 {
     // TC: O(n)

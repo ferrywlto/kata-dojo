@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q530_MinimumAbsoluteDifferenceInBST
 {
     public int GetMinimumDifference(TreeNode root)

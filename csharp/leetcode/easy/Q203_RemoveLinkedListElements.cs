@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q203_RemoveLinkeListElementsTests(ITestOutputHelper output) : ListNodeTest(output)
 {
     [Theory]

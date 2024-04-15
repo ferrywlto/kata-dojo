@@ -1,7 +1,5 @@
 using System.Text;
 
-namespace dojo.leetcode;
-
 public class Q557_ReverseWordInStringIII
 {
     // TC: O(n^2)

@@ -1,7 +1,5 @@
 using System.Text;
 
-namespace dojo.leetcode;
-
 public class Q504_Base7
 {
     public string ConvertToBase7(int num)

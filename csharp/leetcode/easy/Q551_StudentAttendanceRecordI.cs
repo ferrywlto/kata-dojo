@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q551_StudentAttendanceRecordI
 {
     // TC: O(n)

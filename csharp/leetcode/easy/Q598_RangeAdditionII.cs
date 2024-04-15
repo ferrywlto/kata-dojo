@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q598_RangeAdditionII
 {
     // TC: O(n)

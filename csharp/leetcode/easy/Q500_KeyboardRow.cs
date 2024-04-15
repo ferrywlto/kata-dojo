@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q500_KeyboardRow
 {
     private readonly HashSet<char> row1 = new("qwertyuiop");

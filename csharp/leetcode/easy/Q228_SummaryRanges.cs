@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q228_SummaryRanges
 {
     public IList<string> SummaryRanges(int[] nums)

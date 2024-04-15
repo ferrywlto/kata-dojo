@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q812_LargestTriangleArea
 {
     // This can be achieved O(n log n) + O(m) time with Convex Hull algorithm.

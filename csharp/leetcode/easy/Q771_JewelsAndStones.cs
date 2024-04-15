@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q771_JewelsAndStones
 {
     // TC: O(j+s)

@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q441_ArrangingCoins
 {
     // Constraints

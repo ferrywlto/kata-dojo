@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q225_ImnplementStackUsingQueues
 {
     private Queue<int> main = new(), buffer = new();

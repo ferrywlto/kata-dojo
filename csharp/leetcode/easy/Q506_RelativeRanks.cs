@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class ReverseComparer : IComparer<int>
 {
     public int Compare(int x, int y)

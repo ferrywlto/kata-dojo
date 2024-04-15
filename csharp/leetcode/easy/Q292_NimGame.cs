@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q292_NimGame
 {
     public bool CanWinNim(int n) {

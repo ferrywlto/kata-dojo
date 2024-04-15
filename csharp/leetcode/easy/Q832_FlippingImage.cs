@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q832_FlippingImage
 {
     // TC: O(n), n is total items in matrix

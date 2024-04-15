@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q643_MaxAvgSubarrayI
 {
     // TC: O(n^2)

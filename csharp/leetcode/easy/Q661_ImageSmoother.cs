@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q661_ImageSmoother
 {
     public int[] HandleSingleRow(int[] row)

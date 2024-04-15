@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q796_RotateString
 {
     public bool RotateString(string s, string goal) 

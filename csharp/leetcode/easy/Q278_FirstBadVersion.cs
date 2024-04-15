@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class VersionControl
 {
     protected readonly int BadVersion;

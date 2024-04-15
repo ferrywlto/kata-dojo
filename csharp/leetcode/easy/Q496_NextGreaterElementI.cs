@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q496_NextGreaterElementI
 {
     // Constraints:

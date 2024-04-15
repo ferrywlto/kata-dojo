@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q196_DeleteDuplicateEmails : SqlQuestion
 {
     public override string Query =>

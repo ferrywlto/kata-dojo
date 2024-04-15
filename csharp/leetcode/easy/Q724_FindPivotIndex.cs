@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q724_FindPivotIndex
 {
     // TC: O(n)

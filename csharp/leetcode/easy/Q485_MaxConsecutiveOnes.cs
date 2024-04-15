@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q485_MaxConsecutiveOnes
 {
     // TC: O(n), SC: O(1)

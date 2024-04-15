@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q584_FindCustomerReferee : SqlQuestion
 {
     public override string Query =>

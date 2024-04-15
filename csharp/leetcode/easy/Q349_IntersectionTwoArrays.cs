@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q349_IntersectionOfTwoArrays
 {
     public int[] Intersection(int[] nums1, int[] nums2)

@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q671_SecondMinNodeInBinaryTree
 {
     // TC: O(n)

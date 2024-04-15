@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q620_NotBoringMovies : SqlQuestion
 {
     public override string Query => 

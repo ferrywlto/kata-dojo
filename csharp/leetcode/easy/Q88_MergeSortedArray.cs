@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q88_MergeSortedArrayTestData : TestData
 {
     protected override List<object[]> Data =>

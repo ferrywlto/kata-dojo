@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q746_MinCostClimbingStairs
 {
     // TC: O(n)

@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q605_CanPlaceFlowers
 {
     // Siliding window, 1 pass

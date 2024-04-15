@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q572_SubtreeOfAnotherTree
 {
     // find the node with in root tree that have val == subroot.val

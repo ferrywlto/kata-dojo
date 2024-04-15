@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q619_BiggestSingleNumber : SqlQuestion
 {
     public override string Query => 

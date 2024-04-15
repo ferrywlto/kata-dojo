@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class BaseTest
 {
     protected readonly ITestOutputHelper? Output;

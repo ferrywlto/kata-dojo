@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q543_DiameterOfBinaryTree
 {
     private int max = 0;

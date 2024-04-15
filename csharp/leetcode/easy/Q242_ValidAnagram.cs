@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q242_ValidAnagram
 {
     public bool IsAnagram(string s, string t) 

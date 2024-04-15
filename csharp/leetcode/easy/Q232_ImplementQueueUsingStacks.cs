@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q232_ImplementQueueUsingStacks
 {
     private readonly Stack<int> In = new();

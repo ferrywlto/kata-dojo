@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q414_ThirdMaximum
 {
     // TC: O(n long n), SC: O(n)

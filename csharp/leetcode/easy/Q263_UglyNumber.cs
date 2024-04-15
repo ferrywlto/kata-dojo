@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q263_UglyNumber
 {
     // TC: O(log n), SC:O(1)

@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q387_FirstUniqueCharacter
 {
     // TC: O(n), SC: O(n)

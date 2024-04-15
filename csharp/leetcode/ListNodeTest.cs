@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public abstract class ListNodeTest(ITestOutputHelper output) : BaseTest(output) 
 {
     public static ListNode GenerateListNode(int numDigits, int digitValue) 

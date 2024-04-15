@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q257_BinaryTreePaths
 {
     public IList<string> BinaryTreePaths(TreeNode? root)

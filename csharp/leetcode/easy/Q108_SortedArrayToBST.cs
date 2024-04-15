@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q108_SortedArrayToBST
 {
     public TreeNode SortedArrayToBST(int[] nums)

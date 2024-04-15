@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q222_CountCompleteTreeNodes
 {
     // Constraints: O(log n), at most O((log n)^2), still need to be recursive, 

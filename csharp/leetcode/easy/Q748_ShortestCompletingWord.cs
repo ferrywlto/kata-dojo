@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q748_ShortestCompletingWord
 {
     // TC: O(n*m)

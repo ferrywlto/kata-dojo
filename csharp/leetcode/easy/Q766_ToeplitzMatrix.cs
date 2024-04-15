@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q766_ToeplitzMatrix
 {
     // TC: O(n*m)

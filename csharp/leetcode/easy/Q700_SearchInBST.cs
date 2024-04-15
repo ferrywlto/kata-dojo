@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q700_SearchInBST
 {
     // TC: O(n)

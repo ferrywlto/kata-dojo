@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q58_LengthOfLastWordTestData : TestData
 {
     protected override List<object[]> Data =>

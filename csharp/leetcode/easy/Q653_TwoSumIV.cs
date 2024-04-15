@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q653_TwoSumIV
 {
     // TC: O(n)

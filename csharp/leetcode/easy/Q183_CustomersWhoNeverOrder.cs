@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q183_CustomersWhoNeverOrder : SqlQuestion
 {
     public override string Query =>

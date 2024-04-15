@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q345_ReverseVowels
 {
     private readonly HashSet<char> vows = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];

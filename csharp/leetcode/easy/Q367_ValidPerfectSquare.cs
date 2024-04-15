@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q367_ValidPerfectSquare
 {
     // TC: O(log n), SC: O(1)

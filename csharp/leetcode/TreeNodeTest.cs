@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public abstract class TreeNodeTest : BaseTest
 {
     [Fact]

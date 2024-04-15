@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q762_PrimeNumberOfSetBitsInBinaryRepresentation
 {
     // TC: O((right-left*)*num_bits_1)

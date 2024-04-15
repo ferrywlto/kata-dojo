@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q121_BestTimeBuyAndSellTestData : TestData
 {
     protected override List<object[]> Data =>

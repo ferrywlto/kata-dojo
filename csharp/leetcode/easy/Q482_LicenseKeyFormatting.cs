@@ -1,7 +1,5 @@
 using System.Text;
 
-namespace dojo.leetcode;
-
 public class Q482_LicenseKeyFormatting
 {
     // TC: O(n), SC: O(n)

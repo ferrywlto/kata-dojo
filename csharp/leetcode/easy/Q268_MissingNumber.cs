@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q268_MissingNumber
 {
     // TC: O(n), SC:O(1)

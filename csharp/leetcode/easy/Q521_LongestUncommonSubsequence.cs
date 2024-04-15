@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q521_LongestUncommonSubsequence
 {
     // TC: O(n), because of == operator

@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q577_EmployeeBonus : SqlQuestion
 {
     public override string Query =>

@@ -1,11 +1,8 @@
-namespace dojo.leetcode
+public abstract class TestData: IEnumerable<object?[]>
 {
-    public abstract class TestData: IEnumerable<object?[]>
-    {
-        protected abstract List<object[]> Data { get; }
+    protected abstract List<object[]> Data { get; }
 
-        public IEnumerator<object[]> GetEnumerator() => Data.GetEnumerator();
+    public IEnumerator<object[]> GetEnumerator() => Data.GetEnumerator();
 
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-    }
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 }

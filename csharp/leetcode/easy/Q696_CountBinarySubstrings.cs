@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q696_CountBinarySubstring
 {
     // The fact is for each group, the number of groups inside determines by Min(0s, 1s)

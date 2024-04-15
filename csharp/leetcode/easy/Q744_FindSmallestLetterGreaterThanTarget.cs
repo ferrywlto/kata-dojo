@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q744_FindSmallestLetterGreaterThanTarget
 {
     // TC: O(log n)

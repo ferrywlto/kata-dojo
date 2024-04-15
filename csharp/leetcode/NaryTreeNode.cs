@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class NaryTreeNode {
     public int val;
     public IList<NaryTreeNode> children = [];

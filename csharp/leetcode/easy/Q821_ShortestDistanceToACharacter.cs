@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q821_ShortestDistanceToACharacter
 {
     // TC: O(n), n is length of s

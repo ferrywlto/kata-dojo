@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q175_CombineTwoTables : SqlQuestion
 {
     public override string Query =>

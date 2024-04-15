@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class GuessGame 
 {
     public int pick = 0;

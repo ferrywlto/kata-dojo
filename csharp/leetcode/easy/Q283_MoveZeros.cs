@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q283_MoveZeros
 {
     public void MoveZeroes(int[] nums)

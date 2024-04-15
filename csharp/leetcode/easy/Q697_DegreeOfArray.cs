@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q697_DegreeOfArray
 {
     // TC: O(n^2)

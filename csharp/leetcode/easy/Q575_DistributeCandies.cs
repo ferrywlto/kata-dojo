@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q575_DistributeCandies
 {
     // hashset<int> -> Math.Min(hashset.length, candyType.length/2)

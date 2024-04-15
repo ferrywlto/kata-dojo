@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q110_CheckTreeHeightBalanced
 {   
     public bool IsBalanced(TreeNode? root)

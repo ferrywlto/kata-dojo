@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q217_ContainsDuplicate
 {
     // Inefficient way first

@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q434_NumberOfSegmentsInString
 {
 

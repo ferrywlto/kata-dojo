@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q338_CountingBits
 {
     // Suggested by Copilot in Q401 but only fast for single number 

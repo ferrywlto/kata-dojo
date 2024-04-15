@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q27_RemoveElement
 {
     // whenever hit nums[i] == val

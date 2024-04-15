@@ -1,5 +1,3 @@
-namespace dojo.leetcode;
-
 public class Q344_ReverseString
 {
     // TC:O(n), SC:O(1)

@@ -1,6 +1,3 @@
-
-namespace dojo.leetcode;
-
 public class Q404_SumOfLeftLeaves
 {
     // TC: O(n), SC: O(n)

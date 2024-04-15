@@ -1,8 +1,6 @@
 
 using System.Data.Common;
 
-namespace dojo.leetcode;
-
 public class Q627_SwapSalary : SqlQuestion
 {
     public override string Query =>

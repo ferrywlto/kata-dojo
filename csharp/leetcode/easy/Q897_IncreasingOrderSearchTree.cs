@@ -1,37 +1,32 @@
 class Q897_IncreasingOrderSearchTree
 {
+    // TC: O(n), n is total nodes in input tree
+    // SC: O(h), h is height of tree
     public TreeNode IncreasingBST(TreeNode root)
     {
+        var dummy = new TreeNode();
+        var current = dummy;
         var stack = new Stack<TreeNode>();
-        var queue = new Queue<TreeNode>();
-        TreeNode? current = root;
+        TreeNode? node = root;
 
-        while (current != null || stack.Count > 0)
+        while (node != null || stack.Count > 0)
         {
-            while (current != null)
+            while (node != null)
             {
-                stack.Push(current);
-                current = current.left;
+                stack.Push(node);
+                node = node.left;
             }
-            current = stack.Pop();
-            queue.Enqueue(current);
-            current = current.right;
-        }
 
-        var head = queue.Dequeue();
-        var prev = head;
-        prev.left = null;
-        prev.right = null;
-        while (queue.Count > 0)
-        {
-            var node = queue.Dequeue();
+            node = stack.Pop();
             node.left = null;
-            node.right = null;
+            current.right = node;
+            current = node;
 
-            prev.right = node;
-            prev = node;
+            node = node.right;
         }
-        return head;
+
+        // The technique here is we don't care what is before the returned node, so it doesn't matter what dummy actually is
+        return dummy.right!;
     }
 }
 

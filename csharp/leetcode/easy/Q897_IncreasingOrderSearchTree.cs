@@ -1,9 +1,37 @@
-
 class Q897_IncreasingOrderSearchTree
 {
-    public TreeNode IncreasingBST(TreeNode root) 
+    public TreeNode IncreasingBST(TreeNode root)
     {
-        return new TreeNode();    
+        var stack = new Stack<TreeNode>();
+        var queue = new Queue<TreeNode>();
+        TreeNode? current = root;
+
+        while (current != null || stack.Count > 0)
+        {
+            while (current != null)
+            {
+                stack.Push(current);
+                current = current.left;
+            }
+            current = stack.Pop();
+            queue.Enqueue(current);
+            current = current.right;
+        }
+
+        var head = queue.Dequeue();
+        var prev = head;
+        prev.left = null;
+        prev.right = null;
+        while (queue.Count > 0)
+        {
+            var node = queue.Dequeue();
+            node.left = null;
+            node.right = null;
+
+            prev.right = node;
+            prev = node;
+        }
+        return head;
     }
 }
 
@@ -18,11 +46,23 @@ class Q897_IncreasingOrderSearchTreeTestData : TestData
         [
             new int?[]{5,1,7},
             new int?[]{1,null,5,null,7},
-        ]
+        ],
+        [
+            new int?[]{1},
+            new int?[]{1},
+        ],
+        [
+            new int?[]{1, null, 2},
+            new int?[]{1, null, 2},
+        ],
+        [
+            new int?[]{2,1},
+            new int?[]{1, null, 2},
+        ],
     ];
 }
 
-public class Q897_IncreasingOrderSearchTreeTests : TreeNodeTest
+public class Q897_IncreasingOrderSearchTreeTests(ITestOutputHelper output) : TreeNodeTest(output)
 {
     [Theory]
     [ClassData(typeof(Q897_IncreasingOrderSearchTreeTestData))]
@@ -32,6 +72,7 @@ public class Q897_IncreasingOrderSearchTreeTests : TreeNodeTest
         var inputTree = TreeNode.FromLevelOrderingIntArray(input);
         var expectedTree = TreeNode.FromLevelOrderingIntArray(expected);
         var actualTree = sut.IncreasingBST(inputTree!);
+        DebugTree(actualTree);
         AssertTreeNodeEqual(expectedTree, actualTree);
     }
 }

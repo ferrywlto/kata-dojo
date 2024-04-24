@@ -19,6 +19,31 @@ class Q925_LongPressedName
 
         return matches.Count == 1;
     }
+
+    // Add two pointers approach for reference
+    // TC: O(n)
+    // SC: O(1)
+    public bool IsLongPressedName_LessMemory(string name, string typed)
+    {
+        int i = 0, j = 0;
+        while (j < typed.Length)
+        {
+            if (i < name.Length && name[i] == typed[j])
+            {
+                i++;
+                j++;
+            }
+            else if (j > 0 && typed[j] == typed[j - 1])
+            {
+                j++;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return i == name.Length;
+    }
 }
 
 class Q925_LongPressedNameTestData : TestData
@@ -37,7 +62,7 @@ public class Q925_LongPressedNameTests
     public void OfficialTestCases(string input, string target, bool expected)
     {
         var sut = new Q925_LongPressedName();
-        var actual = sut.IsLongPressedName(input, target);
+        var actual = sut.IsLongPressedName_LessMemory(input, target);
         Assert.Equal(expected, actual);
     }
 }

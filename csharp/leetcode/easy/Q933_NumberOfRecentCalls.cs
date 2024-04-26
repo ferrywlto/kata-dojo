@@ -3,12 +3,19 @@ public interface RecentCounter
     public int Ping(int t);
 }
 
+// TC: O(n), n is number of calls received
+// SC: O(n), n is queue size of calls within 3 seconds
 class Q933_NumberOfRecentCalls : RecentCounter
 {
-    Dictionary<int, int> calls = new();
+    readonly Queue<int> calls = [];
     public int Ping(int t)
     {
-        return 0;
+        while (calls.Count != 0 && calls.Peek() < t - 3000)
+        {
+            calls.Dequeue();
+        }
+        calls.Enqueue(t);
+        return calls.Count;
     }
 }
 

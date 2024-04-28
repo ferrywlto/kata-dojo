@@ -1,24 +1,32 @@
 class Q938_RangeSumOfBST
 {
+    // TC: O(n), n is nodes in tree
+    // SC: O(h), h is height of tree
     public int RangeSumBST(TreeNode root, int low, int high)
     {
         var result = 0;
         var stack = new Stack<TreeNode>();
-        TreeNode? current = root;
+        stack.Push(root);
 
-        // Inorder traversal
-        while (current != null || stack.Count > 0)
+        // cannot use inorder traveral, need to manual control with DFS in order to prune tree
+        while (stack.Count > 0)
         {
-            while (current != null)
+            var node = stack.Pop();
+            if (node != null)
             {
-                stack.Push(current);
-                current = current.left;
+                if (node.val > low && node.left != null)
+                {
+                    stack.Push(node.left);
+                }
+                if (node.val < high && node.right != null)
+                {
+                    stack.Push(node.right);
+                }
+                if (node.val >= low && node.val <= high)
+                {
+                    result += node.val;
+                }
             }
-            current = stack.Pop();
-            
-            if (current.val >= low && current.val <= high) result += current.val;
-            
-            current = current.right;
         }
 
         return result;

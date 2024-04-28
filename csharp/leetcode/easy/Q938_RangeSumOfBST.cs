@@ -2,7 +2,26 @@ class Q938_RangeSumOfBST
 {
     public int RangeSumBST(TreeNode root, int low, int high)
     {
-        return 0;
+        var result = 0;
+        var stack = new Stack<TreeNode>();
+        TreeNode? current = root;
+
+        // Inorder traversal
+        while (current != null || stack.Count > 0)
+        {
+            while (current != null)
+            {
+                stack.Push(current);
+                current = current.left;
+            }
+            current = stack.Pop();
+            
+            if (current.val >= low && current.val <= high) result += current.val;
+            
+            current = current.right;
+        }
+
+        return result;
     }
 }
 

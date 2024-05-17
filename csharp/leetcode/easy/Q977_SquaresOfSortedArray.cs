@@ -1,7 +1,6 @@
 class Q977_SquaresOfSortedArray
 {
-    // This is non-trival solution required for O(n) time instead of O(n * n log n) time with direct squaring each element and then sort again
-    // TC: O(2n), n is length of nums
+    // TC: O(n^2), n is length of nums, worst case each node need to goes to bottom for skewed tree.
     // SC: O(n*h), n is length of nums, n tree nodes + h tree height for stack 
     public int[] SortedSquares(int[] nums)
     {
@@ -59,6 +58,8 @@ class Q977_SquaresOfSortedArray
 
     // The concept is, since the array already sorted, the head and tails must be the largest
     // THerefore can use a two-pointers approach to fill from largest to smallest to target array
+    // TC: O(n)
+    // SC: O(n)
     public int[] SortedSquares_TwoPointers(int[] nums)
     {
         int n = nums.Length;

@@ -56,13 +56,36 @@ class Q977_SquaresOfSortedArray
 
         return result;
     }
+
+    // The concept is, since the array already sorted, the head and tails must be the largest
+    // THerefore can use a two-pointers approach to fill from largest to smallest to target array
+    public int[] SortedSquares_TwoPointers(int[] nums)
+    {
+        int n = nums.Length;
+        int[] result = new int[n];
+        int left = 0, right = n - 1;
+        for (int i = n - 1; i >= 0; i--)
+        {
+            if (Math.Abs(nums[left]) > Math.Abs(nums[right]))
+            {
+                result[i] = nums[left] * nums[left];
+                left++;
+            }
+            else
+            {
+                result[i] = nums[right] * nums[right];
+                right--;
+            }
+        }
+        return result;
+    }
 }
 
 class Q977_SquaresOfSortedArrayTestData : TestData
 {
     protected override List<object[]> Data =>
     [
-        // [new int[]{-4,-1,0,3,10}, new int[] {0,1,9,16,100}],
+        [new int[]{-4,-1,0,3,10}, new int[] {0,1,9,16,100}],
         [new int[]{-7,-3,2,3,11}, new int[] {4,9,9,49,121}],
     ];
 }
@@ -74,7 +97,7 @@ public class Q977_SquaresOfSortedArrayTests
     public void OfficialTestCases(int[] input, int[] expected)
     {
         var sut = new Q977_SquaresOfSortedArray();
-        var actual = sut.SortedSquares(input);
+        var actual = sut.SortedSquares_TwoPointers(input);
         Assert.Equal(expected, actual);
     }
 }

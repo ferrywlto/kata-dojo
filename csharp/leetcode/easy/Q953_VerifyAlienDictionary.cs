@@ -1,6 +1,30 @@
 class Q953_VerifyAlienDictionary
 {
     Dictionary<char, int> alienDict = [];
+    public bool IsAlienSorted_WordsCompare(string[] words, string order)
+    {
+        alienDict = [];
+        for (var i = 0; i < order.Length; i++)
+        {
+            alienDict.Add(order[i], i + 1);
+        }
+
+        for(var i=0; i<words.Length - 1; i++)
+        {
+            if(!IsOrdered(words[i], words[i+1])) return false;
+        }
+        return true;
+    }
+    private bool IsOrdered(string word1, string word2)
+    {
+        var shorterLen = Math.Min(word1.Length, word2.Length);
+        for(var i=0; i<shorterLen; i++)
+        {
+            if (alienDict[word1[i]] < alienDict[word2[i]]) return true;
+            if (alienDict[word1[i]] > alienDict[word2[i]]) return false;
+        }
+        return word1.Length <= word2.Length;
+    }
     public bool IsAlienSorted(string[] words, string order)
     {
         alienDict = [];
@@ -53,7 +77,7 @@ public class Q953_VerifyAlienDictionaryTests
     public void OfficialTestCases(string[] input, string order, bool expected)
     {
         var sut = new Q953_VerifyAlienDictionary();
-        var actual = sut.IsAlienSorted(input, order);
+        var actual = sut.IsAlienSorted_WordsCompare(input, order);
         Assert.Equal(expected, actual);
     }
 }

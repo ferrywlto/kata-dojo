@@ -7,7 +7,6 @@ class Q914_XOfAKindInDeckOfCards
     public bool HasGroupsSizeX(int[] deck) 
     {
         if (deck.Length == 1) return false;
-        Console.WriteLine($"count: {deck.Length}");
         var freq = deck.GroupBy(x => x).ToDictionary(x => x.Key, x => x.Count());
         if (freq.Any(x => x.Value == 1)) return false;
 
@@ -32,6 +31,31 @@ class Q914_XOfAKindInDeckOfCards
 
         return false;
     }
+
+    // More efficient approach for reference, not necessary signifcant faster
+    public bool HasGroupsSizeX_GCD(int[] deck) 
+    {
+        if (deck.Length == 1) return false;
+        var freq = deck.GroupBy(x => x).ToDictionary(x => x.Key, x => x.Count());
+        if (freq.Any(x => x.Value == 1)) return false;
+
+        var min = freq.Min(x => x.Value);
+        var hashset = new HashSet<int>();
+
+        var gcd = freq.First().Value;
+        foreach (var pair in freq)
+        {
+            gcd = GCD(gcd, pair.Value);
+            if (gcd == 1) return false;
+        }
+
+        return true;
+    }
+    private int GCD(int a, int b)
+    {
+        if (b == 0) return a;
+        return GCD(b, a % b);
+    }
 }
 
 class Q914_XOfAKindInDeckOfCardsTestData : TestData
@@ -54,7 +78,7 @@ public class Q914_XOfAKindInDeckOfCardsTests
     public void OfficialTestCases(int[] input, bool expected)
     {
         var sut = new Q914_XOfAKindInDeckOfCards();
-        var actual = sut.HasGroupsSizeX(input);
+        var actual = sut.HasGroupsSizeX_GCD(input);
         Assert.Equal(expected, actual);
     }
 }

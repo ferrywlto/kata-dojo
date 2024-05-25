@@ -1,77 +1,110 @@
-﻿// ./cli -c a.txt
-using System.Text;
+﻿using System.Text;
 
-var target = args.Length switch
+string text;
+if (args.Length == 0)
 {
-    1 => args[0],
-    _ => args[1], 
-};
-
-if (!File.Exists(target))
-{
-    Console.WriteLine("The specificed file does not exist");
+    var lines = await ReadLinesFromStandardInput();
+    Console.WriteLine(GetAllStats(lines));
     return;
 }
+else
+{
+    var target = args.Length switch
+    {
+        1 => args[0],
+        _ => args[1],
+    };
 
-if (args.Length == 1)
-{
-    var bytes = await CountBytes(target);
-    var lines = await CountLines(target);
-    var words = await CountWords(target);
-    Console.WriteLine($"{lines,10}\t{words,10}\t{bytes,10}\t{target}");
-    return;
-}
-else if (args[0] == "-c")
-{
-    Print(await CountBytes(target), target);
-    return;
-}
-// wc always reports 1 lines if the last line of a file does not contain a newline character 
-else if (args[0] == "-l")
-{
-    Print(await CountLines(target), target);
-    return;
-}
-else if (args[0] == "-w")
-{
-    Print(await CountWords(target), target);
-    return;
-}
-else if (args[0] == "-m")
-{
-    Print(await CountCharacters(target), target);
-}
-else 
-{
-    Console.WriteLine("""
-        Usage: ./wc-cli [switch] [file]
-        List of available switch:
-        -c | list bytes of file
-        -l | list of lines of file
-        """);
-    return;    
+    if (!File.Exists(target))
+    {
+        Console.WriteLine("The specificed file does not exist");
+        return;
+    }
+    var lines = await File.ReadAllLinesAsync(target, Encoding.UTF8);
+
+    if (args.Length == 1)
+    {
+        Console.WriteLine($"{GetAllStats(lines)}\t{target}");
+        return;
+    }
+    // wc always reports 1 lines if the last line of a file does not contain a newline character 
+    else if (args[0] == "-l")
+    {
+        Print(lines.Length, target);
+        return;
+    }
+    else
+    {
+        text = string.Join(Environment.NewLine, lines);
+
+        if (args[0] == "-w")
+        {
+            Print(CountWords(text), target);
+            return;
+        }
+        else if (args[0] == "-m")
+        {
+            Print(text.Length, target);
+            return;
+        }
+        else if (args[0] == "-c")
+        {
+            var bytes = Encoding.UTF8.GetBytes(text);
+            Print(bytes.Length, target);
+            return;
+        }
+        else
+        {
+            Console.WriteLine(
+            """
+                Usage: ./wc-cli [switch] [file]
+                List of available switch:
+                -c | count bytes in file
+                -l | count lines in file
+                -w | count words in file
+                -m | count characters in file
+                omit switch | count lines, words and bytes in file
+                without parameter | count lines, words and bytes from standard input
+            """);
+            return;
+        }
+    }
 }
 
-async Task<int> CountBytes(string target)
+async Task<string[]> ReadLinesFromStandardInput()
 {
-    var bytes = await File.ReadAllBytesAsync(target);
-    return bytes.Length;
+    var lines = new List<string>();
+    var stream = Console.OpenStandardInput();
+    var sc = new StreamReader(stream);
+    string? line;
+    while ((line = await sc.ReadLineAsync()) != null)
+    {
+        lines.Add(line);
+    }
+    return lines.ToArray();
 }
 
-async Task<int> CountLines(string target)
+string GetAllStats(string[] lines)
 {
-    var lines = await File.ReadAllLinesAsync(target);
-    return lines.Length;
+    var lineCount = lines.Length;
+    var text = string.Join(Environment.NewLine, lines);
+
+    var wordCount = CountWords(text);
+
+    var bytes = Encoding.UTF8.GetBytes(text);
+
+    var byteCount = bytes.Length;
+
+    return $"{lineCount,10}\t{wordCount,10}\t{byteCount,10}";
 }
 
-async Task<int> CountWords(string target)
+int CountWords(string input)
 {
-    var text = await File.ReadAllTextAsync(target, Encoding.UTF8);
     var inWord = false;
     var wordCount = 0;
-    for (var i = 0; i < text.Length; i++)
+    for (var i = 0; i < input.Length; i++)
     {
-        if (!Char.IsWhiteSpace(text[i]))
+        if (!char.IsWhiteSpace(input[i]))
         {
             if (inWord == false)
             {
@@ -85,12 +118,6 @@ async Task<int> CountWords(string target)
         }
     }
     return wordCount;
-}
-
-async Task<int> CountCharacters(string target)
-{
-    var text = await File.ReadAllTextAsync(target, Encoding.UTF8);
-    return text.Length;
 }
 
 void Print(int num, string target) => Console.WriteLine($"{num} {target}");

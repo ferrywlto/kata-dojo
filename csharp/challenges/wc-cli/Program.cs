@@ -3,7 +3,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.RegularExpressions;
 
-if (args.Length != 2) 
+if (args.Length != 2)
 {
     Console.WriteLine("""
         Usage: ./wc-cli [switch] [file]
@@ -21,29 +21,30 @@ if (!File.Exists(target))
     return;
 }
 
-if(args[0] == "-c")
+if (args[0] == "-c")
 {
     var bytes = await File.ReadAllBytesAsync(target);
     Console.WriteLine($"{bytes.Length} {target}");
     return;
 }
 // wc always reports 1 lines if the last line of a file does not contain a newline character 
-else if(args[0] == "-l")
+else if (args[0] == "-l")
 {
     var lines = await File.ReadAllLinesAsync(target);
     Console.WriteLine($"{lines.Length} {target}");
     return;
 }
-else if(args[0] == "-w")
+else if (args[0] == "-w")
 {
     var text = await File.ReadAllTextAsync(target, Encoding.UTF8);
     var inWord = false;
     var wordCount = 0;
-    for(var i=0; i<text.Length; i++)    
+    for (var i = 0; i < text.Length; i++)
     {
-        if(!Char.IsWhiteSpace(text[i]))
+        if (!Char.IsWhiteSpace(text[i]))
         {
-            if(inWord == false) {
+            if (inWord == false)
+            {
                 inWord = true;
                 wordCount++;
             }
@@ -55,4 +56,9 @@ else if(args[0] == "-w")
     }
     Console.WriteLine($"{wordCount} {target}");
     return;
+}
+else if (args[0] == "-m")
+{
+    var text = await File.ReadAllTextAsync(target, Encoding.UTF8);
+    Console.WriteLine($"{text.Length} {target}");
 }

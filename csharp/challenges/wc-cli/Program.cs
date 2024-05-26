@@ -1,136 +1,42 @@
 ﻿using System.Text;
 
 string[] lines;
-string text;
-string target;
 
 if (args.Length == 0)
 {
     lines = await ReadLinesFromStandardInput();
     Console.WriteLine(GetAllStats(lines));
-    return;
 }
-else
+else if ((args.Length == 1) && args[0].StartsWith('-'))
 {
-    if (args.Length == 1)
-    {
-        if (args[0].StartsWith('-')) // switch only
-        {
-            lines = await ReadLinesFromStandardInput();
-            if (args[0] == "-l")
-            {
-                Console.WriteLine(lines.Length); 
-                return;
-            }
-            else
-            {
-                text = string.Join(Environment.NewLine, lines);
-
-                if (args[0] == "-w")
-                {
-                    Console.WriteLine(CountWords(text));
-                    return;
-                }
-                else if (args[0] == "-m")
-                {
-                    Console.WriteLine(text.Length);
-                    return;
-                }
-                else if (args[0] == "-c")
-                {
-                    var bytes = Encoding.UTF8.GetBytes(text);
-                    Console.WriteLine(bytes.Length);
-                    return;
-                }
-                else
-                {
-                    Console.WriteLine(
-                    """
-                    Usage: ./wc-cli [switch] [file]
-                    List of available switch:
-                    -c | count bytes in file
-                    -l | count lines in file
-                    -w | count words in file
-                    -m | count characters in file
-                    omit switch | count lines, words and bytes in file
-                    without parameter | count lines, words and bytes from standard input
-                """);
-                    return;
-                }
-            }
-        }
-        else // file name only
-        {
-            target = args[0];
-            if (!File.Exists(target))
-            {
-                Console.WriteLine("The specificed file does not exist");
-                return;
-            }
-            lines = await File.ReadAllLinesAsync(target, Encoding.UTF8);
-            Console.WriteLine(GetAllStats(lines));
-            return;
-        }
-    }
-    else 
-    {
-        target = args[1];
-        lines = await File.ReadAllLinesAsync(target, Encoding.UTF8);
-        if (!File.Exists(target))
-        {
-            Console.WriteLine("The specificed file does not exist");
-            return;
-        }
-        if (args.Length == 1)
-        {
-            Console.WriteLine($"{GetAllStats(lines)}\t{target}");
-            return;
-        }
-        // wc always reports 1 lines if the last line of a file does not contain a newline character 
-        else if (args[0] == "-l")
-        {
-            Print(lines.Length, target);
-            return;
-        }
-        else
-        {
-            text = string.Join(Environment.NewLine, lines);
-
-            if (args[0] == "-w")
-            {
-                Print(CountWords(text), target);
-                return;
-            }
-            else if (args[0] == "-m")
-            {
-                Print(text.Length, target);
-                return;
-            }
-            else if (args[0] == "-c")
-            {
-                var bytes = Encoding.UTF8.GetBytes(text);
-                Print(bytes.Length, target);
-                return;
-            }
-            else
-            {
-                Console.WriteLine(
-                """
-                    Usage: ./wc-cli [switch] [file]
-                    List of available switch:
-                    -c | count bytes in file
-                    -l | count lines in file
-                    -w | count words in file
-                    -m | count characters in file
-                    omit switch | count lines, words and bytes in file
-                    without parameter | count lines, words and bytes from standard input
-                """);
-                return;
-            }
-        }
-    }
+    lines = await ReadLinesFromStandardInput();
+    var count = ProcessCommand(args[0], lines);
+    if (count != -1) Console.WriteLine(count);
 }
+else if (args.Length == 1)
+{
+    lines = await ReadLinesFromFile(args[0]);
+    if (lines.Length == 0) return;
 
+    Console.WriteLine(GetAllStats(lines));
+}
+else 
+{
+    lines = await ReadLinesFromFile(args[1]);
+    if (lines.Length == 0) return;
+
+    var count = ProcessCommand(args[0], lines);
+    if(count != -1) Console.WriteLine($"{count} {args[1]}");
+}
+async Task<string[]> ReadLinesFromFile(string input)
+{
+    if (!File.Exists(input)) 
+    {
+        Console.WriteLine("The specificed file does not exist");
+        return [];
+    }
+    return await File.ReadAllLinesAsync(input, Encoding.UTF8);
+}
 async Task<string[]> ReadLinesFromStandardInput()
 {
     var lines = new List<string>();
@@ -143,21 +49,37 @@ async Task<string[]> ReadLinesFromStandardInput()
     }
     return lines.ToArray();
 }
-
-string GetAllStats(string[] lines)
+int ProcessCommand(string command, string[] lines)
 {
-    var lineCount = lines.Length;
-    var text = string.Join(Environment.NewLine, lines);
-
-    var wordCount = CountWords(text);
-
-    var bytes = Encoding.UTF8.GetBytes(text);
-
-    var byteCount = bytes.Length;
-
-    return $"{lineCount,10}\t{wordCount,10}\t{byteCount,10}";
+    if (command == "-l")  return lines.Length;
+    else
+    {
+       var text = string.Join(Environment.NewLine, lines);
+        // wc always reports 1 lines if the last line of a file does not contain a newline character 
+        if (command == "-w") return CountWords(text);
+        else if (command == "-m") return text.Length;
+        else if (command == "-c")
+        {
+            var bytes = Encoding.UTF8.GetBytes(text);
+            return bytes.Length;
+        }
+        else
+        {
+            Console.WriteLine(
+            """
+            Usage: ./wc-cli [switch] [file]
+            List of available switch:
+            -c | count bytes in file
+            -l | count lines in file
+            -w | count words in file
+            -m | count characters in file
+            omit switch | count lines, words and bytes in file
+            without parameter | count lines, words and bytes from standard input
+        """);
+            return -1;
+        }
+    }
 }
-
 int CountWords(string input)
 {
     var inWord = false;
@@ -172,12 +94,20 @@ int CountWords(string input)
                 wordCount++;
             }
         }
-        else
-        {
-            inWord = false;
-        }
+        else inWord = false;
     }
     return wordCount;
 }
+string GetAllStats(string[] lines)
+{
+    var lineCount = lines.Length;
+    var text = string.Join(Environment.NewLine, lines);
 
-void Print(int num, string target) => Console.WriteLine($"{num} {target}");
+    var wordCount = CountWords(text);
+
+    var bytes = Encoding.UTF8.GetBytes(text);
+
+    var byteCount = bytes.Length;
+
+    return $"{lineCount,10}\t{wordCount,10}\t{byteCount,10}";
+}

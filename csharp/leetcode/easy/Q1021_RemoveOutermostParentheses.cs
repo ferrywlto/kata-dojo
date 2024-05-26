@@ -1,13 +1,43 @@
+using System.Text;
 
 class Q1021_RemoveOutermostParentheses
 {
-    public string RemoveOuterParentheses(string s) {
-        return string.Empty;    
+    // TC: O(n), n is length of s
+    // SC: O(n), m is the length of resulting string
+    public string RemoveOuterParentheses(string s)
+    {
+        var started = false;
+        var openIdx = 0;
+        var openCount = 0;
+        var sb = new StringBuilder();
+        for(var i=0; i< s.Length; i++)
+        {
+            if(s[i] == '(' && !started)
+            {
+                started = true;
+                openIdx = i;
+                openCount++;
+            }
+            else if(s[i] == '(' && started)
+            {
+                openCount++;
+            }
+            else if(s[i] == ')')
+            {
+                openCount--;
+                if (openCount == 0) 
+                {
+                    sb.Append(s.AsSpan(openIdx + 1, i - 1 - openIdx));
+                    started = false;
+                }
+            }
+        }
+        return sb.ToString();
     }
 }
 class Q1021_RemoveOutermostParenthesesTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["(()())(())", "()()()"],
         ["(()())(())(()(()))", "()()()()(())"],

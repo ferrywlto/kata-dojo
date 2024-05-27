@@ -1,4 +1,4 @@
-public class Q594_LongestHarmoniousSubsequence
+class Q594_LongestHarmoniousSubsequence
 {
     // TC: O(n)
     // SC: O(n)
@@ -27,7 +27,7 @@ public class Q594_LongestHarmoniousSubsequence
     }
 }
 
-public class Q594_LongestHarmoniousSubsequenceTestData : TestData
+class Q594_LongestHarmoniousSubsequenceTestData : TestData
 {
     protected override List<object[]> Data =>
     [

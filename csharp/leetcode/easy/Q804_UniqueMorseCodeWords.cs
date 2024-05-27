@@ -1,6 +1,6 @@
 using System.Text;
 
-public class Q804_UniqueMoreseCodeWords
+class Q804_UniqueMoreseCodeWords
 {
     public static readonly string[] MorseCode = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."];
  
@@ -31,7 +31,7 @@ public class Q804_UniqueMoreseCodeWords
     }
 }
 
-public class Q804_UniqueMoreseCodeWordsTestData : TestData
+class Q804_UniqueMoreseCodeWordsTestData : TestData
 {
     protected override List<object[]> Data =>
     [

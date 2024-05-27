@@ -1,4 +1,4 @@
-public class Q653_TwoSumIV
+class Q653_TwoSumIV
 {
     // TC: O(n)
     // SC: O(n)
@@ -21,7 +21,7 @@ public class Q653_TwoSumIV
     }
 }
 
-public class Q653_TwoSumIVTestData : TestData
+class Q653_TwoSumIVTestData : TestData
 {
     protected override List<object[]> Data => 
     [

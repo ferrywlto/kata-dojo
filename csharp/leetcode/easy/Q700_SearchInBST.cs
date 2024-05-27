@@ -1,4 +1,4 @@
-public class Q700_SearchInBST
+class Q700_SearchInBST
 {
     // TC: O(n)
     // SC: O(1)
@@ -15,7 +15,7 @@ public class Q700_SearchInBST
     }
 }
 
-public class Q700_SearchInBSTTestData : TestData
+class Q700_SearchInBSTTestData : TestData
 {
     protected override List<object[]> Data => 
     [

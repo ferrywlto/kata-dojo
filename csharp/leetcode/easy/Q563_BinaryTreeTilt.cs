@@ -1,4 +1,4 @@
-public class Q563_BinaryTreeTilt
+class Q563_BinaryTreeTilt
 {
     public int FindTilt(TreeNode? root)
     {
@@ -16,7 +16,7 @@ public class Q563_BinaryTreeTilt
     }
 }
 
-public class Q563_BinaryTreeTiltTestData : TestData
+class Q563_BinaryTreeTiltTestData : TestData
 {
     protected override List<object[]> Data =>
     [

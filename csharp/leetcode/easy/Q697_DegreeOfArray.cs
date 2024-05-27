@@ -1,4 +1,4 @@
-public class Q697_DegreeOfArray
+class Q697_DegreeOfArray
 {
     // TC: O(n^2)
     // SC: O(n)
@@ -51,7 +51,7 @@ public class Q697_DegreeOfArray
     }
 }
 
-public class Q697_DegreeOfArrayTestData : TestData
+class Q697_DegreeOfArrayTestData : TestData
 {
     protected override List<object[]> Data =>
     [

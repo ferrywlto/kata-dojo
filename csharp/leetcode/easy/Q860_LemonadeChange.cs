@@ -1,4 +1,4 @@
-public class Q860_LemonadeChange
+class Q860_LemonadeChange
 {
     // TC: O(n), n is length of bills
     // SC: O(1), the dictionry size is fixed
@@ -39,7 +39,7 @@ public class Q860_LemonadeChange
     }
 }
 
-public class Q860_LemonadeChangeTestData : TestData
+class Q860_LemonadeChangeTestData : TestData
 {
     protected override List<object[]> Data => 
     [

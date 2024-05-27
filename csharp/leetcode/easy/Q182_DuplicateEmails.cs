@@ -1,4 +1,4 @@
-public class Q182_DuplicateEmails : SqlQuestion
+class Q182_DuplicateEmails : SqlQuestion
 {
     public override string Query =>
     """
@@ -9,7 +9,7 @@ public class Q182_DuplicateEmails : SqlQuestion
     """;
 }
 
-public class Q182_DuplicateEmailsTestData : TestData
+class Q182_DuplicateEmailsTestData : TestData
 {
     protected override List<object[]> Data =>
     [[

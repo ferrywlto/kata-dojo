@@ -1,7 +1,7 @@
 using System.Data;
 using Microsoft.Data.Sqlite;
 
-public class Q511_GamePlayAnalysis1 : SqlQuestion
+class Q511_GamePlayAnalysis1 : SqlQuestion
 {
     public override string Query =>
     """
@@ -11,7 +11,7 @@ public class Q511_GamePlayAnalysis1 : SqlQuestion
     """;
 }
 
-public class Q511_GamePlayAnalysis1TestData : TestData
+class Q511_GamePlayAnalysis1TestData : TestData
 {
     protected override List<object[]> Data =>
     [[

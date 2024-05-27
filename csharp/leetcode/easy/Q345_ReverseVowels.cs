@@ -1,4 +1,4 @@
-public class Q345_ReverseVowels
+class Q345_ReverseVowels
 {
     private readonly HashSet<char> vows = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
     // TC: O(n), SC: O(n)
@@ -37,7 +37,7 @@ public class Q345_ReverseVowels
     }
 }
 
-public class Q345_ReverseVowelsTestData: TestData
+class Q345_ReverseVowelsTestData: TestData
 {
     protected override List<object[]> Data => 
     [

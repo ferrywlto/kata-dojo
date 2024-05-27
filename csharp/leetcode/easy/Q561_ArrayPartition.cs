@@ -1,4 +1,4 @@
-public class Q561_ArrayPartition
+class Q561_ArrayPartition
 {
     // TC: O(n log n)
     // SC: O(1)
@@ -15,7 +15,7 @@ public class Q561_ArrayPartition
     }
 }
 
-public class Q561_ArrayPartitionTestData : TestData
+class Q561_ArrayPartitionTestData : TestData
 {
     protected override List<object[]> Data =>
     [

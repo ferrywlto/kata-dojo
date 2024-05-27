@@ -1,4 +1,4 @@
-public class Q104_MaxDepthBinaryTreeTestData : TestData
+class Q104_MaxDepthBinaryTreeTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -23,7 +23,7 @@ public class Q104_MaxDepthBinaryTreeTests
     }
 }
 
-public class Q104_MaxDepthBinaryTree
+class Q104_MaxDepthBinaryTree
 {
     // TC: O(n), SC: O(n)
     public int MaxDepth(TreeNode root)

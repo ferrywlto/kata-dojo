@@ -1,4 +1,4 @@
-public class Q231_PowerOfTwo
+class Q231_PowerOfTwo
 {
     // TC:O(1), SC:O(1)
     public bool IsPowerOfTwo(int n) 
@@ -24,7 +24,7 @@ public class Q231_PowerOfTwo
     }
 }
 
-public class Q231_PowerOfTwoTestData: TestData
+class Q231_PowerOfTwoTestData: TestData
 {
     protected override List<object[]> Data => 
     [

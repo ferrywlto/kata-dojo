@@ -1,4 +1,4 @@
-public class Q584_FindCustomerReferee : SqlQuestion
+class Q584_FindCustomerReferee : SqlQuestion
 {
     public override string Query =>
     """
@@ -9,7 +9,7 @@ public class Q584_FindCustomerReferee : SqlQuestion
     """;
 }
 
-public class Q584_FindCustomerRefereeTestData : TestData
+class Q584_FindCustomerRefereeTestData : TestData
 {
     protected override List<object[]> Data =>
     [[

@@ -1,4 +1,4 @@
-public class Q26_RemoveDuplicatesTestData : TestData
+class Q26_RemoveDuplicatesTestData : TestData
 {
     protected override List<object[]> Data => 
     [
@@ -20,7 +20,7 @@ public class Q26_RemoveDuplicatesTests
     }
 }
 
-public class Q26_RemoveDuplicates
+class Q26_RemoveDuplicates
 {
     // From the problem description and others discussion, the answer needed to switch the value in place because the auto judge will check the array element by element for the first K elements.
     // Where K is the distinct number of elements in the array.

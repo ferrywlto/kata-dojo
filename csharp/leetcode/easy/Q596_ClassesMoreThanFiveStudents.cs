@@ -1,4 +1,4 @@
-public class Q596_ClassesMoreThanFiceStudents : SqlQuestion
+class Q596_ClassesMoreThanFiceStudents : SqlQuestion
 {
     public override string Query =>
     """
@@ -9,7 +9,7 @@ public class Q596_ClassesMoreThanFiceStudents : SqlQuestion
     """;
 }
 
-public class Q596_ClassesMoreThanFiceStudentsTestData : TestData
+class Q596_ClassesMoreThanFiceStudentsTestData : TestData
 {
     protected override List<object[]> Data =>
     [[
@@ -28,7 +28,7 @@ public class Q596_ClassesMoreThanFiceStudentsTestData : TestData
     ]];
 }
 
-public class Q596_ClassesMoreThanFiceStudentsTest(ITestOutputHelper output) : SqlTest(output)
+public class Q596_ClassesMoreThanFiceStudentsTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
     """

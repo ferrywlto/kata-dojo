@@ -1,4 +1,4 @@
-public class Q283_MoveZeros
+class Q283_MoveZeros
 {
     public void MoveZeroes(int[] nums)
     {
@@ -30,7 +30,7 @@ public class Q283_MoveZeros
     }
 }
 
-public class Q283_MoveZerosTestData: TestData
+class Q283_MoveZerosTestData: TestData
 {
     protected override List<object[]> Data => 
     [

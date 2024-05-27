@@ -1,4 +1,4 @@
-public class Q599_MinIndexSumOfTwoList
+class Q599_MinIndexSumOfTwoList
 {
     // TC: O(n+m)
     // SC: O(n+m)
@@ -32,7 +32,7 @@ public class Q599_MinIndexSumOfTwoList
     }
 }
 
-public class Q599_MinIndexSumOfTwoListTestData : TestData
+class Q599_MinIndexSumOfTwoListTestData : TestData
 {
     protected override List<object[]> Data => 
     [

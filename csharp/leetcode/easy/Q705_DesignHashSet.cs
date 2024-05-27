@@ -1,4 +1,4 @@
-public class Q705_DesignHashSet
+class Q705_DesignHashSet
 {
     private readonly Dictionary<int, int> dict = [];
     
@@ -20,7 +20,7 @@ public class Q705_DesignHashSet
 }
 
 public enum TestCommands { Add, Contains, Remove }
-public class Q705_DesignHashSetTestData : TestData
+class Q705_DesignHashSetTestData : TestData
 {
     protected override List<object[]> Data => 
     [

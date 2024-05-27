@@ -1,4 +1,4 @@
-public class Q821_ShortestDistanceToACharacter
+class Q821_ShortestDistanceToACharacter
 {
     // TC: O(n), n is length of s
     // SC: O(n), n is queue size
@@ -37,7 +37,7 @@ public class Q821_ShortestDistanceToACharacter
     }
 }
 
-public class Q821_ShortestDistanceToACharacterTestData : TestData
+class Q821_ShortestDistanceToACharacterTestData : TestData
 {
     protected override List<object[]> Data => 
     [

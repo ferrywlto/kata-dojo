@@ -1,4 +1,4 @@
-public class Q643_MaxAvgSubarrayI
+class Q643_MaxAvgSubarrayI
 {
     // TC: O(n^2)
     // SC: O(1)
@@ -22,7 +22,7 @@ public class Q643_MaxAvgSubarrayI
     }
 }
 
-public class Q643_MaxAvgSubarrayITestData : TestData
+class Q643_MaxAvgSubarrayITestData : TestData
 {
     protected override List<object[]> Data => 
     [

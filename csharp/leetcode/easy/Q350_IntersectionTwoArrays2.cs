@@ -11,7 +11,7 @@ What if elements of nums2 are stored on disk, and the memory is limited such tha
 - Not gonna do the follow up part as it is out of kata scope, it can still possible and efficient by loading the longer list bit by bit
 in Intersect_Analysis() method 
 */
-public class Q350_IntersectionTwoArrays2
+class Q350_IntersectionTwoArrays2
 {
     // Use trival approach, TC: O(n^2), SC: O(n) 
     public int[] Intersect_Inefficient(int[] nums1, int[] nums2)
@@ -92,7 +92,7 @@ public class Q350_IntersectionTwoArrays2
             : (input2, input1);
 }
 
-public class Q350_IntersectionTwoArrays2TestData : TestData
+class Q350_IntersectionTwoArrays2TestData : TestData
 {
     protected override List<object[]> Data =>
     [

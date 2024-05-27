@@ -7,7 +7,7 @@ using System.Diagnostics;
 0 <= left <= right < nums.length
 At most 10^4 calls will be made to sumRange
 */
-public class Q303_RangeSumQuery(int[] nums)
+class Q303_RangeSumQuery(int[] nums)
 {
     protected readonly int[] Nums = nums;
     protected readonly SortedDictionary<int, SortedDictionary<int, int>> Cache = [];
@@ -58,7 +58,7 @@ public class Q303_RangeSumQuery(int[] nums)
     }
 }
 
-public class Q303_RangeSumQueryTestData : TestData
+class Q303_RangeSumQueryTestData : TestData
 {
     protected override List<object[]> Data =>
     [

@@ -1,4 +1,4 @@
-public class Q141_LinkedListCycleTestData : TestData
+class Q141_LinkedListCycleTestData : TestData
 {
     protected override List<object[]> Data => 
     [
@@ -51,7 +51,7 @@ public class Q141_LinkedListCycleTests : ListNodeTest
     }
 }
 
-public class Q141_LinkedListCycle
+class Q141_LinkedListCycle
 {
     // Technique: Race of Tortoise and Hare
     // The idea important thing is we need to have two pointers in different speed.

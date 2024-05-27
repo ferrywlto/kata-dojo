@@ -122,7 +122,7 @@ public class Q9_PalindromeNumberTests
     }
 }
 
-public class Q9_PalindromeNumber
+class Q9_PalindromeNumber
 {
     public bool IsPalindrome_ToStringApproach(int x)
     {

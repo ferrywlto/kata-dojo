@@ -1,4 +1,4 @@
-public class Q724_FindPivotIndex
+class Q724_FindPivotIndex
 {
     // TC: O(n)
     // SC: O(1)
@@ -17,7 +17,7 @@ public class Q724_FindPivotIndex
     }
 }
 
-public class Q724_FindPivotIndexTestData : TestData
+class Q724_FindPivotIndexTestData : TestData
 {
     protected override List<object[]> Data =>
     [

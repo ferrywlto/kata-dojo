@@ -1,4 +1,4 @@
-public class Q747_LargestNumberAtLeastTwiceOfOthers
+class Q747_LargestNumberAtLeastTwiceOfOthers
 {
     // TC: O(n)
     // SC: O(1)
@@ -24,7 +24,7 @@ public class Q747_LargestNumberAtLeastTwiceOfOthers
     }
 }
 
-public class Q747_LargestNumberAtLeastTwiceOfOthersTestData : TestData
+class Q747_LargestNumberAtLeastTwiceOfOthersTestData : TestData
 {
     protected override List<object[]> Data =>
     [

@@ -1,4 +1,4 @@
-public class Q610_TriangleJudgement : SqlQuestion
+class Q610_TriangleJudgement : SqlQuestion
 {
     public override string Query =>
     """
@@ -13,7 +13,7 @@ public class Q610_TriangleJudgement : SqlQuestion
     """;
 }
 
-public class Q610_TriangleJudgementTestData : TestData
+class Q610_TriangleJudgementTestData : TestData
 {
     protected override List<object[]> Data =>
     [[

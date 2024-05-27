@@ -1,4 +1,4 @@
-public class Q191_NumberOfOneBitsTestData : TestData
+class Q191_NumberOfOneBitsTestData : TestData
 {
     // 0b means binary literal
     // U means unsigned integer
@@ -22,7 +22,7 @@ public class Q191_NumberOfOneBitsTests
     }
 }
 
-public class Q191_NumberOfOneBits
+class Q191_NumberOfOneBits
 {
     public int HammingWeight(uint n) 
     {

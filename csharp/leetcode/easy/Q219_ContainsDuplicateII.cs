@@ -1,4 +1,4 @@
-public class Q219_ContainsDuplicateII
+class Q219_ContainsDuplicateII
 {
     /*
     Constraints:
@@ -31,7 +31,7 @@ public class Q219_ContainsDuplicateII
     }
 }
 
-public class Q219_ContainsDuplicateIITestData: TestData
+class Q219_ContainsDuplicateIITestData: TestData
 {
     protected override List<object[]> Data => 
     [

@@ -1,4 +1,4 @@
-public class Q628_MaxProductOfThreeNumbers
+class Q628_MaxProductOfThreeNumbers
 {
     // TC: O(n log n)
     // SC: O(1)
@@ -12,7 +12,7 @@ public class Q628_MaxProductOfThreeNumbers
     }
 }
 
-public class Q628_MaxProductOfThreeNumbersTestData : TestData
+class Q628_MaxProductOfThreeNumbersTestData : TestData
 {
     protected override List<object[]> Data => 
     [

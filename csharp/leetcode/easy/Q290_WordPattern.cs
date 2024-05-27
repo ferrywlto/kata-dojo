@@ -1,7 +1,7 @@
 
 using System.Text;
 
-public class Q290_WordPattern
+class Q290_WordPattern
 {
     public bool WordPattern(string pattern, string s)
     {
@@ -26,7 +26,7 @@ public class Q290_WordPattern
     }
 }
 
-public class Q290_WordPatternTestData: TestData
+class Q290_WordPatternTestData: TestData
 {
     protected override List<object[]> Data => 
     [

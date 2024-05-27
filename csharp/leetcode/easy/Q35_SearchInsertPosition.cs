@@ -1,4 +1,4 @@
-public class Q35_SearchInsertPositionTestData : TestData
+class Q35_SearchInsertPositionTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -27,7 +27,7 @@ public class Q35_SearchInsertPositionTests
 nums contains distinct values sorted in ascending order.
 -104 <= target <= 104
 */
-public class Q35_SearchInsertPosition
+class Q35_SearchInsertPosition
 {
     // Speed: 67ms (97.52%), Memory: 41,97MB (5.62%)
     public int SearchInsert(int[] nums, int target)

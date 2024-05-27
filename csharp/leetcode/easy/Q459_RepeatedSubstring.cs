@@ -1,4 +1,4 @@
-public class Q459_RepeatedSubstring
+class Q459_RepeatedSubstring
 {
     // TC: O(n^2), SC: O(n)
     public bool RepeatedSubstringPattern(string s)
@@ -41,7 +41,7 @@ public class Q459_RepeatedSubstring
     }
 }
 
-public class Q459_RepeatedSubstringTestData: TestData
+class Q459_RepeatedSubstringTestData: TestData
 {
     protected override List<object[]> Data => 
     [

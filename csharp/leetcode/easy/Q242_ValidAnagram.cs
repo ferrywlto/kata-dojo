@@ -1,4 +1,4 @@
-public class Q242_ValidAnagram
+class Q242_ValidAnagram
 {
     public bool IsAnagram(string s, string t) 
     {
@@ -36,7 +36,7 @@ public class Q242_ValidAnagram
     }
 }
 
-public class Q242_ValidAnagramTestData: TestData
+class Q242_ValidAnagramTestData: TestData
 {
     protected override List<object[]> Data => 
     [

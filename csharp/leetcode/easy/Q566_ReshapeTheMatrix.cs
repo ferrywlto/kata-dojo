@@ -1,6 +1,6 @@
 using System.Data;
 
-public class Q566_ReshapeTheMatrix
+class Q566_ReshapeTheMatrix
 {
     // check r * c == mat.length * mat[0].length
     // transform to linear first 1*n vector
@@ -30,7 +30,7 @@ public class Q566_ReshapeTheMatrix
     }
 }
 
-public class Q566_ReshapeTheMatrixTestData : TestData
+class Q566_ReshapeTheMatrixTestData : TestData
 {
     protected override List<object[]> Data =>
     [

@@ -1,4 +1,4 @@
-public class Q344_ReverseString
+class Q344_ReverseString
 {
     // TC:O(n), SC:O(1)
     public void ReverseString(char[] s)
@@ -14,7 +14,7 @@ public class Q344_ReverseString
     }
 }
 
-public class Q344_ReverseStringTestData: TestData
+class Q344_ReverseStringTestData: TestData
 {
     protected override List<object[]> Data => 
     [

@@ -1,4 +1,4 @@
-public class Q412_FizzBuzz
+class Q412_FizzBuzz
 {
     // TC: O(n), SC: O(n)
     public IList<string> FizzBuzz(int n)
@@ -55,7 +55,7 @@ public class Q412_FizzBuzz
     }
 }
 
-public class Q412_FizzBuzzTestData: TestData
+class Q412_FizzBuzzTestData: TestData
 {
     protected override List<object[]> Data => 
     [

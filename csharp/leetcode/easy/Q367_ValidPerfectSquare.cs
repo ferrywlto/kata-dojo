@@ -1,4 +1,4 @@
-public class Q367_ValidPerfectSquare
+class Q367_ValidPerfectSquare
 {
     // TC: O(log n), SC: O(1)
     public bool IsPerfectSquare(int num)
@@ -31,7 +31,7 @@ public class Q367_ValidPerfectSquare
     }
 }
 
-public class Q367_ValidPerfectSquareTestData: TestData
+class Q367_ValidPerfectSquareTestData: TestData
 {
     protected override List<object[]> Data => 
     [

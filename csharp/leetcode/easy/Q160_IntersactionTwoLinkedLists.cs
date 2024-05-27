@@ -1,4 +1,4 @@
-public class Q160_IntersactionTwoLinkedListTestData : TestData
+class Q160_IntersactionTwoLinkedListTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -33,7 +33,7 @@ public class Q160_IntersactionTwoLinkedListTests(ITestOutputHelper output) : Lis
     }
 }
 
-public class Q160_IntersactionTwoLinkedList
+class Q160_IntersactionTwoLinkedList
 {
     // TC: O(length of list A + length of list B), SC: O(length of listA)
     public ListNode? GetIntersectionNode(ListNode? headA, ListNode? headB)

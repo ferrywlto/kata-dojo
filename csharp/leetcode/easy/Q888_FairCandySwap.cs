@@ -1,4 +1,4 @@
-public class Q888_FairCandySwap
+class Q888_FairCandySwap
 {
     // This use one pass instead of nested n^2 approach
     // TC: O(n)
@@ -24,7 +24,7 @@ public class Q888_FairCandySwap
     }
 }
 
-public class Q888_FairCandySwapTestData : TestData
+class Q888_FairCandySwapTestData : TestData
 {
     protected override List<object[]> Data => 
     [

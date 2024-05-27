@@ -10,7 +10,7 @@ public abstract class MyHashMap
     public abstract void Remove(int key);
 }
 
-public class Q706_DesignHashMap : MyHashMap
+class Q706_DesignHashMap : MyHashMap
 {
     protected readonly Dictionary<int, int> map = [];
     public override int Get(int key)
@@ -34,7 +34,7 @@ public class Q706_DesignHashMap : MyHashMap
     }
 }
 
-public class Q706_DesignHashMapTestData : TestData
+class Q706_DesignHashMapTestData : TestData
 {
     protected override List<object[]> Data => 
     [

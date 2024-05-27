@@ -1,4 +1,4 @@
-public class Q620_NotBoringMovies : SqlQuestion
+class Q620_NotBoringMovies : SqlQuestion
 {
     public override string Query => 
     """
@@ -10,7 +10,7 @@ public class Q620_NotBoringMovies : SqlQuestion
     """;
 }
 
-public class Q620_NotBoringMoviesTestData : TestData
+class Q620_NotBoringMoviesTestData : TestData
 {
     protected override List<object[]> Data => 
     [[

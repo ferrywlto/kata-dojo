@@ -1,4 +1,4 @@
-public class Q812_LargestTriangleArea
+class Q812_LargestTriangleArea
 {
     // This can be achieved O(n log n) + O(m) time with Convex Hull algorithm.
     // However this is not the purpose of kata dojo thus not implementing it. 
@@ -29,7 +29,7 @@ public class Q812_LargestTriangleArea
     }
 }
 
-public class Q812_LargestTriangleAreaTestData : TestData
+class Q812_LargestTriangleAreaTestData : TestData
 {
     protected override List<object[]> Data =>
     [

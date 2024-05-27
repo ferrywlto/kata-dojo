@@ -1,4 +1,4 @@
-public class Q414_ThirdMaximum
+class Q414_ThirdMaximum
 {
     // TC: O(n long n), SC: O(n)
     public int ThirdMax_Trival(int[] nums)
@@ -45,7 +45,7 @@ public class Q414_ThirdMaximum
     }
 }
 
-public class Q414_ThirdMaximumTestData: TestData
+class Q414_ThirdMaximumTestData: TestData
 {
     protected override List<object[]> Data =>
     [
@@ -58,7 +58,7 @@ public class Q414_ThirdMaximumTestData: TestData
     ];
 }
 
-public class Q414_ThirdMaximumTest
+public class Q414_ThirdMaximumTests
 {
     [Theory]
     [ClassData(typeof(Q414_ThirdMaximumTestData))]

@@ -1,4 +1,4 @@
-public class Q495_TeemoAttacking
+class Q495_TeemoAttacking
 {
     // TC:O(n), SC: O(1)
     public int FindPoisonedDuration(int[] timeSeries, int duration)
@@ -21,7 +21,7 @@ public class Q495_TeemoAttacking
     }
 }
 
-public class Q495_TeemoAttackingTestData : TestData
+class Q495_TeemoAttackingTestData : TestData
 {
     protected override List<object[]> Data =>
     [

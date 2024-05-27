@@ -1,4 +1,4 @@
-public class Q796_RotateString
+class Q796_RotateString
 {
     public bool RotateString(string s, string goal) 
     {
@@ -7,7 +7,7 @@ public class Q796_RotateString
     }
 }
 
-public class Q796_RotateStringTestData : TestData
+class Q796_RotateStringTestData : TestData
 {
     protected override List<object[]> Data => 
     [

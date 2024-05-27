@@ -1,4 +1,4 @@
-public class Q674_LongestContinuousIncreasingSubSequence
+class Q674_LongestContinuousIncreasingSubSequence
 {
     // TC: O(n)
     // SC: O(1)
@@ -19,7 +19,7 @@ public class Q674_LongestContinuousIncreasingSubSequence
     }
 }
 
-public class Q674_LongestContinuousIncreasingSubSequenceTestData : TestData
+class Q674_LongestContinuousIncreasingSubSequenceTestData : TestData
 {
     protected override List<object[]> Data => 
     [
@@ -28,7 +28,7 @@ public class Q674_LongestContinuousIncreasingSubSequenceTestData : TestData
     ];
 }
 
-public class Q674_LongestContinuousIncreasingSubSequenceTestc
+public class Q674_LongestContinuousIncreasingSubSequenceTests
 {
     [Theory]
     [ClassData(typeof(Q674_LongestContinuousIncreasingSubSequenceTestData))]

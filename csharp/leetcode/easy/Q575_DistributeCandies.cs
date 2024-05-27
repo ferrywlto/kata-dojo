@@ -1,4 +1,4 @@
-public class Q575_DistributeCandies
+class Q575_DistributeCandies
 {
     // hashset<int> -> Math.Min(hashset.length, candyType.length/2)
     // [1,2,3,4] -> 2
@@ -14,7 +14,7 @@ public class Q575_DistributeCandies
     }
 }
 
-public class Q575_DistributeCandiesTestData : TestData
+class Q575_DistributeCandiesTestData : TestData
 {
     protected override List<object[]> Data =>
     [

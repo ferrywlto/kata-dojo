@@ -1,6 +1,6 @@
 using System.Text;
 
-public class Q557_ReverseWordInStringIII
+class Q557_ReverseWordInStringIII
 {
     // TC: O(n^2)
     // SC: O(n)
@@ -54,7 +54,7 @@ public class Q557_ReverseWordInStringIII
     }
 }
 
-public class Q557_ReverseWordInStringIIITestData : TestData
+class Q557_ReverseWordInStringIIITestData : TestData
 {
     protected override List<object[]> Data =>
     [

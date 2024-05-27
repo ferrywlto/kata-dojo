@@ -1,4 +1,4 @@
-public class Q819_MostCommonWord
+class Q819_MostCommonWord
 {
     // TC: O(n), n is length of paragraph
     // SC: O(n), n is number of distinct words found 
@@ -37,7 +37,7 @@ public class Q819_MostCommonWord
     }
 }
 
-public class Q819_MostCommonWordTestData : TestData
+class Q819_MostCommonWordTestData : TestData
 {
     protected override List<object[]> Data =>
     [

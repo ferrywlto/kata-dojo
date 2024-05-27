@@ -1,4 +1,4 @@
-public class Q202_HappyNumbers
+class Q202_HappyNumbers
 {
     // each digit could only be 0-9, can store the sum first
     private readonly Dictionary<int,int> dictOfSq = 
@@ -31,7 +31,7 @@ public class Q202_HappyNumbers
     }
 }
 
-public class Q202_HappyNumbersTestData: TestData
+class Q202_HappyNumbersTestData: TestData
 {
     protected override List<object[]> Data =>
     [

@@ -1,4 +1,4 @@
-public class Q709_ToLowerCase
+class Q709_ToLowerCase
 {
     // TC: O(n)
     // SC: O(n)
@@ -17,7 +17,7 @@ public class Q709_ToLowerCase
     }    
 }
 
-public class Q709_ToLowerCaseTestData : TestData
+class Q709_ToLowerCaseTestData : TestData
 {
     protected override List<object[]> Data => 
     [

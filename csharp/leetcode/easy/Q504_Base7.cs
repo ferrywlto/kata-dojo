@@ -1,6 +1,6 @@
 using System.Text;
 
-public class Q504_Base7
+class Q504_Base7
 {
     public string ConvertToBase7(int num)
     {
@@ -32,7 +32,7 @@ public class Q504_Base7
     }
 }
 
-public class Q504_Base7TestData : TestData
+class Q504_Base7TestData : TestData
 {
     protected override List<object[]> Data =>
     [

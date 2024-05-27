@@ -1,5 +1,5 @@
 
-public class Q884_UncommonWordsInTwoSentences
+class Q884_UncommonWordsInTwoSentences
 {
     // TC: O(n), n is total length of s1 + s2
     // SC: O(n), n is total words from both string
@@ -30,7 +30,7 @@ public class Q884_UncommonWordsInTwoSentences
     }
 }
 
-public class Q884_UncommonWordsInTwoSentencesTestData : TestData
+class Q884_UncommonWordsInTwoSentencesTestData : TestData
 {
     protected override List<object[]> Data =>
     [

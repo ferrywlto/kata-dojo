@@ -1,4 +1,4 @@
-public class Q83_RemoveDuplicatesFromSortedListTestData : TestData
+class Q83_RemoveDuplicatesFromSortedListTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -34,7 +34,7 @@ public class Q83_RemoveDuplicatesFromSortedListTests(ITestOutputHelper output) :
     }
 }
 
-public class Q83_RemoveDuplicatesFromSortedList
+class Q83_RemoveDuplicatesFromSortedList
 {
     // TC: O(n), SC: O(1)
     public ListNode DeleteDuplicates(ListNode head)

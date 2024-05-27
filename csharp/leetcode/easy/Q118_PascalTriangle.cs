@@ -1,34 +1,4 @@
-public class Q118_PascalTriangleTestsData : TestData
-{
-    protected override List<object[]> Data =>
-    [
-        [1, new List<IList<int>>{new List<int>() {1}}],
-        [5, new List<IList<int>>{
-            new List<int>() {1},
-            new List<int>() {1, 1},
-            new List<int>() {1, 2, 1},
-            new List<int>() {1, 3, 3, 1},
-            new List<int>() {1, 4, 6, 4, 1},
-            }
-        ],
-    ];
-}
-
-public class Q118_PascalTriangleTests
-{
-    [Theory]
-    [ClassData(typeof(Q118_PascalTriangleTestsData))]
-    public void OfficialTestCases(int numRows, IList<IList<int>> expected)
-    {
-        var sut = new Q118_PascalTriangle();
-        var actual = sut.Generate(numRows);
-        var expectedList = expected.Select(x => x.ToList()).ToList();
-
-        Assert.Equal(expected, actual);
-    }
-}
-
-public class Q118_PascalTriangle
+class Q118_PascalTriangle
 {
     // TC: O(n^2), SC: O(n^2) - Cannot be improved as we need to return the entire triangle
     public IList<IList<int>> Generate(int numRows)
@@ -58,5 +28,35 @@ public class Q118_PascalTriangle
         output.Add(1);
 
         return output;
+    }
+}
+
+class Q118_PascalTriangleTestData : TestData
+{
+    protected override List<object[]> Data =>
+    [
+        [1, new List<IList<int>>{new List<int>() {1}}],
+        [5, new List<IList<int>>{
+            new List<int>() {1},
+            new List<int>() {1, 1},
+            new List<int>() {1, 2, 1},
+            new List<int>() {1, 3, 3, 1},
+            new List<int>() {1, 4, 6, 4, 1},
+            }
+        ],
+    ];
+}
+
+public class Q118_PascalTriangleTests
+{
+    [Theory]
+    [ClassData(typeof(Q118_PascalTriangleTestData))]
+    public void OfficialTestCases(int numRows, IList<IList<int>> expected)
+    {
+        var sut = new Q118_PascalTriangle();
+        var actual = sut.Generate(numRows);
+        var expectedList = expected.Select(x => x.ToList()).ToList();
+
+        Assert.Equal(expected, actual);
     }
 }

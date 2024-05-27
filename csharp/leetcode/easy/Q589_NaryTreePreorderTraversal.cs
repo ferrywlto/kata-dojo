@@ -1,4 +1,4 @@
-public class Q589_NaryTreePreorderTraversal
+class Q589_NaryTreePreorderTraversal
 {
     // TC: O(n)
     // SC: O(n)
@@ -29,7 +29,7 @@ public class Q589_NaryTreePreorderTraversal
     }
 }
 
-public class Q589_NaryTreePreorderTraversalTestData : TestData
+class Q589_NaryTreePreorderTraversalTestData : TestData
 {
     protected override List<object[]> Data => 
     [

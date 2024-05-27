@@ -1,4 +1,4 @@
-public class Q27_RemoveElement
+class Q27_RemoveElement
 {
     // whenever hit nums[i] == val
     // will try 2 versions
@@ -66,7 +66,7 @@ public class Q27_RemoveElement
     }
 }
 
-public class Q27_RemoveElementTestData: TestData
+class Q27_RemoveElementTestData: TestData
 {
     protected override List<object[]> Data => 
     [

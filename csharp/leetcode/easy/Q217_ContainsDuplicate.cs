@@ -1,4 +1,4 @@
-public class Q217_ContainsDuplicate
+class Q217_ContainsDuplicate
 {
     // Inefficient way first
     // TC:O(n), SC:O(n)
@@ -25,7 +25,7 @@ public class Q217_ContainsDuplicate
     // The idea is to sort first, then check if next element is the same
 }
 
-public class Q217_ContainsDuplicateTestData : TestData
+class Q217_ContainsDuplicateTestData : TestData
 {
     protected override List<object[]> Data =>
     [

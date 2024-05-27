@@ -1,4 +1,4 @@
-public class Q619_BiggestSingleNumber : SqlQuestion
+class Q619_BiggestSingleNumber : SqlQuestion
 {
     public override string Query => 
     """
@@ -18,7 +18,7 @@ public class Q619_BiggestSingleNumber : SqlQuestion
     """;
 }
 
-public class Q619_BiggestSingleNumberTestData : TestData
+class Q619_BiggestSingleNumberTestData : TestData
 {
     protected override List<object[]> Data => 
     [

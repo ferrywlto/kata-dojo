@@ -1,4 +1,4 @@
-public class Q657_RobotReturnToOrigin
+class Q657_RobotReturnToOrigin
 {
     // TC: O(n)
     // SC: O(1)
@@ -21,7 +21,7 @@ public class Q657_RobotReturnToOrigin
     }
 }
 
-public class Q657_RobotReturnToOriginTestData : TestData
+class Q657_RobotReturnToOriginTestData : TestData
 {
     protected override List<object[]> Data => 
     [

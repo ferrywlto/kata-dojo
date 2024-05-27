@@ -1,4 +1,4 @@
-public class Q119_PascelTriangle2TestData : TestData
+class Q119_PascelTriangle2TestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -26,7 +26,7 @@ public class Q119_PascelTriangle2Tests
 Constraints:
 0 <= rowIndex <= 33
 */
-public class Q119_PascelTriangle2
+class Q119_PascelTriangle2
 {
     // TC: still O(n^2), SC: Improved from O(n^2) to O(n)
     public IList<int> GetRow(int rowIndex)

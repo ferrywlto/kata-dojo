@@ -1,4 +1,4 @@
-public class Q58_LengthOfLastWordTestData : TestData
+class Q58_LengthOfLastWordTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -28,7 +28,7 @@ Constraints:
 s consists of only English letters and spaces ' '.
 There will be at least one word in s.
 */
-public class Q58_LengthOfLastWord
+class Q58_LengthOfLastWord
 {
     // Straight forward appraoch with built-in functions
     // Speed: 46ms (96.51%), Memory: 37.96MB (5.04%)

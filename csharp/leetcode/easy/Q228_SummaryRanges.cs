@@ -1,4 +1,4 @@
-public class Q228_SummaryRanges
+class Q228_SummaryRanges
 {
     public IList<string> SummaryRanges(int[] nums)
     {
@@ -41,7 +41,7 @@ public class Q228_SummaryRanges
     }
 }
 
-public class Q228_SummaryRangesTestData: TestData
+class Q228_SummaryRangesTestData: TestData
 {
     protected override List<object[]> Data => 
     [

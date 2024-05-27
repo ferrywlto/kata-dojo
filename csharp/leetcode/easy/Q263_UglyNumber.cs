@@ -1,4 +1,4 @@
-public class Q263_UglyNumber
+class Q263_UglyNumber
 {
     // TC: O(log n), SC:O(1)
     public bool IsUgly(int n)
@@ -32,7 +32,7 @@ public class Q263_UglyNumber
     }
 }
 
-public class Q263_UglyNumberTestData: TestData
+class Q263_UglyNumberTestData: TestData
 {
     protected override List<object[]> Data => 
     [

@@ -1,4 +1,4 @@
-public class Q226_InvertBinaryTree
+class Q226_InvertBinaryTree
 {
     public TreeNode? InvertTree(TreeNode? root) 
     {
@@ -37,7 +37,7 @@ public class Q226_InvertBinaryTree
     }
 }
 
-public class Q226_InvertBinaryTreeTestData: TestData
+class Q226_InvertBinaryTreeTestData: TestData
 {
     protected override List<object[]> Data => 
     [

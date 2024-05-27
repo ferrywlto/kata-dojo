@@ -1,4 +1,4 @@
-public class Q461_HammingDistance
+class Q461_HammingDistance
 {
     // TC: O(num of bits in int) -> O(1), SC: O(1)
     public int HammingDistance(int x, int y)
@@ -23,7 +23,7 @@ public class Q461_HammingDistance
     }
 }
 
-public class Q461_HammingDistanceTestData : TestData
+class Q461_HammingDistanceTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -32,7 +32,7 @@ public class Q461_HammingDistanceTestData : TestData
     ];
 }
 
-public class Q461_HammingDistanceTest
+public class Q461_HammingDistanceTests
 {
     [Theory]
     [ClassData(typeof(Q461_HammingDistanceTestData))]

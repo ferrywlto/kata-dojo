@@ -1,4 +1,4 @@
-public class Q605_CanPlaceFlowers
+class Q605_CanPlaceFlowers
 {
     // Siliding window, 1 pass
     // TC: O(n)
@@ -23,7 +23,7 @@ public class Q605_CanPlaceFlowers
     }
 }
 
-public class Q605_CanPlaceFlowersTestData: TestData
+class Q605_CanPlaceFlowersTestData: TestData
 {
     protected override List<object[]> Data => 
     [

@@ -1,4 +1,4 @@
-public class Q492_ConstructTheRectangle
+class Q492_ConstructTheRectangle
 {
     public int[] ConstructRectangle(int area)
     {
@@ -17,7 +17,7 @@ public class Q492_ConstructTheRectangle
     }
 }
 
-public class Q492_ConstructTheRectangleTestData : TestData
+class Q492_ConstructTheRectangleTestData : TestData
 {
     protected override List<object[]> Data =>
     [

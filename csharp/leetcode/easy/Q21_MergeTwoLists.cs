@@ -1,4 +1,4 @@
-public class Q21_MergeTwoListsTestData : TestData
+class Q21_MergeTwoListsTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -22,7 +22,7 @@ public class Q21_MergeTwoListsTests(ITestOutputHelper output) : ListNodeTest(out
     }
 }
 
-public class Q21_MergeTwoLists
+class Q21_MergeTwoLists
 {
 
     // Speed: 45ms (100%), Memory: 41.4MB (8.83%)

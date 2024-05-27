@@ -1,4 +1,4 @@
-public class Q645_SetMismatch
+class Q645_SetMismatch
 {
     // TC: O(n log n) from Array.Sort()
     // SC: O(1)
@@ -22,7 +22,7 @@ public class Q645_SetMismatch
     }
 }
 
-public class Q645_SetMismatchTestData : TestData
+class Q645_SetMismatchTestData : TestData
 {
     protected override List<object[]> Data =>
     [

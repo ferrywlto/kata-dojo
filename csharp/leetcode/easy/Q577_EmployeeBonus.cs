@@ -1,4 +1,4 @@
-public class Q577_EmployeeBonus : SqlQuestion
+class Q577_EmployeeBonus : SqlQuestion
 {
     public override string Query =>
     """
@@ -10,7 +10,7 @@ public class Q577_EmployeeBonus : SqlQuestion
     """;
 }
 
-public class Q577_EmployeeBonusTestData : TestData
+class Q577_EmployeeBonusTestData : TestData
 {
     protected override List<object[]> Data =>
     [[

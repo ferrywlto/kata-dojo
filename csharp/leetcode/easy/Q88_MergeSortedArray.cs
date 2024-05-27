@@ -1,4 +1,4 @@
-public class Q88_MergeSortedArrayTestData : TestData
+class Q88_MergeSortedArrayTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -32,7 +32,7 @@ nums2.length == n
 -10^9 <= nums1[i], nums2[j] <= 10^9
 */
 
-public class Q88_MergeSortedArray
+class Q88_MergeSortedArray
 {
     // Offer by Copilot, TC: O(m+n), SC: O(1)
     public void Merge_Specific(int[] nums1, int m, int[] nums2, int n)

@@ -1,4 +1,4 @@
-public class Q434_NumberOfSegmentsInString
+class Q434_NumberOfSegmentsInString
 {
 
     // Constraints
@@ -25,7 +25,7 @@ public class Q434_NumberOfSegmentsInString
     }
 }
 
-public class Q434_NumberOfSegmentsInStringTestData: TestData
+class Q434_NumberOfSegmentsInStringTestData: TestData
 {
     protected override List<object[]> Data => 
     [
@@ -37,7 +37,7 @@ public class Q434_NumberOfSegmentsInStringTestData: TestData
     ];
 }
 
-public class Q434_NumberOfSegmentsInStringTest
+public class Q434_NumberOfSegmentsInStringTests
 {
     [Theory]
     [ClassData(typeof(Q434_NumberOfSegmentsInStringTestData))]

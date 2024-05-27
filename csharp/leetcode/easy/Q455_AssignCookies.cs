@@ -1,4 +1,4 @@
-public class Q455_AssignCookies
+class Q455_AssignCookies
 {
     // TC: O(n log n), SC: O(1)
     public int FindContentChildren(int[] g, int[] s)
@@ -15,7 +15,7 @@ public class Q455_AssignCookies
     }
 }
 
-public class Q455_AssignCookiesTestData: TestData
+class Q455_AssignCookiesTestData: TestData
 {
     protected override List<object[]> Data =>
     [
@@ -24,7 +24,7 @@ public class Q455_AssignCookiesTestData: TestData
     ];
 }
 
-public class Q455_AssignCookiesTest
+public class Q455_AssignCookiesTests
 {
     [Theory]
     [ClassData(typeof(Q455_AssignCookiesTestData))]

@@ -1,4 +1,4 @@
-public class ReverseComparer : IComparer<int>
+class ReverseComparer : IComparer<int>
 {
     public int Compare(int x, int y)
     {
@@ -7,7 +7,7 @@ public class ReverseComparer : IComparer<int>
     }
 }
 
-public class Q506_RelativeRanks
+class Q506_RelativeRanks
 {
     // TC: O(n log n), SC: O(n)
     public string[] FindRelativeRanks(int[] score)
@@ -31,7 +31,7 @@ public class Q506_RelativeRanks
     }
 }
 
-public class Q506_RelativeRanksTestData : TestData
+class Q506_RelativeRanksTestData : TestData
 {
     protected override List<object[]> Data =>
     [

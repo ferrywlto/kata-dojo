@@ -1,4 +1,4 @@
-public class Q728_SelfDividingNumbers
+class Q728_SelfDividingNumbers
 {
     public IList<int> SelfDividingNumbers(int left, int right)
     {
@@ -25,7 +25,7 @@ public class Q728_SelfDividingNumbers
     }
 }
 
-public class Q728_SelfDividingNumbersTestData : TestData
+class Q728_SelfDividingNumbersTestData : TestData
 {
     protected override List<object[]> Data =>
     [

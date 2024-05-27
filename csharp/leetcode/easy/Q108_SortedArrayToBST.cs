@@ -1,4 +1,4 @@
-public class Q108_SortedArrayToBST
+class Q108_SortedArrayToBST
 {
     public TreeNode SortedArrayToBST(int[] nums)
     {
@@ -28,7 +28,7 @@ public class Q108_SortedArrayToBST
     }
 }
 
-public class Q108_SortedArrayToBSTTestData: TestData
+class Q108_SortedArrayToBSTTestData: TestData
 {
     protected override List<object[]> Data => 
     [

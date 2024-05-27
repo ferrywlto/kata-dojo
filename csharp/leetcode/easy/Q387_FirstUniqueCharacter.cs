@@ -1,4 +1,4 @@
-public class Q387_FirstUniqueCharacter
+class Q387_FirstUniqueCharacter
 {
     // TC: O(n), SC: O(n)
     public int FirstUniqChar(string s) 
@@ -30,7 +30,7 @@ public class Q387_FirstUniqueCharacter
     record CharInfo(int FisrtSeenIdx,int Count);
 }
 
-public class Q387_FirstUniqueCharacterTestData: TestData
+class Q387_FirstUniqueCharacterTestData: TestData
 {
     protected override List<object[]> Data => 
     [

@@ -1,4 +1,4 @@
-public class GuessGame 
+class GuessGame 
 {
     public int pick = 0;
     public int guess(int num) {
@@ -8,7 +8,7 @@ public class GuessGame
     }
 }
 
-public class Q374_GuessNumberHigherLower : GuessGame
+class Q374_GuessNumberHigherLower : GuessGame
 {
     // Also a binary search question, TC: O(log n), SC: O(1)
     public int GuessNumber(int n) 
@@ -39,7 +39,7 @@ public class Q374_GuessNumberHigherLower : GuessGame
     }
 }
 
-public class Q374_GuessNumberHigherLowerTestData: TestData
+class Q374_GuessNumberHigherLowerTestData: TestData
 {
     protected override List<object[]> Data => 
     [
@@ -51,7 +51,7 @@ public class Q374_GuessNumberHigherLowerTestData: TestData
     ];
 }
 
-public class Q374_GuessNumberHigherLowerTest
+public class Q374_GuessNumberHigherLowerTests
 {
     [Theory]
     [ClassData(typeof(Q374_GuessNumberHigherLowerTestData))]

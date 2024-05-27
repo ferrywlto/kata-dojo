@@ -1,4 +1,4 @@
-public class Q101_SymmetricTreeTestData : TestData
+class Q101_SymmetricTreeTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -21,7 +21,7 @@ public class Q101_SymmetricTreeTests: TreeNodeTest
     }
 }
 
-public class Q101_SymmetricTree
+class Q101_SymmetricTree
 {
     // the idea is, given two trees, A.left should equals to B.right and vice versa.
     // Linear complexity using recursion. TC: O(nodes_of_tree), SC: O(height_of_tree)

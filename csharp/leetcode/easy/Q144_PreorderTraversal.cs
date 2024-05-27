@@ -1,4 +1,4 @@
-public class Q144_PreorderTraversalTestData : TestData
+class Q144_PreorderTraversalTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -26,7 +26,7 @@ public class Q144_PreorderTraversalTests(ITestOutputHelper output) : TreeNodeTes
     }
 }
 
-public class Q144_PreorderTraversal
+class Q144_PreorderTraversal
 {
     public IList<int> PreorderTraversal(TreeNode? root)
     {

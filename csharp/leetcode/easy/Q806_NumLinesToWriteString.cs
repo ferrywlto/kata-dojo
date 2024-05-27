@@ -1,4 +1,4 @@
-public class Q806_NumLinesToWriteString
+class Q806_NumLinesToWriteString
 {
     // TC: O(n), where n = total characters in string s
     // SC: O(1)
@@ -23,7 +23,7 @@ public class Q806_NumLinesToWriteString
     }
 }
 
-public class Q806_NumLinesToWriteStringTestData : TestData
+class Q806_NumLinesToWriteStringTestData : TestData
 {
     protected override List<object[]> Data =>
     [

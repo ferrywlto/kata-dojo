@@ -1,4 +1,4 @@
-public class Q485_MaxConsecutiveOnes
+class Q485_MaxConsecutiveOnes
 {
     // TC: O(n), SC: O(1)
     public int FindMaxConsecutiveOnes(int[] nums)
@@ -24,7 +24,7 @@ public class Q485_MaxConsecutiveOnes
     }
 }
 
-public class Q485_MaxConsecutiveOnesTestData: TestData
+class Q485_MaxConsecutiveOnesTestData: TestData
 {
     protected override List<object[]> Data => 
     [

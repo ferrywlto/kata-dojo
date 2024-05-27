@@ -1,4 +1,4 @@
-public class Q136_SingleNumberTestData : TestData
+class Q136_SingleNumberTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -31,7 +31,7 @@ Constraints:
 -3 * 104 <= nums[i] <= 3 * 104
 Each element in the array appears twice except for one element which appears only once.
 */
-public class Q136_SingleNumber
+class Q136_SingleNumber
 {
     // The length of of input must be odd number in order to have n pairs and 1 single number
     // Complexity requirement: TC: O(n), SC: O(1)

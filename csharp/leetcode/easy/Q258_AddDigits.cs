@@ -1,4 +1,4 @@
-public class Q258_AddDigits
+class Q258_AddDigits
 {
     
     public int AddDigits(int num)
@@ -11,7 +11,7 @@ public class Q258_AddDigits
     }
 }
 
-public class Q258_AddDigitsTestData: TestData
+class Q258_AddDigitsTestData: TestData
 {
     protected override List<object[]> Data => 
     [
@@ -56,7 +56,7 @@ public class Q258_AddDigitsTestData: TestData
     ];
 }
 
-public class Q258_AddDigitsTest
+public class Q258_AddDigitsTests
 {
     [Theory]
     [ClassData(typeof(Q258_AddDigitsTestData))]

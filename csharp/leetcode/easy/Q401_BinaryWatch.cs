@@ -1,4 +1,4 @@
-public class Q401_BinaryWatch
+class Q401_BinaryWatch
 {
     int[]? Bits;
     Dictionary<int, List<string>> PossibleTime = [];
@@ -36,7 +36,7 @@ public class Q401_BinaryWatch
     }
 }
 
-public class Q401_BinaryWatchTestData : TestData
+class Q401_BinaryWatchTestData : TestData
 {
     protected override List<object[]> Data =>
     [

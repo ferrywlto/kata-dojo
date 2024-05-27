@@ -1,4 +1,4 @@
-public class Q744_FindSmallestLetterGreaterThanTarget
+class Q744_FindSmallestLetterGreaterThanTarget
 {
     // TC: O(log n)
     // SC: O(1)
@@ -18,7 +18,7 @@ public class Q744_FindSmallestLetterGreaterThanTarget
     }
 }
 
-public class Q744_FindSmallestLetterGreaterThanTargetTestData : TestData
+class Q744_FindSmallestLetterGreaterThanTargetTestData : TestData
 {
     protected override List<object[]> Data =>
     [

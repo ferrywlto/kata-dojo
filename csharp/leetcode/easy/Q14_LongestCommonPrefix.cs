@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-public class Q14_LongestCommonPrefixTestData : TestData
+class Q14_LongestCommonPrefixTestData : TestData
 {
     protected override List<object[]> Data => 
     [
@@ -28,7 +28,7 @@ public class Q14_LongestCommonPrefixTests
 // Obviously "" is the longest common prefix
 // Second case: ["abcde","abcd","abcdef","abcdefg"]
 // The possible longest prefix is "abcd", so the first fail case indicate the existing prefix is already the longest  
-public class Q14_LongestCommonPrefix
+class Q14_LongestCommonPrefix
 {
     // Inspired by others, use char instead of string, once the first char has been proved common prefix, no need to keep checking in other rounds
     // Speed: 61ms (100%), Memory: 42.1MB (8.55%)

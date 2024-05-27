@@ -1,4 +1,4 @@
-public class Q559_MaxDepthNaryTree
+class Q559_MaxDepthNaryTree
 {
     // TC: O(n)
     // SC: O(n)
@@ -28,7 +28,7 @@ public class Q559_MaxDepthNaryTree
     }
 }
 
-public class Q559_MaxDepthNaryTreeTestData : TestData
+class Q559_MaxDepthNaryTreeTestData : TestData
 {
     protected override List<object[]> Data => 
     [

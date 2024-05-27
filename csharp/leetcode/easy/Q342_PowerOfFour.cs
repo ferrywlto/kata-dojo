@@ -1,4 +1,4 @@
-public class Q342_PowerOfFour
+class Q342_PowerOfFour
 {
     // Max power of 4 of a Int32 is 1073741824 = 4^15 = 2^2^15 = 2^30
     // Power of 2 that is not power of 4: 2,8,32 => 2^[1,3,5,...] odd expoent
@@ -30,7 +30,7 @@ public class Q342_PowerOfFour
     }
 }
 
-public class Q342_PowerOfFourTestData: TestData
+class Q342_PowerOfFourTestData: TestData
 {
     protected override List<object[]> Data => 
     [

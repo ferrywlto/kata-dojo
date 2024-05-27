@@ -1,4 +1,4 @@
-public class Q268_MissingNumber
+class Q268_MissingNumber
 {
     // TC: O(n), SC:O(1)
     // This version make use of the properties of arithmetic series
@@ -17,7 +17,7 @@ public class Q268_MissingNumber
     }
 }
 
-public class Q268_MissingNumberTestData : TestData
+class Q268_MissingNumberTestData : TestData
 {
     protected override List<object[]> Data =>
     [

@@ -1,4 +1,4 @@
-public class Q572_SubtreeOfAnotherTree
+class Q572_SubtreeOfAnotherTree
 {
     // find the node with in root tree that have val == subroot.val
     // do a double tree traverse in same node, if in any step the node value is not equal, return false;
@@ -59,7 +59,7 @@ public class Q572_SubtreeOfAnotherTree
     }
 }
 
-public class Q572_SubtreeOfAnotherTreeTestData : TestData
+class Q572_SubtreeOfAnotherTreeTestData : TestData
 {
     protected override List<object[]> Data =>
     [

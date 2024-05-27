@@ -1,4 +1,4 @@
-public class Q292_NimGame
+class Q292_NimGame
 {
     public bool CanWinNim(int n) {
         // if reminder <= 3, I win, else I cannot win
@@ -14,7 +14,7 @@ public class Q292_NimGame
     }
 }
 
-public class Q292_NimGameTestData: TestData
+class Q292_NimGameTestData: TestData
 {
     protected override List<object[]> Data => 
     [

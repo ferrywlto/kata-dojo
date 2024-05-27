@@ -1,4 +1,4 @@
-public class Q671_SecondMinNodeInBinaryTree
+class Q671_SecondMinNodeInBinaryTree
 {
     // TC: O(n)
     // SC: O(n)
@@ -40,7 +40,7 @@ public class Q671_SecondMinNodeInBinaryTree
     }
 }
 
-public class Q671_SecondMinNodeInBinaryTreeTestData : TestData
+class Q671_SecondMinNodeInBinaryTreeTestData : TestData
 {
     protected override List<object[]> Data =>
     [

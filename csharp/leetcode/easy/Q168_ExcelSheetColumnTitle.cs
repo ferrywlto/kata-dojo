@@ -1,6 +1,6 @@
 using System.Text;
 
-public class Q168_ExcelSheetColumnTitleTestData : TestData
+class Q168_ExcelSheetColumnTitleTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -24,7 +24,7 @@ public class Q168_ExcelSheetColumnTitleTests
     }
 }
 
-public class Q168_ExcelSheetColumnTitle
+class Q168_ExcelSheetColumnTitle
 {
     // O(log n)
     public string ConvertToTitle(int columnNumber)

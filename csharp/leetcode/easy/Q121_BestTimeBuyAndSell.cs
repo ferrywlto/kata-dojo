@@ -1,4 +1,4 @@
-public class Q121_BestTimeBuyAndSellTestData : TestData
+class Q121_BestTimeBuyAndSellTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -32,7 +32,7 @@ Constraints:
 1 <= prices.length <= 10^5
 0 <= prices[i] <= 10^4
 */
-public class Q121_BestTimeBuyAndSell
+class Q121_BestTimeBuyAndSell
 {
     // TC: O(n), SC:O(1)
     public int MaxProfit(int[] prices)

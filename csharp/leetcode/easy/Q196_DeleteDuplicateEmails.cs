@@ -1,4 +1,4 @@
-public class Q196_DeleteDuplicateEmails : SqlQuestion
+class Q196_DeleteDuplicateEmails : SqlQuestion
 {
     public override string Query =>
     """
@@ -13,7 +13,7 @@ public class Q196_DeleteDuplicateEmails : SqlQuestion
     """;
 }
 
-public class Q196_DeleteDuplicateEmailsTestData : TestData
+class Q196_DeleteDuplicateEmailsTestData : TestData
 {
     protected override List<object[]> Data =>
     [[

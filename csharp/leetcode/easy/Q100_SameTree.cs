@@ -1,4 +1,4 @@
-public class Q100_SameTreeTestData : TestData
+class Q100_SameTreeTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -23,7 +23,7 @@ public class Q100_SameTreeTests: TreeNodeTest
     }
 }
 
-public class Q100_SameTree
+class Q100_SameTree
 {
     // This one can solve from the utility class created for previous tree questions, just need some tweak from Assert to return boolean.
     // TC: O(nodes_larger_tree) -> O(n), SC: O(max_width_tree1 + max_width_tree2) -> O(n)

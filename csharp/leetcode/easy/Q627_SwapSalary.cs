@@ -1,7 +1,7 @@
 
 using System.Data.Common;
 
-public class Q627_SwapSalary : SqlQuestion
+class Q627_SwapSalary : SqlQuestion
 {
     public override string Query =>
     """
@@ -13,7 +13,7 @@ public class Q627_SwapSalary : SqlQuestion
     """;
 }
 
-public class Q627_SwapSalaryTestData : TestData
+class Q627_SwapSalaryTestData : TestData
 {
     protected override List<object[]> Data => 
     [[

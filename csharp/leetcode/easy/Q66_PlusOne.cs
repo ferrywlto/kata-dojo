@@ -1,4 +1,4 @@
-public class Q66_PlusOneTestData : TestData
+class Q66_PlusOneTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -21,7 +21,7 @@ public class Q66_PlusOneTests
     }
 }
 
-public class Q66_PlusOne
+class Q66_PlusOne
 {
     // Using string representation of the number will not work as the number can be too big to parse
     // Speed: 99ms (98.33%), Memory: 45.33MB (5.01%)

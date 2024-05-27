@@ -1,4 +1,4 @@
-public class Q832_FlippingImage
+class Q832_FlippingImage
 {
     // TC: O(n), n is total items in matrix
     // SC: O(1), no extra memory used
@@ -27,7 +27,7 @@ public class Q832_FlippingImage
     }
 }
 
-public class Q832_FlippingImageTestData : TestData
+class Q832_FlippingImageTestData : TestData
 {
     protected override List<object[]> Data =>
     [

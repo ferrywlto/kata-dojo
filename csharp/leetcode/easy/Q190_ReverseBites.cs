@@ -1,4 +1,4 @@
-public class Q190_ReverseBits
+class Q190_ReverseBits
 {
     public uint reverseBits(uint n) 
     {
@@ -41,7 +41,7 @@ public class Q190_ReverseBits
     }
 }
 
-public class Q190_ReverseBitsTestData : TestData
+class Q190_ReverseBitsTestData : TestData
 {
     protected override List<object[]> Data => 
     [

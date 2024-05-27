@@ -1,11 +1,11 @@
-public class VersionControl
+class VersionControl
 {
     protected readonly int BadVersion;
     public VersionControl(int bad) { BadVersion = bad; }
     public bool IsBadVersion(int n) => n >= BadVersion;
 }
 
-public class Q278_FirstBadVersion(int bad) : VersionControl(bad)
+class Q278_FirstBadVersion(int bad) : VersionControl(bad)
 {
     public int FirstBadVersion(int n)
     {
@@ -38,7 +38,7 @@ public class Q278_FirstBadVersion(int bad) : VersionControl(bad)
     } 
 }
 
-public class Q278_FirstBadVersionTestData: TestData
+class Q278_FirstBadVersionTestData: TestData
 {
     protected override List<object[]> Data => 
     [

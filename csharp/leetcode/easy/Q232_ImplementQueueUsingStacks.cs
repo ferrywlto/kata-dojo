@@ -1,4 +1,4 @@
-public class Q232_ImplementQueueUsingStacks
+class Q232_ImplementQueueUsingStacks
 {
     private readonly Stack<int> In = new();
     private readonly Stack<int> Out = new();

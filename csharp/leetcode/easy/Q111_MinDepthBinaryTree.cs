@@ -1,4 +1,4 @@
-public class Q111_MinDepthBinaryTreeTestData : TestData
+class Q111_MinDepthBinaryTreeTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -21,7 +21,7 @@ public class Q111_MinDepthBinaryTreeTests
     }
 }
 
-public class Q111_MinDepthBinaryTree
+class Q111_MinDepthBinaryTree
 {
     public int MinDepth(TreeNode? root)
     {

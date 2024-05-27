@@ -1,4 +1,4 @@
-public class Q637_AvgOfLevelsInBinaryTree
+class Q637_AvgOfLevelsInBinaryTree
 {
     // TC: O(n)
     // SC: O(n)
@@ -28,7 +28,7 @@ public class Q637_AvgOfLevelsInBinaryTree
     }
 }
 
-public class Q637_AvgOfLevelsInBinaryTreeTestData : TestData
+class Q637_AvgOfLevelsInBinaryTreeTestData : TestData
 {
     protected override List<object[]> Data => 
     [

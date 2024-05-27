@@ -1,4 +1,4 @@
-public class Q171_ExcelSheetColumnNumberTestData : TestData
+class Q171_ExcelSheetColumnNumberTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -22,7 +22,7 @@ public class Q171_ExcelSheetColumnNumberTests
     }
 }
 
-public class Q171_ExcelSheetColumnNumber
+class Q171_ExcelSheetColumnNumber
 {
     // Improved to TC: O(n), SC: O(n)
     public int TitleToNumber(string columnTitle)

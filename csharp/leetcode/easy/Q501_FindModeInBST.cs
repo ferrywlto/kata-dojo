@@ -1,4 +1,4 @@
-public class Q501_FindModeInBST
+class Q501_FindModeInBST
 {
     // TC: O(n) as have to traverse each node at least once
     // SC: O(n) as dictionary size = number of nodes in worst case 
@@ -35,7 +35,7 @@ public class Q501_FindModeInBST
     }
 }
 
-public class Q501_FindModeInBSTTestData : TestData
+class Q501_FindModeInBSTTestData : TestData
 {
     protected override List<object[]> Data =>
     [

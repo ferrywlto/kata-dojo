@@ -1,6 +1,6 @@
 // TC: O(n), all nodes need to traverse once
 // SC: O(tree1.depth + tree2.depth)
-public class Q872_LeafSimilarTrees
+class Q872_LeafSimilarTrees
 {
     readonly Stack<TreeNode> ParallelStack1 = new();
     readonly Stack<TreeNode> ParallelStack2 = new();
@@ -39,7 +39,7 @@ public class Q872_LeafSimilarTrees
     }
 }
 
-public class Q872_LeafSimilarTreesTestData : TestData
+class Q872_LeafSimilarTreesTestData : TestData
 {
     protected override List<object[]> Data => 
     [

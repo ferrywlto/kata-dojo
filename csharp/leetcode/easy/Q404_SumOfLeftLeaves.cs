@@ -1,4 +1,4 @@
-public class Q404_SumOfLeftLeaves
+class Q404_SumOfLeftLeaves
 {
     // TC: O(n), SC: O(n)
     public int SumOfLeftLeaves(TreeNode? root)
@@ -22,7 +22,7 @@ public class Q404_SumOfLeftLeaves
     }
 }
 
-public class Q404_SumOfLeftLeavesTestData : TestData
+class Q404_SumOfLeftLeavesTestData : TestData
 {
     protected override List<object[]> Data =>
     [

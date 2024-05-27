@@ -1,4 +1,4 @@
-public class Q521_LongestUncommonSubsequence
+class Q521_LongestUncommonSubsequence
 {
     // TC: O(n), because of == operator
     // SC: O(1)
@@ -10,7 +10,7 @@ public class Q521_LongestUncommonSubsequence
     }
 }
 
-public class Q521_LongestUncommonSubsequenceTestData: TestData
+class Q521_LongestUncommonSubsequenceTestData: TestData
 {
     protected override List<object[]> Data => 
     [

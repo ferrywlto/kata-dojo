@@ -1,4 +1,4 @@
-public class Q205_IsomorphicStrings
+class Q205_IsomorphicStrings
 {
     public bool IsIsomorphic(string s, string t)
     {
@@ -30,7 +30,7 @@ public class Q205_IsomorphicStrings
     }
 }
 
-public class Q205_IsomorphicStringsTestData : TestData
+class Q205_IsomorphicStringsTestData : TestData
 {
     protected override List<object[]> Data => 
     [
@@ -42,7 +42,7 @@ public class Q205_IsomorphicStringsTestData : TestData
     ];
 }
 
-public class Q205_IsomorphicStringsTest
+public class Q205_IsomorphicStringsTests
 {
     [Theory]
     [ClassData(typeof(Q205_IsomorphicStringsTestData))]

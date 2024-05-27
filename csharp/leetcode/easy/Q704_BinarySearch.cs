@@ -1,4 +1,4 @@
-public class Q704_BinarySearch
+class Q704_BinarySearch
 {
     // TC: O(log n)
     // SC: O(1)
@@ -22,7 +22,7 @@ public class Q704_BinarySearch
     }
 }
 
-public class Q704_BinarySearchTestData : TestData
+class Q704_BinarySearchTestData : TestData
 {
     protected override List<object[]> Data => 
     [

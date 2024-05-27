@@ -1,4 +1,4 @@
-public class Q69_SqrtTestData : TestData
+class Q69_SqrtTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -28,7 +28,7 @@ public class Q69_SqrtTests
     }
 }
 
-public class Q69_Sqrt
+class Q69_Sqrt
 {
     // Speed: 41ms (14.67%), Memory: 26.8MB (59.46%)
     public int MySqrt(int x)

@@ -1,4 +1,4 @@
-public class Q145_PostorderTraversalBinaryTreeTestData : TestData
+class Q145_PostorderTraversalBinaryTreeTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -25,7 +25,7 @@ public class Q145_PostorderTraversalBinaryTreeTests(ITestOutputHelper output) : 
     }
 }
 
-public class Q145_PostorderTraversalBinaryTree
+class Q145_PostorderTraversalBinaryTree
 {
     public IList<int> PostorderTraversal(TreeNode? root)
     {

@@ -1,4 +1,4 @@
-public class Q197_RisingTemperature : SqlQuestion
+class Q197_RisingTemperature : SqlQuestion
 {
     public override string Query =>
     """
@@ -9,7 +9,7 @@ public class Q197_RisingTemperature : SqlQuestion
     """;
 }
 
-public class Q197_RisingTemperatureTestData : TestData
+class Q197_RisingTemperatureTestData : TestData
 {
     protected override List<object[]> Data =>
     [[

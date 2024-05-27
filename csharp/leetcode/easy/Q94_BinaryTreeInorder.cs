@@ -1,4 +1,4 @@
-public class Q94_BinaryTreeInorderTestData : TestData
+class Q94_BinaryTreeInorderTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -70,7 +70,7 @@ public class Q94_BinaryTreeInorderTests
 }
 
 
-public class Q94_BinaryTreeInorder
+class Q94_BinaryTreeInorder
 {
     public void InorderTraversal_Recursion(TreeNode? node, IList<int> result)
     {

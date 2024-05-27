@@ -1,4 +1,4 @@
-public class Q746_MinCostClimbingStairs
+class Q746_MinCostClimbingStairs
 {
     // TC: O(n)
     // SC: O(1)
@@ -15,7 +15,7 @@ public class Q746_MinCostClimbingStairs
     }
 }
 
-public class Q746_MinCostClimbingStairsTestData : TestData
+class Q746_MinCostClimbingStairsTestData : TestData
 {
     protected override List<object[]> Data =>
     [

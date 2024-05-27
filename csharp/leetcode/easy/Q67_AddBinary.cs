@@ -1,6 +1,6 @@
 using System.Text;
 
-public class Q67_AddBinaryTestData : TestData
+class Q67_AddBinaryTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -9,7 +9,7 @@ public class Q67_AddBinaryTestData : TestData
     ];
 }
 
-public class Q67_AddBinaryExtraTestData : TestData
+class Q67_AddBinaryExtraTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -46,7 +46,7 @@ Constraints:
 a and b consist only of '0' or '1' characters.
 Each string does not contain leading zeros except for the zero itself.
 */
-public class Q67_AddBinary
+class Q67_AddBinary
 {
     // Speed: 51ms (99.39%), Memory: 40.08MB (46.25%)
     public string AddBinary(string a, string b)

@@ -1,4 +1,4 @@
-public class Q206_ReverseLinkedList
+class Q206_ReverseLinkedList
 {
     // TC: O(n), SC:O(1)
     public ListNode? ReverseList(ListNode? head)
@@ -63,7 +63,7 @@ public class Q206_ReverseLinkedList
     }
 }
 
-public class Q206_ReverseLinkedListTestData : TestData
+class Q206_ReverseLinkedListTestData : TestData
 {
     protected override List<object[]> Data =>
     [

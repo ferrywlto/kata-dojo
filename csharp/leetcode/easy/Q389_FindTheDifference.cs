@@ -1,4 +1,4 @@
-public class Q389_FindTheDifference
+class Q389_FindTheDifference
 {
     // Constaints
     // t.length == s.length + 1
@@ -22,7 +22,7 @@ public class Q389_FindTheDifference
     }
 }
 
-public class Q389_FindTheDifferenceTestData: TestData
+class Q389_FindTheDifferenceTestData: TestData
 {
     protected override List<object[]> Data =>
     [

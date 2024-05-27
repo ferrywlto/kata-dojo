@@ -1,4 +1,4 @@
-public class Q257_BinaryTreePaths
+class Q257_BinaryTreePaths
 {
     public IList<string> BinaryTreePaths(TreeNode? root)
     {
@@ -29,7 +29,7 @@ public class Q257_BinaryTreePaths
     }
 }
 
-public class Q257_BinaryTreePathsTestData: TestData
+class Q257_BinaryTreePathsTestData: TestData
 {
     protected override List<object[]> Data => 
     [

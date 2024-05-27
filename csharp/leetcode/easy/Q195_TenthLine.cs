@@ -1,4 +1,4 @@
-public class Q195_TenthLineTestData : TestData
+class Q195_TenthLineTestData : TestData
 {
     protected override List<object[]> Data => 
     [
@@ -58,7 +58,7 @@ public class Q195_TenthLineTests(ITestOutputHelper output) : ShellTest(output)
     }
 }
 
-public class Q195_TenthLine
+class Q195_TenthLine
 {
     public string Command =>
     """

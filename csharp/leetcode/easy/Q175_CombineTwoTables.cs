@@ -1,4 +1,4 @@
-public class Q175_CombineTwoTables : SqlQuestion
+class Q175_CombineTwoTables : SqlQuestion
 {
     public override string Query =>
     """
@@ -9,7 +9,7 @@ public class Q175_CombineTwoTables : SqlQuestion
     """;
 }
 
-public class Q175_CombineTwoTablesTestData : TestData
+class Q175_CombineTwoTablesTestData : TestData
 {
     protected override List<object[]> Data =>
     [[

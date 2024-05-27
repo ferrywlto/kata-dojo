@@ -1,7 +1,7 @@
 
 using System.Text;
 
-public class Q541_ReverseStringII
+class Q541_ReverseStringII
 {
     // TC: O(n)
     // SC: O(n)
@@ -36,7 +36,7 @@ public class Q541_ReverseStringII
     }
 }
 
-public class Q541_ReverseStringIITestData: TestData
+class Q541_ReverseStringIITestData: TestData
 {
     protected override List<object[]> Data => 
     [

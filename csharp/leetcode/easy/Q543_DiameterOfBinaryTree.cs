@@ -1,4 +1,4 @@
-public class Q543_DiameterOfBinaryTree
+class Q543_DiameterOfBinaryTree
 {
     private int max = 0;
     // TC: O(n)
@@ -23,7 +23,7 @@ public class Q543_DiameterOfBinaryTree
     }
 }
 
-public class Q543_DiameterOfBinaryTreeTestData : TestData
+class Q543_DiameterOfBinaryTreeTestData : TestData
 {
     protected override List<object[]> Data => 
     [

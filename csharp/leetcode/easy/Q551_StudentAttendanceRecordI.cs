@@ -1,4 +1,4 @@
-public class Q551_StudentAttendanceRecordI
+class Q551_StudentAttendanceRecordI
 {
     // TC: O(n)
     // SC: O(1)
@@ -29,7 +29,7 @@ public class Q551_StudentAttendanceRecordI
     }
 }
 
-public class Q551_StudentAttendanceRecordITestData : TestData
+class Q551_StudentAttendanceRecordITestData : TestData
 {
     protected override List<object[]> Data =>
     [

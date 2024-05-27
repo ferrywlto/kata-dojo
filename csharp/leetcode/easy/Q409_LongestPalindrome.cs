@@ -1,4 +1,4 @@
-public class Q409_LongestPalindrome
+class Q409_LongestPalindrome
 {
     // TC: O(n), SC: O(n)
     public int LongestPalindrome(string s)
@@ -28,7 +28,7 @@ public class Q409_LongestPalindrome
     }
 }
 
-public class Q409_LongestPalindromeTestData : TestData
+class Q409_LongestPalindromeTestData : TestData
 {
     protected override List<object[]> Data =>
     [

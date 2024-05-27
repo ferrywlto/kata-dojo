@@ -1,4 +1,4 @@
-public class Q733_FloodFill
+class Q733_FloodFill
 {
     public int[][] FloodFill(int[][] image, int sr, int sc, int color)
     {
@@ -33,7 +33,7 @@ public class Q733_FloodFill
     }
 }
 
-public class Q733_FloodFillTestData : TestData
+class Q733_FloodFillTestData : TestData
 {
     protected override List<object[]> Data =>
     [

@@ -1,4 +1,4 @@
-public class Q169_MajorityElementTestData : TestData
+class Q169_MajorityElementTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -20,7 +20,7 @@ public class Q169_MajorityElementTests
     }
 }
 
-public class Q169_MajorityElement
+class Q169_MajorityElement
 {
     // TC: O(n), SC: O(n)
     public int MajorityElement(int[] nums)

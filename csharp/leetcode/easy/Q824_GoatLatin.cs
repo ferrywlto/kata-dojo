@@ -1,6 +1,6 @@
 using System.Text;
 
-public class Q824_GoatLatin
+class Q824_GoatLatin
 {
     // TC: O(n), n is total words in sentence
     // SC: O(n+m), n is average word length, m is number of words
@@ -29,7 +29,7 @@ public class Q824_GoatLatin
     }
 }
 
-public class Q824_GoatLatinTestData : TestData
+class Q824_GoatLatinTestData : TestData
 {
     protected override List<object[]> Data => 
     [

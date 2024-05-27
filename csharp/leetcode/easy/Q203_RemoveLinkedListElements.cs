@@ -13,7 +13,7 @@ public class Q203_RemoveLinkeListElementsTests(ITestOutputHelper output) : ListN
     }
 }
 
-public class Q203_RemoveLinkeListElementsTestData : TestData
+class Q203_RemoveLinkeListElementsTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -40,7 +40,7 @@ public class Q203_RemoveLinkeListElementsTestData : TestData
     ];
 }
 
-public class Q203_RemoveLinkeListElements
+class Q203_RemoveLinkeListElements
 {
     // TC:O(n), SC:O(1)
     public ListNode? RemoveElements(ListNode? head, int val)

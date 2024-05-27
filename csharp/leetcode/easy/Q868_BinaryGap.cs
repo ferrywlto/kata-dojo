@@ -1,4 +1,4 @@
-public class Q868_BinaryGap
+class Q868_BinaryGap
 {
     // TC: O(n), n is number of bits of input
     // SC: O(1), no extra memory used
@@ -27,7 +27,7 @@ public class Q868_BinaryGap
     }
 }
 
-public class Q868_BinaryGapTestData : TestData
+class Q868_BinaryGapTestData : TestData
 {
     protected override List<object[]> Data => 
     [

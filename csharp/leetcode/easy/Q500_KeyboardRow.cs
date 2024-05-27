@@ -1,4 +1,4 @@
-public class Q500_KeyboardRow
+class Q500_KeyboardRow
 {
     private readonly HashSet<char> row1 = new("qwertyuiop");
     private readonly HashSet<char> row2 = new("asdfghjkl");
@@ -36,7 +36,7 @@ public class Q500_KeyboardRow
     }
 }
 
-public class Q500_KeyboardRowTestData : TestData
+class Q500_KeyboardRowTestData : TestData
 {
     protected override List<object[]> Data =>
     [

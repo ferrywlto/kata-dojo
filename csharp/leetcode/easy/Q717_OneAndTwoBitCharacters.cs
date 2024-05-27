@@ -1,4 +1,4 @@
-public class Q717_OneAndTwoBitCharacters
+class Q717_OneAndTwoBitCharacters
 {
     public bool IsOneBitCharacter(int[] bits)
     {
@@ -22,7 +22,7 @@ public class Q717_OneAndTwoBitCharacters
     }
 }
 
-public class Q717_OneAndTwoBitCharactersTestData : TestData
+class Q717_OneAndTwoBitCharactersTestData : TestData
 {
     protected override List<object[]> Data =>
     [

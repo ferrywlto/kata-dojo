@@ -1,4 +1,4 @@
-public class Q463_IslandPerimeter
+class Q463_IslandPerimeter
 {
     private const int top = 0;
     private const int left = 0;
@@ -43,7 +43,7 @@ public class Q463_IslandPerimeter
     public int CheckIsLand(int[][] grid, int row, int col) => grid[row][col] ^ 1;
 }
 
-public class Q463_IslandPerimeterTestData : TestData
+class Q463_IslandPerimeterTestData : TestData
 {
     protected override List<object[]> Data =>
     [

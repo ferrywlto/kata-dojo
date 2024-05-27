@@ -1,4 +1,4 @@
-public class Q598_RangeAdditionII
+class Q598_RangeAdditionII
 {
     // TC: O(n)
     // SC: O(1)
@@ -18,7 +18,7 @@ public class Q598_RangeAdditionII
     }
 }
 
-public class Q598_RangeAdditionIITestData : TestData
+class Q598_RangeAdditionIITestData : TestData
 {
     protected override List<object[]> Data => 
     [

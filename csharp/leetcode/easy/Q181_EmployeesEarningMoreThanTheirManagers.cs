@@ -1,4 +1,4 @@
-public class Q181_EmployeesEarningMoreThanTheirManagers : SqlQuestion
+class Q181_EmployeesEarningMoreThanTheirManagers : SqlQuestion
 {
     public override string Query =>
     """
@@ -10,7 +10,7 @@ public class Q181_EmployeesEarningMoreThanTheirManagers : SqlQuestion
     """;
 }
 
-public class Q181_EmployeesEarningMoreThanTheirManagersTestData : TestData
+class Q181_EmployeesEarningMoreThanTheirManagersTestData : TestData
 {
     protected override List<object[]> Data =>
     [

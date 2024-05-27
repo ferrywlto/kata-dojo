@@ -1,6 +1,6 @@
 using System.Text;
 
-public class Q482_LicenseKeyFormatting
+class Q482_LicenseKeyFormatting
 {
     // TC: O(n), SC: O(n)
     public string LicenseKeyFormatting(string s, int k)
@@ -24,7 +24,7 @@ public class Q482_LicenseKeyFormatting
     }
  }
 
-public class Q482_LicenseKeyFormattingTestData : TestData
+class Q482_LicenseKeyFormattingTestData : TestData
 {
     protected override List<object[]> Data =>
     [

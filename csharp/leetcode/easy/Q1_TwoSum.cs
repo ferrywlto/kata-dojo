@@ -1,4 +1,4 @@
-public class TwoSumTestData : TestData
+class TwoSumTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -24,7 +24,7 @@ public class TwoSumTests
 }
 
 // Speed: 118ms (99.30%), Memory: 44.5MB (46.24%)
-public class TwoSum
+class TwoSum
 {
     // Best in speed, average in memory
     public int[] Solve(int[] input, int target)

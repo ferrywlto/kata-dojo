@@ -1,4 +1,4 @@
-public class Q766_ToeplitzMatrix
+class Q766_ToeplitzMatrix
 {
     // TC: O(n*m)
     // SC: O(1)
@@ -15,7 +15,7 @@ public class Q766_ToeplitzMatrix
     }
 }
 
-public class Q766_ToeplitzMatrixTestData : TestData
+class Q766_ToeplitzMatrixTestData : TestData
 {
     protected override List<object[]> Data =>
     [

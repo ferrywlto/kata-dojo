@@ -1,4 +1,4 @@
-public class Q682_BaseballGame
+class Q682_BaseballGame
 {
     // TC: O(n)
     // SC: O(n)
@@ -32,7 +32,7 @@ public class Q682_BaseballGame
     }
 }
 
-public class Q682_BaseballGameTestData : TestData
+class Q682_BaseballGameTestData : TestData
 {
     protected override List<object[]> Data => 
     [

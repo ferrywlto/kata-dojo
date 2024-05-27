@@ -1,4 +1,4 @@
-public class Q448_NumbersDisappearedInArray
+class Q448_NumbersDisappearedInArray
 {
     // TC: O(n), SC: O(n)
     public IList<int> FindDisappearedNumbers(int[] nums)
@@ -12,7 +12,7 @@ public class Q448_NumbersDisappearedInArray
     }
 }
 
-public class Q448_NumbersDisappearedInArrayTestData: TestData
+class Q448_NumbersDisappearedInArrayTestData: TestData
 {
     protected override List<object[]> Data =>
     [
@@ -21,7 +21,7 @@ public class Q448_NumbersDisappearedInArrayTestData: TestData
     ];
 }
 
-public class Q448_NumbersDisappearedInArrayTest
+public class Q448_NumbersDisappearedInArrayTests
 {
     [Theory]
     [ClassData(typeof(Q448_NumbersDisappearedInArrayTestData))]

@@ -1,4 +1,4 @@
-public class Q586_CustomerPlacingLargestNumberOrders : SqlQuestion
+class Q586_CustomerPlacingLargestNumberOrders : SqlQuestion
 {
     public override string Query => 
     // This SQL is for PostgreSQL as some syntax of T-SQL are not supported in SQLite 
@@ -11,7 +11,7 @@ public class Q586_CustomerPlacingLargestNumberOrders : SqlQuestion
     """;
 }
 
-public class Q586_CustomerPlacingLargestNumberOrdersTestData : TestData
+class Q586_CustomerPlacingLargestNumberOrdersTestData : TestData
 {
     protected override List<object[]> Data => 
     [[

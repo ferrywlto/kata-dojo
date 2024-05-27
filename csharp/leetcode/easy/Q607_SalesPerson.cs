@@ -1,4 +1,4 @@
-public class Q607_SalesPerson : SqlQuestion
+class Q607_SalesPerson : SqlQuestion
 {
     public override string Query => 
     """
@@ -15,7 +15,7 @@ public class Q607_SalesPerson : SqlQuestion
     """;
 }
 
-public class Q607_SalesPersonTestData : TestData
+class Q607_SalesPersonTestData : TestData
 {
     protected override List<object[]> Data => 
     [[

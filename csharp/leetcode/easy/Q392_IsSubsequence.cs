@@ -1,4 +1,4 @@
-public class Q392_IsSubsequence
+class Q392_IsSubsequence
 {
     // TC: O(n), SC: O(1)
     public bool IsSubsequence(string s, string t)
@@ -21,7 +21,7 @@ public class Q392_IsSubsequence
     }
 }
 
-public class Q392_IsSubsequenceTestData: TestData
+class Q392_IsSubsequenceTestData: TestData
 {
     protected override List<object[]> Data =>
     [

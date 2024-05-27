@@ -1,4 +1,4 @@
-public class Q617_MergeTwoBinaryTrees
+class Q617_MergeTwoBinaryTrees
 {
     // TC: O(n)
     // SC: O(n)
@@ -35,7 +35,7 @@ public class Q617_MergeTwoBinaryTrees
     }
 }
 
-public class Q617_MergeTwoBinaryTreesTestData : TestData
+class Q617_MergeTwoBinaryTreesTestData : TestData
 {
     protected override List<object[]> Data =>
     [

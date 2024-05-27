@@ -1,4 +1,4 @@
-public class Q70_ClimbingStairsTestData : TestData
+class Q70_ClimbingStairsTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -22,7 +22,7 @@ public class Q70_ClimbingStairsTests
 }
 
 // From other developers this question is about the fibonacci sequence that "each number is the sum of the two preceding ones, starting from 0 and 1"
-public class Q70_ClimbingStairs
+class Q70_ClimbingStairs
 {
 
     // Using memorization technique can make TC from O(2^n) down to O(n)

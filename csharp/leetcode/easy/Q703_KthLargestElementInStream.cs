@@ -5,7 +5,7 @@ public abstract class Kthlargest
     public abstract int Add(int val);
 }
 
-public class Q703_KthLargestElementInStream : Kthlargest
+class Q703_KthLargestElementInStream : Kthlargest
 {
     protected readonly int targetRank;
     protected List<int> list = [];
@@ -60,7 +60,7 @@ public class Q703_KthLargestElementInStream : Kthlargest
     }
 }
 
-public class Q703_KthLargestElementInStreamTestData : TestData
+class Q703_KthLargestElementInStreamTestData : TestData
 {
     protected override List<object[]> Data =>
     [

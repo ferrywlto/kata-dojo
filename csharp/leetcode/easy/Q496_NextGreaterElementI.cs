@@ -1,4 +1,4 @@
-public class Q496_NextGreaterElementI
+class Q496_NextGreaterElementI
 {
     // Constraints:
     // 1 <= nums1.length <= nums2.length <= 1000
@@ -32,7 +32,7 @@ public class Q496_NextGreaterElementI
     }
 }
 
-public class Q496_NextGreaterElementITestData: TestData
+class Q496_NextGreaterElementITestData: TestData
 {
     protected override List<object[]> Data => 
     [

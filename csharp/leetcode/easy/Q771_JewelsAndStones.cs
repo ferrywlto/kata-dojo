@@ -1,4 +1,4 @@
-public class Q771_JewelsAndStones
+class Q771_JewelsAndStones
 {
     // TC: O(j+s)
     // SC: O(j)
@@ -16,7 +16,7 @@ public class Q771_JewelsAndStones
     }
 }
 
-public class Q771_JewelsAndStonesTestData : TestData
+class Q771_JewelsAndStonesTestData : TestData
 {
     protected override List<object[]> Data =>
     [

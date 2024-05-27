@@ -51,7 +51,7 @@ public class Q13_RomashortoshortegerTests
 // 2. use switch instead of dictionary
 // 3. consider the nature that if the smaller value followed by a larger value, it should be minus instead of addition.
 // Speed: 46ms (99.75%), Memory: 47.29MB (73.03%)
-public class Q13_Romashortoshorteger
+class Q13_Romashortoshorteger
 {
     public int RomanToInt_CorrectImplementation(string s)
     {

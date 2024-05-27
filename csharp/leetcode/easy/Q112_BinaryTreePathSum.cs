@@ -1,4 +1,4 @@
-public class Q112_BinaryTreePathSumTestData : TestData
+class Q112_BinaryTreePathSumTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -21,7 +21,7 @@ public class Q112_BinaryTreePathSumTests
     }
 }
 
-public class Q112_BinaryTreePathSum
+class Q112_BinaryTreePathSum
 {
     // TC: O(n), SC: O(n)
     public bool HasPathSum(TreeNode root, int targetSum)

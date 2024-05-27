@@ -1,4 +1,4 @@
-public class Q349_IntersectionOfTwoArrays
+class Q349_IntersectionOfTwoArrays
 {
     public int[] Intersection(int[] nums1, int[] nums2)
     {
@@ -22,7 +22,7 @@ public class Q349_IntersectionOfTwoArrays
     }
 }
 
-public class Q349_IntersectionOfTwoArraysTestData : TestData
+class Q349_IntersectionOfTwoArraysTestData : TestData
 {
     protected override List<object[]> Data =>
     [

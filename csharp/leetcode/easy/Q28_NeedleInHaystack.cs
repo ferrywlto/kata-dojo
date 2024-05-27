@@ -1,4 +1,4 @@
-public class Q28_NeedleInHaystackTestData : TestData
+class Q28_NeedleInHaystackTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -19,7 +19,7 @@ public class Q28_NeedleInHaystackTests
     }
 }
 
-public class Q28_NeedleInHaystack
+class Q28_NeedleInHaystack
 {
 
     // Speed: 39ms (99.54%), Memory: 38.77MB (6.67%)

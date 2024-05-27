@@ -1,4 +1,4 @@
-public class Q748_ShortestCompletingWord
+class Q748_ShortestCompletingWord
 {
     // TC: O(n*m)
     // SC: less than O(n)
@@ -37,7 +37,7 @@ public class Q748_ShortestCompletingWord
     }
 }
 
-public class Q748_ShortestCompletingWordTestData : TestData
+class Q748_ShortestCompletingWordTestData : TestData
 {
     protected override List<object[]> Data =>
     [

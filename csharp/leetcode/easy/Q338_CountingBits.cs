@@ -1,4 +1,4 @@
-public class Q338_CountingBits
+class Q338_CountingBits
 {
     // Suggested by Copilot in Q401 but only fast for single number 
     int CountBits_Single(int num)
@@ -69,7 +69,7 @@ public class Q338_CountingBits
     }
 }
 
-public class Q338_CountingBitsTestData: TestData
+class Q338_CountingBitsTestData: TestData
 {
     protected override List<object[]> Data => 
     [
@@ -101,7 +101,7 @@ public class Q338_CountingBitsTests(ITestOutputHelper helper)
     }
 }
 
-public class Q338_CountingBitsExtraTestData: TestData
+class Q338_CountingBitsExtraTestData: TestData
 {
     protected override List<object[]> Data => 
     [

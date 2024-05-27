@@ -1,4 +1,4 @@
-public class Q595_BigCountries : SqlQuestion
+class Q595_BigCountries : SqlQuestion
 {
     public override string Query =>
     """
@@ -9,7 +9,7 @@ public class Q595_BigCountries : SqlQuestion
     """;
 }
 
-public class Q595_BigCountriesTestData : TestData
+class Q595_BigCountriesTestData : TestData
 {
     protected override List<object[]> Data =>
     [[

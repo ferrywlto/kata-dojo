@@ -1,4 +1,4 @@
-public class Q530_MinimumAbsoluteDifferenceInBST
+class Q530_MinimumAbsoluteDifferenceInBST
 {
     public int GetMinimumDifference(TreeNode root)
     {
@@ -41,7 +41,7 @@ public class Q530_MinimumAbsoluteDifferenceInBST
     }
 }
 
-public class Q530_MinimumAbsoluteDifferenceInBSTTestData : TestData
+class Q530_MinimumAbsoluteDifferenceInBSTTestData : TestData
 {
     protected override List<object[]> Data =>
     [

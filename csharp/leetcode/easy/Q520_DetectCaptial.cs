@@ -1,4 +1,4 @@
-public class Q520_DetectCaptial
+class Q520_DetectCaptial
 {
     // TC: O(n)
     // SC: O(1)
@@ -40,7 +40,7 @@ public class Q520_DetectCaptial
     }
 }
 
-public class Q520_DetectCaptialTestData : TestData
+class Q520_DetectCaptialTestData : TestData
 {
     protected override List<object[]> Data =>
     [

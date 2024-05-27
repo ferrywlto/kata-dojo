@@ -1,4 +1,4 @@
-public class Q507_PerfectNumber
+class Q507_PerfectNumber
 {
     readonly HashSet<int> cache = [1];
     // TC: O(sqrt(n)), SC: O(n)
@@ -19,7 +19,7 @@ public class Q507_PerfectNumber
     }
 }
 
-public class Q507_PerfectNumberTestData: TestData
+class Q507_PerfectNumberTestData: TestData
 {
     protected override List<object[]> Data => 
     [

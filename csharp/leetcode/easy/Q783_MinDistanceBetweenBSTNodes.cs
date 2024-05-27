@@ -1,4 +1,4 @@
-public class Q783_MinDistanceBetweenBSTNodes
+class Q783_MinDistanceBetweenBSTNodes
 {
     // TC: O(n)
     // SC: O(h)
@@ -34,7 +34,7 @@ public class Q783_MinDistanceBetweenBSTNodes
     }
 }
 
-public class Q783_MinDistanceBetweenBSTNodesTestData : TestData
+class Q783_MinDistanceBetweenBSTNodesTestData : TestData
 {
     protected override List<object[]> Data =>
     [

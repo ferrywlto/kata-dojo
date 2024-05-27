@@ -1,4 +1,4 @@
-public class Q110_CheckTreeHeightBalanced
+class Q110_CheckTreeHeightBalanced
 {   
     public bool IsBalanced(TreeNode? root)
     {
@@ -27,7 +27,7 @@ public class Q110_CheckTreeHeightBalanced
     }
 }
 
-public class Q110_CheckTreeHeightBalancedTestData : TestData
+class Q110_CheckTreeHeightBalancedTestData : TestData
 {
     protected override List<object[]> Data =>
     [

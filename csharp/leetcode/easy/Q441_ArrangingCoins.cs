@@ -1,4 +1,4 @@
-public class Q441_ArrangingCoins
+class Q441_ArrangingCoins
 {
     // Constraints
     // 1 <= n <= 2^31 - 1
@@ -36,7 +36,7 @@ public class Q441_ArrangingCoins
     }
 }
 
-public class Q441_ArrangingCoinsTestData: TestData
+class Q441_ArrangingCoinsTestData: TestData
 {
     protected override List<object[]> Data =>
     [
@@ -50,7 +50,7 @@ public class Q441_ArrangingCoinsTestData: TestData
     ];
 }
 
-public class Q441_ArrangingCoinsTest
+public class Q441_ArrangingCoinsTests
 {
     [Theory]
     [ClassData(typeof(Q441_ArrangingCoinsTestData))]

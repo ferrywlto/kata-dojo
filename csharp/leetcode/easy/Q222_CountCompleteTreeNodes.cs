@@ -1,4 +1,4 @@
-public class Q222_CountCompleteTreeNodes
+class Q222_CountCompleteTreeNodes
 {
     // Constraints: O(log n), at most O((log n)^2), still need to be recursive, 
     // iterative approach requires using quene and even slower : O(n)
@@ -52,7 +52,7 @@ public class Q222_CountCompleteTreeNodes
     }
 }
 
-public class Q222_CountCompleteTreeNodesTestData: TestData
+class Q222_CountCompleteTreeNodesTestData: TestData
 {
     protected override List<object[]> Data => 
     [

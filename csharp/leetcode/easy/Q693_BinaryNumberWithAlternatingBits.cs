@@ -1,4 +1,4 @@
-public class Q693_BinaryNumberWithAlternatingBits
+class Q693_BinaryNumberWithAlternatingBits
 {
     // TC: O(n)
     // SC: O(n)
@@ -32,7 +32,7 @@ public class Q693_BinaryNumberWithAlternatingBits
     }
 }
 
-public class Q693_BinaryNumberWithAlternatingBitsTestData : TestData
+class Q693_BinaryNumberWithAlternatingBitsTestData : TestData
 {
     protected override List<object[]> Data =>
     [

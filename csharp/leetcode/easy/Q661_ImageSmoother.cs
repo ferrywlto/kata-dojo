@@ -1,4 +1,4 @@
-public class Q661_ImageSmoother
+class Q661_ImageSmoother
 {
     public int[] HandleSingleRow(int[] row)
     {
@@ -174,7 +174,7 @@ public class Q661_ImageSmoother
     }
 }
 
-public class Q661_ImageSmootherTestData : TestData
+class Q661_ImageSmootherTestData : TestData
 {
     protected override List<object[]> Data =>
     [

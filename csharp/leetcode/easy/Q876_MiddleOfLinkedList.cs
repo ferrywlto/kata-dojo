@@ -1,6 +1,6 @@
 // TC: O(n), n is 1.5 * list length
 // SC: O(1), no extra space used
-public class Q876_MiddleOfLinkedList
+class Q876_MiddleOfLinkedList
 {
     public ListNode MiddleNode(ListNode head) 
     {
@@ -40,7 +40,7 @@ public class Q876_MiddleOfLinkedList
     }
 }
 
-public class Q876_MiddleOfLinkedListTestData : TestData
+class Q876_MiddleOfLinkedListTestData : TestData
 {
     protected override List<object[]> Data => 
     [

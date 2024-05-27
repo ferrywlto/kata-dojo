@@ -1,4 +1,4 @@
-public class Q590_NaryTreePostorderTraversal
+class Q590_NaryTreePostorderTraversal
 {
     List<int> result = [];
     public IList<int> Postorder(NaryTreeNode root) 
@@ -47,7 +47,7 @@ public class Q590_NaryTreePostorderTraversal
     }
 }
 
-public class Q590_NaryTreePostorderTraversalTestData : TestData
+class Q590_NaryTreePostorderTraversalTestData : TestData
 {
     protected override List<object[]> Data => 
     [
@@ -62,7 +62,7 @@ public class Q590_NaryTreePostorderTraversalTestData : TestData
     ];
 }
 
-public class Q590_NaryTreePostorderTraversalTest : NaryTreeNodeTest
+public class Q590_NaryTreePostorderTraversalTests : NaryTreeNodeTest
 {
     [Theory]
     [ClassData(typeof(Q590_NaryTreePostorderTraversalTestData))]

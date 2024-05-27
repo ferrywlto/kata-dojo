@@ -1,4 +1,4 @@
-public class Q193_ValidPhoneNumbersTestData : TestData
+class Q193_ValidPhoneNumbersTestData : TestData
 {
     protected override List<object[]> Data => 
     [
@@ -42,7 +42,7 @@ public class Q193_ValidPhoneNumbersTests(ITestOutputHelper output) : ShellTest(o
     }
 }
 
-public class Q193_ValidPhoneNumbers
+class Q193_ValidPhoneNumbers
 {
     public string Command =>
     """

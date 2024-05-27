@@ -1,4 +1,4 @@
-public class Q20_ValidParenthesesTestData : TestData
+class Q20_ValidParenthesesTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -23,7 +23,7 @@ public class Q20_ValidParenthesesTests
     }
 }
 
-public class Q20_ValidParentheses
+class Q20_ValidParentheses
 {
     private readonly Dictionary<char, char> _dict = new()
     {

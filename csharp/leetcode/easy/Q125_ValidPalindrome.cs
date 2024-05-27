@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-public class Q125_ValidPalindromeTestData : TestData
+class Q125_ValidPalindromeTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -38,7 +38,7 @@ s consists only of printable ASCII characters.
 A-Z: 65-90
 a-z: 97-122
 */
-public class Q125_ValidPalindrome
+class Q125_ValidPalindrome
 {
     // TC: O(n), SC: O(n)
     public bool IsPalindrome(string s)

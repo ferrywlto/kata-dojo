@@ -1,4 +1,4 @@
-public class Q405_ConvertNumToHex
+class Q405_ConvertNumToHex
 {
     const string hex = "0123456789abcdef";
     // TC: O(1), SC: O(1)
@@ -18,7 +18,7 @@ public class Q405_ConvertNumToHex
     }
 }
 
-public class Q405_ConvertNumToHexTestData : TestData
+class Q405_ConvertNumToHexTestData : TestData
 {
     protected override List<object[]> Data =>
     [

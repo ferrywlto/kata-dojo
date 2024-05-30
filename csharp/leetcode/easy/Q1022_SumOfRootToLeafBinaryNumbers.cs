@@ -1,11 +1,33 @@
 class Q1022_SumOfRootToLeafBinaryNumbers
 {
-
     public int SumRootToLeaf(TreeNode root)
     {
-        return 0;
-    }
+        var result = 0;
+        var stack = new Stack<(TreeNode node, int current)>();
+        stack.Push((root, 0));
+        while(stack.Count > 0)
+        {
+            var (node, current) = stack.Pop();
+            var newCurrent = current * 2 + node.val;
 
+            if(node.left == null && node.right == null)
+            {
+                result += newCurrent;
+            }
+            else
+            {
+                if(node.left != null) 
+                {
+                    stack.Push((node.left, newCurrent));
+                }
+                if(node.right != null)
+                {
+                    stack.Push((node.right, newCurrent));
+                }
+            }
+        }
+        return result;
+    }
 }
 
 class Q1022_SumOfRootToLeafBinaryNumbersTestData : TestData

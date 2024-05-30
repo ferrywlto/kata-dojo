@@ -9,13 +9,7 @@ class Q1047_RemoveAllAdjacentDuplicates
         stack.Push(s[0]);
         for (var i = 1; i < s.Length; i++)
         {
-            if (stack.Count > 0 && s[i] == stack.Peek())
-            {
-                while (stack.Count > 0 && s[i] == stack.Peek())
-                {
-                    stack.Pop();
-                }
-            }
+            if (stack.Count > 0 && s[i] == stack.Peek()) stack.Pop();
             else stack.Push(s[i]);
         }
 

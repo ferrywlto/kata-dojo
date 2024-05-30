@@ -1,5 +1,7 @@
 class Q1022_SumOfRootToLeafBinaryNumbers
 {
+    // TC: O(n), n is nodes of tree, all nodes need to visit once
+    // SC: O(h), h is the depth of tree
     public int SumRootToLeaf(TreeNode root)
     {
         var result = 0;

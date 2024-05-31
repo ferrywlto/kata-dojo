@@ -3,7 +3,9 @@ class Q1050_ActorsAndDirectorsWhoCooperatedAtLeastThreeTimes : SqlQuestion
 {
     public override string Query => 
     """
-    SELECT 1;
+    SELECT actor_id, director_id FROM ActorDirector
+    GROUP BY actor_id, director_id
+    HAVING count(*) >= 3
     """;
 }
 class Q1050_ActorsAndDirectorsWhoCooperatedAtLeastThreeTimesTestData : TestData
@@ -21,7 +23,7 @@ class Q1050_ActorsAndDirectorsWhoCooperatedAtLeastThreeTimesTestData : TestData
             (2,1,5),
             (2,1,6);
             """
-        ]
+        ],
     ];
 }
 public class Q1050_ActorsAndDirectorsWhoCooperatedAtLeastThreeTimesTests(ITestOutputHelper output) : SqlTest(output)
@@ -39,8 +41,6 @@ public class Q1050_ActorsAndDirectorsWhoCooperatedAtLeastThreeTimesTests(ITestOu
 
         var sut = new Q1050_ActorsAndDirectorsWhoCooperatedAtLeastThreeTimes();
         var reader = ExecuteQuery(sut.Query);
-
-        DebugReader(reader);
 
         Assert.True(reader.HasRows);
         Assert.Equal(2, reader.FieldCount);

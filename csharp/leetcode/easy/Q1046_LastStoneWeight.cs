@@ -1,9 +1,24 @@
 class Q1046_LastStoneWeight
 {
-
+    // TC: O(n^2), n is length of stones, it needs to run n-1 times in while loop
+    // and  
+    // SC: O(n), n is the length of list
     public int LastStoneWeight(int[] stones)
     {
-        return 0;
+        if (stones.Length == 1) return stones[0];
+
+        var list = stones.ToList();
+        
+        while(list.Count > 1)
+        {
+            list.Sort();
+            var diff = Math.Max(list[^1], list[^2]) - Math.Min(list[^1], list[^2]);
+            list.RemoveAt(list.Count - 1);    
+            list.RemoveAt(list.Count - 1);
+            list.Add(diff);    
+        }
+
+        return list[0];
     }
 }
 

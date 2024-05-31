@@ -20,6 +20,32 @@ class Q1046_LastStoneWeight
 
         return list[0];
     }
+
+// TC: O(n log n) version
+public int LastStoneWeight_Faster(int[] stones)
+{
+    // Use binary search tree to make max finding time to O(log n)
+    var bst = new SortedSet<(int weight, int index)>();
+    for (int i = 0; i < stones.Length; i++)
+    {
+        bst.Add((stones[i], i));
+    }
+
+    while (bst.Count > 1)
+    {
+        var stone1 = bst.Max;
+        bst.Remove(stone1);
+        var stone2 = bst.Max;
+        bst.Remove(stone2);
+
+        if (stone1.weight != stone2.weight)
+        {
+            bst.Add((stone1.weight - stone2.weight, stone1.index));
+        }
+    }
+
+    return bst.Count > 0 ? bst.Max.weight : 0;
+}
 }
 
 class Q1046_LastStoneWeightTestData : TestData
@@ -38,7 +64,7 @@ public class Q1046_LastStoneWeightTests
     public void OfficialTestCases(int[] input, int expected)
     {
         var sut = new Q1046_LastStoneWeight();
-        var actual = sut.LastStoneWeight(input);
+        var actual = sut.LastStoneWeight_Faster(input);
         Assert.Equal(expected, actual);
     }
 }

@@ -5,13 +5,15 @@ using Xunit.Sdk;
 public abstract class SqlTest : BaseTest, IDisposable
 {
     const int ColumnWidth = 10;
-    protected readonly SqliteConnection connection;
+    protected readonly SqliteConnection connection = new("Filename=:memory:");
 
-    public SqlTest(ITestOutputHelper output) : base(output)
+    public SqlTest() : base() { Initialize(); }
+
+    public SqlTest(ITestOutputHelper output) : base(output) { Initialize(); }
+
+    private void Initialize() 
     {
-        connection = new SqliteConnection("Filename=:memory:");
         connection.Open();
-
         CreateTestDatabase();
     }
 
@@ -37,6 +39,7 @@ public abstract class SqlTest : BaseTest, IDisposable
 
     protected void DebugReader(SqliteDataReader reader)
     {
+        if (Output == null) throw new Exception("Pass ITestOutputHelper in constructor first!");
         if (!reader.HasRows) return;
 
         var stringBuilder = new StringBuilder("|");

@@ -1,0 +1,75 @@
+@page "/"
+<div id="container" @ref="containerRef" @onkeypress="evt => HandleKeyPress(evt)">
+@for(byte row=0; row<game.board.GetLength(0); row++)
+{
+    <div class="row">
+    @for(byte col=0; col<game.board.GetLength(1); col++)
+    {
+        <div class="grid @determineClass(row, col)"></div>
+    }
+    </div>
+}
+</div>
+<style>
+    .grid {
+        width: 1vh;
+        height: 1vw;
+        min-width: 50px;
+        min-height: 50px;
+        border-width: 2px;
+        border: 1px solid grey;
+    }
+    .grid-empty {
+        background-color: black;
+    }
+    .grid-shape {
+        background-color: yellow;
+    }
+</style>
+
+@inject IJSRuntime JSRuntime
+@implements IObserver<int[,]>
+@code
+{
+    ElementReference? containerRef;
+    TetrisGame game = new TetrisGame();
+
+    void HandleKeyPress(KeyboardEventArgs args) 
+    {
+        Console.WriteLine($"key: {args.Key}");
+        if(args.Key == "ArrowDown")
+        {
+            game.HandleControl(KeyCommand.Down);
+        }
+    }
+    private async Task FocusContainer()
+    {
+        await JSRuntime.InvokeVoidAsync("BlazorExtensions.FocusElement", containerRef);
+    }
+    string determineClass(int row, int col)
+    {
+        if (game.board[row, col] == 0) return "grid-empty";
+        return "grid-shape";
+    }
+    protected override void OnInitialized()
+    {
+        _ = FocusContainer();
+        ResetGame();
+    }
+    void ResetGame()
+    {
+        game.Subscribe(this);
+        _ = game.Start();
+    }
+    public void OnNext(int[,] board) 
+    {
+        StateHasChanged();
+    }
+    public void OnCompleted() 
+    {
+        game.Unsubcribe(this);
+        game.Dispose();
+        _ = JSRuntime.InvokeVoidAsync("alert", "Game Over");
+    }
+    public void OnError(Exception e) { Console.WriteLine(e); }
+}

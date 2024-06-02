@@ -1,5 +1,5 @@
 @page "/"
-<div id="container" @ref="containerRef" @onkeypress="evt => HandleKeyPress(evt)">
+<div id="container">
 @for(byte row=0; row<game.board.GetLength(0); row++)
 {
     <div class="row">
@@ -10,6 +10,8 @@
     </div>
 }
 </div>
+<input id="control-capture" type="text" tabindex="0" @ref="controlRef" @onkeydown="evt => HandleKeyPress(evt)" 
+value="you shouldn't see me" style="opacity: 0;">
 <style>
     .grid {
         width: 1vh;
@@ -31,29 +33,34 @@
 @implements IObserver<int[,]>
 @code
 {
-    ElementReference? containerRef;
+    ElementReference? controlRef;
     TetrisGame game = new TetrisGame();
 
-    void HandleKeyPress(KeyboardEventArgs args) 
+    async Task HandleKeyPress(KeyboardEventArgs args) 
     {
+        await JSRuntime.InvokeVoidAsync("BlazorExtensions.PreventDefault", args);
         Console.WriteLine($"key: {args.Key}");
-        if(args.Key == "ArrowDown")
+        if(args.Key == "s")
         {
             game.HandleControl(KeyCommand.Down);
         }
     }
     private async Task FocusContainer()
     {
-        await JSRuntime.InvokeVoidAsync("BlazorExtensions.FocusElement", containerRef);
+        Console.WriteLine($"FocusContainer");
+        await JSRuntime.InvokeVoidAsync("BlazorExtensions.FocusElement", controlRef);
     }
     string determineClass(int row, int col)
     {
         if (game.board[row, col] == 0) return "grid-empty";
         return "grid-shape";
     }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender) await FocusContainer();
+    }
     protected override void OnInitialized()
     {
-        _ = FocusContainer();
         ResetGame();
     }
     void ResetGame()

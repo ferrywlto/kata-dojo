@@ -34,7 +34,12 @@
 <script>
 window.BlazorExtensions = {
     FocusElement: function (element) {
+        console.log("focused");
         element.focus();
+    },
+    PreventDefault: function (e) {
+        console.log("prevent default", e);
+        event.preventDefault();
     }
 };
 </script>

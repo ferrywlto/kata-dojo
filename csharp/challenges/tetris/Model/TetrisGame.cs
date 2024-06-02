@@ -41,6 +41,26 @@ public class TetrisGame : IObservable<int[,]>, IDisposable
             currentShape.GoDown();
             StateHasChanged();
         }
+        else if(command == KeyCommand.Left)
+        {
+            currentShape.GoLeft();
+            StateHasChanged();
+        }
+        else if(command == KeyCommand.Right)
+        {
+            currentShape.GoRight();
+            StateHasChanged();
+        }
+        else if(command == KeyCommand.RotateLeft)
+        {
+            currentShape.RotateLeft();
+            StateHasChanged();
+        }
+        else if(command == KeyCommand.RotateRight)
+        {
+            currentShape.RotateRight();
+            StateHasChanged();
+        }
     }
     public IDisposable Subscribe(IObserver<int[,]> observer)
     {

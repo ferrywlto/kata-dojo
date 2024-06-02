@@ -39,10 +39,13 @@ value="you shouldn't see me" style="opacity: 0;">
     async Task HandleKeyPress(KeyboardEventArgs args) 
     {
         await JSRuntime.InvokeVoidAsync("BlazorExtensions.PreventDefault", args);
-        Console.WriteLine($"key: {args.Key}");
-        if(args.Key == "s")
-        {
-            game.HandleControl(KeyCommand.Down);
+
+        switch(args.Key) {
+            case "s": game.HandleControl(KeyCommand.Down); break;
+            case "a": game.HandleControl(KeyCommand.Left); break;
+            case "d": game.HandleControl(KeyCommand.Right); break;
+            case "q": game.HandleControl(KeyCommand.RotateLeft); break;
+            case "e": game.HandleControl(KeyCommand.RotateRight); break;
         }
     }
     private async Task FocusContainer()

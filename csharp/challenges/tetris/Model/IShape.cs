@@ -5,4 +5,5 @@
         void GoRight();
         void RotateLeft();
         void RotateRight();
+        Condition GetCondition();
     }

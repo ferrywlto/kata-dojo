@@ -12,4 +12,7 @@ public abstract class Shape : IShape
     public abstract void GoRight();
     public abstract void RotateLeft();
     public abstract void RotateRight();
+    public abstract Condition GetCondition();
 }
+
+public enum Condition { Free, Bottom, Stuck, Lose } 

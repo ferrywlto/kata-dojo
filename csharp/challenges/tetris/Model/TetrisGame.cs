@@ -21,6 +21,17 @@ public class TetrisGame : IObservable<int[,]>, IDisposable
         {
             Console.WriteLine($"loop");
             currentShape.GoDown();
+            switch(currentShape.GetCondition())
+            {
+                case Condition.Bottom:
+                case Condition.Stuck:
+                    NotifyStuck();
+                    break;
+                case Condition.Lose:
+                    NotifyLost();
+                    break;
+                default: break;
+            }
             StateHasChanged();
         }  
     }

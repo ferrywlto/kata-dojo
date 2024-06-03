@@ -1,9 +1,14 @@
 
 class Q1068_ProductSalesAnalysis : SqlQuestion
 {
+    // The T-SQL test cases on leetcode is broken, it still timeout as most other developers encountered.
+    // Not even success after manually applying index.
+    // The same SQL passes all test cases for MySQL 
     public override string Query =>
     """
-    SELECT 1;
+    SELECT p.product_name, s.year, s.price
+    FROM Sales s left join Product p
+    ON s.product_id = p.product_id;
     """;
 }
 class Q1068_ProductSalesAnalysisTestData : TestData

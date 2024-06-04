@@ -3,7 +3,10 @@ class Q1075_ProjectEmployees : SqlQuestion
 {
     public override string Query => 
     """
-    SELECT 1;
+    select p.project_id, ROUND(AVG(e.experience_years), 2) as average_years
+    from Project p left join Employee e
+    on p.employee_id = e.employee_id
+    group by p.project_id;
     """;
 }
 class Q1075_ProjectEmployeesTestData : TestData
@@ -48,5 +51,13 @@ public class Q1075_ProjectEmployeesTests(ITestOutputHelper output) : SqlTest(out
         Assert.True(reader.HasRows);
         Assert.Equal("project_id", reader.GetName(0));
         Assert.Equal("average_years", reader.GetName(1));
+
+        Assert.True(reader.Read());
+        Assert.Equal(1, reader.GetInt32(0));
+        Assert.Equal(2, reader.GetDouble(1));
+
+        Assert.True(reader.Read());
+        Assert.Equal(2, reader.GetInt32(0));
+        Assert.Equal(2.5, reader.GetDouble(1));
     }
 }

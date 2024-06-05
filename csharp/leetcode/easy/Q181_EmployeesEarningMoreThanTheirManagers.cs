@@ -25,7 +25,7 @@ class Q181_EmployeesEarningMoreThanTheirManagersTestData : TestData
         ],
     ];
 }
-
+[Trait("QuestionType", "SQL")]
 public class Q181_EmployeesEarningMoreThanTheirManagersTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
@@ -42,9 +42,8 @@ public class Q181_EmployeesEarningMoreThanTheirManagersTests(ITestOutputHelper o
         var sut = new Q181_EmployeesEarningMoreThanTheirManagers();
 
         var reader = ExecuteQuery(sut.Query);
+        AssertResultSchema(reader, ["Employee"]);
 
-        Assert.True(reader.HasRows);
-        Assert.Equal(1, reader.FieldCount);
         Assert.True(reader.Read());
         Assert.Equal("Joe", reader.GetString(0));
     }

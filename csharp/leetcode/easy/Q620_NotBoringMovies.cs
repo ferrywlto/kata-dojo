@@ -24,7 +24,7 @@ class Q620_NotBoringMoviesTestData : TestData
         """
     ]];
 }
-
+[Trait("QuestionType", "SQL")]
 public class Q620_NotBoringMoviesTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema => 
@@ -40,13 +40,7 @@ public class Q620_NotBoringMoviesTests(ITestOutputHelper output) : SqlTest(outpu
 
         var sut = new Q620_NotBoringMovies();
         var reader = ExecuteQuery(sut.Query, true);
-
-        Assert.True(reader.HasRows);
-        Assert.Equal(4, reader.FieldCount);
-        Assert.Equal("id", reader.GetName(0));
-        Assert.Equal("movie", reader.GetName(1));
-        Assert.Equal("description", reader.GetName(2));
-        Assert.Equal("rating", reader.GetName(3));
+        AssertResultSchema(reader, ["id", "movie", "description", "rating"]);
 
         Assert.True(reader.Read());
         Assert.Equal(5, reader.GetInt32(0));

@@ -27,7 +27,7 @@ class Q596_ClassesMoreThanFiceStudentsTestData : TestData
         """
     ]];
 }
-
+[Trait("QuestionType", "SQL")]
 public class Q596_ClassesMoreThanFiceStudentsTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
@@ -43,10 +43,7 @@ public class Q596_ClassesMoreThanFiceStudentsTests(ITestOutputHelper output) : S
 
         var sut = new Q596_ClassesMoreThanFiceStudents();
         var reader = ExecuteQuery(sut.Query);
-
-        Assert.True(reader.HasRows);
-        Assert.Equal(1, reader.FieldCount);
-        Assert.Equal("class", reader.GetName(0));
+        AssertResultSchema(reader, ["class"]);
 
         Assert.True(reader.Read());
         Assert.Equal("Math", reader.GetString(0));

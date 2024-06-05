@@ -24,7 +24,7 @@ class Q586_CustomerPlacingLargestNumberOrdersTestData : TestData
         """
     ]];
 }
-
+[Trait("QuestionType", "SQL")]
 public class Q586_CustomerPlacingLargestNumberOrdersTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema => 
@@ -40,10 +40,7 @@ public class Q586_CustomerPlacingLargestNumberOrdersTests(ITestOutputHelper outp
 
         var sut = new Q586_CustomerPlacingLargestNumberOrders();
         var reader = ExecuteQuery(sut.Query, true);
-
-        Assert.True(reader.HasRows);
-        Assert.Equal(1, reader.FieldCount);
-        Assert.Equal("customer_number", reader.GetName(0));
+        AssertResultSchema(reader, ["customer_number"]);
 
         Assert.True(reader.Read());
         Assert.Equal(3, reader.GetInt32(0));

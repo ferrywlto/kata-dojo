@@ -1,4 +1,7 @@
 
+using System.ComponentModel;
+using Xunit;
+
 class Q1084_SalesAnalysisIII : SqlQuestion
 {
     public override string Query =>
@@ -38,6 +41,7 @@ class Q1084_SalesAnalysisIIITestData : TestData
         ]
     ];
 }
+[Trait("QuestionType", "SQL")]
 public class Q1084_SalesAnalysisIIITests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema => 
@@ -54,11 +58,7 @@ public class Q1084_SalesAnalysisIIITests(ITestOutputHelper output) : SqlTest(out
 
         var sut = new Q1084_SalesAnalysisIII();
         var reader = ExecuteQuery(sut.Query, true);
-
-        Assert.True(reader.HasRows);
-        Assert.Equal(2, reader.FieldCount);
-        Assert.Equal("product_id", reader.GetName(0));
-        Assert.Equal("product_name", reader.GetName(1));
+        AssertResultSchema(reader, ["product_id", "product_name"]);
 
         Assert.True(reader.Read());
         Assert.Equal(1, reader.GetInt32(0));

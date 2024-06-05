@@ -21,7 +21,7 @@ class Q182_DuplicateEmailsTestData : TestData
         """
     ]];
 }
-
+[Trait("QuestionType", "SQL")]
 public class Q182_DuplicateEmailsTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
@@ -34,13 +34,10 @@ public class Q182_DuplicateEmailsTests(ITestOutputHelper output) : SqlTest(outpu
     public override void OfficialTestCases(string input)
     {
         ArrangeTestData(input);
-
         var sut = new Q182_DuplicateEmails();
-
         var reader = ExecuteQuery(sut.Query);
 
-        Assert.True(reader.HasRows);
-        Assert.Equal(1, reader.FieldCount);
+        AssertResultSchema(reader, ["email"]);
         Assert.True(reader.Read());
         Assert.Equal("a@b.com", reader.GetString(0));
     }

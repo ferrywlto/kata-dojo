@@ -35,7 +35,15 @@ public abstract class SqlTest : BaseTest, IDisposable
         }
         return CreateCommand(Sql).ExecuteReader();
     }
-
+    protected void AssertResultSchema(SqliteDataReader reader, string[] fieldNames)
+    {
+        Assert.True(reader.HasRows);
+        Assert.Equal(fieldNames.Length, reader.FieldCount);
+        for(var i=0; i<fieldNames.Length; i++)
+        {
+            Assert.Equal(fieldNames[i], reader.GetName(i));
+        }
+    }
 
     protected void DebugReader(SqliteDataReader reader)
     {

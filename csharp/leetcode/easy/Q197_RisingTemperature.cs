@@ -22,7 +22,7 @@ class Q197_RisingTemperatureTestData : TestData
         """
     ]];
 }
-
+[Trait("QuestionType", "SQL")]
 public class Q197_RisingTemperatureTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
@@ -37,12 +37,13 @@ public class Q197_RisingTemperatureTests(ITestOutputHelper output) : SqlTest(out
         ArrangeTestData(input);
 
         var sut = new Q197_RisingTemperature();
-        var result = ExecuteQuery(sut.Query);
+        var reader = ExecuteQuery(sut.Query);
+        AssertResultSchema(reader, ["id"]);
+        
+        Assert.True(reader.Read());
+        Assert.Equal(2, reader.GetInt32(0));
 
-        Assert.True(result.Read());
-        Assert.Equal(2, result.GetInt32(0));
-
-        Assert.True(result.Read());
-        Assert.Equal(4, result.GetInt32(0));
+        Assert.True(reader.Read());
+        Assert.Equal(4, reader.GetInt32(0));
     }
 }

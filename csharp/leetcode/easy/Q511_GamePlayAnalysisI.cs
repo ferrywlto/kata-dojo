@@ -5,7 +5,7 @@ class Q511_GamePlayAnalysis1 : SqlQuestion
 {
     public override string Query =>
     """
-    SELECT player_id, MIN(event_date) 
+    SELECT player_id, MIN(event_date) as min_date
     FROM Activity
     GROUP BY player_id;
     """;
@@ -25,7 +25,7 @@ class Q511_GamePlayAnalysis1TestData : TestData
         """
     ]];
 }
-
+[Trait("QuestionType", "SQL")]
 public class Q511_GamePlayAnalysis1Tests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
@@ -43,16 +43,10 @@ public class Q511_GamePlayAnalysis1Tests(ITestOutputHelper output) : SqlTest(out
 
         var reader = ExecuteQuery(sut.Query);
 
-        AssertResultSchema(reader);
+        AssertResultSchema(reader, ["player_id", "min_date"]);
         AssertRow(reader, 1, new DateTime(2016, 3, 1));
         AssertRow(reader, 2, new DateTime(2017, 6, 25));
         AssertRow(reader, 3, new DateTime(2016, 3, 2));
-    }
-
-    private void AssertResultSchema(SqliteDataReader reader)
-    {
-        Assert.True(reader.HasRows);
-        Assert.Equal(2, reader.FieldCount);
     }
 
     private void AssertRow(IDataReader reader, int playerId, DateTime firstLogin)

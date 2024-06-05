@@ -41,7 +41,7 @@ class Q607_SalesPersonTestData : TestData
         """
     ]];
 }
-
+[Trait("QuestionType", "SQL")]
 public class Q607_SalesPersonTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema => 
@@ -59,10 +59,7 @@ public class Q607_SalesPersonTests(ITestOutputHelper output) : SqlTest(output)
 
         var sut = new Q607_SalesPerson();
         var reader = ExecuteQuery(sut.Query);
-
-        Assert.True(reader.HasRows);
-        Assert.Equal(1, reader.FieldCount);
-        Assert.Equal("name", reader.GetName(0));
+        AssertResultSchema(reader, ["name"]);
 
         Assert.True(reader.Read());
         Assert.Equal("Amy", reader.GetString(0));

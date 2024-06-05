@@ -25,7 +25,7 @@ class Q196_DeleteDuplicateEmailsTestData : TestData
         """
     ]];
 }
-
+[Trait("QuestionType", "SQL")]
 public class Q196_DeleteDuplicateEmailsTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
@@ -43,14 +43,15 @@ public class Q196_DeleteDuplicateEmailsTests(ITestOutputHelper output) : SqlTest
         var deleteCount = ExecuteCommand(sut.Query);
         Assert.Equal(1, deleteCount);
 
-        var result = ExecuteQuery("SELECT * FROM Person;");
+        var reader = ExecuteQuery("SELECT * FROM Person;");
+        AssertResultSchema(reader, ["id", "email"]);
+        
+        Assert.True(reader.Read());
+        Assert.Equal(1, reader.GetInt32(0));
+        Assert.Equal("john@example.com", reader.GetString(1));
 
-        Assert.True(result.Read());
-        Assert.Equal(1, result.GetInt32(0));
-        Assert.Equal("john@example.com", result.GetString(1));
-
-        Assert.True(result.Read());
-        Assert.Equal(2, result.GetInt32(0));
-        Assert.Equal("bob@example.com", result.GetString(1));
+        Assert.True(reader.Read());
+        Assert.Equal(2, reader.GetInt32(0));
+        Assert.Equal("bob@example.com", reader.GetString(1));
     }
 }

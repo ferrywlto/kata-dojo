@@ -26,7 +26,7 @@ class Q627_SwapSalaryTestData : TestData
         """
     ]];
 }
-
+[Trait("QuestionType", "SQL")]
 public class Q627_SwapSalaryTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema => 
@@ -43,7 +43,7 @@ public class Q627_SwapSalaryTests(ITestOutputHelper output) : SqlTest(output)
         var sut = new Q627_SwapSalary();
         ExecuteCommand(sut.Query);
         var reader = ExecuteQuery("SELECT * FROM Salary", true);
-
+        AssertResultSchema(reader, ["id","name","sex","salary"]);
         AssertReader(reader);
     }
 

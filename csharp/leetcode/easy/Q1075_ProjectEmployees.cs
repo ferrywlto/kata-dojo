@@ -31,6 +31,7 @@ class Q1075_ProjectEmployeesTestData : TestData
         ]
     ];
 }
+[Trait("QuestionType", "SQL")]
 public class Q1075_ProjectEmployeesTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema => 
@@ -47,10 +48,7 @@ public class Q1075_ProjectEmployeesTests(ITestOutputHelper output) : SqlTest(out
 
         var sut = new Q1075_ProjectEmployees();
         var reader = ExecuteQuery(sut.Query, true);
-
-        Assert.True(reader.HasRows);
-        Assert.Equal("project_id", reader.GetName(0));
-        Assert.Equal("average_years", reader.GetName(1));
+        AssertResultSchema(reader, ["project_id", "average_years"]);
 
         Assert.True(reader.Read());
         Assert.Equal(1, reader.GetInt32(0));

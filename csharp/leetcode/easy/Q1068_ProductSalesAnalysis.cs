@@ -30,6 +30,7 @@ class Q1068_ProductSalesAnalysisTestData : TestData
         ]
     ];
 }
+[Trait("QuestionType", "SQL")]
 public class Q1068_ProductSalesAnalysisTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
@@ -46,12 +47,7 @@ public class Q1068_ProductSalesAnalysisTests(ITestOutputHelper output) : SqlTest
 
         var sut = new Q1068_ProductSalesAnalysis();
         var reader = ExecuteQuery(sut.Query, true);
-
-        Assert.True(reader.HasRows);
-        Assert.Equal(3, reader.FieldCount);
-        Assert.Equal("product_name", reader.GetName(0));
-        Assert.Equal("year", reader.GetName(1));
-        Assert.Equal("price", reader.GetName(2));
+        AssertResultSchema(reader, ["product_name", "year", "price"]);
 
         Assert.True(reader.Read());
         Assert.Equal("Nokia", reader.GetString(0));

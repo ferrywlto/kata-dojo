@@ -27,7 +27,7 @@ class Q577_EmployeeBonusTestData : TestData
         """
     ]];
 }
-
+[Trait("QuestionType", "SQL")]
 public class Q577_EmployeeBonusTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
@@ -44,9 +44,7 @@ public class Q577_EmployeeBonusTests(ITestOutputHelper output) : SqlTest(output)
 
         var sut = new Q577_EmployeeBonus();
         var reader = ExecuteQuery(sut.Query);
-
-        Assert.True(reader.HasRows);
-        Assert.Equal(2, reader.FieldCount);
+        AssertResultSchema(reader, ["name", "bonus"]);
 
         Assert.True(reader.Read());
         Assert.Equal("Brad", reader.GetString(0));

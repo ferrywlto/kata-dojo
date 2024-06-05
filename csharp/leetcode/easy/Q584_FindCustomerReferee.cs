@@ -24,7 +24,7 @@ class Q584_FindCustomerRefereeTestData : TestData
         """
     ]];
 }
-
+[Trait("QuestionType", "SQL")]
 public class Q584_FindCustomerRefereeTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
@@ -40,9 +40,7 @@ public class Q584_FindCustomerRefereeTests(ITestOutputHelper output) : SqlTest(o
 
         var sut = new Q584_FindCustomerReferee();
         var reader = ExecuteQuery(sut.Query);
-
-        Assert.True(reader.HasRows);
-        Assert.Equal(1, reader.FieldCount);
+        AssertResultSchema(reader, ["name"]);
 
         Assert.True(reader.Read());
         Assert.Equal("Will", reader.GetString(0));

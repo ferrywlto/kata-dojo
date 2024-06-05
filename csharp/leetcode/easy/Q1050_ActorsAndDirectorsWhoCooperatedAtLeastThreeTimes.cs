@@ -26,6 +26,7 @@ class Q1050_ActorsAndDirectorsWhoCooperatedAtLeastThreeTimesTestData : TestData
         ],
     ];
 }
+[Trait("QuestionType", "SQL")]
 public class Q1050_ActorsAndDirectorsWhoCooperatedAtLeastThreeTimesTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
@@ -41,11 +42,7 @@ public class Q1050_ActorsAndDirectorsWhoCooperatedAtLeastThreeTimesTests(ITestOu
 
         var sut = new Q1050_ActorsAndDirectorsWhoCooperatedAtLeastThreeTimes();
         var reader = ExecuteQuery(sut.Query);
-
-        Assert.True(reader.HasRows);
-        Assert.Equal(2, reader.FieldCount);
-        Assert.Equal("actor_id", reader.GetName(0));
-        Assert.Equal("director_id", reader.GetName(1));
+        AssertResultSchema(reader, ["actor_id", "director_id"]);
 
         Assert.True(reader.Read());
         Assert.Equal(1, reader.GetInt32(0));

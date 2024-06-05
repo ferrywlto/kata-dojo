@@ -29,7 +29,7 @@ class Q183_CustomersWhoNeverOrderTestData : TestData
         """
     ]];
 }
-
+[Trait("QuestionType", "SQL")]
 public class Q183_CustomersWhoNeverOrderTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
@@ -43,18 +43,13 @@ public class Q183_CustomersWhoNeverOrderTests(ITestOutputHelper output) : SqlTes
     public override void OfficialTestCases(string input)
     {
         ArrangeTestData(input);
-
         var sut = new Q183_CustomersWhoNeverOrder();
-
         var reader = ExecuteQuery(sut.Query);
 
-        Assert.True(reader.HasRows);
-        Assert.Equal(1, reader.FieldCount);
-        Assert.Equal("Customers", reader.GetName(0));
-
+        AssertResultSchema(reader, ["Customers"]);
         Assert.True(reader.Read());
         Assert.Equal("Henry", reader.GetString(0));
-
+        
         Assert.True(reader.Read());
         Assert.Equal("Max", reader.GetString(0));
     }

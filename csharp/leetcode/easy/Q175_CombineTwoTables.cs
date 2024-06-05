@@ -24,7 +24,7 @@ class Q175_CombineTwoTablesTestData : TestData
         """
     ]];
 }
-
+[Trait("QuestionType", "SQL")]
 public class Q175_CombineTwoTablesTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
@@ -42,7 +42,7 @@ public class Q175_CombineTwoTablesTests(ITestOutputHelper output) : SqlTest(outp
         var sut = new Q175_CombineTwoTables();
         var reader = ExecuteQuery(sut.Query);
 
-        Assert.True(reader.HasRows);
+        AssertResultSchema(reader, ["firstName", "lastName", "city", "state"]);
 
         Assert.True(reader.Read());
         Assert.Equal("Allen", reader.GetString(0));

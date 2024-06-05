@@ -23,7 +23,7 @@ class Q595_BigCountriesTestData : TestData
         """
     ]];
 }
-
+[Trait("QuestionType", "SQL")]
 public class Q595_BigCountriesTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
@@ -39,12 +39,7 @@ public class Q595_BigCountriesTests(ITestOutputHelper output) : SqlTest(output)
 
         var sut = new Q595_BigCountries();
         var reader = ExecuteQuery(sut.Query);
-
-        Assert.True(reader.HasRows);
-        Assert.Equal(3, reader.FieldCount);
-        Assert.Equal("name", reader.GetName(0));
-        Assert.Equal("population", reader.GetName(1));
-        Assert.Equal("area", reader.GetName(2));
+        AssertResultSchema(reader, ["name", "population", "area"]);
 
         Assert.True(reader.Read());
         Assert.Equal("Afghanistan", reader.GetString(0));

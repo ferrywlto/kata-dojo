@@ -24,7 +24,7 @@ class Q610_TriangleJudgementTestData : TestData
         """
     ]];
 }
-
+[Trait("QuestionType", "SQL")]
 public class Q610_TriangleJudgementTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
@@ -40,13 +40,7 @@ public class Q610_TriangleJudgementTests(ITestOutputHelper output) : SqlTest(out
 
         var sut = new Q610_TriangleJudgement();
         var reader = ExecuteQuery(sut.Query, true);
-
-        Assert.True(reader.HasRows);
-        Assert.Equal(4, reader.FieldCount);
-        Assert.Equal("x", reader.GetName(0));
-        Assert.Equal("y", reader.GetName(1));
-        Assert.Equal("z", reader.GetName(2));
-        Assert.Equal("triangle", reader.GetName(3));
+        AssertResultSchema(reader, ["x", "y", "z", "triangle"]);
 
         Assert.True(reader.Read());
         Assert.Equal("No", reader.GetString(3));

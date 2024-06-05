@@ -3,7 +3,20 @@ class Q1084_SalesAnalysisIII : SqlQuestion
 {
     public override string Query =>
     """
-    SELECT 1;
+    SELECT DISTINCT * FROM
+    (
+        SELECT p.product_id, p.product_name 
+        FROM Sales s LEFT JOIN Product p
+        ON s.product_id = p.product_id
+        WHERE sale_date >= '2019-01-01' and sale_date <= '2019-03-31'
+    ) t1
+    WHERE t1.product_id NOT IN
+    (
+        SELECT p.product_id
+        FROM Sales s LEFT JOIN Product p
+        ON s.product_id = p.product_id
+        WHERE sale_date < '2019-01-01' OR sale_date > '2019-03-31'
+    );
     """;
 }
 class Q1084_SalesAnalysisIIITestData : TestData

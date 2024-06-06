@@ -1,9 +1,27 @@
 
 class Q1089_DuplicateZeros
 {
+    // TC: O(n), used queue to limit operations complete in 2 pass, one for duplicate the zeros, one for copying them back
+    // SC: O(n), length of arr
     public void DuplicateZeros(int[] arr) 
     {
-
+        // it will use more memory but can avoid O(n!) time, down to O(2n)
+        var queue = new Queue<int>();
+        var idx = 0;
+        while(queue.Count < arr.Length)
+        {
+            if (arr[idx] != 0) queue.Enqueue(arr[idx]);
+            else {
+                if(queue.Count < arr.Length) queue.Enqueue(0);
+                if(queue.Count < arr.Length) queue.Enqueue(0);
+            }
+            idx++;
+        }
+        idx = 0;
+        while(queue.Count > 0)
+        {
+            arr[idx++] = queue.Dequeue();
+        }
     }    
 }
 class Q1089_DuplicateZerosTestData : TestData

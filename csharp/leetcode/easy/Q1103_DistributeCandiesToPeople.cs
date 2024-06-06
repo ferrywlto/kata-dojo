@@ -1,8 +1,31 @@
-
 class Q1103_DistributeCandiesToPeople
 {
-    public int[] DistributeCandies(int candies, int num_people) {
-        return [];
+
+    // TC: O(n), n is num_people
+    // SC: O(n), n is num_people to store the result 
+    public int[] DistributeCandies(int candies, int num_people) 
+    {
+        if (num_people == 1) return [candies];
+        var result = new int[num_people];
+        var give = 1;
+        while(candies > 0)
+        {
+            for(var i=0; i<result.Length; i++)
+            {
+                if(give <= candies) 
+                {
+                    result[i] += give;
+                    candies -= give;
+                    give++;
+                }
+                else 
+                {
+                    result[i] += candies;
+                    candies = 0;
+                }
+            }
+        }
+        return result;
     }    
 }
 class Q1103_DistributeCandiesToPeopleTestData : TestData

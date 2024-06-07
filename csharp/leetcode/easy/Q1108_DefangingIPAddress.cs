@@ -1,8 +1,10 @@
 class Q1108_DefangingIPAddress
 {
+    // TC: O(1) as processing any IP has the constant time
+    // SC: O(1) same as above 
     public string DefangIPaddr(string address)
     {
-        return string.Empty;
+        return address.Replace(".", "[.]");
     }
 }
 class Q1108_DefangingIPAddressTestData : TestData

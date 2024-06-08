@@ -21,7 +21,24 @@ public abstract class Foo
 
 class Q1114_PrintInOrder : Foo
 {
-
+    protected int step = 0;
+    public override void First(Action printFirst)
+    {
+        base.First(printFirst);
+        step++;
+    }
+    public override void Second(Action printSecond)
+    {
+        while(step <= 0) Thread.Sleep(1);
+        base.Second(printSecond);
+        step++;
+    }
+    public override void Third(Action printThird)
+    {
+        while(step <= 1) Thread.Sleep(1);
+        base.Third(printThird);
+        step++;
+    }
 }
 class Q1114_PrintInOrderTestData : TestData
 {

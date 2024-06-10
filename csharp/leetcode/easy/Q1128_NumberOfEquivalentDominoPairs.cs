@@ -18,6 +18,34 @@ class Q1128_NumberOfEquivalentDominoPairs
         }
         return pairs;
     }
+    // TC: O(n)
+    // SC: O(n)
+    public int NumEquivDominoPairs_Faster(int[][] dominoes)
+    {
+        var count = new Dictionary<(int, int), int>();
+        var pairs = 0;
+
+        foreach (var domino in dominoes)
+        {
+            var sorted = domino[0] < domino[1] 
+            ? (domino[0], domino[1]) 
+            : (domino[1], domino[0]);
+
+            if (count.TryGetValue(sorted, out int value))
+            {
+                // every new input will create a pair for each existing one
+                // first entry -> no pair
+                // second entry -> 1 pair with 1st entry
+                // third entry -> 1 pair with 1st entry and 1 pair with 2nd entry and so on... 
+                pairs += value; 
+                count[sorted] = ++value;
+            }
+            else count[sorted] = 1;
+        }
+
+        return pairs;
+    }
+
 }
 class Q1128_NumberOfEquivalentDominoPairsTestData : TestData
 {
@@ -34,7 +62,7 @@ public class Q1128_NumberOfEquivalentDominoPairsTests
     public void OfficialTestCases(int[][] input, int expected)
     {
         var sut = new Q1128_NumberOfEquivalentDominoPairs();
-        var actual = sut.NumEquivDominoPairs(input);
+        var actual = sut.NumEquivDominoPairs_Faster(input);
         Assert.Equal(expected, actual);
     }
 }

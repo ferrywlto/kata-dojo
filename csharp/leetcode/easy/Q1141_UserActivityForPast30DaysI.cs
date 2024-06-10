@@ -3,8 +3,28 @@ class Q1141_UserActivityForPast30DaysI : SqlQuestion
 {
     public override string Query => 
     """
-    SELECT 1;
+    SELECT activity_date as day, count(user_id) as active_users 
+    FROM 
+        (
+            select distinct user_id, activity_date from Activity
+            WHERE activity_date <= '2019-07-27'
+            AND activity_date > date('2019-07-27', '-30 days')
+        )
+    GROUP BY activity_date;
     """;
+    /* T-SQL
+    """
+    SELECT activity_date as day, count(user_id) as active_users 
+    FROM 
+        (
+            SELECT DISTINCT user_id, activity_date 
+            FROM Activity
+            WHERE activity_date <= '2019-07-27'
+            AND activity_date > DATEADD(day, -30, '2019-07-27')
+        ) AS subquery
+    GROUP BY activity_date;
+    """
+    */
 }
 class Q1141_UserActivityForPast30DaysITestData : TestData
 {

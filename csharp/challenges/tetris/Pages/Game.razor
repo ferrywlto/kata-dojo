@@ -1,9 +1,9 @@
 @page "/"
 <div id="container">
-@for(byte row=0; row<game.board.GetLength(0); row++)
+@for(byte row=0; row<game.board.Count; row++)
 {
     <div class="row">
-    @for(byte col=0; col<game.board.GetLength(1); col++)
+    @for(byte col=0; col<game.board[0].Length; col++)
     {
         <div class="grid @determineClass(row, col)"></div>
     }
@@ -30,7 +30,7 @@ value="you shouldn't see me" style="opacity: 0;">
 </style>
 
 @inject IJSRuntime JSRuntime
-@implements IObserver<int[,]>
+@implements IObserver<List<int[]>>
 @code
 {
     ElementReference? controlRef;
@@ -55,7 +55,7 @@ value="you shouldn't see me" style="opacity: 0;">
     }
     string determineClass(int row, int col)
     {
-        if (game.board[row, col] == 0) return "grid-empty";
+        if (game.board[row][col] == 0) return "grid-empty";
         return "grid-shape";
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -71,7 +71,7 @@ value="you shouldn't see me" style="opacity: 0;">
         game.Subscribe(this);
         _ = game.Start();
     }
-    public void OnNext(int[,] board) 
+    public void OnNext(List<int[]> board) 
     {
         StateHasChanged();
     }

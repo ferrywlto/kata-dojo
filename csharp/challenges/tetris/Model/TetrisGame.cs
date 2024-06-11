@@ -1,15 +1,22 @@
-using System.IO.Compression;
-
-public class TetrisGame : IObservable<int[,]>, IDisposable
+public class TetrisGame : IObservable<List<int[]>>, IDisposable
 {
-    public int[,] board = new int[20, 10];
-    int speed = 1000;
+    public const int EmptyCell = 0;
+    public readonly List<int[]> board = [];
+
+    int speed { get; set; } = 1000;
+    int rows { get; set; } = 20;
+    int cols { get; set; } = 10;
     PeriodicTimer? timer;
     IShape currentShape;
-    HashSet<IObserver<int[,]>> observers = [];
+    HashSet<IObserver<List<int[]>>> observers = [];
 
     public TetrisGame()
     {
+        // board = new int[rows, cols];
+        for(var i=0; i<rows; i++)
+        {
+            board.Add(new int[cols]);
+        }
         currentShape = new Square(this);
     }
     public async Task Start() 
@@ -20,7 +27,6 @@ public class TetrisGame : IObservable<int[,]>, IDisposable
         while(await timer.WaitForNextTickAsync())
         {
             Console.WriteLine($"loop");
-            currentShape.GoDown();
             switch(currentShape.GetCondition())
             {
                 case Condition.Bottom:
@@ -30,11 +36,36 @@ public class TetrisGame : IObservable<int[,]>, IDisposable
                 case Condition.Lose:
                     NotifyLost();
                     break;
-                default: break;
+                default: 
+                    currentShape.GoDown();
+                    break;
             }
+            ClearFilledLines();
             StateHasChanged();
         }  
     }
+
+    private void ClearFilledLines()
+    {
+        var clearedLines = 0;
+        var bottomRowIdx = rows - 1;
+        var currentProcessingRow = bottomRowIdx;
+        // while(currentProcessingRow >= 0)
+        // {
+
+        //     int[] row = new int[cols];
+        //     for (int i = 0; i < cols; i++)
+        //     {
+        //         row[i] = board[bottomRowIdx][i];
+        //     }
+        //     var rowFilled = row.All(x => x != EmptyCell);
+        //     if(rowFilled)
+        //     {
+                
+        //     }
+        // }
+    }
+
     public void NotifyStuck() 
     {
         currentShape = new Square(this);
@@ -73,12 +104,12 @@ public class TetrisGame : IObservable<int[,]>, IDisposable
             StateHasChanged();
         }
     }
-    public IDisposable Subscribe(IObserver<int[,]> observer)
+    public IDisposable Subscribe(IObserver<List<int[]>> observer)
     {
         observers.Add(observer);
         return this;
     }
-    public void Unsubcribe(IObserver<int[,]> observer)
+    public void Unsubcribe(IObserver<List<int[]>> observer)
     {
         observers.Remove(observer);
     }
@@ -99,6 +130,9 @@ public class TetrisGame : IObservable<int[,]>, IDisposable
         timer?.Dispose();
         observers.Clear();
     }
+
 }
 
 public enum KeyCommand { Down, Left, Right, RotateLeft, RotateRight }
+
+public enum CellType { Empty = 0, Yellow = 1}

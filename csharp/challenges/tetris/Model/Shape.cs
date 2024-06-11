@@ -5,7 +5,11 @@ public abstract class Shape : IShape
     public Shape(TetrisGame game) 
     {
         this.game = game;
-        position = new(-1, game.board.GetLength(1) / 2); 
+        SetInitialPosition();
+    }
+    public virtual void SetInitialPosition()
+    {
+        position = new(-1, (game.board[0].Length / 2) - 1);
     }
     public abstract void GoDown();
     public abstract void GoLeft();
@@ -13,6 +17,7 @@ public abstract class Shape : IShape
     public abstract void RotateLeft();
     public abstract void RotateRight();
     public abstract Condition GetCondition();
+    public abstract int ShapeValue { get; }
 }
 
 public enum Condition { Free, Bottom, Stuck, Lose } 

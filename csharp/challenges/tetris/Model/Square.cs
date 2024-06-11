@@ -1,59 +1,69 @@
 public class Square(TetrisGame game) : Shape(game)
 {
+    public override int ShapeValue => 2;
+    int BoardTopIdx => 0;
+    int BoardBottomIdx => game.board.Count - 1;
+    int BoardLeftIdx => 0;
+    int BoardRightIdx => game.board[0].Length - 1;
     public override Condition GetCondition()
     {
-        if (position.row >= game.board.GetLength(0) - 1) return Condition.Bottom;
-        if (game.board[position.row + 1, position.col] == 1
-        || game.board[position.row + 1, position.col + 1] == 1)
+        if (position.row >= BoardBottomIdx) return Condition.Bottom;
+        if (!IsEmptyBelow)
         {
             if (position.row > 0) return Condition.Stuck;
             else return Condition.Lose;
         }
         return Condition.Free;
     }
+    bool IsEmptyBelow =>
+        game.board[position.row + 1][position.col] == TetrisGame.EmptyCell &&
+        game.board[position.row + 1][position.col + 1] == TetrisGame.EmptyCell;
 
+    void ClearTopHalf() 
+    {
+        game.board[position.row - 1][position.col] = TetrisGame.EmptyCell;
+        game.board[position.row - 1][position.col + 1] = TetrisGame.EmptyCell;
+    }
+    void MoveDownOneLine()
+    {
+        game.board[position.row + 1][position.col] = ShapeValue;
+        game.board[position.row + 1][position.col + 1] = ShapeValue;
+    }
     public override void GoDown()
     {
-        if (position.row == game.board.GetLength(0) - 1) return;
+        if (position.row == BoardBottomIdx) return;
 
-        if(game.board[position.row + 1, position.col] == 0 
-        && game.board[position.row + 1, position.col + 1] == 0)
+        if (IsEmptyBelow)
         {
-            if (position.row >= 1)
-            {
-                game.board[position.row - 1, position.col] = 0;
-                game.board[position.row - 1, position.col + 1] = 0;
-            }
-
-            game.board[position.row + 1, position.col] = 1;
-            game.board[position.row + 1, position.col + 1] = 1;
+            if (position.row >= 1) ClearTopHalf();
+            MoveDownOneLine();
             position.row++;               
         }
     }
-    
+
     public override void GoLeft() 
     {
         if (position.col == 0 ) return;
 
         if(position.row >= 1)
         {
-            if(game.board[position.row - 1, position.col - 1] == 0
-            && game.board[position.row, position.col - 1] == 0)
+            if(game.board[position.row - 1][position.col - 1] == 0
+            && game.board[position.row][position.col - 1] == 0)
             {
-                game.board[position.row, position.col + 1] = 0;
-                game.board[position.row - 1, position.col + 1] = 0;
-                game.board[position.row, position.col - 1] = 1;
-                game.board[position.row - 1, position.col - 1] = 1;
+                game.board[position.row][position.col + 1] = 0;
+                game.board[position.row - 1][position.col + 1] = 0;
+                game.board[position.row][position.col - 1] = 1;
+                game.board[position.row - 1][position.col - 1] = 1;
                 position.col--;
                 game.StateHasChanged();
             }
         }
         else if(position.row == 0)
         {
-            if(game.board[position.row, position.col - 1] == 0)
+            if(game.board[position.row][position.col - 1] == 0)
             {
-                game.board[position.row, position.col + 1] = 0;
-                game.board[position.row, position.col - 1] = 1;
+                game.board[position.row][position.col + 1] = 0;
+                game.board[position.row][position.col - 1] = 1;
                 position.col--;
                 game.StateHasChanged();
             }
@@ -61,27 +71,28 @@ public class Square(TetrisGame game) : Shape(game)
     }
     public override void GoRight() 
     {
-        if (position.col == game.board.GetLength(1) - 2) return;
+        // Anchor is bottom left
+        if (position.col == BoardRightIdx - 1) return;
 
         if(position.row >= 1)
         {
-            if(game.board[position.row - 1, position.col + 2] == 0
-            && game.board[position.row, position.col + 2] == 0)
+            if(game.board[position.row - 1][position.col + 2] == 0
+            && game.board[position.row][position.col + 2] == 0)
             {
-                game.board[position.row, position.col + 2] = 1;
-                game.board[position.row - 1, position.col + 2] = 1;
-                game.board[position.row, position.col] = 0;
-                game.board[position.row - 1, position.col] = 0;
+                game.board[position.row][position.col + 2] = 1;
+                game.board[position.row - 1][position.col + 2] = 1;
+                game.board[position.row][position.col] = 0;
+                game.board[position.row - 1][position.col] = 0;
                 position.col++;
                 game.StateHasChanged();
             }
         }
         else if(position.row == 0)
         {
-            if(game.board[position.row, position.col + 2] == 0)
+            if(game.board[position.row][position.col + 2] == 0)
             {
-                game.board[position.row, position.col + 2] = 1;
-                game.board[position.row, position.col] = 0;
+                game.board[position.row][position.col + 2] = 1;
+                game.board[position.row][position.col] = 0;
                 position.col++;
                 game.StateHasChanged();
             }

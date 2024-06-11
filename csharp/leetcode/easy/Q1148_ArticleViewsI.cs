@@ -2,7 +2,10 @@ class Q1148_ArticleViewsI : SqlQuestion
 {
     public override string Query => 
     """
-    select 1;
+    select distinct viewer_id as id
+    from Views
+    where author_id = viewer_id
+    order by id asc;
     """;
 }
 class Q1148_ArticleViewsITestData : TestData

@@ -1,8 +1,11 @@
 class Q1154_DayOfTheYear
 {
+    // TC: O(1)
+    // SC: O(1)
     public int DayOfYear(string date)
     {
-        return 0;
+        var dateObj = DateOnly.ParseExact(date, "yyyy-MM-dd");
+        return dateObj.DayOfYear;
     }
 }
 class Q1154_DayOfTheYearTestData : TestData

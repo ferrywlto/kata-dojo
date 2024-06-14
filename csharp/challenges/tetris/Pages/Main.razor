@@ -1,9 +1,9 @@
 @page "/"
 <div id="container">
-@for(byte row=0; row<game.board.Count; row++)
+@for(byte row=0; row<Game.board.GetLength(0); row++)
 {
     <div class="row">
-    @for(byte col=0; col<game.board[0].Length; col++)
+    @for(byte col=0; col<Game.board.GetLength(1); col++)
     {
         <div class="grid @determineClass(row, col)"></div>
     }
@@ -30,22 +30,22 @@ value="you shouldn't see me" style="opacity: 0;">
 </style>
 
 @inject IJSRuntime JSRuntime
-@implements IObserver<List<int[]>>
+@inject TetrisGame Game
+@implements IObserver<int[,]>
 @code
 {
     ElementReference? controlRef;
-    TetrisGame game = new TetrisGame();
 
     async Task HandleKeyPress(KeyboardEventArgs args) 
     {
         await JSRuntime.InvokeVoidAsync("BlazorExtensions.PreventDefault", args);
 
         switch(args.Key) {
-            case "s": game.HandleControl(KeyCommand.Down); break;
-            case "a": game.HandleControl(KeyCommand.Left); break;
-            case "d": game.HandleControl(KeyCommand.Right); break;
-            case "q": game.HandleControl(KeyCommand.RotateLeft); break;
-            case "e": game.HandleControl(KeyCommand.RotateRight); break;
+            case "s": Game.HandleControl(KeyCommand.Down); break;
+            case "a": Game.HandleControl(KeyCommand.Left); break;
+            case "d": Game.HandleControl(KeyCommand.Right); break;
+            case "q": Game.HandleControl(KeyCommand.RotateLeft); break;
+            case "e": Game.HandleControl(KeyCommand.RotateRight); break;
         }
     }
     private async Task FocusContainer()
@@ -55,7 +55,7 @@ value="you shouldn't see me" style="opacity: 0;">
     }
     string determineClass(int row, int col)
     {
-        if (game.board[row][col] == 0) return "grid-empty";
+        if (Game.board[row, col] == TetrisGame.EmptyCell) return "grid-empty";
         return "grid-shape";
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -68,17 +68,17 @@ value="you shouldn't see me" style="opacity: 0;">
     }
     void ResetGame()
     {
-        game.Subscribe(this);
-        _ = game.Start();
+        Game.Subscribe(this);
+        _ = Game.Start();
     }
-    public void OnNext(List<int[]> board) 
+    public void OnNext(int[,] board) 
     {
         StateHasChanged();
     }
     public void OnCompleted() 
     {
-        game.Unsubcribe(this);
-        game.Dispose();
+        Game.Unsubcribe(this);
+        Game.Dispose();
         _ = JSRuntime.InvokeVoidAsync("alert", "Game Over");
     }
     public void OnError(Exception e) { Console.WriteLine(e); }

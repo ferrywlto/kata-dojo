@@ -1,10 +1,15 @@
+/*
+Anchor: bottom-left corner
+◻︎◻︎
+x◻︎
+*/
 public class Square(TetrisGame game) : Shape(game)
 {
     public override int ShapeValue => 2;
     int BoardTopIdx => 0;
-    int BoardBottomIdx => game.board.Count - 1;
+    int BoardBottomIdx => game.board.GetLength(0) - 1;
     int BoardLeftIdx => 0;
-    int BoardRightIdx => game.board[0].Length - 1;
+    int BoardRightIdx => game.board.GetLength(1) - 1;
     public override Condition GetCondition()
     {
         if (position.row >= BoardBottomIdx) return Condition.Bottom;
@@ -16,18 +21,18 @@ public class Square(TetrisGame game) : Shape(game)
         return Condition.Free;
     }
     bool IsEmptyBelow =>
-        game.board[position.row + 1][position.col] == TetrisGame.EmptyCell &&
-        game.board[position.row + 1][position.col + 1] == TetrisGame.EmptyCell;
+        game.board[position.row + 1, position.col] == TetrisGame.EmptyCell &&
+        game.board[position.row + 1, position.col + 1] == TetrisGame.EmptyCell;
 
     void ClearTopHalf() 
     {
-        game.board[position.row - 1][position.col] = TetrisGame.EmptyCell;
-        game.board[position.row - 1][position.col + 1] = TetrisGame.EmptyCell;
+        game.board[position.row - 1, position.col] = TetrisGame.EmptyCell;
+        game.board[position.row - 1, position.col + 1] = TetrisGame.EmptyCell;
     }
     void MoveDownOneLine()
     {
-        game.board[position.row + 1][position.col] = ShapeValue;
-        game.board[position.row + 1][position.col + 1] = ShapeValue;
+        game.board[position.row + 1, position.col] = ShapeValue;
+        game.board[position.row + 1, position.col + 1] = ShapeValue;
     }
     public override void GoDown()
     {
@@ -41,29 +46,31 @@ public class Square(TetrisGame game) : Shape(game)
         }
     }
 
+    bool IsHittingLeftBorder => position.col == BoardLeftIdx;
+    
     public override void GoLeft() 
     {
-        if (position.col == 0 ) return;
+        if (IsHittingLeftBorder) return;
 
         if(position.row >= 1)
         {
-            if(game.board[position.row - 1][position.col - 1] == 0
-            && game.board[position.row][position.col - 1] == 0)
+            if(game.board[position.row - 1, position.col - 1] == 0
+            && game.board[position.row, position.col - 1] == 0)
             {
-                game.board[position.row][position.col + 1] = 0;
-                game.board[position.row - 1][position.col + 1] = 0;
-                game.board[position.row][position.col - 1] = 1;
-                game.board[position.row - 1][position.col - 1] = 1;
+                game.board[position.row, position.col + 1] = 0;
+                game.board[position.row - 1, position.col + 1] = 0;
+                game.board[position.row, position.col - 1] = 1;
+                game.board[position.row - 1, position.col - 1] = 1;
                 position.col--;
                 game.StateHasChanged();
             }
         }
         else if(position.row == 0)
         {
-            if(game.board[position.row][position.col - 1] == 0)
+            if(game.board[position.row, position.col - 1] == 0)
             {
-                game.board[position.row][position.col + 1] = 0;
-                game.board[position.row][position.col - 1] = 1;
+                game.board[position.row, position.col + 1] = 0;
+                game.board[position.row, position.col - 1] = 1;
                 position.col--;
                 game.StateHasChanged();
             }
@@ -76,23 +83,23 @@ public class Square(TetrisGame game) : Shape(game)
 
         if(position.row >= 1)
         {
-            if(game.board[position.row - 1][position.col + 2] == 0
-            && game.board[position.row][position.col + 2] == 0)
+            if(game.board[position.row - 1, position.col + 2] == 0
+            && game.board[position.row, position.col + 2] == 0)
             {
-                game.board[position.row][position.col + 2] = 1;
-                game.board[position.row - 1][position.col + 2] = 1;
-                game.board[position.row][position.col] = 0;
-                game.board[position.row - 1][position.col] = 0;
+                game.board[position.row, position.col + 2] = 1;
+                game.board[position.row - 1, position.col + 2] = 1;
+                game.board[position.row, position.col] = 0;
+                game.board[position.row - 1, position.col] = 0;
                 position.col++;
                 game.StateHasChanged();
             }
         }
         else if(position.row == 0)
         {
-            if(game.board[position.row][position.col + 2] == 0)
+            if(game.board[position.row, position.col + 2] == 0)
             {
-                game.board[position.row][position.col + 2] = 1;
-                game.board[position.row][position.col] = 0;
+                game.board[position.row, position.col + 2] = 1;
+                game.board[position.row, position.col] = 0;
                 position.col++;
                 game.StateHasChanged();
             }

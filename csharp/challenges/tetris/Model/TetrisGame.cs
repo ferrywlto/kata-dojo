@@ -1,23 +1,21 @@
-public class TetrisGame : IObservable<List<int[]>>, IDisposable
+using Position = (int row, int col);
+public class TetrisGame : IObservable<int[,]>, IDisposable
 {
     public const int EmptyCell = 0;
-    public readonly List<int[]> board = [];
-
-    int speed { get; set; } = 1000;
+    public readonly int[,] board;
+    private readonly Position position; 
+    int speed { get; set; } = 500;
     int rows { get; set; } = 20;
     int cols { get; set; } = 10;
     PeriodicTimer? timer;
-    IShape currentShape;
-    HashSet<IObserver<List<int[]>>> observers = [];
+    Dot currentShape;
+    HashSet<IObserver<int[,]>> observers = [];
 
     public TetrisGame()
     {
-        // board = new int[rows, cols];
-        for(var i=0; i<rows; i++)
-        {
-            board.Add(new int[cols]);
-        }
-        currentShape = new Square(this);
+        board = new int[rows, cols];
+        currentShape = new Dot();
+        position = new Position(-1, cols / 2);
     }
     public async Task Start() 
     {
@@ -27,48 +25,44 @@ public class TetrisGame : IObservable<List<int[]>>, IDisposable
         while(await timer.WaitForNextTickAsync())
         {
             Console.WriteLine($"loop");
-            switch(currentShape.GetCondition())
+            if (!currentShape.CanGoDown(board, position.row, position.col))
             {
-                case Condition.Bottom:
-                case Condition.Stuck:
-                    NotifyStuck();
-                    break;
-                case Condition.Lose:
+                if (position.row == -1)
+                {
                     NotifyLost();
                     break;
-                default: 
-                    currentShape.GoDown();
-                    break;
+                }
+                else
+                {
+                    CreateNewShape();
+                }
             }
-            ClearFilledLines();
+            else currentShape.GoDown(board, position.row, position.col);
+
             StateHasChanged();
         }  
     }
 
-    private void ClearFilledLines()
+    void ClearBoardLine(int lineToClear)
     {
-        var clearedLines = 0;
-        var bottomRowIdx = rows - 1;
-        var currentProcessingRow = bottomRowIdx;
-        // while(currentProcessingRow >= 0)
-        // {
-
-        //     int[] row = new int[cols];
-        //     for (int i = 0; i < cols; i++)
-        //     {
-        //         row[i] = board[bottomRowIdx][i];
-        //     }
-        //     var rowFilled = row.All(x => x != EmptyCell);
-        //     if(rowFilled)
-        //     {
-                
-        //     }
-        // }
+        for (var col = 0; col < board.GetLength(1); col++)
+            board[lineToClear, col] = EmptyCell; 
     }
-
-    public void NotifyStuck() 
+    void CopyLine(int lineFrom, int lineTo)
     {
-        currentShape = new Square(this);
+        for (var col = 0; col < board.GetLength(1); col++) 
+            board[lineTo, col] = board[lineFrom, col];        
+    }
+    void CopyTilToTop(int startRow)
+    {
+        for(var i=startRow; i>0;i--)
+            CopyLine(i - i, i);
+        ClearBoardLine(0);
+    }
+    public void CreateNewShape() 
+    {
+        // currentShape = new Dot(this);
+        currentShape = new Dot();
     }
     public void NotifyLost()
     {
@@ -80,18 +74,27 @@ public class TetrisGame : IObservable<List<int[]>>, IDisposable
         Console.Write($"cmd: {command}");
         if(command == KeyCommand.Down) 
         {
-            currentShape.GoDown();
-            StateHasChanged();
+            if(currentShape.CanGoDown(board, position.row, position.col))
+            {
+                currentShape.GoDown(board, position.row, position.col);
+                StateHasChanged();
+            }
         }
         else if(command == KeyCommand.Left)
         {
-            currentShape.GoLeft();
-            StateHasChanged();
+            if(currentShape.CanGoLeft(board, position.row, position.col))
+            {
+                currentShape.GoLeft(board, position.row, position.col);
+                StateHasChanged();
+            }
         }
         else if(command == KeyCommand.Right)
         {
-            currentShape.GoRight();
-            StateHasChanged();
+            if(currentShape.CanGoRight(board, position.row, position.col))
+            {
+                currentShape.GoRight(board, position.row, position.col);
+                StateHasChanged();
+            }
         }
         else if(command == KeyCommand.RotateLeft)
         {
@@ -104,12 +107,12 @@ public class TetrisGame : IObservable<List<int[]>>, IDisposable
             StateHasChanged();
         }
     }
-    public IDisposable Subscribe(IObserver<List<int[]>> observer)
+    public IDisposable Subscribe(IObserver<int[,]> observer)
     {
         observers.Add(observer);
         return this;
     }
-    public void Unsubcribe(IObserver<List<int[]>> observer)
+    public void Unsubcribe(IObserver<int[,]> observer)
     {
         observers.Remove(observer);
     }

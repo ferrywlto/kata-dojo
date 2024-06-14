@@ -9,7 +9,7 @@ public abstract class Shape : IShape
     }
     public virtual void SetInitialPosition()
     {
-        position = new(-1, (game.board[0].Length / 2) - 1);
+        position = new(-1, (game.board.GetLength(1) / 2) - 1);
     }
     public abstract void GoDown();
     public abstract void GoLeft();

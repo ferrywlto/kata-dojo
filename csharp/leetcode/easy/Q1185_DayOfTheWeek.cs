@@ -1,8 +1,11 @@
 class Q1185_DayOfTheWeek
 {
+    // TC: O(1),
+    // SC: O(1),
     public string DayOfTheWeek(int day, int month, int year)
     {
-        return string.Empty;
+        var date = new DateOnly(year, month, day);
+        return date.DayOfWeek.ToString();
     }
 }
 class Q1185_DayOfTheWeekTestData : TestData

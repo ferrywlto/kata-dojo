@@ -12,9 +12,18 @@ public class TetrisGame : IObservable<int[,]>, IDisposable
     HashSet<IObserver<int[,]>> observers = [];
     public TetrisGame()
     {
-        board = new int[rows, cols];
         currentShape = new Dot();
-        position = new Position(-1, cols / 2);
+        board = new int[rows, cols];
+        // test data
+        var filled = new int[] { 20, 20, 18, 18, 16, 0, 5, 10, 2, 20 };
+        for (var i = 0; i < board.GetLength(1); i++) 
+        {
+            for(var j = rows-filled[i]; j<rows; j++)
+            {
+                board[j, i] = 1;
+            }
+        }
+        position = new Position(board.GetLength(0) - 3, cols / 2);
     }
     public async Task Start() 
     {
@@ -23,12 +32,15 @@ public class TetrisGame : IObservable<int[,]>, IDisposable
 
         while(await timer.WaitForNextTickAsync())
         {
-            Console.WriteLine($"loop");
             try
             {
                 if (CanGoDown) GoDown();
-                else if (position.row == -1) NotifyLost();
-                else CreateNewShape();
+                else if (position.row == -1) Lose();
+                else
+                {
+                    ClearFilledRows();
+                    CreateNewShape();
+                }
             }
             catch (Exception e) { Console.WriteLine(e); }
             StateHasChanged();
@@ -40,20 +52,43 @@ public class TetrisGame : IObservable<int[,]>, IDisposable
         position.row++;
     }
 
+    void ClearFilledRows()
+    {
+        int bottomRowIdx = board.GetLength(0) - 1;
+        var rowIdx = bottomRowIdx;
+        while(rowIdx > 0)
+        {
+            if(IsRowFilled(rowIdx))
+            {
+                CopyTilToTop(rowIdx);
+                break;
+            }
+            rowIdx--;
+        }
+    }
+    bool IsRowFilled(int rowIdx)
+    {
+        var filled = true;
+        for(var i=0; i<board.GetLength(1); i++)
+        {
+            filled = filled && board[rowIdx, i] != EmptyCell;
+        }
+        return filled;
+    }
     void ClearBoardLine(int lineToClear)
     {
         for (var col = 0; col < board.GetLength(1); col++)
             board[lineToClear, col] = EmptyCell; 
     }
-    void CopyLine(int lineFrom, int lineTo)
+    void CopyRow(int rowFrom, int rowTo)
     {
         for (var col = 0; col < board.GetLength(1); col++) 
-            board[lineTo, col] = board[lineFrom, col];        
+            board[rowTo, col] = board[rowFrom, col];        
     }
     void CopyTilToTop(int startRow)
     {
         for(var i=startRow; i>0;i--)
-            CopyLine(i - i, i);
+            CopyRow(i - 1, i);
         ClearBoardLine(0);
     }
     public void CreateNewShape()
@@ -62,14 +97,14 @@ public class TetrisGame : IObservable<int[,]>, IDisposable
         currentShape = new Dot();
         position = new Position(-1, cols / 2);
     }
-    public void NotifyLost()
+    public void Lose()
     {
         timer?.Dispose();
         NotifyComplete();
     }
     public void HandleControl(KeyCommand command)
     {
-        Console.Write($"cmd: {command}");
+        // Console.Write($"cmd: {command}");
         if(command == KeyCommand.Down) 
         {
             if(currentShape.CanGoDown(board, position.row, position.col))

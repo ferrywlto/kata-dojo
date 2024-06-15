@@ -26,7 +26,6 @@ public class Dot
     }
     public bool CanGoDown(int[,] board, int row, int col)
     {
-        Console.WriteLine($"check CanGoDown: row :{row}, bottom: { board.GetLength(0) - 1}");
         return row < board.GetLength(0) - 1 && board[row + 1, col] == TetrisGame.EmptyCell;
     }
     public void GoDown(int[,] board, int row, int col)

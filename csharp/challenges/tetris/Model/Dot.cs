@@ -4,7 +4,9 @@ public class Dot
 
     public bool CanGoLeft(int[,] board, int row, int col)
     {
-        return col > 0 && board[row, col - 1] == TetrisGame.EmptyCell;
+        return row >= 0 && 
+            col > 0 && 
+            board[row, col - 1] == TetrisGame.EmptyCell;
     }
     public void GoLeft(int[,] board, int row, int col)
     {
@@ -13,7 +15,9 @@ public class Dot
     }
     public bool CanGoRight(int[,] board, int row, int col)
     {
-        return col < board.GetLength(1) - 1 && board[row, col + 1] == TetrisGame.EmptyCell;
+        return row >= 0 &&
+            col < board.GetLength(1) - 1 && 
+            board[row, col + 1] == TetrisGame.EmptyCell;
     }
     public void GoRight(int[,] board, int row, int col)
     {
@@ -22,11 +26,13 @@ public class Dot
     }
     public bool CanGoDown(int[,] board, int row, int col)
     {
+        Console.WriteLine($"check CanGoDown: row :{row}, bottom: { board.GetLength(0) - 1}");
         return row < board.GetLength(0) - 1 && board[row + 1, col] == TetrisGame.EmptyCell;
     }
     public void GoDown(int[,] board, int row, int col)
     {
-        board[row, col] = TetrisGame.EmptyCell;
+        if(row >= 0)
+            board[row, col] = TetrisGame.EmptyCell;
         board[row + 1, col] = ShapeValue;
     } 
 

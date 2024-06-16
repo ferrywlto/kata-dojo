@@ -3,114 +3,87 @@ Anchor: bottom-left corner
 ◻︎◻︎
 x◻︎
 */
-public class Square(TetrisGame game) : Shape(game)
+public class Square : IShapeRenderer
 {
-    public override int ShapeValue => 2;
-    int BoardTopIdx => 0;
-    int BoardBottomIdx => game.board.GetLength(0) - 1;
-    int BoardLeftIdx => 0;
-    int BoardRightIdx => game.board.GetLength(1) - 1;
-    public override Condition GetCondition()
-    {
-        if (position.row >= BoardBottomIdx) return Condition.Bottom;
-        if (!IsEmptyBelow)
-        {
-            if (position.row > 0) return Condition.Stuck;
-            else return Condition.Lose;
-        }
-        return Condition.Free;
-    }
-    bool IsEmptyBelow =>
-        game.board[position.row + 1, position.col] == TetrisGame.EmptyCell &&
-        game.board[position.row + 1, position.col + 1] == TetrisGame.EmptyCell;
+    public int ShapeValue => 2;
 
-    void ClearTopHalf() 
+    public bool CanGoDown(int[,] board, int row, int col)
     {
-        game.board[position.row - 1, position.col] = TetrisGame.EmptyCell;
-        game.board[position.row - 1, position.col + 1] = TetrisGame.EmptyCell;
+        return row < board.GetLength(0) - 2 &&
+            board[row + 1, col] == Tetris.EmptyCell &&
+            board[row + 1, col + 1] == Tetris.EmptyCell;
     }
-    void MoveDownOneLine()
+    public void GoDown(int[,] board, int row, int col)
     {
-        game.board[position.row + 1, position.col] = ShapeValue;
-        game.board[position.row + 1, position.col + 1] = ShapeValue;
-    }
-    public override void GoDown()
-    {
-        if (position.row == BoardBottomIdx) return;
+        if (row >= 1)
+        {
+            board[row - 1, col] = Tetris.EmptyCell;
+            board[row - 1, col + 1] = Tetris.EmptyCell;
+        }
 
-        if (IsEmptyBelow)
-        {
-            if (position.row >= 1) ClearTopHalf();
-            MoveDownOneLine();
-            position.row++;               
-        }
+        board[row + 1, col] = ShapeValue;
+        board[row + 1, col + 1] = ShapeValue;
     }
-
-    bool IsHittingLeftBorder => position.col == BoardLeftIdx;
-    
-    public override void GoLeft() 
+    public bool CanGoLeft(int[,] board, int row, int col)
     {
-        if (IsHittingLeftBorder) return;
-
-        if(position.row >= 1)
-        {
-            if(game.board[position.row - 1, position.col - 1] == 0
-            && game.board[position.row, position.col - 1] == 0)
-            {
-                game.board[position.row, position.col + 1] = 0;
-                game.board[position.row - 1, position.col + 1] = 0;
-                game.board[position.row, position.col - 1] = 1;
-                game.board[position.row - 1, position.col - 1] = 1;
-                position.col--;
-                game.StateHasChanged();
-            }
-        }
-        else if(position.row == 0)
-        {
-            if(game.board[position.row, position.col - 1] == 0)
-            {
-                game.board[position.row, position.col + 1] = 0;
-                game.board[position.row, position.col - 1] = 1;
-                position.col--;
-                game.StateHasChanged();
-            }
-        }
+        return col > 0 &&
+        (
+            (
+                row > 0 &&
+                board[row - 1, col - 1] == Tetris.EmptyCell &&
+                board[row, col - 1] == Tetris.EmptyCell
+            ) ||
+            (
+                row == 0 &&
+                board[row, col - 1] == Tetris.EmptyCell
+            )
+        );
     }
-    public override void GoRight() 
+    public void GoLeft(int[,] board, int row, int col)
     {
-        // Anchor is bottom left
-        if (position.col == BoardRightIdx - 1) return;
-
-        if(position.row >= 1)
+        if(row >= 1)
         {
-            if(game.board[position.row - 1, position.col + 2] == 0
-            && game.board[position.row, position.col + 2] == 0)
-            {
-                game.board[position.row, position.col + 2] = 1;
-                game.board[position.row - 1, position.col + 2] = 1;
-                game.board[position.row, position.col] = 0;
-                game.board[position.row - 1, position.col] = 0;
-                position.col++;
-                game.StateHasChanged();
-            }
+            board[row - 1, col + 1] = Tetris.EmptyCell;
+            board[row - 1, col - 1] = ShapeValue;
         }
-        else if(position.row == 0)
+        board[row, col + 1] = Tetris.EmptyCell;
+        board[row, col - 1] = ShapeValue;
+    }
+    public bool CanGoRight(int[,] board, int row, int col)
+    {
+        var result = col < board.GetLength(1) - 2 &&
+        (
+            (
+                row > 0 &&
+                board[row - 1, col + 2] == Tetris.EmptyCell &&
+                board[row, col + 2] == Tetris.EmptyCell
+            ) ||
+            (
+                row == 0 && 
+                board[row, col + 2] == Tetris.EmptyCell
+            )
+        );
+        Console.WriteLine($"Square CanGoRight: {result}");
+        return result;
+    }
+    public void GoRight(int[,] board, int row, int col)
+    {
+        if(row >= 1)
         {
-            if(game.board[position.row, position.col + 2] == 0)
-            {
-                game.board[position.row, position.col + 2] = 1;
-                game.board[position.row, position.col] = 0;
-                position.col++;
-                game.StateHasChanged();
-            }
+            board[row - 1, col] = Tetris.EmptyCell;
+            board[row - 1, col + 2] = ShapeValue;
         }
+        board[row, col] = Tetris.EmptyCell;
+        board[row, col + 2] = ShapeValue;
     }
-    public override void RotateLeft() 
+    public bool CanRotateLeft(int[,] board, int row, int col) => false;
+    public void RotateLeft(int[,] board, int row, int col)
     {
-        // square doesn't need to rotate
+        throw new NotImplementedException();
     }
-    public override void RotateRight() 
+    public bool CanRotateRight(int[,] board, int row, int col) => false;
+    public void RotateRight(int[,] board, int row, int col)
     {
-        // square doesn't need to rotate
+        throw new NotImplementedException();
     }
 }

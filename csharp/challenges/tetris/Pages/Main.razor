@@ -24,13 +24,16 @@ value="you shouldn't see me" style="opacity: 0;">
     .grid-empty {
         background-color: black;
     }
-    .grid-shape {
+    .grid-1 {
         background-color: yellow;
+    }
+    .grid-2 {
+        background-color: green;
     }
 </style>
 
 @inject IJSRuntime JSRuntime
-@inject TetrisGame Game
+@inject Tetris Game
 @implements IObserver<int[,]>
 @code
 {
@@ -55,8 +58,13 @@ value="you shouldn't see me" style="opacity: 0;">
     }
     string determineClass(int row, int col)
     {
-        if (Game.board[row, col] == TetrisGame.EmptyCell) return "grid-empty";
-        return "grid-shape";
+        var cellValue = Game.board[row, col];
+        return cellValue switch
+        {
+            1 => "grid-1",
+            2 => "grid-2",
+            _ => "grid-empty"
+        };
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {

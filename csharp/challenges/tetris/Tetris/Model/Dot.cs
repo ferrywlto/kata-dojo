@@ -1,3 +1,5 @@
+namespace Tetris.Model;
+
 public class Dot : IShapeRenderer
 {
     public int ShapeValue => 1;

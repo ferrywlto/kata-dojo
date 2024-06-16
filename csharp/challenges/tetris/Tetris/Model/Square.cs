@@ -1,3 +1,4 @@
+namespace Tetris.Model;
 /*
 Anchor: bottom-left corner
 ◻︎◻︎
@@ -9,7 +10,7 @@ public class Square : IShapeRenderer
 
     public bool CanGoDown(int[,] board, int row, int col)
     {
-        return row < board.GetLength(0) - 2 &&
+        return row < board.GetLength(0) - 1 &&
             board[row + 1, col] == Tetris.EmptyCell &&
             board[row + 1, col + 1] == Tetris.EmptyCell;
     }

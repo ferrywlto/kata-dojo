@@ -1,3 +1,5 @@
+namespace Tetris.Model;
+
 public interface IShapeRenderer 
 {
     bool CanGoDown(int[,] board, int row, int col);

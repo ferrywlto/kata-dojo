@@ -1,3 +1,5 @@
+namespace Tetris.Model;
+
 public class ShapeRendererFactory
 {
     Random rand = new();

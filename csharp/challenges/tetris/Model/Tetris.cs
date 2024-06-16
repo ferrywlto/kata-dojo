@@ -92,9 +92,8 @@ public class Tetris : IObservable<int[,]>, IDisposable
             if(IsRowFilled(rowIdx))
             {
                 CopyTilToTop(rowIdx);
-                break;
             }
-            rowIdx--;
+            else rowIdx--;
         }
     }
     bool IsRowFilled(int rowIdx)

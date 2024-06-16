@@ -1,8 +1,34 @@
 class Q1200_MinimumAbsoluteDifference
 {
+    // TC: O(n log n), due to Array.Sort(), after the sort its O(n)
+    // SC: O(n), n is the length of arr
     public IList<IList<int>> MinimumAbsDifference(int[] arr)
     {
-        return [];
+        // due to the fact that in a sorted array, diff between arr[i] and arr[i+1] must smaller than arr[i] and arr[i+2]
+        // thus we only need to compare the diff of adjacent elements, also make the final result already sorted 
+        Array.Sort(arr);
+        // for bucket sorting
+        var result = new Dictionary<int, IList<IList<int>>>();
+        var minDiff = int.MaxValue;
+        int diff;
+        for(var i=0; i<arr.Length-1; i++)
+        {
+            diff = Math.Abs(arr[i + 1] - arr[i]);
+            // no need to further process if the diff is not minimal
+            if(diff <= minDiff)
+            {
+                minDiff = diff;
+                if(result.TryGetValue(diff, out var list))
+                {
+                    list.Add([arr[i], arr[i + 1]]);
+                }
+                else
+                {
+                    result.Add(diff, [[arr[i], arr[i + 1]]]);
+                }
+            }
+        }
+        return result[minDiff];
     }
 }
 class Q1200_MinimumAbsoluteDifferenceTestData : TestData

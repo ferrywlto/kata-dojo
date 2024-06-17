@@ -2,21 +2,29 @@ class Q1211_QueriesQualityAndPercentage : SqlQuestion
 {
     public override string Query =>
     """
-    select q1.query_name, 
-    round(sum(cast (q1.rating as float)/q1.position)/count(q1.query_name), 2) as quality,
-    round(cast(q2_count as float)/count(q1.query_name)*100, 2) as poor_query_percentage
-    from Queries q1 left join 
+    select q1.query_name as query_name, quality,
+    case 
+        when good_count = 0 then 0 
+    else 
+        round(cast(coalesce(poor_count, 0) as float)/good_count*100, 2) 
+    end as poor_query_percentage
+    from
     (
-        select query_name, count(query_name) as q2_count 
+        select query_name, 
+        round(sum(cast (rating as float)/position)/count(query_name), 2) as quality,
+        count(query_name) as good_count
+        from Queries
+        where query_name is not null
+        group by query_name
+    ) q1 left join 
+    (
+        select query_name, count(query_name) as poor_count 
         from Queries
         where rating < 3
         group by query_name
     ) q2 on q1.query_name = q2.query_name
-    group by q1.query_name
-    order by q1.query_name desc;
+    order by query_name desc;   
     """;
-    /*
-    */
 }
 class Q1211_QueriesQualityAndPercentageTestData : TestData
 {
@@ -30,8 +38,10 @@ class Q1211_QueriesQualityAndPercentageTestData : TestData
             ('Dog', 'Mule', '200', '1'),
             ('Cat', 'Shirazi', '5', '2'),
             ('Cat', 'Siamese', '3', '3'),
-            ('Cat', 'Sphynx', '7', '4');           
+            ('Cat', 'Sphynx', '7', '4'),
+            (NULL, 'Sphynx', '7', '4');         
             """
+            // The NULL is to test if division by zero encountered
         ]
     ];
 }
@@ -48,7 +58,7 @@ public class Q1211_QueriesQualityAndPercentageTests(ITestOutputHelper output) : 
     {
         ArrangeTestData(testDataSql);
         var sut = new Q1211_QueriesQualityAndPercentage();
-        var reader = ExecuteQuery(sut.Query, true);
+        var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["query_name", "quality", "poor_query_percentage"]);
 
         Assert.True(reader.Read());

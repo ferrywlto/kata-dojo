@@ -39,7 +39,7 @@ public class Q1148_ArticleViewsITests(ITestOutputHelper output) : SqlTest(output
     {
         ArrangeTestData(testDataSql);
         var sut = new Q1148_ArticleViewsI();
-        var reader = ExecuteQuery(sut.Query, true);
+        var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["id"]);
 
         Assert.True(reader.Read());

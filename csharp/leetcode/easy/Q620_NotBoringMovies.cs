@@ -39,7 +39,7 @@ public class Q620_NotBoringMoviesTests(ITestOutputHelper output) : SqlTest(outpu
         ArrangeTestData(testDataSql);
 
         var sut = new Q620_NotBoringMovies();
-        var reader = ExecuteQuery(sut.Query, true);
+        var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["id", "movie", "description", "rating"]);
 
         Assert.True(reader.Read());

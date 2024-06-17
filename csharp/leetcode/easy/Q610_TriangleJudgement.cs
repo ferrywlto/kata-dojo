@@ -39,7 +39,7 @@ public class Q610_TriangleJudgementTests(ITestOutputHelper output) : SqlTest(out
         ArrangeTestData(testDataSql);
 
         var sut = new Q610_TriangleJudgement();
-        var reader = ExecuteQuery(sut.Query, true);
+        var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["x", "y", "z", "triangle"]);
 
         Assert.True(reader.Read());

@@ -103,7 +103,7 @@ public class Q1179_ReformatDepartmentTableTests(ITestOutputHelper output) : SqlT
     {
         ArrangeTestData(testDataSql);
         var sut = new Q1179_ReformatDepartmentTable();
-        var reader = ExecuteQuery(sut.Query, true);
+        var reader = ExecuteQuery(sut.Query);
 
         AssertResultSchema(reader, ["id",
             "Jan_Revenue",

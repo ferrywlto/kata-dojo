@@ -47,7 +47,7 @@ public class Q1075_ProjectEmployeesTests(ITestOutputHelper output) : SqlTest(out
         ArrangeTestData(testDataSql);
 
         var sut = new Q1075_ProjectEmployees();
-        var reader = ExecuteQuery(sut.Query, true);
+        var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["project_id", "average_years"]);
 
         Assert.True(reader.Read());

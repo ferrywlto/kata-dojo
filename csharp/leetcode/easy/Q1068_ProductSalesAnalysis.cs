@@ -46,7 +46,7 @@ public class Q1068_ProductSalesAnalysisTests(ITestOutputHelper output) : SqlTest
         ArrangeTestData(input);
 
         var sut = new Q1068_ProductSalesAnalysis();
-        var reader = ExecuteQuery(sut.Query, true);
+        var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["product_name", "year", "price"]);
 
         Assert.True(reader.Read());

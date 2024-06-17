@@ -39,7 +39,7 @@ public class Q586_CustomerPlacingLargestNumberOrdersTests(ITestOutputHelper outp
         ArrangeTestData(testDataSql);
 
         var sut = new Q586_CustomerPlacingLargestNumberOrders();
-        var reader = ExecuteQuery(sut.Query, true);
+        var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["customer_number"]);
 
         Assert.True(reader.Read());

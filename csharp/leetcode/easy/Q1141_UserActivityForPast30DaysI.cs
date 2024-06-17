@@ -61,7 +61,7 @@ public class Q1141_UserActivityForPast30DaysITests(ITestOutputHelper output) : S
         ArrangeTestData(testDataSql);
 
         var sut = new Q1141_UserActivityForPast30DaysI();
-        var reader = ExecuteQuery(sut.Query, true);
+        var reader = ExecuteQuery(sut.Query);
 
         AssertResultSchema(reader, ["day", "active_users"]);
 

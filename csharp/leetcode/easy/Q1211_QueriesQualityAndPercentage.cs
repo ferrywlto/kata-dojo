@@ -1,14 +1,26 @@
-
 class Q1211_QueriesQualityAndPercentage : SqlQuestion
 {
-    public override string Query => 
+    public override string Query =>
     """
-    select 1;
+    select q1.query_name, 
+    round(sum(cast (q1.rating as float)/q1.position)/count(q1.query_name), 2) as quality,
+    round(cast(q2_count as float)/count(q1.query_name)*100, 2) as poor_query_percentage
+    from Queries q1 left join 
+    (
+        select query_name, count(query_name) as q2_count 
+        from Queries
+        where rating < 3
+        group by query_name
+    ) q2 on q1.query_name = q2.query_name
+    group by q1.query_name
+    order by q1.query_name desc;
     """;
+    /*
+    */
 }
 class Q1211_QueriesQualityAndPercentageTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -25,7 +37,7 @@ class Q1211_QueriesQualityAndPercentageTestData : TestData
 }
 public class Q1211_QueriesQualityAndPercentageTests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     Create table If Not Exists Queries (query_name varchar(30), result varchar(50), position int, rating int);
     """;
@@ -41,12 +53,12 @@ public class Q1211_QueriesQualityAndPercentageTests(ITestOutputHelper output) : 
 
         Assert.True(reader.Read());
         Assert.Equal("Dog", reader.GetString(0));
-        Assert.Equal(2.50, reader.GetFloat(1));
-        Assert.Equal(33.33 , reader.GetFloat(2));
+        Assert.Equal(2.50, Math.Round(reader.GetFloat(1), 2));
+        Assert.Equal(33.33, Math.Round(reader.GetFloat(2), 2));
 
         Assert.True(reader.Read());
         Assert.Equal("Cat", reader.GetString(0));
-        Assert.Equal(0.66, reader.GetFloat(1));
-        Assert.Equal(33.33 , reader.GetFloat(2));
+        Assert.Equal(0.66, Math.Round(reader.GetFloat(1), 2));
+        Assert.Equal(33.33, Math.Round(reader.GetFloat(2), 2));
     }
 }

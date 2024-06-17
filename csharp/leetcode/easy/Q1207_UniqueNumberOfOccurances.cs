@@ -4,12 +4,18 @@ class Q1207_UniqueNumberOfOccurances
     // SC: O(n), n is distinct element in arr
     public bool UniqueOccurrences(int[] arr)
     {
-        var dict = arr
-            .GroupBy(n => n)
-            .ToDictionary(grp => grp.Key, grp => grp.Count());
-        var occurances = dict.Select(x => x.Value).ToList();
-        return occurances.Count
-            == occurances.ToHashSet().Count;
+        var dict = new Dictionary<int, int>();
+        foreach (var num in arr)
+        {
+            if (dict.ContainsKey(num))
+                dict[num]++;
+            else
+                dict[num] = 1;
+        }
+
+        var occurances = new HashSet<int>(dict.Values);
+
+        return occurances.Count == dict.Values.Count;
     }
 }
 class Q1207_UniqueNumberOfOccurancesTestData : TestData

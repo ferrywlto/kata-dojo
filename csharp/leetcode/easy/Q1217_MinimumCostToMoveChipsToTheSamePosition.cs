@@ -1,30 +1,21 @@
 class Q1217_MinimumCostToMoveChipsToTheSamePosition
 {
+    // TC: O(n), each position have to iterate once
+    // SC: O(1), fixed to 2 variables
     public int MinCostToMoveChips(int[] position)
     {
-        var dict = new Dictionary<int, int>();
-        var result = int.MaxValue;
-        // var max = int.MinValue;
-        // var maxPos = 0;
-        foreach(var pos in position)
+        // odd to odd and even to even is cost 0
+        int evenCount = 0, oddCount = 0;
+        foreach (var pos in position)
         {
-            if (dict.TryGetValue(pos, out var value)) 
-                dict[pos] = ++value;
+            if (pos % 2 == 0)
+                evenCount++;
             else
-                dict.Add(pos, 1);
+                oddCount++;
         }
-        // try O(n^2) first, test all combination
-        foreach(var p1 in dict)
-        {
-            var temp = 0;
-            foreach(var p2 in dict)
-            {
-                if (p1.Key != p2.Key && Math.Abs(p1.Key - p2.Key) % 2 != 0)
-                    temp += p2.Value;
-            }
-            if (temp < result) result = temp;
-        }
-        return result;
+        // eventually it will remain position n and n+1, which must have cost 1 to move a chip, 
+        // so we take the smaller pile 
+        return Math.Min(evenCount, oddCount);
     }
 }
 class Q1217_MinimumCostToMoveChipsToTheSamePositionTestData : TestData

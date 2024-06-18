@@ -5,19 +5,18 @@ class Q1221_SplitStringInBalancedStrings
     public int BalancedStringSplit(string s) 
     {
         var result = 0;
-        var dict = new Dictionary<char, int>()
-        {
-            {'L', 0},
-            {'R', 0},
-        };
+        var countL = 0;
+        var countR = 0;
         for(var i=0; i<s.Length; i++)
         {
-            dict[s[i]]++;
-            if(dict['L'] == dict['R'])
+            if (s[i] == 'L') countL++;
+            else countR++;
+
+            if(countL == countR)
             {
                 result++;
-                dict['L'] = 0;
-                dict['R'] = 0;
+                countL = 0;
+                countR = 0;
             }
         }
         return result;

@@ -56,7 +56,7 @@ public class Q1141_UserActivityForPast30DaysITests(ITestOutputHelper output) : S
     """;
     [Theory]
     [ClassData(typeof(Q1141_UserActivityForPast30DaysITestData))]
-    public override void OfficialTestCases(string testDataSql)
+    public void OfficialTestCases(string testDataSql)
     {
         ArrangeTestData(testDataSql);
 

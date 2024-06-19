@@ -53,7 +53,7 @@ public class Q607_SalesPersonTests(ITestOutputHelper output) : SqlTest(output)
 
     [Theory]
     [ClassData(typeof(Q607_SalesPersonTestData))]
-    public override void OfficialTestCases(string testDataSql)
+    public void OfficialTestCases(string testDataSql)
     {
         ArrangeTestData(testDataSql);
 

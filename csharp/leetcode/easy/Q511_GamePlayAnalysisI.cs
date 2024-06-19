@@ -35,7 +35,7 @@ public class Q511_GamePlayAnalysis1Tests(ITestOutputHelper output) : SqlTest(out
 
     [Theory]
     [ClassData(typeof(Q511_GamePlayAnalysis1TestData))]
-    public override void OfficialTestCases(string input)
+    public void OfficialTestCases(string input)
     {
         ArrangeTestData(input);
 

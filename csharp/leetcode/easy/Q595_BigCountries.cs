@@ -33,7 +33,7 @@ public class Q595_BigCountriesTests(ITestOutputHelper output) : SqlTest(output)
 
     [Theory]
     [ClassData(typeof(Q595_BigCountriesTestData))]
-    public override void OfficialTestCases(string testDataSql)
+    public void OfficialTestCases(string testDataSql)
     {
         ArrangeTestData(testDataSql);
 

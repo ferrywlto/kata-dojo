@@ -36,7 +36,7 @@ public class Q627_SwapSalaryTests(ITestOutputHelper output) : SqlTest(output)
 
     [Theory]
     [ClassData(typeof(Q627_SwapSalaryTestData))]
-    public override void OfficialTestCases(string testDataSql)
+    public void OfficialTestCases(string testDataSql)
     {
         ArrangeTestData(testDataSql);
 

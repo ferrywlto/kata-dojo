@@ -38,7 +38,7 @@ public class Q577_EmployeeBonusTests(ITestOutputHelper output) : SqlTest(output)
 
     [Theory]
     [ClassData(typeof(Q577_EmployeeBonusTestData))]
-    public override void OfficialTestCases(string testDataSql)
+    public void OfficialTestCases(string testDataSql)
     {
         ArrangeTestData(testDataSql);
 

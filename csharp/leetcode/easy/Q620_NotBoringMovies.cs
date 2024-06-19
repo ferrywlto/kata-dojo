@@ -34,7 +34,7 @@ public class Q620_NotBoringMoviesTests(ITestOutputHelper output) : SqlTest(outpu
 
     [Theory]
     [ClassData(typeof(Q620_NotBoringMoviesTestData))]
-    public override void OfficialTestCases(string testDataSql)
+    public void OfficialTestCases(string testDataSql)
     {
         ArrangeTestData(testDataSql);
 

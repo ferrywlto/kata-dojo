@@ -34,7 +34,7 @@ public class Q610_TriangleJudgementTests(ITestOutputHelper output) : SqlTest(out
 
     [Theory]
     [ClassData(typeof(Q610_TriangleJudgementTestData))]
-    public override void OfficialTestCases(string testDataSql)
+    public void OfficialTestCases(string testDataSql)
     {
         ArrangeTestData(testDataSql);
 

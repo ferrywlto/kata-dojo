@@ -34,7 +34,7 @@ public class Q586_CustomerPlacingLargestNumberOrdersTests(ITestOutputHelper outp
 
     [Theory]
     [ClassData(typeof(Q586_CustomerPlacingLargestNumberOrdersTestData))]
-    public override void OfficialTestCases(string testDataSql)
+    public void OfficialTestCases(string testDataSql)
     {
         ArrangeTestData(testDataSql);
 

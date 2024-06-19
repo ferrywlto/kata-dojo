@@ -37,7 +37,7 @@ public class Q596_ClassesMoreThanFiceStudentsTests(ITestOutputHelper output) : S
 
     [Theory]
     [ClassData(typeof(Q596_ClassesMoreThanFiceStudentsTestData))]
-    public override void OfficialTestCases(string testDataSql)
+    public void OfficialTestCases(string testDataSql)
     {
         ArrangeTestData(testDataSql);
 

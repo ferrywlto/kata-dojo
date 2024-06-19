@@ -40,7 +40,7 @@ public class Q183_CustomersWhoNeverOrderTests(ITestOutputHelper output) : SqlTes
 
     [Theory]
     [ClassData(typeof(Q183_CustomersWhoNeverOrderTestData))]
-    public override void OfficialTestCases(string input)
+    public void OfficialTestCases(string input)
     {
         ArrangeTestData(input);
         var sut = new Q183_CustomersWhoNeverOrder();

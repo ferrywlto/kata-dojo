@@ -83,9 +83,9 @@ public class Q303_RangeSumQueryTests
     }
 }
 
+// This class is for benchmarking purpose only, shouldn't include in the unit tests routine
 public class Q303_RangeSumQueryStressTests(ITestOutputHelper output)
 {
-    [Fact(Skip = "Time consuming benchmarking, run only when explicit specifiied")]
     public void SumRange_ShouldRunMuchFasterWithCache()
     {
         // Arrange test data

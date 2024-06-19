@@ -69,11 +69,4 @@ public class Q619_BiggestSingleNumberTests(ITestOutputHelper output) : SqlTest(o
 
         reader.Close();
     }
-
-    [Theory(Skip = "Override")]
-    [ClassData(typeof(Q619_BiggestSingleNumberTestData))]
-    public override void OfficialTestCases(string testDataSql)
-    {
-        Assert.True(!string.IsNullOrEmpty(testDataSql));
-    }
 }

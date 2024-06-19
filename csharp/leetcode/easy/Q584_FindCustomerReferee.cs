@@ -34,7 +34,7 @@ public class Q584_FindCustomerRefereeTests(ITestOutputHelper output) : SqlTest(o
 
     [Theory]
     [ClassData(typeof(Q584_FindCustomerRefereeTestData))]
-    public override void OfficialTestCases(string testDataSql)
+    public void OfficialTestCases(string testDataSql)
     {
         ArrangeTestData(testDataSql);
 

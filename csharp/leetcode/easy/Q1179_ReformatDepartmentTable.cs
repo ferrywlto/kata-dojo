@@ -89,17 +89,9 @@ public class Q1179_ReformatDepartmentTableTests(ITestOutputHelper output) : SqlT
     Create table If Not Exists Department (id int, revenue int, month varchar(5));
     """;
 
-    [Theory(Skip = "Overwritten")]
-    [InlineData("")]
-    public override void OfficialTestCases(string testDataSql)
-    {
-        Console.Write(testDataSql);
-        throw new NotImplementedException();
-    }
-
     [Theory]
     [ClassData(typeof(Q1179_ReformatDepartmentTableTestData))]
-    public void OfficialTestCases2(string testDataSql, int?[][] expected)
+    public void OfficialTestCases(string testDataSql, int?[][] expected)
     {
         ArrangeTestData(testDataSql);
         var sut = new Q1179_ReformatDepartmentTable();

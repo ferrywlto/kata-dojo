@@ -54,7 +54,7 @@ public class Q1211_QueriesQualityAndPercentageTests(ITestOutputHelper output) : 
 
     [Theory]
     [ClassData(typeof(Q1211_QueriesQualityAndPercentageTestData))]
-    public override void OfficialTestCases(string testDataSql)
+    public void OfficialTestCases(string testDataSql)
     {
         ArrangeTestData(testDataSql);
         var sut = new Q1211_QueriesQualityAndPercentage();

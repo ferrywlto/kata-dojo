@@ -41,7 +41,7 @@ public class Q1068_ProductSalesAnalysisTests(ITestOutputHelper output) : SqlTest
 
     [Theory]
     [ClassData(typeof(Q1068_ProductSalesAnalysisTestData))]
-    public override void OfficialTestCases(string input)
+    public void OfficialTestCases(string input)
     {
         ArrangeTestData(input);
 

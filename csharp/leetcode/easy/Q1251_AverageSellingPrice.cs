@@ -58,16 +58,16 @@ public class Q1251_AverageSellingPriceTests(ITestOutputHelper output) : SqlTest(
     Create table If Not Exists UnitsSold (product_id int, purchase_date date, units int);
     """;
 
-    [Theory(Skip = "Overwritten")]
-    [InlineData("")]
-    public override void OfficialTestCases(string testDataSql)
-    {
-        throw new NotImplementedException(testDataSql);
-    }
+    // [Theory(Skip = "Overwritten")]
+    // [InlineData("")]
+    // public override void OfficialTestCases(string testDataSql)
+    // {
+    //     throw new NotImplementedException(testDataSql);
+    // }
 
     [Theory]
     [ClassData(typeof(Q1251_AverageSellingPriceTestData))]
-    public void OfficialTestCases2(string testDataSql, float[][] expected)
+    public void OfficialTestCases(string testDataSql, float[][] expected)
     {
         ArrangeTestData(testDataSql);
         var sut = new Q1251_AverageSellingPrice();

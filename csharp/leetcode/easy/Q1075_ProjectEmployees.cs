@@ -42,7 +42,7 @@ public class Q1075_ProjectEmployeesTests(ITestOutputHelper output) : SqlTest(out
 
     [Theory]
     [ClassData(typeof(Q1075_ProjectEmployeesTestData))]
-    public override void OfficialTestCases(string testDataSql)
+    public void OfficialTestCases(string testDataSql)
     {
         ArrangeTestData(testDataSql);
 

@@ -35,7 +35,7 @@ public class Q196_DeleteDuplicateEmailsTests(ITestOutputHelper output) : SqlTest
 
     [Theory]
     [ClassData(typeof(Q196_DeleteDuplicateEmailsTestData))]
-    public override void OfficialTestCases(string input)
+    public void OfficialTestCases(string input)
     {
         ArrangeTestData(input);
 

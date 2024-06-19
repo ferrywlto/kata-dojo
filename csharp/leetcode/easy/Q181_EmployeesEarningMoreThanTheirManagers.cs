@@ -35,7 +35,7 @@ public class Q181_EmployeesEarningMoreThanTheirManagersTests(ITestOutputHelper o
 
     [Theory]
     [ClassData(typeof(Q181_EmployeesEarningMoreThanTheirManagersTestData))]
-    public override void OfficialTestCases(string input)
+    public void OfficialTestCases(string input)
     {
         ArrangeTestData(input);
 

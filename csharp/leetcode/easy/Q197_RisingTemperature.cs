@@ -32,7 +32,7 @@ public class Q197_RisingTemperatureTests(ITestOutputHelper output) : SqlTest(out
 
     [Theory]
     [ClassData(typeof(Q197_RisingTemperatureTestData))]
-    public override void OfficialTestCases(string input)
+    public void OfficialTestCases(string input)
     {
         ArrangeTestData(input);
 

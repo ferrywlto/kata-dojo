@@ -36,7 +36,7 @@ public class Q1050_ActorsAndDirectorsWhoCooperatedAtLeastThreeTimesTests(ITestOu
 
     [Theory]
     [ClassData(typeof(Q1050_ActorsAndDirectorsWhoCooperatedAtLeastThreeTimesTestData))]
-    public override void OfficialTestCases(string input)
+    public void OfficialTestCases(string input)
     {
         ArrangeTestData(input);
 

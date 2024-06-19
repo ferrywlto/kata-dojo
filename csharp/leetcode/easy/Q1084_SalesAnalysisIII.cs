@@ -52,7 +52,7 @@ public class Q1084_SalesAnalysisIIITests(ITestOutputHelper output) : SqlTest(out
 
     [Theory]
     [ClassData(typeof(Q1084_SalesAnalysisIIITestData))]
-    public override void OfficialTestCases(string testDataSql)
+    public void OfficialTestCases(string testDataSql)
     {
         ArrangeTestData(testDataSql);
 

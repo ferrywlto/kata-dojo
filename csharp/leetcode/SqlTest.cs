@@ -17,7 +17,6 @@ public abstract class SqlTest : BaseTest, IDisposable
         CreateTestDatabase();
     }
 
-    public abstract void OfficialTestCases(string testDataSql);
     protected abstract string TestSchema { get; }
     protected virtual string FormatOutput(string input) => $" {(input.Length <= ColumnWidth ? input.PadRight(ColumnWidth) : input)} |";
     
@@ -100,11 +99,6 @@ public abstract class SqlTest : BaseTest, IDisposable
 public class TestDatabaseTestClass(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema => string.Empty;
-
-    public override void OfficialTestCases(string testDataSql)
-    {
-        throw new NotImplementedException();
-    }
 }
 
 public class TestsOfDatabaseTest

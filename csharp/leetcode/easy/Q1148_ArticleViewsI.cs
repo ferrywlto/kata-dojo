@@ -35,7 +35,7 @@ public class Q1148_ArticleViewsITests(ITestOutputHelper output) : SqlTest(output
 
     [Theory]
     [ClassData(typeof(Q1148_ArticleViewsITestData))]
-    public override void OfficialTestCases(string testDataSql)
+    public void OfficialTestCases(string testDataSql)
     {
         ArrangeTestData(testDataSql);
         var sut = new Q1148_ArticleViewsI();

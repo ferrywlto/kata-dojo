@@ -2,7 +2,26 @@ class Q1252_CellsWithOddValuesInMatrix
 {
     public int OddCells(int m, int n, int[][] indices)
     {
-        return 0;
+        var matrix = new int[m, n];
+        for(var i=0; i<indices.Length; i++)
+        {
+            (int opRow, int opCol) = (indices[i][0], indices[i][1]);
+            for(var j=0; j<matrix.GetLength(1); j++) matrix[opRow, j]++;
+            for(var k=0; k<matrix.GetLength(0); k++) matrix[k, opCol]++;
+        }
+        return CountOdd(matrix);
+    }
+    int CountOdd(int[,] input)
+    {
+        var oddCount = 0;
+        for (int i = 0; i < input.GetLength(0); i++)
+        {
+            for (int j = 0; j < input.GetLength(1); j++)
+            {
+                if (input[i, j] % 2 != 0) oddCount++;
+            }
+        }
+        return oddCount;
     }
 }
 class Q1252_CellsWithOddValuesInMatrixTestData : TestData

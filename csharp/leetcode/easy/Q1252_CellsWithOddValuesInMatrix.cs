@@ -23,6 +23,32 @@ class Q1252_CellsWithOddValuesInMatrix
         }
         return oddCount;
     }
+
+    // TC: O(n), n is the size of operation indices 
+    // SC: O(n), n is m+n from input
+    public int OddCells_Efficient(int m, int n, int[][] indices)
+    {
+        var rowOps = new int[m];
+        var colOps = new int[n];
+
+        foreach (var index in indices)
+        {
+            rowOps[index[0]]++;
+            colOps[index[1]]++;
+        }
+
+        int oddCount = 0;
+        for (int i = 0; i < m; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                if ((rowOps[i] + colOps[j]) % 2 != 0) 
+                    oddCount++;
+            }
+        }
+
+        return oddCount;
+    }
 }
 class Q1252_CellsWithOddValuesInMatrixTestData : TestData
 {
@@ -39,7 +65,7 @@ public class Q1252_CellsWithOddValuesInMatrixTests
     public void OfficialTestCases(int m, int n, int[][] input, int expected)
     {
         var sut = new Q1252_CellsWithOddValuesInMatrix();
-        var actual = sut.OddCells(m, n, input);
+        var actual = sut.OddCells_Efficient(m, n, input);
         Assert.Equal(expected, actual);
     }
 }

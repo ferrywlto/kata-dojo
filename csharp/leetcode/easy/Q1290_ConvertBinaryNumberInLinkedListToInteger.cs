@@ -1,6 +1,6 @@
 class Q1290_ConvertBinaryNumberInLinkedListToInteger
 {
-    // TC: O(n), all elements need to traverse once
+    // TC: O(n), all elements need to traverse twice, once for list, another for stack
     // SC: O(n), stack size equals to list length
     public int GetDecimalValue(ListNode head) 
     {
@@ -20,7 +20,20 @@ class Q1290_ConvertBinaryNumberInLinkedListToInteger
             result += exp * stack.Pop();
         }
         return result;   
-    }   
+    }
+    // TC: O(n), much faster as once traverse the list once
+    // SC: O(1), no space needed for inplace bit manipulation
+    public int GetDecimalValue_BitsManipulation(ListNode head) 
+    {
+        var result = 0;
+        var current = head;
+        while(current != null)
+        {
+            result = (result << 1) | current.val;
+            current = current.next;
+        }
+        return result;   
+    }        
 }
 class Q1290_ConvertBinaryNumberInLinkedListToIntegerTestData : TestData
 {
@@ -40,7 +53,7 @@ public class Q1290_ConvertBinaryNumberInLinkedListToIntegerTests
     {
         var sut = new Q1290_ConvertBinaryNumberInLinkedListToInteger();
         var list = ListNode.FromArray(input);
-        var actual = sut.GetDecimalValue(list!);
+        var actual = sut.GetDecimalValue_BitsManipulation(list!);
         Assert.Equal(expected, actual);
     }
 }

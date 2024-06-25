@@ -1,16 +1,34 @@
-
 class Q1290_ConvertBinaryNumberInLinkedListToInteger
 {
+    // TC: O(n), all elements need to traverse once
+    // SC: O(n), stack size equals to list length
     public int GetDecimalValue(ListNode head) 
     {
-        return 0;   
-    }    
+        var stack = new Stack<int>();
+        var current = head;
+        do
+        {
+            stack.Push(current.val);
+            current = current.next;
+        }
+        while(current != null);
+        var result = stack.Pop();
+        var exp = 1;
+        while(stack.Count > 0)
+        {   
+            exp *= 2;
+            result += exp * stack.Pop();
+        }
+        return result;   
+    }   
 }
 class Q1290_ConvertBinaryNumberInLinkedListToIntegerTestData : TestData
 {
     protected override List<object[]> Data =>
     [
         [new int[]{1, 0 ,1}, 5],
+        [new int[]{1, 0 ,0, 0}, 8],
+        [new int[]{0, 1, 0 ,0, 0}, 8],
         [new int[]{0}, 0],
     ];
 }

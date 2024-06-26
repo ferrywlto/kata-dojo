@@ -1,8 +1,18 @@
 class Q1299_ReplaceElementsWithGreatestElementOnRightSide
 {
+    // TC: O(n), n is length of arr
+    // SC: O(1), no space used in operations
     public int[] ReplaceElements(int[] arr)
     {
-        return [];
+        var currentMax = arr[^1];
+        for(var i = arr.Length - 2; i>=0; i--)
+        {
+            var temp = arr[i];
+            arr[i] = currentMax;
+            currentMax = Math.Max(temp, currentMax);            
+        }
+        arr[^1] = -1;
+        return arr;
     }
 }
 class Q1299_ReplaceElementsWithGreatestElementOnRightSideTestData : TestData

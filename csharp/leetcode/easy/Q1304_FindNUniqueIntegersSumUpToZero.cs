@@ -14,6 +14,18 @@ class Q1304_FindNUniqueIntegersSumUpToZero
         if (n % 2 != 0) result.Add(0);
         return result.ToArray();
     }
+    public int[] SumZero_Faster(int n)
+    {
+        var result = new int[n];
+        var value = 1;
+        for(var i=0; i<n-1; i+=2)
+        {
+            result[i] = value;
+            result[i+1] = -value;
+            value++;
+        }
+        return result;
+    }    
 }
 class Q1304_FindNUniqueIntegersSumUpToZeroTestData : TestData
 {
@@ -31,7 +43,7 @@ public class Q1304_FindNUniqueIntegersSumUpToZeroTests
     public void OfficialTestCases(int input, int[] expected)
     {
         var sut = new Q1304_FindNUniqueIntegersSumUpToZero();
-        var actual = sut.SumZero(input);
+        var actual = sut.SumZero_Faster(input);
         var distinctCount = actual.Distinct().Count();
         var actualSum = actual.Sum();
 

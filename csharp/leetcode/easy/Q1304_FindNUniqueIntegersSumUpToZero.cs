@@ -1,8 +1,18 @@
 class Q1304_FindNUniqueIntegersSumUpToZero
 {
+    // TC: O(n), n = input
+    // SC: O(n), n/2 + 1 space needed to return the result
     public int[] SumZero(int n)
     {
-        return [];
+        var times = n / 2;
+        var result = new List<int>();
+        for(var i=1; i<=times; i++)
+        {
+            result.Add(-i);
+            result.Add(i);
+        }
+        if (n % 2 != 0) result.Add(0);
+        return result.ToArray();
     }
 }
 class Q1304_FindNUniqueIntegersSumUpToZeroTestData : TestData

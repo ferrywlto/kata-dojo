@@ -4,12 +4,23 @@ class Q1313_DecompressRunLengthEncodedList
     // SC: O(n), n is resulting expended size of nums
     public int[] DecompressRLElist(int[] nums) 
     {
-        var result = new List<int>();
+        var size = 0;
         for(var i=0; i<nums.Length; i+=2)
         {
-            result.AddRange(Enumerable.Repeat(nums[i + 1], nums[i]));
+            size += nums[i];
         }
-        return result.ToArray();    
+        var result = new int[size];
+        var idx = 0;
+        for(var j=0; j<nums.Length; j+=2)
+        {
+            var times = nums[j];
+            for(var k=0; k<times; k++)
+            {
+                result[idx + k] = nums[j + 1];
+            }
+            idx += times;
+        }
+        return result;
     }
 }
 class Q1313_DecompressRunLengthEncodedListTestData : TestData

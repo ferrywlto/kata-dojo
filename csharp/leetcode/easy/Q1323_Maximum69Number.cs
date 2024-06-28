@@ -1,14 +1,24 @@
+using System.Text;
 
 class Q1323_Maximum69Number
 {
-    public int Maximum69Number (int num) 
+    public int Maximum69Number(int num)
     {
-        return 0;    
+        var numStrSb = new StringBuilder(num.ToString());
+        for (var i = 0; i < numStrSb.Length; i++)
+        {
+            if (numStrSb[i] == '6')
+            {
+                numStrSb[i] = '9';
+                return int.Parse(numStrSb.ToString());
+            }
+        }
+        return num;
     }
 }
 class Q1323_Maximum69NumberTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [9669, 9969],
         [9996, 9999],

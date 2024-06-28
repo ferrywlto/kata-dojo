@@ -2,6 +2,8 @@ using System.Text;
 
 class Q1323_Maximum69Number
 {
+    // TC: O(n), n is digits of num
+    // SC: O(n), n is digits of num
     public int Maximum69Number(int num)
     {
         var numStrSb = new StringBuilder(num.ToString());

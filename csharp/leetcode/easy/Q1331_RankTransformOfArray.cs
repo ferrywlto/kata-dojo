@@ -1,8 +1,23 @@
 class Q1331_RankTransformOfArray
 {
+    // TC: O(n log n), n log n for sort, n for getting the rank, n for writing result
+    // SC: O(n), n to store the distinct ranks
     public int[] ArrayRankTransform(int[] arr)
     {
-        return [];
+        if (arr.Length == 0) return arr;
+
+        var set = arr.ToHashSet();
+        var distinctArr = set.ToArray();
+        Array.Sort(distinctArr);
+        var dict = new Dictionary<int, int>();
+
+        for (var i = 0; i < distinctArr.Length; i++)
+            dict.Add(distinctArr[i], i + 1);
+
+        for (var j = 0; j < arr.Length; j++)
+            arr[j] = dict[arr[j]];
+
+        return arr;
     }
 }
 class Q1331_RankTransformOfArrayTestData : TestData

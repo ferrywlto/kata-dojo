@@ -60,7 +60,7 @@ class Q1280_StudentsAndExaminationsTestData : TestData
         ],
     ];
 }
-public class Q1280_StudentsAndExaminationsTests(ITestOutputHelper output) : SqlTest(output)
+public class Q1280_StudentsAndExaminationsTests : SqlTest
 {
     protected override string TestSchema => 
     """
@@ -75,7 +75,7 @@ public class Q1280_StudentsAndExaminationsTests(ITestOutputHelper output) : SqlT
     {
         ArrangeTestData(testDataSql);
         var sut = new Q1280_StudentsAndExaminations();
-        var reader = ExecuteQuery(sut.Query, true);
+        var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["student_id", "student_name", "subject_name", "attended_exams"]);
 
         for(var i = 0; i< values.Length; i++)

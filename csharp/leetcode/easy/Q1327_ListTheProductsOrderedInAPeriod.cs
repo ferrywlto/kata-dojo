@@ -46,7 +46,7 @@ class Q1327_ListTheProductsOrderedInAPeriodTestData : TestData
         ]
     ];
 }
-public class Q1327_ListTheProductsOrderedInAPeriodTests(ITestOutputHelper output) : SqlTest(output)
+public class Q1327_ListTheProductsOrderedInAPeriodTests: SqlTest
 {
     protected override string TestSchema => 
     """
@@ -60,7 +60,7 @@ public class Q1327_ListTheProductsOrderedInAPeriodTests(ITestOutputHelper output
     {
         ArrangeTestData(testDataSql);
         var sut = new Q1327_ListTheProductsOrderedInAPeriod();
-        var reader = ExecuteQuery(sut.Query, true);
+        var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["product_name", "unit"]);
         foreach(var row in expected)
         {

@@ -1,6 +1,6 @@
 class Q1337_TheWeakestRowsInMatrix
 {
-    // TC: O(n), scale on number of 1s in matrix + k
+    // TC: O(log n), scale on number of 1s in matrix
     // SC: O(m+k), m is number of row, worse case each row have distinct number of soliders + k space for result holding list
     public int[] KWeakestRows(int[][] mat, int k)
     {

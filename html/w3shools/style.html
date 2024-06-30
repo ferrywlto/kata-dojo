@@ -21,5 +21,15 @@
         <p class="class class2">Style from class</p>
         <span>Style from tag</span><br>
         <span>Style from tag</span>
+        
+        <p>Below style applied by &lt;script&gt; tag:</p>
+        <p id="replace">It should get replaced.</p>
+        <p id="fontSize">This text should be large.</p>
+        <p id="fontColor">This text should be red.</p>
     </body>
 </html>
+<script>
+    document.getElementById("replace").innerHTML = "Hello World!";
+    document.getElementById("fontSize").style.fontSize = "40px";
+    document.getElementById("fontColor").style.color = "red";
+</script>

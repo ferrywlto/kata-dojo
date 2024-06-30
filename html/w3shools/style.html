@@ -1,32 +1,38 @@
 <html>
-    <head>
-        <style>
-            #id {
-                color: red;
-            }
-            .class {
-                color: blue;
-            }
-            .class2 {
-                background-color: bisque;
-            }
-            span {
-                color: green;
-            }
-        </style>
-    </head>
-    <body>
-        <p id="id">Style from id</p>
-        <p id="id">Style from same id</p>
-        <p class="class class2">Style from class</p>
-        <span>Style from tag</span><br>
-        <span>Style from tag</span>
-        
-        <p>Below style applied by &lt;script&gt; tag:</p>
-        <p id="replace">It should get replaced.</p>
-        <p id="fontSize">This text should be large.</p>
-        <p id="fontColor">This text should be red.</p>
-    </body>
+
+<head>
+    <style>
+        #id {
+            color: red;
+        }
+
+        .class {
+            color: blue;
+        }
+
+        .class2 {
+            background-color: bisque;
+        }
+
+        span {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="id">Style from id</p>
+    <p id="id">Style from same id</p>
+    <p class="class class2">Style from class</p>
+    <span>Style from tag</span><br>
+    <span>Style from tag</span>
+
+    <p>Below style applied by &lt;script&gt; tag:</p>
+    <p id="replace">It should get replaced.</p>
+    <p id="fontSize">This text should be large.</p>
+    <p id="fontColor">This text should be red.</p>
+</body>
+
 </html>
 <script>
     document.getElementById("replace").innerHTML = "Hello World!";

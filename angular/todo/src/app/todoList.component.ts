@@ -6,16 +6,28 @@ import { TodoItem } from "./todoItem.component";
     imports: [TodoItem],
     template: `
         <ul class="list-group">
-        @for (todo of todos; track todo) {
-            <todo-item [itemText]=todo></todo-item>
+        @for (todo of todos; track todo.id) {
+            <todo-item [todoState]=todo (onClick)="showClicked($event)"></todo-item>
         }
-        </ul>`,
+        </ul>
+        <div>{{debug}}</div>`
+        ,
     styles: ``
 })
 export class TodoList {
-    todos = [
-        "Sweeping floor",
-        "Leetcode",
-        "Play with cats",
+    todos: TodoState[] = [
+        { id: 1, title: "Sweeping floor", done: false },
+        { id: 2, title: "Leetcode", done: true },
+        { id: 3, title: "Play with cats", done: false },
     ]
+    debug: string = "";
+    showClicked(event: TodoState)
+    {
+        this.debug = event.id + " | " + event.title + " | " + event.done;
+    }
+}
+export class TodoState {
+    id!: number;
+    title!: string
+    done!: boolean
 }

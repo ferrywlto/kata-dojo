@@ -13,6 +13,20 @@ class Q1342_NumberOfStepsToReduceNumberToZero
         }
         return count;
     }
+    // TC: O(n), scale with bits of num
+    // SC: O(1), no space used in calculation
+    public int NumberOfSteps_BitwiseOps(int num)
+    {
+        if (num == 0) return 0;
+        var count = 0;
+        while(num > 0)
+        {
+            if ((num & 1) == 1) count++;
+            num >>= 1;
+            count++;
+        }
+        return count-1;
+    }
 }
 class Q1342_NumberOfStepsToReduceNumberToZeroTestData : TestData
 {
@@ -30,7 +44,7 @@ public class Q1342_NumberOfStepsToReduceNumberToZeroTests
     public void OfficialTestCases(int input, int expected)
     {
         var sut = new Q1342_NumberOfStepsToReduceNumberToZero();
-        var actual = sut.NumberOfSteps(input);
+        var actual = sut.NumberOfSteps_BitwiseOps(input);
         Assert.Equal(expected, actual);
     }
 }

@@ -1,13 +1,22 @@
-
 class Q1342_NumberOfStepsToReduceNumberToZero
 {
-        public int NumberOfSteps(int num) {
-        return 0;
+    // TC: O(n), scale with size of num
+    // SC: O(1), no space used in calculation
+    public int NumberOfSteps(int num)
+    {
+        var count = 0;
+        while (num > 0)
+        {
+            if (num % 2 == 0) num /= 2;
+            else num -= 1;
+            count++;
+        }
+        return count;
     }
 }
 class Q1342_NumberOfStepsToReduceNumberToZeroTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [14, 6],
         [8, 4],

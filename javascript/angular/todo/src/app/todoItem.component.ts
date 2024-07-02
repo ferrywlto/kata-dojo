@@ -6,7 +6,7 @@ import { TodoState } from './todoList.component';
     standalone: true,
     template: `
     <li class="list-group-item">
-        <input class="form-check-input me-1" type="checkbox" [value]="todoState.done" (change)="updateParent($event)">
+        <input class="form-check-input me-1" type="checkbox" [checked]="todoState.done" (change)="updateParent($event)">
         Item: {{todoState.title}}&nbsp;
     </li>`,
     styles: `.todo-item {

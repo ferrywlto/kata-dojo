@@ -24,6 +24,11 @@ export class TodoList {
     showClicked(event: TodoState)
     {
         this.debug = event.id + " | " + event.title + " | " + event.done;
+        let targetState = this.todos.find(x => x.id === event.id);
+        if (targetState)
+        {
+            targetState.done = !targetState?.done
+        }
     }
 }
 export class TodoState {

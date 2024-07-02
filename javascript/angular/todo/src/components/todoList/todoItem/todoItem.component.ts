@@ -9,9 +9,13 @@ import { TodoState } from '../models/todoState';
 export class TodoItem {
     @Input() state!: TodoState;
     onDoneChange = output<number>()
+    onDeleteClick = output<number>()
 
-    notifyDoneChange(evt: Event) {
+    notifyDoneChange() {
         this.onDoneChange.emit(this.state.id);
+    }
+    notifyDeleteClick() {
+        this.onDeleteClick.emit(this.state.id);
     }
     isOverdue(due: Date): boolean {
         return new Date() > due;

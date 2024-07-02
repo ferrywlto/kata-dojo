@@ -1,14 +1,17 @@
 <li class="list-group-item">
-    <input class="form-check-input me-1" type="checkbox" 
+    <input class="form-check-input" type="checkbox" 
     [checked]="state.done" 
-    (change)="notifyDoneChange($event)">
+    (change)="notifyDoneChange()">
     @if (state.done) {
-        <span class="badge text-bg-secondary">
+        <label class="form-check-label text-secondary">
             <del>{{state.title}}</del>
-        </span>
+        </label>
     } @else if (isOverdue(state.due)) {
-        <span class="badge text-bg-danger">{{state.title}}</span>
+        <label class="form-check-label text-danger">{{state.title}}</label>
     } @else {
-        <span class="badge text-bg-primary">{{state.title}}</span>
+        <label class="form-check-label text-primary">{{state.title}}</label>
     }&nbsp;
+    <button type="button" class="btn" (click)="notifyDeleteClick()">
+        <span class="bi-trash"></span>
+    </button>
 </li>

@@ -17,13 +17,17 @@ export class TodoList {
         { id: 3, title: "Play with cats", done: false, due: new Date(2024,5,23) },
     ]
     debug: string = "";
-    showClicked(id: number)
+    updateDone(id: number)
     {
         let targetState = this.todos.find(x => x.id === id);
         if (targetState)
         {
             targetState.done = !targetState?.done
         }
+    }
+    removeTodo(id: number)
+    {
+        this.todos = this.todos.filter(x => x.id !== id);
     }
     toggleShowDone()
     {

@@ -1,18 +1,12 @@
 import { Component } from "@angular/core";
-import { TodoItem } from "./todoItem.component";
+import { TodoItem } from "./todoItem/todoItem.component";
+import { TodoState } from "./models/todoState";
 @Component({
     standalone: true,
     selector: 'todo-list',
     imports: [TodoItem],
-    template: `
-        <ul class="list-group">
-        @for (todo of todos; track todo.id) {
-            <todo-item [todoState]=todo (onClick)="showClicked($event)"></todo-item>
-        }
-        </ul>
-        <div>{{debug}}</div>`
-        ,
-    styles: ``
+    templateUrl: './todoList.component.html',
+    styleUrl: './todoList.component.css',
 })
 export class TodoList {
     todos: TodoState[] = [
@@ -30,9 +24,4 @@ export class TodoList {
             targetState.done = !targetState?.done
         }
     }
-}
-export class TodoState {
-    id!: number;
-    title!: string
-    done!: boolean
 }

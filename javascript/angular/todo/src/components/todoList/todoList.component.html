@@ -1,0 +1,6 @@
+<ul class="list-group">
+    @for (todo of todos; track todo.id) {
+        <todo-item [todoState]=todo (onClick)="showClicked($event)"></todo-item>
+    }
+    </ul>
+<div>{{debug}}</div>

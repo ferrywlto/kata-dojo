@@ -1,6 +1,12 @@
+<input type="checkbox" id="cbkShowDone" class="form-check-input me-1" 
+    [checked]="showDone" (change)="toggleShowDone()"
+>
+<label for="cbkShowDone" title="Show done?">Show Done?</label>
 <ul class="list-group">
     @for (todo of todos; track todo.id) {
-        <todo-item [todoState]=todo (onClick)="showClicked($event)"></todo-item>
+        @if (!todo.done || showDone) {
+            <todo-item [todoState]=todo (onClick)="showClicked($event)"></todo-item>
+        }
     }
-    </ul>
+</ul>
 <div>{{debug}}</div>

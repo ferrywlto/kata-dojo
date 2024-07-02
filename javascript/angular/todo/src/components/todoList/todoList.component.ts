@@ -9,6 +9,7 @@ import { TodoState } from "./models/todoState";
     styleUrl: './todoList.component.css',
 })
 export class TodoList {
+    showDone: boolean = false;
     todos: TodoState[] = [
         { id: 1, title: "Sweeping floor", done: false },
         { id: 2, title: "Leetcode", done: true },
@@ -23,5 +24,9 @@ export class TodoList {
         {
             targetState.done = !targetState?.done
         }
+    }
+    toggleShowDone()
+    {
+        this.showDone = !this.showDone;
     }
 }

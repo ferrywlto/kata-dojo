@@ -1,4 +1,9 @@
 <li class="list-group-item">
     <input class="form-check-input me-1" type="checkbox" [checked]="todoState.done" (change)="updateParent($event)">
-    Item: {{todoState.title}}&nbsp;
+    @if (todoState.done) {
+        <del>{{todoState.title}}</del>
+    }
+    @else {
+        {{todoState.title}}
+    }&nbsp;
 </li>

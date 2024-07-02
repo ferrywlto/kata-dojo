@@ -3,13 +3,13 @@
     [checked]="state.done" 
     (change)="notifyDoneChange()">
     @if (state.done) {
-        <label class="form-check-label text-secondary">
-            <del>{{state.title}}</del>
+        <label [class]="textClass()">
+            &nbsp;<del>{{transformedDate()}} | {{state.title}}</del>&nbsp;
         </label>
-    } @else if (isOverdue(state.due)) {
-        <label class="form-check-label text-danger">{{state.title}}</label>
     } @else {
-        <label class="form-check-label text-primary">{{state.title}}</label>
+        <label [class]="textClass()">
+            &nbsp;{{transformedDate()}} | {{state.title}}&nbsp;
+        </label>
     }&nbsp;
     <button type="button" class="btn" (click)="notifyDeleteClick()">
         <span class="bi-trash"></span>

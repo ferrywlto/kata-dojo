@@ -20,4 +20,19 @@ export class TodoItem {
     isOverdue(due: Date): boolean {
         return new Date() > due;
     }
+    transformedDate() {
+        return this.state.due.toLocaleDateString()
+        + " " + this.state.due.toLocaleTimeString();
+    } 
+    textClass() {
+        var color = "";
+        if (this.state.done)
+            color = "secondary";    
+        else if (this.isOverdue(this.state.due))
+            color = "danger"
+        else 
+            color = "primary"
+
+        return `text-${color} form-check-label`;
+    }
 }

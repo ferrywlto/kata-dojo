@@ -1,12 +1,12 @@
 <li class="list-group-item">
-    <input class="form-check-input me-1" type="checkbox" [checked]="todoState.done" (change)="updateParent($event)">
-    @if (todoState.done) {
+    <input class="form-check-input me-1" type="checkbox" [checked]="state.done" (change)="updateParent($event)">
+    @if (state.done) {
         <span class="badge text-bg-secondary">
-            <del>{{todoState.title}}</del>
+            <del>{{state.title}}</del>
         </span>
-    } @else if (isOverdue(todoState.due)) {
-        <span class="badge text-bg-danger">{{todoState.title}}</span>
+    } @else if (isOverdue(state.due)) {
+        <span class="badge text-bg-danger">{{state.title}}</span>
     } @else {
-        <span class="badge text-bg-primary">{{todoState.title}}</span>
+        <span class="badge text-bg-primary">{{state.title}}</span>
     }&nbsp;
 </li>

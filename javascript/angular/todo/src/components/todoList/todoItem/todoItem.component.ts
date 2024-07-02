@@ -7,11 +7,11 @@ import { TodoState } from '../models/todoState';
     styleUrl: './todoItem.component.css',
 })
 export class TodoItem {
-    @Input() todoState!: TodoState;
+    @Input() state!: TodoState;
     onClick = output<TodoState>()
 
     updateParent(evt: Event) {
-        let state = {...this.todoState}
+        let state = {...this.state}
         this.onClick.emit(state);
     }
     isOverdue(due: Date): boolean {

@@ -5,7 +5,7 @@
 <ul class="list-group">
     @for (todo of todos; track todo.id) {
         @if (!todo.done || showDone) {
-            <todo-item [todoState]=todo (onClick)="showClicked($event)"></todo-item>
+            <todo-item [state]=todo (onClick)="showClicked($event)"></todo-item>
         }
     }
 </ul>

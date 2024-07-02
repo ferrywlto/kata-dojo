@@ -15,6 +15,23 @@ class Q1351_CountNegativeNumbersInSortedMatrix
         }
         return count;
     }
+    public int CountNegatives_EarlyTermination(int[][] grid)
+    {
+        // start from top-right corner, consider it is sorted decreasingly columnwise also.
+        var count = 0;
+        int i = 0;
+        int j = grid[0].Length - 1;
+        while (i < grid.Length && j >=0)
+        {
+            if (grid[i][j] < 0)
+            {
+                count += grid.Length - i;
+                j--;
+            }
+            else i++;
+        }        
+        return count;
+    }    
 }
 class Q1351_CountNegativeNumbersInSortedMatrixTestData : TestData
 {
@@ -39,7 +56,7 @@ public class Q1351_CountNegativeNumbersInSortedMatrixTests
     public void OfficialTestCases(int[][] input, int expected)
     {
         var sut = new Q1351_CountNegativeNumbersInSortedMatrix();
-        var actual = sut.CountNegatives(input);
+        var actual = sut.CountNegatives_EarlyTermination(input);
         Assert.Equal(expected, actual);
     }
 }

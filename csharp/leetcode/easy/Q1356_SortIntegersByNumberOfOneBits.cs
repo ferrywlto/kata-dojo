@@ -1,8 +1,40 @@
 class Q1356_SortIntegersByNumberOfOneBits
 {
+    // TC: O(n+m log n), it iterate each element in arr once then sort each bucket
+    // SC: O(n+m), n holds all number of bits of each number, another m for buckets  
     public int[] SortByBits(int[] arr)
     {
-        return [];
+        var bits = new Dictionary<int, int>();
+        var buckets = new SortedDictionary<int, List<int>>();
+        foreach(var num in arr)
+        {
+            if(!bits.TryGetValue(num, out var numOfBits))
+            {
+                numOfBits = 0;
+                var n = num;
+                while(n > 0)
+                {
+                    if ((n & 1) == 1) numOfBits++;
+                    n >>= 1;
+                }
+                bits.Add(num, numOfBits);
+            }
+            if(buckets.TryGetValue(numOfBits, out var list))
+            {
+                list.Add(num);
+            }
+            else
+            {
+                buckets.Add(numOfBits, [num]);
+            }
+        }
+        var result = new List<int>();
+        foreach(var p in buckets)
+        {
+            p.Value.Sort();
+            result.AddRange(p.Value);
+        }
+        return result.ToArray();
     }
 }
 class Q1356_SortIntegersByNumberOfOneBitsTestData : TestData

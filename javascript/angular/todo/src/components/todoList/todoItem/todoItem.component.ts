@@ -8,11 +8,10 @@ import { TodoState } from '../models/todoState';
 })
 export class TodoItem {
     @Input() state!: TodoState;
-    onClick = output<TodoState>()
+    onDoneChange = output<number>()
 
-    updateParent(evt: Event) {
-        let state = {...this.state}
-        this.onClick.emit(state);
+    notifyDoneChange(evt: Event) {
+        this.onDoneChange.emit(this.state.id);
     }
     isOverdue(due: Date): boolean {
         return new Date() > due;

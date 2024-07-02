@@ -17,10 +17,9 @@ export class TodoList {
         { id: 3, title: "Play with cats", done: false, due: new Date(2024,5,23) },
     ]
     debug: string = "";
-    showClicked(event: TodoState)
+    showClicked(id: number)
     {
-        this.debug = event.id + " | " + event.title + " | " + event.done;
-        let targetState = this.todos.find(x => x.id === event.id);
+        let targetState = this.todos.find(x => x.id === id);
         if (targetState)
         {
             targetState.done = !targetState?.done

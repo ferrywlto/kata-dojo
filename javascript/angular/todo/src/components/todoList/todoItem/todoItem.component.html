@@ -1,5 +1,7 @@
 <li class="list-group-item">
-    <input class="form-check-input me-1" type="checkbox" [checked]="state.done" (change)="updateParent($event)">
+    <input class="form-check-input me-1" type="checkbox" 
+    [checked]="state.done" 
+    (change)="notifyDoneChange($event)">
     @if (state.done) {
         <span class="badge text-bg-secondary">
             <del>{{state.title}}</del>

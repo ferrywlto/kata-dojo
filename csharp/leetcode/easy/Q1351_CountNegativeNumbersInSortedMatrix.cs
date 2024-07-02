@@ -31,6 +31,34 @@ class Q1351_CountNegativeNumbersInSortedMatrix
             else i++;
         }        
         return count;
+    }
+    public int CountNegatives_BinarySearch(int[][] grid)
+    {
+        // instead of iterate each element to check for negative, can use binary search to simply find the first positive number 
+        int count = 0;
+        foreach (var row in grid)
+        {
+            int left = 0;
+            int right = row.Length - 1;
+            int firstPositiveIndex = row.Length; // Assume all are negative until found otherwise
+
+            while (left <= right)
+            {
+                int mid = left + (right - left) / 2;
+                if (row[mid] < 0)
+                {
+                    firstPositiveIndex = mid;
+                    right = mid - 1;
+                }
+                else
+                {
+                    left = mid + 1;
+                }
+            }
+
+            count += row.Length - firstPositiveIndex;
+        }
+        return count;
     }    
 }
 class Q1351_CountNegativeNumbersInSortedMatrixTestData : TestData
@@ -56,7 +84,7 @@ public class Q1351_CountNegativeNumbersInSortedMatrixTests
     public void OfficialTestCases(int[][] input, int expected)
     {
         var sut = new Q1351_CountNegativeNumbersInSortedMatrix();
-        var actual = sut.CountNegatives_EarlyTermination(input);
+        var actual = sut.CountNegatives_BinarySearch(input);
         Assert.Equal(expected, actual);
     }
 }

@@ -9,11 +9,12 @@ import { TodoState } from "./models/todoState";
     styleUrl: './todoList.component.css',
 })
 export class TodoList {
+    currentDate: Date = new Date();
     showDone: boolean = false;
     todos: TodoState[] = [
-        { id: 1, title: "Sweeping floor", done: false },
-        { id: 2, title: "Leetcode", done: true },
-        { id: 3, title: "Play with cats", done: false },
+        { id: 1, title: "Sweeping floor",  done: false, due: new Date(2024,6,15,21,45) },
+        { id: 2, title: "Leetcode", done: true, due: new Date(2024,7,1,23,59) },
+        { id: 3, title: "Play with cats", done: false, due: new Date(2024,5,23) },
     ]
     debug: string = "";
     showClicked(event: TodoState)

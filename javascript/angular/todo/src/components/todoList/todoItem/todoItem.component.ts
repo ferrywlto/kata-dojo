@@ -14,4 +14,7 @@ export class TodoItem {
         let state = {...this.todoState}
         this.onClick.emit(state);
     }
+    isOverdue(due: Date): boolean {
+        return new Date() > due;
+    }
 }

@@ -1,7 +1,28 @@
-<input type="checkbox" id="cbkShowDone" class="form-check-input me-1" 
-    [checked]="showDone" (change)="toggleShowDone()"
->
-<label for="cbkShowDone" title="Show done?">Show Done?</label>
+<div class="input-group">
+    <div class="form-floating">
+        <input type="text" class="form-control" 
+        id="floatingInput" placeholder="">
+        <label for="floatingInput">Your todo title</label>
+    </div>
+
+    <div class="input-group-text">
+        <label for="datePicker">Due:</label>
+        <input type="datetime-local" id="datePicker">
+    </div>
+    <button type="button" class="btn btn-primary">Add Todo</button>
+
+    <div class="input-group-text">
+        <input type="checkbox" id="cbkShowDone" class="form-check-input" 
+            [checked]="showDone" (change)="toggleShowDone()"
+        >&nbsp;
+        <label for="cbkShowDone" title="Show done?">Show Done?</label>
+    </div>
+
+    <div class="input-group-text">
+        <label>Total Todos: 10</label>
+    </div>
+</div>
+
 <ul class="list-group">
     @for (todo of todos; track todo.id) {
         @if (!todo.done || showDone) {

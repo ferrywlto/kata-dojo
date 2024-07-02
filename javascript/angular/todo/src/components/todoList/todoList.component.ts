@@ -33,4 +33,8 @@ export class TodoList {
     {
         this.showDone = !this.showDone;
     }
+    todoCount()
+    {
+        return this.todos.length;
+    }
 }

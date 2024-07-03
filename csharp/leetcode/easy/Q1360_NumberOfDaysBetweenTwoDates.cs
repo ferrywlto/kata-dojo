@@ -1,8 +1,14 @@
 class Q1360_NumberOfDaysBetweenTwoDates
 {
+    // TC: O(1)
+    // SC: O(1), obviously
     public int DaysBetweenDates(string date1, string date2)
     {
-        return 0;
+        // use built-in functions
+        var d1 = DateTime.ParseExact(date1, "yyyy-MM-dd", null);
+        var d2 = DateTime.ParseExact(date2, "yyyy-MM-dd", null);
+        var d3 = d1 - d2;
+        return (int)Math.Abs(d3.TotalDays);
     }
 }
 class Q1360_NumberOfDaysBetweenTwoDatesTestData : TestData

@@ -6,33 +6,16 @@ class Q1375_GenerateStringWithCharactersHaveOddCounts
     // SC: O(n), it have to hold the result of length n
     public string GenerateTheString(int n)
     {
-        if (n == 1) return "a";
-        if (n == 2) return "ab";
         var sb = new StringBuilder();
-        if (n % 2 != 0)
-        {
-            sb.Append(string.Join(string.Empty, Enumerable.Repeat('a', n)));
-        } 
-        else 
-        {
-            var half = n / 2;
-            if (half % 2 != 0)
-            {
-                sb.Append(string.Join(string.Empty, Enumerable.Repeat('a', half)));
-                sb.Append(string.Join(string.Empty, Enumerable.Repeat('b', half)));
-            }
-            else 
-            {
-                sb.Append(string.Join(string.Empty, Enumerable.Repeat('a', half - 1)));
-                sb.Append(string.Join(string.Empty, Enumerable.Repeat('b', half + 1)));                
-            }
-        }
+        if (n % 2 != 0) sb.Append('a', n);
+        // an even number - 1 is always odd, and 1 is odd
+        else sb.Append('a', n - 1).Append('b');
         return sb.ToString();
     }
 }
 class Q1375_GenerateStringWithCharactersHaveOddCountsTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [4, "pppz"],
         [2, "xy"],

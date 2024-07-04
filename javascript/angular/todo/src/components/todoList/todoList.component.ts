@@ -16,7 +16,9 @@ export class TodoList {
         { id: 2, title: "Leetcode", done: true, due: new Date(2024,7,1,23,59) },
         { id: 3, title: "Play with cats", done: false, due: new Date(2024,5,23) },
     ]
-    debug: string = "";
+    todoTitle: string = "hello";
+    dueDate = new Date().toISOString().slice(0,16);
+
     updateDone(id: number)
     {
         let targetState = this.todos.find(x => x.id === id);
@@ -35,6 +37,7 @@ export class TodoList {
     }
     todoCount()
     {
+        console.log(this.dueDate);
         return this.todos.length;
     }
 }

@@ -1,15 +1,18 @@
+<form>
 <div class="input-group">
     <div class="form-floating">
         <input type="text" class="form-control" 
-        id="floatingInput" placeholder="">
+        id="floatingInput" placeholder="e.g. Pet my cats"
+        [value]="todoTitle" required>
         <label for="floatingInput">Your todo title</label>
     </div>
 
     <div class="input-group-text">
-        <label for="datePicker">Due:</label>
-        <input type="datetime-local" id="datePicker">
+        <label for="datePicker">Due:&nbsp;</label>
+        <input type="datetime-local" id="datePicker" 
+        [value]="dueDate" required>
     </div>
-    <button type="button" class="btn btn-primary">Add Todo</button>
+    <button type="button" class="btn btn-primary">Add</button>
 
     <div class="input-group-text">
         <input type="checkbox" id="cbkShowDone" class="form-check-input" 
@@ -22,6 +25,7 @@
         <label>Total Todos: {{todoCount()}}</label>
     </div>
 </div>
+</form>
 
 <ul class="list-group">
     @for (todo of todos; track todo.id) {
@@ -35,4 +39,3 @@
         There is no todo left, create one.
     }
 </ul>
-<div>{{debug}}</div>

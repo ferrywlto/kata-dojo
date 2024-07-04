@@ -1,8 +1,40 @@
+using System.Text;
+
 class Q1370_IncreasingDecreasingString
 {
+    // TC: O(n), n equals to the length of input s
+    // SC: O(n+m), n size of string builder equal to length of s + m unique characters in s, maximum 26
     public string SortString(string s) 
     {
-        return string.Empty;    
+        var dict = new Dictionary<char, int>();
+        foreach(var c in s) 
+        {
+            if (dict.TryGetValue(c, out int value)) dict[c] = ++value;
+            else dict.Add(c, 1);
+        }
+
+        var keys = dict.Keys.OrderBy(c => c).ToArray();
+        var sb = new StringBuilder();
+        while(sb.Length < s.Length)
+        {
+            for(var i=0; i<keys.Length; i++)
+            {
+                if(dict[keys[i]] > 0) 
+                {
+                    sb.Append(keys[i]);
+                    dict[keys[i]]--;
+                }
+            }
+            for(var j=keys.Length-1; j>=0; j--)
+            {
+                if(dict[keys[j]] > 0)
+                {
+                    sb.Append(keys[j]);
+                    dict[keys[j]]--;
+                }
+            }
+        }
+        return sb.ToString();    
     }    
 }
 class Q1370_IncreasingDecreasingStringTestData : TestData

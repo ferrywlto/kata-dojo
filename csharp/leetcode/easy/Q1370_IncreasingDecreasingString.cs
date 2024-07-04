@@ -2,12 +2,12 @@ using System.Text;
 
 class Q1370_IncreasingDecreasingString
 {
-    // TC: O(n), n equals to the length of input s
-    // SC: O(n+m), n size of string builder equal to length of s + m unique characters in s, maximum 26
-    public string SortString(string s) 
+    // TC: O(n), n equals to the length of input s, plus the O(m log m) by sorting the keys in dict, since it is nearly constant to 26 max, it is negligible.
+    // SC: O(n+m+p), n size of string builder equal to length of s + m unique characters in s, maximum 26, p = keys from dict (max 26)
+    public string SortString(string s)
     {
         var dict = new Dictionary<char, int>();
-        foreach(var c in s) 
+        foreach (var c in s)
         {
             if (dict.TryGetValue(c, out int value)) dict[c] = ++value;
             else dict.Add(c, 1);
@@ -15,31 +15,31 @@ class Q1370_IncreasingDecreasingString
 
         var keys = dict.Keys.OrderBy(c => c).ToArray();
         var sb = new StringBuilder();
-        while(sb.Length < s.Length)
+        while (sb.Length < s.Length)
         {
-            for(var i=0; i<keys.Length; i++)
+            for (var i = 0; i < keys.Length; i++)
             {
-                if(dict[keys[i]] > 0) 
+                if (dict[keys[i]] > 0)
                 {
                     sb.Append(keys[i]);
                     dict[keys[i]]--;
                 }
             }
-            for(var j=keys.Length-1; j>=0; j--)
+            for (var j = keys.Length - 1; j >= 0; j--)
             {
-                if(dict[keys[j]] > 0)
+                if (dict[keys[j]] > 0)
                 {
                     sb.Append(keys[j]);
                     dict[keys[j]]--;
                 }
             }
         }
-        return sb.ToString();    
-    }    
+        return sb.ToString();
+    }
 }
 class Q1370_IncreasingDecreasingStringTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["aaaabbbbcccc", "abccbaabccba"],
         ["rat", "art"],

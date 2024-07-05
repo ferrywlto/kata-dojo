@@ -13,7 +13,7 @@
         formControlName="dueControl" required>
     </div>
     <button type="button" class="btn btn-primary"
-    [disabled]="!isFormValid()"
+    [disabled]="!isFormValid"
     (click)="onAddClick()">Add</button>
     
     <div class="input-group-text">
@@ -29,7 +29,7 @@
 </div>
 </form>
 
-@if(!isFormValid()) {
+@if(!isFormValid) {
 <ul class="list-group">
     <li class="list-group-item text-danger">
     @if(titleControl?.hasError('required')) {

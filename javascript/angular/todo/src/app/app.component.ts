@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TodoList } from '../components/todoList/todoList.component';
-
 @Component({
   selector: 'app-root',
   standalone: true,

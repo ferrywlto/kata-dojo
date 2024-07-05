@@ -1,41 +1,64 @@
-<form>
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
 <div class="input-group">
     <div class="form-floating">
         <input type="text" class="form-control" 
         id="floatingInput" placeholder="e.g. Pet my cats"
-        [value]="todoTitle" required>
+        formControlName="titleControl" required>
         <label for="floatingInput">Your todo title</label>
     </div>
-
+    
     <div class="input-group-text">
-        <label for="datePicker">Due:&nbsp;</label>
+        <label for="datePicker"><span class="bi-calendar3">&nbsp;Due:</span>&nbsp;</label>
         <input type="datetime-local" id="datePicker" 
-        [value]="dueDate" required>
+        formControlName="dueControl" required>
     </div>
-    <button type="button" class="btn btn-primary">Add</button>
-
+    <button type="button" class="btn btn-primary"
+    [disabled]="!isFormValid()"
+    (click)="onAddClick()">Add</button>
+    
     <div class="input-group-text">
         <input type="checkbox" id="cbkShowDone" class="form-check-input" 
-            [checked]="showDone" (change)="toggleShowDone()"
+        [checked]="showDone" (change)="toggleShowDone()"
         >&nbsp;
         <label for="cbkShowDone" title="Show done?">Show Done?</label>
     </div>
-
+    
     <div class="input-group-text">
-        <label>Total Todos: {{todoCount()}}</label>
+        <label>Total: {{todoCount()}}</label>
     </div>
 </div>
 </form>
+
+@if(!isFormValid()) {
+<ul class="list-group">
+    <li class="list-group-item text-danger">
+    @if(titleControl?.hasError('required')) {
+        Title is required.
+    }
+    @if(titleControl?.hasError('minlength')){
+        Title needs at least 4 characters long.
+    }
+    </li>
+    <li class="list-group-item text-danger">
+    @if(dueControl?.hasError('pastDueDate')) {
+        Due date must be in future.
+    }
+    </li>
+</ul>
+}
 
 <ul class="list-group">
     @for (todo of todos; track todo.id) {
         @if (!todo.done || showDone) {
             <todo-item [state]=todo 
-                (onDoneChange)="updateDone($event)"
-                (onDeleteClick)="removeTodo($event)">
-            </todo-item>
-        }
-    } @empty {
-        There is no todo left, create one.
+            (onDoneChange)="updateDone($event)"
+            (onDeleteClick)="removeTodo($event)">
+        </todo-item>
     }
+} @empty {
+    <li class="list-group-item">
+        There is no todo left, create one.
+    </li>
+}
 </ul>
+

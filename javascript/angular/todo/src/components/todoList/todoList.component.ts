@@ -1,10 +1,11 @@
 import { Component } from "@angular/core";
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from "@angular/forms"
 import { TodoItem } from "./todoItem/todoItem.component";
 import { TodoState } from "./models/todoState";
 @Component({
     standalone: true,
     selector: 'todo-list',
-    imports: [TodoItem],
+    imports: [TodoItem, ReactiveFormsModule],
     templateUrl: './todoList.component.html',
     styleUrl: './todoList.component.css',
 })
@@ -17,27 +18,50 @@ export class TodoList {
         { id: 3, title: "Play with cats", done: false, due: new Date(2024,5,23) },
     ]
     todoTitle: string = "hello";
-    dueDate = new Date().toISOString().slice(0,16);
 
-    updateDone(id: number)
-    {
+    todoForm = new FormGroup({
+        titleControl: new FormControl('', [
+            Validators.minLength(4),
+            Validators.required,
+        ]),
+        dueControl: new FormControl(new Date().toISOString().slice(0, 16),[
+            this.dueDateCannotPast(),
+            Validators.required,
+        ]),
+    });
+    get titleControl() { return this.todoForm.get('titleControl'); }
+    get dueControl() { return this.todoForm.get('dueControl'); }
+    
+    dueDateCannotPast(): ValidatorFn {
+        return (control: AbstractControl): ValidationErrors | null => {
+            return Date.parse(control.value) < Date.now() ?
+                { pastDueDate: { value: control.value } }
+                : null;
+        };
+    }
+    updateDone(id: number) {
         let targetState = this.todos.find(x => x.id === id);
-        if (targetState)
-        {
+        if (targetState) {
             targetState.done = !targetState?.done
         }
     }
-    removeTodo(id: number)
-    {
+    removeTodo(id: number) {
         this.todos = this.todos.filter(x => x.id !== id);
     }
-    toggleShowDone()
-    {
+    toggleShowDone() {
         this.showDone = !this.showDone;
     }
-    todoCount()
-    {
-        console.log(this.dueDate);
+    todoCount() {
         return this.todos.length;
     }
+    onSubmit() {
+        console.log(this.todoForm.value);
+    }
+    onAddClick() {
+        console.log(this.todoForm.status);
+    }
+    isFormValid() {
+        return this.todoForm.status === "VALID";
+    }
+
 }

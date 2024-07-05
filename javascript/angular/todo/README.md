@@ -28,6 +28,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Angular Notes
 
+### Using form
+- Need to import `ReactiveFormsModule` in the component file that use [formControl] directive in template
+
 ### Form vaildations
 
 - 2 appraoches

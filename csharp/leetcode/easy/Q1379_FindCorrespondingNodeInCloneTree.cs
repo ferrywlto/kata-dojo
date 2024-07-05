@@ -1,27 +1,19 @@
 class Q1379_FindCorrespondingNodeInCloneTree
 {
-    // TC: O(n), as n need to traverse once in original and once in cloned, thus 2n -> n
+    // TC: O(n), as n need to traverse all nodes once worst case.
     // SC: O(h), stack need to store all nodes if tree is skewed worst case
     public TreeNode GetTargetCopy(TreeNode original, TreeNode cloned, TreeNode target)
     {
-        // only 0 or 1, 0 means left, 1 means right
-        string resultPath = string.Empty;
-        var stack = new Stack<(TreeNode node, string path)>();
-        stack.Push((original, string.Empty));
-        while(stack.Count > 0 && string.IsNullOrEmpty(resultPath))
+        var stack = new Stack<(TreeNode nodeFromOriginal, TreeNode nodeFromCloned)>();
+        stack.Push((original, cloned));
+        while(stack.Count > 0)
         {
-            var (node, path) = stack.Pop();
-            if(ReferenceEquals(node, target)) resultPath = path;
-            if(node.right != null) stack.Push((node.right, path+"1"));
-            if(node.left != null) stack.Push((node.left, path+"0"));
+            var (nodeFromOriginal, nodeFromCloned) = stack.Pop();
+            if(ReferenceEquals(nodeFromOriginal, target)) return nodeFromCloned;
+            if(nodeFromOriginal.right != null) stack.Push((nodeFromOriginal.right, nodeFromCloned.right!));
+            if(nodeFromOriginal.left != null) stack.Push((nodeFromOriginal.left, nodeFromCloned.left!));
         }
-        TreeNode? clonedNode = cloned;
-        foreach(var choice in resultPath)
-        {
-            if (choice == '0') clonedNode = clonedNode?.left;
-            else clonedNode = clonedNode?.right;
-        }
-        return clonedNode!;
+        return cloned;
     }
     public TreeNode GetNodeReferenceFromValue(TreeNode tree, int value)
     {

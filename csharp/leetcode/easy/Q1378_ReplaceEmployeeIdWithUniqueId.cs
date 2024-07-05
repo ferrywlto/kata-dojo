@@ -3,7 +3,10 @@ class Q1378_ReplaceEmployeeIdWithUniqueId : SqlQuestion
 {
     public override string Query =>
     """
-    select 1;
+    select unique_id, name 
+    from Employees emp
+    left join EmployeeUNI emp_uni on
+    emp.id = emp_uni.id
     """;
 }
 class Q1378_ReplaceEmployeeIdWithUniqueIdTestData : TestData

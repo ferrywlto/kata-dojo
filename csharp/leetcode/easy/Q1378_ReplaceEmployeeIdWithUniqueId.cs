@@ -37,7 +37,7 @@ class Q1378_ReplaceEmployeeIdWithUniqueIdTestData : TestData
         ]
     ];
 }
-public class Q1378_ReplaceEmployeeIdWithUniqueIdTests(ITestOutputHelper output) : SqlTest(output)
+public class Q1378_ReplaceEmployeeIdWithUniqueIdTests : SqlTest
 {
     protected override string TestSchema =>
     """
@@ -51,7 +51,7 @@ public class Q1378_ReplaceEmployeeIdWithUniqueIdTests(ITestOutputHelper output) 
     {
         ArrangeTestData(testDataSql);
         var sut = new Q1378_ReplaceEmployeeIdWithUniqueId();
-        var reader = ExecuteQuery(sut.Query, true);
+        var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["unique_id", "name"]);
         foreach (var (unique_id, name) in expected)
         {

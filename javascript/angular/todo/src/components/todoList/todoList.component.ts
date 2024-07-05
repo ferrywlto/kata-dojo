@@ -2,7 +2,6 @@ import { Component } from "@angular/core";
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from "@angular/forms"
 import { TodoItem } from "./todoItem/todoItem.component";
 import { TodoState } from "./models/todoState";
-import { max } from "rxjs";
 @Component({
     standalone: true,
     selector: 'todo-list',
@@ -53,7 +52,6 @@ export class TodoList {
                 .reduce((prev, curr) => Math.max(prev, curr)) + 1;
         }
         else max_id = 1;
-        console.log(`max_id: ${max_id}`);
         let date = new Date(this.dueControl?.value ?? '');
         this.todos.push({
             id: max_id,
@@ -77,7 +75,9 @@ export class TodoList {
         return this.todos.length;
     }
     onSubmit() {
-        console.log(this.todoForm.value);
+        if (this.isFormValid) {
+            this.addTodo();
+        }
     }
     onAddClick() {
         console.log(this.todoForm.status);

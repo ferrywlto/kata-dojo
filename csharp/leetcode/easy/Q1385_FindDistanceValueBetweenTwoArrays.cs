@@ -1,8 +1,29 @@
 class Q1385_FindDistanceValueBetweenTwoArrays
 {
+    // TC: O(n log n), n log n for Array.Sort + for each n items in arr1 perform once log n binary search thus n * log n again
+    // SC: O(1), operations are done in-place.
     public int FindTheDistanceValue(int[] arr1, int[] arr2, int d)
     {
-        return 0;
+        Array.Sort(arr2);
+        var count = 0;
+        foreach(var num in arr1)
+        {
+            if (AllDiffLargerThanTarget(arr2, num, d)) count++;
+        }
+        return count;
+    }
+    public bool AllDiffLargerThanTarget(int[] arr, int input, int target)
+    {
+        var start = 0;
+        var end = arr.Length - 1;
+        while (start <= end)
+        {
+            var mid = start + ((end - start) / 2);
+            if (Math.Abs(input - arr[mid]) <= target) return false;
+            if (arr[mid] > input) end = mid - 1;
+            else start = mid + 1;
+        }
+        return true;
     }
 }
 class Q1385_FindDistanceValueBetweenTwoArraysTestData : TestData

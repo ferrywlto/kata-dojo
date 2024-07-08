@@ -4,10 +4,24 @@ class Q1394_FindLuckyIntegerInArray
     // SC: O(n), n is unique values of arr
     public int FindLucky(int[] arr)
     {
-        var dict = arr.GroupBy(x => x).ToDictionary(g => g.Key, g => g.Count());
-        var match = dict.Where(x => x.Key == x.Value).Select(x => x.Key);
-        if(match.Any()) return match.Max();
-        return -1;
+        var dict2 = new Dictionary<int, int>();
+        foreach(var num in arr)
+        {
+            if(dict2.TryGetValue(num, out var value))
+            {
+                dict2[num] = ++value;
+            }
+            else 
+            {
+                dict2.Add(num, 1);
+            }
+        }
+        var max = -1;
+        foreach(var p in dict2)
+        {
+            if (p.Key == p.Value && p.Key > max) max = p.Key;
+        }
+        return max;
     }
 }
 class Q1394_FindLuckyIntegerInArrayTestData : TestData

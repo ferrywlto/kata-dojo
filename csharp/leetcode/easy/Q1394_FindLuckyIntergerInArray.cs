@@ -1,8 +1,13 @@
 class Q1394_FindLuckyIntegerInArray
 {
+    // TC: O(n), n is length of arr
+    // SC: O(n), n is unique values of arr
     public int FindLucky(int[] arr)
     {
-        return 0;
+        var dict = arr.GroupBy(x => x).ToDictionary(g => g.Key, g => g.Count());
+        var match = dict.Where(x => x.Key == x.Value).Select(x => x.Key);
+        if(match.Any()) return match.Max();
+        return -1;
     }
 }
 class Q1394_FindLuckyIntegerInArrayTestData : TestData

@@ -68,6 +68,15 @@ export class TodoList {
     removeTodo(id: number) {
         this.todos = this.todos.filter(x => x.id !== id);
     }
+    updateTodo(state: TodoState) {
+        console.log(state);
+        let todo = this.todos.find(x => x.id === state.id);
+        if (todo != null) {
+            todo.title = state.title;
+            todo.due = state.due;
+        }
+        console.log(todo);
+    }
     toggleShowDone() {
         this.showDone = !this.showDone;
     }

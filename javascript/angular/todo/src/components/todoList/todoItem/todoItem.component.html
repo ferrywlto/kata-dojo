@@ -1,17 +1,64 @@
 <li class="list-group-item">
-    <input class="form-check-input" type="checkbox" 
-    [checked]="state.done" 
-    (change)="notifyDoneChange()">
-    @if (state.done) {
-        <label [class]="textClass()">
-            &nbsp;<del>{{transformedDate()}} | {{state.title}}</del>&nbsp;
-        </label>
-    } @else {
-        <label [class]="textClass()">
-            &nbsp;{{transformedDate()}} | {{state.title}}&nbsp;
-        </label>
-    }&nbsp;
-    <button type="button" class="btn" (click)="notifyDeleteClick()">
-        <span class="bi-trash"></span>
-    </button>
+    @if (isEditMode) {
+        <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+            <div class="input-group">
+                <div class="form-floating">
+                    <input type="text" class="form-control" 
+                    id="floatingInput" placeholder="e.g. Pet my cats"
+                    formControlName="titleControl" required
+                    >
+                    <label for="floatingInput">Your todo title</label>
+                </div>
+                
+                <div class="input-group-text">
+                    <label for="datePicker"><span class="bi-calendar3">&nbsp;Due:</span>&nbsp;</label>
+                    <input type="datetime-local" id="datePicker" 
+                    formControlName="dueControl" required
+                    >
+                </div>
+                <button type="button" class="btn btn-primary"
+                [disabled]="!isFormValid"
+                (click)="onSubmit()">Update</button>
+                <button type="button" class="btn btn-warning"
+                (click)="toggleEditMode()">Cancel</button>
+            </div>
+        </form>
+        @if(!isFormValid) {
+        <ul class="list-group">
+            <li class="list-group-item text-danger">
+            @if(titleControl?.hasError('required')) {
+                Title is required.
+            }
+            @if(titleControl?.hasError('minlength')){
+                Title needs at least 4 characters long.
+            }
+            </li>
+            <li class="list-group-item text-danger">
+            @if(dueControl?.hasError('pastDueDate')) {
+                Due date must be in future.
+            }
+            </li>
+        </ul>
+        }
+    }
+    @else {
+        <input class="form-check-input" type="checkbox" 
+        [checked]="state.done" 
+        (change)="notifyDoneChange()">
+        @if (state.done) {
+            <label [class]="textClass()">
+                &nbsp;<del>{{transformedDate()}} | {{state.title}}</del>&nbsp;
+            </label>
+        } @else {
+            <label [class]="textClass()">
+                &nbsp;{{transformedDate()}} | {{state.title}}&nbsp;
+            </label>
+        }&nbsp;
+        <button type="button" class="btn" (click)="toggleEditMode()">
+            <span class="bi-pencil"></span>
+        </button>
+        <button type="button" class="btn" (click)="notifyDeleteClick()">
+            <span class="bi-trash"></span>
+        </button>
+    }
 </li>

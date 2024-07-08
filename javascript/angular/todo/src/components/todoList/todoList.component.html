@@ -52,7 +52,9 @@
         @if (!todo.done || showDone) {
             <todo-item [state]=todo 
             (onDoneChange)="updateDone($event)"
-            (onDeleteClick)="removeTodo($event)">
+            (onDeleteClick)="removeTodo($event)"
+            (onEdit)="updateTodo($event)"
+            >
         </todo-item>
     }
 } @empty {
@@ -61,4 +63,3 @@
     </li>
 }
 </ul>
-

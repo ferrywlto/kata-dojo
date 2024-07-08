@@ -1,8 +1,15 @@
 class Q1389_CreateTargetArrayInGivenOrder
 {
+    // TC: O(n^2), n is length of nums, ^2 due to list.Insert() is not O(1)
+    // SC: O(n), n is length of nums
     public int[] CreateTargetArray(int[] nums, int[] index) 
     {
-        return [];
+        var list = new List<int>();
+        for(var i=0; i<nums.Length; i++)
+        {
+            list.Insert(index[i], nums[i]);
+        }
+        return list.ToArray();
     } 
 }
 class Q1389_CreateTargetArrayInGivenOrderTestData : TestData

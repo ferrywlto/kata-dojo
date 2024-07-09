@@ -21,7 +21,7 @@ export class TodoList {
             Validators.minLength(4),
             Validators.required,
         ]),
-        dueControl: new FormControl(new Date().toISOString().slice(0, 16),[
+        dueControl: new FormControl(this.transformedDate(new Date()),[
             this.dueDateCannotPast(),
             Validators.required,
         ]),
@@ -44,6 +44,15 @@ export class TodoList {
         if (targetState) {
             targetState.done = !targetState?.done
         }
+    }
+    transformedDate(input: Date) {
+        const date = input;
+        const dateStr = date.getFullYear() + '-' +
+        ('0' + (date.getMonth() + 1)).slice(-2) + '-' +
+        ('0' + date.getDate()).slice(-2) + 'T' +
+        ('0' + date.getHours()).slice(-2) + ':' +
+        ('0' + date.getMinutes()).slice(-2);   
+        return dateStr;
     }
     addTodo() {
         let max_id;

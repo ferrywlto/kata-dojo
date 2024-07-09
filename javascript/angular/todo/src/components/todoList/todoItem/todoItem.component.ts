@@ -21,7 +21,7 @@ export class TodoItem {
             Validators.minLength(4),
             Validators.required,
         ]),
-        dueControl: new FormControl(new Date().toISOString().slice(0, 16),[
+        dueControl: new FormControl('',[
             this.dueDateCannotPast(),
             Validators.required,
         ]),
@@ -59,8 +59,13 @@ export class TodoItem {
     isOverdue(due: Date): boolean {
         return new Date() > due;
     }
-    transformedDate() {
-        return this.state.due.toISOString();
+    transformedDate(input: Date) {
+        const dateStr = input.getFullYear() + '-' +
+        ('0' + (input.getMonth() + 1)).slice(-2) + '-' +
+        ('0' + input.getDate()).slice(-2) + 'T' +
+        ('0' + input.getHours()).slice(-2) + ':' +
+        ('0' + input.getMinutes()).slice(-2);   
+        return dateStr;
     } 
     textClass() {
         var color = "";
@@ -78,7 +83,7 @@ export class TodoItem {
         this.isEditMode = !this.isEditMode;
         if (this.isEditMode) {
             this.titleControl?.setValue(this.state.title);
-            this.dueControl?.setValue(this.state.due.toISOString().slice(0, 16));
+            this.dueControl?.setValue(this.transformedDate(this.state.due));
         }
     }
 }

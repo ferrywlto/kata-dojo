@@ -38,6 +38,97 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - [x] i18n
 - [x] Routing
 
+### Routing
+- To access router in compoent, need:
+1. `import { Router } from "@angular/router";`
+2. Inject into constructor in class code: `constructor(private router: Router) {}`
+3. To route programmatically: `this.router.navigateByUrl('/');`
+
+### Animation
+- The documentation from official site is wrong
+- All we need is to 
+1. Import the service for injection
+```
+// app.config.ts
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'
+export const appConfig: ApplicationConfig = {
+  providers: [
+    ...
+    provideAnimationsAsync(),
+  ]
+};
+```
+2. Import the required functions in the component that defines the animation
+```
+// todoItem.component.ts
+import {
+    trigger,
+    state,
+    style,
+    animate,
+    transition,
+    keyframes,
+  } from '@angular/animations';
+```
+3. Define the animations
+```
+//  todoItem.component.ts
+@Component({
+    ...
+    animations: [
+        trigger('editMode', [
+            state('visible', style({ opacity: 1 })),
+            transition('void => visible', [animate('1s', keyframes([
+                style({opacity: 0.1, offset: 0.1}),
+                style({opacity: 0.6, offset: 0.2}),
+                style({opacity: 1, offset: 0.5}),
+                style({opacity: 0.2, offset: 0.7}),
+              ]))]),
+            transition('* => void', [animate('1s')]),
+        ])
+    ]
+})
+```
+4. Bind the animation to the element
+```
+// todoItem.component.html
+<div class="input-group" [@editMode]="isEditMode ? 'visible' : 'invisible'">
+```
+
+For animation during view / route change:
+1. Define meta data in route:
+```
+// app.route.ts
+export const routes: Routes = [
+    { path: 'todo', title: 'Todo', component: TodoList, data: {animation: 'Todo'} },
+]
+```
+2. Wrap the `router-outlet` element with tag which binds to animation:
+```
+// app.component.html
+<div [@routeAnimation]="getRouteAnimationData()">
+    <router-outlet />
+</div>
+```
+3. Define the animation:
+```
+// app.component.ts
+animations: [
+    trigger('routeAnimation', [
+        transition('Todo <=> NotFound', [
+        ...
+    ]
+]
+```
+4. Inject the routing context in constructor:
+```
+// app.component.ts
+constructor(private contexts: ChildrenOutletContexts) {}
+getRouteAnimationData() {
+return this.contexts
+    .getContext('primary')?.route?.snapshot?.data?.['animation'];
+}
+``` 
 ### Form vaildations
 
 - 2 appraoches

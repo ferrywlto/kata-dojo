@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from "@angular/forms"
 import { TodoItem } from "./todoItem/todoItem.component";
 import { TodoState } from "./models/todoState";
+import { Router } from "@angular/router";
 @Component({
     standalone: true,
     selector: 'todo-list',
@@ -10,6 +11,7 @@ import { TodoState } from "./models/todoState";
     styleUrl: './todoList.component.css',
 })
 export class TodoList {
+    constructor(private router: Router) {}
     showDone: boolean = false;
     todos: TodoState[] = [
         { id: 1, title: $localize `:title text (meaning)| text to demonstrate translation in code (description):Sweeping floor`,  done: false, due: new Date(2024,6,15,21,45) },
@@ -100,5 +102,8 @@ export class TodoList {
     onAddClick() {
         console.log(this.todoForm.status);
         this.addTodo();
+    }
+    onBackClick() {
+        this.router.navigateByUrl('/');
     }
 }

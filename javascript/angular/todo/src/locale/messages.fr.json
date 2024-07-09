@@ -1,0 +1,9 @@
+{
+    "locale": "en-US",
+    "translations": {
+        "2105744491162440662": "Spectacle terminé ?",
+        "8856905278208146821": " {$ICU} ",
+        "978254214544324541": "{VAR_PLURAL, plural, =0 {Aucune} =1 {Un tout} other {{INTERPOLATION} tous}}",
+        "7946972007200996747": "Sol balayant"
+    }
+}

@@ -20,11 +20,13 @@
         <input type="checkbox" id="cbkShowDone" class="form-check-input" 
         [checked]="showDone" (change)="toggleShowDone()"
         >&nbsp;
-        <label for="cbkShowDone" title="Show done?">Show Done?</label>
+        <label for="cbkShowDone" i18n-title title="Show done?">Show Done?</label>
     </div>
     
     <div class="input-group-text">
-        <label>Total: {{todoCount()}}</label>
+        <label i18n>
+            {todoCount(), plural, =0 {None} =1 {One todo} other {{{todoCount()}} todos}}
+        </label>
     </div>
 </div>
 </form>

@@ -9,6 +9,14 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "fr": {
+            "translation": "src/locale/messages.fr.json"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -16,6 +24,7 @@
             "outputPath": "dist/todo",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "localize": true,
             "polyfills": [
               "zone.js",
               "@angular/localize/init"
@@ -56,6 +65,9 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "fr": {
+              "localize": ["fr"]
             }
           },
           "defaultConfiguration": "production"
@@ -68,6 +80,9 @@
             },
             "development": {
               "buildTarget": "todo:build:development"
+            },
+            "fr": {
+              "buildTarget": "todo:build:development,fr"
             }
           },
           "defaultConfiguration": "development"

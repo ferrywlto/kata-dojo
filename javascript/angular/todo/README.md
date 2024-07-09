@@ -35,7 +35,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - [ ] IndexedDB
 - [ ] Redux
 - [ ] Animation
-- [ ] i18n
+- [x] i18n
 - [x] Routing
 
 ### Form vaildations
@@ -51,6 +51,43 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
         - Functional paradigm, immutable data
         - Better rendering performance
         - Test is straight forward
+### i18n
+
+- In order to use i18n, the enclosing tag need the `i18n` attribute
+```
+<span i18n>Updated: 
+{
+    minutes, plural,
+    =0 {just now}
+    =1 {one minute ago}
+    other {{{ minutes }} minutes ago by 
+    {
+        gender, select, 
+        male {male} 
+        female {female} 
+        other {other}}
+    }
+}
+The above shows two expressions,
+- 1 for pluralizor
+- 1 for select alternative text based on value
+</span>
+```
+- Marking translation text in `.ts` file:
+```
+{id: 1, title: $localize `Sweeping floor`}
+```
+- Marking tag enclosed text need translation:
+```
+<some-tag i18n>Text will get translated</some-tag>
+```
+- Marking attribute text that need translation:
+```
+<some-tag i18n-title title="text will get translated"></some-tag>
+```
+- Call `ng extract-i18n --format=json` to generate language file, note that only json format works in `ng build --localize`
+
+**NOTE:** There are many changes required in `angular.json` to build and serve with other language version. Also the way Angular serve i18n is to build different language version and have server side to deciding which version to serve based on language.
 
 ## Features
 - [ ] Prioritization: Allow users to set priorities for tasks (e.g., high, medium, low).

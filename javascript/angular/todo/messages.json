@@ -1,0 +1,9 @@
+{
+  "locale": "en-US",
+  "translations": {
+    "2105744491162440662": "Show done?",
+    "8856905278208146821": " {$ICU} ",
+    "978254214544324541": "{VAR_PLURAL, plural, =0 {None} =1 {One todo} other {{INTERPOLATION} todos}}",
+    "7946972007200996747": "Sweeping floor"
+  }
+}

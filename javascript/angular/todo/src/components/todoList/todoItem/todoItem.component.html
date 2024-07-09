@@ -1,7 +1,8 @@
 <li class="list-group-item">
     @if (isEditMode) {
         <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
-            <div class="input-group">
+            <div class="input-group"
+            [@editMode]="isEditMode ? 'visible' : 'invisible'">
                 <div class="form-floating">
                     <input type="text" class="form-control" 
                     id="floatingInput" placeholder="e.g. Pet my cats"

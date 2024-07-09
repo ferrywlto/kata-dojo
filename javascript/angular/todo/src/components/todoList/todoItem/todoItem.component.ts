@@ -1,5 +1,13 @@
 import { Component, Input, Output, output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from "@angular/forms"
+import {
+    trigger,
+    state,
+    style,
+    animate,
+    transition,
+    keyframes,
+  } from '@angular/animations';
 import { DatePipe } from '@angular/common';
 import { TodoState } from '../models/todoState';
 @Component({
@@ -8,6 +16,18 @@ import { TodoState } from '../models/todoState';
     templateUrl: './todoItem.component.html',
     styleUrl: './todoItem.component.css',
     imports: [ReactiveFormsModule, DatePipe],
+    animations: [
+        trigger('editMode', [
+            state('visible', style({ opacity: 1 })),
+            transition('void => visible', [animate('1s', keyframes([
+                style({opacity: 0.1, offset: 0.1}),
+                style({opacity: 0.6, offset: 0.2}),
+                style({opacity: 1, offset: 0.5}),
+                style({opacity: 0.2, offset: 0.7}),
+              ]))]),
+            transition('* => void', [animate('1s')]),
+        ])
+    ]
 })
 export class TodoItem {
     @Input() state!: TodoState;

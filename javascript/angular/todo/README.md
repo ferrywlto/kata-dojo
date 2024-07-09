@@ -34,7 +34,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ### Studies
 - [ ] IndexedDB
 - [ ] Redux
-- [ ] Animation
+- [x] Animation
 - [x] i18n
 - [x] Routing
 

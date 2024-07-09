@@ -1,9 +1,11 @@
 {
   "locale": "en-US",
   "translations": {
-    "2105744491162440662": "Show done?",
+    "8899474479079305281": "\nNothing is here. Are you trying to access the {$START_LINK}todo{$CLOSE_LINK}\npage?\n",
+    "8959882679647012488": "Show done?",
+    "7142394369959491349": "Show Done?",
     "8856905278208146821": " {$ICU} ",
     "978254214544324541": "{VAR_PLURAL, plural, =0 {None} =1 {One todo} other {{INTERPOLATION} todos}}",
-    "7946972007200996747": "Sweeping floor"
+    "1890522103221944931": "Sweeping floor"
   }
 }

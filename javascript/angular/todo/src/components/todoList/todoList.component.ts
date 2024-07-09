@@ -12,7 +12,7 @@ import { TodoState } from "./models/todoState";
 export class TodoList {
     showDone: boolean = false;
     todos: TodoState[] = [
-        { id: 1, title: $localize `Sweeping floor`,  done: false, due: new Date(2024,6,15,21,45) },
+        { id: 1, title: $localize `:title text (meaning)| text to demonstrate translation in code (description):Sweeping floor`,  done: false, due: new Date(2024,6,15,21,45) },
         { id: 2, title: "Leetcode", done: true, due: new Date(2024,7,1,23,59) },
         { id: 3, title: "Play with cats", done: false, due: new Date(2024,5,23) },
     ]

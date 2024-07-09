@@ -1,9 +1,11 @@
 {
-    "locale": "en-US",
+    "locale": "fr",
     "translations": {
-        "2105744491162440662": "Spectacle terminé ?",
+        "8899474479079305281": "\nRien n'est ici. Essayez-vous d'accéder à la page {$START_LINK}de tâches{$CLOSE_LINK}?\n",
+        "8959882679647012488": "Spectacle terminé ?",
+        "7142394369959491349": "Spectacle terminé ?",
         "8856905278208146821": " {$ICU} ",
         "978254214544324541": "{VAR_PLURAL, plural, =0 {Aucune} =1 {Un tout} other {{INTERPOLATION} tous}}",
-        "7946972007200996747": "Sol balayant"
+        "1890522103221944931": "Sol balayant"
     }
 }

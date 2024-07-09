@@ -35,6 +35,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - [ ] IndexedDB
 - [ ] Redux
 - [ ] Animation
+- [ ] i18n
 - [x] Routing
 
 ### Form vaildations
@@ -50,7 +51,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
         - Functional paradigm, immutable data
         - Better rendering performance
         - Test is straight forward
-
 
 ## Features
 - [ ] Prioritization: Allow users to set priorities for tasks (e.g., high, medium, low).

@@ -47,11 +47,11 @@
         (change)="notifyDoneChange()">
         @if (state.done) {
             <label [class]="textClass()">
-                &nbsp;<del>{{state.due | date:'medium'}} | {{state.title}}</del>&nbsp;
+                &nbsp;<del>{{state.due | date:'dd/MM/yyyy hh:mm a'}} | {{state.title}}</del>&nbsp;
             </label>
         } @else {
             <label [class]="textClass()">
-                &nbsp;{{state.due | date:'medium'}} | {{state.title}}&nbsp;
+                &nbsp;{{state.due | date:'dd/MM/yyyy hh:mm a'}} | {{state.title}}&nbsp;
             </label>
         }&nbsp;
         <button type="button" class="btn" (click)="toggleEditMode()">

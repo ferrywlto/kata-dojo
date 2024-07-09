@@ -1,8 +1,22 @@
 class Q1403_MinSubsequenceInNonIncreasingOrder
 {
+    // TC: O(n log n), due to Array.Sort();
+    // SC: O(n), for holding the results
     public IList<int> MinSubsequence(int[] nums)
     {
-        return [];
+        Array.Sort(nums);
+        var total = nums.Sum();
+        var leftSum = total;
+        var rightSum = 0;
+        var result = new List<int>();
+        for (var i = nums.Length - 1; i >= 0; i--)
+        {
+            result.Add(nums[i]);
+            rightSum += nums[i];
+            leftSum -= nums[i];
+            if (rightSum > leftSum) return result;
+        }
+        return result;
     }
 }
 class Q1403_MinSubsequenceInNonIncreasingOrderTestData : TestData

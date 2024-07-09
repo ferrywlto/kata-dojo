@@ -1,12 +1,13 @@
 import { Component, Input, Output, output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from "@angular/forms"
+import { DatePipe } from '@angular/common';
 import { TodoState } from '../models/todoState';
 @Component({
     selector: 'todo-item',
     standalone: true,
     templateUrl: './todoItem.component.html',
     styleUrl: './todoItem.component.css',
-    imports: [ReactiveFormsModule],
+    imports: [ReactiveFormsModule, DatePipe],
 })
 export class TodoItem {
     @Input() state!: TodoState;

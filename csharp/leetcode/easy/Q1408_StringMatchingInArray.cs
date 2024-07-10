@@ -36,7 +36,6 @@ class Q1408_StringMatchingInArray
         }
     }
 }
-
 class Q1408_StringMatchingInArrayTestData : TestData
 {
     protected override List<object[]> Data =>

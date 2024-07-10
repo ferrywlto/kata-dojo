@@ -14,7 +14,7 @@
     </div>
     <button type="button" class="btn btn-primary"
     [disabled]="!isFormValid"
-    (click)="onAddClick()">Add</button>
+    (click)="onSubmit()">Add</button>
     
     <div class="input-group-text">
         <input type="checkbox" id="cbkShowDone" class="form-check-input" 
@@ -26,7 +26,7 @@
     
     <div class="input-group-text">
         <label i18n>
-            {todoCount(), plural, =0 {None} =1 {One todo} other {{{todoCount()}} todos}}
+            {todoService.count(), plural, =0 {None} =1 {One todo} other {{{todoService.count()}} todos}}
         </label>
     </div>
 </div>
@@ -54,9 +54,9 @@
     @for (todo of todos; track todo.id) {
         @if (!todo.done || showDone) {
             <todo-item [state]=todo 
-            (onDoneChange)="updateDone($event)"
-            (onDeleteClick)="removeTodo($event)"
-            (onEdit)="updateTodo($event)"
+            (onDoneChange)="todoService.updateDone($event)"
+            (onDeleteClick)="todoService.delete($event)"
+            (onEdit)="todoService.update($event)"
             >
         </todo-item>
     }

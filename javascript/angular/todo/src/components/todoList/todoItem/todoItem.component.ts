@@ -9,7 +9,7 @@ import {
     keyframes,
   } from '@angular/animations';
 import { DatePipe } from '@angular/common';
-import { TodoState } from '../models/todoState';
+import { TodoState } from '../../../models/todoState';
 @Component({
     selector: 'todo-item',
     standalone: true,

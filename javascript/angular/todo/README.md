@@ -33,7 +33,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ### Studies
 - [ ] IndexedDB
-- [ ] Redux
+- [ ] Redux (NgRx)
+- [ ] Singal
+- [x] Service
 - [x] Animation
 - [x] i18n
 - [x] Routing

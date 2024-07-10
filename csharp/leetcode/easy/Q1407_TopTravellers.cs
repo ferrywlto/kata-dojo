@@ -1,9 +1,17 @@
-
+using Row = (string name, int travelled_distance);
 class Q1407_TopTravellers : SqlQuestion
 {
     public override string Query =>
     """
-    select 1;
+    select name, coalesce(travelled_distance,0) as travelled_distance from 
+    Users u left join 
+    (
+        select user_id, sum(distance) as travelled_distance 
+        from Rides
+        group by user_id
+    ) r
+    on u.id = r.user_id
+    order by travelled_distance desc, name asc
     """;
 }
 class Q1407_TopTravellersTestData : TestData
@@ -20,7 +28,7 @@ class Q1407_TopTravellersTestData : TestData
             ('7', 'Lee'),
             ('13', 'Jonathan'),
             ('19', 'Elvis');
-            
+
             insert into Rides (id, user_id, distance) values
             ('1', '1', '120'),
             ('2', '2', '317'),
@@ -31,11 +39,20 @@ class Q1407_TopTravellersTestData : TestData
             ('7', '7', '120'),
             ('8', '19', '400'),
             ('9', '7', '230');
-            """
+            """,
+            new Row[] {
+                ("Elvis", 450),
+                ("Lee", 450),
+                ("Bob", 317),
+                ("Jonathan", 312),
+                ("Alex", 222),
+                ("Alice", 120),
+                ("Donald", 0),
+            }
         ]
     ];
 }
-public class Q1407_TopTravellersTests(ITestOutputHelper output) : SqlTest(output)
+public class Q1407_TopTravellersTests: SqlTest
 {
     protected override string TestSchema => 
     """
@@ -45,11 +62,17 @@ public class Q1407_TopTravellersTests(ITestOutputHelper output) : SqlTest(output
 
     [Theory]
     [ClassData(typeof(Q1407_TopTravellersTestData))]
-    public void OfficialTestCases(string testDataSql)
+    public void OfficialTestCases(string testDataSql, Row[] expected)
     {
         ArrangeTestData(testDataSql);
         var sut = new Q1407_TopTravellers();
-        var reader = ExecuteQuery(sut.Query, true);
+        var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["name", "travelled_distance"]);
+        foreach(var (name, travelled_distance) in expected)
+        {
+            Assert.True(reader.Read());
+            Assert.Equal(name, reader.GetString(0));
+            Assert.Equal(travelled_distance, reader.GetInt32(1));
+        }
     }
 }

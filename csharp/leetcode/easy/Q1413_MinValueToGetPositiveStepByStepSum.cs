@@ -1,9 +1,18 @@
 
 class Q1413_MinValueToGetPositiveStepByStepSum
 {
+    // TC: O(n), n is the size of nums
+    // SC: O(1), no space used in operations
     public int MinStartValue(int[] nums) 
     {
-        return 0;
+        var min = 0;
+        var sum = 0;
+        foreach(var n in nums)
+        {
+            sum += n;
+            if (sum < min) min = sum;
+        }
+        return Math.Abs(min) + 1;
     }
 }
 class Q1413_MinValueToGetPositiveStepByStepSumTestData : TestData
@@ -12,7 +21,7 @@ class Q1413_MinValueToGetPositiveStepByStepSumTestData : TestData
     [
         [new int[] {-3,2,-3,4,2}, 5],
         [new int[] {1,2}, 1],
-        [new int[] {1,-2,-3}, 1],
+        [new int[] {1,-2,-3}, 5],
     ];
 }
 public class Q1413_MinValueToGetPositiveStepByStepSumTests

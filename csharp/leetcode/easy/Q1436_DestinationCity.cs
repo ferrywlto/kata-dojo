@@ -1,8 +1,12 @@
-
 class Q1436_DestinationCity
 {
+    // TC: O(n), n length of paths to get the origins + n length of paths to get the destinations + n length of paths to check which destination is not origin
+    // SC: O(n), n to store all origins, n to store all destinations  
     public string DestCity(IList<IList<string>> paths) 
     {
+        var hashset = paths.Select(x => x[0]).ToHashSet();
+        var destinations = paths.Select(x => x[1]);
+        foreach (var d in destinations) if (!hashset.Contains(d)) return d;
         return string.Empty;    
     }    
 }
@@ -11,25 +15,25 @@ class Q1436_DestinationCityTestData : TestData
     protected override List<object[]> Data => 
     [
         [
-            new List<List<string>>
+            new List<IList<string>>
             {
-                new() {"London","New York"},
-                new() {"New York","Lima"},
-                new() {"Lima","Sao Paulo"} 
+                new List<string>() {"London","New York"},
+                new List<string>() {"New York","Lima"},
+                new List<string>() {"Lima","Sao Paulo"} 
             }, "Sao Paulo"
         ],
         [
-            new List<List<string>>
+            new List<IList<string>>
             {
-                new() {"B","C"},
-                new() {"D","B"},
-                new() {"C","A"} 
+                new List<string>() {"B","C"},
+                new List<string>() {"D","B"},
+                new List<string>() {"C","A"} 
             }, "A"
         ],
         [
-            new List<List<string>>
+            new List<IList<string>>
             {
-                new() {"A","Z"},
+                new List<string>() {"A","Z"},
             }, "Z"
         ]
     ];

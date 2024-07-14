@@ -1,20 +1,18 @@
 
 class Q1437_CheckIfAllOnesAtLeastLengthKPlacesAway
 {
-    // TC: O(n+m), it have to iterate all n elements in nums, then iterate m 1's index
-    // SC: O(m), where m is the number of 1's in nums 
+    // TC: O(n), it have to iterate all n elements in nums, then iterate m 1's index, since m <= n thus O(n)
+    // SC: O(1), improved from O(m) by not storing 1s indexes
     public bool KLengthApart(int[] nums, int k)
     {
-        var oneIndexes = new List<int>();
+        int? lastOne = null;
         for (var i = 0; i < nums.Length; i++)
         {
-            if (nums[i] == 1) oneIndexes.Add(i);
-        }
-        if (oneIndexes.Count == 0) return true;
-
-        for (var j = 1; j < oneIndexes.Count; j++)
-        {
-            if (oneIndexes[j] - oneIndexes[j - 1] - 1 < k) return false;
+            if(nums[i] == 1)
+            {
+                if (lastOne != null && i-lastOne-1 < k) return false;
+                lastOne = i;
+            }
         }
         return true;
     }

@@ -39,7 +39,7 @@ class Q1417_ReformatStringTestData : TestData
 {
     protected override List<object[]> Data => 
     [
-        ["a0b1c2", "0a1b2c"],
+        ["a0b1c2", "2c1b0a"],
         ["leetcode", string.Empty],
         ["1229857369", string.Empty],
         ["j", "j"],

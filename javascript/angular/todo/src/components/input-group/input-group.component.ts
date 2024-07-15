@@ -22,8 +22,10 @@ export class InputGroupComponent {
 
   ngOnInit() {
     this.titleControl?.setValue(this.title);
-    if(!this.due)
+    if (!this.due)
       this.setDueToDefault();
+    else
+      this.setDueDate(this.due);
   }
 
   onSubmit() {
@@ -40,6 +42,17 @@ export class InputGroupComponent {
     this.setDueToDefault();
   }
   setDueToDefault() {
-    this.dueControl?.setValue(this.todoUIService.transformedDate(new Date()));
+    this.setDueDate(new Date());
+  }
+  setDueDate(date: Date) {
+    this.dueControl?.setValue(this.transformedDate(date));
+  }
+  transformedDate(input: Date) {
+    const dateStr = input.getFullYear() + '-' +
+      ('0' + (input.getMonth() + 1)).slice(-2) + '-' +
+      ('0' + input.getDate()).slice(-2) + 'T' +
+      ('0' + input.getHours()).slice(-2) + ':' +
+      ('0' + input.getMinutes()).slice(-2);
+    return dateStr;
   }
 }

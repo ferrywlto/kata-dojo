@@ -3,7 +3,6 @@ import { ReactiveFormsModule } from "@angular/forms"
 import { TodoItem } from "./todoItem/todoItem.component";
 import { Router } from "@angular/router";
 import { TodoService } from "../../services/todo.service";
-import { TodoUIService } from "../../services/todo-ui.service";
 import { InputGroupComponent } from "../input-group/input-group.component";
 @Component({
     standalone: true,
@@ -20,7 +19,6 @@ export class TodoList {
     constructor(
         private router: Router,
         public todoService: TodoService,
-        public todoUIService: TodoUIService
     ) { }
     
     onSubmit(event: {title: string, due: Date}) {

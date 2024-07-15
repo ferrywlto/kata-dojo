@@ -1,5 +1,5 @@
 import { Component, Input, Output, output } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from "@angular/forms"
+import { ReactiveFormsModule } from "@angular/forms"
 import {
     trigger,
     state,
@@ -10,6 +10,7 @@ import {
   } from '@angular/animations';
 import { DatePipe } from '@angular/common';
 import { TodoState } from '../../../models/todoState';
+import { TodoUIService } from '../../../services/todo-ui.service';
 @Component({
     selector: 'todo-item',
     standalone: true,
@@ -30,31 +31,13 @@ import { TodoState } from '../../../models/todoState';
     ]
 })
 export class TodoItem {
-    @Input() state!: TodoState;
-    onDoneChange = output<number>()
-    onDeleteClick = output<number>()
-    onEdit = output<TodoState>()
-
-    isEditMode = false;
-    todoForm = new FormGroup({
-        titleControl: new FormControl('', [
-            Validators.minLength(4),
-            Validators.required,
-        ]),
-        dueControl: new FormControl('',[
-            this.dueDateCannotPast(),
-            Validators.required,
-        ]),
-    });
+    constructor(public todoUIService: TodoUIService) { }
+    
+    todoForm = this.todoUIService.createReactiveForm();
     get titleControl() { return this.todoForm.get('titleControl'); }
     get dueControl() { return this.todoForm.get('dueControl'); }
-    dueDateCannotPast(): ValidatorFn {
-        return (control: AbstractControl): ValidationErrors | null => {
-            return Date.parse(control.value) < Date.now() ?
-                { pastDueDate: { value: control.value } }
-                : null;
-        };
-    }
+    get isFormValid() { return this.todoForm.status === "VALID"; }
+
     onSubmit() {
         if (this.isFormValid) {
             this.onEdit.emit({
@@ -66,9 +49,12 @@ export class TodoItem {
             this.toggleEditMode();
         }
     }
-    get isFormValid() {
-        return this.todoForm.status === "VALID";
-    }
+
+    @Input() state!: TodoState;
+    onDoneChange = output<number>()
+    onDeleteClick = output<number>()
+    onEdit = output<TodoState>()
+    isEditMode = false;
 
     notifyDoneChange() {
         this.onDoneChange.emit(this.state.id);
@@ -79,14 +65,7 @@ export class TodoItem {
     isOverdue(due: Date): boolean {
         return new Date() > due;
     }
-    transformedDate(input: Date) {
-        const dateStr = input.getFullYear() + '-' +
-        ('0' + (input.getMonth() + 1)).slice(-2) + '-' +
-        ('0' + input.getDate()).slice(-2) + 'T' +
-        ('0' + input.getHours()).slice(-2) + ':' +
-        ('0' + input.getMinutes()).slice(-2);   
-        return dateStr;
-    } 
+    
     textClass() {
         var color = "";
         if (this.state.done)
@@ -103,7 +82,7 @@ export class TodoItem {
         this.isEditMode = !this.isEditMode;
         if (this.isEditMode) {
             this.titleControl?.setValue(this.state.title);
-            this.dueControl?.setValue(this.transformedDate(this.state.due));
+            this.dueControl?.setValue(this.todoUIService.transformedDate(this.state.due));
         }
     }
 }

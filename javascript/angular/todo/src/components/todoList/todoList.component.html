@@ -1,64 +1,27 @@
-<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
-<div class="input-group">
-    <div class="form-floating">
-        <input type="text" class="form-control" 
-        id="floatingInput" placeholder="e.g. Pet my cats"
-        formControlName="titleControl" required>
-        <label for="floatingInput">Your todo title</label>
-    </div>
-    
-    <div class="input-group-text">
-        <label for="datePicker"><span class="bi-calendar3">&nbsp;Due:</span>&nbsp;</label>
-        <input type="datetime-local" id="datePicker" 
-        formControlName="dueControl" required>
-    </div>
-    <button type="button" class="btn btn-primary"
-    [disabled]="!isFormValid"
-    (click)="onSubmit()">Add</button>
-    
+<todo-input-group (onEdit)="onSubmit($event)">
     <div class="input-group-text">
         <input type="checkbox" id="cbkShowDone" class="form-check-input" 
         [checked]="showDone" (change)="toggleShowDone()"
         >&nbsp;
         <label for="cbkShowDone" i18n i18n-title="title meaning|title description"
-         title="Show done?">Show Done?</label>
+        title="Show done?">Show Done?</label>
     </div>
-    
     <div class="input-group-text">
         <label i18n>
             {todoService.count(), plural, =0 {None} =1 {One todo} other {{{todoService.count()}} todos}}
         </label>
     </div>
-</div>
-</form>
-
-@if(!isFormValid) {
-<ul class="list-group">
-    <li class="list-group-item text-danger">
-    @if(titleControl?.hasError('required')) {
-        Title is required.
-    }
-    @if(titleControl?.hasError('minlength')){
-        Title needs at least 4 characters long.
-    }
-    </li>
-    <li class="list-group-item text-danger">
-    @if(dueControl?.hasError('pastDueDate')) {
-        Due date must be in future.
-    }
-    </li>
-</ul>
-}
+</todo-input-group>
 
 <ul class="list-group">
-    @for (todo of todos; track todo.id) {
-        @if (!todo.done || showDone) {
-            <todo-item [state]=todo 
-            (onDoneChange)="todoService.updateDone($event)"
-            (onDeleteClick)="todoService.delete($event)"
-            (onEdit)="todoService.update($event)"
-            >
-        </todo-item>
+@for (todo of todos; track todo.id) {
+    @if (!todo.done || showDone) {
+    <todo-item [state]=todo 
+    (onDoneChange)="todoService.updateDone($event)"
+    (onDeleteClick)="todoService.delete($event)"
+    (onEdit)="todoService.update($event)"
+    >
+    </todo-item>
     }
 } @empty {
     <li class="list-group-item">
@@ -66,6 +29,7 @@
     </li>
 }
 </ul>
+
 <div style="display: flexbox;">
     <button type="button" (click)="onBackClick()">Back to Not Found</button>
 </div>

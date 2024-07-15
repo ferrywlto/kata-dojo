@@ -1,0 +1,39 @@
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+    <div class="input-group">
+        <div class="form-floating">
+            <input type="text" class="form-control" 
+            id="floatingInput" placeholder="e.g. Pet my cats"
+            formControlName="titleControl" required
+            >
+            <label for="floatingInput">Your todo title</label>
+        </div>
+        
+        <div class="input-group-text">
+            <label for="datePicker"><span class="bi-calendar3">&nbsp;Due:</span>&nbsp;</label>
+            <input type="datetime-local" id="datePicker" 
+            formControlName="dueControl" required
+            >
+        </div>
+        <button type="button" class="btn btn-primary"
+        [disabled]="!isFormValid"
+        (click)="onSubmit()">Update</button>
+        <ng-content></ng-content>
+    </div>
+</form>
+@if(!isFormValid) {
+<ul class="list-group">
+    <li class="list-group-item text-danger">
+    @if(titleControl?.hasError('required')) {
+        Title is required.
+    }
+    @if(titleControl?.hasError('minlength')){
+        Title needs at least 4 characters long.
+    }
+    </li>
+    <li class="list-group-item text-danger">
+    @if(dueControl?.hasError('pastDueDate')) {
+        Due date must be in future.
+    }
+    </li>
+</ul>
+}

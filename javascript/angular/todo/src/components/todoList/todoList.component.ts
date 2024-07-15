@@ -4,10 +4,15 @@ import { TodoItem } from "./todoItem/todoItem.component";
 import { Router } from "@angular/router";
 import { TodoService } from "../../services/todo.service";
 import { TodoUIService } from "../../services/todo-ui.service";
+import { InputGroupComponent } from "../input-group/input-group.component";
 @Component({
     standalone: true,
     selector: 'todo-list',
-    imports: [TodoItem, ReactiveFormsModule],
+    imports: [
+        ReactiveFormsModule,
+        TodoItem,
+        InputGroupComponent,
+    ],
     templateUrl: './todoList.component.html',
     styleUrl: './todoList.component.css',
 })
@@ -17,33 +22,15 @@ export class TodoList {
         public todoService: TodoService,
         public todoUIService: TodoUIService
     ) { }
-
-    ngOnInit() {
-        this.dueControl?.setValue(this.todoUIService.transformedDate(new Date()));
-    }
-
-    todoForm = this.todoUIService.createReactiveForm();
-    get titleControl() { return this.todoForm.get('titleControl'); }
-    get dueControl() { return this.todoForm.get('dueControl'); }
-    get isFormValid() { return this.todoForm.status === "VALID"; }
     
-    onSubmit() {
-        if (this.isFormValid) {
-            this.todoService.add(
-                this.titleControl?.value ?? '',
-                new Date(this.dueControl?.value ?? '')
-            );
-            this.clearInput();
-        }
+    onSubmit(event: {title: string, due: Date}) {
+        this.todoService.add(
+            event.title ?? '',
+            event.due ?? '');
     }
     
     showDone: boolean = false;
     get todos() { return this.todoService.getAll(); }
-
-    clearInput() {
-        this.titleControl?.reset();
-        this.dueControl?.reset();
-    }
 
     onBackClick() {
         this.router.navigateByUrl('/');

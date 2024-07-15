@@ -17,7 +17,11 @@ export class TodoList {
         public todoService: TodoService,
         public todoUIService: TodoUIService
     ) { }
-    
+
+    ngOnInit() {
+        this.dueControl?.setValue(this.todoUIService.transformedDate(new Date()));
+    }
+
     todoForm = this.todoUIService.createReactiveForm();
     get titleControl() { return this.todoForm.get('titleControl'); }
     get dueControl() { return this.todoForm.get('dueControl'); }

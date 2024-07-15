@@ -3,14 +3,14 @@ import { ReactiveFormsModule } from "@angular/forms"
 import { TodoItem } from "./todoItem/todoItem.component";
 import { Router } from "@angular/router";
 import { TodoService } from "../../services/todo.service";
-import { InputGroupComponent } from "../input-group/input-group.component";
+import { TodoInputGroup } from "../input-group/input-group.component";
 @Component({
     standalone: true,
     selector: 'todo-list',
     imports: [
         ReactiveFormsModule,
         TodoItem,
-        InputGroupComponent,
+        TodoInputGroup,
     ],
     templateUrl: './todoList.component.html',
     styleUrl: './todoList.component.css',

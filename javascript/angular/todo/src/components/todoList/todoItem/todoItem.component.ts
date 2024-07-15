@@ -11,13 +11,13 @@ import {
 import { DatePipe } from '@angular/common';
 import { TodoState } from '../../../models/todoState';
 import { TodoUIService } from '../../../services/todo-ui.service';
-import { InputGroupComponent } from '../../input-group/input-group.component';
+import { TodoInputGroup } from '../../input-group/input-group.component';
 @Component({
     selector: 'todo-item',
     standalone: true,
     templateUrl: './todoItem.component.html',
     styleUrl: './todoItem.component.css',
-    imports: [ReactiveFormsModule, DatePipe, InputGroupComponent],
+    imports: [ReactiveFormsModule, DatePipe, TodoInputGroup],
     animations: [
         trigger('editMode', [
             state('visible', style({ opacity: 1 })),
@@ -32,7 +32,10 @@ import { InputGroupComponent } from '../../input-group/input-group.component';
     ]
 })
 export class TodoItem {
-    constructor(public todoUIService: TodoUIService) { }
+    constructor(
+        public todoUIService: TodoUIService,
+        private datePipe: DatePipe, 
+    ) { }
     
     @Input() state!: TodoState;
     onDoneChange = output<number>()
@@ -70,5 +73,11 @@ export class TodoItem {
     }
     toggleEditMode() {
         this.isEditMode = !this.isEditMode;
+    }
+    displayText() {
+        return `${this.formatDate(this.state.due)} | ${this.state.title}`;
+    }
+    formatDate(date: Date) {
+        return this.datePipe.transform(date, 'dd/MM/yyyy hh:mm a') || '';
     }
 }

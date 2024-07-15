@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { ChildrenOutletContexts, RouterOutlet } from '@angular/router';
 import { TodoList } from '../components/todoList/todoList.component';
 import { style, transition, trigger, query, animateChild, animate, group } from '@angular/animations';
+import { TodoInputGroup } from '../components/input-group/input-group.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, TodoList],
+  imports: [RouterOutlet, TodoList, TodoInputGroup],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   animations: [

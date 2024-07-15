@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputGroupComponent } from './input-group.component';
+import { TodoInputGroup } from './input-group.component';
 
 describe('InputGroupComponent', () => {
-  let component: InputGroupComponent;
-  let fixture: ComponentFixture<InputGroupComponent>;
+  let component: TodoInputGroup;
+  let fixture: ComponentFixture<TodoInputGroup>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InputGroupComponent]
+      imports: [TodoInputGroup]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(InputGroupComponent);
+    fixture = TestBed.createComponent(TodoInputGroup);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

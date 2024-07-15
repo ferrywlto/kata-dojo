@@ -9,7 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   templateUrl: './input-group.component.html',
   styleUrl: './input-group.component.css'
 })
-export class InputGroupComponent {
+export class TodoInputGroup {
   constructor(public todoUIService: TodoUIService) { }
   @Input() title!: string;
   @Input() due!: Date;

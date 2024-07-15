@@ -9,15 +9,15 @@
         <input class="form-check-input" type="checkbox" 
         [checked]="state.done" 
         (change)="notifyDoneChange()">
+
+        <label [class]="textClass()">
         @if (state.done) {
-            <label [class]="textClass()">
-                &nbsp;<del>{{state.due | date:'dd/MM/yyyy hh:mm a'}} | {{state.title}}</del>&nbsp;
-            </label>
+            &nbsp;<del>{{displayText()}</del>&nbsp;
         } @else {
-            <label [class]="textClass()">
-                &nbsp;{{state.due | date:'dd/MM/yyyy hh:mm a'}} | {{state.title}}&nbsp;
-            </label>
-        }&nbsp;
+            &nbsp;{{displayText()}}&nbsp;
+        }
+        </label>&nbsp;
+
         <button type="button" class="btn" (click)="toggleEditMode()">
             <span class="bi-pencil"></span>
         </button>

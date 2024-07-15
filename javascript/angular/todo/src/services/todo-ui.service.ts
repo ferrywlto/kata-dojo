@@ -8,15 +8,6 @@ export class TodoUIService {
 
   constructor() { }
 
-  transformedDate(input: Date) {
-    const dateStr = input.getFullYear() + '-' +
-      ('0' + (input.getMonth() + 1)).slice(-2) + '-' +
-      ('0' + input.getDate()).slice(-2) + 'T' +
-      ('0' + input.getHours()).slice(-2) + ':' +
-      ('0' + input.getMinutes()).slice(-2);
-    return dateStr;
-  }
-
   createReactiveForm() {
     return new FormGroup({
       titleControl: new FormControl('', [

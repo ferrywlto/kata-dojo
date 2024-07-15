@@ -35,6 +35,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - [ ] IndexedDB
 - [ ] Redux (NgRx)
 - [ ] Singal
+- [x] `ng-content` (Slots in Vue)
 - [x] Service
 - [x] Animation
 - [x] i18n

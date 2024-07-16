@@ -1,14 +1,20 @@
-
 class Q1455_CheckIFWordOccursAsPrefixOfAnyWordInASentence
 {
-    public int IsPrefixOfWord(string sentence, string searchWord) 
+    // TC: O(n+m), where n is the length of sentence for .Split() and m is the number of words splited to loop through. 
+    // SC: O(n), where n is the words splited from sentence
+    public int IsPrefixOfWord(string sentence, string searchWord)
     {
-        return 0;    
-    }    
+        var words = sentence.Split(' ');
+        for(var i=0; i<words.Length; i++)
+        {
+            if (words[i].StartsWith(searchWord)) return i + 1;
+        }
+        return -1;
+    }
 }
 class Q1455_CheckIFWordOccursAsPrefixOfAnyWordInASentenceTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["i love eating burger", "burg", 4],
         ["this problem is an easy problem", "pro", 2],

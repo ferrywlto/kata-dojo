@@ -1,8 +1,18 @@
 class Q1470_ShuffleTheArray
 {
+    // TC: O(n), where n is the length of nums, all elements need to copy to result array
+    // SC: O(n), where n is the length of nums to hold the result, as this cannot be done in-place.
     public int[] Shuffle(int[] nums, int n)
     {
-        return [];
+        var result = new List<int>();
+        for (var i = 0; i < n; i++)
+        {
+            var x = nums[i];
+            var y = nums[i + n];
+            result.Add(x);
+            result.Add(y);
+        }
+        return result.ToArray();
     }
 }
 class Q1470_ShuffleTheArrayTestData : TestData

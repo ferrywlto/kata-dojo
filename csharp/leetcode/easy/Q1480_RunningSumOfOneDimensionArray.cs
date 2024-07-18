@@ -1,14 +1,21 @@
-
 class Q1480_RunningSumOfOneDimensionArray
 {
-    public int[] RunningSum(int[] nums) 
+    // TC: O(n), where n is length of nums, have to sum to the end.
+    // SC: O(1), space used are fixed to the variable that hold the current sum
+    public int[] RunningSum(int[] nums)
     {
-        return [];    
+        var result = 0;
+        for (var i = 0; i < nums.Length; i++)
+        {
+            result += nums[i];
+            nums[i] = result;
+        }
+        return nums;
     }
 }
 class Q1480_RunningSumOfOneDimensionArrayTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[] {1,2,3,4}, new int[] {1,3,6,10}],
         [new int[] {1,1,1,1,1}, new int[] {1,2,3,4,5}],

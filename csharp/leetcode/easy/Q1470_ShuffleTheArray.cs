@@ -4,7 +4,7 @@ class Q1470_ShuffleTheArray
     // SC: O(n), where n is the length of nums to hold the result, as this cannot be done in-place.
     public int[] Shuffle(int[] nums, int n)
     {
-        var result = new List<int>();
+        var result = new List<int>(nums.Length);
         for (var i = 0; i < n; i++)
         {
             var x = nums[i];

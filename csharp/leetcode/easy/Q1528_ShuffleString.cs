@@ -1,8 +1,15 @@
 class Q1528_ShuffleString
 {
+    // TC: O(n), where n is size of s
+    // SC: O(n), where n is size of s to hold the result, it have to be the same length of s
     public string RestoreString(string s, int[] indices)
     {
-        return string.Empty;
+        char[] result = new char[s.Length];
+        for(var i=0; i<indices.Length; i++)
+        {
+            result[indices[i]] = s[i];
+        }
+        return string.Join(string.Empty, result);
     }
 }
 class Q1528_ShuffleStringTestData : TestData

@@ -1,7 +1,19 @@
 class Q1539_KthMissingPositiveNumber
 {
+    // TC: O(n), where n is length of arr + k
+    // SC: O(m), where m is length of arr
     public int FindKthPositive(int[] arr, int k)
     {
+        var totalNum = arr.Length + k;
+        // expect 1..totalNum
+        var missingFound = 0;
+        var set = arr.ToHashSet();
+
+        for(var i=1; i<=totalNum; i++)
+        {
+            if (!set.Contains(i)) missingFound++;
+            if (missingFound == k) return i;
+        }
         return 0;
     }
 }

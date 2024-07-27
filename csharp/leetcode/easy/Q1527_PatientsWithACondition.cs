@@ -3,7 +3,8 @@ class Q1527_PatientsWithACondition : SqlQuestion
 {
     public override string Query =>
     """
-    select 1;
+    select * from Patients
+    where conditions like '% DIAB1%' or conditions like 'DIAB1%';
     """;
 }
 class Q1527_PatientsWithAConditionTestData : TestData

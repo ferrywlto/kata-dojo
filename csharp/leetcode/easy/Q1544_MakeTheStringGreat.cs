@@ -1,8 +1,27 @@
+using System.Text;
+
 class Q1544_MakeTheStringGreat
 {
     public string MakeGood(string s)
     {
-        return string.Empty;
+        var sb = new StringBuilder(s);
+        var matchFound = true;
+        while(matchFound)
+        {
+            matchFound = false;
+            for(var i=0; i<sb.Length-1; i++)
+            {
+                if(Math.Abs(sb[i]-sb[i+1]) == 32)
+                {
+                    var pattern1 = $"{sb[i]}{sb[i + 1]}";
+                    var pattern2 = $"{sb[i + 1]}{sb[i]}";
+                    sb.Replace(pattern1, string.Empty);
+                    sb.Replace(pattern2, string.Empty);
+                    matchFound = true;
+                }
+            }
+        }
+        return sb.ToString();
     }
 }
 class Q1544_MakeTheStringGreatTestData : TestData

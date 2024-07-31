@@ -1,16 +1,26 @@
 class Q1572_MatrixDiagonalSum
 {
-    public int DiagonalSum(int[][] mat) 
+    // TC: O(n), where n is number of rows in mat
+    // SC: O(1), space used is fixed to two integer variables
+    public int DiagonalSum(int[][] mat)
     {
-        return 0;    
-    }    
+        var result = 0;
+        var last = mat[0].Length - 1;
+        for (var i = 0; i < mat.Length; i++)
+        {
+            result += mat[i][i];
+            if (i != last) result += mat[i][last];
+            last--;
+        }
+        return result;
+    }
 }
 class Q1572_MatrixDiagonalSumTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
-            new int[][] 
+            new int[][]
             {
                 [1,2,3],
                 [4,5,6],

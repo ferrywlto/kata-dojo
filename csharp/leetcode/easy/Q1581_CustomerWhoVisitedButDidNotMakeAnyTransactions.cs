@@ -3,7 +3,16 @@ class Q1581_CustomerWhoVisitedButDidNotMakeAnyTransactions : SqlQuestion
 {
     public override string Query =>
     """
-    select 1;
+    select customer_id, count(customer_id) as 'count_no_trans' from
+    (
+        select customer_id, v.visit_id, transaction_id
+        from Visits v
+        left join Transactions t
+        on v.visit_id = t.visit_id
+        where transaction_id is null
+    ) temp group by customer_id
+    order by count_no_trans desc, customer_id asc
+    ;
     """;
 }
 class Q1581_CustomerWhoVisitedButDidNotMakeAnyTransactionsTestData : TestData

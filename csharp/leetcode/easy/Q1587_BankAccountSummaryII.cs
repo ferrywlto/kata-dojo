@@ -1,14 +1,19 @@
 using Row = (string name, int balance);
 class Q1587_BankAccountSummaryII : SqlQuestion
 {
-    public override string Query => 
+    public override string Query =>
     """
-    select 1;
+    select name, sum(amount) as 'balance'
+    from Users u
+    join Transactions t
+    on u.account = t.account
+    group by u.account, name
+    having sum(amount) > 10000;
     """;
 }
 class Q1587_BankAccountSummaryIITestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -30,9 +35,9 @@ class Q1587_BankAccountSummaryIITestData : TestData
         ]
     ];
 }
-public class Q1587_BankAccountSummaryIITests(ITestOutputHelper output):SqlTest(output)
+public class Q1587_BankAccountSummaryIITests : SqlTest
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     Create table If Not Exists Users (account int, name varchar(20));
     Create table If Not Exists Transactions (trans_id int, account int, amount int, transacted_on date);
@@ -44,9 +49,9 @@ public class Q1587_BankAccountSummaryIITests(ITestOutputHelper output):SqlTest(o
     {
         ArrangeTestData(testDataSql);
         var sut = new Q1587_BankAccountSummaryII();
-        var reader = ExecuteQuery(sut.Query, true);
+        var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["name", "balance"]);
-        foreach((var name, var balance) in expected)
+        foreach ((var name, var balance) in expected)
         {
             Assert.True(reader.Read());
             Assert.Equal(name, reader.GetString(0));

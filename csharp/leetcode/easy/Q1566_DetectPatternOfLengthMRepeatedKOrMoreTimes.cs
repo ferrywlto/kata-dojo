@@ -1,22 +1,26 @@
 class Q1566_DetectPatternOfLengthMRepeatedKOrMoreTimes
 {
+    // TC: O(n), where n is length of arr * m * k
+    // SC: O(1), space used is fixed
     public bool ContainsPattern(int[] arr, int m, int k)
     {
-        var full = string.Join(',', arr);
-
-        for(var i=0; i<arr.Length-m+1; i++)
+        int n = arr.Length;
+        // To have a list of m size repeated k times it must exist before position (n - m*k); 
+        int patternLength = m * k;
+        for (int i = 0; i <= n - patternLength; i++)
         {
-            var list = new List<int>();
-            for(var j=i; j<i+m; j++) list.Add(arr[j]);
-
-            var repeatedList = new List<int>();
-            var x = Enumerable.Repeat(list, k);
-            foreach(var rl in x)
-                repeatedList.AddRange(rl);
-
-            var patternToFind = string.Join(',', repeatedList);
-
-            if (full.Contains(patternToFind)) return true;
+            bool match = true;
+            // Check if the subsequent items repeating in a pattern
+            for (int j = 0; j < patternLength; j++)
+            {
+                // The trick here is j % m
+                if (arr[i + j] != arr[i + j % m])
+                {
+                    match = false;
+                    break;
+                }
+            }
+            if (match) return true;
         }
         return false;
     }

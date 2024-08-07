@@ -1,8 +1,20 @@
 class Q1619_MeanOfArrayAfterRemovingElements
 {
+    // TC: O(n log n), due to Array.Sort();
+    // SC: O(1), space used is fixed
     public double TrimMean(int[] arr)
     {
-        return 0;
+        Array.Sort(arr);
+        // arr.Length is multiple of 20
+        var trimSize = arr.Length / 20;
+        double total = arr.Sum();
+        for(var i=0; i<trimSize; i++)
+        {
+            total -= arr[i];
+            total -= arr[^(i + 1)];
+        }
+
+        return total / (arr.Length - (trimSize * 2));
     }
 }
 class Q1619_MeanOfArrayAfterRemovingElementsTestData : TestData
@@ -22,6 +34,6 @@ public class Q1619_MeanOfArrayAfterRemovingElementsTests
     {
         var sut = new Q1619_MeanOfArrayAfterRemovingElements();
         var actual = sut.TrimMean(input);
-        Assert.Equal(expected, actual);
+        Assert.Equal(double.Round(expected, 5), double.Round(actual, 5));
     }
 }

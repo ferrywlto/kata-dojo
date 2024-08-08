@@ -1,31 +1,25 @@
 class Q1629_SlowestKey
 {
     // TC: O(n) where n is length of releaseTimes
-    // SC: O(n) where n is the unique characters of releaseTimes for the dictionary to track the time 
+    // SC: O(1) where n is the unique characters of releaseTimes for the dictionary to track the time 
     public char SlowestKey(int[] releaseTimes, string keysPressed)
     {
-        var slowestKey = keysPressed[0];
-        var maxTime = releaseTimes[0];
-        var dict = new Dictionary<char, int>() { { slowestKey, maxTime } };
+        char slowestKey = keysPressed[0];
+        int maxTime = releaseTimes[0];
 
-        for (var i = 1; i < releaseTimes.Length; i++)
+        for (int i = 1; i < releaseTimes.Length; i++)
         {
-            var tempTime = releaseTimes[i] - releaseTimes[i - 1];
+            int tempTime = releaseTimes[i] - releaseTimes[i - 1];
+            char currentKey = keysPressed[i];
 
-            if (dict.TryGetValue(keysPressed[i], out var value))
+            if (tempTime > maxTime || (tempTime == maxTime && currentKey > slowestKey))
             {
-                if (tempTime > value) dict[keysPressed[i]] = tempTime;
+                maxTime = tempTime;
+                slowestKey = currentKey;
             }
-            else dict.Add(keysPressed[i], tempTime);
-
-            if (tempTime > maxTime) maxTime = tempTime;
         }
 
-        return dict
-            .Where(x => x.Value == maxTime)
-            .Select(x => x.Key)
-            .OrderByDescending(x => x)
-            .First();
+        return slowestKey;
     }
 }
 class Q1629_SlowestKeyTestData : TestData

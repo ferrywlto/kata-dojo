@@ -1,23 +1,17 @@
 class Q1636_SortArrayByIncreasingFrequency
 {
     // TC: O(n log n), where n is length of nums, plus another n for adding the items back to list, plus 2 * nlogn due to the two order by operation, dominated by n log n
-    // SC: O(n+m), where m is unique items in nums plus n length of nums in result list
+    // SC: O(n), where n is unique items in nums
     public int[] FrequencySort(int[] nums)
     {
         var frequency = nums
             .GroupBy(n => n)
             .ToDictionary(g => g.Key, g => g.Count());
 
-        var sorted = frequency
-            .OrderByDescending(f => f.Key)
-            .OrderBy(f => f.Value);
-
-        var list = new List<int>();
-        foreach (var pair in sorted)
-        {
-            list.AddRange(Enumerable.Repeat(pair.Key, pair.Value));
-        }
-        return list.ToArray();
+        return nums
+            .OrderBy(n => frequency[n]) // tricky here to use dictionary lookup as comparer  
+            .ThenByDescending(n => n)
+            .ToArray();
     }
 }
 class Q1636_SortArrayByIncreasingFrequencyTestData : TestData

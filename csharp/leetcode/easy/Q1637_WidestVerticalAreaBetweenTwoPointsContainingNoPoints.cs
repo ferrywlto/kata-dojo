@@ -4,10 +4,10 @@ class Q1637_WidestVerticalAreaBetweenTwoPointsContainingNoPoints
     // SC: O(n), where n is the number of unique number in the first element of each pair in points 
     public int MaxWidthOfVerticalArea(int[][] points)
     {
-        var filtered = points.Select(x => x[0]).ToHashSet().ToArray();
-        Array.Sort(filtered);
+        var filtered = points.Select(x => x[0]).Distinct().ToList();
+        filtered.Sort();
         var maxDiff = 0;
-        for(var i=1; i<filtered.Length; i++)
+        for (var i = 1; i < filtered.Count; i++)
         {
             var temp = filtered[i] - filtered[i - 1];
             if (temp > maxDiff) maxDiff = temp;
@@ -26,7 +26,7 @@ class Q1637_WidestVerticalAreaBetweenTwoPointsContainingNoPointsTestData : TestD
             }, 1
         ],
         [
-            new int[][] 
+            new int[][]
             {
                 [3,1],[9,0],[1,0],[1,4],[5,3],[8,8]
             }, 3

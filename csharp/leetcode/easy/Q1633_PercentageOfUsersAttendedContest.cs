@@ -3,12 +3,17 @@ class Q1633_PercentageOfUsersAttendedContest : SqlQuestion
 {
     public override string Query =>
     """
-    select 1;
+    select contest_id, 
+    round((cast(count(user_id) as float) / (select cast(count(user_id) as float) from Users)) * 100, 2) 
+    as 'percentage' from Register
+    group by contest_id
+    order by percentage desc, contest_id;
+    
     """;
 }
 class Q1633_PercentageOfUsersAttendedContestTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -31,7 +36,7 @@ class Q1633_PercentageOfUsersAttendedContestTestData : TestData
             ('207', '2'),
             ('210', '7');                        
             """,
-            new Row[] 
+            new Row[]
             {
                 (208, 100.0f),
                 (209, 100.0f),
@@ -42,9 +47,9 @@ class Q1633_PercentageOfUsersAttendedContestTestData : TestData
         ]
     ];
 }
-public class Q1633_PercentageOfUsersAttendedContestTests(ITestOutputHelper output):SqlTest(output)
+public class Q1633_PercentageOfUsersAttendedContestTests : SqlTest
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     Create table If Not Exists Users (user_id int, user_name varchar(20));
     Create table If Not Exists Register (contest_id int, user_id int);
@@ -56,9 +61,9 @@ public class Q1633_PercentageOfUsersAttendedContestTests(ITestOutputHelper outpu
     {
         ArrangeTestData(testDataSql);
         var sut = new Q1633_PercentageOfUsersAttendedContest();
-        var reader = ExecuteQuery(sut.Query, true);
-        AssertResultSchema(reader, ["contest_id", "percentage"]); 
-        foreach((var contest_id, var percentage) in expected)
+        var reader = ExecuteQuery(sut.Query);
+        AssertResultSchema(reader, ["contest_id", "percentage"]);
+        foreach ((var contest_id, var percentage) in expected)
         {
             Assert.True(reader.Read());
             Assert.Equal(contest_id, reader.GetInt32(0));

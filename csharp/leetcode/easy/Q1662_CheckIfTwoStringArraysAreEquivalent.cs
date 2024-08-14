@@ -1,7 +1,51 @@
 using System.Text;
 
+class WordsHelper 
+{
+    private readonly string[] _words;
+    public readonly int TotalLength;
+    public WordsHelper(string[] words)
+    {
+        _words = words;
+        TotalLength = _words.Sum(w => w.Length);
+    }
+    public int position = 0;
+    public int wordIdx = 0;
+    public int charIdx = 0;
+
+    public char NextChar()
+    {
+        if (position >= TotalLength) return '\0';
+
+        position++;
+        if(charIdx == _words[wordIdx].Length)
+        {
+            charIdx = 0;
+            wordIdx++;
+        }
+        return _words[wordIdx][charIdx++];
+    }
+}
+
 class Q1662_CheckIfTwoStringArraysAreEquivalent
 {
+    // TC: O(n), where n is min length of total characters between word1 and word2
+    // SC: O(1), the variables used in WordsHelper are fixed
+    public bool ArrayStringsAreEqual_O1Space(string[] word1, string[] word2)
+    {
+        var helper1 = new WordsHelper(word1);
+        var helper2 = new WordsHelper(word2);
+        if (helper1.TotalLength != helper2.TotalLength) return false;
+
+        var idx = 0;
+        while(idx < helper1.TotalLength)
+        {
+            if (helper1.NextChar() != helper2.NextChar()) return false;
+            idx++;
+        }
+        return true;
+    }
+
     // TC: O(n), where n is min length of total characters between word1 and word2
     // SC: O(n), two string builder are used, worst case is both word1 and word2 are equivalent to hold the complete two strings
     public bool ArrayStringsAreEqual(string[] word1, string[] word2)

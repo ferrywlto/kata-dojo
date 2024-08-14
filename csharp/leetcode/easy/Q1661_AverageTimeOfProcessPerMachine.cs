@@ -1,11 +1,23 @@
 using Row = (int machine_id, double processing_time);
 class Q1661_AverageTimeOfProcessPerMachine : SqlQuestion
 {
-    public override string Query => "select 1;";
+    public override string Query =>
+    """
+    select machine_id, round(avg(processing_time), 3) as 'processing_time' from
+    (
+        select act_start.machine_id, act_start.process_id, (act_end.timestamp - act_start.timestamp) as 'processing_time' from 
+        (select * from Activity where activity_type = 'start') act_start 
+        join 
+        (select * from Activity where activity_type = 'end') act_end
+        on act_start.machine_id = act_end.machine_id
+        and act_start.process_id = act_end.process_id 
+    ) temp
+    group by machine_id
+    """;
 }
 class Q1661_AverageTimeOfProcessPerMachineTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -23,7 +35,7 @@ class Q1661_AverageTimeOfProcessPerMachineTestData : TestData
             ('2', '1', 'start', '2.5'),
             ('2', '1', 'end', '5');
             """,
-            new Row[] 
+            new Row[]
             {
                 (0, 0.894),
                 (1, 0.995),
@@ -32,9 +44,9 @@ class Q1661_AverageTimeOfProcessPerMachineTestData : TestData
         ]
     ];
 }
-public class Q1661_AverageTimeOfProcessPerMachineTests(ITestOutputHelper output) : SqlTest(output)
+public class Q1661_AverageTimeOfProcessPerMachineTests : SqlTest
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     Create table If Not Exists Activity (
         machine_id int, 
@@ -50,9 +62,9 @@ public class Q1661_AverageTimeOfProcessPerMachineTests(ITestOutputHelper output)
     {
         ArrangeTestData(testDataSql);
         var sut = new Q1661_AverageTimeOfProcessPerMachine();
-        var reader = ExecuteQuery(sut.Query, true);
-        AssertResultSchema(reader, ["machine_id","processing_time"]);
-        foreach((var machine_id, var processing_time) in expected)
+        var reader = ExecuteQuery(sut.Query);
+        AssertResultSchema(reader, ["machine_id", "processing_time"]);
+        foreach ((var machine_id, var processing_time) in expected)
         {
             Assert.True(reader.Read());
             Assert.Equal(machine_id, reader.GetInt32(0));

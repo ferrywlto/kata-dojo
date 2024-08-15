@@ -1,9 +1,14 @@
 using Row = (int user_id, string name);
 class Q1667_FixNamesInTable : SqlQuestion
 {
+    // MySQL dialect:
+    // concat(upper(substring(name, 1, 1)), lower(substring(name, 2))) AS 'name'
     public override string Query =>
     """
-    select 1;
+    select user_id,
+    upper(substring(name, 1, 1)) || lower(substring(name, 2)) AS 'name'
+    from Users
+    order by user_id;
     """;
 }
 class Q1667_FixNamesInTableTestData : TestData

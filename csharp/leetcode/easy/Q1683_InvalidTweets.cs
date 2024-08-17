@@ -2,7 +2,8 @@ class Q1683_InvalidTweets : SqlQuestion
 {
     public override string Query => 
     """
-    select 1;
+    select tweet_id from Tweets
+    where length(content) > 15;
     """;
 }
 class Q1683_InvalidTweetsTestData : TestData

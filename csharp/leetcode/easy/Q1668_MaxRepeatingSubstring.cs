@@ -1,9 +1,19 @@
+using System.Text;
 
+// TC: O(n^2), where n is length of sequece and n again for each word appended
+// SC: O(n), where n is the length of sequence worst case if sequence == word
 class Q1668_MaxRepeatingSubstring
 {
     public int MaxRepeating(string sequence, string word) 
     {
-        return 0;    
+        var sb = new StringBuilder(word);
+        var result = 0;
+        while(sb.Length <= sequence.Length)
+        {
+            if (sequence.Contains(sb.ToString())) result++;
+            sb.Append(word);
+        }
+        return result;    
     }    
 }
 class Q1668_MaxRepeatingSubstringTestData : TestData

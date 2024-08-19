@@ -1,9 +1,40 @@
+using System.Text;
 
 class Q1694_ReformatPhoneNumber
 {
+    // TC: O(n+m), where n is length of number
+    // SC: O(n+m), where n is length of number for string builder plus m for parts
     public string ReformatNumber(string number) 
     {
-        return string.Empty;    
+        var sb = new StringBuilder();
+        foreach(char n in number)
+        {
+            if (n > 47 && n < 58) sb.Append(n);
+        }
+        var digits = sb.ToString();
+        var parts = new List<string>();
+        var idx = 0;
+        while(digits.Length - idx > 4)
+        {
+            parts.Add(digits.Substring(idx, 3));
+            idx += 3;
+        }
+        var reminder = digits.Length - idx;
+        if(reminder == 2)
+        {
+            parts.Add(digits.Substring(idx, 2));
+        }
+        else if (reminder == 3)
+        {
+            parts.Add(digits.Substring(idx, 3));
+        }
+        else 
+        {
+            parts.Add(digits.Substring(idx, 2));
+            idx+=2;
+            parts.Add(digits.Substring(idx, 2));
+        }
+        return string.Join('-', parts);    
     }    
 }
 class Q1694_ReformatPhoneNumberTestData : TestData

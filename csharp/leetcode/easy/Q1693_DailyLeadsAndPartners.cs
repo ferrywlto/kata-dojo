@@ -3,7 +3,14 @@ class Q1693_DailyLeadsAndPartners : SqlQuestion
 {
     public override string Query => 
     """
-    select 1;
+    select date_id, make_name, 
+    count(distinct lead_id) as 'unique_leads', 
+    count(distinct partner_id) as 'unique_partners'
+    from DailySales
+    group by date_id, make_name
+    order by 
+     make_name desc,
+     date_id desc;
     """;
 }
 class Q1693_DailyLeadsAndPartnersTestData : TestData
@@ -47,7 +54,7 @@ public class Q1693_DailyLeadsAndPartnersTests(ITestOutputHelper output) : SqlTes
         ArrangeTestData(testDataSql);
         var sut = new Q1693_DailyLeadsAndPartners();
         var reader = ExecuteQuery(sut.Query, true);
-        AssertResultSchema(reader, ["date_id", "make_name", "unique_leads", "unique_leads"]);
+        AssertResultSchema(reader, ["date_id", "make_name", "unique_leads", "unique_partners"]);
         foreach(var row in expected)
         {
             Assert.True(reader.Read());

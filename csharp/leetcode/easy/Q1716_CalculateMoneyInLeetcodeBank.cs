@@ -1,8 +1,23 @@
 class Q1716_CalculateMoneyInLeetcodeBank
 {
+    // TC: O(n), where n is size of n
+    // SC: O(1), space use is fixed
     public int TotalMoney(int n)
     {
-        return 0;
+        const int sumOfWeek = 28;
+        var multiplier = 0;
+        var result = 0;
+        while(n > 7)
+        {
+            n -= 7;
+            result += sumOfWeek + 7 * multiplier;
+            multiplier++;
+        }
+        for(var i=1; i<=n; i++)
+        {
+            result += i + multiplier;
+        }
+        return result;
     }
 }
 class Q1716_CalculateMoneyInLeetcodeBankTestData : TestData

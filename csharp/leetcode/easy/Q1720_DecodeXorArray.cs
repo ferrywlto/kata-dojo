@@ -1,8 +1,16 @@
 class Q1720_DecodeXorArray
 {
+    // TC: O(n), where n is the length of encoded
+    // SC: O(n), where n is length of encoded + 1, if not counting the space to hold the result, its O(1)
     public int[] Decode(int[] encoded, int first)
     {
-        return [];
+        var result = new int[encoded.Length + 1];
+        result[0] = first;
+        for(var i=1; i<result.Length; i++)
+        {
+            result[i] = result[i - 1] ^ encoded[i - 1];
+        }
+        return result;
     }
 }
 class Q1720_DecodeXorArrayTestData : TestData

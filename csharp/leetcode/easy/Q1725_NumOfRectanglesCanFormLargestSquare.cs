@@ -1,8 +1,22 @@
 class Q1725_NumOfRectanglesCanFormLargestSquare
 {
+    // TC: O(n), where n is length of rectangles
+    // SC: O(m), where m is unique square size
     public int CountGoodRectangles(int[][] rectangles)
     {
-        return 0;
+        var dict = new Dictionary<int, int>();
+        var max = int.MinValue;
+        foreach (var rect in rectangles)
+        {
+            var min = Math.Min(rect[0], rect[1]);
+            if (dict.TryGetValue(min, out var value))
+                dict[min] = ++value;
+            else
+                dict.Add(min, 1);
+
+            if (min > max) max = min;
+        }
+        return dict[max];
     }
 }
 class Q1725_NumOfRectanglesCanFormLargestSquareTestData : TestData

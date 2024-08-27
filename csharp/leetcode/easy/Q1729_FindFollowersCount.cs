@@ -3,7 +3,10 @@ class Q1729_FindFollowersCount : SqlQuestion
 {
     public override string Query =>
     """
-    select 1;
+    select user_id, count(follower_id) as 'followers_count'
+    from Followers
+    group by user_id
+    order by user_id;
     """;
 }
 class Q1729_FindFollowersCountTestData : TestData

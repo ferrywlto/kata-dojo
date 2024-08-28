@@ -1,14 +1,22 @@
-
 class Q1732_FindHighestAltitude
 {
+    // TC: O(n), where n is length of gain
+    // SC: O(1), space used is fixed
     public int LargestAltitude(int[] gain)
     {
-        return 0;
+        var max = 0;
+        var current = 0;
+        foreach (var p in gain)
+        {
+            current += p;
+            if (current > max) max = current;
+        }
+        return max;
     }
 }
 class Q1732_FindHighestAltitudeTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[] {-5,1,5,0,-7}, 1],
         [new int[] {-4,-3,-2,-1,4,3,2}, 0],

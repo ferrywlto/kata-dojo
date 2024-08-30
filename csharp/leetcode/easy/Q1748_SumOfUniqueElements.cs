@@ -2,7 +2,7 @@ class Q1748_SumOfUniqueElements
 {
     // TC: O(n+m), where n is length of nums and m is number of unique numbers
     // SC: O(m), where m is number of unique numbers in nums   
-    public int SumOfUnique(int[] nums)
+    public int SumOfUniqueLINQ(int[] nums)
     {
         return nums
             .GroupBy(x => x)
@@ -10,6 +10,28 @@ class Q1748_SumOfUniqueElements
             .Where(x => x.Value == 1)
             .Select(x => x.Key)
             .Sum();
+    }
+
+    public int SumOfUnique(int[] nums)
+    {
+        var dict = new Dictionary<int, int>();
+        foreach(var n in nums)
+        {
+            if(dict.TryGetValue(n, out var value))
+            {
+                dict[n] = ++value;
+            }
+            else 
+            {
+                dict.Add(n, 1);
+            }
+        }
+        var result = 0;
+        foreach(var d in dict)
+        {
+            if (d.Value == 1) result += d.Key;
+        }
+        return result;
     }
 }
 class Q1748_SumOfUniqueElementsTestData : TestData

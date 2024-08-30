@@ -1,10 +1,35 @@
 using Row = (int employee_id, string name, int reports_count, double average_age);
 class Q1731_NumOfEmployeesReportToEmployee : SqlQuestion
 {
+    // MySQL Dialect
     public override string Query => 
     """
-    select 1;
+    select 
+    managers.employee_id as 'employee_id', 
+    managers.name as 'name', 
+    count(reports.name) as 'reports_count', 
+    round(avg(reports.age)) as 'average_age'
+    from Employees managers 
+    left join Employees reports
+    on reports.reports_to = managers.employee_id
+    group by managers.employee_id
+    having count(reports.name) > 0
+    order by managers.employee_id;
     """;
+    // T-SQL Dialect
+    /*
+    select 
+    managers.employee_id as 'employee_id', 
+    managers.name as 'name', 
+    count(reports.name) as 'reports_count', 
+    round(avg(CAST(reports.age AS FLOAT)), 0) as 'average_age'
+    from Employees managers 
+    left join Employees reports
+    on reports.reports_to = managers.employee_id
+    group by managers.employee_id, managers.name
+    having count(reports.name) > 0
+    order by managers.employee_id;    
+    */
 }
 class Q1731_NumOfEmployeesReportToEmployeeTestData : TestData
 {
@@ -44,7 +69,7 @@ class Q1731_NumOfEmployeesReportToEmployeeTestData : TestData
         ]
     ];
 }
-public class Q1731_NumOfEmployeesReportToEmployeeTests(ITestOutputHelper output) : SqlTest(output)
+public class Q1731_NumOfEmployeesReportToEmployeeTests : SqlTest
 {
     protected override string TestSchema => 
     """
@@ -57,7 +82,7 @@ public class Q1731_NumOfEmployeesReportToEmployeeTests(ITestOutputHelper output)
     {
         ArrangeTestData(testDataSql);
         var sut = new Q1731_NumOfEmployeesReportToEmployee();
-        var reader = ExecuteQuery(sut.Query, true);
+        var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["employee_id", "name", "reports_count", "average_age"]);
         foreach(var (employee_id, name, reports_count, average_age) in expected)
         {
@@ -65,7 +90,7 @@ public class Q1731_NumOfEmployeesReportToEmployeeTests(ITestOutputHelper output)
             Assert.Equal(employee_id, reader.GetInt32(0));
             Assert.Equal(name, reader.GetString(1));
             Assert.Equal(reports_count, reader.GetInt32(2));
-            Assert.Equal(Math.Round(average_age), Math.Round(reader.GetDouble(3)));
+            Assert.Equal(average_age, reader.GetDouble(3));
         }
     }
 }

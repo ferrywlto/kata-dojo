@@ -1,8 +1,15 @@
 class Q1748_SumOfUniqueElements
 {
+    // TC: O(n+m), where n is length of nums and m is number of unique numbers
+    // SC: O(m), where m is number of unique numbers in nums   
     public int SumOfUnique(int[] nums)
     {
-        return 0;
+        return nums
+            .GroupBy(x => x)
+            .ToDictionary(g => g.Key, g => g.Count())
+            .Where(x => x.Value == 1)
+            .Select(x => x.Key)
+            .Sum();
     }
 }
 class Q1748_SumOfUniqueElementsTestData : TestData

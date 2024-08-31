@@ -3,7 +3,12 @@ class Q1741_FindTotalTimeSpentByEachEmployee : SqlQuestion
 {
     public override string Query =>
     """
-    select 1;
+    select 
+    event_day as 'day', 
+    emp_id, 
+    sum(out_time - in_time) as 'total_time'
+    from Employees
+    group by event_day, emp_id;
     """;
 }
 class Q1741_FindTotalTimeSpentByEachEmployeeTestData : TestData
@@ -43,7 +48,7 @@ public class Q1741_FindTotalTimeSpentByEachEmployeeTests(ITestOutputHelper outpu
         var sut = new Q1741_FindTotalTimeSpentByEachEmployee();
         var reader = ExecuteQuery(sut.Query, true);
         AssertResultSchema(reader, ["day", "emp_id", "total_time"]);
-        foreach((var day, var emp_id, var total_time) in expected)
+        foreach ((var day, var emp_id, var total_time) in expected)
         {
             Assert.True(reader.Read());
             Assert.Equal(day, reader.GetDateTime(0).ToString("yyyy-MM-dd"));

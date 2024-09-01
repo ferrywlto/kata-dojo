@@ -2,28 +2,20 @@ using System.Text;
 
 class Q1758_MinChangesToMakeAlternatingBinaryString
 {
-    public string AlternateStr(string start, int length)
-    {
-        var sb = new StringBuilder(start);
-        for (var i = 1; i < length; i++)
-        {
-            if (sb[i - 1] == '0') sb.Append('1');
-            else sb.Append('0');
-        }
-        return sb.ToString();
-    }
-    // TC: O(n), where n is the length of s, n for create start from 0, n for create start from 1, and n to compare them with s;
-    // SC: O(n), where n is the lenght of s, 2n for two string created
+    // TC: O(n), where n is the length of s
+    // SC: O(1), space used is fixed
     public int MinOperations(string s)
     {
-        var startWithZero = AlternateStr("0", s.Length);
-        var startWithOne = AlternateStr("1", s.Length);
         var diffStartFromZero = 0;
         var diffStartFromOne = 0;
         for (var i = 0; i < s.Length; i++)
         {
-            if (s[i] != startWithZero[i]) diffStartFromZero++;
-            if (s[i] != startWithOne[i]) diffStartFromOne++;
+            // Expected characters for alternating strings
+            char expectedCharForZero = (i % 2 == 0) ? '0' : '1';
+            char expectedCharForOne = (i % 2 == 0) ? '1' : '0';
+
+            if (s[i] != expectedCharForZero) diffStartFromZero++;
+            if (s[i] != expectedCharForOne) diffStartFromOne++;
         }
         return Math.Min(diffStartFromOne, diffStartFromZero);
     }

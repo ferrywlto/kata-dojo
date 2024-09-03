@@ -1,8 +1,17 @@
 class Q1784_CheckIfBinaryStringHasAtMostOneSegmentOfOnes
 {
+    // TC: O(n), where n is length of s
+    // SC: O(1), space used is fixed
     public bool CheckOnesSegment(string s)
     {
-        return false;
+        var count = 0;
+        for (var i = 0; i < s.Length - 1; i++)
+        {
+            if (s[i] != s[i + 1]) count++;
+            // Early termination
+            if (count > 1) return false;
+        }
+        return count <= 1;
     }
 }
 class Q1784_CheckIfBinaryStringHasAtMostOneSegmentOfOnesTestData : TestData

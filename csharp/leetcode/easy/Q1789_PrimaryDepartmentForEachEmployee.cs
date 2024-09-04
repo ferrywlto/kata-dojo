@@ -3,12 +3,27 @@ class Q1789_PrimaryDepartmentForEachEmployee : SqlQuestion
 {
     public override string Query =>
     """
-    select 1;
+    select 
+        emp1.employee_id, 
+        emp1.department_id
+    from 
+    Employee emp1
+    left join
+    (
+        select 
+            employee_id, 
+            count(department_id) as 'count' 
+        from 
+        Employee
+        group by 
+            employee_id
+    ) emp2 on emp1.employee_id = emp2.employee_id
+    where emp1.primary_flag = 'Y' or emp2.count = 1
     """;
 }
 class Q1789_PrimaryDepartmentForEachEmployeeTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -33,7 +48,7 @@ class Q1789_PrimaryDepartmentForEachEmployeeTestData : TestData
 }
 public class Q1789_PrimaryDepartmentForEachEmployeeTests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     Create table If Not Exists Employee (employee_id int, department_id int, primary_flag CHAR(1) CHECK (primary_flag IN ('Y', 'N')));
     """;
@@ -45,7 +60,7 @@ public class Q1789_PrimaryDepartmentForEachEmployeeTests(ITestOutputHelper outpu
         var sut = new Q1789_PrimaryDepartmentForEachEmployee();
         var reader = ExecuteQuery(sut.Query, true);
         AssertResultSchema(reader, ["employee_id", "department_id"]);
-        foreach(var (employee_id, department_id) in expected)
+        foreach (var (employee_id, department_id) in expected)
         {
             Assert.True(reader.Read());
             Assert.Equal(employee_id, reader.GetInt32(0));

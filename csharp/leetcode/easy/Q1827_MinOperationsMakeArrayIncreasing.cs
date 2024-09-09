@@ -1,8 +1,20 @@
 class Q1827_MinOperationsMakeArrayIncreasing
 {
+    // TC: O(n), where n is length of nums
+    // SC: O(1), space used is fixed
     public int MinOperations(int[] nums)
     {
-        return 0;
+        var ops = 0;
+        for (var i = 1; i < nums.Length; i++)
+        {
+            if (nums[i] <= nums[i - 1])
+            {
+                var target = nums[i] + 1;
+                ops += nums[i - 1] - target;
+                nums[i] = target;
+            }
+        }
+        return ops;
     }
 }
 class Q1827_MinOperationsMakeArrayIncreasingTestData : TestData

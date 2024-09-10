@@ -1,13 +1,21 @@
 class Q1837_SumOfDigitsInBaseK
 {
+    // TC: O(log_k n), as n will keep smaller by k factor each operation
+    // SC: O(1), space used if fixed
     public int SumBase(int n, int k)
     {
-        return 0;
+        var result = 0;
+        while (n > 0)
+        {
+            result += n % k;
+            n /= k;
+        }
+        return result;
     }
 }
 class Q1837_SumOfDigitsInBaseKTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [34, 6, 9],
         [10, 10, 1],

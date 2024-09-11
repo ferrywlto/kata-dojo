@@ -1,8 +1,19 @@
 class Q1848_MinDistanceToTargetElement
 {
+    // TC: O(n), where n is length of nums, it has to iterate all elements as there could be multiple elements equals to target
+    // SC: O(1), space used does not scale with input
     public int GetMinDistance(int[] nums, int target, int start)
     {
-        return 0;
+        var min = int.MaxValue;
+        for (var i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] == target)
+            {
+                var distance = Math.Abs(i - start);
+                if (distance < min) min = distance;
+            }
+        }
+        return min;
     }
 }
 class Q1848_MinDistanceToTargetElementTestData : TestData

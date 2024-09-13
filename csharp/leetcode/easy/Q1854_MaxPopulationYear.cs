@@ -1,34 +1,34 @@
 class Q1854_MaxPopulationYear
 {
-    // TC: O(n*m), where n is length of logs, and m is length of logs*2 for birth and died
-    // SC: O(m), where m is length of logs * 2
+    // TC: O(n + y), where n is length of logs, and y is the number of years in range
+    // SC: O(y), where y is range of years
     public int MaximumPopulation(int[][] logs)
     {
-        var years = new HashSet<int>();
-        foreach (var l in logs)
+        // Range from 1950 to 2050
+        int[] populationChanges = new int[101]; 
+
+        foreach (var log in logs)
         {
-            years.Add(l[0]);
-            years.Add(l[1]);
+            // year of birth
+            populationChanges[log[0] - 1950]++;
+            // year of death
+            populationChanges[log[1] - 1950]--;
         }
-        var minYear = int.MaxValue;
-        var maxPopulation = 0;
-        foreach (var year in years)
+
+        int maxPopulation = 0;
+        int currentPopulation = 0;
+        int minYear = 1950;
+
+        for (int year = 0; year < populationChanges.Length; year++)
         {
-            var population = 0;
-            foreach (var l in logs)
+            currentPopulation += populationChanges[year];
+            if (currentPopulation > maxPopulation)
             {
-                if (l[0] <= year && l[1] > year) population++;
-            }
-            if (population > maxPopulation)
-            {
-                maxPopulation = population;
-                minYear = year;
-            }
-            else if (population == maxPopulation && year < minYear)
-            {
-                minYear = year;
+                maxPopulation = currentPopulation;
+                minYear = 1950 + year;
             }
         }
+
         return minYear;
     }
 }

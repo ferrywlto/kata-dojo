@@ -3,7 +3,14 @@ class Q1873_CalculateSpecialBonus : SqlQuestion
 {
     public override string Query =>
     """
-    select 1;
+    select e1.employee_id, coalesce(e2.salary, 0) as 'bonus'  
+    from Employees e1 left join
+    (
+        select employee_id, salary from Employees
+        where employee_id % 2 = 1 
+        and name not like 'M%'
+    ) e2 on e1.employee_id = e2.employee_id
+    order by e1.employee_id;
     """;
 }
 class Q1873_CalculateSpecialBonusTestData : TestData

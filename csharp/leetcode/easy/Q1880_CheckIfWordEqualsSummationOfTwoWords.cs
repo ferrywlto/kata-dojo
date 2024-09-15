@@ -2,21 +2,21 @@ using System.Text;
 
 class Q1880_CheckIfWordEqualsSummationOfTwoWords
 {
-    // TC: O(n log n), n scale with length of firstWord, secondWord and targetWord due to Array.IndexOf()
+    // TC: O(n), n scale with length of firstWord, secondWord and targetWord to iterate all characters
     // SC: O(n), n scale with length of firstWord, secondWord, targetWord due to StringBuilder
-    readonly char[] chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
     public bool IsSumEqual(string firstWord, string secondWord, string targetWord)
     {
-        var sb = new StringBuilder(firstWord.Length + secondWord.Length);
-        foreach (var c in firstWord) sb.Append(Array.IndexOf(chars, c));
+        var sb = new StringBuilder();
+
+        foreach (var c in firstWord) sb.Append(c - 'a');
         var firstValue = int.Parse(sb.ToString());
         sb.Clear();
 
-        foreach (var c in secondWord) sb.Append(Array.IndexOf(chars, c));
+        foreach (var c in secondWord) sb.Append(c - 'a');
         var secondValue = int.Parse(sb.ToString());
         sb.Clear();
 
-        foreach (var c in targetWord) sb.Append(Array.IndexOf(chars, c));
+        foreach (var c in targetWord) sb.Append(c - 'a');
         var targetValue = int.Parse(sb.ToString());
         return (firstValue + secondValue) == targetValue;
     }

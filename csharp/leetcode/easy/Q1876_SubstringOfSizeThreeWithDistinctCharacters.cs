@@ -1,8 +1,28 @@
 class Q1876_SubstringOfSizeThreeWithDistinctCharacters
 {
+    // TC: O(n), where n scale with length of s
+    // SC: O(1), space used does not scale with input
     public int CountGoodSubstrings(string s)
     {
-        return 0;
+        var goodCount = 0;
+        for (var i = 0; i < s.Length - 2; i++)
+        {
+            var substring = s[i..(i + 3)];
+            var distrubtion = new char[26];
+            var good = true;
+            for (var j = 0; j < substring.Length; j++)
+            {
+                var idx = substring[j] - 'a';
+                if (distrubtion[idx] == 1)
+                {
+                    good = false;
+                    break;
+                }
+                distrubtion[idx]++;
+            }
+            if (good) goodCount++;
+        }
+        return goodCount;
     }
 }
 class Q1876_SubstringOfSizeThreeWithDistinctCharactersTestData : TestData

@@ -3,7 +3,12 @@ class Q1890_TheLatestLoginIn2020 : SqlQuestion
 {
     public override string Query =>
     """
-    select 1;
+    select user_id, max(time_stamp) as 'last_stamp'
+    from Logins
+    where time_stamp >= '2020-01-01 00:00:00' and time_stamp < '2021-01-01 00:00:00'
+    group by user_id
+    order by user_id
+    ;
     """;
 }
 class Q1890_TheLatestLoginIn2020TestData : TestData
@@ -25,9 +30,9 @@ class Q1890_TheLatestLoginIn2020TestData : TestData
             """,
             new Row[]
             {
+                (2, "2020-01-16 02:49:50"),
                 (6, "2020-06-30 15:06:07"),
                 (8, "2020-12-30 00:46:50"),
-                (2, "2020-01-16 02:49:50"),
             }
         ]
     ];

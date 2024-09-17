@@ -1,8 +1,23 @@
 class Q1893_CheckAllIntegersInRangeCovered
 {
+    // TC: O(n * m), where n is length of ranges and m is (right - left + 1)
+    // SC: O(1), space used does not scale with input
     public bool IsCovered(int[][] ranges, int left, int right)
     {
-        return false;
+        for (var i = left; i <= right; i++)
+        {
+            var covered = false;
+            foreach (var range in ranges)
+            {
+                if (i >= range[0] && i <= range[1])
+                {
+                    covered = true;
+                    break;
+                }
+            }
+            if (!covered) return false;
+        }
+        return true;
     }
 }
 class Q1893_CheckAllIntegersInRangeCoveredTestData : TestData

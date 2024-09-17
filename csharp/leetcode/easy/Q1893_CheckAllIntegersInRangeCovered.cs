@@ -4,18 +4,28 @@ class Q1893_CheckAllIntegersInRangeCovered
     // SC: O(1), space used does not scale with input
     public bool IsCovered(int[][] ranges, int left, int right)
     {
-        for (var i = left; i <= right; i++)
+        // Difference array, size 52 to handle up to 50 + 1
+        int[] diff = new int[52];
+
+        // Mark the ranges in the difference array
+        // it looks like this:
+        // [0,1,0,0,0,0,0,0,0,0,1,-1,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        foreach (var range in ranges)
         {
-            var covered = false;
-            foreach (var range in ranges)
-            {
-                if (i >= range[0] && i <= range[1])
-                {
-                    covered = true;
-                    break;
-                }
-            }
-            if (!covered) return false;
+            diff[range[0]]++;
+            diff[range[1] + 1]--;
+        }
+
+        // Calculate the prefix sum up to left - 1
+        int curr = 0;
+        for (int i = 1; i < left; i++)
+            curr += diff[i];
+
+        // Calculate the prefix sum within the interval [left, right] and check coverage
+        for (int i = left; i <= right; i++)
+        {
+            curr += diff[i];
+            if (curr <= 0) return false;
         }
         return true;
     }
@@ -25,7 +35,8 @@ class Q1893_CheckAllIntegersInRangeCoveredTestData : TestData
     protected override List<object[]> Data =>
     [
         [new int[][] {[1,2],[3,4],[5,6]}, 2, 5, true],
-        [new int[][] {[1,10],[10,20],}, 21, 21, false],
+        [new int[][] {[1,10],[10,20]}, 21, 21, false],
+        [new int[][] {[1,50]}, 1, 50, true],
     ];
 }
 public class Q1893_CheckAllIntegersInRangeCoveredTests

@@ -1,15 +1,24 @@
 class Q1920_BuildArrayFromPermutation
 {
     // TC: O(n), where n is length of nums
-    // SC: O(n), where n scale with length of nums
+    // SC: O(1), where n scale with length of nums
+    // The O(1) version need to understand encoding two values into one
     public int[] BuildArray(int[] nums)
     {
-        var ans = new int[nums.Length];
-        for(var i=0; i<nums.Length; i++)
+        int n = nums.Length;
+
+        // Encode the new values
+        for (int i = 0; i < n; i++)
         {
-            ans[i] = nums[nums[i]];
+            nums[i] = nums[i] + nums[nums[i]] % n * n;
         }
-        return ans;
+
+        // Decode the new values
+        for (int i = 0; i < n; i++)
+        {
+            nums[i] = nums[i] / n;
+        }
+        return nums;
     }
 }
 class Q1920_BuildArrayFromPermutationTestData : TestData
@@ -20,6 +29,8 @@ class Q1920_BuildArrayFromPermutationTestData : TestData
          new int[] {0,1,2,4,5,3}],
         [new int[] {5,0,1,2,3,4}, 
          new int[] {4,5,0,1,2,3}],
+        [new int[] {3,2,1,0}, 
+         new int[] {0,1,2,3}],
     ];
 }
 public class Q1920_BuildArrayFromPermutationTests

@@ -1,8 +1,27 @@
 class Q1935_MaxWordsYouCanType
 {
+    // TC: O(n), where n is length of text
+    // SC: O(m), where m is length of brokenLetters
     public int CanBeTypedWords(string text, string brokenLetters)
     {
-        return 0;
+        var brokenChars = brokenLetters.ToHashSet<char>();
+        var broke = false;
+        var result = 0;
+        for (var i = 0; i < text.Length; i++)
+        {
+            if (brokenChars.Contains(text[i]))
+            {
+                broke = true;
+                continue;
+            }
+            else if (text[i] == ' ')
+            {
+                if (!broke) result++;
+                broke = false;
+            }
+        }
+        if (!broke) result++;
+        return result;
     }
 }
 class Q1935_MaxWordsYouCanTypeTestData : TestData
@@ -12,6 +31,8 @@ class Q1935_MaxWordsYouCanTypeTestData : TestData
         ["hello world", "ad", 1],
         ["leet code", "lt", 1],
         ["leet code", "e", 0],
+        ["e", "e", 0],
+        ["c", "e", 1],
     ];
 }
 public class Q1935_MaxWordsYouCanTypeTests

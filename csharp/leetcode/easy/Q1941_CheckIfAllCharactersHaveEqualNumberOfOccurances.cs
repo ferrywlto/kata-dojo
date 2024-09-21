@@ -1,13 +1,25 @@
 class Q1941_CheckIfAllCharactersHaveEqualNumberOfOccurances
 {
+    // TC: O(n), where n is length of s
+    // SC: O(1), space used does not scale with s
     public bool AreOccurrencesEqual(string s)
     {
-        return false;
+        int[] count = new int[26];
+        for (var i = 0; i < s.Length; i++) count[s[i] - 'a']++;
+
+        var temp = -1;
+        foreach (var c in count)
+        {
+            if (c == 0) continue;
+            if (c > 0 && temp == -1) temp = c;
+            else if (c != temp) return false;
+        }
+        return true;
     }
 }
 class Q1941_CheckIfAllCharactersHaveEqualNumberOfOccurancesTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["abacbc", true],
         ["aaabb", false],

@@ -42,7 +42,7 @@ class Q938_RangeSumOfBSTTestData : TestData
     ];
 }
 
-public class Q938_RangeSumOfBSTTests : TreeNodeTest
+public class Q938_RangeSumOfBSTTests(ITestOutputHelper output) : TreeNodeTest(output)
 {
     [Theory]
     [ClassData(typeof(Q938_RangeSumOfBSTTestData))]

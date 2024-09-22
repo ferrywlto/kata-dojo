@@ -2,12 +2,10 @@ using System.Text;
 using Microsoft.Data.Sqlite;
 using Xunit.Sdk;
 
-public abstract class SqlTest : BaseTest, IDisposable
+public abstract class SqlTest : TestBase, IDisposable
 {
     const int ColumnWidth = 10;
     protected readonly SqliteConnection connection = new("Filename=:memory:");
-
-    public SqlTest() : base() { Initialize(); }
 
     public SqlTest(ITestOutputHelper output) : base(output) { Initialize(); }
 

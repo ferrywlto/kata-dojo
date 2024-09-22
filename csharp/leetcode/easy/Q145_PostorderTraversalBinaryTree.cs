@@ -1,3 +1,4 @@
+
 class Q145_PostorderTraversalBinaryTreeTestData : TestData
 {
     protected override List<object[]> Data =>
@@ -9,7 +10,7 @@ class Q145_PostorderTraversalBinaryTreeTestData : TestData
     ];
 }
 
-public class Q145_PostorderTraversalBinaryTreeTests(ITestOutputHelper output) : TreeNodeTest
+public class Q145_PostorderTraversalBinaryTreeTests(ITestOutputHelper output) : TreeNodeTest(output)
 {
     [Theory]
     [ClassData(typeof(Q145_PostorderTraversalBinaryTreeTestData))]
@@ -19,8 +20,8 @@ public class Q145_PostorderTraversalBinaryTreeTests(ITestOutputHelper output) : 
         var tree = TreeNode.FromLevelOrderingIntArray(input);
         var actual = sut.PostorderTraversal(tree);
 
-        output.WriteLine($"expected: {string.Join(',', expected)}");
-        output.WriteLine($"actual: {string.Join(',', actual.ToArray())}");
+        Output.WriteLine($"expected: {string.Join(',', expected)}");
+        Output.WriteLine($"actual: {string.Join(',', actual.ToArray())}");
         Assert.Equal(expected, actual.ToArray());
     }
 }

@@ -30,7 +30,7 @@ class Q653_TwoSumIVTestData : TestData
     ];
 }
 
-public class Q653_TwoSumIVTests : TreeNodeTest
+public class Q653_TwoSumIVTests(ITestOutputHelper output) : TreeNodeTest(output)
 {
     [Theory]
     [ClassData(typeof(Q653_TwoSumIVTestData))]

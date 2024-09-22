@@ -37,7 +37,7 @@ class Q1378_ReplaceEmployeeIdWithUniqueIdTestData : TestData
         ]
     ];
 }
-public class Q1378_ReplaceEmployeeIdWithUniqueIdTests : SqlTest
+public class Q1378_ReplaceEmployeeIdWithUniqueIdTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
     """

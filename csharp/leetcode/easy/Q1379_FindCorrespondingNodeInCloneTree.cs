@@ -48,7 +48,7 @@ class Q1379_FindCorrespondingNodeInCloneTreeTestData : TestData
         [new int?[]{8,null,6,null,5,null,4,null,3,null,2,null,1}, 4, 4],
     ];
 }
-public class Q1379_FindCorrespondingNodeInCloneTreeTest : TreeNodeTest
+public class Q1379_FindCorrespondingNodeInCloneTreeTest(ITestOutputHelper output) : TreeNodeTest(output)
 {
     [Theory]
     [ClassData(typeof(Q1379_FindCorrespondingNodeInCloneTreeTestData))]

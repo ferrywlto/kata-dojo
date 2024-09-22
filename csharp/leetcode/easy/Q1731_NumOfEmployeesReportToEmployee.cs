@@ -69,7 +69,7 @@ class Q1731_NumOfEmployeesReportToEmployeeTestData : TestData
         ]
     ];
 }
-public class Q1731_NumOfEmployeesReportToEmployeeTests : SqlTest
+public class Q1731_NumOfEmployeesReportToEmployeeTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema => 
     """

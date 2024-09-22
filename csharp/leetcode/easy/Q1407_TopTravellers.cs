@@ -52,7 +52,7 @@ class Q1407_TopTravellersTestData : TestData
         ]
     ];
 }
-public class Q1407_TopTravellersTests: SqlTest
+public class Q1407_TopTravellersTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema => 
     """

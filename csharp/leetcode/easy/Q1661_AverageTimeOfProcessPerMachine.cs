@@ -44,7 +44,7 @@ class Q1661_AverageTimeOfProcessPerMachineTestData : TestData
         ]
     ];
 }
-public class Q1661_AverageTimeOfProcessPerMachineTests : SqlTest
+public class Q1661_AverageTimeOfProcessPerMachineTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
     """

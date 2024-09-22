@@ -1,3 +1,6 @@
+using System.Diagnostics.CodeAnalysis;
+
+[ExcludeFromCodeCoverage]
 public abstract class TestData: IEnumerable<object?[]>
 {
     protected abstract List<object[]> Data { get; }

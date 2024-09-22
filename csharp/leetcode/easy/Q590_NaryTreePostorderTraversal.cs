@@ -62,7 +62,7 @@ class Q590_NaryTreePostorderTraversalTestData : TestData
     ];
 }
 
-public class Q590_NaryTreePostorderTraversalTests : NaryTreeNodeTest
+public class Q590_NaryTreePostorderTraversalTests(ITestOutputHelper output) : NaryTreeNodeTest(output)
 {
     [Theory]
     [ClassData(typeof(Q590_NaryTreePostorderTraversalTestData))]

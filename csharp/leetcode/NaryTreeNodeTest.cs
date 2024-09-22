@@ -1,6 +1,5 @@
-public abstract class NaryTreeTest : BaseTest
+public abstract class NaryTreeTest : TestBase
 {
-    public NaryTreeTest() {}
     public NaryTreeTest(ITestOutputHelper output) : base(output) {}
 
     protected void DebugTree(NaryTreeNode root)

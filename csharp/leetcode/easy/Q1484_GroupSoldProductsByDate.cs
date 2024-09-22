@@ -114,7 +114,7 @@ class Q1484_GroupSoldProductsByDateTestData : TestData
         ]
     ];
 }
-public class Q1484_GroupSoldProductsByDateTests : SqlTest
+public class Q1484_GroupSoldProductsByDateTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
     """

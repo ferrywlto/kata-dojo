@@ -60,7 +60,7 @@ class Q1280_StudentsAndExaminationsTestData : TestData
         ],
     ];
 }
-public class Q1280_StudentsAndExaminationsTests : SqlTest
+public class Q1280_StudentsAndExaminationsTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema => 
     """

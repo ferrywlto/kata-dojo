@@ -47,7 +47,7 @@ class Q1633_PercentageOfUsersAttendedContestTestData : TestData
         ]
     ];
 }
-public class Q1633_PercentageOfUsersAttendedContestTests : SqlTest
+public class Q1633_PercentageOfUsersAttendedContestTests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
     """

@@ -38,7 +38,7 @@ class Q108_SortedArrayToBSTTestData: TestData
     ];
 }
 
-public class Q108_SortedArrayToBSTTests: TreeNodeTest
+public class Q108_SortedArrayToBSTTests(ITestOutputHelper output) : TreeNodeTest(output)
 {
     [Theory]
     [ClassData(typeof(Q108_SortedArrayToBSTTestData))]

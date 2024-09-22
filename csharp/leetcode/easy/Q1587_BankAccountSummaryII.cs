@@ -35,7 +35,7 @@ class Q1587_BankAccountSummaryIITestData : TestData
         ]
     ];
 }
-public class Q1587_BankAccountSummaryIITests : SqlTest
+public class Q1587_BankAccountSummaryIITests(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
     """

@@ -46,7 +46,7 @@ class Q1327_ListTheProductsOrderedInAPeriodTestData : TestData
         ]
     ];
 }
-public class Q1327_ListTheProductsOrderedInAPeriodTests: SqlTest
+public class Q1327_ListTheProductsOrderedInAPeriodTests(ITestOutputHelper output): SqlTest(output)
 {
     protected override string TestSchema => 
     """

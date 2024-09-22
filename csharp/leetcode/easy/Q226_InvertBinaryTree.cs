@@ -1,3 +1,4 @@
+
 class Q226_InvertBinaryTree
 {
     public TreeNode? InvertTree(TreeNode? root) 
@@ -47,7 +48,7 @@ class Q226_InvertBinaryTreeTestData: TestData
     ];
 }
 
-public class Q226_InvertBinaryTreeTests: TreeNodeTest
+public class Q226_InvertBinaryTreeTests(ITestOutputHelper output): TreeNodeTest(output)
 {
     [Theory]
     [ClassData(typeof(Q226_InvertBinaryTreeTestData))]

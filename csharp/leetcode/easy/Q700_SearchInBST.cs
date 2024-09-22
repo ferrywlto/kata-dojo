@@ -25,7 +25,7 @@ class Q700_SearchInBSTTestData : TestData
     ];
 }
 
-public class Q700_SearchInBSTTests : TreeNodeTest
+public class Q700_SearchInBSTTests(ITestOutputHelper output) : TreeNodeTest(output)
 {
     [Theory]
     [ClassData(typeof(Q700_SearchInBSTTestData))]

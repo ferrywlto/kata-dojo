@@ -1,4 +1,4 @@
-public abstract class TreeNodeTest : BaseTest
+public abstract class TreeNodeTest(ITestOutputHelper output) : TestBase(output)
 {
     [Fact]
     public void ShouldEqualOnPerfectTree()
@@ -116,9 +116,6 @@ public abstract class TreeNodeTest : BaseTest
         var actual = TreeNode.FromLevelOrderingIntArray(input);
         AssertTreeNodeEqual(expected, actual);
     }
-
-    public TreeNodeTest() {}
-    public TreeNodeTest(ITestOutputHelper output) : base(output) {}
 
     protected void AssertTreeNodeEqual(TreeNode? expected, TreeNode? actual)
     {

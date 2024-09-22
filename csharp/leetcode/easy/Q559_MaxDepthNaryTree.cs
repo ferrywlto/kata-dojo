@@ -37,10 +37,8 @@ class Q559_MaxDepthNaryTreeTestData : TestData
     ];
 }
 
-public class Q559_MaxDepthNaryTreeTests : NaryTreeTest
+public class Q559_MaxDepthNaryTreeTests(ITestOutputHelper output) : NaryTreeTest(output)
 {
-    // public Q559_MaxDepthNaryTreeTests(ITestOutputHelper output) : base(output) {}
-
     [Theory]
     [ClassData(typeof(Q559_MaxDepthNaryTreeTestData))]
     public void OfficialTestCases(int?[] input, int expected)

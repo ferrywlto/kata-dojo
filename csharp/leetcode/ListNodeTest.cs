@@ -1,4 +1,4 @@
-public abstract class ListNodeTest(ITestOutputHelper output) : BaseTest(output) 
+public abstract class ListNodeTest(ITestOutputHelper output) : TestBase(output) 
 {
     public static ListNode GenerateListNode(int numDigits, int digitValue) 
     {

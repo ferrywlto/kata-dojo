@@ -6,11 +6,3 @@ public abstract class TestBase
         Output = output;
     }
 }
-
-public abstract class EnhancedTestBase : TestBase
-{
-    public abstract IEnumerable<object[]> TestData { get; }
-    protected EnhancedTestBase(ITestOutputHelper output) : base(output)
-    {
-    }
-}

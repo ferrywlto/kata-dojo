@@ -1,7 +1,8 @@
-public class Q1952_ThreeDivisors(ITestOutputHelper output) : TestBase(output)
+public class Q1952_ThreeDivisors(ITestOutputHelper output)
 {
     public bool IsThree(int n)
     {
+        output.WriteLine("test");
         return false;
     }
 

@@ -1,9 +1,7 @@
 using System.Text;
 
-class Q1945_SumOfDigitsOfStringAfterConvert : TestSubject
+public class Q1945_SumOfDigitsOfStringAfterConvertTests
 {
-    public Q1945_SumOfDigitsOfStringAfterConvert(ITestOutputHelper? output) : base(output!) {}
-
     // TC: O(n), where n scale with length of s times k
     // SC: O(n), where n scale with length of s
     public int GetLucky(string s, int k)
@@ -30,24 +28,19 @@ class Q1945_SumOfDigitsOfStringAfterConvert : TestSubject
         return sum;
     }
     public int GetCharValue(char c) => c - 'a' + 1;
-}
-class Q1945_SumOfDigitsOfStringAfterConvertTestData : TestData
-{
-    protected override List<object[]> Data =>
+
+    public static List<object[]> TestData =>
     [
         ["iiii", 1, 36],
         ["leetcode", 2, 6],
         ["zbax", 2, 8],
     ];
-}
-public class Q1945_SumOfDigitsOfStringAfterConvertTests(ITestOutputHelper output) : TestBase(output)
-{
+
     [Theory]
-    [ClassData(typeof(Q1945_SumOfDigitsOfStringAfterConvertTestData))]
+    [MemberData(nameof(TestData))]
     public void OfficialTestCases(string input, int k, int expected)
     {
-        var sut = new Q1945_SumOfDigitsOfStringAfterConvert(Output);
-        var actual = sut.GetLucky(input, k);
+        var actual = GetLucky(input, k);
         Assert.Equal(expected, actual);
     }
 }

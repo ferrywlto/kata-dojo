@@ -2,6 +2,8 @@ using System.Text;
 
 public class Q1957_DeleteCharactersToMakeFancyString
 {
+    // TC: O(n), n scale with length of s
+    // SC: O(n), n scale with length of s, worst case it equals length of s if all characters doesn't reoccur three times consetutively.
     public string MakeFancyString(string s)
     {
         if (s.Length <= 2) return s;
@@ -11,31 +13,17 @@ public class Q1957_DeleteCharactersToMakeFancyString
         var sb = new StringBuilder();
         sb.Append(s[0]);
 
-        if (s[1] == lastChar) reoccurance++;
-        else
+        for (var i = 1; i < s.Length; i++)
         {
-            reoccurance = 1;
-            lastChar = s[1];
-        }
-        sb.Append(s[1]);
+            if (s[i] == lastChar && reoccurance == 2) continue;
 
-        for (var i = 2; i < s.Length; i++)
-        {
-            if (s[i] == lastChar)
-            {
-                if (reoccurance == 2) continue;
-                else
-                {
-                    reoccurance++;
-                    sb.Append(s[i]);
-                }
-            }
+            if (s[i] == lastChar) reoccurance++;
             else
             {
-                lastChar = s[i];
                 reoccurance = 1;
-                sb.Append(s[i]);
+                lastChar = s[i];
             }
+            sb.Append(s[i]);
         }
 
         return sb.ToString();

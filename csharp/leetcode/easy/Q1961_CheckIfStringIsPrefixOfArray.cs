@@ -2,23 +2,20 @@ using System.Text;
 public class Q1961_CheckIfStringIsPrefixOfArray
 {
     // TC: O(n), n scale with length of s
-    // SC: O(n), n scale with length of s, worst case the size of string builder will be the same as s
+    // SC: O(1), space used does not scale with s
     public bool IsPrefixString(string s, string[] words)
     {
-        var sb = new StringBuilder();
         var idx = 0;
-        foreach(var w in words)
+        foreach (var w in words)
         {
-            sb.Append(w);
-            if (sb.Length > s.Length) return false;
-            for(var i=idx; i<idx+w.Length; i++)
+            foreach (var c in w)
             {
-                if (s[i] != sb[i]) return false;
-                if (i == s.Length - 1) return true;
+                if (idx >= s.Length || s[idx] != c) return false;
+                idx++;
             }
-            idx += w.Length;
+            if (idx == s.Length) return true;
         }
-        return sb.Length == s.Length;
+        return idx == s.Length;
     }
 
     public static List<object[]> TestData =>

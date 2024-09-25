@@ -1,8 +1,54 @@
 public class Q1967_NumStringsAppearSubstringsInWords
 {
-    public int NumOfStrings(string[] patterns, string word) 
+    // TC: O(n*m), n scales with total characters in patterns times total characters in word
+    // SC: O(m), m scales with unique characters in word for early termination
+    public int NumOfStrings(string[] patterns, string word)
     {
-        return 0;    
+        var chars = word.ToHashSet();
+        var result = 0;
+        foreach (var s in patterns)
+        {
+            if (s.Length > word.Length) continue;
+            foreach (var c in s)
+            {
+                if (!chars.Contains(c)) continue;
+            }
+
+            // two pointers
+            // find first char match
+            var wordIdx = 0;
+            var strIdx = 0;
+            while (wordIdx < word.Length)
+            {
+                if (s[strIdx] != word[wordIdx])
+                {
+                    wordIdx++;
+                    continue;
+                }
+                else if (s.Length - strIdx > word.Length - wordIdx) break;
+                else
+                {
+                    var fullyMatched = true;
+                    var compareIdx = wordIdx + 1;
+                    for (var i = strIdx + 1; i < s.Length; i++)
+                    {
+                        if (s[i] != word[compareIdx])
+                        {
+                            fullyMatched = false;
+                            break;
+                        }
+                        else compareIdx++;
+                    }
+                    if (fullyMatched)
+                    {
+                        result++;
+                        break;
+                    }
+                }
+                wordIdx++;
+            }
+        }
+        return result;
     }
     public static List<object[]> TestData =>
     [

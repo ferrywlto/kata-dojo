@@ -1,51 +1,26 @@
 public class Q1967_NumStringsAppearSubstringsInWords
 {
     // TC: O(n*m), n scales with total characters in patterns times total characters in word
-    // SC: O(m), m scales with unique characters in word for early termination
+    // SC: O(1), space used does not scale with input
     public int NumOfStrings(string[] patterns, string word)
     {
-        var chars = word.ToHashSet();
         var result = 0;
-        foreach (var s in patterns)
+        foreach (var pattern in patterns)
         {
-            if (s.Length > word.Length) continue;
-            foreach (var c in s)
-            {
-                if (!chars.Contains(c)) continue;
-            }
+            if (pattern.Length > word.Length) continue;
 
             // two pointers
             // find first char match
-            var wordIdx = 0;
-            var strIdx = 0;
-            while (wordIdx < word.Length)
+            for (var i = 0; i <= word.Length - pattern.Length; i++)
             {
-                if (s[strIdx] != word[wordIdx])
+                var j = 0;
+                while (j < pattern.Length && word[i + j] == pattern[j]) j++;
+
+                if (j == pattern.Length)
                 {
-                    wordIdx++;
-                    continue;
+                    result++;
+                    break;
                 }
-                else if (s.Length - strIdx > word.Length - wordIdx) break;
-                else
-                {
-                    var fullyMatched = true;
-                    var compareIdx = wordIdx + 1;
-                    for (var i = strIdx + 1; i < s.Length; i++)
-                    {
-                        if (s[i] != word[compareIdx])
-                        {
-                            fullyMatched = false;
-                            break;
-                        }
-                        else compareIdx++;
-                    }
-                    if (fullyMatched)
-                    {
-                        result++;
-                        break;
-                    }
-                }
-                wordIdx++;
             }
         }
         return result;

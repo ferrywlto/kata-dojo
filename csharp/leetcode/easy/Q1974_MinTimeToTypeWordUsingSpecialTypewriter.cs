@@ -1,11 +1,27 @@
 public class Q1974_MinTimeToTypeWordUsingSpecialTypewriter
 {
-    public int MinTimeToType(string word) 
+    // TC: O(n), n scale with length of word
+    // SC: O(1), space used does not sacle with input
+    public int MinTimeToType(string word)
     {
-        return 0;    
+        var current = 'a';
+        var result = 0;
+        foreach (var c in word)
+        {
+            var temp = Math.Abs(c - current);
+            if (temp > 13) temp = 26 - temp;
+            result += temp + 1;
+            current = c;
+        }
+        return result;
     }
     public static List<object[]> TestData =>
     [
+        ["a", 1],
+        ["z", 2],
+        ["b", 2],
+        ["o", 13],
+        ["oc", 26],
         ["abc", 5],
         ["bza", 7],
         ["zjpc", 34],

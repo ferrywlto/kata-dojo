@@ -1,35 +1,35 @@
 public class Q1971_FindIfPathExistsInGraph(ITestOutputHelper output)
 {
+    // TC: O(n), n scale with number of edges + length of path
+    // SC: O(n), n scale with 2 * number of edges + length of path m + height of stack k
     public bool ValidPath(int n, int[][] edges, int source, int destination)
     {
-        var dictSource = new Dictionary<int, HashSet<int>>();
+        var dictEdges = new Dictionary<int, HashSet<int>>();
         foreach (var e in edges)
         {
-            if (dictSource.TryGetValue(e[0], out var value)) value.Add(e[1]);
-            else dictSource.Add(e[0], [e[1]]);
+            if (dictEdges.TryGetValue(e[0], out var value)) value.Add(e[1]);
+            else dictEdges.Add(e[0], [e[1]]);
 
-            if (dictSource.TryGetValue(e[1], out var value2)) value2.Add(e[0]);
-            else dictSource.Add(e[1], [e[0]]);
+            if (dictEdges.TryGetValue(e[1], out var value2)) value2.Add(e[0]);
+            else dictEdges.Add(e[1], [e[0]]);
         }
 
-        if (dictSource.Count == 0) return true;
-
-        // depth search
+        if (source == destination) return true;
+        if (!dictEdges.ContainsKey(source) || !dictEdges.ContainsKey(destination)) return false;
+        // depth-first search
         var path = new HashSet<int>() { source };
-        var stack = new Stack<HashSet<int>>();
-        stack.Push(dictSource[source]);
-        while (stack.Count > 0 && path.Count <= n)
+        var stack = new Stack<int>();
+        stack.Push(source);
+        while (stack.Count > 0)
         {
-            var choices = stack.Pop();
-            output.WriteLine(string.Join(','), choices);
-            foreach (var choice in choices)
+            var node = stack.Pop();
+            foreach (var choice in dictEdges[node])
             {
                 if (choice == destination) return true;
-                else if (!path.Contains(choice))
-                {
-                    path.Add(choice);
-                    stack.Push(dictSource[choice]);
-                }
+                if (path.Contains(choice)) continue;
+
+                path.Add(choice);
+                stack.Push(choice);
             }
         }
         return false;

@@ -41,15 +41,20 @@ public class Q1978_EmployeesWhoseManagerLeftTheCompany(ITestOutputHelper output)
     ];
     private string Query =>
     """
-    select e1.employee_id from Employees e1
-    where e1.manager_id is not null
+    select e1.employee_id from
+    (
+        select employee_id, manager_id from Employees 
+        where 
+            manager_id is not null and
+            salary < 30000
+    ) e1
     left join 
-    (select employee_id, name from Employees) e2
+    (
+        select employee_id from Employees
+    ) e2
     on e1.manager_id = e2.employee_id
     where 
-    e1.manager_id is not null 
-    and e2.employee_id is null
-    and e1.salary < 30000
+        e2.employee_id is null
     order by e1.employee_id;
     """;
 

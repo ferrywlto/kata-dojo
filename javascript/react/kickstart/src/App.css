@@ -51,6 +51,8 @@
 
 .box-x {
   background-color: aquamarine;
-  height: 50px;
+  height: 5px;
   display: flex;
+  border-radius: 1px;
+  margin-top: 1px;
 }

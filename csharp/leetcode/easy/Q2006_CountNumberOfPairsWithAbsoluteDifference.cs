@@ -8,6 +8,7 @@ public class Q2006_CountNumberOfPairsWithAbsoluteDifference
         var result = 0;
         for (var i = 0; i < nums.Length - 1; i++)
         {
+            // use inequality approach to solve |a - b| = k
             var lookfor1 = nums[i] - k;
             var lookfor2 = nums[i] + k;
             for (var j = i + 1; j < nums.Length; j++)

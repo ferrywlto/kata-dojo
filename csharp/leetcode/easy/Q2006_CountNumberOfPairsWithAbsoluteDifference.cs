@@ -8,9 +8,11 @@ public class Q2006_CountNumberOfPairsWithAbsoluteDifference
         var result = 0;
         for (var i = 0; i < nums.Length - 1; i++)
         {
+            var lookfor1 = nums[i] - k;
+            var lookfor2 = nums[i] + k;
             for (var j = i + 1; j < nums.Length; j++)
             {
-                if (Math.Abs(nums[i] - nums[j]) == k) result++;
+                if (nums[j] == lookfor1 || nums[j] == lookfor2) result++;
             }
         }
         return result;

@@ -15,59 +15,46 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h2>Learning React - Kickstart with Maid Component</h2>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        <Clock />
+        <Timer />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <Clock />
-      <Timer />
       <MaidComponent />
     </>
   )
 }
 function Timer() {
-  const [secondsPassed, setSecondPassed] = useState(0);
-  const [rows, setRow] = useState(1);
+  const [secondsPassed, setSecondPassed] = useState(1);
+  const [rows, setRow] = useState(0);
   const thresold = 60;
-  
-  useEffect(() => {
-    let intervalId = setInterval(() => {
-      setSecondPassed(prevSec => { 
-        let currentSecond = prevSec + 1;
-        if (currentSecond % thresold === 0) {
-          setRow(prevRow => prevRow + 1);
-        }
-        console.log(currentSecond);
-        return currentSecond;        
-      });
-    }, 1000);
 
-    // Cleanup interval on component unmount
+  function onInterval() {
+    setSecondPassed(prev => prev + 1);
+  }
+  useEffect(() => {
+    if (secondsPassed % thresold === 0) {
+      setRow(prevRows => prevRows + 1);
+    }
+  }, [secondsPassed]);
+  useEffect(() => {
+    const intervalId = setInterval(onInterval, 1000);
     return () => {
-      console.log(`clearing interval: ${intervalId}`);
       clearInterval(intervalId);
     }
-  }, []); // Empty dependency array ensures this runs only once
+  }, []);
 
   const fixedRows = useMemo(() => {
-    console.log(`fixedRows: ${rows}`);
     return Array.from({ length: rows }).map((_, i) => (
-      <div key={i} className="box-x" style={{ width: `${thresold}px` }}></div>
+      <div key={i} className="box-x" style={{ width: `100%` }}></div>
     ));
-  }, [rows]); // Only re-compute when `rows` changes
+  }, [rows]);
 
   return (
     <>
-      { fixedRows }
-      <div className="box-x" style={{ width: secondsPassed % thresold }}></div>
+      {fixedRows}
+      <div className="box-x" style={{ width: `${(secondsPassed % thresold) / thresold * 100 }%` }}></div>
+      You love maid so much, see how many minutes you spent on this page.
     </>
   );
 }
@@ -76,7 +63,7 @@ function Clock() {
   function timeStr() {
     let date = now;
     return date.getFullYear() + "-" +
-      (date.getMonth() + 1).toString().padStart(2, '0') +"-" +
+      (date.getMonth() + 1).toString().padStart(2, '0') + "-" +
       date.getDate().toString().padStart(2, '0') + " " +
       date.getHours().toString().padStart(2, '0') + ":" +
       date.getMinutes().toString().padStart(2, '0') + ":" +
@@ -86,12 +73,11 @@ function Clock() {
     const intervalId = setInterval(() => {
       setNow(new Date());
     }, 1000);
-
-    // Cleanup interval on component unmount
+    
     return () => clearInterval(intervalId);
-  }, []); // Empty dependency array ensures this runs only once
+  }, []);
 
-  return (<h2 >Time now is {timeStr()}</h2>);
+  return (<h2 >The time now is {timeStr()}</h2>);
 }
 function Mass() {
   return (
@@ -109,7 +95,7 @@ function Mine() {
       <span style={{ color: "pink" }}>L</span>
       <span style={{ color: "darkgrey" }}>a</span>
       <span style={{ color: "pink" }}>n</span>
-      <span style={{ color: "darkgrey" }}>d</span>      
+      <span style={{ color: "darkgrey" }}>d</span>
       <span style={{ color: "pink" }}>m</span>
       <span style={{ color: "darkgrey" }}>i</span>
       <span style={{ color: "pink" }}>n</span>
@@ -117,51 +103,86 @@ function Mine() {
     </>
   );
 }
-function MaidComponent() {
-  const [name, setName] = useState("Elaine");
-  const [wearHairdress, setWearHairdress] = useState(false);
-  const [width, setWidth] = useState(100);
-  const [list, setList] = useState([1]);
-  const [style, setStyle] = useState("mass");
+function AccessoryControl({ accessories, setAccessories }) {
+  const [itemName, setItemName] = useState("");
+  function handleAddBtnClick() {
+    if (!itemName) {
+      alert('item name cannot empty');
+      return;
+    }
+    setAccessories(existing => {
+      const nextId = existing.reduce((id, item) => item.id > id ? item.id : id, 0) + 1;
+      return [...existing, { id: nextId, name: itemName }];
+    });
+    setItemName("");
+  }
+  function handleKeyDown(e) {
+    if (e.key === "Enter") {
+      handleAddBtnClick();
+    }
+  }
+  return (
+    <>
+      <label>
+        Accessory:&nbsp;
+        <input type="text" value={itemName} onChange={e => setItemName(e.target.value)}
+          onKeyDown={handleKeyDown} />
+      </label>&nbsp;
+      <input type="button" value="Add" onClick={handleAddBtnClick} />
+    </>
+  )
+}
+function AccessoryList({ accessories, setAccessories }) {
+  function handleRemoveListItem(itemId) {
+    setAccessories(existing => {
+      return existing.filter(x => x.id !== itemId);
+    })
+  }
+  function getListItems() {
+    return accessories.map((item, idx) => (
+      <li key={idx}>
+        {item.name}&nbsp;<input type="button" value="x" onClick={_ => handleRemoveListItem(item.id)} />
+      </li>)
+    );
+  }
+  const list = useMemo(() => {
+    return (<ul>{ getListItems() }</ul>); 
+  }, [accessories]);
 
-  const items = list.map(item => 
-    <li key={item}>{item}</li>
-  );
-  
+  return (list);
+}
+function MaidComponent() {
+  const [name, setName] = useState("私のメイドエレイン❥");
+  const [wearHairdress, setWearHairdress] = useState(false);
+  const [style, setStyle] = useState("mass");
+  const [accessories, setAccessories] = useState(defaultAccessories);
+
+  function defaultAccessories() {
+    return [{
+      id: 1,
+      name: "lace stocking"
+    }, {
+      id: 2,
+      name: "mary jane shoes"
+    }];
+  }
+
   function GetStyle() {
     if (style === 'mass') return <Mass />;
     else return <Mine />;
   }
-  function handleBtnClick() 
-  {
-      let newWidth = width + 3;
-      setWidth(newWidth);
-      if (newWidth % 2 === 0)
-        setStyle("mass");
-      else
-      setStyle("mine");
-  }
-  function handleNameChange(e)
-  {
-    setName(e.target.value);
-  }
-  function handleHairDressChange(e)
-  {
+  function handleHairDressChange(e) {
     setWearHairdress(e.target.checked);
   }
-  function handleDressStyleChange(e) 
-  {
+  function handleDressStyleChange(e) {
     setStyle(e.target.value);
   }
   return (
-    <div style={{textAlign: "left"}}>
-      <label>
-        What's my Maid's name?&nbsp;
-        <input type="text" value={name} onChange={handleNameChange}/>
-      </label>
+    <div style={{ textAlign: "left" }} className="card">
+      <NameControl name={name} setName={setName} />
       <br />
       <label>
-        <input type="checkbox" checked={wearHairdress} onChange={handleHairDressChange}/>
+        <input type="checkbox" checked={wearHairdress} onChange={handleHairDressChange} />
         Wear hairdress?
       </label>
       <div style={{ display: "flex" }}>
@@ -178,16 +199,26 @@ function MaidComponent() {
             checked={style === "mine"} />
           Mine
         </label>
-      </div>      
-      <h1 className="maid-text">How are you my maid {name}?</h1>
-      
-      <h2>My maid will wear {GetStyle()} { wearHairdress && " plus Hairdress " } today!</h2>
-
-      <button onClick={handleBtnClick}>Wider</button>
-      <div>
-        <ul>{items}</ul>
       </div>
+      <AccessoryControl accessories={accessories} setAccessories={setAccessories} />
+      <h1 className="maid-text">How are you my maid {name}?</h1>
+
+      <h2>My maid will wear {GetStyle()} {wearHairdress && " plus Hairdress "} today!</h2>
+      <h3>My maid will also wear these accessories:</h3>
+      <AccessoryList accessories={accessories} setAccessories={setAccessories} />
     </div>
   )
+}
+function NameControl({name, setName})
+{
+  function handleNameChange(e) {
+    setName(e.target.value);
+  }
+  return (
+  <label>
+    What's my Maid's name?&nbsp;
+    <input type="text" value={name} onChange={handleNameChange} />
+  </label>
+  );
 }
 export default App

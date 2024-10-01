@@ -1,20 +1,17 @@
 public class Q2016_MaxDiffBetweenIncreasingElements
 {
-    // TC: O(n^2), n scale with length of nums
+    // TC: O(n), n scale with length of nums
     // SC: O(1), space used does not scale with input 
     public int MaximumDifference(int[] nums)
     {
         var maxDiff = -1;
-        for (var i = 0; i < nums.Length - 1; i++)
+        var min = nums[0];
+        for (var i = 1; i < nums.Length; i++)
         {
-            for (var j = i + 1; j < nums.Length; j++)
-            {
-                if (nums[j] > nums[i])
-                {
-                    var diff = nums[j] - nums[i];
-                    if (diff > maxDiff) maxDiff = diff;
-                }
-            }
+            if (nums[i] > min)
+                maxDiff = Math.Max(maxDiff, nums[i] - min);
+            else
+                min = nums[i];
         }
         return maxDiff;
     }

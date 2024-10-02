@@ -1,8 +1,21 @@
 public class Q2022_Convert1DArrayInto2DArray
 {
+    // TC: O(n), n scale with length of original
+    // SC: O(n), the result will be the same space used as original
     public int[][] Construct2DArray(int[] original, int m, int n)
     {
-        return [];
+        if (m * n != original.Length) return [];
+
+        var result = new int[m][];
+        for (var i = 0; i < m; i++)
+        {
+            result[i] = new int[n];
+            for (var j = 0; j < n; j++)
+            {
+                result[i][j] = original[i * n + j];
+            }
+        }
+        return result;
     }
     public static List<object[]> TestData =>
     [

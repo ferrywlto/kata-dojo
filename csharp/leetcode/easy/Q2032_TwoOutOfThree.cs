@@ -6,11 +6,16 @@ public class Q2032_TwoOutOfThree
     {
         var result = new Dictionary<int, int>();
         var sets = new HashSet<int>[] { [.. nums1], [.. nums2], [.. nums3] };
-        foreach(var set in sets) {
-            foreach(var n in set) {
-                if (result.TryGetValue(n, out var value)) {
+        foreach (var set in sets)
+        {
+            foreach (var n in set)
+            {
+                if (result.TryGetValue(n, out var value))
+                {
                     result[n] = ++value;
-                } else {
+                }
+                else
+                {
                     result.Add(n, 1);
                 }
             }

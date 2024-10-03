@@ -1,8 +1,17 @@
 public class Q2037_MinNUmMovesToSeatEveryone
 {
+    // TC: O(nlogn), due to Array.sort()
+    // SC: O(1), space used does not scale with input 
     public int MinMovesToSeat(int[] seats, int[] students)
     {
-        return 0;
+        Array.Sort(seats);
+        Array.Sort(students);
+        var result = 0;
+        for (var i = 0; i < seats.Length; i++)
+        {
+            result += Math.Abs(seats[i] - students[i]);
+        }
+        return result;
     }
     public static List<object[]> TestData =>
     [

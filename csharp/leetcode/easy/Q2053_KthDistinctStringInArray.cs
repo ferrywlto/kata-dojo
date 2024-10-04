@@ -1,19 +1,25 @@
 public class Q2053_KthDistinctStringInArray
 {
-    // TC: O(n + k), n scale with length of arr plus k
-    // SC: O(m), m scale with distinct value in arr
+    // TC: O(n + m), n scale with length of arr plus m unique values in arr
+    // SC: O(m + j), m scale with unique values in arr plus j values that exist more than once 
     public string KthDistinct(string[] arr, int k)
     {
-        var dict = arr
-            .GroupBy(x => x)
-            .ToDictionary(g => g.Key, g => g.Count());
-        var result = dict
-            .Where(x => x.Value == 1)
-            .Select(x => x.Key);
-        if (result.Count() < k) return string.Empty;
-        return result
-            .Skip(k - 1)
-            .First();
+        var setAll = new HashSet<string>();
+        var setDup = new HashSet<string>();
+        foreach(var s in arr)
+        {
+            if (!setAll.Add(s)) setDup.Add(s);
+        }
+        var passed = 0;
+        foreach(var s in setAll)
+        {
+            if(setDup.Add(s))
+            {
+                passed++;
+                if (passed == k) return s;
+            }
+        }
+        return string.Empty;
     }
     public static List<object[]> TestData =>
     [

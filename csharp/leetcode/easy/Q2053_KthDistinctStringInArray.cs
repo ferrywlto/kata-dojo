@@ -1,8 +1,19 @@
 public class Q2053_KthDistinctStringInArray
 {
+    // TC: O(n + k), n scale with length of arr plus k
+    // SC: O(m), m scale with distinct value in arr
     public string KthDistinct(string[] arr, int k)
     {
-        return string.Empty;
+        var dict = arr
+            .GroupBy(x => x)
+            .ToDictionary(g => g.Key, g => g.Count());
+        var result = dict
+            .Where(x => x.Value == 1)
+            .Select(x => x.Key);
+        if (result.Count() < k) return string.Empty;
+        return result
+            .Skip(k - 1)
+            .First();
     }
     public static List<object[]> TestData =>
     [

@@ -9,23 +9,18 @@ public class Q2062_CountVowelSubstringsOfString
         if (word.Length < 5) return 0;
 
         var result = 0;
-        for (var len = word.Length; len >= 5; len--)
+        for (var i = 0; i < word.Length; i++)
         {
-            for (var i = 0; i < word.Length - len + 1; i++)
+            var c = word[i];
+            if (!vowels.Contains(c)) continue;
+
+            var hashSet = new HashSet<char>();
+            for (var j = i; j < word.Length; j++)
             {
-                var hashSet = new HashSet<char>();
-                var valid = true;
-                for (var j = i; j < i + len; j++)
-                {
-                    var c = word[j];
-                    if (!vowels.Contains(c))
-                    {
-                        valid = false;
-                        break;
-                    }
-                    hashSet.Add(c);
-                }
-                if (valid && hashSet.Count == 5) result++;
+                if (!vowels.Contains(c)) continue;
+                hashSet.Add(c);
+
+                if (hashSet.Count == 5) result++;
             }
         }
         return result;

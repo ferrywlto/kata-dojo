@@ -4,6 +4,8 @@ public class Q2062_CountVowelSubstringsOfString
 {
     readonly HashSet<char> vowels = ['a', 'e', 'i', 'o', 'u'];
 
+    // TC: O(n), n scale with length of word
+    // SC: O(1), space used are always capped at five entries for hashset
     public int CountVowelSubstrings(string word)
     {
         if (word.Length < 5) return 0;
@@ -11,14 +13,13 @@ public class Q2062_CountVowelSubstringsOfString
         var result = 0;
         for (var i = 0; i < word.Length; i++)
         {
-            var c = word[i];
-            if (!vowels.Contains(c)) continue;
+            if (!vowels.Contains(word[i])) continue;
 
             var hashSet = new HashSet<char>();
             for (var j = i; j < word.Length; j++)
             {
-                if (!vowels.Contains(c)) continue;
-                hashSet.Add(c);
+                if (!vowels.Contains(word[j])) break;
+                hashSet.Add(word[j]);
 
                 if (hashSet.Count == 5) result++;
             }

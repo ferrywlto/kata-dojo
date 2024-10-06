@@ -9,9 +9,9 @@ public class Q2062_CountVowelSubstringsOfString
         if (word.Length < 5) return 0;
 
         var result = 0;
-        for(var len=word.Length; len>=5; len--)
+        for (var len = word.Length; len >= 5; len--)
         {
-            for(var i=0; i<word.Length - len + 1; i++)
+            for (var i = 0; i < word.Length - len + 1; i++)
             {
                 var hashSet = new HashSet<char>();
                 var valid = true;
@@ -27,7 +27,6 @@ public class Q2062_CountVowelSubstringsOfString
                 }
                 if (valid && hashSet.Count == 5) result++;
             }
-
         }
         return result;
     }

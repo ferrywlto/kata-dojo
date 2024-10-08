@@ -2,7 +2,22 @@ public class Q2085_CountCommonWordsWithOneOccurance
 {
     public int CountWords(string[] words1, string[] words2)
     {
-        return 0;
+        // not that efficient way
+        var set1 = words1
+            .GroupBy(x => x)
+            .ToDictionary(g => g.Key, g => g.Count())
+            .Where(x => x.Value == 1)
+            .Select(x => x.Key)
+            .ToHashSet();
+
+        var set2 = words2
+            .GroupBy(x => x)
+            .ToDictionary(g => g.Key, g => g.Count())
+            .Where(x => x.Value == 1)
+            .Select(x => x.Key)
+            .ToHashSet();
+
+        return set1.Intersect(set2).Count();
     }
     public static List<object[]> TestData =>
     [

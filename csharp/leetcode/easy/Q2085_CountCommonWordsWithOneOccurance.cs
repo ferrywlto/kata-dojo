@@ -1,23 +1,30 @@
 public class Q2085_CountCommonWordsWithOneOccurance
 {
+    // TC: O(n+m), where n sacle with length of words1 and m scales with length of words2
+    // SC: O(n+m), for the dictionary sizes
     public int CountWords(string[] words1, string[] words2)
     {
-        // not that efficient way
         var set1 = words1
             .GroupBy(x => x)
-            .ToDictionary(g => g.Key, g => g.Count())
-            .Where(x => x.Value == 1)
-            .Select(x => x.Key)
-            .ToHashSet();
+            .ToDictionary(g => g.Key, g => g.Count());
 
         var set2 = words2
             .GroupBy(x => x)
-            .ToDictionary(g => g.Key, g => g.Count())
-            .Where(x => x.Value == 1)
-            .Select(x => x.Key)
-            .ToHashSet();
+            .ToDictionary(g => g.Key, g => g.Count());
 
-        return set1.Intersect(set2).Count();
+        var bothExistCount = 0;
+        foreach(var pair in set1)
+        {
+            if(pair.Value == 1) 
+            {
+                if(set2.TryGetValue(pair.Key, out var value))
+                {
+                    if (value == 1) bothExistCount++;
+                }
+            }
+        }
+
+        return bothExistCount;
     }
     public static List<object[]> TestData =>
     [

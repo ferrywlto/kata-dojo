@@ -1,21 +1,26 @@
 public class Q2114_MaxNumWordsFOundInSentences
 {
     // TC: O(n), n scale with length of sentences
-    // SC: O(n), as each sentence need to split into array to count words
+    // SC: O(1), space used does not scale with input, avoid intermediate array creation in Split()
     public int MostWordsFound(string[] sentences)
     {
         var maxWords = 0;
-        foreach(var s in sentences)
+        foreach (var s in sentences)
         {
-            var words = s.Split(' ').Length;
-            if (words> maxWords) maxWords = words;
+            var words = 0;
+            foreach (var c in s)
+            {
+                if (c == ' ') words++;
+            }
+            if (s[^1] != ' ') words++;
+            if (words > maxWords) maxWords = words;
         }
         return maxWords;
     }
     public static List<object[]> TestData =>
     [
         [
-            new string[] 
+            new string[]
             {
                 "alice and bob love leetcode",
                 "i think so too",
@@ -23,7 +28,7 @@ public class Q2114_MaxNumWordsFOundInSentences
             }, 6
         ],
         [
-            new string[] 
+            new string[]
             {
                 "please wait",
                 "continue to fight",

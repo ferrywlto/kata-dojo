@@ -1,26 +1,25 @@
 public class Q2094_FindingThreeDigitEvenNumbers(ITestOutputHelper output)
 {
+    int[]? _sharedDigits = null;
+    readonly HashSet<int> result = [];
     public int[] FindEvenNumbers(int[] digits)
     {
+        _sharedDigits = digits;
         RecursiveInnerProduct(digits, 0, 3, []);
-        var l = result.Select(x => string.Join(',', x.Select(x => digits[x]).ToArray()));
-        output.WriteLine(string.Join(Environment.NewLine, l));
+        // var l = result.Select(x => string.Join(',', x));
+        // output.WriteLine(string.Join(Environment.NewLine, l));
 
         var sorted = result
-            .Select(x => digits[x[0]] * 100 + digits[x[1]] * 10 + digits[x[2]])
             .Order()
-            .Distinct()
             .ToArray();
         return sorted;
     }
 
-    // This is for reference, will make it to use generic 
-    List<int[]> result = [];
     private void RecursiveInnerProduct(int[] input, int depth, int depthMax, int[] list)
     {
         if (depth == depthMax)
         {
-            result.Add(list);
+            result.Add(_sharedDigits![list[0]]*100 + _sharedDigits[list[1]]* 10 + _sharedDigits[list[2]]);
             return;
         }
 

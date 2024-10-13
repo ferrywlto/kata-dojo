@@ -1,34 +1,27 @@
 public class Q2099_FindSubsequenceOfLengthKWithLargestSum
 {
-    private void SortStack(Stack<(int idx, int val)> stack, int i, int n, int maxDpeth)
-    {
-        var temp = new Stack<(int idx, int val)>();
-        while (stack.Count != 0)
-        {
-            var peek = stack.Peek();
-            if (peek.val < n)
-            {
-                peek = stack.Pop();
-                temp.Push(peek);
-            }
-            else break;
-        }
-        if (stack.Count < maxDpeth) stack.Push((i, n));
-
-        var spaceLeft = maxDpeth - stack.Count;
-        for (var j = 0; j < spaceLeft; j++)
-        {
-            if (temp.Count > 0) stack.Push(temp.Pop());
-        }
-    }
     public int[] MaxSubsequence(int[] nums, int k)
     {
-        var s = new Stack<(int idx, int val)>();
+        var comparer = Comparer<(int val, int idx)>
+        .Create((a, b) => {
+            var result = a.val.CompareTo(b.val);
+            // if a == b, return index comparison
+            return result == 0 
+                ? a.idx.CompareTo(b.idx) 
+                : result;
+        });
+        var priorityQueue = new SortedSet<(int val, int idx)>(comparer);
+
         for (var i = 0; i < nums.Length; i++)
         {
-            SortStack(s, i, nums[i], k);
+            priorityQueue.Add((nums[i], i));
+            if (priorityQueue.Count > k)
+            {
+                priorityQueue.Remove(priorityQueue.Min);
+            }
         }
-        return s
+
+        return priorityQueue
             .OrderBy(x => x.idx)
             .Select(x => x.val)
             .ToArray();
@@ -37,7 +30,7 @@ public class Q2099_FindSubsequenceOfLengthKWithLargestSum
     [
         [new int[]{2,1,3,3}, 2, new int[]{3,3}],
         [new int[]{-1,-2,3,4}, 3, new int[]{-1,3,4}],
-        [new int[]{3,4,3,3}, 2, new int[]{3,4}],
+        [new int[]{3,4,3,3}, 2, new int[]{4,3}],
         [new int[]{50,-75}, 2, new int[]{50,-75}],
     ];
     [Theory]

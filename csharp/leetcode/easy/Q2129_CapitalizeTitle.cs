@@ -8,55 +8,34 @@ public class Q2129_CapitalizeTitle
     {
         var charCount = 0;
         var sb = new StringBuilder(title);
+        sb.Append(' ');
+
         for (var i = 0; i < sb.Length; i++)
         {
-            var c = title[i];
+            var c = sb[i];
             if (c != ' ') charCount++;
             else
             {
-                if (charCount == 2)
+                var startIdx = i - charCount;
+                if (charCount > 2)
                 {
-                    sb[i - 2] = char.ToLower(sb[i - 2]);
-                    sb[i - 1] = char.ToLower(sb[i - 1]);
+                    sb[startIdx] = char.ToUpper(sb[startIdx]);
+                    startIdx++;
                 }
-                else if (charCount == 1)
+                for (var j = startIdx; j < i; j++)
                 {
-                    sb[i - 1] = char.ToLower(sb[i - 1]);
-                }
-                else
-                {
-                    sb[i - charCount] = char.ToUpper(sb[i - charCount]);
-                    for (var j = i - charCount + 1; j < i; j++)
-                    {
-                        sb[j] = char.ToLower(sb[j]);
-                    }
+                    sb[j] = char.ToLower(sb[j]);
                 }
                 charCount = 0;
             }
         }
-
-        if (charCount == 2)
-        {
-            sb[^2] = char.ToLower(sb[^2]);
-            sb[^1] = char.ToLower(sb[^1]);
-        }
-        else if (charCount == 1)
-        {
-            sb[^1] = char.ToLower(sb[^1]);
-        }
-        else
-        {
-            sb[^charCount] = char.ToUpper(sb[^charCount]);
-            for (var j = sb.Length - charCount + 1; j < sb.Length; j++)
-            {
-                sb[j] = char.ToLower(sb[j]);
-            }
-        }
+        sb.Length--;
         return sb.ToString();
     }
     public static List<object[]> TestData =>
     [
         ["capiTalIze tHe titLe", "Capitalize The Title"],
+        ["capiTalIzE tHE titLE", "Capitalize The Title"],
         ["First leTTeR of EACH Word", "First Letter of Each Word"],
         ["i lOve leetcode", "i Love Leetcode"],
     ];

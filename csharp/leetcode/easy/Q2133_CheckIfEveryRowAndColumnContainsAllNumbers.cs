@@ -1,8 +1,24 @@
 public class Q2133_CheckIfEveryRowAndColumnContainsAllNumbers
 {
+    // TC: O(n), n scale with length of matrix, iterate just single pass
+    // SC: O(n), n scale with length of matrix, 2n for two hashsets
     public bool CheckValid(int[][] matrix)
     {
-        return false;
+        var n = matrix.Length;
+        var setRow = new HashSet<int>();
+        var setCol = new HashSet<int>();
+        for (var row = 0; row < matrix.Length; row++)
+        {
+            for (var col = 0; col < matrix[row].Length; col++)
+            {
+                setRow.Add(matrix[row][col]);
+                setCol.Add(matrix[col][row]);
+            }
+            if (setRow.Count != n || setCol.Count != n) return false;
+            setRow.Clear();
+            setCol.Clear();
+        }
+        return true;
     }
     public static List<object[]> TestData =>
     [

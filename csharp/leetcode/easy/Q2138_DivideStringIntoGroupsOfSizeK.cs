@@ -11,7 +11,7 @@ public class Q2138_DivideStringIntoGroupsOfSizeK
             if (i + k > len)
             {
                 var remaining = len - i;
-                var tail = string.Join(string.Empty, Enumerable.Repeat(fill, k - remaining));
+                var tail = new string(fill, k - remaining);
                 result.Add(s[i..(i + remaining)] + tail);
             }
             else result.Add(s[i..(i + k)]);

@@ -1,11 +1,37 @@
-public class Q2148_CountElementsWithStrictlySmallerAndGreaterElements
+public class Q2148_CountElementsWithStrictlySmallerAndGreaterElements(ITestOutputHelper output)
 {
-    // TC: O(nlogn), n scale with length of nums, dominant by Array.Sort()
-    // SC: O(1), space used does not scale with input
+    // For question constraints, nums.Length max is 100 thus brute force is acceptable.
+    // Attempt to provide a non-brute-force based appraoch. 
+    // TC: O(n log n), due to OrderBy()
+    // SC: O(m), m scale with unique numbers in nums
     public int CountElements(int[] nums)
     {
+        if (nums.Length < 3) return 0;
+
+        var set = nums.ToHashSet();
+        var sorted = set.OrderBy(x => x).ToArray();
+        var dict = new Dictionary<int, int>();
+        for (var i = 0; i < sorted.Length; i++)
+        {
+            dict.Add(sorted[i], i);
+        }
+
+        var result = 0;
+        foreach (var n in nums)
+        {
+            var idx = dict[n];
+            var inRange = idx > 0 && idx < dict.Count - 1;
+            if (inRange) result++;
+        }
+
+        return result;
+    }
+    // TC: O(n^2), n scale with length of nums, for each n it has to travel the whole array worst case (all items are equal)
+    // SC: O(1), space used does not scale with input
+    public int CountElements2(int[] nums)
+    {
         Array.Sort(nums);
-        
+
         var result = 0;
         for (var i = 1; i < nums.Length - 1; i++)
         {

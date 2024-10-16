@@ -5,12 +5,12 @@ public class Q2068_CheckWhetherTwoStringsAreAlmostEquivalent
     public bool CheckAlmostEquivalent(string word1, string word2)
     {
         var freq1 = new int[26];
-        foreach(var c in word1) freq1[c - 'a']++;
+        foreach (var c in word1) freq1[c - 'a']++;
 
         var freq2 = new int[26];
-        foreach(var c in word2) freq2[c - 'a']++;
+        foreach (var c in word2) freq2[c - 'a']++;
 
-        for(var i=0; i<freq1.Length; i++)
+        for (var i = 0; i < freq1.Length; i++)
         {
             var diff = Math.Abs(freq1[i] - freq2[i]);
             if (diff > 3) return false;

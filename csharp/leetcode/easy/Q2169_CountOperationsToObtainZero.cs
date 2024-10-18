@@ -1,8 +1,17 @@
 public class Q2169_CountOperationsToObtainZero
 {
+    // TC: O(log(min(num1,num2))) similar to the Euclidean algorithm for computing the GCD.
+    // SC: O(1), space used does not scale with input
     public int CountOperations(int num1, int num2)
     {
-        return 0;
+        var ops = 0;
+        while (num1 > 0 && num2 > 0)
+        {
+            if (num1 >= num2) num1 -= num2;
+            else num2 -= num1;
+            ops++;
+        }
+        return ops;
     }
     public static List<object[]> TestData =>
     [

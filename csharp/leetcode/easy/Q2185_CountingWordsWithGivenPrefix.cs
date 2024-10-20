@@ -1,8 +1,17 @@
 public class Q2185_CountingWordsWithGivenPrefix
 {
-    public int PrefixCount(string[] words, string pref) 
+    // TC: O(n), n scale with length of words
+    // SC: O(1), space used does not scale with input
+    public int PrefixCount(string[] words, string pref)
     {
-        return 0;    
+        var pfxLen = pref.Length;
+        var result = 0;
+        foreach (var w in words)
+        {
+            if (w.Length < pfxLen) continue;
+            else if (w[..pfxLen] == pref) result++;
+        }
+        return result;
     }
     public static List<object[]> TestData =>
     [

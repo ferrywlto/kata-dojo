@@ -1,8 +1,27 @@
 public class Q2200_FindAllKDistinctIndicesInArray
 {
+    // TC: O(n * k), n scale with length of nums, for each n it iterate k more times
+    // SC: O(n), an array is used to avoid the duplicate index sorting to improve speed from O(nlogn) to O(n)
     public IList<int> FindKDistantIndices(int[] nums, int key, int k)
     {
-        return [];
+        var result = new int[nums.Length];
+        for (var i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] == key)
+            {
+                for (var j = i - k; j <= i + k; j++)
+                {
+                    if (j < 0 || j > nums.Length - 1) continue;
+                    result[j] = 1;
+                }
+            }
+        }
+        var x = new List<int>();
+        for (var i = 0; i < result.Length; i++)
+        {
+            if (result[i] == 1) x.Add(i);
+        }
+        return x;
     }
     public static List<object[]> TestData =>
     [

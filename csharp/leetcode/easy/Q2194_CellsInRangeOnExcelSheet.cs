@@ -1,8 +1,19 @@
 public class Q2194_CellsInRangeOnExcelSheet
 {
+    // TC: O(n * m), n scale with diff from s[0] and s[3], m sacle with diff from s[4] and s[1]
+    // SC: O(n * m) if counting the list to store the result, O(1) otherwise
     public IList<string> CellsInRange(string s)
     {
-        return [];
+        var result = new List<string>();
+
+        for (var i = s[0]; i <= s[3]; i++)
+        {
+            for (var j = s[1]; j <= s[4]; j++)
+            {
+                result.Add(i.ToString() + j.ToString());
+            }
+        }
+        return result;
     }
     public static List<object[]> TestData =>
     [

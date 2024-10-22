@@ -1,8 +1,34 @@
 public class Q2210_CountHillsAndValleysInArray
 {
+    // TC: O(n), n scale with length of nums, it has to iterate all elements in nums
+    // SC: O(1), space used does not scale with input
     public int CountHillValley(int[] nums)
     {
-        return 0;
+        var result = 0;
+        var curr = nums[0];
+        var direction = 0;
+        for (var i = 1; i < nums.Length; i++)
+        {
+            if (nums[i] > curr)
+            {
+                if (direction == -1)
+                {
+                    result++;
+                }
+                direction = 1;
+            }
+            else if (nums[i] < curr)
+            {
+                if (direction == 1)
+                {
+                    result++;
+                }
+                direction = -1;
+            }
+
+            curr = nums[i];
+        }
+        return result;
     }
     public static List<object[]> TestData =>
     [

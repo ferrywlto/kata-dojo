@@ -1,8 +1,21 @@
 public class Q2206_DivideArrayIntoRqualPairs
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(m), m scale with unique numbers in nums
     public bool DivideArray(int[] nums)
     {
-        return false;
+        if (nums.Length % 2 != 0) return false;
+
+        var list = nums
+            .GroupBy(x => x)
+            .Select(g => g.Count())
+            .ToList();
+
+        foreach (var count in list)
+        {
+            if (count % 2 != 0) return false;
+        }
+        return true;
     }
     public static List<object[]> TestData =>
     [

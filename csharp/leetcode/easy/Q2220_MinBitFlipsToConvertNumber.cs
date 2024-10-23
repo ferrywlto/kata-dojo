@@ -4,14 +4,14 @@ public class Q2220_MinBitFlipsToConvertNumber
     // SC: O(1), space used does not scale with input
     public int MinBitFlips(int start, int goal)
     {
+        var xor = start ^ goal;
         var result = 0;
-        while (start > 0 || goal > 0)
+
+        while(xor > 0)
         {
-            var bitFromStart = start & 1;
-            var bitFromEnd = goal & 1;
-            if (bitFromStart != bitFromEnd) result++;
-            start >>= 1;
-            goal >>= 1;
+            // if bit is different it will be 1
+            result += xor & 1;
+            xor >>= 1;
         }
         return result;
     }

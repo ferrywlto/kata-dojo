@@ -1,8 +1,19 @@
 public class Q2220_MinBitFlipsToConvertNumber
 {
+    // TC: O(log n), n scale with Max(start, goal)
+    // SC: O(1), space used does not scale with input
     public int MinBitFlips(int start, int goal)
     {
-        return 0;
+        var result = 0;
+        while (start > 0 || goal > 0)
+        {
+            var bitFromStart = start & 1;
+            var bitFromEnd = goal & 1;
+            if (bitFromStart != bitFromEnd) result++;
+            start >>= 1;
+            goal >>= 1;
+        }
+        return result;
     }
     public static List<object[]> TestData =>
     [

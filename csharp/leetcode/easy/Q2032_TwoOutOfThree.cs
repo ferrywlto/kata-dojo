@@ -23,6 +23,7 @@ public class Q2032_TwoOutOfThree
         return result
             .Where(x => x.Value >= 2)
             .Select(x => x.Key)
+            .OrderBy(x => x)
             .ToList();
     }
     public static List<object[]> TestData =>

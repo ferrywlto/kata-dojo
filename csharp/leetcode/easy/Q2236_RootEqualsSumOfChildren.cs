@@ -1,5 +1,7 @@
 public class Q2236_RootEqualsSumOfChildren
 {
+    // TC: O(1), obviously
+    // SC: O(1), obviously
     public bool CheckTree(TreeNode root)
     {
         return root.val == root!.left!.val + root!.right!.val;

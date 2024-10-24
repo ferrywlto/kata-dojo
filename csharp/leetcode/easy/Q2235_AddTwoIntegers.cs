@@ -1,8 +1,10 @@
 public class Q2235_AddTwoIntegers
 {
+    // TC: O(1), obviously
+    // SC: O(1), obviously
     public int Sum(int num1, int num2)
     {
-        return 0;
+        return num1 + num2;
     }
     public static List<object[]> TestData =>
     [

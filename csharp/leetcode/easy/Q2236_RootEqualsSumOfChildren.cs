@@ -1,13 +1,8 @@
-
-public class Q2236_RootEqualsSumOfChildren : TreeNodeTest
+public class Q2236_RootEqualsSumOfChildren
 {
-    public Q2236_RootEqualsSumOfChildren(ITestOutputHelper output) : base(output)
-    {
-    }
-
     public bool CheckTree(TreeNode root)
     {
-        return false;
+        return root.val == root!.left!.val + root!.right!.val;
     }
     public static List<object[]> TestData =>
     [

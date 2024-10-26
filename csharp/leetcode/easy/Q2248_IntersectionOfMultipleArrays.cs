@@ -1,8 +1,23 @@
 public class Q2248_IntersectionOfMultipleArrays
 {
+    // TC: O(n), n scale with total number of items in nums
+    // SC: O(m), m scale with unique numbers in nums
     public IList<int> Intersection(int[][] nums)
     {
-        return [];
+        var sorted = new SortedDictionary<int, int>();
+        foreach (var arr in nums)
+        {
+            foreach (var n in arr)
+            {
+                if (sorted.TryGetValue(n, out var val)) sorted[n] = ++val;
+
+                else sorted.Add(n, 1);
+            }
+        }
+        return sorted
+            .Where(x => x.Value == nums.Length)
+            .Select(x => x.Key)
+            .ToList();
     }
     public static List<object[]> TestData =>
     [

@@ -10,17 +10,9 @@ public class Q2259_RemoveDigitFromNumberToMaxResult
         {
             if (number[i] == digit)
             {
-                var temp = number[..(i)] + number[(i + 1)..];
+                var temp = number[..i] + number[(i + 1)..];
 
-                if (max == string.Empty) max = temp;
-                else
-                {
-                    for (var j = 0; j < max.Length; j++)
-                    {
-                        if (temp[j] < max[j]) break;
-                        else if (temp[j] > max[j]) max = temp;
-                    }
-                }
+                if (string.Compare(temp, max) > 0) max = temp;
             }
         }
         return max;

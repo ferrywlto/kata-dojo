@@ -1,8 +1,23 @@
 public class Q2283_CheckIfNumberHasEqualDigitCountAndDigitValue
 {
+    // TC: O(n), n scale with length of num, iterate once for getting the frequency, another iteration check if the digit index equals frequency
+    // SC: O(m), m scale with unique digits in num 
     public bool DigitCount(string num)
     {
-        return false;
+        var frequency = num
+            .GroupBy(c => c)
+            .ToDictionary(g => g.Key - '0', g => g.Count());
+
+        for (var i = 0; i < num.Length; i++)
+        {
+            var v = num[i] - '0';
+            if (frequency.TryGetValue(i, out var value))
+            {
+                if (v != value) return false;
+            }
+            else if (v != 0) return false;
+        }
+        return true;
     }
     public static List<object[]> TestData =>
     [

@@ -9,7 +9,7 @@ public class Q2235_AddTwoIntegers
     public static List<object[]> TestData =>
     [
         [12,5,17],
-        [-10,4],
+        [-10,4,-6],
     ];
     [Theory]
     [MemberData(nameof(TestData))]

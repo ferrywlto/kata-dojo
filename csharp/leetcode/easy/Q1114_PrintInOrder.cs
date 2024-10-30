@@ -1,43 +1,23 @@
-public abstract class Foo
-{
-    public virtual void First(Action printFirst)
-    {
-        // printFirst() outputs "first". Do not change or remove this line.
-        printFirst();
-    }
-
-    public virtual void Second(Action printSecond)
-    {
-        // printSecond() outputs "second". Do not change or remove this line.
-        printSecond();
-    }
-
-    public virtual void Third(Action printThird)
-    {
-        // printThird() outputs "third". Do not change or remove this line.
-        printThird();
-    }
-}
-
-class Q1114_PrintInOrder : Foo
+using System.Text;
+public class Foo
 {
     protected int step = 0;
-    public override void First(Action printFirst)
+    public string First()
     {
-        base.First(printFirst);
         step++;
+        return "first";
     }
-    public override void Second(Action printSecond)
+    public string Second()
     {
         while(step <= 0) Thread.Sleep(1);
-        base.Second(printSecond);
         step++;
+        return "second";
     }
-    public override void Third(Action printThird)
+    public string Third()
     {
         while(step <= 1) Thread.Sleep(1);
-        base.Third(printThird);
         step++;
+        return "third";
     }
 }
 class Q1114_PrintInOrderTestData : TestData
@@ -54,30 +34,20 @@ public class Q1114_PrintInOrderTests
     [ClassData(typeof(Q1114_PrintInOrderTestData))]
     public async void OfficialTestCases(int[] input, string expected)
     {
-        var sut = new Q1114_PrintInOrder();
-        var output = new StringWriter();
-        Console.SetOut(output);
+        var sut = new Foo();
+        var sb = new StringBuilder();
 
         await Parallel.ForEachAsync(input, (idx, CancellationToken) =>
         {
             switch (idx)
             {
-                case 1: sut.First(CallAction(idx)); break;
-                case 2: sut.Second(CallAction(idx)); break;
-                case 3: sut.Third(CallAction(idx)); break;
+                case 1: sb.Append(sut.First()); break;
+                case 2: sb.Append(sut.Second()); break;
+                case 3: sb.Append(sut.Third()); break;
                 default: break;
             }
             return ValueTask.CompletedTask;
         });
-        Assert.Equal(expected, output.ToString());
+        Assert.Equal(expected, sb.ToString());
     }
-
-    Action CallAction(int methodId) =>
-     methodId switch
-     {
-         1 => () => Console.Write("first"),
-         2 => () => Console.Write("second"),
-         3 => () => Console.Write("third"),
-         _ => () => Console.Write("unknown")
-     };
 }

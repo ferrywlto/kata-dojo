@@ -1,5 +1,5 @@
 using System.Text;
-public class Foo
+class Foo
 {
     protected int step = 0;
     public string First()
@@ -20,18 +20,15 @@ public class Foo
         return "third";
     }
 }
-class Q1114_PrintInOrderTestData : TestData
+public class Q1114_PrintInOrder
 {
-    protected override List<object[]> Data =>
+    public static List<object[]> TestData =>
     [
         [new int[]{1,2,3}, "firstsecondthird"],
         [new int[]{1,3,2}, "firstsecondthird"],
     ];
-}
-public class Q1114_PrintInOrderTests
-{
     [Theory]
-    [ClassData(typeof(Q1114_PrintInOrderTestData))]
+    [MemberData(nameof(TestData))]
     public async void OfficialTestCases(int[] input, string expected)
     {
         var sut = new Foo();

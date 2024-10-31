@@ -71,7 +71,7 @@ function GameBoard() {
       const cells = [];
       for (let j = 0; j < size; j++) {
         let idx = i + j;
-        cells.push(<Cell key={idx} data={current[i + j]} id={idx} onClick={HandleCellClick} />);
+        cells.push(<Cell key={idx} data={current[i + j]} onClick={() => HandleCellClick(idx)} />);
       }
       rows.push(
         <div className='row' key={i / size}>
@@ -83,7 +83,7 @@ function GameBoard() {
     return <>{rows}</>;
   }
   function RenderGameState() {
-    if (end || round > 9) return (
+    if (end || round >= 9) return (
       <>
         {
           winner === null
@@ -114,18 +114,18 @@ function GameBoard() {
     </>
   );
 }
+
 function GameHistory({ history, timeMachine }) {
   const historyList = history.map((h, idx) => {
     return (<li key={idx}><button onClick={() => timeMachine(idx)}>picks cell.</button></li>)
   })
   return (<ol>{historyList}</ol>);
 }
+
 function Cell({ data, id, onClick }) {
-  function handleClick() {
-    onClick(id);
-  }
-  return (<button className='cell' onClick={handleClick}>{data}</button>);
+  return (<button className='cell' onClick={onClick}>{data}</button>);
 }
+
 const lines = [
   [0, 1, 2], [3, 4, 5], [6, 7, 8],
   [0, 3, 6], [1, 4, 7], [2, 5, 8],

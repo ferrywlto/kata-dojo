@@ -1,17 +1,17 @@
 public class Q2287_RearrangeCharactersToMakeTargetString
 {
-    // TC: O(n), n scale with length of s, plus n length of target, plus m unique characters in target
+    // TC: O(n+m), n scale with length of s, plus n length of target, plus m unique characters in target
     // SC: O(m), m scale with unique characters in target, another m for sDict
     public int RearrangeCharacters(string s, string target)
     {
         var targetDict = target.GroupBy(c => c).ToDictionary(g => g.Key, g => g.Count());
         var sDict = new Dictionary<char, int>();
-        for (var i = 0; i < s.Length; i++)
+        foreach(var c in s)
         {
-            if (targetDict.ContainsKey(s[i]))
+            if (targetDict.ContainsKey(c))
             {
-                if (sDict.TryGetValue(s[i], out var val)) sDict[s[i]] = ++val;
-                else sDict.Add(s[i], 1);
+                if (sDict.TryGetValue(c, out var val)) sDict[c] = ++val;
+                else sDict.Add(c, 1);
             }
         }
 

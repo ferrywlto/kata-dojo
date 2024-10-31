@@ -8,6 +8,34 @@ function App() {
     </div>
   )
 }
+function GameInformation({ end, round, currentPlayer, winner, handleResetClick }) {
+  function RenderGameEnd() {
+    return (
+      <>
+        { RenderWinner() }< br />
+        <button onClick={handleResetClick}>Click here to reset</button>
+      </>
+    )
+  }
+  function RenderWinner() {
+    return winner === null
+      ? <label>Draw Game.</label>
+      : <label>Winner is {winner}.</label>;
+  }
+  function RenderGameInProgress() {
+    return (
+      <>
+        <label>Current round: {round + 1}</label><br />
+        <label>Current player: {currentPlayer}</label>
+      </>
+    );
+  }
+  return (
+    <div style={{ textAlign: "start" }}>
+      {(end || round >= 9) ? RenderGameEnd() : RenderGameInProgress()}
+    </div>
+  );
+}
 
 function GameBoard() {
 
@@ -82,33 +110,14 @@ function GameBoard() {
 
     return <>{rows}</>;
   }
-  function RenderGameState() {
-    if (end || round >= 9) return (
-      <>
-        {
-          winner === null
-            ? <label>Draw Game.</label>
-            : <label>Winner is {winner}.</label>
-        }<br />
-        <button onClick={HandleResetClick}>Click here to reset</button>
-      </>
-    )
-    else return (
-      <>
-        <label>Current round: {round + 1}</label><br />
-        <label>Current player: {currentPlayer()}</label>
-      </>
-    );
-  }
+  
   return (
     <>
       <div>
-        <div style={{ textAlign: "start" }}>
-          {RenderGameState()}
-        </div>
         <div>{RenderBoardRows()}</div>
       </div>
       <div>
+        <GameInformation end={end} round={round} currentPlayer={currentPlayer()} handleResetClick={HandleResetClick} />
         <GameHistory history={history} timeMachine={TimeMachine} />
       </div>
     </>

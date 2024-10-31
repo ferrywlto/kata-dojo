@@ -1,85 +1,77 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 
 function App() {
   return (
     <div style={{ display: "flex" }}>
       <GameBoard />
-      <GameHistory />
     </div>
   )
 }
-const lines = [
-  [0, 1, 2], [3, 4, 5], [6, 7, 8],
-  [0, 3, 6], [1, 4, 7], [2, 5, 8],
-  [0, 4, 8], [2, 4, 6]
-]
-function GameHistory() {
-  const [history, setHistory] = useState([
-    'hi', 'how', 'are', 'you', 'my', 'maid?'
-  ]);
-  let key = 0;
-  const historyList = history.map(h => {
-    return (<li key={key++}><button>{h}</button></li>)
-  })
-  return (<ol>{historyList}</ol>);
-}
+
 function GameBoard() {
-  const [gameData, setGameData] = useState(initGameData);
+
+  const [current, setCurrent] = useState(emptyBoard);
+  const [history, setHistory] = useState([]);
   const [round, setRound] = useState(0);
-  const [player, setPlayer] = useState('O');
-  const [gameEnd, setGameEnd] = useState(false);
+  const [end, setEnd] = useState(false);
+  const [winner, setWinner] = useState(null);
+
+  function emptyBoard() {
+    return new Array(9).fill(null);
+  }
+
   function currentPlayer() {
     if (round % 2 === 0) return 'O';
     else return 'X';
   }
-  function initGameData() {
-    return new Array(9);
+
+  function TimeMachine(h) {
+    setRound(h + 1);
+    setCurrent(history[h]);
+    if (h < 9) {
+      setEnd(false);
+    }
   }
-  const checkWinCondition = useEffect(() => {
-    let draw = true;
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
-      if (gameData[line[0]] &&
-        gameData[line[0]] === gameData[line[1]] &&
-        gameData[line[1]] === gameData[line[2]]) {
-        draw = false;
-        alert("Winner: " + currentPlayer())
-      }
-    }
-    
-    return () => { };
-  }, [gameData]);
+  function HandleCellClick(id) {
+    if (end) return;
+    if (round >= 9) return;
+    if (current[id]) return;
 
-  useEffect(() => {
-    if (round >= 9)
-    {
-      setGameEnd(true);
-    }
-  }, [round]);
+    const next = [...current];
+    next[id] = currentPlayer();
 
-  function X(id) {
-    if (gameEnd) return;
-    if (gameData[id]) return;
-
-    setGameData(oldData => {
-      const newData = [...oldData];
-      newData[id] = currentPlayer();
-      return newData;
+    setCurrent(next);
+    setHistory(oldHistory => {
+      return [...oldHistory.slice(0, round), next];
     });
+
+    const winner = checkWinCondition(next);
+    if (winner) {
+      setWinner(currentPlayer());
+      setEnd(true);
+    }
+    else if (round == 8) {
+      setEnd(true);
+    }
 
     setRound(round => round + 1);
   }
-
+  function HandleResetClick() {
+    setCurrent(emptyBoard());
+    setRound(0);
+    setHistory([]);
+    setEnd(false);
+  }
   function RenderBoardRows() {
     const rows = [];
     const size = 3; // Assuming a 3x3 grid
 
-    for (let i = 0; i < gameData.length; i += size) {
+    for (let i = 0; i < current.length; i += size) {
       const cells = [];
       for (let j = 0; j < size; j++) {
         let idx = i + j;
-        cells.push(<Cell key={idx} data={gameData[i + j]} id={idx} onClick={X} />);
+        cells.push(<Cell key={idx} data={current[i + j]} id={idx} onClick={HandleCellClick} />);
       }
       rows.push(
         <div className='row' key={i / size}>
@@ -90,18 +82,64 @@ function GameBoard() {
 
     return <>{rows}</>;
   }
+  function RenderGameState() {
+    if (end || round > 9) return (
+      <>
+        {
+          winner === null
+            ? <label>Draw Game.</label>
+            : <label>Winner is {winner}.</label>
+        }<br />
+        <button onClick={HandleResetClick}>Click here to reset</button>
+      </>
+    )
+    else return (
+      <>
+        <label>Current round: {round + 1}</label><br />
+        <label>Current player: {currentPlayer()}</label>
+      </>
+    );
+  }
   return (
     <>
-      <div>Current round: {round}</div>&nbsp;
-      <div>Current player: {currentPlayer()}</div>
-      <div>{RenderBoardRows()}</div>
+      <div>
+        <div style={{ textAlign: "start" }}>
+          {RenderGameState()}
+        </div>
+        <div>{RenderBoardRows()}</div>
+      </div>
+      <div>
+        <GameHistory history={history} timeMachine={TimeMachine} />
+      </div>
     </>
   );
 }
+function GameHistory({ history, timeMachine }) {
+  const historyList = history.map((h, idx) => {
+    return (<li key={idx}><button onClick={() => timeMachine(idx)}>picks cell.</button></li>)
+  })
+  return (<ol>{historyList}</ol>);
+}
 function Cell({ data, id, onClick }) {
-  function handleClick(e) {
+  function handleClick() {
     onClick(id);
   }
   return (<button className='cell' onClick={handleClick}>{data}</button>);
+}
+const lines = [
+  [0, 1, 2], [3, 4, 5], [6, 7, 8],
+  [0, 3, 6], [1, 4, 7], [2, 5, 8],
+  [0, 4, 8], [2, 4, 6]
+]
+function checkWinCondition(data) {
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    if (data[a] &&
+      data[a] === data[b] &&
+      data[a] === data[c]) {
+      return data[a];
+    }
+  }
+  return null;
 }
 export default App;

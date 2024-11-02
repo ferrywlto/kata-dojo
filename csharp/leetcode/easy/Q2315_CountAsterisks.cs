@@ -1,8 +1,17 @@
 public class Q2315_CountAsterisks
 {
+    // TC: O(n), n scale with length of s
+    // SC: O(1), space used does not scale with input
     public int CountAsterisks(string s)
     {
-        return 0;
+        var result = 0;
+        var barCount = 0;
+        for (var i = 0; i < s.Length; i++)
+        {
+            if (s[i] == '|') barCount++;
+            else if (s[i] == '*' && barCount % 2 == 0) result++;
+        }
+        return result;
     }
     public static List<object[]> TestData =>
     [

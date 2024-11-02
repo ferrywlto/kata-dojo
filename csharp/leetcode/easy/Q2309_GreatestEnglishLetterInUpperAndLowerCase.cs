@@ -1,39 +1,40 @@
-public class Q2309_GreatestEnglishLetterInUpperAndLowerCase(ITestOutputHelper output)
+public class Q2309_GreatestEnglishLetterInUpperAndLowerCase
 {
     // TC: O(n), n scale with length of s
-    // SC: O(1), space used does not scale with input
+    // SC: O(n+m), n scale with unique uppercase characters in s and m scale with unique lowercase characters in s, in worst case it cannot exceed 52
     public string GreatestLetter(string s)
     {
-        var upper = new int[26];
-        var lower = new int[26];
+        var upperSet = new HashSet<char>();
+        var lowerSet = new HashSet<char>();
+        var maxChar = '/';
         foreach (var c in s)
         {
-            if (c >= 'A' && c <= 'Z')
+            if (char.IsUpper(c))
             {
-                upper[c - 'A']++;
-                output.WriteLine("{0}: {1}", c, upper[c - 'A']);
+                upperSet.Add(c);
+                if (lowerSet.Contains(char.ToLower(c)))
+                    if (c > maxChar)
+                        maxChar = c;
             }
-            else if (c >= 'a' && c <= 'z')
+            else if (char.IsLower(c))
             {
-                lower[c - 'a']++;
-                output.WriteLine("{0}: {1}", c, upper[c - 'a']);
-            }
-        }
-        for (var i = 25; i >= 0; i--)
-        {
-            output.WriteLine("{0}: {1}, {2}", ((char)(i + 'A')), upper[i], lower[i]);
-            if (upper[i] > 0 && lower[i] > 0)
-            {
-                return ((char)(i + 'A')).ToString();
+                lowerSet.Add(c);
+                var upperChar = char.ToUpper(c);
+                if (upperSet.Contains(upperChar))
+                    if (upperChar > maxChar)
+                        maxChar = upperChar;
             }
         }
-        return string.Empty;
+
+        return maxChar == '/' ? string.Empty : maxChar.ToString();
     }
     public static List<object[]> TestData =>
     [
         ["lEeTcOdE", "E"],
         ["arRAzFif", "R"],
         ["AbCdEfGhIjK", ""],
+        ["AAAAA", ""],
+        ["aaaaa", ""],
     ];
     [Theory]
     [MemberData(nameof(TestData))]

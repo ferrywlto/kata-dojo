@@ -117,7 +117,7 @@ function GameBoard() {
         <div>{RenderBoardRows()}</div>
       </div>
       <div>
-        <GameInformation end={end} round={round} currentPlayer={currentPlayer()} handleResetClick={HandleResetClick} />
+        <GameInformation end={end} round={round} currentPlayer={currentPlayer()} handleResetClick={HandleResetClick} winner={winner}/>
         <GameHistory history={history} timeMachine={TimeMachine} />
       </div>
     </>

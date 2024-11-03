@@ -14,21 +14,16 @@ public class Q1763_LongestNiceSubstring
     }
     public bool IsNice(string input)
     {
-        var lower = new HashSet<char>();
-        var upper = new HashSet<char>();
-        foreach (var c in input)
+        var set = new HashSet<char>(input);
+        
+        foreach (var c in set)
         {
-            if (char.IsLower(c)) lower.Add(char.ToUpper(c));
-            else if (char.IsUpper(c)) upper.Add(c);
+            if (!set.Contains(char.ToLower(c)) ||
+                !set.Contains(char.ToUpper(c))) return false;
         }
-        if (lower.Count != upper.Count) return false;
-
-        foreach (var l in lower)
-        {
-            if (!upper.Remove(l)) return false;
-        }
-        return upper.Count == 0;
+        return true;
     }
+    
     public static List<object[]> TestData =>
     [
         ["YazaAay", "aAa"],

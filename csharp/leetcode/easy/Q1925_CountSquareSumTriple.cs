@@ -1,18 +1,24 @@
 public class Q1925_CountSquareSumTriple
 {
-    // TC: O(n^3), n scale with size of n
+    // TC: O(n + n^2), n scale with size of n
     // SC: O(1), space used does not sacle with input 
     public int CountTriples(int n)
     {
         var result = 0;
-        for (var i = n; i > 0; i--)
+        var power = new Dictionary<int, int>();
+        var sqrt = new Dictionary<int, int>();
+        for (var i = 1; i <= n; i++)
         {
-            for (var j = 1; j < i; j++)
+            power.Add(i, i * i);
+            sqrt.Add(i * i, i);
+        }
+
+        foreach (var p_power in power)
+        {
+            foreach (var p_sqrt in sqrt)
             {
-                for (var k = 1; k < i; k++)
-                {
-                    if (k * k + j * j == i * i) result++;
-                }
+                var diff = p_power.Value - p_sqrt.Key;
+                if (sqrt.ContainsKey(diff)) result++;
             }
         }
         return result;

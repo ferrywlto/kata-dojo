@@ -1,8 +1,23 @@
 public class Q2319_CheckIfMatrixIsXMatrix
 {
+    // TC: O(n^2), n scale with length of grid as n x n matrix
+    // SC: O(1), space used does not scale with input
     public bool CheckXMatrix(int[][] grid)
     {
-        return false;
+        for (var i = 0; i < grid.Length; i++)
+        {
+            for (var j = 0; j < grid[i].Length; j++)
+            {
+                // inverse diagonal
+                var inverseCell = grid[i].Length - (i + 1);
+                if (i == j || j == inverseCell)
+                {
+                    if (grid[i][j] == 0) return false;
+                }
+                else if (grid[i][j] != 0) return false;
+            }
+        }
+        return true;
     }
     public static List<object[]> TestData =>
     [

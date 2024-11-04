@@ -16,8 +16,7 @@ public class Q2325_DecodeTheMessage
         var sb = new StringBuilder();
         foreach (var c in message)
         {
-            if (c == ' ') sb.Append(' ');
-            else sb.Append(dict[c]);
+            sb.Append(c == ' ' ? c : dict[c]);
         }
         return sb.ToString();
     }

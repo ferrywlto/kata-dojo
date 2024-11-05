@@ -1,8 +1,44 @@
 public class Q2335_MinAmountTimeToFillCups
 {
+    // TC: O(n), n scale with size of number in amount
+    // SC: O(1), space used does not scale with input
     public int FillCups(int[] amount)
     {
-        return 0;
+        var result = 0;
+        var maxIdx = new int[2];
+
+        while (amount[0] > 0 || amount[1] > 0 || amount[2] > 0)
+        {
+            var max = 0;
+            var sum = amount[0] + amount[1];
+
+            if (sum > max)
+            {
+                max = sum;
+                maxIdx[0] = 0;
+                maxIdx[1] = 1;
+            }
+
+            sum = amount[1] + amount[2];
+            if (sum > max)
+            {
+                max = sum;
+                maxIdx[0] = 1;
+                maxIdx[1] = 2;
+            }
+
+            sum = amount[0] + amount[2];
+            if (sum > max)
+            {
+                maxIdx[0] = 0;
+                maxIdx[1] = 2;
+            }
+
+            amount[maxIdx[0]]--;
+            amount[maxIdx[1]]--;
+            result++;
+        }
+        return result;
     }
     public static List<object[]> TestData =>
     [

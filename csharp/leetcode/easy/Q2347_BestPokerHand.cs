@@ -2,7 +2,21 @@ public class Q2347_BestPokerHand
 {
     public string BestHand(int[] ranks, char[] suits)
     {
-        return string.Empty;
+        var sSet = suits.GroupBy(c => c).ToDictionary(g => g.Key, g => g.Count());
+        if (sSet.Count == 1) return "Flush";
+
+        var maxCount = 0;
+        var rSet = ranks.GroupBy(n => n).ToDictionary(g => g.Key, g => g.Count());
+        foreach(var p in rSet)
+        {
+            if (p.Value > maxCount) maxCount = p.Value;
+        }
+        return maxCount switch {
+            >= 3 => "Three of a Kind",
+            2 => "Pair",
+            1 => "High Card", 
+            _ => "Error"
+        };
     }
     public static List<object[]> TestData =>
     [

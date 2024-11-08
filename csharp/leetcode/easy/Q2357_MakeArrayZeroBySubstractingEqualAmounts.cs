@@ -1,8 +1,15 @@
 public class Q2357_MakeArrayZeroBySubstractingEqualAmounts
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(m), m scale with unique numbers in nums
     public int MinimumOperations(int[] nums)
     {
-        return 0;
+        var set = new HashSet<int>();
+        for (var i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] != 0) set.Add(nums[i]);
+        }
+        return set.Count;
     }
     public static List<object[]> TestData =>
     [

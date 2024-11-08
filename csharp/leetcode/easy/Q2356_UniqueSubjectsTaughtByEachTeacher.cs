@@ -1,7 +1,11 @@
 using Row = (int teacher_id, int cnt);
 public class Q2356_UniqueSubjectsTaughtByEachTeacher(ITestOutputHelper output) : SqlTest(output)
 {
-    public string Query => "select 1;";
+    public string Query => 
+    """
+    select teacher_id, count(distinct subject_id) as cnt from Teacher
+    group by teacher_id;
+    """;
 
     public static List<object[]> TestData =>
     [
@@ -25,8 +29,7 @@ public class Q2356_UniqueSubjectsTaughtByEachTeacher(ITestOutputHelper output) :
     ];
     protected override string TestSchema =>
     """
-    Create table If Not Exists Teacher (teacher_id int, subject_id int, dept_id int)
-    Truncate table Teacher
+    Create table If Not Exists Teacher (teacher_id int, subject_id int, dept_id int);
     """;
 
     [Theory]

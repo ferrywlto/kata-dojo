@@ -1,8 +1,27 @@
 public class Q2363_MergeSimilarItems
 {
+    // TC: O(n + m), n scale with length of items1 plus length of items2, m scale with unique values in both items1 and items2
+    // SC: O(m), m scale with unique values in both items1 and items2
     public IList<IList<int>> MergeSimilarItems(int[][] items1, int[][] items2)
     {
-        return [];
+        var dict = new Dictionary<int, int>();
+        foreach (var p in items1)
+        {
+            if (dict.ContainsKey(p[0])) dict[p[0]] += p[1];
+            else dict.Add(p[0], p[1]);
+        }
+        foreach (var p in items2)
+        {
+            if (dict.ContainsKey(p[0])) dict[p[0]] += p[1];
+            else dict.Add(p[0], p[1]);
+        }
+
+        var result = new List<IList<int>>();
+        foreach (var kvp in dict.OrderBy(kvp => kvp.Key))
+        {
+            result.Add([kvp.Key, kvp.Value]);
+        }
+        return result;
     }
     public static List<object[]> TestData =>
     [
@@ -35,7 +54,7 @@ public class Q2363_MergeSimilarItems
                 new List<int>(){ 2,4 },
                 new List<int>(){ 7,1 },
             }
-        ],                
+        ],
     ];
     [Theory]
     [MemberData(nameof(TestData))]

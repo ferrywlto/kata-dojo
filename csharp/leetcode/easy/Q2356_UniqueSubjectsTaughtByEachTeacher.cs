@@ -37,7 +37,7 @@ public class Q2356_UniqueSubjectsTaughtByEachTeacher(ITestOutputHelper output) :
     public void Test(string testDataSql, Row[] expected)
     {
         ArrangeTestData(testDataSql);
-        var reader = ExecuteQuery(Query, true);
+        var reader = ExecuteQuery(Query);
         AssertResultSchema(reader, ["teacher_id", "cnt"]);
         foreach (var (teacher_id, cnt) in expected)
         {

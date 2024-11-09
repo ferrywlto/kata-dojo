@@ -1,21 +1,22 @@
 public class Q2367_NumArithmeticTriplets
 {
-    // TC: O(n^3), n scale with length of nums
+    // TC: O(n log n), n scale with length of nums, n times 2 log n with 2 binary search, thus n log n
     // SC: O(1), space used does not scale with input 
     public int ArithmeticTriplets(int[] nums, int diff)
     {
         var result = 0;
-        for (var k = nums.Length - 1; k >= 2; k--)
+        for (var i = 0; i < nums.Length - 2; i++)
         {
-            for (var j = k - 1; j >= 1; j--)
+            var searchLengthJ = nums.Length - i - 1;
+            var targetJ = nums[i] + diff;
+            var j = Array.BinarySearch(nums, i + 1, searchLengthJ, targetJ);
+            if (j > i)
             {
-                for (var i = j - 1; i >= 0; i--)
-                {
-                    if (nums[k] - nums[j] == diff && nums[j] - nums[i] == diff)
-                    {
-                        result++;
-                    }
-                }
+                var searchLengthK = nums.Length - j - 1;
+                var targetK = nums[j] + diff;
+                var k = Array.BinarySearch(nums, j + 1, searchLengthK, targetK);
+
+                if (k > j) result++;
             }
         }
         return result;

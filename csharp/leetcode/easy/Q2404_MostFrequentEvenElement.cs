@@ -2,7 +2,28 @@ public class Q2404_MostFrequentEvenElement
 {
     public int MostFrequentEven(int[] nums)
     {
-        return 0;
+        var evens = new Dictionary<int, int>();
+        var smallest = int.MaxValue;
+        var highestFrequency = int.MinValue;
+        foreach(var n in nums)
+        {
+            if(n % 2 == 0)
+            {
+                if (evens.TryGetValue(n, out var val)) evens[n] = ++val;
+                else evens.Add(n, 1);
+
+                if (evens[n] > highestFrequency)
+                {
+                    highestFrequency = evens[n];
+                    smallest = n;
+                }
+                else if(evens[n] == highestFrequency && n < smallest) 
+                {
+                    smallest = n;
+                }
+            }
+        }
+        return smallest != int.MaxValue ? smallest : -1;
     }
     public static List<object[]> TestData =>
     [

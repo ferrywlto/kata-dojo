@@ -1,8 +1,18 @@
 public class Q2399_CheckDistancesBetweenSameLetters
 {
+    // TC: O(n), n scale with length of s
+    // SC: O(1), space used does not scale with input, it is always size 26 array 
     public bool CheckDistances(string s, int[] distance)
     {
-        return false;
+        var pos = new int[26];
+
+        for (var i = 0; i < s.Length; i++)
+        {
+            var idx = s[i] - 'a';
+            if (pos[idx] == 0) pos[idx] = i + 1;
+            else if (i - pos[idx] != distance[idx]) return false;
+        }
+        return true;
     }
     public static List<object[]> TestData =>
     [

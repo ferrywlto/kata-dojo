@@ -7,12 +7,14 @@ import {
 import Root from './routes/root'
 import './index.css'
 import App from './App.jsx'
+import ErrorPage from './error-page.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
   },
 ]);
 

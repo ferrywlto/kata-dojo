@@ -1,8 +1,10 @@
 public class Q2413_SmallestEvenMultiple
 {
+    // TC: O(1), obviously
+    // SC: O(1), obviously
     public int SmallestEvenMultiple(int n)
     {
-        return 0;
+        return n % 2 == 0 ? n : n * 2;
     }
     public static List<object[]> TestData =>
     [

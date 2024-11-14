@@ -29,7 +29,7 @@ public class Q1114_PrintInOrder
     ];
     [Theory]
     [MemberData(nameof(TestData))]
-    public async void OfficialTestCases(int[] input, string expected)
+    public async Task OfficialTestCases(int[] input, string expected)
     {
         var sut = new Foo();
         var sb = new StringBuilder();

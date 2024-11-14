@@ -14,11 +14,11 @@ public class Q2418_SortThePeople
 
         var result = new string[names.Length];
         Array.Sort(heights);
-        Array.Reverse(heights);
+        // Array.Reverse(heights);
 
         for (var i = 0; i < heights.Length; i++)
         {
-            result[i] = names[heightDict[heights[i]]];
+            result[^(i+1)] = names[heightDict[heights[i]]];
         }
         return result;
     }

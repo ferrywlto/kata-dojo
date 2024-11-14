@@ -1,8 +1,26 @@
 public class Q2418_SortThePeople
 {
+    // TC: O(nlogn), n scale with length of names, n log n due to Array.Sort()
+    // SC: O(n), n scale with length of names to hold the result
     public string[] SortPeople(string[] names, int[] heights)
     {
-        return [];
+        var heightDict = new Dictionary<int, int>();
+
+        // no duplicate height from question constraints.
+        for (var i = 0; i < heights.Length; i++)
+        {
+            heightDict.Add(heights[i], i);
+        }
+
+        var result = new string[names.Length];
+        Array.Sort(heights);
+        Array.Reverse(heights);
+
+        for (var i = 0; i < heights.Length; i++)
+        {
+            result[i] = names[heightDict[heights[i]]];
+        }
+        return result;
     }
     public static List<object[]> TestData =>
     [

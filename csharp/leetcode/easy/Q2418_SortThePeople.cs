@@ -14,7 +14,6 @@ public class Q2418_SortThePeople
 
         var result = new string[names.Length];
         Array.Sort(heights);
-        // Array.Reverse(heights);
 
         for (var i = 0; i < heights.Length; i++)
         {

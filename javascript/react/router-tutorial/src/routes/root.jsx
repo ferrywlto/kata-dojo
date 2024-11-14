@@ -25,6 +25,10 @@ export function Root() {
   const navigation = useNavigation();
   const submit = useSubmit();
 
+  const searching =
+    navigation.location &&
+    new URLSearchParams(navigation.location.search).has("q");
+  
   useEffect(() => {
     document.getElementById("q").value = q;
   }, [q]);
@@ -44,11 +48,12 @@ export function Root() {
               onChange={(event) => {
                 submit(event.currentTarget.form);
               }}
+              className={searching ? "loading" : ""}
             />
             <div
               id="search-spinner"
               aria-hidden
-              hidden={true}
+              hidden={!searching}
             />
             <div
               className="sr-only"

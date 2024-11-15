@@ -22,7 +22,6 @@ class Q566_ReshapeTheMatrix
             for(var j=0; j<mat[i].Length; j++)
             {
                 var linearIdx = i * mat[i].Length + j;
-                // Console.WriteLine($"i:{i}, j:{j}, val:{mat[i][j]}, r:{linearIdx / c}, c:{linearIdx % c}");
                 targetMatrix[linearIdx / c][linearIdx % c] = mat[i][j]; 
             }
         }

@@ -12,7 +12,6 @@ class Q459_RepeatedSubstring
         // if temp == s return true 
 
         var windowSize = s.Length / 2;
-        // Console.WriteLine($"windowSize: {windowSize}");
         for (var i=windowSize; i>0; i--)
         {
             if (s.Length % i != 0) continue;
@@ -20,7 +19,6 @@ class Q459_RepeatedSubstring
             var substr = s[..i];
             for (var j=i; j<s.Length; j++) 
             {
-                // Console.WriteLine($"subStr: {string.Join(string.Empty, substr)}, subStr[{j%i}]: {substr[j % i]}, s[{j}: {s[j]}] ");
                 if (!substr[j % i].Equals(s[j])) break;
                 if (j == s.Length - 1) return true;
             }

@@ -16,25 +16,21 @@ class Q1013_PartitionArrayIntoThreePartsWithEqualSum
         var currentSum = 0;
         for(var i=0; i<arr.Length; i++)
         {
-            // Console.WriteLine($"current: arr({i}): {arr[i]}");
             if(processed.Contains(i))
             {
-                // Console.WriteLine($"skipping arr({i}): {arr[i]} as processed");
                 continue;
             }
             if(arr[i] == target) {
                 processed.Add(i);
                 groupFormed++;
-                // Console.WriteLine($"group formed as arr({i}): {arr[i]} == target: {target}, groups: {groupFormed}");
                 continue;
             }
 
             currentSum += arr[i];
             processed.Add(i);
-            // Console.WriteLine($"processed arr({i}): {arr[i]}, currentSum: {currentSum}");
+
             if(currentSum == target)
             {
-                // Console.WriteLine($"group formed as arr({i}): {arr[i]} currentSum {currentSum} == target {target}");
                 groupFormed++;
                 currentSum = 0;
                 continue;
@@ -42,16 +38,14 @@ class Q1013_PartitionArrayIntoThreePartsWithEqualSum
 
             var lookfor = target - currentSum;
             var lookResult = Array.IndexOf(arr, lookfor, i + 1);
-            // Console.WriteLine($"currentSum {currentSum} not reaching target {target} after adding arr({i}): {arr[i]}, lookingFor {lookfor}, result: arr[{lookResult}]: {(lookResult != -1 ? arr[lookResult] : string.Empty)}");
+
             if(lookResult != -1 && !processed.Contains(lookResult))
             {
                 groupFormed++;
-                // Console.WriteLine($"complement of {currentSum}, {lookfor} found at arr[{lookResult}]: {arr[lookResult]}, groupFormed now: {groupFormed}");
                 currentSum = 0;
                 processed.Add(lookResult);
             }
         }
-        // Console.WriteLine($"processed: {processed.Count}, arrLength: {arr.Length}, groupFormed: {groupFormed}, finalSum: {currentSum}");
         return groupFormed == 3 && currentSum == 0;
     }
 }

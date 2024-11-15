@@ -13,12 +13,10 @@ class Q463_IslandPerimeter
         var result = 0;
         for (var row = 0; row < grid.Length; row++)
         {
-            // Console.WriteLine($"row: {grid.Length}, col: {grid[row].Length}");
             for (var col = 0; col < grid[row].Length; col++)
             {
                 if (grid[row][col] == 0) continue;
                 var temp = GetGridPerimeter(grid, row, col);
-                // Console.WriteLine($"row: {row}, col: {col}, p: {temp}");
                 result += temp;
             }
         }

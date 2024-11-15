@@ -20,7 +20,7 @@ class Q1710_MaxUnitsOnTrack
     public int MaximumUnits(int[][] boxTypes, int truckSize)
     {
         Array.Sort(boxTypes, new BoxComparer());
-        Console.WriteLine(string.Join(',', boxTypes.Select(p => $"[{p[0]},{p[1]}]")));
+
         var result = 0;
         for (var i = 0; i < boxTypes.Length; i++)
         {

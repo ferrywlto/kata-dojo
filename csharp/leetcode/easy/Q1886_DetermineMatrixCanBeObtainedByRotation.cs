@@ -21,27 +21,21 @@ class Q1886_DetermineMatrixCanBeObtainedByRotation
         // Loop through each layer
         for (int i = 0; i < n / 2; i++)
         {
-            Console.WriteLine($"======");
             // Loop through each element in the current layer
             for (int j = i; j < n - i - 1; j++)
             {
-                Console.WriteLine($"------");
-
                 // Save the top element
                 int temp = mat[i][j];
-                Console.WriteLine($"[{i},{j}] <= [{n - j - 1},{i}]");
+
                 // Move left element to top
                 mat[i][j] = mat[n - j - 1][i];
 
-                Console.WriteLine($"[{n - j - 1},{i}] <= [{n - i - 1},{n - j - 1}]");
                 // Move bottom element to left
                 mat[n - j - 1][i] = mat[n - i - 1][n - j - 1];
 
-                Console.WriteLine($"[{n - i - 1},{n - j - 1}] <= [{j},{n - i - 1}]");
                 // Move right element to bottom
                 mat[n - i - 1][n - j - 1] = mat[j][n - i - 1];
 
-                Console.WriteLine($"[{j},{n - i - 1}] <= [{i},{j}]");
                 // Move top element to right
                 mat[j][n - i - 1] = temp;
             }

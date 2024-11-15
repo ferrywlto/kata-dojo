@@ -31,7 +31,6 @@ class Q844_BackspaceStringCompare
             else idx1++;
         }
         var result = sb.ToString();
-        Console.WriteLine(result);
         return result;
     }
 

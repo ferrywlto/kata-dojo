@@ -52,19 +52,12 @@ class Q35_SearchInsertPosition
             else if (target > nums[middle])
             {
                 // Introducing early termination by doing next element check does not improve performance
-                // if (target == nums[middle + 1]) {
-                //     return middle + 1;
-                // }
                 start = middle;
             }
             else
             {
-                // if (target == nums[middle - 1]) {
-                //     return middle - 1;
-                // }
                 end = middle;
             }
-            // Console.WriteLine($"start: {start}, end: {end}, middle: {middle}");
         }
         return end;
     }

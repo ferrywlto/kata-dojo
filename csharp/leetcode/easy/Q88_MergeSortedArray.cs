@@ -17,7 +17,6 @@ public class Q88_MergeSortedArrayTests
     {
         var sut = new Q88_MergeSortedArray();
         sut.Merge_Specific(nums1, m, nums2, n);
-        // Console.WriteLine(string.Join(',', nums1));
         Assert.True(nums1.SequenceEqual(expected));
     }
 }

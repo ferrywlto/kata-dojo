@@ -64,8 +64,6 @@ class Q125_ValidPalindrome
                 builder.Append(c);
             }
         }
-        // Console.WriteLine($"after cleansed: {builder.ToString()}");
-
         if (builder.Length is 0 or 1) return true;
 
         // Only have to compare n/2 times

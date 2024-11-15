@@ -14,7 +14,6 @@ class Q1608_SpecialArrayWithXElementsGreaterThanOrEqualX
             var normalized = i + 1;
             var larger = nums[^normalized];
             var smaller = nums[^(normalized+1)];
-            Console.WriteLine($"x: {normalized}, larger: {larger}, smaller: {smaller}");
             if (normalized > smaller && normalized <= larger) return normalized;
         }
         return -1;

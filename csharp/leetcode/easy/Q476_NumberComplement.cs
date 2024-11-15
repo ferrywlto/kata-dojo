@@ -10,7 +10,6 @@ class Q476_NumberComplement
         var complementedStr = Convert.ToString(~num, 2);
         var trimmed = complementedStr[^bitsOfNum..];
         var result = int.Parse(trimmed, System.Globalization.NumberStyles.BinaryNumber);
-        // Console.WriteLine($"num: {num}, binary:{Convert.ToString(num, 2)}, ~num: {~num}, binary: {complementedStr}, shift: {shiftRequired}, trimed: {trimmed}, result: {result}");
 
         return result;
     }

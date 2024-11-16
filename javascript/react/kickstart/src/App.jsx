@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Heading from './Heading'
 import Section from './Section'
+import ProfilePage from './Profile'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,6 +25,7 @@ function App() {
         <Page />
       </div>
       <MaidComponent />
+      <ProfilePage />
     </>
   )
 }

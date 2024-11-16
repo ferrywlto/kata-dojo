@@ -1,8 +1,21 @@
 public class Q2441_LargestPositiveIntegerThatExistsWithItsNegative
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(n), n sacle with lengtb of nums
     public int FindMaxK(int[] nums)
     {
-        return 0;
+        var set = new HashSet<int>();
+        var max = int.MinValue;
+        for (var i = 0; i < nums.Length; i++)
+        {
+            set.Add(nums[i]);
+            if (set.Contains(nums[i] * -1))
+            {
+                var abs = Math.Abs(nums[i]);
+                if (abs > max) max = abs;
+            }
+        }
+        return max == int.MinValue ? -1 : max;
     }
     public static List<object[]> TestData =>
     [

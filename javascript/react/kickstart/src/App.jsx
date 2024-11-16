@@ -2,6 +2,8 @@ import { useState, useEffect, useMemo, useRef } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Heading from './Heading'
+import Section from './Section'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,6 +21,7 @@ function App() {
       <div className="card">
         <Clock />
         <Timer />
+        <Page />
       </div>
       <MaidComponent />
     </>
@@ -220,5 +223,23 @@ function NameControl({name, setName})
     <input type="text" value={name} onChange={handleNameChange} />
   </label>
   );
+}
+
+export function Page() {
+  return (
+    <Section >
+      <Heading >Menu</Heading>
+      <Section >
+        <Heading >About</Heading>
+        <Heading >Projects</Heading>
+        <Heading >Team</Heading>
+        <Section >
+          <Heading >Sheldon</Heading>
+          <Heading >Shamy</Heading>
+          <Heading >Seven</Heading>
+        </Section>
+      </Section>
+    </Section>
+  )
 }
 export default App

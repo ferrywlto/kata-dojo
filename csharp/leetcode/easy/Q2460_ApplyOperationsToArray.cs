@@ -1,8 +1,26 @@
 public class Q2460_ApplyOperationsToArray
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(n), same as time to hold the result
     public int[] ApplyOperations(int[] nums)
     {
-        return [];
+        for (var i = 0; i < nums.Length - 1; i++)
+        {
+            if (nums[i] != nums[i + 1]) continue;
+
+            nums[i] *= 2;
+            nums[i + 1] = 0;
+        }
+        var nonZeroCount = 0;
+        var result = new int[nums.Length];
+        for (var i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] != 0)
+            {
+                result[nonZeroCount++] = nums[i];
+            }
+        }
+        return result;
     }
     public static List<object[]> TestData =>
     [

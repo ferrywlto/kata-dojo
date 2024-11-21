@@ -1,8 +1,10 @@
 public class Q2469_ConvertTheTemperature
 {
+    // TC: O(1)
+    // SC: O(1)
     public double[] ConvertTemperature(double celsius)
     {
-        return [];
+        return [celsius + 273.15d, celsius * 1.8d + 32.00d];
     }
     public static List<object[]> TestData =>
     [

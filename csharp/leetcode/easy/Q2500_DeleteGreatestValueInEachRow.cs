@@ -1,33 +1,27 @@
-public class Q2500_DeleteGreatestValueInEachRow(ITestOutputHelper output)
+public class Q2500_DeleteGreatestValueInEachRow
 {
+    // TC: O(n log n), n scale with m x n items in grid. n log n from Array.Sort, plus m x n times to check the largest element per column
+    // SC: O(1), space used does not scale with input
     public int DeleteGreatestValue(int[][] grid)
     {
-        var result = new int[grid[0].Length];
-        for (var k = 0; k < grid[0].Length; k++)
+        foreach (var row in grid)
         {
-            var max = int.MinValue;
-            for (var i = 0; i < grid.Length; i++)
-            {
-                var row = grid[i];
-                var rowMax = int.MinValue;
-                var rowMaxIdx = -1;
-                for (var j = 0; j < row.Length; j++)
-                {
-                    if (row[j] > rowMax)
-                    {
-                        rowMax = row[j];
-                        rowMaxIdx = j;
-                    }
-                }
-                row[rowMaxIdx] = int.MinValue;
+            Array.Sort(row);
+        }
 
-                if (rowMax > max)
+        var result = new int[grid[0].Length];
+        for (var col = 0; col < grid[0].Length; col++)
+        {
+            var colMax = int.MinValue;
+            for (var row = 0; row < grid.Length; row++)
+            {
+                var cell = grid[row][^(col + 1)];
+                if (cell > colMax)
                 {
-                    max = rowMax;
+                    colMax = cell;
+                    result[col] = colMax;
                 }
             }
-            result[k] = max;
-            output.WriteLine("k: {0}, max: {1}, result:{2}, ", k, max, result[k]);
         }
         return result.Sum();
     }

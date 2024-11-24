@@ -1,8 +1,35 @@
-public class Q2500_DeleteGreatestValueInEachRow
+public class Q2500_DeleteGreatestValueInEachRow(ITestOutputHelper output)
 {
     public int DeleteGreatestValue(int[][] grid)
     {
-        return 0;
+        var result = new int[grid[0].Length];
+        for (var k = 0; k < grid[0].Length; k++)
+        {
+            var max = int.MinValue;
+            for (var i = 0; i < grid.Length; i++)
+            {
+                var row = grid[i];
+                var rowMax = int.MinValue;
+                var rowMaxIdx = -1;
+                for (var j = 0; j < row.Length; j++)
+                {
+                    if (row[j] > rowMax)
+                    {
+                        rowMax = row[j];
+                        rowMaxIdx = j;
+                    }
+                }
+                row[rowMaxIdx] = int.MinValue;
+
+                if (rowMax > max)
+                {
+                    max = rowMax;
+                }
+            }
+            result[k] = max;
+            output.WriteLine("k: {0}, max: {1}, result:{2}, ", k, max, result[k]);
+        }
+        return result.Sum();
     }
     public static List<object[]> TestData =>
     [

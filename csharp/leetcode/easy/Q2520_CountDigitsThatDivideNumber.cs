@@ -1,8 +1,18 @@
 public class Q2520_CountDigitsThatDivideNumber
 {
+    // TC: O(log n), n scale with size of num, n shrink by factor of 10 per operation
+    // SC: O(1), space used does not scale with input
     public int CountDigits(int num)
     {
-        return 0;
+        var current = num;
+        var count = 0;
+        while (current > 0)
+        {
+            var digit = current % 10;
+            if (num % digit == 0) count++;
+            current /= 10;
+        }
+        return count;
     }
     public static List<object[]> TestData =>
     [

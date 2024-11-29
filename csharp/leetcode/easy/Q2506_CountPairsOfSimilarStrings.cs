@@ -1,25 +1,43 @@
 public class Q2506_CountPairsOfSimilarStrings
 {
     // TC: O(n^2)
-    // SC: O(n * m), n scale with length of words and m scale with unique characters in each word
+    // SC: O(n), n scale with length of words * 26 characters
     public int SimilarPairs(string[] words)
     {
         var result = 0;
 
-        var chars = new HashSet<char>[words.Length];
-        for(var i=0; i<words.Length; i++)
+        var chars = new int[words.Length][];
+        for (var i = 0; i < chars.Length; i++)
         {
-            chars[i] = [.. words[i].ToArray().OrderBy(c => c)];
+            chars[i] = new int[26];
+        }
+
+        for (var i = 0; i < words.Length; i++)
+        {
+            var word = words[i];
+            foreach (var c in word)
+            {
+                chars[i][c - 'a']++;
+            }
         }
 
         for (var i = 0; i < words.Length - 1; i++)
         {
             for (var j = i + 1; j < words.Length; j++)
             {
-                if (chars[i].SequenceEqual(chars[j]))
+                var similar = true;
+                for (var k = 0; k < 26; k++)
                 {
-                    result++;
+                    if (
+                        (chars[i][k] > 0 && chars[j][k] == 0) ||
+                        (chars[i][k] == 0 && chars[j][k] > 0)
+                    )
+                    {
+                        similar = false;
+                        break;
+                    }
                 }
+                if (similar) result++;
             }
         }
         return result;

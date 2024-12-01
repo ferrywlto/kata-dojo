@@ -1,8 +1,26 @@
 public class Q2574_LeftAndRightSumDifferences
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(n), same as time for holding result
     public int[] LeftRightDifference(int[] nums)
     {
-        return [];
+        var len = nums.Length;
+        var result = new int[len];
+        var left = 0;
+        var right = 0;
+        for (var i = 1; i < nums.Length; i++)
+        {
+            left += nums[i - 1];
+            right += nums[^i];
+
+            result[i] += left;
+            result[^(i + 1)] -= right;
+        }
+        for (var j = 0; j < result.Length; j++)
+        {
+            result[j] = Math.Abs(result[j]);
+        }
+        return result;
     }
     public static List<object[]> TestData =>
     [

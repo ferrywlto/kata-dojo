@@ -1,8 +1,17 @@
 public class Q2544_AlternatingDigitSum
 {
-    public int AlternateDigitSum(int n) 
+    // TC: O(n), n scale with number of digits in n
+    // SC: O(n), same as time
+    public int AlternateDigitSum(int n)
     {
-        return 0;    
+        var result = 0;
+        var str = n.ToString();
+        for (var i = 0; i < str.Length; i++)
+        {
+            if (i % 2 == 0) result += str[i] - '0';
+            else result -= str[i] - '0';
+        }
+        return result;
     }
     public static List<object[]> TestData =>
     [

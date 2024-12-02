@@ -18,6 +18,27 @@ public class Q2540_MinCommonValue
         }
         return minCommon == int.MaxValue ? -1 : minCommon;
     }
+    // TC: O(n), same time in worst case that is no common values, but in best case it returns as soon as a common is found.
+    public int GetCommon_TwoPointers(int[] nums1, int[] nums2)
+    {
+        var idx1 = 0;
+        var idx2 = 0;
+
+        while (idx1 < nums1.Length && idx2 < nums2.Length)
+        {
+            if (nums1[idx1] == nums2[idx2])
+            {
+                return nums1[idx1];
+            }
+            else if (nums1[idx1] > nums2[idx2])
+            {
+                idx2++;
+            }
+            else idx1++;
+        }
+
+        return -1;
+    }
     public static List<object[]> TestData =>
     [
         [new int[] {1,2,3}, new int[] {2,4}, 2],
@@ -27,7 +48,7 @@ public class Q2540_MinCommonValue
     [MemberData(nameof(TestData))]
     public void Test(int[] input1, int[] input2, int expected)
     {
-        var actual = GetCommon(input1, input2);
+        var actual = GetCommon_TwoPointers(input1, input2);
         Assert.Equal(expected, actual);
     }
 }

@@ -1,8 +1,22 @@
 public class Q2535_DifferenceBetweenElementSumAndDigitSumOfArray
 {
+    // TC: O(n * d), n scale with length of nums, d scale with digits in each number 
+    // SC: O(1), space used does not scale with input
     public int DifferenceOfSum(int[] nums)
     {
-        return 0;
+        var digitSum = 0;
+        var elementSum = 0;
+        foreach (var n in nums)
+        {
+            var temp = n;
+            elementSum += temp;
+            while (temp > 0)
+            {
+                digitSum += temp % 10;
+                temp /= 10;
+            }
+        }
+        return Math.Abs(digitSum - elementSum);
     }
     public static List<object[]> TestData =>
     [

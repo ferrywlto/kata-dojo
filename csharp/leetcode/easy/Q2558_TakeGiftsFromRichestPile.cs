@@ -1,16 +1,22 @@
 public class Q2558_TakeGiftsFromRichestPile
 {
-    // TC: O(n log n), n scale with length of gifts, n log n from Array.Sort() * k times, plus n at the end
-    // SC: O(1), space used does not scale with input
+    // TC: O((n + k) log n), n scale with length of gifts, n log n from Array.Sort() * k times, plus n at the end
+    // SC: O(n), for priority queue
     public long PickGifts(int[] gifts, int k)
     {
+        var x = new PriorityQueue<long, long>();
+        foreach (var n in gifts) x.Enqueue(n, -n);
         for (var i = 0; i < k; i++)
         {
-            Array.Sort(gifts);
-            gifts[^1] = (int)Math.Sqrt(gifts[^1]);
+            var largest = x.Dequeue();
+            var sqrt = (int)Math.Sqrt(largest);
+            x.Enqueue(sqrt, -sqrt);
         }
         var total = 0L;
-        foreach (var n in gifts) total += n;
+        while(x.Count > 0) {
+            total += x.Dequeue();
+        }
+        // foreach (var n in gifts) total += n;
         return total;
     }
     public static List<object[]> TestData =>

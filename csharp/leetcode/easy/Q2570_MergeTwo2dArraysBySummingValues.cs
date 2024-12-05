@@ -1,8 +1,30 @@
 public class Q2570_MergeTwo2dArraysBySummingValues
 {
+    // TC: O(n log n), n scale with total length of nums1 and nums2, then do another n to add into result, n log n due to OrderBy()
+    // SC: O(m), m scale with unique ids in both nums1 and nums2
     public int[][] MergeArrays(int[][] nums1, int[][] nums2)
     {
-        return [];
+        var dict = new Dictionary<int, int>();
+        foreach (var p in nums1)
+        {
+            dict.Add(p[0], p[1]);
+        }
+        foreach (var p in nums2)
+        {
+            if (dict.TryGetValue(p[0], out var val))
+            {
+                dict[p[0]] = val + p[1];
+            }
+            else dict.Add(p[0], p[1]);
+        }
+
+        var result = new List<int[]>();
+        var keys = dict.Keys.OrderBy(x => x);
+        foreach (var key in keys)
+        {
+            result.Add([key, dict[key]]);
+        }
+        return result.ToArray();
     }
     public static List<object[]> TestData =>
     [

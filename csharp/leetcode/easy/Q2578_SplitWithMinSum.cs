@@ -6,13 +6,12 @@ public class Q2578_SplitWithMinSum
     // SC: O(d), same as time, length of sb1 and sb2 at most equals to d, dict is also d
     public int SplitNum(int num)
     {
-        var dict = new Dictionary<int, int>();
+        var digits = new int[10];
 
         while (num > 0)
         {
             var digit = num % 10;
-            if (dict.TryGetValue(digit, out var val)) dict[digit] = ++val;
-            else dict.Add(digit, 1);
+            digits[digit]++;
             num /= 10;
         }
 
@@ -21,9 +20,7 @@ public class Q2578_SplitWithMinSum
         var count = 0;
         for (var i = 0; i < 10; i++)
         {
-            if (!dict.ContainsKey(i)) continue;
-
-            var freq = dict[i];
+            var freq = digits[i];
 
             while (freq > 0)
             {

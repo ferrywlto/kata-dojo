@@ -1,8 +1,21 @@
 public class Q2582_PassThePillow
 {
+    // TC: O(time)
+    // SC: O(1)
     public int PassThePillow(int n, int time)
     {
-        return 0;
+        var direction = 1;
+        var pos = 1;
+        var currentTime = 0;
+        while (currentTime < time)
+        {
+            pos += direction;
+            if (pos == n) direction = -1;
+            else if (pos == 1) direction = 1;
+
+            currentTime++;
+        }
+        return pos;
     }
     public static List<object[]> TestData =>
     [

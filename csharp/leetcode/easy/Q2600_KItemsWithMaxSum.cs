@@ -1,8 +1,22 @@
 public class Q2600_KItemsWithMaxSum
 {
+    // TC: O(1) obviously
+    // SC: O(1) same as time
     public int KItemsWithMaximumSum(int numOnes, int numZeros, int numNegOnes, int k)
     {
-        return 0;
+        var result = 0;
+        if (numOnes >= k) return k;
+        else
+        {
+            result += numOnes;
+            k -= numOnes;
+            if (numZeros >= k) return result;
+            else
+            {
+                k -= numZeros;
+                return result + (k * -1);
+            }
+        }
     }
     public static List<object[]> TestData =>
     [

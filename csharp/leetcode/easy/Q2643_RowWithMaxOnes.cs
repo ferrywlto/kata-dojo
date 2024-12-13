@@ -1,8 +1,24 @@
 public class Q2643_RowWithMaxOnes
 {
+    // TC: O(n * m), scale with rows times columns in mat, equals to total elements in mat
+    // SC: O(1), space used does not scale with input
     public int[] RowAndMaximumOnes(int[][] mat)
     {
-        return [];
+        var result = new int[2];
+        for (var i = 0; i < mat.Length; i++)
+        {
+            var oneCount = 0;
+            for (var j = 0; j < mat[i].Length; j++)
+            {
+                if (mat[i][j] == 1) oneCount++;
+            }
+            if (oneCount > result[1])
+            {
+                result[0] = i;
+                result[1] = oneCount;
+            }
+        }
+        return result;
     }
     public static TheoryData<int[][], int[]> TestData => new()
     {

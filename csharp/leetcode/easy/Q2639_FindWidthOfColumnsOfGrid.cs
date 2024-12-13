@@ -1,8 +1,21 @@
 public class Q2639_FindWidthOfColumnsOfGrid
 {
+    // TC: O(m * n), equals to total element counts in grid
+    // SC: O(n), m scale with cols in grid to hold the result
     public int[] FindColumnWidth(int[][] grid)
     {
-        return [];
+        var result = new int[grid[0].Length];
+        for (var i = 0; i < grid[0].Length; i++)
+        {
+            var colMax = int.MinValue;
+            for (var j = 0; j < grid.Length; j++)
+            {
+                var len = grid[j][i].ToString().Length;
+                if (len > colMax) colMax = len;
+            }
+            result[i] = colMax;
+        }
+        return result;
     }
     public static List<object[]> TestData =>
     [

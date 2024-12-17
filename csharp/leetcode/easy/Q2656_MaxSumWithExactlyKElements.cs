@@ -1,9 +1,23 @@
 
 public class Q2656_MaxSumWithExactlyKElements
 {
+    // TC: O(n + k), n scale with length of nums
+    // SC: O(1), space used does not scale with input
     public int MaximizeSum(int[] nums, int k)
     {
-        return 0;
+        var max = int.MinValue;
+
+        for (var i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] > max) max = nums[i];
+        }
+        var sum = 0;
+        for (var j = 0; j < k; j++)
+        {
+            sum += max;
+            max++;
+        }
+        return sum;
     }
     public static TheoryData<int[], int, int> TestData => new()
     {

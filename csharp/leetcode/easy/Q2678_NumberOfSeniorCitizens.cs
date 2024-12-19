@@ -1,8 +1,15 @@
 public class Q2678_NumberOfSeniorCitizens
 {
+    // TC: O(n), n scale with length of details
+    // SC: O(1), space used does not scale with input
     public int CountSeniors(string[] details)
     {
-        return 0;
+        var result = 0;
+        foreach (var p in details)
+        {
+            if (int.Parse(p.Substring(11, 2)) > 60) result++;
+        }
+        return result;
     }
     public static TheoryData<string[], int> TestData => new()
     {

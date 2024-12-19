@@ -1,6 +1,5 @@
 public abstract class Kthlargest 
 {
-    public Kthlargest(int k, int[] nums) {}
 
     public abstract int Add(int val);
 }
@@ -11,7 +10,7 @@ class Q703_KthLargestElementInStream : Kthlargest
     protected List<int> list = [];
     // TC: O(log n)
     // SC: O(n)
-    public Q703_KthLargestElementInStream(int k, int[] nums) : base(k, nums)
+    public Q703_KthLargestElementInStream(int k, int[] nums) : base()
     {
         targetRank = k;
         Array.Sort(nums);

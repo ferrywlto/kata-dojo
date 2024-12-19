@@ -2,7 +2,7 @@ public class Q2600_KItemsWithMaxSum
 {
     // TC: O(1) obviously
     // SC: O(1) same as time
-    public int KItemsWithMaximumSum(int numOnes, int numZeros, int numNegOnes, int k)
+    public int KItemsWithMaximumSum(int numOnes, int numZeros, int _, int k)
     {
         var result = 0;
         if (numOnes >= k) return k;

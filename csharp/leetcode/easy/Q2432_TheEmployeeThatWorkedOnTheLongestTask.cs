@@ -2,7 +2,7 @@ public class Q2432_TheEmployeeThatWorkedOnTheLongestTask
 {
     // TC: O(n), n scale with length of logs
     // SC: O(1), space used does not scale with input
-    public int HardestWorker(int n, int[][] logs)
+    public int HardestWorker(int _, int[][] logs)
     {
         var maxTime = logs[0][1];
         var minId = logs[0][0];

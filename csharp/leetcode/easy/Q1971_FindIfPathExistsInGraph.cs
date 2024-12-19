@@ -2,7 +2,7 @@ public class Q1971_FindIfPathExistsInGraph
 {
     // TC: O(n), n scale with number of edges + length of path
     // SC: O(n), n scale with 2 * number of edges + length of path m + height of stack k
-    public bool ValidPath(int n, int[][] edges, int source, int destination)
+    public bool ValidPath(int _, int[][] edges, int source, int destination)
     {
         var dictEdges = new Dictionary<int, HashSet<int>>();
         foreach (var e in edges)

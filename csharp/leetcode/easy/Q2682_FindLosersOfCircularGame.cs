@@ -1,24 +1,21 @@
 public class Q2682_FindLosersOfCircularGame
 {
     //TC: O(n), n scale with size of n, worst case all 1 to n are traversed, plus n to select those not traversed into result
-    //SC: O(n), worst case n entries are added
+    //SC: O(n), initially the hashset has n items
     public int[] CircularGameLosers(int n, int k)
     {
-        var set = new HashSet<int> { 1 };
+        var set = Enumerable.Range(1, n).ToHashSet();
         var round = 1;
         var current = 0;
+        set.Remove(1);
         while (true)
         {
             current = (current + (round * k)) % n;
-            if (set.Add(current + 1)) round++;
+            if (set.Remove(current + 1)) round++;
             else break;
         }
-        var result = new List<int>();
-        for (var i = 1; i <= n; i++)
-        {
-            if (!set.Contains(i)) result.Add(i);
-        }
-        return result.ToArray();
+
+        return set.ToArray();
     }
     public static TheoryData<int, int, int[]> TestData => new()
     {

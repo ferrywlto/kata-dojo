@@ -13,9 +13,9 @@ public class Q2697_LexicographicallySmallestPalindrome
             var tail = sb[^(i + 1)];
             if (head != tail)
             {
-                var smaller = Math.Min(sb[i], sb[^(i + 1)]);
-                sb[i] = (char)smaller;
-                sb[^(i + 1)] = (char)smaller;
+                var smaller = (char)Math.Min(sb[i], sb[^(i + 1)]);
+                sb[i] = smaller;
+                sb[^(i + 1)] = smaller;
             }
         }
         return sb.ToString();

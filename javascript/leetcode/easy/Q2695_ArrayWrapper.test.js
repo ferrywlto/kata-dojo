@@ -36,7 +36,7 @@ describe("Q2695 Array Wrapper", () => {
     ],
     [[[23, 98, 42, 70]], "String", "[23,98,42,70]"],
     [[[], []], "Add", 0],
-  ])("", (input, command, expected) => {
+  ])("args: %s, cmd: %s, expected: %s", (input, command, expected) => {
     if (command === "String") {
       const obj = new ArrayWrapper(input);
       expect(obj.toString()).toBe(expected);

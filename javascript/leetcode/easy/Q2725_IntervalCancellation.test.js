@@ -1,26 +1,24 @@
-let result = 0;
-
 let cancellable = function (fn, args, t) {
-  result = fn(...args);
+  let callCount = 1;
   let cancelHandler = setInterval(() => {
-    result = fn(...args);
+    callCount++;
   }, t);
-  return () => {
-    clearInterval(cancelHandler);
+  return {
+    cancel: () => clearInterval(cancelHandler),
+    inspect: () => callCount,
   };
 };
 
 describe("Q2725 Interval Cancellation", () => {
-  test("", (done) => {
-    const fn = (x) => x * 2;
-    const args = [4],
-      t = 35,
-      cancelTimeMs = 190;
-
-    let cancelFn = cancellable(fn, args, t);
+  test.each([
+    [(x) => x * 2, [4], 35, 190, 6],
+    [(x1, x2) => x1 * x2, [2, 5], 30, 165, 6],
+    [(x1, x2, x3) => x1 + x2 + x3, [5, 1, 3], 50, 180, 4],
+  ])("fn: %s, args: %s, t: %i, cancelTime: %i, expected: %i", (fn, args, t, cancelTimeMs, expected, done) => {
+    let { cancel, inspect } = cancellable(fn, args, t);
     setTimeout(() => {
-      cancelFn();
-      expect(result).toStrictEqual(8);
+      cancel();
+      expect(inspect()).toStrictEqual(expected);
       done();
     }, cancelTimeMs);
   });

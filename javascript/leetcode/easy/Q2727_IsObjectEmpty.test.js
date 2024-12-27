@@ -12,7 +12,7 @@ describe("Q2727 Is Object Empty", () => {
     [{ x: 5, y: 42 }, false],
     [{}, true],
     [[null, false, 0], false],
-  ])("input: %s, expected: %b", (obj, expected) => {
+  ])("%# input: %p, expected: %s", (obj, expected) => {
     let actual = isEmpty(obj);
     console.log(`${obj}, ${actual}, ${expected}`);
     expect(actual).toStrictEqual(expected);

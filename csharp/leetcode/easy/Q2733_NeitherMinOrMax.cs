@@ -1,8 +1,12 @@
 public class Q2733_NeitherMinOrMax
 {
+    // TC: O(n log n), due to Array.Sort()
+    // SC: O(1), space used does not scale with input
     public int FindNonMinOrMax(int[] nums)
     {
-        return 0;
+        if (nums.Length <= 2) return -1;
+        Array.Sort(nums);
+        return nums[1];
     }
     public static TheoryData<int[], int> TestData => new()
     {

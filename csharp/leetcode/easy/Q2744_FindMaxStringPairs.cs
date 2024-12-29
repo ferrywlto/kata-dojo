@@ -2,18 +2,14 @@ public class Q2744_FindMaxStringPairs
 {
     // TC: O(n), n scale with length of words in single pass
     // SC: O(n), same as time.
-    // It is possible to use tree to speed up the matching, but is it worth?
     public int MaximumNumberOfStringPairs(string[] words)
     {
         var result = 0;
-        var set = new HashSet<string>();
+        var tree = new Trie();
         foreach (var w in words)
         {
-            var reverse = new string(w.Reverse().ToArray());
-
-            if (set.Contains(reverse!)) result++;
-
-            set.Add(w);
+            if (tree.SearchReverse(w)) result++;
+            else tree.Insert(w);
         }
         return result;
     }

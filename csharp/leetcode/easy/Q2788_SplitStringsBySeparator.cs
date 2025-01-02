@@ -1,8 +1,22 @@
 public class Q2788_SplitStringsBySeparator
 {
+    // TC: O(n), n scale with length of words
+    // SC: O(m), m scale with number of words split from input 
     public IList<string> SplitWordsBySeparator(IList<string> words, char separator)
     {
-        return [];
+        var result = new List<string>();
+        foreach (var w in words)
+        {
+            var temp = w.Split(separator);
+            foreach (var token in temp)
+            {
+                if (!string.IsNullOrEmpty(token))
+                {
+                    result.Add(token);
+                }
+            }
+        }
+        return result;
     }
 
     public static TheoryData<string[], char, List<string>> TestData => new()

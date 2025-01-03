@@ -1,8 +1,14 @@
 public class Q2806_AccountBalanceAfterRoundedPurchase
 {
+    // TC: O(1) obviously
+    // SC: O(1) same as time
     public int AccountBalanceAfterPurchase(int purchaseAmount)
     {
-        return 0;
+        var digit = purchaseAmount % 10;
+        var x = digit >= 5 ? 10 : 0;
+        purchaseAmount = purchaseAmount - digit + x;
+
+        return 100 - purchaseAmount;
     }
     public static TheoryData<int, int> TestData => new()
     {

@@ -1,8 +1,22 @@
 public class Q2833_FurthestPointFromOrigin
 {
+    // TC: O(n), n scale with length of moves
+    // SC: O(1), space used does not scale with input
     public int FurthestDistanceFromOrigin(string moves)
     {
-        return 0;
+        var left = 0;
+        var right = 0;
+        var any = 0;
+        foreach (var m in moves)
+        {
+            switch (m)
+            {
+                case 'L': left++; break;
+                case 'R': right++; break;
+                default: any++; break;
+            }
+        }
+        return Math.Max(left, right) - Math.Min(left, right) + any;
     }
     public static TheoryData<string, int> TestData => new()
     {

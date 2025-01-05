@@ -1,8 +1,16 @@
 public class Q2828_CheckIfStringIsAnAcronymOfWords
 {
+    // TC: O(n), n scale with length of words
+    // SC: O(1), space used does not scale with input
     public bool IsAcronym(IList<string> words, string s)
     {
-        return false;
+        var len = words.Count;
+        if (len != s.Length) return false;
+        for (var i = 0; i < words.Count; i++)
+        {
+            if (words[i][0] != s[i]) return false;
+        }
+        return true;
     }
     public static TheoryData<string[], string, bool> TestData => new()
     {

@@ -1,40 +1,36 @@
 public class Q2855_MinRightShiftsToSortArray
 {
     // TC: O(n), n scale with length of nums
-    // SC: O(n), same as time to hold the temp list
+    // SC: O(1), space used does not scale with input
     public int MinimumRightShifts(IList<int> nums)
     {
-        var shifted = 0;
-        var list = nums.ToList();
-        if (IsSorted(list)) return shifted;
+        if (nums.Count == 1) return 0;
 
-        while (shifted < nums.Count)
+        var firstDown = -1;
+        var downCount = 0;
+        for (var i = 1; i < nums.Count; i++)
         {
-            list = RightShift(list);
-            shifted++;
-            if (IsSorted(list)) return shifted;
+            if (nums[i] < nums[i - 1])
+            {
+                if (downCount == 0)
+                {
+                    firstDown = i;
+                    downCount++;
+                }
+                else return -1;
+            }
         }
-        return -1;
-    }
-    private static List<int> RightShift(List<int> input)
-    {
-        var last = input[^1];
-        input.Remove(last);
 
-        return input.Prepend(last).ToList();
-    }
-    private static bool IsSorted(List<int> input)
-    {
-        if (input.Count == 1) return true;
-        for (var i = 1; i < input.Count; i++)
-        {
-            if (input[i - 1] > input[i]) return false;
-        }
-        return true;
+        if (downCount == 0) return 0;
+        // If the end is smaller than the start, it cannot be solved by right shift, at some point it will shows there is two down
+        // If the list is sortable it must be 0 or only 1 down 
+        if (nums[0] < nums[^1]) return -1;
+        return nums.Count - firstDown;
     }
     public static TheoryData<IList<int>, int> TestData => new()
     {
         {new List<int>(){3,4,5,1,2}, 2},
+        {new List<int>(){3,5,7,1,2,4}, -1},
         {new List<int>(){1,3,5}, 0},
         {new List<int>(){2,1,4}, -1},
     };
@@ -44,7 +40,6 @@ public class Q2855_MinRightShiftsToSortArray
     public void Test(IList<int> input, int expected)
     {
         var actual = MinimumRightShifts(input);
-        Assert.Equal(expected, actual
-        ;
+        Assert.Equal(expected, actual);
     }
 }

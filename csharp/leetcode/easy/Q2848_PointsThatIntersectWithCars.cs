@@ -11,9 +11,6 @@ public class Q2848_PointsThatIntersectWithCars
     // SC: O(m), m scale with unique number in all range 
     public int NumberOfPoints(IList<IList<int>> nums)
     {
-        var arr = (List<int>[])nums.ToArray();
-        Array.Sort(arr, new ListComparer());
-
         var set = new HashSet<int>();
         foreach (var pair in nums)
         {

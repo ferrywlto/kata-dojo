@@ -1,9 +1,19 @@
+class ListComparer : IComparer<List<int>>
+{
+    int IComparer<List<int>>.Compare(List<int>? x, List<int>? y)
+    {
+        return y![0].CompareTo(x![0]);
+    }
+}
 public class Q2848_PointsThatIntersectWithCars
 {
     // TC: O(n), n scale with total sum of range in nums
     // SC: O(m), m scale with unique number in all range 
     public int NumberOfPoints(IList<IList<int>> nums)
     {
+        var arr = (List<int>[])nums.ToArray();
+        Array.Sort(arr, new ListComparer());
+
         var set = new HashSet<int>();
         foreach (var pair in nums)
         {

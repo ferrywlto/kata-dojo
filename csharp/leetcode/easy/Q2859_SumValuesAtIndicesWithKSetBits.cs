@@ -1,8 +1,25 @@
 public class Q2859_SumValuesAtIndicesWithKSetBits
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(1), space used does not scale with input
     public int SumIndicesWithKSetBits(IList<int> nums, int k)
     {
-        return 0;
+        var result = 0;
+        for (var i = 0; i < nums.Count; i++)
+        {
+            if (SetBits(i) == k) result += nums[i];
+        }
+        return result;
+    }
+    private static int SetBits(int input)
+    {
+        var result = 0;
+        while (input > 0)
+        {
+            if ((input & 1) == 1) result++;
+            input >>= 1;
+        }
+        return result;
     }
     public static TheoryData<int[], int, int> TestData => new()
     {

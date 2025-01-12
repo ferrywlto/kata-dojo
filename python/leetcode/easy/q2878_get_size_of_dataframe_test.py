@@ -7,7 +7,7 @@ def getDataframeSize(players: pd.DataFrame) -> List[int]:
     return [rows, cols]
 
 
-def test_dataframe_size():
+def test_getDataframeSize():
     data = [
         [846, 'Mason', 21, 'Forward', 'RealMadrid'],
         [749, 'Riley', 30, 'Winger', 'Barcelona'],

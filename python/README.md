@@ -36,6 +36,11 @@ deactivate
 pytest filename.py
 ```
 
+### To get output from `print()`
+```
+pytest -s filename.py
+```
+
 ### Run all tests in a folder
 ```
 pytest

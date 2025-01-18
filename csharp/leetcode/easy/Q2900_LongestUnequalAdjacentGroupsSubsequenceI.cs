@@ -21,7 +21,8 @@ public class Q2900_LongestUnequalAdjacentGroupsSubsequenceI(ITestOutputHelper ou
                 longestLen = currentList.Count;
                 longestIdxList = currentList;
             }
-            if (groups.Length < longestLen) {
+            if (groups.Length < longestLen) 
+            {
                 break;
             }
         }

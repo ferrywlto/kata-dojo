@@ -25,8 +25,7 @@ public class Q2917_FindKOrOfArray
         {
             if (kOrBits[j] == 1)
             {
-                var power = 32 - j - 1;
-                result += (int)Math.Pow(2, power);
+                result |= 1 << (31 - j);
             }
         }
         return result;

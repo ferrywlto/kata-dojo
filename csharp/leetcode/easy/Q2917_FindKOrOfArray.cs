@@ -1,9 +1,37 @@
 public class Q2917_FindKOrOfArray
 {
-    public int FindKOr(int[] nums, int k) {
-     return 0;   
-    }    
-    public static TheoryData<int[], int, int> TestData => new ()
+    // TC: O(n), n sacle with length of nums
+    // SC: O(1), space used is constant
+    public int FindKOr(int[] nums, int k)
+    {
+        var bits = new int[32];
+        var kOrBits = new int[32];
+        foreach (var num in nums)
+        {
+            var n = num;
+            var idx = 31;
+            while (n > 0)
+            {
+                if (kOrBits[idx] == 0 && (n & 1) == 1)
+                {
+                    if (++bits[idx] >= k) kOrBits[idx] = 1;
+                }
+                n >>= 1;
+                idx--;
+            }
+        }
+        var result = 0;
+        for (var j = 31; j >= 0; j--)
+        {
+            if (kOrBits[j] == 1)
+            {
+                var power = 32 - j - 1;
+                result += (int)Math.Pow(2, power);
+            }
+        }
+        return result;
+    }
+    public static TheoryData<int[], int, int> TestData => new()
     {
         {[7,12,9,8,9,15], 4, 9},
         {[2,12,1,11,4,5], 6, 0},

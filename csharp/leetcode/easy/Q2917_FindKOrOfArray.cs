@@ -21,7 +21,7 @@ public class Q2917_FindKOrOfArray
             }
         }
         var result = 0;
-        for (var j = 31; j >= 0; j--)
+    for (var j = 31; j >= 0; j--)
         {
             if (kOrBits[j] == 1)
             {

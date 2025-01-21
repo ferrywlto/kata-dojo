@@ -1,5 +1,3 @@
-using Microsoft.VisualBasic;
-
 public class Q2913_SubarraysDistinctElementSumOfSquaresI//(ITestOutputHelper output)
 {
     // TC: O(n^2), n scale with length of nums

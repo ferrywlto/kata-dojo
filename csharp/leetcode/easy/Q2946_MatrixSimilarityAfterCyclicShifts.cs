@@ -12,17 +12,20 @@ public class Q2946_MatrixSimilarityAfterCyclicShifts
             var clone = new int[row.Length];
             Array.Copy(row, clone, clone.Length);
 
+            var shifts = k % row.Length;
+            if(shifts == 0) continue;
+
             if(i % 2 == 0) {
-                LeftShift(clone, k);
+                LeftShift(clone, shifts);
             }
             else {
-                RightShift(clone, k);
+                RightShift(clone, shifts);
             }
 
             if(!clone.SequenceEqual(row)) return false;
         }
         return true;
-    }
+    }    
     private void LeftShift(int[] input, int k)
     {
         for(var i=0; i<k; i++) 
@@ -91,7 +94,7 @@ public class Q2946_MatrixSimilarityAfterCyclicShifts
     [MemberData(nameof(TestData))]
     public void Test(int[][] input, int k, bool expected)
     {
-        var actual = AreSimilar(input, k);
+        var actual = AreSimilar_2(input, k);
         Assert.Equal(expected, actual);
     }
 }

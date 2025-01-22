@@ -1,62 +1,41 @@
 public class Q2946_MatrixSimilarityAfterCyclicShifts
 {
-    // TC: O(n*n*k), n scale with length of mat, for each row, do the shift k times, each shift do n operations
+    // TC: O(n*m), n scale with length of mat, for each row, do the shift k times, each shift do n operations
     // SC: O(m), m scale with length of a row
     public bool AreSimilar(int[][] mat, int k)
     {
-        for(var i=0; i<mat.Length; i++)
+        for (var i = 0; i < mat.Length; i++)
         {
             var row = mat[i];
-            if(row.Length == 1) continue;
+            if (row.Length == 1) continue;
 
             var clone = new int[row.Length];
-            Array.Copy(row, clone, clone.Length);
 
             var shifts = k % row.Length;
-            if(shifts == 0) continue;
+            if (shifts == 0) continue;
 
-            if(i % 2 == 0) {
-                LeftShift(clone, shifts);
-            }
-            else {
-                RightShift(clone, shifts);
-            }
+            if (i % 2 == 0) LeftShift(row, clone, shifts);
+            else RightShift(row, clone, shifts);
 
-            if(!clone.SequenceEqual(row)) return false;
+            if (!clone.SequenceEqual(row)) return false;
         }
         return true;
-    }    
-    private void LeftShift(int[] input, int k)
+    }
+    private void LeftShift(int[] input, int[] output, int k)
     {
-        for(var i=0; i<k; i++) 
+        var len = input.Length;
+        for (var i = 0; i < len; i++)
         {
-            LeftShift(input);
+            output[i] = input[(i + k) % len];
         }
     }
-    private void LeftShift(int[] input)
+    private void RightShift(int[] input, int[] output, int k)
     {
-        var head = input[0];
-        for(var i=1; i<input.Length; i++)
+        var len = input.Length;
+        for (var i = 0; i < len; i++)
         {
-            input[i-1] = input[i];
+            output[i] = input[(i - k + len) % len];
         }
-        input[^1] = head;
-    }
-    private void RightShift(int[] input, int k)
-    {
-        for(var i=0; i<k; i++) 
-        {
-            RightShift(input);
-        }
-    }
-    private void RightShift(int[] input)
-    {
-        var tail = input[^1];
-        for(var i=input.Length-1; i>0; i--)
-        {
-            input[i] = input[i-1];
-        }
-        input[0] = tail;
     }
     public static TheoryData<int[][], int, bool> TestData => new()
     {
@@ -94,7 +73,7 @@ public class Q2946_MatrixSimilarityAfterCyclicShifts
     [MemberData(nameof(TestData))]
     public void Test(int[][] input, int k, bool expected)
     {
-        var actual = AreSimilar_2(input, k);
+        var actual = AreSimilar(input, k);
         Assert.Equal(expected, actual);
     }
 }

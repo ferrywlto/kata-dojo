@@ -1,20 +1,27 @@
 public class Q2956_FindCommonElementsBetweenTwoArrays
 {
-    // TC: O(n), n scale with length of nums1 plus length of nums2
-    // SC: O(m), m scale with unique numbers in nums1 and nums2
+    // TC: O(n+m), n scale with length of nums1 plus length of nums2
+    // SC: O(n+m), n scale with unique numbers in nums1, plus m scale with unique numbers in nums2
     public int[] FindIntersectionValues(int[] nums1, int[] nums2)
     {
-        var set1 = new HashSet<int>(nums1);
-        var set2 = new HashSet<int>(nums2);
-        var ans1 = 0;
-        var ans2 = 0;
+        var dict = new Dictionary<int, int>();
         foreach (var n in nums1)
         {
-            if (set2.Contains(n)) ans1++;
+            if (dict.TryGetValue(n, out var val)) dict[n] = ++val;
+            else dict.Add(n, 1);
         }
+
+        var set = new HashSet<int>();
+        var ans1 = 0;
+        var ans2 = 0;
+
         foreach (var n in nums2)
         {
-            if (set1.Contains(n)) ans2++;
+            if (dict.TryGetValue(n, out var value))
+            {
+                if (set.Add(n)) ans1 += value;
+                ans2++;
+            }
         }
         return [ans1, ans2];
     }

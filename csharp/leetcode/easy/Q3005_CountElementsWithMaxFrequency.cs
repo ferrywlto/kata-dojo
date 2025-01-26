@@ -1,8 +1,39 @@
 public class Q3005_CountElementsWithMaxFrequency
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(m), m scale with unique numbers in nums
     public int MaxFrequencyElements(int[] nums)
     {
-        return 0;
+        var dict = new Dictionary<int, int>();
+        var highestFreq = 0;
+        foreach (var n in nums)
+        {
+            if (dict.TryGetValue(n, out var val))
+            {
+                dict[n] = ++val;
+                if (val > highestFreq)
+                {
+                    highestFreq = val;
+                }
+            }
+            else
+            {
+                dict.Add(n, 1);
+                if (1 > highestFreq)
+                {
+                    highestFreq = 1;
+                }
+            }
+        }
+        var result = 0;
+        foreach (var p in dict)
+        {
+            if (p.Value == highestFreq)
+            {
+                result += p.Value;
+            }
+        }
+        return result;
     }
     public static TheoryData<int[], int> TestData => new()
     {

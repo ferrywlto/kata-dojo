@@ -1,8 +1,18 @@
 public class Q3019_NumOfChangingKeys
 {
+    // TC: O(n), n scale with length of s
+    // SC: O(1), space used does not scale with input
     public int CountKeyChanges(string s)
     {
-        return 0;
+        var result = 0;
+        for (var i = 1; i < s.Length; i++)
+        {
+            if (char.ToLower(s[i]) != char.ToLower(s[i - 1]))
+            {
+                result++;
+            }
+        }
+        return result;
     }
     public static TheoryData<string, int> TestData => new()
     {

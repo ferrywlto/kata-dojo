@@ -1,8 +1,17 @@
 public class Q3028_AntOnBoundary
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(1), space used does not scale with input
     public int ReturnToBoundaryCount(int[] nums)
     {
-        return 0;
+        var position = 0;
+        var result = 0;
+        foreach (var n in nums)
+        {
+            position += n;
+            if (position == 0) result++;
+        }
+        return result;
     }
     public static TheoryData<int[], int> TestData => new()
     {

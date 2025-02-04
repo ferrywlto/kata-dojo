@@ -1,8 +1,28 @@
 public class Q3120_CountNumberOfSpecialCharactersI
 {
+    // TC: O(n), n scale with length of word
+    // SC: O(1), space used does not sacle with input
     public int NumberOfSpecialChars(string word)
     {
-        return 0;
+        var lowerChars = new int[26];
+        var upperChars = new int[26];
+        var result = 0;
+        foreach (var c in word)
+        {
+            if (char.IsLower(c))
+            {
+                lowerChars[c - 'a']++;
+            }
+            else
+            {
+                upperChars[c - 'A']++;
+            }
+        }
+        for (var i = 0; i < lowerChars.Length; i++)
+        {
+            if (lowerChars[i] > 0 && upperChars[i] > 0) result++;
+        }
+        return result;
     }
     public static TheoryData<string, int> TestData => new()
     {

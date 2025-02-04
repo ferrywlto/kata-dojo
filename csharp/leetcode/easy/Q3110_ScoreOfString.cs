@@ -1,10 +1,17 @@
 public class Q3110_ScoreOfString
 {
-    public int ScoreOfString(string s) 
+    // TC: O(n), n scale with length of s
+    // SC: O(1), space used does not scale with input
+    public int ScoreOfString(string s)
     {
-        return 0;    
-    }    
-    public static TheoryData<string, int> TestData => new ()
+        var result = 0;
+        for (var i = 1; i < s.Length; i++)
+        {
+            result += Math.Abs(s[i - 1] - s[i]);
+        }
+        return result;
+    }
+    public static TheoryData<string, int> TestData => new()
     {
         {"hello", 13},
         {"zaz", 50},

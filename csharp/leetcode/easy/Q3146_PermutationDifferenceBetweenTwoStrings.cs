@@ -1,8 +1,20 @@
 public class Q3146_PermutationDifferenceBetweenTwoStrings
 {
+    // TC: O(n+m), n scale with length of s and m scale with length of t
+    // SC: O(n), n scale with length of s
     public int FindPermutationDifference(string s, string t)
     {
-        return 0;
+        var dict = new Dictionary<char, int>();
+        for (var i = 0; i < s.Length; i++)
+        {
+            dict.Add(s[i], i);
+        }
+        var result = 0;
+        for (var j = 0; j < t.Length; j++)
+        {
+            result += Math.Abs(dict[t[j]] - j);
+        }
+        return result;
     }
     public static TheoryData<string, string, int> TestData => new()
     {

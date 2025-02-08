@@ -1,8 +1,16 @@
 public class Q3151_SpecialArrayI
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(1), space used does not scale with input
     public bool IsArraySpecial(int[] nums)
     {
-        return false;
+        if (nums.Length == 1) return true;
+
+        for (var i = 0; i < nums.Length - 1; i++)
+        {
+            if (nums[i] % 2 == nums[i + 1] % 2) return false;
+        }
+        return true;
     }
     public static TheoryData<int[], bool> TestData => new()
     {

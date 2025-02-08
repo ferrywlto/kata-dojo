@@ -1,8 +1,16 @@
 public class Q3158_FindXORofNumbersWhichAppearTwice
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(m), m scale with unique numbers in nums
     public int DuplicateNumbersXOR(int[] nums)
     {
-        return 0;
+        var set = new HashSet<int>();
+        var result = 0;
+        foreach (var n in nums)
+        {
+            if (!set.Add(n)) result ^= n;
+        }
+        return result;
     }
     public static TheoryData<int[], int> TestData => new()
     {

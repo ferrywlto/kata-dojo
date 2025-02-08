@@ -1,14 +1,19 @@
 public class Q3158_FindXORofNumbersWhichAppearTwice
 {
     // TC: O(n), n scale with length of nums
-    // SC: O(m), m scale with unique numbers in nums
+    // SC: O(1), space used does not scale with input
     public int DuplicateNumbersXOR(int[] nums)
     {
-        var set = new HashSet<int>();
+        var temp = new int[51];
         var result = 0;
-        foreach (var n in nums)
+        for (var i = 0; i < nums.Length; i++)
         {
-            if (!set.Add(n)) result ^= n;
+            if (temp[nums[i]] == 1)
+            {
+                result ^= nums[i];
+            }
+            else temp[nums[i]]++;
+
         }
         return result;
     }

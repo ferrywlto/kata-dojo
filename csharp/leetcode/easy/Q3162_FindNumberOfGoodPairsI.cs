@@ -1,8 +1,18 @@
 public class Q3162_FindNumberOfGoodPairsI
 {
+    // TC: O(n * m), n scale with length of nums1, and m scale with length of nums2
+    // SC: O(1), space used does not scale with input 
     public int NumberOfPairs(int[] nums1, int[] nums2, int k)
     {
-        return 0;
+        var result = 0;
+        for (var i = 0; i < nums1.Length; i++)
+        {
+            for (var j = 0; j < nums2.Length; j++)
+            {
+                if (nums1[i] % (nums2[j] * k) == 0) result++;
+            }
+        }
+        return result;
     }
     public static TheoryData<int[], int[], int, int> TestData => new()
     {

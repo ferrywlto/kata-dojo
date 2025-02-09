@@ -1,8 +1,16 @@
 public class Q3168_MinNumberOfChairsInWaitingRoom
 {
+    // TC: O(n), n scale with length of s
+    // SC: O(1), space used does not scale with input
     public int MinimumChairs(string s)
     {
-        return 0;
+        var result = 0;
+        for (var i = s.Length - 1; i >= 0; i--)
+        {
+            if (s[i] == 'E') result++;
+            else if (result > 0) result--;
+        }
+        return result;
     }
     public static TheoryData<string, int> TestData => new()
     {

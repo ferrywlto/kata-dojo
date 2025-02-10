@@ -1,8 +1,18 @@
 public class Q3178_FindTheChildWhoHasTheBallAfterKSeconds
 {
+    // TC: O(k)
+    // SC: O(1)
     public int NumberOfChild(int n, int k)
     {
-        return 0;
+        var currentIdx = 0;
+        var direction = 1;
+        while (k > 0)
+        {
+            currentIdx += direction;
+            if (currentIdx == 0 || currentIdx == n - 1) direction *= -1;
+            k--;
+        }
+        return currentIdx;
     }
     public static TheoryData<int, int, int> TestData => new()
     {

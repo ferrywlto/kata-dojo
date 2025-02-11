@@ -1,8 +1,15 @@
 public class Q3190_FindMinOpsToMakeAllElementsDivisibleByThree
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(1), space used does not scale with input
     public int MinimumOperations(int[] nums)
     {
-        return 0;
+        var result = 0;
+        for (var i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] % 3 != 0) result++;
+        }
+        return result;
     }
     public static TheoryData<int[], int> TestData => new()
     {

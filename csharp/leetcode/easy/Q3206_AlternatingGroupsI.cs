@@ -8,10 +8,21 @@ public class Q3206_AlternatingGroupsI
         var len = colors.Length;
         for (var i = 0; i < len; i++)
         {
-            if (
-                colors[i % len] != colors[(i + 1) % len] &&
-                colors[i % len] == colors[(i + 2) % len]
-            ) result++;
+            if (i<len-2)
+            {
+                if
+                (
+                    colors[i] != colors[i + 1] &&
+                    colors[i] == colors[i + 2]
+                ) result++;
+            }
+            else 
+            {
+                if(
+                    colors[i] != colors[(i + 1) % len] &&
+                    colors[i] == colors[(i + 2) % len]
+                ) result++;
+            }
         }
         return result;
     }

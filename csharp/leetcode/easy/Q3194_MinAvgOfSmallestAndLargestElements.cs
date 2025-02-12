@@ -1,8 +1,19 @@
 public class Q3194_MinAvgOfSmallestAndLargestElements
 {
+    // TC: O(n log n), n scale with length of nums
+    // SC: O(1), space used does not scale with input
     public double MinimumAverage(int[] nums)
     {
-        return 0;
+        double result = int.MaxValue;
+        Array.Sort(nums);
+        for (var i = 0; i < nums.Length / 2; i++)
+        {
+            var start = nums[i];
+            var end = nums[^(i + 1)];
+            var avg = (start + end) / (double)2;
+            if (avg < result) result = avg;
+        }
+        return result;
     }
     public static TheoryData<int[], double> TestData => new()
     {

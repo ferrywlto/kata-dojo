@@ -1,8 +1,19 @@
 public class Q3206_AlternatingGroupsI
 {
+    // TC: O(n), n scale with length of colors
+    // SC: O(1), space used does not scale with input
     public int NumberOfAlternatingGroups(int[] colors)
     {
-        return 0;
+        var result = 0;
+        var len = colors.Length;
+        for (var i = 0; i < len; i++)
+        {
+            if (
+                colors[i % len] != colors[(i + 1) % len] &&
+                colors[i % len] == colors[(i + 2) % len]
+            ) result++;
+        }
+        return result;
     }
     public static TheoryData<int[], int> TestData => new()
     {

@@ -1,8 +1,17 @@
 public class Q3232_FindIfDigitGameCanBeWon
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(1), space used does not scale with input
     public bool CanAliceWin(int[] nums)
     {
-        return false;
+        var singleSum = 0;
+        var doubleSum = 0;
+        for (var i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] > 9) doubleSum += nums[i];
+            else singleSum += nums[i];
+        }
+        return singleSum != doubleSum;
     }
     public static TheoryData<int[], bool> TestData => new()
     {

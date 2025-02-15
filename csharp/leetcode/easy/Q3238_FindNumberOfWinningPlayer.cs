@@ -1,31 +1,59 @@
 public class Q3238_FindNumberOfWinningPlayer
 {
+    // TC: O(n), n scale with length of pick
+    // SC: O(m), m scale with unique number of player in pick
     public int WinningPlayerCount(int n, int[][] pick)
     {
         var dict = new Dictionary<int, int[]>();
         var winners = new HashSet<int>();
 
-        for(var i=0; i<pick.Length; i++)
+        for (var i = 0; i < pick.Length; i++)
         {
             var player = pick[i][0];
             var color = pick[i][1];
-            
-            if(winners.Contains(player)) continue;
 
-            if(dict.TryGetValue(player, out var colors))
+            if (winners.Contains(player)) continue;
+
+            if (dict.TryGetValue(player, out var colors))
             {
                 colors[color]++;
             }
-            else 
+            else
             {
                 colors = new int[11];
                 colors[color]++;
                 dict.Add(player, colors);
             }
-            if(colors[color] > player) winners.Add(player);
+            if (colors[color] > player) winners.Add(player);
         }
 
         return winners.Count;
+    }
+    // TC: O(n * m), m scale with length of pick
+    // SC: O(1), space used does not scale with input
+    public int WinningPlayerCount2(int n, int[][] pick)
+    {
+        var result = 0;
+        for (var i = 0; i <= n; i++)
+        {
+            var colors = new int[11];
+            for (var j = 0; j < pick.Length; j++)
+            {
+                var player = pick[j][0];
+                if (player != i) continue;
+
+                var color = pick[j][1];
+                colors[color]++;
+
+                if (colors[color] > i)
+                {
+                    result++;
+                    break;
+                }
+            }
+        }
+
+        return result;
     }
     public static TheoryData<int, int[][], int> TestData => new()
     {
@@ -39,7 +67,7 @@ public class Q3238_FindNumberOfWinningPlayer
     [MemberData(nameof(TestData))]
     public void Test(int input1, int[][] input2, int expected)
     {
-        var actual = WinningPlayerCount(input1, input2);
+        var actual = WinningPlayerCount2(input1, input2);
         Assert.Equal(expected, actual);
     }
 }

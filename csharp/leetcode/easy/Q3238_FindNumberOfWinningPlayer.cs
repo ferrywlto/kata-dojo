@@ -55,6 +55,40 @@ public class Q3238_FindNumberOfWinningPlayer
 
         return result;
     }
+
+    // TC: O(n + m), m scale with length of pick
+    // SC: O(1), space used does not scale with input
+    public int WinningPlayerCount_Optimal(int n, int[][] pick)
+    {
+        const int color_len = 11;
+        var result = 0;
+        var flatten = new int[n + 1][];
+        for (var i = 0; i <= n; i++)
+        {
+            flatten[i] = new int[color_len];
+        }
+
+        for (var j = 0; j < pick.Length; j++)
+        {
+            var player = pick[j][0];
+            var color = pick[j][1];
+            flatten[player][color]++;
+        }
+
+        for (var i = 0; i <= n; i++)
+        {
+            for (var j = 0; j < color_len; j++)
+            {
+                if (flatten[i][j] > i)
+                {
+                    result++;
+                    break;
+                }
+            }
+        }
+
+        return result;
+    }
     public static TheoryData<int, int[][], int> TestData => new()
     {
         {4, [[0,0],[1,0],[1,0],[2,1],[2,1],[2,0]], 2},
@@ -67,7 +101,7 @@ public class Q3238_FindNumberOfWinningPlayer
     [MemberData(nameof(TestData))]
     public void Test(int input1, int[][] input2, int expected)
     {
-        var actual = WinningPlayerCount2(input1, input2);
+        var actual = WinningPlayerCount_Optimal(input1, input2);
         Assert.Equal(expected, actual);
     }
 }

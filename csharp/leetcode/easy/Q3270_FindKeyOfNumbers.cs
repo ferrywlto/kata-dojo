@@ -1,8 +1,25 @@
 public class Q3270_FindKeyOfNumbers
 {
+    // TC: O(1)
+    // SC: O(1)
     public int GenerateKey(int num1, int num2, int num3)
     {
-        return 0;
+        var base10 = 1;
+        var result = 0;
+        for (var i = 0; i < 4; i++)
+        {
+            var minDigit = num1 % 10;
+            var digit2 = num2 % 10;
+            var digit3 = num3 % 10;
+            if (digit2 < minDigit) minDigit = digit2;
+            if (digit3 < minDigit) minDigit = digit3;
+            result += minDigit * base10;
+            base10 *= 10;
+            num1 /= 10;
+            num2 /= 10;
+            num3 /= 10;
+        }
+        return result;
     }
     public static TheoryData<int, int, int, int> TestData => new()
     {

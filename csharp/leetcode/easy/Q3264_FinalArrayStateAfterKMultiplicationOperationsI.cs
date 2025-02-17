@@ -1,8 +1,24 @@
 public class Q3264_FinalArrayStateAfterKMultiplicationOperationsI
 {
+    // TC: O(n * k), n scale with length of nums
+    // SC: O(1), space used does not scale with input
     public int[] GetFinalState(int[] nums, int k, int multiplier)
     {
-        return [];
+        for (var i = 0; i < k; i++)
+        {
+            var minIdx = 0;
+            var min = nums[0];
+            for (var j = 1; j < nums.Length; j++)
+            {
+                if (nums[j] < min)
+                {
+                    min = nums[j];
+                    minIdx = j;
+                }
+            }
+            nums[minIdx] *= multiplier;
+        }
+        return nums;
     }
     public static TheoryData<int[], int, int, int[]> TestData => new()
     {

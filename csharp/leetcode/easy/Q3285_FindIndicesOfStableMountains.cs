@@ -1,8 +1,15 @@
 public class Q3285_FindIndicesOfStableMountains
 {
+    // TC: O(n), n scale with length of height
+    // SC: O(m), m sacle with number of stable mountains to hold the result, if not count it is O(1)
     public IList<int> StableMountains(int[] height, int threshold)
     {
-        return [];
+        var result = new List<int>();
+        for (var i = 1; i < height.Length; i++)
+        {
+            if (height[i - 1] > threshold) result.Add(i);
+        }
+        return result;
     }
     public static TheoryData<int[], int, List<int>> TestData => new()
     {

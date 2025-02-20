@@ -1,8 +1,22 @@
 public class Q3300_MinElementAfterReplacementWithDigitSum
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(1), space used does not scale with input
     public int MinElement(int[] nums)
     {
-        return 0;
+        var min = int.MaxValue;
+        for (var i = 0; i < nums.Length; i++)
+        {
+            var digitSum = 0;
+            while (nums[i] > 0)
+            {
+                digitSum += nums[i] % 10;
+                nums[i] /= 10;
+            }
+            if (digitSum < min) min = digitSum;
+        }
+
+        return min;
     }
     public static TheoryData<int[], int> TestData => new()
     {

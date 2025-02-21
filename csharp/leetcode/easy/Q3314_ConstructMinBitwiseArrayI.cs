@@ -23,7 +23,7 @@ public class Q3314_ConstructMinBitwiseArrayI
         var result = new List<int>();
         for(var i=0; i<nums.Count; i++)
         {
-            if()    
+            // if()    
         }
         return [];
     }

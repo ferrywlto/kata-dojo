@@ -1,36 +1,31 @@
 public class Q3314_ConstructMinBitwiseArrayI
 {
+    // TC: O(n^2), n scale with length of nums
+    // SC: O(1), space used does not scale with input
     public int[] MinBitwiseArray(IList<int> nums)
     {
-        // 0011
-        // 0001
-        // 0010
-        // y = x | (x + 1)
-        // 1001
-        // 1000
-        
-        // 13
-        // 1101
-        // 1100 12
-        // 1101 13
-
-        // 31
-        // 11111
-        // 01111
-        // 10000
-        // 11110 30
-        // 11111 
-        var result = new List<int>();
-        for(var i=0; i<nums.Count; i++)
+        for (var i = 0; i < nums.Count; i++)
         {
-            // if()    
+            nums[i] = Break(nums[i]);
         }
-        return [];
+        return nums.ToArray();
+    }
+    private int Break(int input)
+    {
+        for (var i = 0; i < input; i++)
+        {
+            if ((i | (i + 1)) == input)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
     public static TheoryData<int[], int[]> TestData => new()
     {
         {[2,3,5,7], [-1,1,4,3]},
-        {[211,13,31], [9,12,15]},
+        {[11,13,31], [9,12,15]},
+        {[1000,999,998], [9,12,15]},
     };
     [Theory]
     [MemberData(nameof(TestData))]

@@ -1,11 +1,38 @@
 public class Q3318_FindXSumOfAllKLongSubarraysI
 {
     // TC: O(n^2), n scale with length of nums, for each result it iterates 5n times in XSum
-    // SC: O(n+m), n sacle with the result size, m scale with unique numbers in each subarray 
+    // SC: O(n+m), n sacle with the result size, m scale with unique numbers in each subarray
+    private readonly Dictionary<int, int> frequency = new();
+    private int sum = 0;
     public int[] FindXSum(int[] nums, int k, int x)
     {
         var result = new int[nums.Length - k + 1];
-        for (var i = 0; i < result.Length; i++)
+
+        //initialize
+        for (var i = 0; i <= k - 1; i++)
+        {
+            if (frequency.TryGetValue(nums[i], out var val))
+            {
+                frequency[nums[i]] = ++val;
+            }
+            else
+            {
+                frequency.Add(nums[i], 1);
+            }
+            sum += nums[i];
+        }
+
+        if (frequency.Count >= x)
+        {
+            result[0] = frequency
+                .OrderByDescending(p => p.Value)
+                .ThenByDescending(p => p.Key)
+                .Take(x)
+                .Sum(p => p.Key * p.Value);
+        }
+        else result[0] = sum;
+
+        for (var i = 1; i < result.Length; i++)
         {
             result[i] = XSum(nums, i, i + k - 1, x);
         }
@@ -13,30 +40,30 @@ public class Q3318_FindXSumOfAllKLongSubarraysI
     }
     private int XSum(int[] input, int start, int end, int top)
     {
-        var dict = new SortedDictionary<int, int>();
-        var sum = 0;
-        for (var i = start; i <= end; i++)
+        sum -= input[start - 1];
+        frequency[input[start - 1]]--;
+        if (frequency[input[start - 1]] == 0)
         {
-            if (dict.TryGetValue(input[i], out var val))
-            {
-                dict[input[i]] = ++val;
-            }
-            else
-            {
-                dict.Add(input[i], 1);
-            }
-            sum += input[i];
+            frequency.Remove(input[start - 1]);
         }
 
-        if (dict.Count < top) return sum;
+        if (frequency.TryGetValue(input[end], out var val))
+        {
+            frequency[input[end]] = ++val;
+        }
+        else
+        {
+            frequency.Add(input[end], 1);
+        }
+        sum += input[end];
 
-        sum = dict
+        if (frequency.Count < top) return sum;
+
+        else return frequency
             .OrderByDescending(p => p.Value)
             .ThenByDescending(p => p.Key)
             .Take(top)
             .Sum(p => p.Key * p.Value);
-
-        return sum;
     }
     public static TheoryData<int[], int, int, int[]> TestData => new()
     {

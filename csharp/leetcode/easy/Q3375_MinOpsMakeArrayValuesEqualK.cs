@@ -1,8 +1,17 @@
 public class Q3375_MinOpsMakeArrayValuesEqualK
 {
+    // TC: O(n), n sacle with length of nums
+    // SC: O(m), m sacle with unique numbers in nums
     public int MinOperations(int[] nums, int k)
     {
-        return 0;
+        var set = new HashSet<int>();
+
+        for (var i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] < k) return -1;
+            else if (nums[i] > k) set.Add(nums[i]);
+        }
+        return set.Count();
     }
     public static TheoryData<int[], int, int> TestData => new()
     {

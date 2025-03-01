@@ -11,6 +11,7 @@ public class Q3379_TransformedArray
             var idx = nums[i] > 0
             ? (i + nums[i]) % len
             : nums[i] < 0
+                // Negative modulus forumla
                 ? ((i + nums[i]) % len + len) % len
                 : i;
 

@@ -1,11 +1,10 @@
-public class Q873_LengthOfLongestFibonacciSubsequence(ITestOutputHelper output)
+public class Q873_LengthOfLongestFibonacciSubsequence
 {
+    // It can be solved by dynamic programming and memorization, but I leave it for future.
     // TC: O(n^2 * log n), n scale with length of arr
     // SC: O(1), space used does not scale with input 
     public int LenLongestFibSubseq(int[] arr)
     {
-        output.WriteLine("ori-len: {0}", arr.Length);
-        // find the 1st seq
         var maxLen = 0;
         for (var i = 0; i < arr.Length - 2; i++)
         {
@@ -14,7 +13,6 @@ public class Q873_LengthOfLongestFibonacciSubsequence(ITestOutputHelper output)
                 var len = 0;
                 var last = arr[j];
                 var secondLast = arr[i];
-                output.WriteLine("first seq from : [{0}, {1}], start: {2}, length: {3}", i, j, j + 1, arr.Length - j - 1);
                 var targetIdx = Array.BinarySearch(arr, j + 1, arr.Length - j - 1, last + secondLast);
                 if (targetIdx >= 0)
                 {

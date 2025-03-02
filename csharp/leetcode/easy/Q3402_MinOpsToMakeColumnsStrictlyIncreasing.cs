@@ -17,7 +17,6 @@ public class Q3402_MinOpsToMakeColumnsStrictlyIncreasing
                 }
             }
         }
-        Console.WriteLine(string.Join(Environment.NewLine, grid.Select(row => $"[{string.Join(',', row)}]")));
         return result;
     }
     public static TheoryData<int[][], int> TestData => new()

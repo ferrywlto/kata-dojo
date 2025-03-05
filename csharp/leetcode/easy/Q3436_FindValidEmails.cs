@@ -1,11 +1,37 @@
 using Row = (int user_id, string email);
 public class Q3436_FindValidEmails(ITestOutputHelper output) : SqlTest(output)
+
 {
-    public string Query => 
+    // MSSQL
+    // public string Query => 
+    // """
+    // Select user_id, email
+    // from Users
+    // where email like '%@%'
+    // and email like '%.com'
+    // and SUBSTRING(email, 1, CHARINDEX('@', email) - 1) not like '%[^A-Za-z0-9_]%'
+    // and SUBSTRING(
+    //     email, 
+    //     CHARINDEX('@', email) + 1, 
+    //     CHARINDEX('.com', email) - CHARINDEX('@', email) - 1
+    // ) NOT LIKE '%[^A-Za-z]%'
+    // order by user_id;
+    // """;
+    public string Query =>
     """
-    Select 1;
+    Select user_id, email
+    from Users
+    where email like '%@%'
+    and email like '%.com'
+    and substr(email, 1, instr(email, '@') - 1) NOT GLOB '*[^A-Za-z0-9_]*'
+    and substr(
+            email,
+            instr(email, '@') + 1,
+            instr(email, '.com') - instr(email, '@') - 1
+    ) NOT GLOB '*[^A-Za-z]*'
+    order by user_id;
     """;
-    public static TheoryData<string, Row[]> TestData => new ()
+    public static TheoryData<string, Row[]> TestData => new()
     {
         {
             """
@@ -24,7 +50,7 @@ public class Q3436_FindValidEmails(ITestOutputHelper output) : SqlTest(output)
         }
     };
 
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     CREATE TABLE If not Exists Users (
         user_id INT,

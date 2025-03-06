@@ -1,22 +1,22 @@
 public class Q3442_MaxDiffBetweenEvenAndOddFrequencyI
 {
-    // TC: O(n + m), n scale with length of s and m scale with unique characters in s
-    // SC: O(m)
+    // TC: O(n), n scale with length of s
+    // SC: O(1)
     public int MaxDifference(string s)
     {
-        var freq = new Dictionary<char, int>();
+        var freq = new int[26];
         var evenMin = int.MaxValue;
         var oddMax = 1;
 
         for (var i = 0; i < s.Length; i++)
         {
             var ch = s[i];
-            if (freq.TryGetValue(ch, out var val)) freq[ch] = ++val;
-            else freq.Add(ch, 1);
+            freq[ch - 'a']++;
         }
-        foreach (var p in freq)
+        for (var j = 0; j < freq.Length; j++)
         {
-            var count = p.Value;
+            var count = freq[j];
+            if(count == 0) continue;
             if (count % 2 == 0 && count < evenMin) evenMin = count;
             else if (count % 2 == 1 && count > oddMax) oddMax = count;
         }

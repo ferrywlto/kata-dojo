@@ -1,8 +1,20 @@
 public class Q3452_SumOfGoodNumbers
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(1), space used does not scale with input
     public int SumOfGoodNumbers(int[] nums, int k)
     {
-        return 0;
+        var result = 0;
+        for (var i = 0; i < nums.Length; i++)
+        {
+            var leftIsGood = i < k || (i >= k && nums[i] > nums[i - k]);
+            var rightIsGood = i + k >= nums.Length || (i + k < nums.Length && nums[i] > nums[i + k]);
+            if (leftIsGood && rightIsGood)
+            {
+                result += nums[i];
+            }
+        }
+        return result;
     }
     public static TheoryData<int[], int, int> TestData => new()
     {

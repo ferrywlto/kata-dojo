@@ -6,22 +6,24 @@ public class Q3461_CheckIfDigitsAreEqualInStringAfterOperationsI
     // SC: O(n), most space used in the first iteration, n + n - 1
     public bool HasSameDigits(string s)
     {
-        var sb1 = new StringBuilder(s);
-        var sb2 = new StringBuilder();
-        while (sb1.Length > 2)
+        var arr = new int[s.Length];
+        var currentSize = s.Length;
+        var chArr = s.ToCharArray();
+        // init;
+        for(var i=0; i<currentSize; i++)
         {
-            sb2.Clear();
-            for (var i = 0; i < sb1.Length - 1; i++)
-            {
-                var digit1 = sb1[i] - '0';
-                var digit2 = sb1[i + 1] - '0';
-                var ch = (char)(((digit1 + digit2) % 10) + '0');
-                sb2.Append(ch);
-            }
-            sb1.Clear();
-            sb1.Append(sb2);
+            arr[i] = chArr[i] - '0';
         }
-        return sb1[0] == sb1[1];
+
+        while(currentSize > 2)
+        {
+            for(var i = 1; i<currentSize; i++)
+            {
+                arr[i-1] = (arr[i] + arr[i-1]) % 10;
+            }
+            currentSize--;
+        }
+        return arr[0] == arr[1];
     }
     public static TheoryData<string, bool> TestData => new()
     {

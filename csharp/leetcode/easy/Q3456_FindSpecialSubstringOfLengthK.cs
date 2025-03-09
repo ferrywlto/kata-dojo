@@ -1,47 +1,31 @@
 public class Q3456_FindSpecialSubstringOfLengthK
 {
     // TC: O(n), n scale with length of s
-    // SC: O(k), m scale with unique characters in window k
+    // SC: O(1), space used does not sacle with input
     public bool HasSpecialSubstring(string s, int k)
     {
-        //init for sliding window
-        if (k > s.Length) return false;
+        var currentLength = 1;
+        var maxLen = 1;
 
-        var set = new Dictionary<char, int>();
-        for (var i = 0; i < k; i++)
+        for (var i = 1; i < s.Length; i++)
         {
-            var ch = s[i];
-            if (set.TryGetValue(ch, out var val)) set[ch] = ++val;
-            else set.Add(ch, 1);
+            if (s[i] != s[i - 1])
+            {
+                if (currentLength > maxLen)
+                {
+                    maxLen = currentLength;
+                }
+                if (currentLength == k) return true;
+                currentLength = 1;
+            }
+            else currentLength++;
         }
-
-        if (k == s.Length) return set.Count == 1;
-        else if (set.Count == 1 && s[k] != s[0]) return true;
-
-        for (var j = 1; j < s.Length - k; j++)
+        if (currentLength > maxLen)
         {
-            var before = s[j - 1];
-            var current = s[j + k - 1];
-            var after = s[j + k];
-
-            set[before]--;
-            if (set[before] == 0) set.Remove(before);
-
-            if (set.TryGetValue(current, out var val2)) set[current] = ++val2;
-            else set.Add(current, 1);
-
-            if (set.Count == 1 && s[j] != before && s[j] != after) return true;
+            maxLen = currentLength;
         }
-        var lastCh = s[s.Length - 1 - k];
-
-        set[lastCh]--;
-        if (set[lastCh] == 0) set.Remove(lastCh);
-        var finalCh = s[s.Length - 1];
-
-        if (set.TryGetValue(finalCh, out var val3)) set[finalCh] = ++val3;
-        else set.Add(finalCh, 1);
-
-        return set.Count == 1 && finalCh != lastCh;
+        if (currentLength == k) return true;
+        return maxLen == k;
     }
     public static TheoryData<string, int, bool> TestData => new()
     {
@@ -55,6 +39,9 @@ public class Q3456_FindSpecialSubstringOfLengthK
         {"bbb", 3, true},
         {"bb", 3, false},
         {"afc", 3, false},
+        {"aiheddfej", 1, true},
+        {"iijgj", 1, true},
+        {"jjbbbaaf", 1, true},
     };
     [Theory]
     [MemberData(nameof(TestData))]

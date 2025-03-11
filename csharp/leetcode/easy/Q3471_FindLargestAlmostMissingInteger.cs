@@ -1,17 +1,13 @@
 public class Q3471_FindLargestAlmostMissingInteger
 {
     // TC: O(n * m), n scale with length of nums, m scale with unique numbers in nums
-    // SC: O(m + k)
+    // SC: O(k)
     public int LargestInteger(int[] nums, int k)
     {
         var existCounts = new int[51];
-        var freq = new Dictionary<int, int>();
+        var freq = new int[51];
         var currentSet = new HashSet<int>();
 
-        for (var x = 0; x <= 50; x++)
-        {
-            freq.Add(x, 0);
-        }
         for (var i = 0; i < k; i++)
         {
             freq[nums[i]]++;

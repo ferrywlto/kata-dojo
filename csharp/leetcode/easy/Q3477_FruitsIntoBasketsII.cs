@@ -1,10 +1,9 @@
 public class Q3477_FruitsIntoBasketsII
 {
     // TC: O(n*m), n scale with length of fruits and m scale with length of baskets
-    // SC: O(m), worst case all baskets are used 
+    // SC: O(1), space used does not scale with input
     public int NumOfUnplacedFruits(int[] fruits, int[] baskets)
     {
-        var used = new HashSet<int>();
         var result = 0;
         for (var i = 0; i < fruits.Length; i++)
         {
@@ -13,12 +12,9 @@ public class Q3477_FruitsIntoBasketsII
             {
                 if (baskets[j] >= fruits[i])
                 {
-                    if (!used.Contains(j))
-                    {
-                        found = true;
-                        used.Add(j);
-                        break;
-                    }
+                    baskets[j] = -1;
+                    found = true;
+                    break;
                 }
             }
             if (!found) result++;

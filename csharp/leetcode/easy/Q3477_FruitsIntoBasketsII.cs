@@ -1,13 +1,36 @@
 public class Q3477_FruitsIntoBasketsII
 {
+    // TC: O(n*m), n scale with length of fruits and m scale with length of baskets
+    // SC: O(m), worst case all baskets are used 
     public int NumOfUnplacedFruits(int[] fruits, int[] baskets)
     {
-        return 0;
+        var used = new HashSet<int>();
+        var result = 0;
+        for (var i = 0; i < fruits.Length; i++)
+        {
+            var found = false;
+            for (var j = 0; j < baskets.Length; j++)
+            {
+                if (baskets[j] >= fruits[i])
+                {
+                    if (!used.Contains(j))
+                    {
+                        found = true;
+                        used.Add(j);
+                        break;
+                    }
+                }
+            }
+            if (!found) result++;
+        }
+
+        return result;
     }
     public static TheoryData<int[], int[], int> TestData => new()
     {
         {[4,2,5], [3,5,4], 1},
         {[3,6,1], [6,4,7], 0},
+        {[8,5], [1,8], 1},
     };
     [Theory]
     [MemberData(nameof(TestData))]

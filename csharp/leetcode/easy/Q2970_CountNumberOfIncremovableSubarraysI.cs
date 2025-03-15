@@ -2,18 +2,19 @@ public class Q2970_CountNumberOfIncremovableSubarraysI
 {
     // TC: O(n^3), n scale with length of nums
     // SC: O(n), temp is the same size as input
+    // It will need different cases handling to achieve O(n) time
     public int IncremovableSubarrayCount(int[] nums)
     {
         var result = 0;
         // expansion
         for (var i = 0; i < nums.Length; i++)
         {
-            var temp = new int[nums.Length];
-            Array.Copy(nums, temp, nums.Length);
             for (var j = i; j < nums.Length; j++)
             {
-                temp[j] = 0;
-                if (Incresing(temp)) result++;
+                var temp = nums[j];
+                nums[j] = 0;
+                if (Incresing(nums)) result++;
+                nums[j] = temp;
             }
         }
         return result;

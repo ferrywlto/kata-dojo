@@ -1,42 +1,28 @@
-public class Q3411_MaxSubarrayWithEqualProducts(ITestOutputHelper ouptut)
+public class Q3411_MaxSubarrayWithEqualProducts
 {
-    // TC: O(n^3)
+    // TC: O(n^2)
     // SC: O(1), space used does not scale with input
     public int MaxLength(int[] nums)
     {
-        for (var size = nums.Length - 1; size >= 1; size--)
+        var maxLen = 2;
+        for (var i=0; i<nums.Length - 1; i++)
         {
-            ouptut.WriteLine("size: {0} -----", size);
-            for (var i = 0; i < nums.Length - size; i++)
+            var gcd = GCD(nums[i], nums[i+1]);
+            var product = nums[i] * nums[i+1];
+            var lcm = product / gcd;
+            var len = 2;
+            for(var j=i+2; j<nums.Length; j++)
             {
-                ouptut.WriteLine("nums[{0}]: {1}", i, nums[i]);
-                if (Calulate(nums, i, i + size)) return size + 1;
+                gcd = GCD(gcd, nums[j]);
+                product *= nums[j];
+                lcm = lcm * nums[j] / GCD(lcm, nums[j]);
+                len++;
+                if(product == gcd * lcm && len > maxLen) maxLen = len;
             }
         }
-        return 1;
-    }
-    private bool Calulate(int[] arr, int startIdx, int endIdx)
-    {
-        var gcd = GCD(arr[startIdx], arr[startIdx + 1]);
-        var lcm = Math.Abs(arr[startIdx] * arr[startIdx + 1]) / gcd;
-        var product = arr[startIdx] * arr[startIdx + 1];
-        ouptut.WriteLine("inner i nums[{0}]: {1}", startIdx, arr[startIdx]);
-        ouptut.WriteLine("inner i nums[{0}]: {1}, lcm: {2}, gcd: {3}, product: {4}", startIdx + 1, arr[startIdx + 1], lcm, gcd, product);
-        for (var i = startIdx + 2; i <= endIdx; i++)
-        {
-            gcd = GCD(gcd, arr[i]);
-            lcm = Math.Abs(lcm * arr[i]) / GCD(lcm, arr[i]);
-
-            product *= arr[i];
-            ouptut.WriteLine("inner i nums[{0}]: {1}, lcm: {2}, gcd: {3}, product: {4}", i, arr[i], lcm, gcd, product);
-        }
-        return product == gcd * lcm;
+        return maxLen;
     }
 
-    private int LCM(int a, int b)
-    {
-        return Math.Abs(a * b) / GCD(a, b);
-    }
     private int GCD(int a, int b)
     {
         if (b == 0) return a;
@@ -44,6 +30,7 @@ public class Q3411_MaxSubarrayWithEqualProducts(ITestOutputHelper ouptut)
     }
     public static TheoryData<int[], int> TestData => new()
     {
+        {[1,2], 2},
         {[1,2,1,2,1,1,1], 5},
         {[2,3,4,5,6], 3},
         {[1,2,3,1,4,5,1], 5},

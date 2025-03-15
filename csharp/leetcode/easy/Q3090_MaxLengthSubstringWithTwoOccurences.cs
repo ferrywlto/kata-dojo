@@ -1,33 +1,30 @@
 public class Q3090_MaxLengthSubstringWithTwoOccurences
 {
-    // TC: O(n^2), n scale with length of s with expansion technique
+    // TC: O(n), n scale with length of s with sliding window technique
     // SC: O(1), space used does not scale with input
     public int MaximumLengthSubstring(string s)
     {
         var freq = new int[26];
         var maxLen = 0;
-        var currLen = 0;
+        var headIdx = 0;
 
-        for (var i = 0; i < s.Length; i++)
+        for (var tailIdx = 0; tailIdx < s.Length; tailIdx++)
         {
-            if (i + maxLen >= s.Length) break;
+            var ch = s[tailIdx];
+            var idx = ch - 'a';
 
-            for (var j = i; j < s.Length; j++)
+            freq[idx]++;
+            // What I was thinking but can't figure out how to do it.
+            while (freq[idx] > 2)
             {
-                var ch = s[j];
-                var idx = ch - 'a';
-                if (freq[idx] < 2)
-                {
-                    freq[idx]++;
-                    currLen++;
-                }
-                else break;
+                freq[s[headIdx] - 'a']--;
+                headIdx++;
             }
-            if (currLen > maxLen) maxLen = currLen;
-            currLen = 0;
-            freq = new int[26];
+
+            var len = tailIdx - headIdx + 1;
+            if (len > maxLen) maxLen = len;
         }
-        if (currLen > maxLen) maxLen = currLen;
+
         return maxLen;
     }
     public static TheoryData<string, int> TestData => new()

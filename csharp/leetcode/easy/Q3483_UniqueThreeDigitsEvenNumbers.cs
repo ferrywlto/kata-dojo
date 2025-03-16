@@ -4,23 +4,40 @@ public class Q3483_UniqueThreeDigitsEvenNumbers
     // SC: O(1), space used does not scale with input
     public int TotalNumbers(int[] digits)
     {
-        var set = new HashSet<string>();
-        for (var i = 0; i < digits.Length; i++)
+        var freq = new int[10];
+        foreach (var d in digits)
         {
-            if (digits[i] == 0) continue;
-            for (var j = 0; j < digits.Length; j++)
-            {
-                if (j == i) continue;
-                for (var k = 0; k < digits.Length; k++)
-                {
-                    if (k == i || k == j) continue;
+            freq[d]++;
+        }
+        var result = 0;
 
-                    if (digits[k] % 2 != 0) continue;
-                    set.Add($"{digits[i]}{digits[j]}{digits[k]}");
+        for (var num = 100; num < 1000; num++)
+        {
+            if (num % 2 != 0) continue;  // only even numbers
+            
+            // Decompose the number into hundreds, tens, and ones digits
+            var a = num / 100;
+            var b = num / 10 % 10;
+            var c = num % 10;
+            
+            // Build candidate frequency
+            var candidateFreq = new int[10];
+            candidateFreq[a]++;
+            candidateFreq[b]++;
+            candidateFreq[c]++;
+            
+            var canForm = true;
+            for (var d = 0; d < 10; d++)
+            {
+                if (candidateFreq[d] > freq[d])
+                {
+                    canForm = false;
+                    break;
                 }
             }
+            if (canForm) result++;
         }
-        return set.Count;
+        return result;
     }
     public static TheoryData<int[], int> TestData => new()
     {

@@ -1,19 +1,18 @@
 public class Q2206_DivideArrayIntoRqualPairs
 {
-    // TC: O(n), n scale with length of nums
-    // SC: O(m), m scale with unique numbers in nums
+    // TC: O(1), always operate 501 times
+    // SC: O(1), same as time
     public bool DivideArray(int[] nums)
     {
         if (nums.Length % 2 != 0) return false;
-
-        var list = nums
-            .GroupBy(x => x)
-            .Select(g => g.Count())
-            .ToList();
-
-        foreach (var count in list)
+        var count = new int[501];
+        for(var i=0; i<nums.Length; i++)
         {
-            if (count % 2 != 0) return false;
+            count[nums[i]]++;
+        }
+        for(var j=0; j<count.Length; j++)
+        {
+            if(count[j] % 2 != 0) return false;
         }
         return true;
     }

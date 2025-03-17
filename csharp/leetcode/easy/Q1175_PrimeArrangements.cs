@@ -18,6 +18,13 @@ public class Q1175_PrimeArrangements
             if (temp[j] == 1) current++;
             s_numberOfPrimesAt[j] = current;
         }
+        long permutations = 1;
+        s_permutations[1] = 1;
+        for (var k=2; k<=100; k++) {
+            // Modulus the result prevent overflow as instructed in constraints
+            permutations = permutations * k % s_reminder;
+            s_permutations[k] = permutations;
+        }
     }
     static readonly int[] s_numberOfPrimesAt = new int[101];
     static readonly List<int> s_primeList =
@@ -27,25 +34,17 @@ public class Q1175_PrimeArrangements
         71, 73, 79, 83, 89, 97
     ];
     static readonly long s_reminder = (long)Math.Pow(10, 9) + 7;
+    static readonly long[] s_permutations = new long[101];
 
     // TC: O(n), n scale with size of n, worst case 100, thus it can be treat as O(1)
     // SC: O(1), space used does not scale with input
     public int NumPrimeArrangements(int n)
     {
-        var numOfPrimes = s_numberOfPrimesAt[n];
-        long pPrime = 1;
-        for (var i = 2; i <= numOfPrimes; i++)
-        {
-            // Modulus the result prevent overflow as instructed in constraints
-            pPrime = pPrime * i % s_reminder;
-        }
-
-        var numNonPrimes = n - numOfPrimes;
-        long pNonPrime = 1;
-        for (var j = 2; j <= numNonPrimes; j++)
-        {
-            pNonPrime = pNonPrime * j % s_reminder;
-        }
+        if(n==1) return 1;
+        var countPrimes = s_numberOfPrimesAt[n];
+        var countNonPrimes = n - countPrimes;
+        var pPrime = s_permutations[countPrimes];
+        var pNonPrime = s_permutations[countNonPrimes];
 
         var total = pPrime * pNonPrime % s_reminder;
         return (int)total;
@@ -54,6 +53,8 @@ public class Q1175_PrimeArrangements
     {
         {5, 12},
         {100, 682289015},
+        {1, 1},
+        {2, 1},
     };
     [Theory]
     [MemberData(nameof(TestData))]

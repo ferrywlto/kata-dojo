@@ -1,8 +1,12 @@
 public class Q3492_MaximumContainersOnShip
 {
+    // TC: O(1)
+    // SC: O(1)
     public int MaxContainers(int n, int w, int maxWeight)
     {
-        return 0;
+        var numOfContainers = n * n;
+
+        return Math.Min(numOfContainers, maxWeight / w);
     }
     public static TheoryData<int, int, int, int> TestData => new()
     {

@@ -7,14 +7,17 @@ public class Q2970_CountNumberOfIncremovableSubarraysI
     {
         var result = 0;
         // expansion
-        for (var i = 0; i < nums.Length; i++)
+        for(var i=0; i<nums.Length; i++)
         {
-            for (var j = i; j < nums.Length; j++)
+            var temp = new int[nums.Length];
+            Array.Copy(nums, temp, nums.Length);
+            for(var j=i; j<nums.Length; j++)
             {
-                var temp = nums[j];
-                nums[j] = 0;
-                if (Incresing(nums)) result++;
-                nums[j] = temp;
+                temp[j] = 0;
+                if(Incresing(temp)) 
+                {
+                    result++;
+                }
             }
         }
         return result;
@@ -22,19 +25,17 @@ public class Q2970_CountNumberOfIncremovableSubarraysI
     private bool Incresing(int[] input)
     {
         var lastNonZeroIdx = 0;
-        for (var i = 0; i < input.Length; i++)
+        for(var i=0; i<input.Length; i++)
         {
-            if (input[i] > 0)
-            {
+            if(input[i] > 0) {
                 lastNonZeroIdx = i;
                 break;
             }
         }
-        for (var i = lastNonZeroIdx + 1; i < input.Length; i++)
+        for(var i=lastNonZeroIdx+1; i<input.Length; i++)
         {
-            if (input[i] > 0 && input[i] <= input[lastNonZeroIdx]) return false;
-            else if (input[i] > 0)
-            {
+            if(input[i] > 0 && input[i] <= input[lastNonZeroIdx]) return false;
+            else if(input[i] > 0) {
                 lastNonZeroIdx = i;
             }
         }

@@ -1,10 +1,28 @@
 public class Q2807_InsertGreatestCommonDivisorsInLinkedList
 {
-    public ListNode InsertGreatestCommonDivisors(ListNode head) 
+    // TC: O(n), n scale with length of head
+    // SC: O(1), space used does not scale with input
+    public ListNode InsertGreatestCommonDivisors(ListNode head)
     {
-        return new ListNode();
+        var curr = head;
+        while (curr != null && curr.next != null)
+        {
+            var gcd = GCD(curr.val, curr.next.val);
+            var newNode = new ListNode(gcd)
+            {
+                next = curr.next
+            };
+            curr.next = newNode;
+            curr = newNode.next;
+        }
+        return head;
     }
-    public static TheoryData<ListNode, ListNode> TestData => new ()
+    private int GCD(int a, int b)
+    {
+        if (b == 0) return a;
+        return GCD(b, a % b);
+    }
+    public static TheoryData<ListNode, ListNode> TestData => new()
     {
         {ListNode.FromArray([18,6,10,3])!, ListNode.FromArray([18,6,6,2,10,1,3])!},
         {ListNode.FromArray([7])!, ListNode.FromArray([7])!},

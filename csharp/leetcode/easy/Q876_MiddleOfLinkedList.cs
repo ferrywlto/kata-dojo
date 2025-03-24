@@ -9,7 +9,7 @@ class Q876_MiddleOfLinkedList
         while(current != null)
         {
             count++;
-            current = current._next;
+            current = current.Next;
         }
 
         var middle = Math.Ceiling((float)count / 2);
@@ -17,11 +17,11 @@ class Q876_MiddleOfLinkedList
         // starting from head therefore it is 1 based instead of 0
         while(middle > 1 && current != null)
         {
-            current = current._next;
+            current = current.Next;
             middle--;
         }
         if (current != null && count % 2 == 0) 
-            current = current._next;
+            current = current.Next;
 
         return current!;
     }
@@ -31,10 +31,10 @@ class Q876_MiddleOfLinkedList
     {
         var slow = head;
         var fast = head;
-        while (fast != null && fast._next != null)
+        while (fast != null && fast.Next != null)
         {
-            slow = slow?._next;
-            fast = fast._next._next;
+            slow = slow?.Next;
+            fast = fast.Next.Next;
         }
         return slow!;
     }

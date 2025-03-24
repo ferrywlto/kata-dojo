@@ -4,30 +4,30 @@ class Q206_ReverseLinkedList
     public ListNode? ReverseList(ListNode? head)
     {
         if (head == null) return null;
-        if (head._next == null) return head;
-        if (head._next._next == null)
+        if (head.Next == null) return head;
+        if (head.Next.Next == null)
         {
-            var tail = head._next;
-            tail._next = head;
-            head._next = null;
+            var tail = head.Next;
+            tail.Next = head;
+            head.Next = null;
             head = tail;
             return head;
         }
 
         var prev = head;
-        var curr = prev._next;
-        var next = curr._next;
+        var curr = prev.Next;
+        var next = curr.Next;
         // important, end the loop
-        prev._next = null;
+        prev.Next = null;
 
         while (next != null)
         {
-            curr!._next = prev;
+            curr!.Next = prev;
             prev = curr;
             curr = next;
-            next = next?._next;
+            next = next?.Next;
         }
-        curr!._next = prev;
+        curr!.Next = prev;
         head = curr;
         return head;
     }
@@ -35,13 +35,13 @@ class Q206_ReverseLinkedList
     public ListNode? ReveseListRecursive(ListNode? head)
     {
         if (head == null) return null;
-        if (head._next == null) return head;
+        if (head.Next == null) return head;
 
         var prev = head;
-        var curr = prev._next;
-        var next = curr._next;
+        var curr = prev.Next;
+        var next = curr.Next;
         // important, end the loop
-        prev._next = null;
+        prev.Next = null;
 
         return Reverse(prev, curr, next);
     }
@@ -50,14 +50,14 @@ class Q206_ReverseLinkedList
     {
         if (next == null)
         {
-            curr!._next = prev;
+            curr!.Next = prev;
             return curr;
         }
 
-        curr!._next = prev;
+        curr!.Next = prev;
         prev = curr;
         curr = next;
-        next = next._next;
+        next = next.Next;
 
         return Reverse(prev, curr, next);
     }

@@ -50,27 +50,27 @@ class Q203_RemoveLinkeListElements
         var current = head;
         while(current != null)
         {
-            while (current._next != null) 
+            while (current.Next != null) 
             {
-                if (current._next._val == val)
+                if (current.Next.Val == val)
                 {
-                    current._next = current._next._next;
+                    current.Next = current.Next.Next;
                     continue;
                 }
                 break;
             }
-            current = current._next;
+            current = current.Next;
         }
 
-        if (head._val == val)
+        if (head.Val == val)
         {
-            if (head._next == null)
+            if (head.Next == null)
             {
                 return null;
             }
             else 
             {
-                head = head._next;
+                head = head.Next;
             }
         }
         return head;

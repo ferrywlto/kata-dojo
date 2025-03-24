@@ -1,7 +1,7 @@
 public class ListNode(int val = 0, ListNode? next = null)
 {
-    public int _val = val;
-    public ListNode? _next = next;
+    public int Val { get; set; } = val;
+    public ListNode? Next { get; set; } = next;
 
     public static ListNode? FromArray(int[] arr) 
     {
@@ -12,8 +12,8 @@ public class ListNode(int val = 0, ListNode? next = null)
         var current = head;
         for (var i = 1; i < arr.Length; i++) 
         {
-            current._next = new ListNode(arr[i]);
-            current = current._next;
+            current.Next = new ListNode(arr[i]);
+            current = current.Next;
         }
         return head;
     }
@@ -24,8 +24,8 @@ public class ListNode(int val = 0, ListNode? next = null)
         var current = head;
         while(current != null)
         {
-            list.Add(current._val);
-            current = current._next;
+            list.Add(current.Val);
+            current = current.Next;
         }
         return list.ToArray();
     }

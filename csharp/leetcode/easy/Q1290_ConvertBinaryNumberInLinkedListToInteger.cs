@@ -8,8 +8,8 @@ class Q1290_ConvertBinaryNumberInLinkedListToInteger
         var current = head;
         do
         {
-            stack.Push(current._val);
-            current = current._next;
+            stack.Push(current.Val);
+            current = current.Next;
         }
         while(current != null);
         var result = stack.Pop();
@@ -29,8 +29,8 @@ class Q1290_ConvertBinaryNumberInLinkedListToInteger
         var current = head;
         while(current != null)
         {
-            result = (result << 1) | current._val;
-            current = current._next;
+            result = (result << 1) | current.Val;
+            current = current.Next;
         }
         return result;   
     }        

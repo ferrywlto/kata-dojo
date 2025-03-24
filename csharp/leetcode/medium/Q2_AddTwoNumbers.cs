@@ -15,20 +15,20 @@ public class AddTwoNumbers
     {
         if (l1 != null && l2 != null)
         {
-            var sum = l1._val + l2._val;
+            var sum = l1.Val + l2.Val;
             if (carryOver) sum += 1;
 
             carryOver = sum >= 10;
-            current!._val = sum % 10;
+            current!.Val = sum % 10;
 
-            if (l1._next != null || l2._next != null)
+            if (l1.Next != null || l2.Next != null)
             {
-                current._next = new ListNode();
-                Recursion(l1._next, l2._next, current._next);
+                current.Next = new ListNode();
+                Recursion(l1.Next, l2.Next, current.Next);
             }
             else if (carryOver)
             {
-                current._next = new ListNode(1);
+                current.Next = new ListNode(1);
             }
         }
         else if (l1 != null && l2 == null)
@@ -43,19 +43,19 @@ public class AddTwoNumbers
 
     public void RecursionSingle(ListNode input, ListNode current)
     {
-        if (carryOver) input._val += 1;
+        if (carryOver) input.Val += 1;
 
-        carryOver = input._val >= 10;
-        current!._val = input._val % 10;
+        carryOver = input.Val >= 10;
+        current!.Val = input.Val % 10;
 
-        if (input._next != null)
+        if (input.Next != null)
         {
-            current._next = new ListNode();
-            RecursionSingle(input._next, current._next);
+            current.Next = new ListNode();
+            RecursionSingle(input.Next, current.Next);
         }
         else if (carryOver)
         {
-            current._next = new ListNode(1);
+            current.Next = new ListNode(1);
         }
     }
 }
@@ -147,7 +147,7 @@ public class AddTwoNumbersTests(ITestOutputHelper output) : ListNodeTest(output)
         var l2 = new ListNode(3);
         var expected = new ListNode(5);
         var actual = x.Solve(l1, l2);
-        Assert.Equal(expected._val, actual._val);
+        Assert.Equal(expected.Val, actual.Val);
     }
 
     [Fact]
@@ -158,7 +158,7 @@ public class AddTwoNumbersTests(ITestOutputHelper output) : ListNodeTest(output)
         var l2 = new ListNode(0);
         var expected = new ListNode(0);
         var actual = x.Solve(l1, l2);
-        Assert.Equal(expected._val, actual._val);
+        Assert.Equal(expected.Val, actual.Val);
     }
 
     [Fact]
@@ -169,6 +169,6 @@ public class AddTwoNumbersTests(ITestOutputHelper output) : ListNodeTest(output)
         var l2 = new ListNode();
         var expected = new ListNode();
         var actual = x.Solve(l1, l2);
-        Assert.Equal(expected._val, actual._val);
+        Assert.Equal(expected.Val, actual.Val);
     }
 }

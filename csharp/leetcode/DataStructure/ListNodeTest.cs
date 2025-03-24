@@ -1,17 +1,6 @@
 public abstract class ListNodeTest(ITestOutputHelper output) : TestBase(output) 
 {
-    public static ListNode GenerateListNode(int numDigits, int digitValue) 
-    {
-        var head = new ListNode(digitValue);
-        var current = head;
-        for (int i = 1; i < numDigits; i++) {
-            current.next = new ListNode(digitValue);
-            current = current.next;
-        }
-        return head;
-    }
-
-    protected void AssertListNodeEquals(ListNode? expected, ListNode? actual) 
+    public static void AssertListNodeEquals(ListNode? expected, ListNode? actual) 
     {
         if (expected == null && actual == null)
             return;
@@ -25,26 +14,26 @@ public abstract class ListNodeTest(ITestOutputHelper output) : TestBase(output)
         }
     }
 
-    protected long CountList(ListNode? list) 
+    public static long CountList(ListNode? list, ITestOutputHelper? output = null)
     {
         var count = 0;
         while (list != null) {
             count++;
             list = list.next;
         }
-        Output!.WriteLine($"count:{count}");
+        output?.WriteLine($"count:{count}");
         return count;
     }
 
-    protected void PrintList(ListNode? list) 
+    public static void PrintList(ListNode? list, ITestOutputHelper? output = null) 
     {
         var numList = new List<int>();
         while (list != null) {
-            Output!.WriteLine(list.val.ToString());
+            output?.WriteLine(list.val.ToString());
             numList.Add(list.val);
             list = list.next;
         }
         var outputTxt = $"[{string.Join(",", numList)}]";
-        Output!.WriteLine(outputTxt);
+        output?.WriteLine(outputTxt);
     }
 }

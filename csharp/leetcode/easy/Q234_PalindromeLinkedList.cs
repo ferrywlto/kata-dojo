@@ -4,8 +4,8 @@ class Q234_PalindromeLinkedList
     public bool IsPalindrome(ListNode head)
     {
         if (head == null) return false;
-        if (head.next == null) return true;
-        if (head.next.next == null) return head.val == head.next.val;
+        if (head._next == null) return true;
+        if (head._next._next == null) return head._val == head._next._val;
 
         var middle = FindMiddle(head);
         var reverse = ReverseList(middle);
@@ -14,9 +14,9 @@ class Q234_PalindromeLinkedList
         var listB = reverse;
         while(listA != middle) 
         {
-            if (listA?.val != listB?.val) return false;
-            listA = listA?.next;
-            listB = listB?.next;
+            if (listA?._val != listB?._val) return false;
+            listA = listA?._next;
+            listB = listB?._next;
         }
 
         return true;
@@ -26,14 +26,14 @@ class Q234_PalindromeLinkedList
     public ListNode? FindMiddle(ListNode head)
     {
         if (head == null) return null;
-        if (head.next == null) return head;
+        if (head._next == null) return head;
         var slow = head;
         var fast = head;
 
-        while(fast != null && fast.next != null) 
+        while(fast != null && fast._next != null) 
         {
-            slow = slow?.next;
-            fast = fast.next?.next;
+            slow = slow?._next;
+            fast = fast._next?._next;
         }
 
         return slow;
@@ -43,30 +43,30 @@ class Q234_PalindromeLinkedList
     public ListNode? ReverseList(ListNode? head)
     {
         if (head == null) return null;
-        if (head.next == null) return head;
-        if (head.next.next == null)
+        if (head._next == null) return head;
+        if (head._next._next == null)
         {
-            var tail = head.next;
-            tail.next = head;
-            head.next = null;
+            var tail = head._next;
+            tail._next = head;
+            head._next = null;
             head = tail;
             return head;
         }
 
         var prev = head;
-        var curr = prev.next;
-        var next = curr.next;
+        var curr = prev._next;
+        var next = curr._next;
         // important, end the loop
-        prev.next = null;
+        prev._next = null;
 
         while (next != null)
         {
-            curr!.next = prev;
+            curr!._next = prev;
             prev = curr;
             curr = next;
-            next = next?.next;
+            next = next?._next;
         }
-        curr!.next = prev;
+        curr!._next = prev;
         head = curr;
         return head;
     }

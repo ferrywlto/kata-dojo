@@ -5,15 +5,15 @@ public class Q2807_InsertGreatestCommonDivisorsInLinkedList
     public ListNode InsertGreatestCommonDivisors(ListNode head)
     {
         var curr = head;
-        while (curr != null && curr.next != null)
+        while (curr != null && curr._next != null)
         {
-            var gcd = GCD(curr.val, curr.next.val);
+            var gcd = GCD(curr._val, curr._next._val);
             var newNode = new ListNode(gcd)
             {
-                next = curr.next
+                _next = curr._next
             };
-            curr.next = newNode;
-            curr = newNode.next;
+            curr._next = newNode;
+            curr = newNode._next;
         }
         return head;
     }

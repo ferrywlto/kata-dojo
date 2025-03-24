@@ -44,25 +44,25 @@ class Q83_RemoveDuplicatesFromSortedList
         while (current != null)
         {
             var input = current;
-            var nextNode = input.next;
+            var nextNode = input._next;
             // For each node, skip all the duplicates behind
             while (nextNode != null)
             {
 
-                if (input.val != nextNode.val)
+                if (input._val != nextNode._val)
                 {
-                    input.next = nextNode;
+                    input._next = nextNode;
                     break;
                 }
-                if (nextNode.next == null)
+                if (nextNode._next == null)
                 {
                     // Terminate the last duplicate pointer
-                    input.next = null;
+                    input._next = null;
                     break;
                 }
-                nextNode = nextNode.next;
+                nextNode = nextNode._next;
             }
-            current = current.next;
+            current = current._next;
         }
 
         return head;

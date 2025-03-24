@@ -38,37 +38,37 @@ class Q21_MergeTwoLists
             return l1;
 
         ListNode current;
-        if (l1.val >= l2.val)
+        if (l1._val >= l2._val)
         {
             current = l2;
-            l2 = l2.next;
+            l2 = l2._next;
         }
         else
         {
             current = l1;
-            l1 = l1.next;
+            l1 = l1._next;
         }
         var head = current;
 
         while (l1 != null && l2 != null)
         {
-            if (l1.val >= l2.val)
+            if (l1._val >= l2._val)
             {
-                current.next = l2;
-                l2 = l2.next;
+                current._next = l2;
+                l2 = l2._next;
             }
             else
             {
-                current.next = l1;
-                l1 = l1.next;
+                current._next = l1;
+                l1 = l1._next;
             }
-            current = current.next;
+            current = current._next;
         }
 
         if (l1 != null)
-            current.next = l1;
+            current._next = l1;
         else if (l2 != null)
-            current.next = l2;
+            current._next = l2;
 
         return head;
     }

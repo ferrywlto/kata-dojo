@@ -8,9 +8,9 @@ public abstract class ListNodeTest(ITestOutputHelper output) : TestBase(output)
         Assert.Equal(CountList(expected), CountList(actual));
 
         while (expected != null && actual != null) {
-            Assert.Equal(expected.val, actual.val);
-            expected = expected.next;
-            actual = actual.next;
+            Assert.Equal(expected._val, actual._val);
+            expected = expected._next;
+            actual = actual._next;
         }
     }
 
@@ -19,7 +19,7 @@ public abstract class ListNodeTest(ITestOutputHelper output) : TestBase(output)
         var count = 0;
         while (list != null) {
             count++;
-            list = list.next;
+            list = list._next;
         }
         output?.WriteLine($"count:{count}");
         return count;
@@ -29,9 +29,9 @@ public abstract class ListNodeTest(ITestOutputHelper output) : TestBase(output)
     {
         var numList = new List<int>();
         while (list != null) {
-            output?.WriteLine(list.val.ToString());
-            numList.Add(list.val);
-            list = list.next;
+            output?.WriteLine(list._val.ToString());
+            numList.Add(list._val);
+            list = list._next;
         }
         var outputTxt = $"[{string.Join(",", numList)}]";
         output?.WriteLine(outputTxt);

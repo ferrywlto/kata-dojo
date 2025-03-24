@@ -18,11 +18,11 @@ public class Q160_IntersactionTwoLinkedListTests(ITestOutputHelper output) : Lis
 
         var tail = ListNode.FromArray(listTail);
         var headA = ListNode.FromArray(listA);
-        while (headA!.next != null) headA = headA.next;
-        headA.next = tail;
+        while (headA!._next != null) headA = headA._next;
+        headA._next = tail;
         var headB = ListNode.FromArray(listB);
-        while (headB!.next != null) headB = headB.next;
-        headB.next = tail;
+        while (headB!._next != null) headB = headB._next;
+        headB._next = tail;
 
         var actual = sut.GetIntersectionNodeO1(headA, headB);
 
@@ -39,18 +39,18 @@ class Q160_IntersactionTwoLinkedList
     public ListNode? GetIntersectionNode(ListNode? headA, ListNode? headB)
     {
         if (headA == headB) return headA;
-        if (headA?.next == null && headB?.next == null) return null;
+        if (headA?._next == null && headB?._next == null) return null;
 
         var hashTable = new HashSet<ListNode>();
         while (headA != null)
         {
             hashTable.Add(headA);
-            headA = headA.next;
+            headA = headA._next;
         }
         while (headB != null)
         {
             if (hashTable.Contains(headB)) return headB;
-            headB = headB.next;
+            headB = headB._next;
         }
         return null;
     }
@@ -72,10 +72,10 @@ class Q160_IntersactionTwoLinkedList
         {
             pointer1 = (pointer1 == null)
                     ? headB
-                    : pointer1.next;
+                    : pointer1._next;
             pointer2 = (pointer2 == null)
                     ? headA
-                    : pointer2.next;
+                    : pointer2._next;
         }
 
         return pointer1;

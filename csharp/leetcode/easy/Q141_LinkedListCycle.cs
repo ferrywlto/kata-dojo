@@ -30,7 +30,7 @@ public class Q141_LinkedListCycleTests : ListNodeTest
 
         var current = 0;
         ListNode? loopHead = null;
-        while (node.next != null)
+        while (node._next != null)
         {
             if (current == pos)
             {
@@ -41,10 +41,10 @@ public class Q141_LinkedListCycleTests : ListNodeTest
                 current++;
             }
 
-            node = node.next;
-            if (node.next == null)
+            node = node._next;
+            if (node._next == null)
             {
-                node.next = loopHead;
+                node._next = loopHead;
                 return;
             }
         }
@@ -64,10 +64,10 @@ class Q141_LinkedListCycle
 
         var fast = head;
         var slow = head;
-        while (fast.next != null && fast.next.next != null)
+        while (fast._next != null && fast._next._next != null)
         {
-            fast = fast.next.next;
-            slow = slow!.next;
+            fast = fast._next._next;
+            slow = slow!._next;
             if (fast == slow)
                 return true;
         }

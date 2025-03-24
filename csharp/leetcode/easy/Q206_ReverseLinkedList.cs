@@ -4,30 +4,30 @@ class Q206_ReverseLinkedList
     public ListNode? ReverseList(ListNode? head)
     {
         if (head == null) return null;
-        if (head.next == null) return head;
-        if (head.next.next == null)
+        if (head._next == null) return head;
+        if (head._next._next == null)
         {
-            var tail = head.next;
-            tail.next = head;
-            head.next = null;
+            var tail = head._next;
+            tail._next = head;
+            head._next = null;
             head = tail;
             return head;
         }
 
         var prev = head;
-        var curr = prev.next;
-        var next = curr.next;
+        var curr = prev._next;
+        var next = curr._next;
         // important, end the loop
-        prev.next = null;
+        prev._next = null;
 
         while (next != null)
         {
-            curr!.next = prev;
+            curr!._next = prev;
             prev = curr;
             curr = next;
-            next = next?.next;
+            next = next?._next;
         }
-        curr!.next = prev;
+        curr!._next = prev;
         head = curr;
         return head;
     }
@@ -35,13 +35,13 @@ class Q206_ReverseLinkedList
     public ListNode? ReveseListRecursive(ListNode? head)
     {
         if (head == null) return null;
-        if (head.next == null) return head;
+        if (head._next == null) return head;
 
         var prev = head;
-        var curr = prev.next;
-        var next = curr.next;
+        var curr = prev._next;
+        var next = curr._next;
         // important, end the loop
-        prev.next = null;
+        prev._next = null;
 
         return Reverse(prev, curr, next);
     }
@@ -50,14 +50,14 @@ class Q206_ReverseLinkedList
     {
         if (next == null)
         {
-            curr!.next = prev;
+            curr!._next = prev;
             return curr;
         }
 
-        curr!.next = prev;
+        curr!._next = prev;
         prev = curr;
         curr = next;
-        next = next.next;
+        next = next._next;
 
         return Reverse(prev, curr, next);
     }

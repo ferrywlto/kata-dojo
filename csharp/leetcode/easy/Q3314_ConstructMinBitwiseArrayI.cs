@@ -39,9 +39,6 @@ public class Q3314_ConstructMinBitwiseArrayI
             MSB <<= 1;
         }
         MSB >>= 1;
-        Console.WriteLine($"input: {input}");
-        Console.WriteLine($"b: {input:b}");
-        Console.WriteLine($"m: {MSB:b}");
         return MSB;
     }
     public static TheoryData<int[], int[]> TestData => new()

@@ -2,6 +2,7 @@ public class Q1769_MinNumOpsToMoveAllBallsToEachBox
 {
     // TC: O(n * m), n scale with length of boxes, m scale with number of 1 in boxes
     // SC: O(n + m), n for holding answer, m for list
+    // Must have faster approach
     public int[] MinOperations(string boxes)
     {
         var ans = new int[boxes.Length];

@@ -4,23 +4,22 @@ public class Q2161_PartitionArrayAccordingToGivenPivot
     // SC: O(n), the three queues take at most n space
     public int[] PivotArray(int[] nums, int pivot)
     {
-        var lessThan = new List<int>();
-        var largerThan = new List<int>();
-        var equals = new List<int>();
-        for (var i = 0; i < nums.Length; i++)
+        var len = nums.Length;
+        var ans = new int[len];
+        for (var i = 0; i < len; i++) ans[i] = pivot;
+
+        var idx = 0;
+        for (var i = 0; i < len; i++)
         {
-            if (nums[i] > pivot)
-                largerThan.Add(nums[i]);
-
-            else if (nums[i] < pivot)
-                lessThan.Add(nums[i]);
-
-            else equals.Add(nums[i]);
+            if (nums[i] < pivot) ans[idx++] = nums[i];
+        }
+        idx = len - 1;
+        for (var i = len - 1; i >= 0; i--)
+        {
+            if (nums[i] > pivot) ans[idx--] = nums[i];
         }
 
-        lessThan.AddRange(equals);
-        lessThan.AddRange(largerThan);
-        return lessThan.ToArray();
+        return ans;
     }
     public static TheoryData<int[], int, int[]> TestData => new()
     {

@@ -1,35 +1,30 @@
-public class Q2181_MergeNodesInBetweenZeros
+public class Q2181_MergeNodesInBetweenZeros(ITestOutputHelper output)
 {
     // TC: O(n), n scale with length of input list
-    // SC: O(m), m scale with length of result;
+    // SC: O(1), space used does not scale with input
     public ListNode MergeNodes(ListNode head)
     {
-        var list = new List<int>();
         var sum = 0;
         var curr = head;
+        var temp = head;
         while (curr != null)
         {
             if (curr.Val == 0 && sum > 0)
             {
-                list.Add(sum);
+                temp.Val = sum;
                 sum = 0;
+                if(curr.Next != null) 
+                {
+                    temp.Next = curr;
+                    temp = curr;
+                } 
+                else temp.Next = null;
             }
-            else
-            {
-                sum += curr.Val;
-            }
+            else sum += curr.Val;
             curr = curr.Next;
         }
 
-        var ans = new ListNode(list[0]);
-        var node = ans;
-        for (var i = 1; i < list.Count; i++)
-        {
-            var next = new ListNode(list[i]);
-            node.Next = next;
-            node = node.Next;
-        }
-        return ans;
+        return head;
     }
     public static TheoryData<ListNode, ListNode> TestData => new()
     {
@@ -41,6 +36,7 @@ public class Q2181_MergeNodesInBetweenZeros
     public void Test(ListNode input, ListNode expected)
     {
         var actual = MergeNodes(input);
+        ListNodeTest.PrintList(actual, output);
         ListNodeTest.AssertListNodeEquals(expected, actual);
     }
 }

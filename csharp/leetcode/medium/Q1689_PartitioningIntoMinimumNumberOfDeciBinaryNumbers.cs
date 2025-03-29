@@ -1,8 +1,15 @@
 public class Q1689_PartitioningIntoMinimumNumberOfDeciBinaryNumbers
 {
+    // TC: O(n), n scale with length of n
+    // SC: O(1), space used does not scale with input
     public int MinPartitions(string n)
     {
-        return 0;
+        var max = 0;
+        for (var i = 0; i < n.Length; i++)
+        {
+            if (n[i] > max) max = n[i];
+        }
+        return max - '0';
     }
     public static TheoryData<string, int> TestData => new()
     {

@@ -1,8 +1,19 @@
 public class Q3502_MinCostReachEveryPosition
 {
+    // TC: O(n), n scale with length of cost
+    // SC: O(1), space used does not scale with input
     public int[] MinCosts(int[] cost)
     {
-        return [];
+        var min = int.MaxValue;
+        for (var i = 0; i < cost.Length; i++)
+        {
+            if (cost[i] < min)
+            {
+                min = cost[i];
+            }
+            cost[i] = min;
+        }
+        return cost;
     }
     public static TheoryData<int[], int[]> TestData => new()
     {

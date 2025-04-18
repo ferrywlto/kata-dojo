@@ -1,8 +1,14 @@
 public class Q3516_FindClosetPerson
 {
+    // TC: O(1), the time required is constant
+    // SC: O(1), same as time
     public int FindClosest(int x, int y, int z)
     {
-        return 0;
+        var diffX = Math.Abs(z - x);
+        var diffY = Math.Abs(z - y);
+        if (diffX == diffY) return 0;
+
+        return diffX < diffY ? 1 : 2;
     }
     public static TheoryData<int, int, int, int> TestData => new()
     {

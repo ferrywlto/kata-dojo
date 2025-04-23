@@ -1,45 +1,42 @@
 class Q1399_CountLargestGroup
 {
-    // TC: O(n+m), it have to run from 1 to n once, then m for counting the dictionary with max group length
-    // SC: O(n+m), n digitSums + m count of each digit sum 
+    // TC: O(n), n scale with size of n
+    // SC: O(1), space used does not scale with input. Constraint 9999 max -> sum = 36
     public int CountLargestGroup(int n)
     {
-        var digitSum = new Dictionary<int, int>();
-        var sumCount = new Dictionary<int, int>();
-        var maxGroupCount = 1;
+        var groups = new int[37];
+        var maxGroupSize = 0;
         for (var i = 1; i <= n; i++)
         {
             var num = i;
-            var digitSumResult = 0;
+            var digitSum = 0;
             while (num > 0)
             {
-                if (digitSum.TryGetValue(num, out var value))
-                {
-                    digitSumResult += value;
-                    break;
-                }
-                else
-                {
-                    digitSumResult += num % 10;
-                    num /= 10;
-                }
+                digitSum += num % 10;
+                num /= 10;
             }
-            digitSum.TryAdd(i, digitSumResult);
-            if (sumCount.TryGetValue(digitSumResult, out var count))
-                sumCount[digitSumResult] = ++count;
-            else
-                sumCount.TryAdd(digitSumResult, 1);
-
-            if (count > maxGroupCount)
-                maxGroupCount = count;
+            groups[digitSum]++;
+            if (groups[digitSum] > maxGroupSize)
+            {
+                maxGroupSize = groups[digitSum];
+            }
         }
-        return sumCount.Count(x => x.Value == maxGroupCount);
+
+        var result = 0;
+        for (var j = 0; j < groups.Length; j++)
+        {
+            if (groups[j] == maxGroupSize) result++;
+        }
+        Console.WriteLine(string.Join(',', groups));
+        return result;
     }
 }
 class Q1399_CountLargestGroupTestData : TestData
 {
     protected override List<object[]> Data =>
     [
+        [9999, 1],
+        [20, 1],
         [13, 4],
         [2, 2],
     ];

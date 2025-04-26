@@ -1,22 +1,25 @@
 public class Q2657_FindPrefixCommanArrayOfTwoArrays
 {
+    // TC: O(n^2), n scale with length of A
+    // SC: O(n), n scale with length of A
     public int[] FindThePrefixCommonArray(int[] A, int[] B)
     {
-        var setA = new HashSet<int>();
-        var setB = new HashSet<int>();
-        var result = new int[A.Length];
-        for (var i = 0; i < A.Length; i++)
+        var len = A.Length;
+        var result = new int[len];
+        for (var i = 0; i < len; i++)
         {
-            setA.Add(A[i]);
-            setB.Add(B[i]);
+            var freq = new int[51];
             var commonCount = 0;
-            foreach (var n in setB)
+            for (var j = 0; j <= i; j++)
             {
-                if (setA.Contains(n))
+                if (A[j] != B[j])
                 {
-                    commonCount++;
+                    if (++freq[A[j]] == 2) commonCount++;
+                    if (++freq[B[j]] == 2) commonCount++;
                 }
+                else commonCount++;
             }
+
             result[i] = commonCount;
         }
         return result;

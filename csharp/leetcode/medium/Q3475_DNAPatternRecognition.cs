@@ -2,6 +2,7 @@ using Row = (int sample_id, string dna_sequence, string species, int has_start, 
 
 public class Q3475_DNAPatternRecognition(ITestOutputHelper output) : SqlTest(output)
 {
+    // MySQL Dialect
     public string Query =>
     """
     SELECT sample_id, dna_sequence, species, 
@@ -13,7 +14,15 @@ public class Q3475_DNAPatternRecognition(ITestOutputHelper output) : SqlTest(out
     dna_sequence like '%GGG%' as has_ggg
     from Samples;
     """;
-
+    // MSSQL Dialect
+    /*
+    SELECT sample_id, dna_sequence, species,
+        CASE WHEN dna_sequence LIKE 'ATG%' THEN 1 ELSE 0 END AS has_start,
+        CASE WHEN dna_sequence LIKE '%TAA' OR dna_sequence LIKE '%TAG' OR dna_sequence LIKE '%TGA' THEN 1 ELSE 0 END AS has_stop,
+        CASE WHEN dna_sequence LIKE '%ATAT%' THEN 1 ELSE 0 END AS has_atat,
+        CASE WHEN dna_sequence LIKE '%GGG%' THEN 1 ELSE 0 END AS has_ggg
+    FROM Samples;    
+    */
     public static TheoryData<string, Row[]> TestData => new()
     {
         {

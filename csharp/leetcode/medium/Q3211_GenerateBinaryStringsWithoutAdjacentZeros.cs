@@ -1,33 +1,33 @@
-using System.Text;
-
 public class Q3211_GenerateBinaryStringsWithoutAdjacentZeros
 {
     // TC: O(n^2), n scale with size of n
-    // SC: O(2^n)
+    // SC: O(n)
+    // It could be faster if use recursion
     public IList<string> ValidStrings(int n)
     {
-        var set = new HashSet<string> { "0", "1" };
         var len = 1;
+        var dict = new Dictionary<int, List<string>>
+        {
+            { 1, ["0", "1"] }
+        };
+
         while (len < n)
         {
-            var newSet = new HashSet<string>();
-            foreach (var str in set)
+            var prev = dict[len];
+            var next = new List<string>();
+            for (var i = 0; i < prev.Count; i++)
             {
-                if (str[^1] == '0')
-                {
-                    newSet.Add(str + '1');
-                }
-                else
-                {
-                    newSet.Add(str + '0');
-                    newSet.Add(str + '1');
-                }
-            }
-            set = newSet;
-            len++;
-        }
+                var str = prev[i];
 
-        return set.ToList();
+                if (str[^1] == '1')
+                {
+                    next.Add(str + '0');
+                }
+                next.Add(str + '1');
+            }
+            dict.Add(++len, next);
+        }
+        return dict[len];
     }
     public static TheoryData<int, string[]> TestData => new()
     {

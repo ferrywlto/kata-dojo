@@ -1,8 +1,31 @@
 public class Q1828_QueryiesNumPointsInsideCircle
 {
+    // TC: O(n * m), n scale with number of points, m scale with number of queries
+    // SC: O(m), to hold the result
     public int[] CountPoints(int[][] points, int[][] queries)
     {
-        return [];
+        var qLen = queries.Length;
+        var result = new int[qLen];
+        for (var i = 0; i < qLen; i++)
+        {
+            var count = 0;
+            var centerX = queries[i][0];
+            var centerY = queries[i][1];
+            var radius = queries[i][2];
+            for (var j = 0; j < points.Length; j++)
+            {
+                var pX = points[j][0];
+                var pY = points[j][1];
+                var xDiff = pX - centerX;
+                var aSq = xDiff * xDiff;
+                var yDiff = pY - centerY;
+                var bSq = yDiff * yDiff;
+                var rSq = radius * radius;
+                if (aSq + bSq <= rSq) count++;
+            }
+            result[i] = count;
+        }
+        return result;
     }
     public static TheoryData<int[][], int[][], int[]> TestData => new()
     {

@@ -1,4 +1,4 @@
-public class Q2265_CountNodesEqualAvgSubtree//(ITestOutputHelper output)
+public class Q2265_CountNodesEqualAvgSubtree
 {
     private int _resultCount = 0;
     // TC: O(n), all nodes just need to iterate once
@@ -8,27 +8,18 @@ public class Q2265_CountNodesEqualAvgSubtree//(ITestOutputHelper output)
         CalSubtree(root);
         return _resultCount;
     }
-    private (int, int) CalSubtree(TreeNode input)
+    private (int count, int sum) CalSubtree(TreeNode? input)
     {
-        var numNodes = 1;
-        var sumNodes = input.val;
-        if (input.left != null)
-        {
-            var (s, n) = CalSubtree(input.left);
-            sumNodes += s;
-            numNodes += n;
-        }
-        if (input.right != null)
-        {
-            var (s, n) = CalSubtree(input.right);
-            sumNodes += s;
-            numNodes += n;
-        }
+        if (input == null) return (0, 0);
+
+        var left = CalSubtree(input.left);
+        var right = CalSubtree(input.right);
+        var sumNodes = input.val + left.sum + right.sum;
+        var numNodes = 1 + left.count + right.count;
         var avg = sumNodes / numNodes;
-        // output.WriteLine("node: {0}, n: {1}, s: {2}, avg: {3}", input.val, numNodes, sumNodes, avg);
 
         if (input.val == avg) _resultCount++;
-        return (sumNodes, numNodes);
+        return (numNodes, sumNodes);
     }
     public static TheoryData<TreeNode, int> TestData => new()
     {

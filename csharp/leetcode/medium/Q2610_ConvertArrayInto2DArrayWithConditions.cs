@@ -1,41 +1,34 @@
 public class Q2610_ConvertArrayInto2DArrayWithConditions
 {
+    // TC: O(n + n*m), n scale with length of nums, m sacle with max occurance of a number
+    // SC: O(n)
     public IList<IList<int>> FindMatrix(int[] nums)
     {
-        var dict = new Dictionary<int, int>();
-        for(var i=0; i<nums.Length; i++)
+        var len = nums.Length;
+        var buckets = new int[len + 1];
+        var maxOccurance = 0;
+        for (var i = 0; i < len; i++)
         {
             var n = nums[i];
-            if(dict.TryGetValue(n, out var val))
+            buckets[n]++;
+            if (buckets[n] > maxOccurance)
             {
-                dict[n] = ++val;
-            }
-            else 
-            {
-                dict.Add(n, 1);
+                maxOccurance = buckets[n];
             }
         }
-
-        var result = new List<IList<int>>();
-        while(dict.Count > 0)
+        List<IList<int>> result = new(maxOccurance);
+        for (var i = 0; i < maxOccurance; i++)
         {
-            var listAdd = new List<int>();
-            var listRemove = new List<int>();
-            foreach(var p in dict) 
+            result.Add([]);
+        }
+        for (var bucketIdx = 1; bucketIdx < buckets.Length; bucketIdx++)
+        {
+            var occurance = buckets[bucketIdx];
+
+            for (var k = 0; k < occurance; k++)
             {
-                var k = p.Key;
-                listAdd.Add(k);
-                dict[k]--;
-                if(dict[k] == 0) 
-                {
-                    listRemove.Add(k);
-                }
+                result[k].Add(bucketIdx);
             }
-            for(var i=0; i<listRemove.Count; i++)
-            {
-                dict.Remove(listRemove[i]);
-            }
-            result.Add(listAdd);
         }
         return result;
     }
@@ -43,7 +36,7 @@ public class Q2610_ConvertArrayInto2DArrayWithConditions
     {
         {
             [1,3,4,1,2,3,1],
-            [[1,3,4,2],[1,3],[1]]
+            [[1,2,3,4],[1,3],[1]]
         },
         {
             [1,2,3,4],

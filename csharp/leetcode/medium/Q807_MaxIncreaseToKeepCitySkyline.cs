@@ -34,6 +34,7 @@ public class Q807_MaxIncreaseToKeepCitySkyline
         }
         return result;
     }
+    
     public static TheoryData<int[][], int> TestData => new()
     {
         {[

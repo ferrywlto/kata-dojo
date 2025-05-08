@@ -5,9 +5,9 @@ public class Q1315_SumNodesWithEvenValueGrandParent(ITestOutputHelper output) : 
     // SC: O(d), d scale with depth of tree for recursion stack
     public int SumEvenGrandparent(TreeNode root)
     {
-        return Cal(root);
+        return SumGrandChild(root);
     }
-    private int Cal(TreeNode? node)
+    private int SumGrandChild(TreeNode? node)
     {
         if (node == null) return 0;
         var temp = 0;
@@ -30,7 +30,26 @@ public class Q1315_SumNodesWithEvenValueGrandParent(ITestOutputHelper output) : 
                 temp += node.right.right.val;
             }
         }
-        return temp + Cal(node.left) + Cal(node.right);
+        return temp + SumGrandChild(node.left) + SumGrandChild(node.right);
+    }
+    public int SumEvenGrandparent_Faster(TreeNode root)
+    {
+        return SumGrandChild_Faster(root, false);
+    }
+    // This check less condition thus faster
+    private int SumGrandChild_Faster(TreeNode? node, bool evenParent)
+    {
+        if (node == null) return 0;
+
+        var temp = 0;
+        if (evenParent)
+        {
+            temp += node.left?.val ?? 0;
+            temp += node.right?.val ?? 0;
+        }
+        evenParent = node.val % 2 == 0;
+
+        return temp + SumGrandChild_Faster(node.left, evenParent) + SumGrandChild_Faster(node.right, evenParent);
     }
     public static TheoryData<TreeNode, int> TestData => new()
     {
@@ -41,7 +60,7 @@ public class Q1315_SumNodesWithEvenValueGrandParent(ITestOutputHelper output) : 
     [MemberData(nameof(TestData))]
     public void Test(TreeNode input, int expected)
     {
-        var actual = SumEvenGrandparent(input);
+        var actual = SumEvenGrandparent_Faster(input);
         Assert.Equal(expected, actual);
     }
 }

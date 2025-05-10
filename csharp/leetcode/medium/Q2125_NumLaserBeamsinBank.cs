@@ -1,28 +1,27 @@
 public class Q2125_NumLaserBeamsinBank
 {
+    // TC: O(n^2), n scale with length of bank, have to iterate all characters
+    // SC: O(1), space used does not scale with input
     public int NumberOfBeams(string[] bank)
     {
         var result = 0;
-        var prevDevices = CountDevices(bank[0]);
-        for (var i = 1; i < bank.Length; i++)
+        var prev = 0;
+        for (var i = 0; i < bank.Length; i++)
         {
-            var nextDevices = CountDevices(bank[i]);
-            if (nextDevices != 0)
+            var row = bank[i];
+            var count = 0;
+            for (var j = 0; j < row.Length; j++)
             {
-                result += prevDevices * nextDevices;
-                prevDevices = nextDevices;
+                if (row[j] == '1') count++;
+            }
+            if (count > 0)
+            {
+                result += prev * count;
+                prev = count;
             }
         }
+
         return result;
-    }
-    private int CountDevices(string input)
-    {
-        var devices = 0;
-        for (var i = 0; i < input.Length; i++)
-        {
-            if (input[i] == '1') devices++;
-        }
-        return devices;
     }
     public static TheoryData<string[], int> TestData => new()
     {

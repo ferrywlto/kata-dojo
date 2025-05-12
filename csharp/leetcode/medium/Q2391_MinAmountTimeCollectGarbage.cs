@@ -1,37 +1,32 @@
 public class Q2391_MinAmountTimeCollectGarbage
 {
+    // TC: O(n * m), n scale with length of garbage, m scale with length of travel
+    // SC: O(1), space used does not scale with input
     public int GarbageCollection(string[] garbage, int[] travel)
     {
-        var travalledDistanceSinceLastCollect = new int[3];
-        var result = garbage[0].Length;
-        for(var i=1; i<garbage.Length; i++)
+        var result = 0;
+        var lastMPicked = false;
+        var lastPPicked = false;
+        var lastGPicked = false;
+        for (var i = garbage.Length - 1; i >= 0; i--)
         {
-            var travelTime = travel[i-1];
-            var bin = garbage[i];
-            var binCount = new int[3];
-            for(var j=0; j<bin.Length; j++)
+            var house = garbage[i];
+            if (!lastMPicked && house.Contains('M'))
             {
-                var t = bin[j];
-                if(t == 'M') {
-                    binCount[0]++;
-                }
-                else if(t == 'P') {
-                    binCount[1]++;
-                }
-                else {
-                    binCount[2]++;
-                }
+                lastMPicked = true;
+                for (var j = 0; j < i; j++) result += travel[j];
             }
-            // handle case that 
-            // 1. some houses in between has no bin
-            // 2. remaining bin has no that type of garbage
-            for(var k=0; k<binCount.Length; k++) {
-                travalledDistanceSinceLastCollect[k] += travelTime;
-                if(binCount[k] > 0) {
-                    result += binCount[k] + travalledDistanceSinceLastCollect[k];
-                    travalledDistanceSinceLastCollect[k] = 0;
-                }
+            if (!lastGPicked && house.Contains('G'))
+            {
+                lastGPicked = true;
+                for (var j = 0; j < i; j++) result += travel[j];
             }
+            if (!lastPPicked && house.Contains('P'))
+            {
+                lastPPicked = true;
+                for (var j = 0; j < i; j++) result += travel[j];
+            }
+            result += garbage[i].Length;
         }
 
         return result;
@@ -39,9 +34,6 @@ public class Q2391_MinAmountTimeCollectGarbage
     public static TheoryData<string[], int[], int> TestData => new()
     {
         {["G","P","GP","GG"], [2,4,3], 21},
-        // P -> 8
-        // G -> 13
-        // M -> 0
         {["MMM","PGM","GP"], [3,10], 37},
     };
     [Theory]

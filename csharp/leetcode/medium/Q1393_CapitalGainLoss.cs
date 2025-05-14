@@ -3,7 +3,11 @@ public class Q1393_CapitalGainLoss(ITestOutputHelper output) : SqlTest(output)
 {
     public string Query =>
     """
-    Select 1;
+    select 
+        stock_name, 
+        sum(if(operation='Sell', price, -price)) as capital_gain_loss 
+    from Stocks
+    group by stock_name
     """;
     public static TheoryData<string, Row[]> TestData => new()
     {

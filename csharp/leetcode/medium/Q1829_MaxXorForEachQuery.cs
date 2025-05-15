@@ -1,8 +1,23 @@
 public class Q1829_MaxXorForEachQuery
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(n), to hold the result, otherwise O(1)
     public int[] GetMaximumXor(int[] nums, int maximumBit)
     {
-        return [];
+        var result = new int[nums.Length];
+        var bitMask = (1 << maximumBit) - 1;
+
+        var xor = nums[0];
+        result[0] = xor ^ bitMask;
+
+        for (var i = 1; i < nums.Length; i++)
+        {
+            xor ^= nums[i];
+            result[i] = xor ^ bitMask;
+        }
+
+        Array.Reverse(result);
+        return result;
     }
     public static TheoryData<int[], int, int[]> TestData => new()
     {

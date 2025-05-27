@@ -1,38 +1,26 @@
-public class Q1409_QueriesOnPermutationWithKey(ITestOutputHelper output)
+public class Q1409_QueriesOnPermutationWithKey
 {
+    // TC: O(n*m), n scale with length of queries
+    // SC: O(m)   
     public int[] ProcessQueries(int[] queries, int m)
     {
-        var p = new int[m];
-        var result = new int[queries.Length];
+        var p = new List<int>();
         var p_val = 0;
-        for(var i=0; i<m; i++)
+        for (var i = 0; i < m; i++)
         {
-            p[i] = ++p_val;
+            p.Add(++p_val);
         }
-        output.WriteLine("init: {0}", string.Join(',', p));
-        for(var j=0; j<queries.Length; j++)
+
+        var result = new int[queries.Length];
+        for (var j = 0; j < queries.Length; j++)
         {
-            for(var k=0; k<p.Length; k++)
-            {
-                if(p[k] == queries[j]) {
-                    result[j] = k;
-                    output.WriteLine("{0} found at {1}", queries[j], k);
-                    shiftElementsRight(p, k);
-                    break;
-                }
-            }
+            var idx = p.IndexOf(queries[j]);
+            result[j] = idx;
+
+            p.RemoveAt(idx);
+            p.Insert(0, queries[j]);
         }
         return result;
-    }
-    private void shiftElementsRight(int[] input, int upToIdx)
-    {
-        var temp = input[upToIdx];
-        for(var i=upToIdx; i>=1; i--)
-        {
-            input[i] = input[i-1];
-        }
-        input[0] = temp;
-        output.WriteLine(string.Join(',', input));
     }
     public static TheoryData<int[], int, int[]> TestData => new()
     {

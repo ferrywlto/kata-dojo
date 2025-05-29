@@ -2,6 +2,9 @@ public class Q1561_MaxNumOfCoinsYouCanGet
 {
     // TC: O(n log n), n scale with length of piles
     // SC: O(1), spaces used does not scale with input
+    // The solution is, to get the max coins:
+    // Alice must get more than you, then we must group two larger numbers together, then get any lowest number for Bob
+    // In a sorted array, the max coins you can get will be picking starting the smaller one from every two piles 
     public int MaxCoins(int[] piles)
     {
         Array.Sort(piles);
@@ -9,12 +12,13 @@ public class Q1561_MaxNumOfCoinsYouCanGet
         var idx = piles.Length - 2;
         var result = 0;
 
-        for (var i = 0; i < groups; i++)
+        while(groups > 0) 
         {
             result += piles[idx];
             idx -= 2;
+            groups--;
         }
-
+        
         return result;
     }
     public static TheoryData<int[], int> TestData => new()

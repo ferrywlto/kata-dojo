@@ -1,8 +1,26 @@
 public class Q2149_RearrangeArrayElementsBySign
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(n), to hold the result
     public int[] RearrangeArray(int[] nums)
     {
-        return [];
+        var result = new int[nums.Length];
+        var positiveIdx = 0;
+        var negativeIndex = 1;
+        for (var i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] >= 0)
+            {
+                result[positiveIdx] = nums[i];
+                positiveIdx += 2;
+            }
+            else
+            {
+                result[negativeIndex] = nums[i];
+                negativeIndex += 2;
+            }
+        }
+        return result;
     }
     public static TheoryData<int[], int[]> TestData => new()
     {

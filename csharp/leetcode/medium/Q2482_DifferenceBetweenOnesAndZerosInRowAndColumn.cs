@@ -1,39 +1,39 @@
 public class Q2482_DifferenceBetweenOnesAndZerosInRowAndColumn
 {
+    // TC: O(n * m), scale with number of elements in grid
+    // SC: O(n + m)
     public int[][] OnesMinusZeros(int[][] grid)
     {
         var m = grid.Length;
         var n = grid[0].Length;
         var rowOnes = new int[m];
         var colOnes = new int[n];
-        var rowZeros = new int[m];
-        var colZeros = new int[n];
 
-        for(var row=0; row<m; row++)
+        for (var row = 0; row < m; row++)
         {
-            for(var col=0; col<grid[row].Length; col++) 
+            for (var col = 0; col < grid[row].Length; col++)
             {
-                if(grid[row][col] == 1) {
+                if (grid[row][col] == 1)
+                {
                     rowOnes[row]++;
                     colOnes[col]++;
                 }
-                else {
-                    rowZeros[row]++;
-                    colZeros[col]++;
-                };
+                else
+                {
+                    rowOnes[row]--;
+                    colOnes[col]--;
+                }
             }
         }
-        var result = new int[m][];
-        for(var i=0; i<m; i++) {result[i] = new int[n];}
-                
-        for(var row=0; row<m; row++)
+
+        for (var row = 0; row < m; row++)
         {
-            for(var col=0; col<grid[row].Length; col++) 
+            for (var col = 0; col < n; col++)
             {
-                result[row][col] = rowOnes[row] + colOnes[col] - rowZeros[row] - colZeros[col];
+                grid[row][col] = rowOnes[row] + colOnes[col];
             }
-        }        
-        return result;
+        }
+        return grid;
     }
     public static TheoryData<int[][], int[][]> TestData => new()
     {

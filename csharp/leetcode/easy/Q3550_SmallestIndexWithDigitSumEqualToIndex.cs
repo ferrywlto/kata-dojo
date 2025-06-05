@@ -1,8 +1,21 @@
 public class Q3550_SmallestIndexWithDigitSumEqualToIndex
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(1), space used does not scale with input
     public int SmallestIndex(int[] nums)
     {
-        return 0;
+        for (var i = 0; i < nums.Length; i++)
+        {
+            var temp = nums[i];
+            var digitSum = 0;
+            while (temp > 0)
+            {
+                digitSum += temp % 10;
+                temp /= 10;
+            }
+            if (digitSum == i) return i;
+        }
+        return -1;
     }
     public static TheoryData<int[], int> TestData => new()
     {

@@ -1,11 +1,20 @@
-using Row = (int book_id, string title, string author, string genre, int publication_year, int total_copies);
+using Row = (int book_id, string title, string author, string genre, int publication_year, int current_borrowers);
 public class Q3570_FindBooksWithNoAvailableCopies(ITestOutputHelper output) : SqlTest(output)
 {
     public string Query =>
-    """
-    SELECT 1;
+    """    
+    SELECT lb.book_id, lb.title, lb.author, lb.genre, lb.publication_year, br.current_borrowers from library_books lb
+    join 
+    (
+        select book_id, count(book_id) as current_borrowers from borrowing_records
+        where borrow_date is not NULL AND return_date is NULL
+        group by book_id 
+    ) br on lb.book_id = br.book_id
+    where lb.total_copies - br.current_borrowers = 0
+    order by br.current_borrowers desc, title;
     """;
-
+    /*
+    */
     public static TheoryData<string, Row[]> TestData => new()
     {
         {
@@ -62,8 +71,8 @@ public class Q3570_FindBooksWithNoAvailableCopies(ITestOutputHelper output) : Sq
     {
         ArrangeTestData(testDataSql);
         var reader = ExecuteQuery(Query, true);
-        AssertResultSchema(reader, ["book_id", "title", "author", "genre", "publication_year", "total_copies"]);
-        foreach (var (book_id, title, author, genre, publication_year, total_copies) in expected)
+        AssertResultSchema(reader, ["book_id", "title", "author", "genre", "publication_year", "current_borrowers"]);
+        foreach (var (book_id, title, author, genre, publication_year, current_borrowers) in expected)
         {
             Assert.True(reader.Read());
             Assert.Equal(book_id, reader.GetInt32(0));
@@ -71,7 +80,7 @@ public class Q3570_FindBooksWithNoAvailableCopies(ITestOutputHelper output) : Sq
             Assert.Equal(author, reader.GetString(2));
             Assert.Equal(genre, reader.GetString(3));
             Assert.Equal(publication_year, reader.GetInt32(4));
-            Assert.Equal(total_copies, reader.GetInt32(5));
+            Assert.Equal(current_borrowers, reader.GetInt32(5));
         }
     }
 }

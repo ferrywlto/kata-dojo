@@ -1,8 +1,22 @@
 public class Q950_RevealCardsInIncreasingOrder
 {
+    // The trick is to reverse the algorithm
+    // TC: O(n log n + n^2), dominated by Array.Sort()
+    // SC: O(n), for storing result
     public int[] DeckRevealedIncreasing(int[] deck)
     {
-        return [];
+        Array.Sort(deck);
+        var q = new List<int>() { deck[deck.Length - 1] };
+        for (var i = deck.Length - 2; i >= 0; i--)
+        {
+            var last = q[^1];
+            // move the last item to first
+            q.RemoveAt(q.Count - 1);
+            q.Insert(0, last);
+            // add new item at first
+            q.Insert(0, deck[i]);
+        }
+        return q.ToArray();
     }
     public static TheoryData<int[], int[]> TestData => new()
     {

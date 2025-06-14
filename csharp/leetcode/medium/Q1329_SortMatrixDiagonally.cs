@@ -1,39 +1,43 @@
 public class Q1329_SortMatrixDiagonally
 {
-    // TC: O(n ^ 2)
+    // TC: O(n^2)
     // SC: O(1)
     public int[][] DiagonalSort(int[][] mat)
     {
         var col = 0;
         int row;
-        for(row=0; row<mat.Length; row++)
+        for (row = 0; row < mat.Length; row++)
         {
             SortDiagonal(mat, row, col);
         }
         row = 0;
-        for(col=1; col<mat[0].Length; col++)
+        for (col = 1; col < mat[0].Length; col++)
         {
             SortDiagonal(mat, row, col);
         }
         return mat;
     }
     // TC: O(r or c => n)
-    // SC: O(n)
+    // SC: O(1)
     // Sort inplace
     private void SortDiagonal(int[][] input, int row, int col)
     {
-        var list = new List<int>();
+        var arr = new int[101];
         int r = row, c = col;
-        while(r < input.Length && c < input[0].Length) {
-            list.Add(input[r++][c++]);
+        while (r < input.Length && c < input[0].Length)
+        {
+            arr[input[r++][c++]]++;
         }
-        list.Sort();
 
-        var listIdx = 0;
         r = row;
         c = col;
-        while(r < input.Length && c < input[0].Length) {
-            input[r++][c++] = list[listIdx++];
+        for (var i = 0; i < arr.Length; i++)
+        {
+            while (arr[i] > 0)
+            {
+                input[r++][c++] = i;
+                arr[i]--;
+            }
         }
     }
     public static TheoryData<int[][], int[][]> TestData => new()

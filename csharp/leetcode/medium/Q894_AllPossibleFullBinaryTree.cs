@@ -7,8 +7,40 @@ public class Q894_AllPossibleFullBinaryTree : TreeNodeTest
 
     public IList<TreeNode> AllPossibleFBT(int n)
     {
-        return [];
+        var result = new List<TreeNode>();
+        if(n == 1) {
+            result.Add(new TreeNode(0));
+            return result;
+        }
+        else if (n==3) {
+            result.Add(new TreeNode(0, new TreeNode(0), new TreeNode(0)));
+            return result;
+        }
+
+        // it must be n - 2 possibilities
+        var len = n - 2;
+        for(var i=0; i<len; i++) {
+            result.Add(ConstructTree(i));
+        }
+        return result;
     }
+    private TreeNode DefaultRoot() {
+        return new TreeNode(0, new TreeNode(0), new TreeNode(0));
+    }
+    // 4 choices
+    // 00
+    // 01
+    // 10
+    // 11
+    private TreeNode ConstructTree(int option) {
+        // var 
+        while(option > 0) {
+            // if()
+            option >>= 1; 
+        }
+        return new TreeNode();
+    }
+
     public static TheoryData<int, IList<TreeNode>> TestData => new()
     {
         {7,  new List<TreeNode> {

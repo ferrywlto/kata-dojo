@@ -4,17 +4,29 @@ public class Q1823_FindWinnerOfCircularGame(ITestOutputHelper output) : ListNode
     // SC: O(n)
     public int FindTheWinner(int n, int k)
     {
-        var list = new List<int>();
-        for (var i = 1; i <= n; i++) list.Add(i);
+        var seats = new int[501];
+        // for (var i = 0; i < n; i++) seats[i] = i;
 
-        var currentIdx = 0;
-        while (list.Count > 1)
+        var seatsLeft = n;
+        var currIdx = 0;
+        while (seatsLeft > 1)
         {
-            currentIdx = (currentIdx + k - 1) % list.Count;
-            list.RemoveAt(currentIdx);
-            currentIdx %= list.Count;
+            currIdx = (currIdx + k - 1) % n;
+            Output.WriteLine("A {0}, {1}", currIdx, seats[currIdx]);
+            while (seats[currIdx] != 0)
+            {
+                Output.WriteLine("- {0}", currIdx);
+                currIdx++;
+            }
+            seats[currIdx] = 1;
+            seatsLeft--;
+            currIdx++;
         }
-        return list[0];
+        for (var i = 0; i < seats.Length; i++)
+        {
+            if (seats[i] == 0) return i;
+        }
+        return -1;
     }
     public static TheoryData<int, int, int> TestData => new()
     {

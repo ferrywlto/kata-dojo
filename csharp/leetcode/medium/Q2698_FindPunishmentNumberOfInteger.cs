@@ -20,6 +20,7 @@ public class Q2698_FindPunishmentNumberOfInteger
 
         return set.Sum(p => p * p);
     }
+    // A way to enumerate all possible partitions
     private void t(int idx, int sum, int n)
     {
         if (idx >= numStr.Length)

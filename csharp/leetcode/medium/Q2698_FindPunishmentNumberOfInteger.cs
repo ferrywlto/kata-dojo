@@ -1,58 +1,55 @@
 using System.Text;
 
-public class Q2698_FindPunishmentNumberOfInteger(ITestOutputHelper output)
+public class Q2698_FindPunishmentNumberOfInteger
 {
-    private List<List<string>> combinations = [];
+    private static HashSet<int> cache = [];
+    private HashSet<int> set = [];
     private string numStr = "";
-    private string nStr = "";
     public int PunishmentNumber(int n)
     {
-        // var p = 0;
-        // for (var i = 0; i < 1001; i++)
-        // {
-        //     if(Possible(i))p++;
-        // }
-        // output.WriteLine("p: {0}", p);
-        // n = 36;
-        var sq = n * n;
-        nStr = n.ToString();
-        numStr = "1296";
+        for (var i = 1; i <= n; i++)
+        {
+            if (cache.Contains(i))
+            {
+                set.Add(i);
+            }
+            var sq = i * i;
+            numStr = sq.ToString();
+            t(0, 0, i);
+        }
 
-        t(new List<string>(), 0, 0, 36);
-        output.WriteLine("list: {0}", string.Join(Environment.NewLine, combinations.Select(c => $"[{string.Join(',', c)}]")));
-        return 0;
+        return set.Sum(p => p * p);
     }
-    private void t(List<string> list, int idx, int sum, int n)
+    private void t(int idx, int sum, int n)
     {
         if (idx >= numStr.Length)
         {
             if (sum == n)
             {
-                output.WriteLine("found: [{0}]", string.Join(',', list));
-                combinations.Add(list);
+                cache.Add(n);
+                set.Add(n);
+                return;
             }
-            else
-            {
-                output.WriteLine("not-found: [{0}], sum: {1}", string.Join(',', list), sum);
-            }
-            return;
         }
 
         var sb = new StringBuilder();
         for (var i = idx; i < numStr.Length; i++)
         {
-            var l = new List<string>(list);
+            if (sb.Length == numStr.Length) return;
+
             sb.Append(numStr[i]);
             var val = int.Parse(sb.ToString());
+            var nextSum = val + sum;
 
-            l.Add(sb.ToString());
-            t(l, i + 1, sum + val, n);
+            if (nextSum > n) return;
+            t(i + 1, nextSum, n);
         }
     }
     public static TheoryData<int, int> TestData => new()
     {
         {10, 182},
         {37, 1478},
+        {91, 21533},
     };
     [Theory]
     [MemberData(nameof(TestData))]

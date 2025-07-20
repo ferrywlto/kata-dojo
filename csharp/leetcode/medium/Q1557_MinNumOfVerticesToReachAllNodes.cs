@@ -26,6 +26,21 @@ public class Q1557_MinNumOfVerticesToReachAllNodes
         }
         return result;
     }
+    public IList<int> FindSmallestSetOfVertices_Fast(int n, IList<IList<int>> edges)
+    {
+        var nodes = new int[n];
+        foreach (var edge in edges)
+        {
+            nodes[edge[1]]++;
+        }
+
+        var result = new List<int>();
+        for (var i = 0; i < n; i++)
+        {
+            if (nodes[i] == 0) result.Add(i);
+        }
+        return result;
+    }
     public static TheoryData<int, IList<IList<int>>, List<int>> TestData => new()
     {
         {6, [[0,1],[0,2],[2,5],[3,4],[4,2]], [0,3]},
@@ -35,7 +50,7 @@ public class Q1557_MinNumOfVerticesToReachAllNodes
     [MemberData(nameof(TestData))]
     public void Test(int n, IList<IList<int>> edges, List<int> expected)
     {
-        var actual = FindSmallestSetOfVertices(n, edges);
+        var actual = FindSmallestSetOfVertices_Fast(n, edges);
         Assert.Equal(expected, actual);
     }
 }

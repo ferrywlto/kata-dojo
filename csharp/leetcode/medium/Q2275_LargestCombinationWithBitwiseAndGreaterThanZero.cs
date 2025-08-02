@@ -1,50 +1,40 @@
-public class Q2275_LargestCombinationWithBitwiseAndGreaterThanZero(ITestOutputHelper output)
+public class Q2275_LargestCombinationWithBitwiseAndGreaterThanZero
 {
+    // TC: O(n), n scale with length of candidates
+    // SC: O(1), space used does not scale with input
+    /*
+     The technique is to count the bits position of each number, 
+     those have the same bit position set to 1 can only result > 1 when bitwise AND together.
+     The largest one means the most number of numbers have this bits == 1
+    */
     public int LargestCombination(int[] candidates)
     {
+        // Constraint candidates[i] <= 10^7 = 10000000
+        // 2^24 = 16777216 is the minimum that larger than 10^7
+        const int maxBits = 24;
+        var onesCount = new int[maxBits];
+        var max = 0;
         var len = candidates.Length;
-        // set bits for all combination
-        var bits = 1;
-        for (var i = 0; i < len; i++) bits *= 2;
-        // -1 since 4 = 100, we need to start with greedy set size 011
-        bits -= 1;
-        while (bits > 0)
+        for (var i = 0; i < len; i++)
         {
-            var tmp = bits;
-            var andResult = 0;
-            var countOfOne = 0;
-            var candIdx = len - 1;
-            var list = new List<int>();
-            var init = false;
-            while (tmp > 0)
+            var tmp = candidates[i];
+            var bitCount = 0;
+            while (bitCount < 24)
             {
                 if ((tmp & 1) == 1)
                 {
-                    countOfOne++;
-                    list.Add(candIdx);
-                    if (init)
+                    onesCount[bitCount]++;
+                    if (onesCount[bitCount] > max)
                     {
-                        andResult &= candidates[candIdx];
-                    }
-                    else
-                    {
-                        andResult = candidates[candIdx];
-                        init = true;
+                        max = onesCount[bitCount];
                     }
                 }
-                candIdx--;
                 tmp >>= 1;
+                bitCount++;
             }
-            output.WriteLine("bits: {0}, idx:{1}, andResult: {2}", bits, string.Join(',', list), andResult);
-            if (andResult > 0) return countOfOne;
-            bits--; 
         }
-
-        Console.WriteLine(bits);
-        return 0;
+        return max;
     }
-
-
 
     public static TheoryData<int[], int> TestData => new()
     {

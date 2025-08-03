@@ -1,22 +1,30 @@
-public class Q46_Permutatiuons(ITestOutputHelper output)
+public class Q46_Permutatiuons
 {
+    // TC: O(n!) nPn = n!
+    // SC: O(1)
+    private readonly IList<IList<int>> _result = [];
     public IList<IList<int>> Permute(int[] nums)
     {
-        var len = nums.Length;
-        if (len == 1) return [nums];
-
-        var result = new List<IList<int>>();
-        for (var i = 0; i < len; i++)
+        Permute(nums, 0);
+        return _result;
+    }
+    private void Permute(int[] nums, int startIdx)
+    {
+        if (startIdx == nums.Length) _result.Add(nums.ToList());
+        else
         {
-            // shift
-            for (var j = 1; j < len; j++)
+            for (var i = startIdx; i < nums.Length; i++)
             {
-                (nums[j], nums[j - 1]) = (nums[j - 1], nums[j]);
-                result.Add(nums.ToList());
+                SwapWith(nums, startIdx, i);
+                Permute(nums, startIdx + 1);
+                // Back track
+                SwapWith(nums, startIdx, i);
             }
         }
-        output.WriteLine(string.Join(Environment.NewLine, result.Select(l => string.Join(',', l))));
-        return result;
+    }
+    private void SwapWith(int[] input, int fromIdx, int toIdx)
+    {
+        (input[fromIdx], input[toIdx]) = (input[toIdx], input[fromIdx]);
     }
     public static TheoryData<int[], IList<IList<int>>> TestData => new()
     {
@@ -24,23 +32,11 @@ public class Q46_Permutatiuons(ITestOutputHelper output)
         {[0,1], [[0,1],[1,0]]},
         {[1], [[1]]},
         {[5,4,6,2], [
-        [4,5,6,2],
-        [4,6,5,2],
-        [4,6,2,5],
-        [6,4,2,5],
-        [6,2,4,5],
-        [6,2,5,4],
-        [2,6,5,4],
-        [2,5,6,4],
-        [2,5,4,6],
-        [5,2,4,6],
-        [5,4,2,6],
-        [5,4,6,2],
-
-            [5,6,4,2],[5,6,2,4],[5,2,6,4],
-        [4,5,2,6],
-        [4,2,5,6],[4,2,6,5],[6,5,4,2],[6,5,2,4],[6,4,5,2],
-        [2,4,5,6],[2,4,6,5],[2,6,4,5]]},
+            [4,5,6,2],[4,6,5,2],[4,6,2,5],[4,5,2,6],[4,2,5,6],[4,2,6,5],
+            [6,4,2,5],[6,2,4,5],[6,2,5,4],[6,5,4,2],[6,5,2,4],[6,4,5,2],
+            [2,6,5,4],[2,5,6,4],[2,5,4,6],[2,4,5,6],[2,4,6,5],[2,6,4,5],
+            [5,2,4,6],[5,4,2,6],[5,4,6,2],[5,6,4,2],[5,6,2,4],[5,2,6,4],
+        ]},
     };
     [Theory]
     [MemberData(nameof(TestData))]
@@ -48,6 +44,8 @@ public class Q46_Permutatiuons(ITestOutputHelper output)
     {
         var actual = Permute(input);
         Assert.Equal(expected.Count, actual.Count);
+        expected = [.. expected.OrderBy(x => string.Join(',', x))];
+        actual = [.. actual.OrderBy(x => string.Join(',', x))];
         Assert.Equal(expected, actual);
     }
 }

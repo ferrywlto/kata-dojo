@@ -6,19 +6,25 @@ public class Q2242_CountNumberOfDistinctIntegersAfterReverseOperations
     // SC: O(n) for storing the result
     public int CountDistinctIntegers(int[] nums)
     {
-        var distinct = new HashSet<string>();
-        var sb = new StringBuilder();
+        var distinct = new HashSet<int>();
         var len = nums.Length;
         for (var i = 0; i < len; i++)
         {
-            distinct.Add(nums[i].ToString());
-            while (nums[i] > 0)
+            var n = nums[i];
+            var reverse = 0;
+            while (n > 0)
             {
-                sb.Append(nums[i] % 10);
-                nums[i] /= 10;
+                var digit = n % 10;
+
+                reverse *= 10;
+                reverse += digit;
+
+                n /= 10;
             }
-            distinct.Add(int.Parse(sb.ToString()).ToString());
-            sb.Clear();
+            distinct.Add(nums[i]);
+
+            if (reverse != nums[i])
+                distinct.Add(reverse);
         }
         return distinct.Count;
     }

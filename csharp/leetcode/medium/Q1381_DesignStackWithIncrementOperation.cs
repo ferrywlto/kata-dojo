@@ -1,48 +1,38 @@
-using Microsoft.VisualBasic;
-
 public class Q1381_DesignStackWithIncrementOperation
 {
     public class CustomStack
     {
-        private readonly Stack<int> stack = new();
+        private readonly int[] fakeStack;
         private readonly int maxSize;
+        private int top = -1;
         public CustomStack(int maxSize)
         {
             this.maxSize = maxSize;
+            fakeStack = new int[maxSize];
         }
 
         public void Push(int x)
         {
-            if (stack.Count < maxSize)
+            if (top < maxSize - 1)
             {
-                stack.Push(x);
+                fakeStack[++top] = x;
             }
         }
 
         public int Pop()
         {
-            if (stack.Count == 0) return -1;
-            return stack.Pop();
+            if (top == -1) return top;
+            var popped = fakeStack[top];
+            top--;
+            return popped;
         }
 
-        private readonly Stack<int> reverseStack = new();
         public void Increment(int k, int val)
         {
-            if (k < stack.Count)
+            var max = Math.Min(k - 1, top);
+            for (var i = 0; i <= max; i++)
             {
-                var top = stack.Count - k;
-                for (var i = 0; i < top; i++)
-                {
-                    reverseStack.Push(stack.Pop());
-                }
-            }
-            while (stack.Count > 0)
-            {
-                reverseStack.Push(stack.Pop() + val);
-            }
-            while (reverseStack.Count > 0)
-            {
-                stack.Push(reverseStack.Pop());
+                fakeStack[i] += val;
             }
         }
     }
@@ -53,6 +43,11 @@ public class Q1381_DesignStackWithIncrementOperation
             ["CustomStack","push","push","pop","push","push","push","increment","increment","pop","pop","pop","pop"],
             [[3],[1],[2],[],[2],[3],[4],[5,100],[2,100],[],[],[],[]],
             [null,null,null,2,null,null,null,null,null,103,202,201,-1]
+        },
+        {
+            ["CustomStack","push","pop","increment","pop","increment","push","pop","push","increment","increment","increment"],
+            [[2],[34],[],[8,100],[],[9,91],[63],[],[84],[10,93],[6,45],[10,4]],
+            [null,null,34,null,-1,null,null,63,null,null,null,null,null]
         }
     };
 
@@ -60,7 +55,7 @@ public class Q1381_DesignStackWithIncrementOperation
     [MemberData(nameof(TestData))]
     public void Test(string[] cmd, int[][] param, int?[] expected)
     {
-        var stack = new CustomStack(param[0][0]);
+        var stack = new CustomStack(param[0][0], output);
         for (var i = 1; i < cmd.Length; i++)
         {
             if (cmd[i] == "push")
@@ -69,7 +64,7 @@ public class Q1381_DesignStackWithIncrementOperation
             }
             else if (cmd[i] == "pop")
             {
-                Assert.Equal(stack.Pop(), expected[i]);
+                Assert.Equal(expected[i], stack.Pop());
             }
             else if (cmd[i] == "increment")
             {

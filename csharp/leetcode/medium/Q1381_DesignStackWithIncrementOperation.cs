@@ -1,24 +1,49 @@
+using Microsoft.VisualBasic;
+
 public class Q1381_DesignStackWithIncrementOperation
 {
     public class CustomStack
     {
+        private readonly Stack<int> stack = new();
+        private readonly int maxSize;
         public CustomStack(int maxSize)
         {
-
+            this.maxSize = maxSize;
         }
 
         public void Push(int x)
         {
+            if (stack.Count < maxSize)
+            {
+                stack.Push(x);
+            }
         }
 
         public int Pop()
         {
-            return 0;
+            if (stack.Count == 0) return -1;
+            return stack.Pop();
         }
 
+        private readonly Stack<int> reverseStack = new();
         public void Increment(int k, int val)
         {
-
+            if (k < stack.Count)
+            {
+                var top = stack.Count - k;
+                for (var i = 0; i < top; i++)
+                {
+                    reverseStack.Push(stack.Pop());
+                }
+            }
+            while (stack.Count > 0)
+            {
+                reverseStack.Push(stack.Pop() + val);
+            }
+            while (reverseStack.Count > 0)
+            {
+                stack.Push(reverseStack.Pop());
+            }
         }
     }
 

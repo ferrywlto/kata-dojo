@@ -55,7 +55,7 @@ public class Q1381_DesignStackWithIncrementOperation
     [MemberData(nameof(TestData))]
     public void Test(string[] cmd, int[][] param, int?[] expected)
     {
-        var stack = new CustomStack(param[0][0], output);
+        var stack = new CustomStack(param[0][0]);
         for (var i = 1; i < cmd.Length; i++)
         {
             if (cmd[i] == "push")

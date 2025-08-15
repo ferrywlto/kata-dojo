@@ -6,67 +6,63 @@ public class Q3633_EarliestFinishTimeForLandAndWaterRidesI(ITestOutputHelper out
         var waterLen = waterStartTime.Length;
 
         var landFinishTime = new int[landLen];
+        
+        var earliestFinish = int.MaxValue;
         for (var i = 0; i < landLen; i++)
         {
             landFinishTime[i] = landStartTime[i] + landDuration[i];
-        }
-        output.WriteLine($"Land Finish Times: {string.Join(", ", landFinishTime)}");
-        var waterFinishTime = new int[waterLen];
-        for (var i = 0; i < waterLen; i++)
-        {
-            waterFinishTime[i] = waterStartTime[i] + waterDuration[i];
-        }
-        output.WriteLine($"Water Finish Times: {string.Join(", ", waterFinishTime)}");
-        var earliestFinish = int.MaxValue;
-
-        for (var i = 0; i < landLen; i++)
-        {
             for (var j = 0; j < waterLen; j++)
             {
-                output.WriteLine("check: {0}, {1}, landF: {2}, waterStart: {3}", i, j, landFinishTime[i], waterStartTime[j]);
-
-                if (landFinishTime[i] >= waterStartTime[j])
+                var landFirstFinishTime = landStartTime[i] + landDuration[i];
+                output.WriteLine("land first Finish Times[{0}]: {1}", i, landFirstFinishTime);
+                if (landFirstFinishTime >= waterStartTime[j])
                 {
-                    // Immediate start land ride after water ride
-                    var finishTime = landFinishTime[i] + waterDuration[j];
-                    if (finishTime < earliestFinish)
-                    {
-                        earliestFinish = finishTime;
-                    }
+                    landFirstFinishTime += waterDuration[j];
                 }
                 else
                 {
-                    // Need to wait for water ride to start and get earliest finish time
-                    if (waterFinishTime[j] < earliestFinish)
-                    {
-                        earliestFinish = waterFinishTime[j];
-                    }
+                    landFirstFinishTime = waterStartTime[j] + waterDuration[j];
                 }
-            }
-        }
+                output.WriteLine("land first Finish Times: {0}, earliestFinish: {1}", landFirstFinishTime, earliestFinish);
+                earliestFinish = Math.Min(earliestFinish, landFirstFinishTime);
 
-        for (var i = 0; i < waterLen; i++)
-        {
-            for (var j = 0; j < landLen; j++)
-            {
-                output.WriteLine("check: {0}, {1}, waterF: {2}, landStart: {3}", i, j, waterFinishTime[i], landStartTime[j]);
-                if (waterFinishTime[i] >= landStartTime[j])
+                var waterFirstFinishTime = waterStartTime[j] + waterDuration[j];
+                output.WriteLine("water first Finish Times[{0}]: {1}", i, waterFirstFinishTime);
+                if (waterFirstFinishTime >= landStartTime[i])
                 {
-                    var finishTime = waterFinishTime[i] + landDuration[j];
-                    if (finishTime < earliestFinish)
-                    {
-                        earliestFinish = finishTime;
-                    }
+                    waterFirstFinishTime += landDuration[i];
                 }
                 else
                 {
-                    if (landFinishTime[j] < earliestFinish)
-                    {
-                        earliestFinish = landFinishTime[j];
-                    }
+                    waterFirstFinishTime = landStartTime[i] + landDuration[i];
                 }
+                output.WriteLine("water first Finish Times: {0}, earliestFinish: {1}", waterFirstFinishTime, earliestFinish);                
+                earliestFinish = Math.Min(earliestFinish, waterFirstFinishTime);
             }
         }
+        // output.WriteLine($"Land Finish Times: {string.Join(", ", landFinishTime)}");
+        // var waterFinishTime = new int[waterLen];
+        // for (var i = 0; i < waterLen; i++)
+        // {
+        //     waterFinishTime[i] = waterStartTime[i] + waterDuration[i];
+        //     for (var j = 0; j < landLen; j++)
+        //     {
+        //         var finishTime = waterStartTime[i] + waterDuration[i];
+        //         output.WriteLine("water first Finish Times[{0}]: {1}", i, finishTime);
+        //         if (finishTime >= landStartTime[j])
+        //         {
+        //             finishTime += landDuration[j];
+        //         }
+        //         else
+        //         {
+        //             finishTime = landStartTime[j] + landDuration[j];
+        //         }
+        //         output.WriteLine("water first Finish Times: {0}, earliestFinish: {1}", finishTime, earliestFinish);
+        //         earliestFinish = Math.Min(earliestFinish, finishTime);
+        //     }
+        // }
+        // output.WriteLine($"Water Finish Times: {string.Join(", ", waterFinishTime)}");
+        
         return earliestFinish;
     }
 

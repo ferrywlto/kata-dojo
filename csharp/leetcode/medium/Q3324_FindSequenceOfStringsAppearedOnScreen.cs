@@ -6,21 +6,17 @@ public class Q3324_FindSequenceOfStringsAppearedOnScreen
     // SC: O(n), to store the intermediate string
     public IList<string> StringSequence(string target)
     {
-        var sb = new StringBuilder();
-
         var result = new List<string>();
 
+        var prefix = "";
         for (var i = 0; i < target.Length; i++)
         {
-            sb.Append('a');
-            result.Add(sb.ToString());
-            while (sb[i] != target[i])
+            for (var j = 'a'; j <= target[i]; j++)
             {
-                sb[i]++;
-                result.Add(sb.ToString());
+                result.Add(prefix + j);
             }
+            prefix += target[i].ToString();
         }
-
         return result;
     }
     public static TheoryData<string, IList<string>> TestData => new()

@@ -1,8 +1,17 @@
 public class Q3683_EarliestTimeToFinishOneTask
 {
+    // TC: O(n), n scale with length of tasks.
+    // SC: O(1), space used does not scale with input.
     public int EarliestTime(int[][] tasks)
     {
-        return 0;
+        var earliest = int.MaxValue;
+        foreach (var task in tasks)
+        {
+            var start = task[0];
+            var end = task[1];
+            earliest = Math.Min(earliest, start + end);
+        }
+        return earliest;
     }
     public static TheoryData<int[][], int> TestData =>
         new()

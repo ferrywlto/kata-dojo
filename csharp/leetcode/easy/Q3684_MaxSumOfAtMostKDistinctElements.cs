@@ -1,8 +1,25 @@
 public class Q3684_MaxSumOfAtMostKDistinctElements
 {
+    // TC: O(N log N), dominated by sorting
+    // SC: O(k), for the result list, worst case k equals number of distinct elements
     public int[] MaxKDistinct(int[] nums, int k)
     {
-        return [];
+        // Sort descending
+        Array.Sort(nums, (a, b) => b - a);
+
+        var result = new List<int>();
+        var idx = 0;
+
+        result.Add(nums[0]);
+        for (var i = 1; i < nums.Length; i++)
+        {
+            if (nums[i] != result[idx] && result.Count < k)
+            {
+                result.Add(nums[i]);
+                idx++;
+            }
+        }
+        return result.ToArray();
     }
     public static TheoryData<int[], int, int[]> TestData =>
         new()

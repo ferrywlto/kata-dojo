@@ -1,8 +1,23 @@
 public class Q3701_ComputeAlternatingSum
 {
+    // TC: O(n), n is the length of nums
+    // SC: O(1), space used does not scale with input size
     public int AlternatingSum(int[] nums)
     {
-        return 0;
+        var oddSum = 0;
+        var evenSum = 0;
+        for (var i = 0; i < nums.Length; i++)
+        {
+            if (i % 2 == 0) // even index
+            {
+                evenSum += nums[i];
+            }
+            else
+            {
+                oddSum += nums[i];
+            }
+        }
+        return evenSum - oddSum;
     }
     public static TheoryData<int[], int> TestData => new()
     {

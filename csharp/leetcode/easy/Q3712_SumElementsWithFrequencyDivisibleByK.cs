@@ -2,7 +2,28 @@ public class Q3712_SumElementsWithFrequencyDivisibleByK
 {
     public int SumDivisibleByK(int[] nums, int k)
     {
-        return 0;
+        var freq = new Dictionary<int, int>();
+        foreach (var num in nums)
+        {
+            if (freq.TryGetValue(num, out var count))
+            {
+                freq[num] = count + 1;
+            }
+            else
+            {
+                freq.Add(num, 1);
+            }
+        }
+
+        var sum = 0;
+        foreach (var (num, count) in freq)
+        {
+            if (count % k == 0)
+            {
+                sum += num * count;
+            }
+        }
+        return sum;
     }
     public static TheoryData<int[], int, int> TestData => new()
     {

@@ -1,26 +1,21 @@
 public class Q3712_SumElementsWithFrequencyDivisibleByK
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(1), freq array size is fixed
     public int SumDivisibleByK(int[] nums, int k)
     {
-        var freq = new Dictionary<int, int>();
+        var freq = new int[101];
         foreach (var num in nums)
         {
-            if (freq.TryGetValue(num, out var count))
-            {
-                freq[num] = count + 1;
-            }
-            else
-            {
-                freq.Add(num, 1);
-            }
+            freq[num]++;
         }
 
         var sum = 0;
-        foreach (var (num, count) in freq)
+        for (var i = 1; i < freq.Length; i++)
         {
-            if (count % k == 0)
+            if (freq[i] % k == 0)
             {
-                sum += num * count;
+                sum += i * freq[i];
             }
         }
         return sum;

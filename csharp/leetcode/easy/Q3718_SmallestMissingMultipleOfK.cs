@@ -1,28 +1,42 @@
 public class Q3718_SmallestMissingMultipleOfK
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(m), m scale with max divisible number
     public int MissingMultiple(int[] nums, int k)
     {
-        var exists = new HashSet<int>();
-        foreach (var num in nums) 
+        var divisible = new List<int>();
+        var max = 0;
+        foreach (var num in nums)
         {
-            if (num % k == 0) 
+            if (num % k == 0)
             {
-                exists.Add(num);
+                divisible.Add(num);
+                if (num > max)
+                {
+                    max = num;
+                }
             }
         }
 
-        for(var i=k; i<=101*k; i+=k)
+        var exists = new int[max + 1];
+        foreach (var num in divisible)
         {
-            if(!exists.Contains(i))
+            exists[num] = 1;
+        }
+
+        for (var i = k; i <= max; i += k)
+        {
+            if (exists[i] == 0)
             {
                 return i;
             }
         }
-        return 0;
+        return ((max / k) + 1) * k;
     }
 
     public static TheoryData<int[], int, int> TestData => new()
     {
+        {[50], 7, 7},
         {[8,2,3,4,6], 2, 10},
         {[1,4,7,10,15], 5, 5},
         {[42,13,99,13,71,32,64,32,63,44,6,22,8,2,55,88,43,40,71,80,95,32,46,19], 44, 132},

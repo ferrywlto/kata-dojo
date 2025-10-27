@@ -1,8 +1,11 @@
 public class Q3726_RemoveZerosInDecimalRepresentation
 {
+    // TC: O(d), d is the number of digits in n
+    // SC: O(1), space used is constant
     public long RemoveZeros(long n)
     {
-        return 0;
+        var resultStr = n.ToString().Replace("0", "");
+        return long.Parse(resultStr);
     }
     public static TheoryData<long, long> TestData => new()
     {

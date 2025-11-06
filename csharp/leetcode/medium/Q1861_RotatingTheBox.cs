@@ -4,7 +4,7 @@ public class Q1861_RotatingTheBox
     {
         foreach (var row in boxGrid)
         {
-            MoveLastStoneInRowToBottom(row);
+            MoveStone(row);
         }
         return Transpose(boxGrid);
     }
@@ -25,21 +25,37 @@ public class Q1861_RotatingTheBox
         return result;
     }
     // Use an easier approach first. Greedy move
-    private void MoveStone(char[] row, int startIdx)
+    // Now use two pointers
+    private void MoveStone(char[] row)
     {
-        var targetIdx = -1;
-        for (var i = startIdx; i < row.Length; i++)
+        var left = row.Length - 1;
+        var right = row.Length - 1;
+        while (right >= 0 && left >= 0)
         {
-            if (row[i] == '.')
+            if (row[left] == '#' && row[right] == '.' && left < right)
             {
-                targetIdx = i;
+                // Move stone
+                row[right] = '#';
+                row[left] = '.';
+
+                left--;
+                right--;
             }
-            else break;
-        }
-        if (targetIdx != -1)
-        {
-            row[targetIdx] = '#';
-            row[startIdx - 1] = '.';
+            else if (row[left] == '*')
+            {
+                // Obstacle
+                right = left - 1;
+                left--;
+            }
+            else if (row[left] == '#' && row[right] == '#')
+            {
+                left--;
+                right--;
+            }
+            else
+            {
+                left--;
+            }
         }
     }
     private void MoveLastStoneInRowToBottom(char[] row)
@@ -48,7 +64,7 @@ public class Q1861_RotatingTheBox
         {
             if (row[i] == '#')
             {
-                MoveStone(row, i + 1);
+                MoveStone(row);
             }
         }
     }

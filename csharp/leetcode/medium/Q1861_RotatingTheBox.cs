@@ -24,51 +24,35 @@ public class Q1861_RotatingTheBox
         }
         return result;
     }
-    // Use an easier approach first. Greedy move
-    // Now use two pointers
+    
+    private void Backfill(char[] row, int stoneCount, int wallIdx)
+    {
+        var idx = wallIdx - 1;
+        while (stoneCount > 0 && idx >= 0)
+        {
+            row[idx] = '#';
+            stoneCount--;
+            idx--;
+        }
+    }
     private void MoveStone(char[] row)
     {
-        var left = row.Length - 1;
-        var right = row.Length - 1;
-        while (right >= 0 && left >= 0)
+        var stoneCount = 0;
+        for (var i = 0; i < row.Length; i++)
         {
-            if (row[left] == '#' && row[right] == '.' && left < right)
+            if (row[i] == '*')
             {
-                // Move stone
-                row[right] = '#';
-                row[left] = '.';
-
-                left--;
-                right--;
+                Backfill(row, stoneCount, i);
+                stoneCount = 0;
             }
-            else if (row[left] == '*')
+            else if (row[i] == '#')
             {
-                // Obstacle
-                right = left - 1;
-                left--;
-            }
-            else if (row[left] == '#' && row[right] == '#')
-            {
-                left--;
-                right--;
-            }
-            else
-            {
-                left--;
+                row[i] = '.';
+                stoneCount++;
             }
         }
+        Backfill(row, stoneCount, row.Length);
     }
-    private void MoveLastStoneInRowToBottom(char[] row)
-    {
-        for (var i = row.Length - 2; i >= 0; i--)
-        {
-            if (row[i] == '#')
-            {
-                MoveStone(row);
-            }
-        }
-    }
-
     public static TheoryData<char[][], char[][]> TestData => new()
     {
         {

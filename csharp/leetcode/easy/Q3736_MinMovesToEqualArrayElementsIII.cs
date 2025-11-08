@@ -1,8 +1,21 @@
 public class Q3736_MinMovesToEqualArrayElementsIII
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(1), space used is constant
     public int MinMoves(int[] nums)
     {
-        return 0;
+        var max = int.MinValue;
+        var sum = 0;
+        foreach (var num in nums)
+        {
+            sum += num;
+            if (num > max)
+            {
+                max = num;
+            }
+        }
+        var expected = max * nums.Length;
+        return expected - sum;
     }
     public static TheoryData<int[], int> TestData => new()
     {

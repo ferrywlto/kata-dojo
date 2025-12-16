@@ -72,11 +72,51 @@ public class Q2375_ConstructSmallestNumberFromDIString
     }
     public static TheoryData<string, string> TestData => new()
     {
+        // length: 8
+        // possible largest digit: 8 + 1 = 9
+        // number of I = 4
+        // number of D = 4
+
         {"IIIDIDDD", "123549876"},
         // {"IDIDIDID", "1 23549876"},
         // {"DIDIDIDI", "5 46 37 28 19"},
         // {"DIDIDIDI", "4 46 37 28 19"},
-        // {"ID DD DD DD", "12 98 76 54 3"},
+
+        // {"ID DD ID ID", "1 54 32 87 96"},
+        // {"ID DD ID ID", "1 54 32 87 96"},
+        // {"ID ID ID DD", "1 54 76 98 32"},
+        // {"ID DD ID DD", "1 54 32 98 76"},
+        // {"ID DD DD DD", "1 98 76 54 32"},
+        // IIIIDDDD  1 23 49 87 65 
+
+        // IIIIIIII, 1 23 45 67 89 +8
+        // DIIIIIII  2 13 45 67 89
+        // DDIIIIII. 3 21 45 67 89
+        // DDDIIIII. 4 32 15 67 89
+        // DDDDIIII  5 43 21 67 89
+        // DDDDDIII. 6 54 32 17 89
+        // DDDDDDII. 7 65 43 21 89
+        // DDDDDDDI  8 76 54 32 19
+        // DDDDDDDD, 9 87 65 43 21 -8
+
+        // DDIDIIII  3 21 54 6789  
+
+        // IDIIIIII  1 32 45 67 89  
+        // D 2 1
+        // I 1 2
+        // DD 3 2 1
+        // DI 2 1 3
+        // ID 1 3 2
+        // II 1 2 3
+        // DDD 4 321
+        // DDI 4 213
+        // DID 4 132
+        // DII 4 123
+        // IDD 1 432
+        // IDI 1 324
+        // IID 1 243
+        // III 1 234
+        
         {"DDD", "4321"},
     };
     [Theory]

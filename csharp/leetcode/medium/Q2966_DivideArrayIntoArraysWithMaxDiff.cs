@@ -1,24 +1,20 @@
 public class Q2966_DivideArrayIntoArraysWithMaxDiff
 {
+    // TC: O(n log n), dominated by Array.Sort()
+    // SC: O(n), n scale with length of nums to store the result
     public int[][] DivideArray(int[] nums, int k)
     {
-        // nums.length = 3*k
         Array.Sort(nums);
-        var result = new List<int[]>();
-        for(var i = 0; i<nums.Length-2; i++)
+        var result = new int[nums.Length / 3][];
+
+        var resultIdx = 0;
+        for (var i = 0; i < nums.Length - 2; i += 3)
         {
-            if(
-                (nums[i+1] - nums[i] <= k) &&
-                (nums[i+2] - nums[i+1] <= k) &&
-                (nums[i+2] - nums[i] <= k)
-            )
-            {
-                result.Add([nums[i], nums[i+1], nums[i+2]]);
-                i+=2;
-            }
-            else return [];
+            if (nums[i + 2] - nums[i] > k) return [];
+
+            result[resultIdx++] = [nums[i], nums[i + 1], nums[i + 2]];
         }
-        return result.ToArray();
+        return result;
     }
     public static TheoryData<int[], int, int[][]> TestData => new()
     {

@@ -66,9 +66,7 @@ public class Q1910_RemoveAllOccurencesOfSubstring(ITestOutputHelper output)
         {"axxxxyyyyb", "xy", "ab"},
         {"gjzgbpggjzgbpgsvpwdk", "gjzgbpg", "svpwdk"},
         {"rrrzokrrrzoktbgnlerpstimuatbgnlerpstimuagdgtmfy", "rrrzoktbgnlerpstimua", "gdgtmfy"},
-          kpygkivtlqoocskpyg kpygk
         {"kpygkivtlqoocskpygkpygkivtlqoocssnextkqzjpycbylkaondskivtlqoocssnextkqzjpycbylkaondssnextkqzjpycbylkaondshijzgaovndkjiiuwjtcpdpbkrfsi", "kpygkivtlqoocssnextkqzjpycbylkaonds", "hijzgaovndkjiiuwjtcpdpbkrfsi"},
-        // {"kpygkivtlqoockpygkivtlqoocssnextkqzjpycbylkaondsskpygkpygkivtlqoocssnextkqzjpkpygkivtlqoocssnextkqzjpycbylkaondsycbylkaondskivtlqoocssnextkqzjpycbylkaondssnextkqzjpycbylkaondshijzgaovndkjiiuwjtcpdpbkrfsi", "kpygkivtlqoocssnextkqzjpycbylkaonds", "hijzgaovndkjiiuwjtcpdpbkrfsi"},
     };
     [Theory]
     [MemberData(nameof(TestData))]

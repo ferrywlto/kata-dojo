@@ -1,8 +1,23 @@
 public class Q3783_MirrorDistanceOfInteger
 {
+    // TC: O(d), d scale with number of digits of n
+    // SC: O(1), space used does not scale with input 
     public int MirrorDistance(int n)
     {
-        return 0;
+        if (n < 10) return 0;
+        return Math.Abs(n - ReverseDigits(n));
+    }
+    private int ReverseDigits(int n)
+    {
+        var reversed = 0;
+        while (n > 0)
+        {
+            var digit = n % 10;
+            n /= 10;
+            reversed *= 10;
+            reversed += digit;
+        }
+        return reversed;
     }
     public static TheoryData<int, int> TestData => new()
     {

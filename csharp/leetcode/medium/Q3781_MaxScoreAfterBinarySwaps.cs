@@ -6,19 +6,21 @@ public class Q3781_MaxScoreAfterBinarySwaps(ITestOutputHelper output)
     {
         var maxScore = 0L;
         var lastOneIdx = s.LastIndexOf('1');
+        var firstZeroIdx = int.MaxValue;
         var sb = new StringBuilder(s);
         for(var i=0; i<=lastOneIdx; i++)
         {
             if(sb[i] == '1')
             {
                 var currentMaxIdx = i;
-                for(var j=i-1; j>=0; j--)
+                for(var j=i-1; j>=firstZeroIdx; j--)
                 {
                     output.WriteLine($"back nums[{j}]: {nums[j]}, nums[{currentMaxIdx}]: {nums[currentMaxIdx]}");
                     if(sb[j] == '0' && nums[j] > nums[currentMaxIdx])
                     {
                         output.WriteLine($"hit");
                         currentMaxIdx = j;
+                        if(j < firstZeroIdx) firstZeroIdx = j;
                     }
                 }
                 if(i != currentMaxIdx)
@@ -28,6 +30,10 @@ public class Q3781_MaxScoreAfterBinarySwaps(ITestOutputHelper output)
                 }
                 maxScore += nums[currentMaxIdx];
                 output.WriteLine($"i: {i}, currentMaxIdx: {currentMaxIdx}, {sb.ToString()}");
+            }
+            else
+            {
+                if(i < firstZeroIdx) firstZeroIdx = i;
             }
         }
 

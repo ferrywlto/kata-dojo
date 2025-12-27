@@ -9,7 +9,7 @@ public class Q3771_TotalScoreOfDungeonRuns(ITestOutputHelper output)
         var scoreTable = new Dictionary<long, long>();
 
         var score = 0L;
-        var cumulatedDamage = 0L;
+        // var cumulatedDamage = 0L;
         for(var i=0; i<damage.Length; i++)
         {
             var hpToScore = damage[i] + requirement[i];

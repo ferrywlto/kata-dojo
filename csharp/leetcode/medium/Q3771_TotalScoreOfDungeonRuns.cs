@@ -1,11 +1,20 @@
 public class Q3771_TotalScoreOfDungeonRuns(ITestOutputHelper output)
 {
+    // Recursion or forward + backward propagation
+    // Think of Score(n) = Score(n)
+    // Score(n - 1) = Score(n - 1) + Score(n)
+    // Score(n - 2) = Score(n - 2) + Score(n - 1) + Score(n)
     public long TotalScore(int hp, int[] damage, int[] requirement)
     {
+        var scoreTable = new Dictionary<long, long>();
+
         var score = 0L;
+        var cumulatedDamage = 0L;
         for(var i=0; i<damage.Length; i++)
         {
-            score += Score(i, hp, damage, requirement);
+            var hpToScore = damage[i] + requirement[i];
+
+            scoreTable.Add(hpToScore, i+1);
         }
         return score;
     }

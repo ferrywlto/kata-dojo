@@ -4,15 +4,22 @@ public class Q3746_MinStringLengthAfterBalancedRemovals
     // SC: O(n), worst case stack will hold all characters
     public int MinLengthAfterRemovals(string s)
     {
-        var stack = new Stack<char>();
-        foreach (var c in s)
+        var len = 1;
+        var lastChar = s[0];
+        for (var i = 1; i < s.Length; i++)
         {
-            if (stack.Count > 0 && stack.Peek() != c)
-                stack.Pop();
+            if (len > 0 && lastChar != s[i])
+            {
+                len--;
+            }
             else
-                stack.Push(c);
+            {
+                lastChar = s[i];
+                len++;
+            }
         }
-        return stack.Count();
+
+        return len;
     }
     public static TheoryData<string, int> TestData => new()
     {

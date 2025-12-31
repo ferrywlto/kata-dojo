@@ -1,23 +1,17 @@
+using System.Text;
+
 public class Q1980_FindUniqueBinaryString
 {
-    // TC: O(n), n scale with length of nums, worst case while loop run nums.Length times
-    // SC: O(n), set need to store all unique
+    // TC: O(n), n scale with length of nums
+    // SC: O(n)
     public string FindDifferentBinaryString(string[] nums)
     {
-        if (nums.Length == 1) return nums[0] == "0" ? "1" : "0";
+        var sb = new StringBuilder();
+        // Since it differs from each string at its own index, it can’t equal any of them.
+        for (var i = 0; i < nums.Length; i++)
+            sb.Append(nums[i][i] == '0' ? '1' : '0');
 
-        var init = 0;
-        var set = new HashSet<string>();
-        foreach (var s in nums) set.Add(s);
-
-        var result = init.ToString("b").PadLeft(nums.Length, '0');
-
-        while (set.Contains(result))
-        {
-            init++;
-            result = init.ToString("b").PadLeft(nums.Length, '0');
-        }
-        return result;
+        return sb.ToString();
     }
     public static TheoryData<string[], string> TestData => new()
     {
@@ -27,6 +21,22 @@ public class Q1980_FindUniqueBinaryString
         {["111","011","001"], "101"},
         {["1"], "0"},
         {["0"], "1"},
+        {
+            [
+                "11010011101",
+                "10110010101",
+                "01011001111",
+                "01100011001",
+                "00110110110",
+                "10110011011",
+                "11110000010",
+                "01110000000",
+                "00110011100",
+                "11111011100",
+                "11111110110"
+             ],
+             "00000000000"
+        },
     };
     [Theory]
     [MemberData(nameof(TestData))]

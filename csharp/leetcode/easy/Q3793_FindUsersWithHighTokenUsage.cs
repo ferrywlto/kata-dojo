@@ -1,8 +1,26 @@
 using Row = (int user_id, int prompt_count, double avg_tokens);
 
-public class Q3793_FindUsersWithHighTokenUsage : SqlTest
+public class Q3793_FindUsersWithHighTokenUsage(ITestOutputHelper output) : SqlTest(output)
 {
-    public string Query => "SELECT 1;";
+    public string Query =>
+    """
+    select 
+        distinct pl.user_id as 'user_id', 
+        pr.prompt_count, 
+        ROUND(pr.avg_tokens,2) as 'avg_tokens'
+    from prompts pl
+    left join 
+    (
+        select user_id, count(prompt) as 'prompt_count', avg(tokens) as 'avg_tokens'
+        from prompts
+        group by user_id
+    ) pr
+    on pl.user_id = pr.user_id
+    where 
+        pl.tokens > pr.avg_tokens AND 
+        pr.prompt_count >= 3
+    order by avg_tokens desc, user_id
+    """;
 
     protected override string TestSchema =>
     """
@@ -26,7 +44,7 @@ public class Q3793_FindUsersWithHighTokenUsage : SqlTest
             ('3', 'Explain neural networks', '300'),
             ('3', 'Generate interview Q&A', '250'),
             ('3', 'Write cover letter', '180'),
-            ('3', 'Optimize Python code', '220'),            
+            ('3', 'Optimize Python code', '220');          
             """,
             [
                 (3, 4, 237.5),
@@ -45,12 +63,12 @@ public class Q3793_FindUsersWithHighTokenUsage : SqlTest
 
         AssertResultSchema(reader, ["user_id", "prompt_count", "avg_tokens"]);
 
-        foreach (var row in expected)
+        foreach (var (user_id, prompt_count, avg_tokens) in expected)
         {
             Assert.True(reader.Read());
-            Assert.Equal(row.user_id, reader.GetInt32(0));
-            Assert.Equal(row.prompt_count, reader.GetInt32(1));
-            Assert.Equal(row.avg_tokens, Math.Round(reader.GetDouble(2),2));
+            Assert.Equal(user_id, reader.GetInt32(0));
+            Assert.Equal(prompt_count, reader.GetInt32(1));
+            Assert.Equal(avg_tokens, Math.Round(reader.GetDouble(2), 2));
         }
     }
 }

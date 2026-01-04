@@ -1,36 +1,45 @@
+// TC: O(n), n scale with number of input commands.
+// SC: O(n), worst case all commands are "visit", then history list contains all urls 
 public class BrowserHistory
 {
-
+    private readonly List<string> history = [];
+    private int historyIdx = 0;
     public BrowserHistory(string homepage)
     {
-
+        history.Add(homepage);
     }
 
     public void Visit(string url)
     {
+        var maxLen = history.Count - 1;
+        if (historyIdx != maxLen)
+        {
+            history.RemoveRange(historyIdx + 1, maxLen - historyIdx);
+        }
 
+        history.Add(url);
+        historyIdx++;
     }
 
     public string Back(int steps)
     {
-        return "";
+        historyIdx -= steps;
+        if (historyIdx < 0) historyIdx = 0;
+
+        return history[historyIdx];
     }
 
     public string Forward(int steps)
     {
-        return "";
+        historyIdx += steps;
+        if (historyIdx >= history.Count)
+            historyIdx = history.Count - 1;
+
+        return history[historyIdx];
     }
 }
 
-/**
- * Your BrowserHistory object will be instantiated and called as such:
- * BrowserHistory obj = new BrowserHistory(homepage);
- * obj.Visit(url);
- * string param_2 = obj.Back(steps);
- * string param_3 = obj.Forward(steps);
- */
-
-public class Q1742_DesignBrowserHistory
+public class Q1742_DesignBrowserHistory(ITestOutputHelper output)
 {
     public static TheoryData<string[], string[], string?[]> TestData => new()
     {
@@ -46,17 +55,18 @@ public class Q1742_DesignBrowserHistory
     public void Test(string[] commands, string[] parameters, string?[] expected)
     {
         var browser = new BrowserHistory(parameters[0]);
-        for(var i=1; i<commands.Length; i++)
+        for (var i = 1; i < commands.Length; i++)
         {
-            if(commands[i] == "back")
+            output.WriteLine($"cmd: {commands[i]}, param: {parameters[i]}, expected: {expected[i]}");
+            if (commands[i] == "back")
             {
                 Assert.Equal(expected[i], browser.Back(int.Parse(parameters[i])));
             }
-            else if(commands[i] == "forward")
+            else if (commands[i] == "forward")
             {
                 Assert.Equal(expected[i], browser.Forward(int.Parse(parameters[i])));
             }
-            else if(commands[i] == "visit")
+            else if (commands[i] == "visit")
             {
                 browser.Visit(parameters[i]);
             }

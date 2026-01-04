@@ -1,8 +1,19 @@
 public class Q2221_FindTriangularSumOfArray
 {
+    // TC: O(n), n scale with length of nums
+    // SC: O(1)
     public int TriangularSum(int[] nums)
     {
-        return 0;
+        var len = nums.Length;
+        while (len != 1)
+        {
+            for (var i = 0; i < len - 1; i++)
+            {
+                nums[i] = (nums[i] + nums[i + 1]) % 10;
+            }
+            len--;
+        }
+        return nums[0];
     }
     public static TheoryData<int[], int> TestData => new()
     {

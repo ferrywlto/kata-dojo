@@ -1,9 +1,41 @@
 public class Q3446_SortMatrixByDiagonals
 {
+    // TC: O(row + col) of grid
+    // SC: O(1)
     public int[][] SortMatrix(int[][] grid)
     {
-        
-        return [];
+        var size = grid.Length;
+        for (var row = 0; row < size; row++)
+            ReadDiagonal(grid, row, 0, 'd');
+
+        for (var col = 1; col < size; col++)
+            ReadDiagonal(grid, 0, col, 'a');
+
+        return grid;
+    }
+    // TC: O(m), m scale with input.length
+    // SC: O(m)
+    private void ReadDiagonal(int[][] input, int rowStart, int colStart, char sortOrder)
+    {
+        var size = input.Length;
+        var row = rowStart;
+        var col = colStart;
+        var sorted = new List<int>();
+        var sortIdx = 0;
+
+        while (row < size && col < size)
+            sorted.Add(input[row++][col++]);
+
+        if (sortOrder == 'a')
+            sorted.Sort();
+        else if (sortOrder == 'd')
+            sorted.Sort((a, b) => b - a);
+
+        row = rowStart;
+        col = colStart;
+
+        while (row < size && col < size)
+            input[row++][col++] = sorted[sortIdx++];
     }
     public static TheoryData<int[][], int[][]> TestData => new()
     {
@@ -16,6 +48,10 @@ public class Q3446_SortMatrixByDiagonals
         },
         {
             [[1]], [[1]]
+        },
+        {
+            [[-3,0],[-5,4]],
+            [[4,0],[-5,-3]]
         }
     };
     [Theory]

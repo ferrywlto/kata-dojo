@@ -1,11 +1,59 @@
-public class Q1277_CountSquareSubmatricesWithAllOnes
+public class Q1277_CountSquareSubmatricesWithAllOnes(ITestOutputHelper output)
 {
     // private readonly int[][] _matrix;
     public int CountSquares(int[][] matrix)
     {
-        var count = Check(matrix, [0], [0], 0, 0);
+        var rows = matrix.Length;
+        var cols = matrix[0].Length;
+        var result = 0;
+
+        for(var row=0; row<rows; row++)
+        {
+            for(var col=0; col<cols; col++)
+            {
+                if(matrix[row][col] == 1)
+                {
+                    // greedy get one of this row to get how many columns is one
+                    result += 1 + ExpansionSum(matrix, row, col);
+                    // then shrink the row to column
+                    // then the min col size is number of squares inside
+                    // e.g if col is 2 at last, that means 1x1 and 2x2 possible 
+                }
+                //do sth
+            }
+        }
+
         return 0;
     }
+
+    // do a recursive expansion add
+    private int ExpansionSum(int[][] input, int startRow, int startCol)
+    {
+        var rowDepth = input.Length;
+        
+        for(var row=startRow; row<rowDepth; row++)
+        {
+            var colDepth = 0;
+            for(var col=startCol; col<colDepth; col++)
+            {
+                if(input[row][col] == 1)
+                {
+                    colDepth++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            // shrink the square search on 0
+            rowDepth = Math.Min(rowDepth, startRow + colDepth);
+        } 
+        output.WriteLine($"Depth of [{startRow},{startCol}]: {rowDepth}");
+        return rowDepth;
+    }
+
+
+
     private int Check(int[][] matrix, List<int> rowList, List<int> colList, int rowIdx, int colIdx)
     {
         var rowCount = matrix.Length;

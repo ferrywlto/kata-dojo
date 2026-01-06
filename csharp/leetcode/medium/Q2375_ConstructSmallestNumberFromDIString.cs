@@ -1,25 +1,31 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
-public class Q2375_ConstructSmallestNumberFromDIString
+public class Q2375_ConstructSmallestNumberFromDIString//(ITestOutputHelper output)
 {
     public string SmallestNumber(string pattern)
     {
-        // var updown = new int[2];
-        // var result = new char[9];
-        // for(var i=0; i<pattern.Length; i++)
-        // {
-        //     if(pattern[i] == 'I') updown[0]++;
-        //     else updown[1]++;
-        // }
-        // var sb = new StringBuilder();
-        var digits = new int[] { 1, 2, 3, 4, 5 ,6 ,7, 8, 9};
-        digits.ToHashSet();
-        for(var i=1; i<=9; i++)
+        var sb = new StringBuilder("I" + pattern);
+        var result = new StringBuilder();
+
+        var dCount = 0;
+        var smallestDigit = 1;
+        var currentValue = 0;
+        for(var i=0; i<sb.Length; i++)
         {
-            Console.WriteLine($"pattern: {pattern}, possible: {Recursion(digits.ToHashSet(), i, pattern)}");
+            if(sb[i] == 'I')
+            {
+                currentValue = smallestDigit + dCount;
+                result.Append(currentValue);
+                dCount = 0;
+                smallestDigit++;
+            }
+            else
+            {
+                result.Append(--currentValue);
+                dCount++;
+            }
         }
-        return string.Empty;
+        return result.ToString();
     }
     private int FirstPossibleSmaller(HashSet<int> set, int targetToCompare)
     {

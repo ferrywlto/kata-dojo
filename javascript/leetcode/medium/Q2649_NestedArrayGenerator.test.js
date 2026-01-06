@@ -1,4 +1,16 @@
 var inorderTraversal = function* (arr) {
+  // without flatten to a new array
+  /*
+  var inorderTraversal = function*(arr) {
+      if (Array.isArray(arr)) {
+          for (var thing of arr) {
+              yield* inorderTraversal(thing);
+          }
+      } else {
+          yield arr;
+      }
+  };
+  */
     let val = arr.flat(Infinity);
     let idx = 0;
     while (idx < val.length) {

@@ -17,7 +17,7 @@ var inorderTraversal = function* (arr) {
       yield val[idx++];
     }
 };
-describe("Q2649 Is Object Empty", () => {
+describe("Q2649 Nested Array Generator", () => {
   test("case 1", () => {
     const expected = [6, 1, 3];
     const gen = inorderTraversal([[[6]], [1, 3], []]);

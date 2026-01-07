@@ -7,13 +7,23 @@ public class Q1072_FlipColumnsForMaxNumberOfEqualRows
     public static TheoryData<int[][], int> TestData => new()
     {
         {
-            [[0,1],[1,1]], 1
+            [
+                [0,1],
+                [1,1]
+            ], 1
         },
         {
-            [[0,1],[1,0]], 2
+            [
+                [0,1],
+                [1,0]
+            ], 2
         },
         {
-            [[0,0,0],[0,0,1],[1,1,0]], 2
+            [
+                [0,0,0],
+                [0,0,1],
+                [1,1,0]
+            ], 2
         }
     };
     [Theory]

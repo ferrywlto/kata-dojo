@@ -1,8 +1,17 @@
 public class Q3100_WaterBottlesII
 {
+    // TC: O(n), n scale with size of numBottles
+    // SC: O(1), space used does not scale with input
     public int MaxBottlesDrunk(int numBottles, int numExchange)
     {
-        return 0;
+        var result = numBottles;
+        var emptyBottles = numBottles;
+        while (emptyBottles >= numExchange)
+        {
+            emptyBottles = emptyBottles + 1 - numExchange++;
+            result++;
+        }
+        return result;
     }
     public static TheoryData<int, int, int> TestData => new()
     {

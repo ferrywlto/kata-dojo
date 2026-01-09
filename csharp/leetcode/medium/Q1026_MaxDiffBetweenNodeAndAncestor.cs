@@ -1,31 +1,27 @@
 public class Q1026_MaxDiffBetweenNodeAndAncestor(ITestOutputHelper output) : TreeNodeTest(output)
 {
-    // TC: O(d^2), d scale with depth of root
-    // SC: O(d^2), each node holds all ancestors
+    // TC: O(d), d scale with depth of root
+    // SC: O(d), each node holds all ancestors
     public int MaxAncestorDiff(TreeNode root)
     {
-        var result = X(root, []);
-        return result;
+        FindMaxDiff(root, root.val, root.val);
+        return maxDiff;
     }
 
-    private int X(TreeNode? node, HashSet<int> ancestors)
+    private int maxDiff = 0;
+    private void FindMaxDiff(TreeNode? node, int min, int max)
     {
-        if (node == null) return -1;
+        if (node == null) return;
 
-        var maxDiff = 0;
-        foreach (var a in ancestors)
-        {
-            var diff = Math.Abs(node.val - a);
-            if (Math.Abs(node.val - a) > maxDiff)
-            {
-                maxDiff = Math.Max(maxDiff, diff);
-            }
-        }
-        var fromLeft = X(node.left, [.. ancestors, node.val]);
-        var fromRight = X(node.right, [.. ancestors, node.val]);
+        var diffFromMin = Math.Abs(node.val - min);
+        var diffFromMax = Math.Abs(node.val - max);
+        var largerDiff = Math.Max(diffFromMin, diffFromMax);
+        maxDiff = Math.Max(maxDiff, largerDiff);
 
-        var maxDiffFromBelow = Math.Max(fromLeft, fromRight);
-        return Math.Max(maxDiff, maxDiffFromBelow);
+        var newMin = Math.Min(min, node.val);
+        var newMax = Math.Max(max, node.val);
+        FindMaxDiff(node.left, newMin, newMax);
+        FindMaxDiff(node.right, newMin, newMax);
     }
 
     public static TheoryData<TreeNode, int> TestData => new()

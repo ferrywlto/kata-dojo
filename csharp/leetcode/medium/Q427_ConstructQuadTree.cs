@@ -2,14 +2,14 @@
 
 public class Q427_ConstructQuadTree
 {
-    private class Node
+    public class Node
     {
-        public bool val;
-        public bool isLeaf;
-        public Node topLeft;
-        public Node topRight;
-        public Node bottomLeft;
-        public Node bottomRight;
+        public bool? val;
+        public bool? isLeaf;
+        public Node? topLeft;
+        public Node? topRight;
+        public Node? bottomLeft;
+        public Node? bottomRight;
 
         public Node()
         {

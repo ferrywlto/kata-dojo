@@ -1,22 +1,50 @@
 public class Q48_RotateImage
 {
     // TC: O(n^2), n scale with length of matrix
-    // SC: O(n), only whole a row or a column
+    // SC: O(1), only whole a row or a column
     private void Rotate(int[][] matrix)
     {
-        var queue = new Queue<int>();
-        Rotate(matrix, 0, 0, matrix.Length, queue);
+        // Time: O(n^2) for transpose + reverse; Space: O(1) extra.
+        // var queue = new Queue<int>();
+        // Rotate(matrix, 0, 0, matrix.Length, queue);
+
+        TransposeInPlace(matrix);
+        ReverseRows(matrix);
+    }
+    private void TransposeInPlace(int[][] input)
+    {
+        // Time: O(n^2) upper-triangle swaps; Space: O(1).
+        var n = input.Length;
+        for (var row = 0; row < n; row++)
+        {
+            for (var col = row + 1; col < n; col++)
+            {
+                (input[row][col], input[col][row]) = (input[col][row], input[row][col]);
+            }
+        }
+    }
+    private void ReverseRows(int[][] input)
+    {
+        // Time: O(n^2) row swaps; Space: O(1).
+        for (var row = 0; row < input.Length; row++)
+        {
+            for (var col = 0; col < input.Length / 2; col++)
+            {
+                (input[row][^(col + 1)], input[row][col]) = (input[row][col], input[row][^(col + 1)]);
+            }
+        }
     }
 
     private void Rotate(int[][] input, int rowStartIdx, int colStartIdx, int size, Queue<int> queue)
     {
+        // Time: O(n^2) total across layers; Space: O(n) queue + O(n) recursion depth.
         if (size < 2) return;
 
         queue.Clear();
 
         var colEndIdx = colStartIdx + size - 1;
         var rowEndIdx = rowStartIdx + size - 1;
-        
+
         // top
         for (var col = colStartIdx; col < colEndIdx; col++)
         {
@@ -49,6 +77,33 @@ public class Q48_RotateImage
         Rotate(input, rowStartIdx + 1, colStartIdx + 1, size - 2, queue);
     }
 
+    // Learning
+    // Rotate 90 -> transpose each row to col, then reverse each row
+    // 1 4 7
+    // 2 5 8
+    // 3 6 9
+
+    // 7 4 1
+    // 8 5 2
+    // 9 8 3
+
+    // Rotate 180 -> reverse each row, then reverse each column
+    // 3 2 1
+    // 6 5 4
+    // 9 8 7
+
+    // 9 8 7
+    // 6 5 4
+    // 3 2 1
+
+    // Rotate 270 -> transpose each row to col, then reverse each column
+    // 1 4 7
+    // 2 5 8
+    // 3 6 9
+
+    // 3 6 9
+    // 2 5 8
+    // 1 4 7    
     public static TheoryData<int[][], int[][]> TestData => new()
     {
         {
@@ -57,7 +112,7 @@ public class Q48_RotateImage
         {
             [[1,2],[4,3]],
             [[4,1],[3,2]]
-        },        
+        },
         {
             [[1,2,3],[4,5,6],[7,8,9]],
             [[7,4,1],[8,5,2],[9,6,3]]
@@ -71,6 +126,7 @@ public class Q48_RotateImage
     [MemberData(nameof(TestData))]
     public void Test(int[][] input, int[][] expected)
     {
+        // Time: O(n^2) for rotate + O(n^2) assert; Space: O(1) extra.
         Rotate(input);
         Assert.Equal(expected, input);
     }

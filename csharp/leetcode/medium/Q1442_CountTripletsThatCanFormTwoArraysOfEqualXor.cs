@@ -6,21 +6,39 @@ public class Q1442_CountTripletsThatCanFormTwoArraysOfEqualXor(ITestOutputHelper
 
         var len = arr.Length;
         
-
-        // get Xor from i to i+n
-        for(var i=1; i<len-1; i++)
-        {
-            Xor2(arr, i);
-        }
         var result = 0;
-        foreach(var p in Cache)
+        for(var i = 0; i<len-2; i++)
         {
-            output.WriteLine("result: {0}, count: {1}, idxes: {2}", p.Key, p.Value.count, string.Join(',', p.Value.indexes.Select(p => $"[{p[0]},{p[1]}]")));
-            if(p.Value.count > 1) result += p.Value.count;
+            for(var j = i+1; j<len-1; j++)
+            {
+                for(var k = j; k<len; k++)
+                {
+                    if(XorEqual(arr, i, j, k))
+                    {
+                        result++;   
+                    }
+                }
+            }
         }
         return result;
     }
     Dictionary<int, (int count, List<int[]> indexes)> Cache = new(); 
+
+    private bool XorEqual(int[] input, int i, int j, int k)
+    {
+        var a = input[i];
+        for(var aStart = i+1; aStart<j; aStart++)
+        {
+            a ^= input[aStart];
+        }
+        var b = input[j];
+        for(var bStart = j+1; bStart<=k; bStart++)
+        {
+            b ^= input[bStart];
+        }
+        return a == b;
+    }
+
     private void Xor(int[] arr, int startIdx) 
     {
         var temp = arr[startIdx];

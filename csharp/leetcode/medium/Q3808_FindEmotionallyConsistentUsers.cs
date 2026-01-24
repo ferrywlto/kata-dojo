@@ -2,8 +2,28 @@
 public class Q3808_FindEmotionallyConsistentUsers(ITestOutputHelper output) : SqlTest(output)
 {
     public string Query => 
+
     """
-    SELECT 1;
+    select * from
+    (
+        select 
+            u.user_id, 
+            r.reaction as dominant_reaction, 
+            CAST(r.r_count/CAST(u.content_count as DOUBLE) as DECIMAL(10, 2)) as reaction_ratio  
+        from 
+        (
+            SELECT user_id, count(content_id) as content_count From reactions
+            GROUP BY user_id
+            HAVING count(distinct content_id) >= 5
+        ) u, 
+        (
+            SELECT user_id, reaction, count(reaction) as r_count From reactions
+            GROUP BY user_id, reaction
+        ) r
+        where u.user_id = r.user_id
+    ) x
+    where reaction_ratio > 0.6
+    order by reaction_ratio desc, user_id asc;
     """;
 
     protected override string TestSchema => 

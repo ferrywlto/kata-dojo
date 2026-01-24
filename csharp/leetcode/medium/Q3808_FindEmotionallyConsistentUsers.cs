@@ -1,9 +1,30 @@
 ﻿using Row = (int user_id, string dominant_reaction, double reaction_ratio);
 public class Q3808_FindEmotionallyConsistentUsers(ITestOutputHelper output) : SqlTest(output)
 {
-    public string Query => 
-
-    """
+    // Optimal query for reference
+    // PARTITION BY user_id means “compute the sum separately for each user_id and repeat it on every row in that group.”
+    /*
+        SELECT
+            user_id,
+            reaction AS dominant_reaction,
+            ROUND(cnt / total_cnt, 2) AS reaction_ratio
+        FROM (
+            SELECT
+                user_id,
+                reaction,
+                COUNT(*) AS cnt,
+                SUM(COUNT(*)) OVER (PARTITION BY user_id) AS total_cnt,
+                RANK() OVER (PARTITION BY user_id ORDER BY COUNT(*) DESC) AS rnk
+            FROM reactions
+            GROUP BY user_id, reaction
+        ) t
+        WHERE total_cnt >= 5
+        AND cnt >= 0.6 * total_cnt
+        AND rnk = 1
+        ORDER BY reaction_ratio DESC, user_id ASC;    
+    */
+    public string Query =>
+    """    
     select * from
     (
         select 
@@ -26,7 +47,7 @@ public class Q3808_FindEmotionallyConsistentUsers(ITestOutputHelper output) : Sq
     order by reaction_ratio desc, user_id asc;
     """;
 
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     CREATE TABLE reactions (
         user_id INT,
@@ -35,7 +56,7 @@ public class Q3808_FindEmotionallyConsistentUsers(ITestOutputHelper output) : Sq
     );
     """;
 
-    public static TheoryData<string, Row[]> TestData => new ()
+    public static TheoryData<string, Row[]> TestData => new()
     {
         {
             """
@@ -65,13 +86,13 @@ public class Q3808_FindEmotionallyConsistentUsers(ITestOutputHelper output) : Sq
 
     [Theory]
     [MemberData(nameof(TestData))]
-    public void Test(string dataSql , Row[] expected)
+    public void Test(string dataSql, Row[] expected)
     {
         ArrangeTestData(dataSql);
         var reader = ExecuteQuery(Query, true);
         AssertResultSchema(reader, ["user_id", "dominant_reaction", "reaction_ratio"]);
 
-        foreach(var (user_id, dominant_reaction, reaction_ratio) in expected)
+        foreach (var (user_id, dominant_reaction, reaction_ratio) in expected)
         {
             Assert.True(reader.Read());
             Assert.Equal(user_id, reader.GetInt32(0));

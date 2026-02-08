@@ -40,34 +40,34 @@ public class Q3823_ReverseLettersThenSpecialCharactersInString
 
     public string ReverseByTypeFast(string s)
     {
-        var sb = new StringBuilder(s);
-        var charIdx = sb.Length - 1;
-        var nonCharIdx = sb.Length - 1;
+        Span<char> sb = stackalloc char[s.Length];
+        var charIdx = s.Length - 1;
+        var nonCharIdx = s.Length - 1;
 
         for(var i=0; i<s.Length; i++)
         {
             if(char.IsAsciiLetterLower(s[i]))
             {
                 // swap with first encounter char
-                while(!char.IsAsciiLetterLower(sb[charIdx])) { charIdx--; }
-                if(charIdx > i)
-                {                    
-                    (sb[charIdx], sb[i]) = (sb[i], sb[charIdx]);
-                    charIdx--;
+                while(!char.IsLower(s[charIdx])) { charIdx--; }
+                if(charIdx >= i)
+                {
+                    sb[charIdx] = s[i];
+                    sb[i] = s[charIdx--];
                 }
             }
             else
             {
                 // swap with first encounter non-char
-                while(char.IsAsciiLetterLower(sb[nonCharIdx])) { nonCharIdx--; }
-                if(nonCharIdx > i)
-                {                    
-                    (sb[nonCharIdx], sb[i]) = (sb[i], sb[nonCharIdx]);
-                    nonCharIdx--;
+                while(char.IsLower(s[nonCharIdx])) { nonCharIdx--; }
+                if(nonCharIdx >= i)
+                {
+                    sb[nonCharIdx] = s[i];
+                    sb[i] = s[nonCharIdx--];                    
                 }
             }            
         }
-        return sb.ToString();
+        return new string(sb);
     }
     
     public static TheoryData<string, string> TestData => new()

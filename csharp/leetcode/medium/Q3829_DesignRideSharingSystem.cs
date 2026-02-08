@@ -1,28 +1,48 @@
 ﻿public class Q3829_DesignRideSharingSystem
 {
-    public class RideSharingSystem {
+    private class RideSharingSystem
+    {
 
-        public RideSharingSystem() {
-            
+        private readonly Queue<int> _riders = [];
+        private readonly Queue<int> _drivers = [];
+        // Possible faster approach is to use a fixed array with length 1000 due to small constraint
+        private readonly HashSet<int> _canceledRiders = [];
+
+        public void AddRider(int riderId)
+        {
+            _canceledRiders.Remove(riderId);
+            _riders.Enqueue(riderId);
         }
-        
-        public void AddRider(int riderId) {
-            
+
+        public void AddDriver(int driverId)
+        {
+            _drivers.Enqueue(driverId);
         }
-        
-        public void AddDriver(int driverId) {
-            
+
+        public int[] MatchDriverWithRider()
+        {
+            while (_riders.Count > 0 && _canceledRiders.Contains(_riders.Peek()))
+            {
+                var r = _riders.Peek();
+                _canceledRiders.Remove(_riders.Dequeue());
+            }
+
+            if (_riders.Count > 0 && _drivers.Count > 0)
+            {
+                var rider = _riders.Dequeue();
+                var driver = _drivers.Dequeue();
+                _canceledRiders.Remove(rider);
+                return [driver, rider];
+            }
+            return [-1, -1];
         }
-        
-        public int[] MatchDriverWithRider() {
-            return [];
-        }
-        
-        public void CancelRider(int riderId) {
-            
+
+        public void CancelRider(int riderId)
+        {
+            _canceledRiders.Add(riderId);
         }
     }
-    
+
     [Fact]
     public void TestCase1()
     {
@@ -46,16 +66,28 @@
     [Fact]
     public void TestCase2()
     {
-        var sys = new RideSharingSystem(); // Initializes the system
-        sys.AddRider(8); // rider 8 joins the queue
-        sys.AddDriver(8); // driver 8 joins the queue
-        sys.AddDriver(6); // driver 6 joins the queue
-        sys.MatchDriverWithRider(); // returns [8, 8]
-        Assert.Equal([8, 8], sys.MatchDriverWithRider());
+        var sys = new RideSharingSystem();
+        sys.AddRider(8);
+        sys.AddDriver(8);
+        sys.AddDriver(6);
 
-        sys.AddRider(2); // rider 2 joins the queue
-        sys.CancelRider(2); // rider 2 cancels
-        sys.MatchDriverWithRider(); // returns [-1, -1]
-        Assert.Equal([-1, -1], sys.MatchDriverWithRider());
+        var match1 = sys.MatchDriverWithRider();
+        Assert.Equal([8, 8], match1);
+
+        sys.AddRider(2);
+        sys.CancelRider(2);
+        var match2 = sys.MatchDriverWithRider();
+        Assert.Equal([-1, -1], match2);
+    }
+
+    [Fact]
+    public void TestCase3()
+    {
+        var sys = new RideSharingSystem();
+        sys.AddDriver(2);
+        sys.CancelRider(1);
+        sys.AddRider(1);
+        var match = sys.MatchDriverWithRider();
+        Assert.Equal([2, 1], match);
     }
 }

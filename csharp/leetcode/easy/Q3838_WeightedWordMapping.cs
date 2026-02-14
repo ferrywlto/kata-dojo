@@ -1,8 +1,23 @@
 ﻿public class Q3838_WeightedWordMapping
 {
+    // TC: O(n), n scale with total characters in words
+    // SC: O(n), n scale with length of words
     public string MapWordWeights(string[] words, int[] weights)
     {
-        return "";
+        var len = words.Length;
+        Span<char> result = stackalloc char[len];
+        for (var i = 0; i < len; i++)
+        {
+            var w = words[i];
+            var wordSum = 0;
+
+            foreach (var c in w)
+                wordSum += weights[c - 'a'];
+
+            result[i] = (char)(25 - (wordSum % 26) + 'a');
+        }
+
+        return new string(result);
     }
 
     public static TheoryData<string[], int[], string> TestData => new()
@@ -11,7 +26,7 @@
         {["a","b","c"], [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], "yyy"},
         {["abcd"], [7,5,3,4,3,5,4,9,4,2,2,7,10,2,5,10,6,1,2,2,4,1,3,4,4,5], "g"}
     };
-    
+
     [Theory]
     [MemberData(nameof(TestData))]
     public void Test(string[] words, int[] weights, string expected)

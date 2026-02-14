@@ -1,0 +1,22 @@
+﻿public class Q3838_WeightedWordMapping
+{
+    public string MapWordWeights(string[] words, int[] weights)
+    {
+        return "";
+    }
+
+    public static TheoryData<string[], int[], string> TestData => new()
+    {
+        {["abcd","def","xyz"], [5,3,12,14,1,2,3,2,10,6,6,9,7,8,7,10,8,9,6,9,9,8,3,7,7,2], "rij"},
+        {["a","b","c"], [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], "yyy"},
+        {["abcd"], [7,5,3,4,3,5,4,9,4,2,2,7,10,2,5,10,6,1,2,2,4,1,3,4,4,5], "g"}
+    };
+    
+    [Theory]
+    [MemberData(nameof(TestData))]
+    public void Test(string[] words, int[] weights, string expected)
+    {
+        var actual = MapWordWeights(words, weights);
+        Assert.Equal(expected, actual);
+    }
+}

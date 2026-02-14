@@ -1,8 +1,19 @@
-﻿public class Q3833_CountDominantIndices
+﻿// TC: O(n), n scale with length of nums
+// SC: O(1), space used does not scale with input
+public class Q3833_CountDominantIndices
 {
     public int DominantIndices(int[] nums)
     {
-        return 0;
+        var dominantCount = 0;
+        var sum = 0;
+        for (var i = nums.Length - 1; i >= 1; i--)
+        {
+            sum += nums[i];
+            var avg = sum / (double)(nums.Length - i);
+            if (nums[i - 1] > avg)
+                dominantCount++;
+        }
+        return dominantCount;
     }
     public static TheoryData<int[], int> TestData => new()
     {

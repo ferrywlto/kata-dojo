@@ -1,4 +1,4 @@
-class Q414_ThirdMaximum
+﻿class Q414_ThirdMaximum
 {
     // TC: O(n long n), SC: O(n)
     public int ThirdMax_Trival(int[] nums)
@@ -15,19 +15,19 @@ class Q414_ThirdMaximum
     // TC: O(n), SC: O(1)
     public int ThirdMax_ThreeVars(int[] nums)
     {
-        for (var i=0; i<nums.Length; i++)
+        for (var i = 0; i < nums.Length; i++)
         {
             UpdateLargest(nums[i]);
         }
-        return (int)(ThirdLargest??Largest!);
+        return (int)(ThirdLargest ?? Largest!);
     }
 
     public void UpdateLargest(int input)
     {
-        if (input == Largest || input == SecondLargest || input == ThirdLargest) 
+        if (input == Largest || input == SecondLargest || input == ThirdLargest)
             return;
 
-        if (Largest == null || input > Largest) 
+        if (Largest == null || input > Largest)
         {
             ThirdLargest = SecondLargest;
             SecondLargest = Largest;
@@ -45,7 +45,7 @@ class Q414_ThirdMaximum
     }
 }
 
-class Q414_ThirdMaximumTestData: TestData
+class Q414_ThirdMaximumTestData : TestData
 {
     protected override List<object[]> Data =>
     [

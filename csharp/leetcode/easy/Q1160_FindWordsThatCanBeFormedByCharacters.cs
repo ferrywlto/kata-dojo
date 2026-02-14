@@ -1,4 +1,4 @@
-class Q1160_FindWordsThatCanBeFormedByCharacters
+﻿class Q1160_FindWordsThatCanBeFormedByCharacters
 {
     // TC: O(n), n = total chars in words + length in chars
     // SC: O(n), n = lenth in chars + max length in words
@@ -8,7 +8,7 @@ class Q1160_FindWordsThatCanBeFormedByCharacters
         var hashset = new HashSet<string>();
 
         var result = 0;
-        for(var i=0; i<words.Length; i++)
+        for (var i = 0; i < words.Length; i++)
         {
             if (hashset.Contains(words[i]))
             {
@@ -16,14 +16,14 @@ class Q1160_FindWordsThatCanBeFormedByCharacters
                 continue;
             }
             var wordMap = new Dictionary<char, int>();
-            for(var j=0; j<words[i].Length; j++)
+            for (var j = 0; j < words[i].Length; j++)
             {
                 var charFromWord = words[i][j];
                 if (!charsMap.TryGetValue(charFromWord, out var countFromChars))
                 {
                     wordMap.Clear();
                     break;
-                } 
+                }
 
                 if (!wordMap.TryGetValue(charFromWord, out var countFromWord))
                     wordMap.Add(charFromWord, 1);
@@ -47,7 +47,7 @@ class Q1160_FindWordsThatCanBeFormedByCharacters
 }
 class Q1160_FindWordsThatCanBeFormedByCharactersTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new string[] {"cat","bt","hat","tree"}, "atach", 6],
         [new string[] {"hello","world","leetcode"}, "welldonehoneyr", 10],

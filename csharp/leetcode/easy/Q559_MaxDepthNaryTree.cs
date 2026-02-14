@@ -1,8 +1,8 @@
-class Q559_MaxDepthNaryTree
+﻿class Q559_MaxDepthNaryTree
 {
     // TC: O(n)
     // SC: O(n)
-    public int MaxDepth(NaryTreeNode root) 
+    public int MaxDepth(NaryTreeNode root)
     {
         if (root == null) return 0;
         if (root.children.Count == 0) return 1;
@@ -10,15 +10,15 @@ class Q559_MaxDepthNaryTree
         var maxDepth = 1;
         var stack = new Stack<(NaryTreeNode node, int depth)>();
         stack.Push((root, 1));
-        while(stack.Count > 0)
+        while (stack.Count > 0)
         {
             var (node, depth) = stack.Pop();
-            if (depth > maxDepth) 
+            if (depth > maxDepth)
                 maxDepth = depth;
 
-            if(node.children.Count > 0)
+            if (node.children.Count > 0)
             {
-                for(var i=0; i<node.children.Count; i++)
+                for (var i = 0; i < node.children.Count; i++)
                 {
                     stack.Push((node.children[i], depth + 1));
                 }
@@ -30,7 +30,7 @@ class Q559_MaxDepthNaryTree
 
 class Q559_MaxDepthNaryTreeTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int?[]{1,null,3,2,4,null,5,6}, 3],
         [new int?[]{1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14}, 5],

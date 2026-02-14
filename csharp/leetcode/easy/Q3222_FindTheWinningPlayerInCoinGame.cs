@@ -1,4 +1,4 @@
-public class Q3222_FindTheWinningPlayerInCoinGame
+﻿public class Q3222_FindTheWinningPlayerInCoinGame
 {
     // TC: O(x), x scale with larger between x and y
     // SC: O(x), same as time  

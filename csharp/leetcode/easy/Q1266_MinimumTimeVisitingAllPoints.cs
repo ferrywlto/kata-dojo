@@ -1,4 +1,4 @@
-class Q1266_MinimumTimeVisitingAllPoints
+﻿class Q1266_MinimumTimeVisitingAllPoints
 {
     // TC: O(n), n is size of points
     // SC: O(1), no space used in operation
@@ -6,7 +6,7 @@ class Q1266_MinimumTimeVisitingAllPoints
     {
         if (points.Length == 1) return 0;
         var result = 0;
-        for(var i=0; i<points.Length-1; i++)
+        for (var i = 0; i < points.Length - 1; i++)
         {
             var pointA = points[i];
             var pointB = points[i + 1];

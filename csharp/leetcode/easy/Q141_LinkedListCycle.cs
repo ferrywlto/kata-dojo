@@ -1,11 +1,11 @@
-class Q141_LinkedListCycleTestData : TestData
+﻿class Q141_LinkedListCycleTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[] { 3, 2, 0, -4 }, 1, true],
         [new int[] { 1, 2 }, 0, true],
         [new int[] { 1 }, -1, false],
-        [Array.Empty<int>(), -1, false],        
+        [Array.Empty<int>(), -1, false],
     ];
 }
 

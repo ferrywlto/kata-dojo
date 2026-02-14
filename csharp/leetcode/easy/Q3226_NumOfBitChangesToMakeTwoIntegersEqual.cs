@@ -1,4 +1,4 @@
-public class Q3226_NumOfBitChangesToMakeTwoIntegersEqual
+﻿public class Q3226_NumOfBitChangesToMakeTwoIntegersEqual
 {
     // TC: O(1), since both n and k is 32 bits integer, it cannot exceed more than 32 operations, furthermore the question constraints stated both n & k is < 10^6 so the time is constant
     // SC: O(1), space used does not scale with input

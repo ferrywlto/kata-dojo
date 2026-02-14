@@ -1,24 +1,24 @@
-class Q1422_MaxScoreAfterSpiltString
-{   
+﻿class Q1422_MaxScoreAfterSpiltString
+{
     // TC: O(n), n for initial left and right score, + n-1 ops for sliding window calculate new scores  
     // SC: O(1), comparisons doing in-place
     public int MaxScore(string s)
     {
-        var leftScore = 0; 
+        var leftScore = 0;
         var rightScore = 0;
 
         if (s[0] == '0') leftScore++;
-        for(var i=s.Length-1; i>=1; i--)
+        for (var i = s.Length - 1; i >= 1; i--)
         {
             if (s[i] == '1') rightScore++;
         }
         var max = leftScore + rightScore;
-        for(var j=1; j<s.Length-1; j++)
+        for (var j = 1; j < s.Length - 1; j++)
         {
             if (s[j] == '0') leftScore++;
             else rightScore--;
 
-            if (leftScore + rightScore > max) 
+            if (leftScore + rightScore > max)
                 max = leftScore + rightScore;
         }
         return max;
@@ -26,7 +26,7 @@ class Q1422_MaxScoreAfterSpiltString
 }
 class Q1422_MaxScoreAfterSpiltStringTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["011101", 5],
         ["00111", 5],

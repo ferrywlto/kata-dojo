@@ -1,4 +1,4 @@
-public class Q3191_MinOpsToMakeBinaryArrayElementsEqualToOneI
+﻿public class Q3191_MinOpsToMakeBinaryArrayElementsEqualToOneI
 {
     // TC: O(n), n sacle with length of nums, worst case 3n
     // SC: O(1), space used does not sacle with input

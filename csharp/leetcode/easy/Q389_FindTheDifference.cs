@@ -1,4 +1,4 @@
-class Q389_FindTheDifference
+﻿class Q389_FindTheDifference
 {
     // Constaints
     // t.length == s.length + 1
@@ -7,13 +7,13 @@ class Q389_FindTheDifference
     public char FindTheDifference(string s, string t)
     {
         var dict = s.Analyze();
-        foreach(var c in t)
+        foreach (var c in t)
         {
             if (!dict.TryGetValue(c, out var count) || count == 0)
             {
                 return c;
-            } 
-            else 
+            }
+            else
             {
                 dict[c]--;
             }
@@ -22,7 +22,7 @@ class Q389_FindTheDifference
     }
 }
 
-class Q389_FindTheDifferenceTestData: TestData
+class Q389_FindTheDifferenceTestData : TestData
 {
     protected override List<object[]> Data =>
     [

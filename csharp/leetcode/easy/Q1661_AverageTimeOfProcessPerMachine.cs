@@ -1,4 +1,4 @@
-using Row = (int machine_id, double processing_time);
+﻿using Row = (int machine_id, double processing_time);
 class Q1661_AverageTimeOfProcessPerMachine : SqlQuestion
 {
     public override string Query =>

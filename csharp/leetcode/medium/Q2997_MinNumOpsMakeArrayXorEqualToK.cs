@@ -1,4 +1,4 @@
-public class Q2997_MinNumOpsMakeArrayXorEqualToK//(ITestOutputHelper output)
+﻿public class Q2997_MinNumOpsMakeArrayXorEqualToK//(ITestOutputHelper output)
 {
     // 2^20 is closest to 10^6 constraint
     // TC: O(1), time capped at 20 times

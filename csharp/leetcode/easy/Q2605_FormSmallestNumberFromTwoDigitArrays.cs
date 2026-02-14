@@ -1,4 +1,4 @@
-public class Q2605_FormSmallestNumberFromTwoDigitArrays
+﻿public class Q2605_FormSmallestNumberFromTwoDigitArrays
 {
     // TC: O(n), n scale with length of nums1 plus length of nums2
     // SC: O(1), space used does not scale with input

@@ -1,4 +1,4 @@
-class Q160_IntersactionTwoLinkedListTestData : TestData
+﻿class Q160_IntersactionTwoLinkedListTestData : TestData
 {
     protected override List<object[]> Data =>
     [

@@ -1,4 +1,4 @@
-public class FindElements
+﻿public class FindElements
 {
     // Fastest solution make use of bitArray and the constaints 10^6, not bother here as current solution is good enough
     private HashSet<int> _vals = [];

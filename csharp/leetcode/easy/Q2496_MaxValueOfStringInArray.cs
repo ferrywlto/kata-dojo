@@ -1,4 +1,4 @@
-public class Q2496_MaxValueOfStringInArray
+﻿public class Q2496_MaxValueOfStringInArray
 {
     // TC: O(n), n scale with total characters in strs
     // SC: O(1), space used does not scale with input

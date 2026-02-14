@@ -1,4 +1,4 @@
-class Q1365_HowManyNumbersAreSmallerThanTheCurrentNumber
+﻿class Q1365_HowManyNumbersAreSmallerThanTheCurrentNumber
 {
     // TC: O(n log n), due to Array.Sort()
     // SC: O(n+m) for the n unique number in dictionary, and m for the copied array
@@ -8,16 +8,16 @@ class Q1365_HowManyNumbersAreSmallerThanTheCurrentNumber
         var copy = new int[nums.Length];
         Array.Copy(nums, copy, nums.Length);
         Array.Sort(copy);
-        for(var i=copy.Length-1; i>=1; i--)
+        for (var i = copy.Length - 1; i >= 1; i--)
         {
-            if (copy[i] > copy[i - 1]) 
+            if (copy[i] > copy[i - 1])
                 dict.TryAdd(copy[i], i);
         }
-        for(var j=0; j<nums.Length; j++)
+        for (var j = 0; j < nums.Length; j++)
         {
-            if (dict.TryGetValue(nums[j], out var count)) 
+            if (dict.TryGetValue(nums[j], out var count))
                 nums[j] = count;
-            else 
+            else
                 nums[j] = 0;
         }
         return nums;
@@ -25,7 +25,7 @@ class Q1365_HowManyNumbersAreSmallerThanTheCurrentNumber
 }
 class Q1365_HowManyNumbersAreSmallerThanTheCurrentNumberTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[] {8,1,2,2,3}, new int[]{4,0,1,1,3}],
         [new int[] {6,5,4,8}, new int[]{2,1,0,3}],

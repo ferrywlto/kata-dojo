@@ -1,4 +1,4 @@
-class ListComparer : IComparer<List<int>>
+﻿class ListComparer : IComparer<List<int>>
 {
     int IComparer<List<int>>.Compare(List<int>? x, List<int>? y)
     {

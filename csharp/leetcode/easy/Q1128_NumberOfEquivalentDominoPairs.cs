@@ -1,11 +1,11 @@
-class Q1128_NumberOfEquivalentDominoPairs
+﻿class Q1128_NumberOfEquivalentDominoPairs
 {
     // TC: O(n^2), (n*(n+1))/2 where n is number of dominoes
     // SC: O(1)
     public int NumEquivDominoPairs(int[][] dominoes)
     {
         var pairs = 0;
-        for(var i=0; i<dominoes.Length-1; i++)
+        for (var i = 0; i < dominoes.Length - 1; i++)
         {
             var p = dominoes[i];
             for (var j = i + 1; j < dominoes.Length; j++)
@@ -27,8 +27,8 @@ class Q1128_NumberOfEquivalentDominoPairs
 
         foreach (var domino in dominoes)
         {
-            var sorted = domino[0] < domino[1] 
-            ? (domino[0], domino[1]) 
+            var sorted = domino[0] < domino[1]
+            ? (domino[0], domino[1])
             : (domino[1], domino[0]);
 
             if (count.TryGetValue(sorted, out int value))
@@ -37,7 +37,7 @@ class Q1128_NumberOfEquivalentDominoPairs
                 // first entry -> no pair
                 // second entry -> 1 pair with 1st entry
                 // third entry -> 1 pair with 1st entry and 1 pair with 2nd entry and so on... 
-                pairs += value; 
+                pairs += value;
                 count[sorted] = ++value;
             }
             else count[sorted] = 1;

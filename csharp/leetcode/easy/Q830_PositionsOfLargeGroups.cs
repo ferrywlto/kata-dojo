@@ -1,4 +1,4 @@
-class Q830_PositionsOfLargeGroups
+﻿class Q830_PositionsOfLargeGroups
 {
     // TC: O(n), n is length of s
     // SC: O(n), n is num of groups found, O(1) if not count the space to store the result

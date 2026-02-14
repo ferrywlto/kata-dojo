@@ -1,4 +1,4 @@
-public class Q3560_MinLogTransportationCost
+﻿public class Q3560_MinLogTransportationCost
 {
     // TC: O(1)
     // SC: O(1)

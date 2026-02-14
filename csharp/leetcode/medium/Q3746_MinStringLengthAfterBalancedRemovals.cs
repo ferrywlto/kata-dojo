@@ -1,4 +1,4 @@
-public class Q3746_MinStringLengthAfterBalancedRemovals
+﻿public class Q3746_MinStringLengthAfterBalancedRemovals
 {
     // TC: O(n), n scale with length of s
     // SC: O(n), worst case stack will hold all characters

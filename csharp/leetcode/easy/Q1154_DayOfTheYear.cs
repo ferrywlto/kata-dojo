@@ -1,4 +1,4 @@
-class Q1154_DayOfTheYear
+﻿class Q1154_DayOfTheYear
 {
     // TC: O(1)
     // SC: O(1)
@@ -32,12 +32,12 @@ class Q1154_DayOfTheYear
 
         var daysSinceYearStart = 0;
         // current month not added because we will add days
-        for(var i=1; i<month; i++)
+        for (var i = 1; i < month; i++)
         {
             daysSinceYearStart += daysInMonth[i];
         }
 
-        if(month <= 2)
+        if (month <= 2)
             return daysSinceYearStart + day;
 
         // check leap year

@@ -1,4 +1,4 @@
-public class Q2595_NumOfEvenAndOddBits
+﻿public class Q2595_NumOfEvenAndOddBits
 {
     // TC: O(n), n scale with bits in n
     // SC: O(1), space used does not sacle with input, except for holding result

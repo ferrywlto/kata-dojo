@@ -1,4 +1,4 @@
-class Q1078_OccurancesAfterBigram
+﻿class Q1078_OccurancesAfterBigram
 {
     // TC: O(n), n is words in text
     // SC: O(n), n is words in text from split 
@@ -7,9 +7,9 @@ class Q1078_OccurancesAfterBigram
         var words = text.Split(" ");
         if (words.Length < 3) return [];
         var result = new List<string>();
-        for(var i=0; i<words.Length-2; i++)
+        for (var i = 0; i < words.Length - 2; i++)
         {
-            if(words[i] == first && words[i+1] == second)
+            if (words[i] == first && words[i + 1] == second)
             {
                 result.Add(words[i + 2]);
             }

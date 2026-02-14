@@ -1,11 +1,11 @@
-class Q1550_ThreeConsecutiveOdds
+﻿class Q1550_ThreeConsecutiveOdds
 {
     // TC: O(n), where n is the length of arr, as it have to iterate all items once
     // SC: O(1), space used is fixed
-    public bool ThreeConsecutiveOdds(int[] arr) 
+    public bool ThreeConsecutiveOdds(int[] arr)
     {
         var count = 0;
-        for(var i=0; i<arr.Length; i++)
+        for (var i = 0; i < arr.Length; i++)
         {
             if (arr[i] % 2 == 0) count = 0;
             else
@@ -14,12 +14,12 @@ class Q1550_ThreeConsecutiveOdds
                 if (count == 3) return true;
             }
         }
-        return false;    
-    }    
+        return false;
+    }
 }
 class Q1550_ThreeConsecutiveOddsTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[] {2,6,4,1}, false],
         [new int[] {1,2,34,3,4,5,7,23,12}, true],

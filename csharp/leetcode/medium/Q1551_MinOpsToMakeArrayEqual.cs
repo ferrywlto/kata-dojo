@@ -1,4 +1,4 @@
-public class Q1551_MinOpsToMakeArrayEqual//(ITestOutputHelper output)
+﻿public class Q1551_MinOpsToMakeArrayEqual//(ITestOutputHelper output)
 {
     // TC: O(n)
     // SC: O(1)

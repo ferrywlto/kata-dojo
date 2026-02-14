@@ -1,4 +1,4 @@
-public class Q3813_VowelConsonantScore
+﻿public class Q3813_VowelConsonantScore
 {
     private readonly HashSet<char> Vowels = ['a', 'e', 'i', 'o', 'u'];
     // TC: O(n), n scale with length of s

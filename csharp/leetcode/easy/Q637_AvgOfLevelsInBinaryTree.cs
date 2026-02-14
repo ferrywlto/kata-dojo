@@ -1,21 +1,21 @@
-class Q637_AvgOfLevelsInBinaryTree
+﻿class Q637_AvgOfLevelsInBinaryTree
 {
     // TC: O(n)
     // SC: O(n)
-    public IList<double> AverageOfLevels(TreeNode? root) 
+    public IList<double> AverageOfLevels(TreeNode? root)
     {
         if (root == null) return [0];
-        
+
         List<double> result = [];
 
         var queue = new Queue<TreeNode>();
         queue.Enqueue(root);
 
-        while(queue.Count > 0)
+        while (queue.Count > 0)
         {
             double levelSum = 0;
             var levelCount = queue.Count;
-            for(var i=0; i<levelCount; i++)
+            for (var i = 0; i < levelCount; i++)
             {
                 var node = queue.Dequeue();
                 levelSum += node.val;
@@ -30,7 +30,7 @@ class Q637_AvgOfLevelsInBinaryTree
 
 class Q637_AvgOfLevelsInBinaryTreeTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int?[]{3,9,20,null,null,15,7}, new double[]{3.00000,14.50000,11.00000}],
         [new int?[]{3,9,20,15,7}, new double[]{3.00000,14.50000,11.00000}],

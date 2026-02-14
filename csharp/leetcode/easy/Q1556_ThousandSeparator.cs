@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 
 class Q1556_ThousandSeparator
 {
@@ -8,10 +8,11 @@ class Q1556_ThousandSeparator
     {
         var sb = new StringBuilder(n.ToString());
         var count = 0;
-        for(var i=sb.Length-1; i>0; i--)
+        for (var i = sb.Length - 1; i > 0; i--)
         {
             count++;
-            if(count == 3) {
+            if (count == 3)
+            {
                 sb.Insert(i, ".");
                 count = 0;
             }
@@ -21,7 +22,7 @@ class Q1556_ThousandSeparator
 }
 class Q1556_ThousandSeparatorTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [987, "987"],
         [1234, "1.234"],

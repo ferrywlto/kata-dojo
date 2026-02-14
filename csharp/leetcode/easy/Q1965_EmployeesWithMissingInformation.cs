@@ -1,6 +1,6 @@
-public class Q1965_EmployeesWithMissingInformation(ITestOutputHelper output) : SqlTest(output)
+﻿public class Q1965_EmployeesWithMissingInformation(ITestOutputHelper output) : SqlTest(output)
 {
-    public static string Query => 
+    public static string Query =>
     """
     SELECT employee_id FROM 
     Employees e 
@@ -43,7 +43,7 @@ public class Q1965_EmployeesWithMissingInformation(ITestOutputHelper output) : S
         ArrangeTestData(testDataSql);
         var reader = ExecuteQuery(Query, true);
         AssertResultSchema(reader, ["employee_id"]);
-        foreach(var employee_id in expected)
+        foreach (var employee_id in expected)
         {
             Assert.True(reader.Read());
             Assert.Equal(employee_id, reader.GetInt32(0));

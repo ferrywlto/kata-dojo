@@ -1,4 +1,4 @@
-public class Q3379_TransformedArray
+﻿public class Q3379_TransformedArray
 {
     // TC: O(n), n scale with length of nums
     // SC: O(1), space used does not scale with input

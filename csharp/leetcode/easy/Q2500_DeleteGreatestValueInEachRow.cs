@@ -1,4 +1,4 @@
-public class Q2500_DeleteGreatestValueInEachRow
+﻿public class Q2500_DeleteGreatestValueInEachRow
 {
     // TC: O(n log n), n scale with m x n items in grid. n log n from Array.Sort, plus m x n times to check the largest element per column
     // SC: O(1), space used does not scale with input

@@ -1,4 +1,4 @@
-public class Q2828_CheckIfStringIsAnAcronymOfWords
+﻿public class Q2828_CheckIfStringIsAnAcronymOfWords
 {
     // TC: O(n), n scale with length of words
     // SC: O(1), space used does not scale with input

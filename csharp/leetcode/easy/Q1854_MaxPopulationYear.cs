@@ -1,11 +1,11 @@
-class Q1854_MaxPopulationYear
+﻿class Q1854_MaxPopulationYear
 {
     // TC: O(n + y), where n is length of logs, and y is the number of years in range
     // SC: O(y), where y is range of years
     public int MaximumPopulation(int[][] logs)
     {
         // Range from 1950 to 2050
-        int[] populationChanges = new int[101]; 
+        int[] populationChanges = new int[101];
 
         foreach (var log in logs)
         {

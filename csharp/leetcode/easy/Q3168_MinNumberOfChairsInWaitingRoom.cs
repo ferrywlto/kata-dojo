@@ -1,4 +1,4 @@
-public class Q3168_MinNumberOfChairsInWaitingRoom
+﻿public class Q3168_MinNumberOfChairsInWaitingRoom
 {
     // TC: O(n), n scale with length of s
     // SC: O(1), space used does not scale with input

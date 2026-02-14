@@ -1,4 +1,4 @@
-public class Q2259_RemoveDigitFromNumberToMaxResult
+﻿public class Q2259_RemoveDigitFromNumberToMaxResult
 {
     // TC: O(n^2), n scale with length of number, then for each n compare n times for new number
     // SC: O(1), space used does not scale with input

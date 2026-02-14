@@ -1,4 +1,4 @@
-class Q596_ClassesMoreThanFiceStudents : SqlQuestion
+﻿class Q596_ClassesMoreThanFiceStudents : SqlQuestion
 {
     public override string Query =>
     """

@@ -1,4 +1,4 @@
-public class Q2138_DivideStringIntoGroupsOfSizeK
+﻿public class Q2138_DivideStringIntoGroupsOfSizeK
 {
     // TC: O(n), n scale with length of s
     // SC: O(m), m scale with length of s / k;

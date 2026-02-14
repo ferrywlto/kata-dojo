@@ -1,4 +1,4 @@
-public class Q2970_CountNumberOfIncremovableSubarraysI
+﻿public class Q2970_CountNumberOfIncremovableSubarraysI
 {
     // TC: O(n^3), n scale with length of nums
     // SC: O(n), temp is the same size as input
@@ -7,14 +7,14 @@ public class Q2970_CountNumberOfIncremovableSubarraysI
     {
         var result = 0;
         // expansion
-        for(var i=0; i<nums.Length; i++)
+        for (var i = 0; i < nums.Length; i++)
         {
             var temp = new int[nums.Length];
             Array.Copy(nums, temp, nums.Length);
-            for(var j=i; j<nums.Length; j++)
+            for (var j = i; j < nums.Length; j++)
             {
                 temp[j] = 0;
-                if(Incresing(temp)) 
+                if (Incresing(temp))
                 {
                     result++;
                 }
@@ -25,17 +25,19 @@ public class Q2970_CountNumberOfIncremovableSubarraysI
     private bool Incresing(int[] input)
     {
         var lastNonZeroIdx = 0;
-        for(var i=0; i<input.Length; i++)
+        for (var i = 0; i < input.Length; i++)
         {
-            if(input[i] > 0) {
+            if (input[i] > 0)
+            {
                 lastNonZeroIdx = i;
                 break;
             }
         }
-        for(var i=lastNonZeroIdx+1; i<input.Length; i++)
+        for (var i = lastNonZeroIdx + 1; i < input.Length; i++)
         {
-            if(input[i] > 0 && input[i] <= input[lastNonZeroIdx]) return false;
-            else if(input[i] > 0) {
+            if (input[i] > 0 && input[i] <= input[lastNonZeroIdx]) return false;
+            else if (input[i] > 0)
+            {
                 lastNonZeroIdx = i;
             }
         }

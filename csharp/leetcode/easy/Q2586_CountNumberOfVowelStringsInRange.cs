@@ -1,4 +1,4 @@
-public class Q2586_CountNumberOfVowelStringsInRange
+﻿public class Q2586_CountNumberOfVowelStringsInRange
 {
     // TC: O(n), n scale with length of words.
     // SC: O(1), space used does not scale with input. 

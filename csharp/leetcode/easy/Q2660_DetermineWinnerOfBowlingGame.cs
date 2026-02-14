@@ -1,4 +1,4 @@
-public class Q2660_DetermineWinnerOfBowlingGame
+﻿public class Q2660_DetermineWinnerOfBowlingGame
 {
     // TC: O(n), n scale with length of player1 and player2
     // SC: O(1), space used does not scale with input

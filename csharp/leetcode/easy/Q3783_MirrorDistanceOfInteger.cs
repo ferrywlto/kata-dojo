@@ -1,4 +1,4 @@
-public class Q3783_MirrorDistanceOfInteger
+﻿public class Q3783_MirrorDistanceOfInteger
 {
     // TC: O(d), d scale with number of digits of n
     // SC: O(1), space used does not scale with input 

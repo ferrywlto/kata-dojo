@@ -1,4 +1,4 @@
-using System.Data;
+﻿using System.Data;
 
 class Q566_ReshapeTheMatrix
 {
@@ -13,16 +13,16 @@ class Q566_ReshapeTheMatrix
     {
         if (r * c != mat.Length * mat[0].Length) return mat;
         var targetMatrix = new int[r][];
-        for(var z=0; z<targetMatrix.Length; z++)
+        for (var z = 0; z < targetMatrix.Length; z++)
         {
             targetMatrix[z] = new int[c];
         }
-        for(var i=0; i<mat.Length; i++)
+        for (var i = 0; i < mat.Length; i++)
         {
-            for(var j=0; j<mat[i].Length; j++)
+            for (var j = 0; j < mat[i].Length; j++)
             {
                 var linearIdx = i * mat[i].Length + j;
-                targetMatrix[linearIdx / c][linearIdx % c] = mat[i][j]; 
+                targetMatrix[linearIdx / c][linearIdx % c] = mat[i][j];
             }
         }
         return targetMatrix;

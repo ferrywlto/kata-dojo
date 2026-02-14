@@ -1,4 +1,4 @@
-public class Q3238_FindNumberOfWinningPlayer
+﻿public class Q3238_FindNumberOfWinningPlayer
 {
     // TC: O(n), n scale with length of pick
     // SC: O(m), m scale with unique number of player in pick

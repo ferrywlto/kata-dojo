@@ -1,4 +1,4 @@
-public class Q2169_CountOperationsToObtainZero
+﻿public class Q2169_CountOperationsToObtainZero
 {
     // TC: O(log(min(num1,num2))) similar to the Euclidean algorithm for computing the GCD.
     // SC: O(1), space used does not scale with input

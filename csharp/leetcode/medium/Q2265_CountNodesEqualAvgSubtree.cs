@@ -1,4 +1,4 @@
-public class Q2265_CountNodesEqualAvgSubtree
+﻿public class Q2265_CountNodesEqualAvgSubtree
 {
     private int _resultCount = 0;
     // TC: O(n), all nodes just need to iterate once

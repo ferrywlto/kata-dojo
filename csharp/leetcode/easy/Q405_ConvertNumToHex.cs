@@ -1,4 +1,4 @@
-class Q405_ConvertNumToHex
+﻿class Q405_ConvertNumToHex
 {
     const string hex = "0123456789abcdef";
     // TC: O(1), SC: O(1)
@@ -23,7 +23,7 @@ class Q405_ConvertNumToHexTestData : TestData
     protected override List<object[]> Data =>
     [
         [26, "1a"],
-        [-1, "ffffffff"],            
+        [-1, "ffffffff"],
         [0, "0"],
     ];
 }

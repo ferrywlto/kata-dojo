@@ -1,4 +1,4 @@
-public class Q3386_ButtonWithLongestPushTime
+﻿public class Q3386_ButtonWithLongestPushTime
 {
     // TC: O(n), n scale with length of events
     // SC: O(1), space used does not scale with input

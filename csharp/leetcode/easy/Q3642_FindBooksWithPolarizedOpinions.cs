@@ -1,4 +1,4 @@
-using Row = (int book_id, string title, string author, string genre, int pages, int rating_spread, float polarization_score);
+﻿using Row = (int book_id, string title, string author, string genre, int pages, int rating_spread, float polarization_score);
 public class Q3642_FindBooksWithPolarizedOpinions(ITestOutputHelper output) : SqlTest(output)
 {
     public static string Query =>

@@ -1,19 +1,19 @@
-using System.Text;
+﻿using System.Text;
 
 class Q824_GoatLatin
 {
     // TC: O(n), n is total words in sentence
     // SC: O(n+m), n is average word length, m is number of words
     const string vowels = "aeiouAEIOU";
-    public string ToGoatLatin(string sentence) 
+    public string ToGoatLatin(string sentence)
     {
         var endA = new StringBuilder("a");
         var words = sentence.Split(" ");
         var stringFactory = new StringBuilder();
-        for(var i=0; i<words.Length; i++)
+        for (var i = 0; i < words.Length; i++)
         {
             stringFactory.Clear();
-            if(vowels.IndexOf(words[i][0]) > -1)
+            if (vowels.IndexOf(words[i][0]) > -1)
             {
                 stringFactory.Append(words[i]);
             }
@@ -25,13 +25,13 @@ class Q824_GoatLatin
             words[i] = stringFactory.ToString();
             endA.Append('a');
         }
-        return string.Join(' ', words);    
+        return string.Join(' ', words);
     }
 }
 
 class Q824_GoatLatinTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["I speak Goat Latin", "Imaa peaksmaaa oatGmaaaa atinLmaaaaa"],
         ["The quick brown fox jumped over the lazy dog", "heTmaa uickqmaaa rownbmaaaa oxfmaaaaa umpedjmaaaaaa overmaaaaaaa hetmaaaaaaaa azylmaaaaaaaaa ogdmaaaaaaaaaa"],

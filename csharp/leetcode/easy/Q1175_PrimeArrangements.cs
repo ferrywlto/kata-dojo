@@ -1,4 +1,4 @@
-public class Q1175_PrimeArrangements
+﻿public class Q1175_PrimeArrangements
 {
     // Since constraint of n is 1<=n<=100, we can cache number of primes in n to speed up 
     // nPn = n!
@@ -20,7 +20,8 @@ public class Q1175_PrimeArrangements
         }
         long permutations = 1;
         s_permutations[1] = 1;
-        for (var k=2; k<=100; k++) {
+        for (var k = 2; k <= 100; k++)
+        {
             // Modulus the result prevent overflow as instructed in constraints
             permutations = permutations * k % s_reminder;
             s_permutations[k] = permutations;
@@ -40,7 +41,7 @@ public class Q1175_PrimeArrangements
     // SC: O(1), space used does not scale with input
     public int NumPrimeArrangements(int n)
     {
-        if(n==1) return 1;
+        if (n == 1) return 1;
         var countPrimes = s_numberOfPrimesAt[n];
         var countNonPrimes = n - countPrimes;
         var pPrime = s_permutations[countPrimes];

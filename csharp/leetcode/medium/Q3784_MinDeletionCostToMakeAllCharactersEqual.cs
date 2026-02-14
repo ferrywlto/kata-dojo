@@ -1,4 +1,4 @@
-public class Q3784_MinDeletionCostToMakeAllCharactersEqual
+﻿public class Q3784_MinDeletionCostToMakeAllCharactersEqual
 {
     // TC: O(n), n scale with length of s
     // SC: O(c), c scale with number of unique characters in s

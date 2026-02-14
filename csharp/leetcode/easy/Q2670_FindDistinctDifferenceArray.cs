@@ -1,4 +1,4 @@
-public class Q2670_FindDistinctDifferenceArray
+﻿public class Q2670_FindDistinctDifferenceArray
 {
     // TC: O(n), n scale with length of nums, 2n in total
     // SC: O(n + m), n to hold the result plus m where m scale with unique numbers in nums

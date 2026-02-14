@@ -1,4 +1,4 @@
-public class Q2600_KItemsWithMaxSum
+﻿public class Q2600_KItemsWithMaxSum
 {
     // TC: O(1) obviously
     // SC: O(1) same as time

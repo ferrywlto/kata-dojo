@@ -1,4 +1,4 @@
-public class Q3046_SplitTheArray
+﻿public class Q3046_SplitTheArray
 {
     // TC: O(n), n scale with length of nums
     // SC: O(m), m scale with unique numbers in nums

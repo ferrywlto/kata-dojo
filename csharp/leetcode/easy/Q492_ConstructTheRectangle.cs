@@ -1,16 +1,16 @@
-class Q492_ConstructTheRectangle
+﻿class Q492_ConstructTheRectangle
 {
     public int[] ConstructRectangle(int area)
     {
         var sqrt = Math.Sqrt(area);
         var sqrt_int = (int)sqrt;
 
-        if (sqrt_int * sqrt_int == area) 
+        if (sqrt_int * sqrt_int == area)
             return [sqrt_int, sqrt_int];
-        
-        for(var i=sqrt_int; i>0; i--)
+
+        for (var i = sqrt_int; i > 0; i--)
         {
-            if(area % i == 0) return [area / i, i];
+            if (area % i == 0) return [area / i, i];
         }
 
         return [area, 1];

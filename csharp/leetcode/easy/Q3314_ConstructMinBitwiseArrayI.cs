@@ -1,20 +1,20 @@
-public class Q3314_ConstructMinBitwiseArrayI
+﻿public class Q3314_ConstructMinBitwiseArrayI
 {
     // TC: O(n^2), n scale with length of nums
     // SC: O(1), space used does not scale with input
-    Dictionary<int, int> CalCache = new () { {2, -1} };
+    Dictionary<int, int> CalCache = new() { { 2, -1 } };
     public int[] MinBitwiseArray(IList<int> nums)
     {
         // Find largest
         var largest = 2;
-        for(var i=0; i<nums.Count; i++)
+        for (var i = 0; i < nums.Count; i++)
         {
-            if(nums[i] > largest) largest = nums[i];
+            if (nums[i] > largest) largest = nums[i];
         }
 
-        for (var i=0; i<=largest; i++)
+        for (var i = 0; i <= largest; i++)
         {
-            var key = (i | i+1);
+            var key = (i | i + 1);
             if (key > 1000) continue;
             CalCache.TryAdd(key, i);
         }
@@ -29,7 +29,7 @@ public class Q3314_ConstructMinBitwiseArrayI
     private int Shift(int input)
     {
         // even
-        if(input % 2 == 0) return -1;
+        if (input % 2 == 0) return -1;
 
         var temp = input;
         var MSB = 1;

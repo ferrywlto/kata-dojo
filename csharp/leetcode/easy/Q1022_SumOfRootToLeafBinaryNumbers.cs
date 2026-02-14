@@ -1,4 +1,4 @@
-class Q1022_SumOfRootToLeafBinaryNumbers
+﻿class Q1022_SumOfRootToLeafBinaryNumbers
 {
     // TC: O(n), n is nodes of tree, all nodes need to visit once
     // SC: O(h), h is the depth of tree
@@ -7,22 +7,22 @@ class Q1022_SumOfRootToLeafBinaryNumbers
         var result = 0;
         var stack = new Stack<(TreeNode node, int current)>();
         stack.Push((root, 0));
-        while(stack.Count > 0)
+        while (stack.Count > 0)
         {
             var (node, current) = stack.Pop();
             var newCurrent = current * 2 + node.val;
 
-            if(node.left == null && node.right == null)
+            if (node.left == null && node.right == null)
             {
                 result += newCurrent;
             }
             else
             {
-                if(node.left != null) 
+                if (node.left != null)
                 {
                     stack.Push((node.left, newCurrent));
                 }
-                if(node.right != null)
+                if (node.right != null)
                 {
                     stack.Push((node.right, newCurrent));
                 }

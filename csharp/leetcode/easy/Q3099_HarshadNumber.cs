@@ -1,4 +1,4 @@
-public class Q3099_HarshadNumber
+﻿public class Q3099_HarshadNumber
 {
     // TC: O(log n), n sink a factor of 10 each iteration
     // SC: O(1), space used does not scale with input

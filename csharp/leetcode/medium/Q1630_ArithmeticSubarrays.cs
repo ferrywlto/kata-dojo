@@ -1,4 +1,4 @@
-public class Q1630_ArithmeticSubarrays
+﻿public class Q1630_ArithmeticSubarrays
 {
     // TC: O(l * n * n log n)
     // SC: O(l) for storing result

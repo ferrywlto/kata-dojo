@@ -1,4 +1,4 @@
-public class Q2475_NumberOfUnequalTripletsInArray
+﻿public class Q2475_NumberOfUnequalTripletsInArray
 {
     // TC: O(n^3), n scale with length of nums
     // SC: O(1), space used does not scale with input

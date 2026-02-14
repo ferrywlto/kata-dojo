@@ -1,4 +1,4 @@
-public class Q3024_TypeOfTriangle
+﻿public class Q3024_TypeOfTriangle
 {
     // TC: O(1), constant complexity
     // SC: O(1), same as time 

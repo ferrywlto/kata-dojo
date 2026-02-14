@@ -1,4 +1,4 @@
-public class Q2465_NumOfDistinctAverages
+﻿public class Q2465_NumOfDistinctAverages
 {
     // TC: O(nlogn), n scale with length of nums, n log n due to Array.Sort()
     // SC: O(n), n scale with distinct average from averaging min and max items rom input repeatly.

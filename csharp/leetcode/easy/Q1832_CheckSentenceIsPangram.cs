@@ -1,4 +1,4 @@
-class Q1832_CheckSentenceIsPangram
+﻿class Q1832_CheckSentenceIsPangram
 {
     // TC: O(n), where n is the length of sentence
     // SC: O(1), it is always cap at 26 characters to store 

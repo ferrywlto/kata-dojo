@@ -1,15 +1,15 @@
-class Q598_RangeAdditionII
+﻿class Q598_RangeAdditionII
 {
     // TC: O(n)
     // SC: O(1)
-    public int MaxCount(int m, int n, int[][] ops) 
+    public int MaxCount(int m, int n, int[][] ops)
     {
         if (ops.Length == 0) return m * n;
 
         // only need to take care of the smallest 
         var minX = m;
         var minY = n;
-        foreach(var op in ops)
+        foreach (var op in ops)
         {
             if (op[0] < minX) minX = op[0];
             if (op[1] < minY) minY = op[1];
@@ -20,7 +20,7 @@ class Q598_RangeAdditionII
 
 class Q598_RangeAdditionIITestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [3, 3, Array.Empty<int[][]>(), 9],
         [3, 3, new int[][]{[2,2], [3,3]}, 4],

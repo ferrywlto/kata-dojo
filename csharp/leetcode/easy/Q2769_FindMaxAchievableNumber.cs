@@ -1,4 +1,4 @@
-public class Q2769_FindMaxAchievableNumber
+﻿public class Q2769_FindMaxAchievableNumber
 {
     // TC: O(1), obviously
     // SC: O(1), same as time

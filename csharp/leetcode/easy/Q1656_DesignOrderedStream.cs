@@ -1,4 +1,4 @@
-using Row = (int key, string value);
+﻿using Row = (int key, string value);
 class Q1656_DesignOrderedStream
 {
     public readonly string[] stream;

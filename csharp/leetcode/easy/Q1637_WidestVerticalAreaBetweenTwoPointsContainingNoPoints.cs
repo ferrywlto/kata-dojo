@@ -1,4 +1,4 @@
-class Q1637_WidestVerticalAreaBetweenTwoPointsContainingNoPoints
+﻿class Q1637_WidestVerticalAreaBetweenTwoPointsContainingNoPoints
 {
     // TC: O(nlogn), where n is the number of points + nlogn for Array.Sort() + m length of filtered, dominated by nlogn
     // SC: O(n), where n is the number of unique number in the first element of each pair in points 

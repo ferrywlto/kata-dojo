@@ -1,4 +1,4 @@
-class Q977_SquaresOfSortedArray
+﻿class Q977_SquaresOfSortedArray
 {
     // TC: O(n^2), n is length of nums, worst case each node need to goes to bottom for skewed tree.
     // SC: O(n*h), n is length of nums, n tree nodes + h tree height for stack 
@@ -8,13 +8,13 @@ class Q977_SquaresOfSortedArray
 
         var root = new TreeNode(nums[0] * nums[0]);
 
-        for(var i=1; i<nums.Length; i++)
+        for (var i = 1; i < nums.Length; i++)
         {
             var node = root;
-            while(node!=null)
+            while (node != null)
             {
                 var square = nums[i] * nums[i];
-                if(square >= node.val)
+                if (square >= node.val)
                 {
                     if (node.right == null)
                     {
@@ -23,7 +23,7 @@ class Q977_SquaresOfSortedArray
                     }
                     else node = node.right;
                 }
-                else 
+                else
                 {
                     if (node.left == null)
                     {
@@ -34,7 +34,7 @@ class Q977_SquaresOfSortedArray
                 }
             }
         }
-        
+
         // Inorder traversal to get sorted result
         var stack = new Stack<TreeNode>();
         TreeNode? current = root;

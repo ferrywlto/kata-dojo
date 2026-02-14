@@ -1,4 +1,4 @@
-class Q1408_StringMatchingInArray
+﻿class Q1408_StringMatchingInArray
 {
     // TC: O(n^2), n log n for Array.Sort() + n*n-1 for the matching
     // SC: O(n), one list of n holding all existed string, another list of n holding all strings worse case

@@ -1,4 +1,4 @@
-public class Q2379_MinRecolorsToGetKConsecutiveBlackBlocks
+﻿public class Q2379_MinRecolorsToGetKConsecutiveBlackBlocks
 {
     // TC: O(n), n scale with length of blocks
     // SC: O(1), space used does not scale with input

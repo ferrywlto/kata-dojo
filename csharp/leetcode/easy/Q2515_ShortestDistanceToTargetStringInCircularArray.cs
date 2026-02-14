@@ -1,4 +1,4 @@
-public class Q2515_ShortestDistanceToTargetStringInCircularArray
+﻿public class Q2515_ShortestDistanceToTargetStringInCircularArray
 {
     // TC: O(n), n sacle with length of words
     // SC: O(1), space used does not scale with input

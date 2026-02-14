@@ -1,4 +1,4 @@
-
+﻿
 class Q1122_RelativeSortArray
 {
     // TC: O(n log n) due to notInArr2.Sort(), worst case almost all numbers in arr1 is not in arr2
@@ -9,25 +9,25 @@ class Q1122_RelativeSortArray
         var arr2Dict = new Dictionary<int, int>();
         var buckets = new List<int>[arr2.Length];
         // initialize buckets
-        for(var i=0; i<buckets.Length; i++)
+        for (var i = 0; i < buckets.Length; i++)
             buckets[i] = [];
 
-        for(var i=0; i<arr2.Length; i++)
+        for (var i = 0; i < arr2.Length; i++)
             arr2Dict.Add(arr2[i], i);
 
-        for(var i=0; i<arr1.Length; i++)
+        for (var i = 0; i < arr1.Length; i++)
         {
-            if(!arr2Dict.TryGetValue(arr1[i], out var bucketIdx))
+            if (!arr2Dict.TryGetValue(arr1[i], out var bucketIdx))
                 notInArr2.Add(arr1[i]);
             else
                 buckets[bucketIdx].Add(arr1[i]);
         }
         var result = new List<int>();
-        for(var i=0; i<buckets.Length; i++)
+        for (var i = 0; i < buckets.Length; i++)
             result.AddRange(buckets[i]);
 
         notInArr2.Sort();
-        result.AddRange(notInArr2);        
+        result.AddRange(notInArr2);
         return result.ToArray();
     }
 }

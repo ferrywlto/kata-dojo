@@ -1,4 +1,4 @@
-public class Q3042_CountPrefixAndSuffixPairsI
+﻿public class Q3042_CountPrefixAndSuffixPairsI
 {
     // TC: O(n^2), n scale with length of words, have to iterate in nested loop to test all pairs
     // SC: O(1), space used does not scale with input 

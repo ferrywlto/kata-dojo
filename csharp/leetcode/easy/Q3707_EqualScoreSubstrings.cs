@@ -1,4 +1,4 @@
-public class Q3707_EqualScoreSubstrings
+﻿public class Q3707_EqualScoreSubstrings
 {
     // TC: O(n), n scale with length of s
     // SC: O(1), space used is constant

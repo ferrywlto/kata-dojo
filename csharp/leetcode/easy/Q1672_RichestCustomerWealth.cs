@@ -1,11 +1,11 @@
-class Q1672_RichestCustomerWealth
+﻿class Q1672_RichestCustomerWealth
 {
     // TC: O(n), where n is total number of elements in accounts
     // SC: O(1), space used is fixed
     public int MaximumWealth(int[][] accounts)
     {
         var max = 0;
-        foreach(var row in accounts)
+        foreach (var row in accounts)
         {
             var sum = row.Sum();
             if (sum > max) max = sum;

@@ -1,4 +1,4 @@
-public class Q2331_EvaluateBooleanBinaryTree
+﻿public class Q2331_EvaluateBooleanBinaryTree
 {
     // TC: O(n), n scale with number of nodes in root.
     // SC: O(d), d scale with depth of tree

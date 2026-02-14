@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 
 public class Q1980_FindUniqueBinaryString
 {

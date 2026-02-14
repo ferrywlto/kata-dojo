@@ -1,4 +1,4 @@
-public class Q2319_CheckIfMatrixIsXMatrix
+﻿public class Q2319_CheckIfMatrixIsXMatrix
 {
     // TC: O(n^2), n scale with length of grid as n x n matrix
     // SC: O(1), space used does not scale with input

@@ -1,4 +1,4 @@
-class Q551_StudentAttendanceRecordI
+﻿class Q551_StudentAttendanceRecordI
 {
     // TC: O(n)
     // SC: O(1)
@@ -10,7 +10,7 @@ class Q551_StudentAttendanceRecordI
         var late = 0;
         var absent = 0;
 
-        for(var i=0; i<s.Length; i++)
+        for (var i = 0; i < s.Length; i++)
         {
             if (s[i] == 'L')
             {
@@ -24,7 +24,7 @@ class Q551_StudentAttendanceRecordI
                     if (++absent == 2) return false;
                 }
             }
-        } 
+        }
         return true;
     }
 }

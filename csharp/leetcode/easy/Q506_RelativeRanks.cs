@@ -1,4 +1,4 @@
-class ReverseComparer : IComparer<int>
+﻿class ReverseComparer : IComparer<int>
 {
     public int Compare(int x, int y)
     {
@@ -13,19 +13,19 @@ class Q506_RelativeRanks
     public string[] FindRelativeRanks(int[] score)
     {
         int[] copy = (int[])score.Clone();
-        Array.Sort(copy, (a,b) => b.CompareTo(a));
-        
+        Array.Sort(copy, (a, b) => b.CompareTo(a));
+
         var rank = new Dictionary<int, string>();
-        for(var i=0; i<copy.Length; i++)
+        for (var i = 0; i < copy.Length; i++)
         {
-            if(i == 0) 
+            if (i == 0)
                 rank.Add(copy[i], "Gold Medal");
-            else if (i == 1) 
+            else if (i == 1)
                 rank.Add(copy[i], "Silver Medal");
             else if (i == 2)
                 rank.Add(copy[i], "Bronze Medal");
             else
-                rank.Add(copy[i], (i+1).ToString());
+                rank.Add(copy[i], (i + 1).ToString());
         }
         return score.Select(x => rank[x]).ToArray();
     }

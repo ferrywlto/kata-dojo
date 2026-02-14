@@ -1,4 +1,4 @@
-class Q1920_BuildArrayFromPermutation
+﻿class Q1920_BuildArrayFromPermutation
 {
     // TC: O(n), where n is length of nums
     // SC: O(1), where n scale with length of nums
@@ -25,11 +25,11 @@ class Q1920_BuildArrayFromPermutationTestData : TestData
 {
     protected override List<object[]> Data =>
     [
-        [new int[] {0,2,1,5,3,4}, 
+        [new int[] {0,2,1,5,3,4},
          new int[] {0,1,2,4,5,3}],
-        [new int[] {5,0,1,2,3,4}, 
+        [new int[] {5,0,1,2,3,4},
          new int[] {4,5,0,1,2,3}],
-        [new int[] {3,2,1,0}, 
+        [new int[] {3,2,1,0},
          new int[] {0,1,2,3}],
     ];
 }

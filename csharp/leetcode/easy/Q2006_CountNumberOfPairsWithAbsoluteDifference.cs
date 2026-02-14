@@ -1,4 +1,4 @@
-public class Q2006_CountNumberOfPairsWithAbsoluteDifference
+﻿public class Q2006_CountNumberOfPairsWithAbsoluteDifference
 {
     // TC: O(n), where n sacle with length of nums
     // SC: O(1), space used does not scale with input

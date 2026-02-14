@@ -1,6 +1,6 @@
-class Q258_AddDigits
+﻿class Q258_AddDigits
 {
-    
+
     public int AddDigits(int num)
     {
         if (num <= 0) return 0;
@@ -11,9 +11,9 @@ class Q258_AddDigits
     }
 }
 
-class Q258_AddDigitsTestData: TestData
+class Q258_AddDigitsTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [38, 2],
         [0, 0],

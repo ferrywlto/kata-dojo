@@ -1,4 +1,4 @@
-public class Q2582_PassThePillow
+﻿public class Q2582_PassThePillow
 {
     // TC: O(time)
     // SC: O(1)

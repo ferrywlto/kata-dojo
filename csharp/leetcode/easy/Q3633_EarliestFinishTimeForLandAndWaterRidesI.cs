@@ -1,4 +1,4 @@
-public class Q3633_EarliestFinishTimeForLandAndWaterRidesI
+﻿public class Q3633_EarliestFinishTimeForLandAndWaterRidesI
 {
     // TC: O(n + m), where n is the number of land rides and m is the number of water rides.
     // SC: O(1), since we are using a constant amount of space for variables.

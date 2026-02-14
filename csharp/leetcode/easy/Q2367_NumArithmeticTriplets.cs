@@ -1,4 +1,4 @@
-public class Q2367_NumArithmeticTriplets
+﻿public class Q2367_NumArithmeticTriplets
 {
     // TC: O(n log n), n scale with length of nums, n times 2 log n with 2 binary search, thus n log n
     // SC: O(1), space used does not scale with input 

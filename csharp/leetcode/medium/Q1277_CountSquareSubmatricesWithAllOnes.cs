@@ -1,4 +1,4 @@
-public class Q1277_CountSquareSubmatricesWithAllOnes(ITestOutputHelper output)
+﻿public class Q1277_CountSquareSubmatricesWithAllOnes(ITestOutputHelper output)
 {
     // private readonly int[][] _matrix;
     public int CountSquares(int[][] matrix)
@@ -7,11 +7,11 @@ public class Q1277_CountSquareSubmatricesWithAllOnes(ITestOutputHelper output)
         var cols = matrix[0].Length;
         var result = 0;
 
-        for(var row=0; row<rows; row++)
+        for (var row = 0; row < rows; row++)
         {
-            for(var col=0; col<cols; col++)
+            for (var col = 0; col < cols; col++)
             {
-                if(matrix[row][col] == 1)
+                if (matrix[row][col] == 1)
                 {
                     // greedy get one of this row to get how many columns is one
                     result += 1 + ExpansionSum(matrix, row, col);
@@ -30,13 +30,13 @@ public class Q1277_CountSquareSubmatricesWithAllOnes(ITestOutputHelper output)
     private int ExpansionSum(int[][] input, int startRow, int startCol)
     {
         var rowDepth = input.Length;
-        
-        for(var row=startRow; row<rowDepth; row++)
+
+        for (var row = startRow; row < rowDepth; row++)
         {
             var colDepth = 0;
-            for(var col=startCol; col<colDepth; col++)
+            for (var col = startCol; col < colDepth; col++)
             {
-                if(input[row][col] == 1)
+                if (input[row][col] == 1)
                 {
                     colDepth++;
                 }
@@ -47,7 +47,7 @@ public class Q1277_CountSquareSubmatricesWithAllOnes(ITestOutputHelper output)
             }
             // shrink the square search on 0
             rowDepth = Math.Min(rowDepth, startRow + colDepth);
-        } 
+        }
         output.WriteLine($"Depth of [{startRow},{startCol}]: {rowDepth}");
         return rowDepth;
     }

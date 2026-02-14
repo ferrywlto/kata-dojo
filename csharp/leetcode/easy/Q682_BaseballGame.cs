@@ -1,14 +1,14 @@
-class Q682_BaseballGame
+﻿class Q682_BaseballGame
 {
     // TC: O(n)
     // SC: O(n)
-    public int CalPoints(string[] operations) 
+    public int CalPoints(string[] operations)
     {
         var records = new Stack<int>();
 
-        for(var i=0; i<operations.Length; i++)
+        for (var i = 0; i < operations.Length; i++)
         {
-            switch(operations[i]) 
+            switch (operations[i])
             {
                 case "C":
                     if (records.Count > 0) records.Pop();
@@ -28,13 +28,13 @@ class Q682_BaseballGame
                     break;
             }
         }
-        return records.Sum();  
+        return records.Sum();
     }
 }
 
 class Q682_BaseballGameTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new string[]{"5","2","C","D","+"}, 30],
         [new string[]{"5","-2","4","C","D","9","+","+"}, 27],

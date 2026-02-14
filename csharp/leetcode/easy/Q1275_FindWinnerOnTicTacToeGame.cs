@@ -1,4 +1,4 @@
-class Q1275_FindWinnerOnTicTacToeGame
+﻿class Q1275_FindWinnerOnTicTacToeGame
 {
     // TC: O(n), n is the number of moves
     // SC: O(1), as the board size is fixed

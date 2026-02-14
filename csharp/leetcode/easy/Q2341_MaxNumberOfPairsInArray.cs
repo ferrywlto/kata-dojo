@@ -1,4 +1,4 @@
-public class Q2341_MaxNumberOfPairsInArray
+﻿public class Q2341_MaxNumberOfPairsInArray
 {
     // TC: O(n+m), n scale with length of nums, m scale with unique numbers in nums
     // SC: O(m), m scale with unique numbers in nums

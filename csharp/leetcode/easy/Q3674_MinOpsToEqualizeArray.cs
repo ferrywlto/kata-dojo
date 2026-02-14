@@ -1,4 +1,4 @@
-public class Q3674_MinOpsToEqualizeArray
+﻿public class Q3674_MinOpsToEqualizeArray
 {
     // TC: O(n), n scale with length of nums. Worst case all items are equal, n = nums.length
     // SC: O(1), space used does not scale with input.

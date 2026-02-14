@@ -1,4 +1,4 @@
-public class Q2765_LongestAlternatingSubarray
+﻿public class Q2765_LongestAlternatingSubarray
 {
     // TC: O(n), n scale with length of nums, just need single pass
     // SC: O(1), space used does not scale with input

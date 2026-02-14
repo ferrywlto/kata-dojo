@@ -1,8 +1,8 @@
-class Q709_ToLowerCase
+﻿class Q709_ToLowerCase
 {
     // TC: O(n)
     // SC: O(n)
-    public string ToLowerCase(string s) 
+    public string ToLowerCase(string s)
     {
         var arr = s.ToCharArray();
         for (var i = 0; i < arr.Length; i++)
@@ -14,12 +14,12 @@ class Q709_ToLowerCase
             }
         }
         return new string(arr);
-    }    
+    }
 }
 
 class Q709_ToLowerCaseTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["Hello", "hello"],
         ["here", "here"],

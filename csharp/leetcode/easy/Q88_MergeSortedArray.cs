@@ -1,4 +1,4 @@
-class Q88_MergeSortedArrayTestData : TestData
+﻿class Q88_MergeSortedArrayTestData : TestData
 {
     protected override List<object[]> Data =>
     [

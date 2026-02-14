@@ -1,4 +1,4 @@
-public class Q2395_FindSubarraysWithEqualSum
+﻿public class Q2395_FindSubarraysWithEqualSum
 {
     // TC: O(n), n scale with length of nums
     // SC: O(m), m scale with unique sum from nums

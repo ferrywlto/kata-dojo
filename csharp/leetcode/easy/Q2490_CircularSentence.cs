@@ -1,4 +1,4 @@
-public class Q2490_CircularSentence
+﻿public class Q2490_CircularSentence
 {
     // TC: O(n), n scale with length of sentence
     // SC: O(1), space used does not scale with input

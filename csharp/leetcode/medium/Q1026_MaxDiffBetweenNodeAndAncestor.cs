@@ -1,4 +1,4 @@
-public class Q1026_MaxDiffBetweenNodeAndAncestor(ITestOutputHelper output) : TreeNodeTest(output)
+﻿public class Q1026_MaxDiffBetweenNodeAndAncestor(ITestOutputHelper output) : TreeNodeTest(output)
 {
     // TC: O(d), d scale with depth of root
     // SC: O(d), each node holds all ancestors

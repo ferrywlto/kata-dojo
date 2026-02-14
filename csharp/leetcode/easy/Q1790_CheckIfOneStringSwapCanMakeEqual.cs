@@ -1,4 +1,4 @@
-class Q1790_CheckIfOneStringSwapCanMakeEqual
+﻿class Q1790_CheckIfOneStringSwapCanMakeEqual
 {
     // TC: O(n), where n is the length of s1
     // SC: O(1), space used for c is fixed to 4

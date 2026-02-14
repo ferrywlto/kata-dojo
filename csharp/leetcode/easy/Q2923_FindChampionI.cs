@@ -1,4 +1,4 @@
-public class Q2923_FindChampionI
+﻿public class Q2923_FindChampionI
 {
     // TC: O(n), n scale with total number of elements in grid
     // SC: O(1), space used does not scale with input

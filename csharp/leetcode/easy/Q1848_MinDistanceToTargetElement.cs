@@ -1,4 +1,4 @@
-class Q1848_MinDistanceToTargetElement
+﻿class Q1848_MinDistanceToTargetElement
 {
     // TC: O(n), where n is length of nums, it has to iterate all elements as there could be multiple elements equals to target
     // SC: O(1), space used does not scale with input

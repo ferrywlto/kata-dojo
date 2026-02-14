@@ -1,4 +1,4 @@
-class Q997_FindTheTownJudge
+﻿class Q997_FindTheTownJudge
 {
     // TC: O(n), n is length of trust
     // SC: O(n+m), n is distinct vote from trust, m is distinct people in town
@@ -10,11 +10,11 @@ class Q997_FindTheTownJudge
             if (n == 1) return 1;
             else return -1;
         }
-        
+
         var missing = (1 + n) * n / 2;
         var dict = new Dictionary<int, int>();
         var hashset = new HashSet<int>();
-        for(var i=0; i<trust.Length; i++)
+        for (var i = 0; i < trust.Length; i++)
         {
             if (dict.TryGetValue(trust[i][1], out var value))
             {
@@ -25,7 +25,7 @@ class Q997_FindTheTownJudge
                 dict.Add(trust[i][1], 1);
             }
 
-            if(!hashset.Contains(trust[i][0])) 
+            if (!hashset.Contains(trust[i][0]))
             {
                 missing -= trust[i][0];
                 hashset.Add(trust[i][0]);

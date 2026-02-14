@@ -1,4 +1,4 @@
-public class Q2347_BestPokerHand
+﻿public class Q2347_BestPokerHand
 {
     // TC: O(n), n scale with length of ranks and length of suits, in only one pass
     // SC: O(m), m scale with unique ranks plus unique suits

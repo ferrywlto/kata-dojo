@@ -1,4 +1,4 @@
-public class Q1752_CheckIfArrayIsSortedAndRotated
+﻿public class Q1752_CheckIfArrayIsSortedAndRotated
 {
     // TC: O(n), n sacle with length of nums
     // SC: O(1), space used does not sacle with input

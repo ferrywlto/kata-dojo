@@ -1,4 +1,4 @@
-public class Q3726_RemoveZerosInDecimalRepresentation
+﻿public class Q3726_RemoveZerosInDecimalRepresentation
 {
     // TC: O(d), d is the number of digits in n
     // SC: O(1), space used is constant

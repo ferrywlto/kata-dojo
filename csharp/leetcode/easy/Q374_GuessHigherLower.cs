@@ -1,7 +1,8 @@
-class GuessGame 
+﻿class GuessGame
 {
     public int pick = 0;
-    public int guess(int num) {
+    public int guess(int num)
+    {
         if (pick > num) return 1;
         if (pick < num) return -1;
         return 0;
@@ -11,7 +12,7 @@ class GuessGame
 class Q374_GuessNumberHigherLower : GuessGame
 {
     // Also a binary search question, TC: O(log n), SC: O(1)
-    public int GuessNumber(int n) 
+    public int GuessNumber(int n)
     {
         if (n == 1) return 1;
 
@@ -19,7 +20,7 @@ class Q374_GuessNumberHigherLower : GuessGame
         long end = n;
         while (end - start > 1)
         {
-            long middle = (end + start)/2;
+            long middle = (end + start) / 2;
             // pick < middle
             var guessResult = guess((int)middle);
             if (guessResult < 0)
@@ -35,13 +36,13 @@ class Q374_GuessNumberHigherLower : GuessGame
         }
         if (guess((int)end) == 0) return (int)end;
         if (guess((int)start) == 0) return (int)start;
-        return int.MinValue;   
+        return int.MinValue;
     }
 }
 
-class Q374_GuessNumberHigherLowerTestData: TestData
+class Q374_GuessNumberHigherLowerTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [10, 6],
         [1, 1],

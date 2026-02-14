@@ -1,4 +1,4 @@
-public class Q1763_LongestNiceSubstring
+﻿public class Q1763_LongestNiceSubstring
 {
     public string LongestNiceSubstring(string s)
     {
@@ -15,7 +15,7 @@ public class Q1763_LongestNiceSubstring
     public bool IsNice(string input)
     {
         var set = new HashSet<char>(input);
-        
+
         foreach (var c in set)
         {
             if (!set.Contains(char.ToLower(c)) ||
@@ -23,7 +23,7 @@ public class Q1763_LongestNiceSubstring
         }
         return true;
     }
-    
+
     public static List<object[]> TestData =>
     [
         ["YazaAay", "aAa"],

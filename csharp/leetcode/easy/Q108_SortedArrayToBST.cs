@@ -1,4 +1,4 @@
-class Q108_SortedArrayToBST
+﻿class Q108_SortedArrayToBST
 {
     public TreeNode SortedArrayToBST(int[] nums)
     {
@@ -11,7 +11,7 @@ class Q108_SortedArrayToBST
     {
         if (endIdx == startIdx + 2)
         {
-            return new TreeNode(nums[startIdx+1], new TreeNode(nums[startIdx]), new TreeNode(nums[endIdx]));
+            return new TreeNode(nums[startIdx + 1], new TreeNode(nums[startIdx]), new TreeNode(nums[endIdx]));
         }
         else if (endIdx == startIdx + 1)
         {
@@ -23,14 +23,14 @@ class Q108_SortedArrayToBST
         }
 
         var middleIdx = (startIdx + endIdx) / 2;
-        
-        return new TreeNode(nums[middleIdx], CreateNode(nums, startIdx, middleIdx-1), CreateNode(nums, middleIdx+1, endIdx));
+
+        return new TreeNode(nums[middleIdx], CreateNode(nums, startIdx, middleIdx - 1), CreateNode(nums, middleIdx + 1, endIdx));
     }
 }
 
-class Q108_SortedArrayToBSTTestData: TestData
+class Q108_SortedArrayToBSTTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[]{-10,-3,0,5,9}, new int?[]{0,-3,9,-10,null,5}],
         [new int[]{1,3}, new int?[]{3,1}],

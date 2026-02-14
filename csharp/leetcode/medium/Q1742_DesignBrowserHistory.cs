@@ -1,4 +1,4 @@
-// TC: O(n), n scale with number of input commands.
+﻿// TC: O(n), n scale with number of input commands.
 // SC: O(n), worst case all commands are "visit", then history list contains all urls 
 public class BrowserHistory
 {

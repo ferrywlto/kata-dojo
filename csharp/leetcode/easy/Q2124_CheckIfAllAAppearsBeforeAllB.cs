@@ -1,4 +1,4 @@
-public class Q2124_CheckIfAllAAppearsBeforeAllB
+﻿public class Q2124_CheckIfAllAAppearsBeforeAllB
 {
     // TC: O(n), n scale with length of s
     // SC: O(1), space used does not scale with input 

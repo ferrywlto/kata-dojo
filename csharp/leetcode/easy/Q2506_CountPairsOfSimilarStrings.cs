@@ -1,4 +1,4 @@
-public class Q2506_CountPairsOfSimilarStrings
+﻿public class Q2506_CountPairsOfSimilarStrings
 {
     // TC: O(n^2)
     // SC: O(n), n scale with length of words * 26 characters

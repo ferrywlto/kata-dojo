@@ -1,15 +1,15 @@
-class Q796_RotateString
+﻿class Q796_RotateString
 {
-    public bool RotateString(string s, string goal) 
+    public bool RotateString(string s, string goal)
     {
         if (s.Length != goal.Length) return false;
-        return (s + s).Contains(goal);    
+        return (s + s).Contains(goal);
     }
 }
 
 class Q796_RotateStringTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["abcde", "cdeab", true],
         ["abcde", "abced", false],

@@ -1,4 +1,4 @@
-public class Q2303_CalculateAmountPaidInTaxes
+﻿public class Q2303_CalculateAmountPaidInTaxes
 {
     // TC: O(n), n scale with number of brackets
     // SC: O(1), space used does not scale with input

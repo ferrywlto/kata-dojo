@@ -1,4 +1,4 @@
-class Q1598_CrawlerLogFolder
+﻿class Q1598_CrawlerLogFolder
 {
     // TC: O(n), where n is the size of logs, it have to iterate once to know the result
     // SC: O(1), space used is fixed
@@ -9,9 +9,9 @@ class Q1598_CrawlerLogFolder
         {
             if (log == "../")
             {
-                if(level > 0) level--;
-            } 
-            else if(log != "./") level++;
+                if (level > 0) level--;
+            }
+            else if (log != "./") level++;
         }
         return level;
     }

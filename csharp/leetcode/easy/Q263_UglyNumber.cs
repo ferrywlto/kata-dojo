@@ -1,4 +1,4 @@
-class Q263_UglyNumber
+﻿class Q263_UglyNumber
 {
     // TC: O(log n), SC:O(1)
     public bool IsUgly(int n)
@@ -8,7 +8,7 @@ class Q263_UglyNumber
             return true;
 
         var temp = n;
-        while(temp != 1)
+        while (temp != 1)
         {
             if (temp % 5 == 0)
             {
@@ -32,9 +32,9 @@ class Q263_UglyNumber
     }
 }
 
-class Q263_UglyNumberTestData: TestData
+class Q263_UglyNumberTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [6, true],
         [1, true],
@@ -57,6 +57,6 @@ public class Q263_UglyNumberTests
     {
         var sut = new Q263_UglyNumber();
         var actual = sut.IsUgly(input);
-        Assert.Equal(expected, actual); 
+        Assert.Equal(expected, actual);
     }
 }

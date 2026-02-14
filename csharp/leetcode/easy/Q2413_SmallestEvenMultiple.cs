@@ -1,4 +1,4 @@
-public class Q2413_SmallestEvenMultiple
+﻿public class Q2413_SmallestEvenMultiple
 {
     // TC: O(1), obviously
     // SC: O(1), obviously

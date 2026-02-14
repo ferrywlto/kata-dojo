@@ -1,4 +1,4 @@
-class Q507_PerfectNumber
+﻿class Q507_PerfectNumber
 {
     readonly HashSet<int> cache = [1];
     // TC: O(sqrt(n)), SC: O(n)
@@ -6,11 +6,11 @@ class Q507_PerfectNumber
     {
         if (num <= 1) return false;
         // biggest divisor is sqrt(num), not num/2. Run up to sqrt(num) means all smaller integer divisor already exist in cache
-        for(var i=2; i*i<num; i++)
+        for (var i = 2; i * i < num; i++)
         {
-            if(!cache.Contains(i) && num % i == 0)
+            if (!cache.Contains(i) && num % i == 0)
             {
-                var temp = num/i;
+                var temp = num / i;
                 cache.Add(i);
                 cache.Add(temp);
             }
@@ -19,9 +19,9 @@ class Q507_PerfectNumber
     }
 }
 
-class Q507_PerfectNumberTestData: TestData
+class Q507_PerfectNumberTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [28, true],
         [6, true],

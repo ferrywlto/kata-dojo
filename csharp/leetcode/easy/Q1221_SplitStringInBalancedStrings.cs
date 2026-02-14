@@ -1,18 +1,18 @@
-class Q1221_SplitStringInBalancedStrings
+﻿class Q1221_SplitStringInBalancedStrings
 {
     // TC: O(n), n is length of s
     // SC: O(1), the dictionary size is fixed
-    public int BalancedStringSplit(string s) 
+    public int BalancedStringSplit(string s)
     {
         var result = 0;
         var countL = 0;
         var countR = 0;
-        for(var i=0; i<s.Length; i++)
+        for (var i = 0; i < s.Length; i++)
         {
             if (s[i] == 'L') countL++;
             else countR++;
 
-            if(countL == countR)
+            if (countL == countR)
             {
                 result++;
                 countL = 0;
@@ -24,7 +24,7 @@ class Q1221_SplitStringInBalancedStrings
 }
 class Q1221_SplitStringInBalancedStringsTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["RLRRLLRLRL", 4],
         ["RLRRRLLRLL", 2],

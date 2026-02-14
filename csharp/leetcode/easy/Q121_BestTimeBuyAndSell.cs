@@ -1,4 +1,4 @@
-class Q121_BestTimeBuyAndSellTestData : TestData
+﻿class Q121_BestTimeBuyAndSellTestData : TestData
 {
     protected override List<object[]> Data =>
     [

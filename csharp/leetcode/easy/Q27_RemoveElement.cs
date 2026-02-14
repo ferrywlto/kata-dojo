@@ -1,4 +1,4 @@
-class Q27_RemoveElement
+﻿class Q27_RemoveElement
 {
     // whenever hit nums[i] == val
     // will try 2 versions
@@ -17,13 +17,13 @@ class Q27_RemoveElement
     {
         var stack = new Queue<int>();
         var end = 0;
-        for(var i=0; i<nums.Length; i++) 
+        for (var i = 0; i < nums.Length; i++)
         {
             if (nums[i] == val)
             {
                 stack.Enqueue(i);
             }
-            else 
+            else
             {
                 end = i;
             }
@@ -32,8 +32,8 @@ class Q27_RemoveElement
         if (stack.Count == 0) return nums.Length;
 
         var result = nums.Length - stack.Count;
-        
-        while(stack.Count > 0 && end >= 0) 
+
+        while (stack.Count > 0 && end >= 0)
         {
             if (nums[end] != val)
             {
@@ -53,22 +53,22 @@ class Q27_RemoveElement
     public int RemoveElement_Sort(int[] nums, int val)
     {
         var hit = 0;
-        for(var i=0; i<nums.Length; i++) 
+        for (var i = 0; i < nums.Length; i++)
         {
             if (nums[i] == val)
             {
                 nums[i] = int.MaxValue;
                 hit++;
-            } 
+            }
         }
         Array.Sort(nums);
         return nums.Length - hit;
     }
 }
 
-class Q27_RemoveElementTestData: TestData
+class Q27_RemoveElementTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[]{3,2,2,3}, 3, 2],
         [new int[]{0,1,2,2,3,0,4,2}, 2, 5],
@@ -82,7 +82,7 @@ public class Q27_RemoveElementTests
     public void OfficialTestCases(int[] input, int val, int expected)
     {
         var sut = new Q27_RemoveElement();
-        
+
         var actual = sut.RemoveElement(input, val);
         Assert.Equal(expected, actual);
         AssertFirstKElementsNotEqualToVal(input, actual, val);
@@ -90,7 +90,7 @@ public class Q27_RemoveElementTests
 
     private void AssertFirstKElementsNotEqualToVal(int[] input, int k, int val)
     {
-        for(var i=0; i<k; i++)
+        for (var i = 0; i < k; i++)
         {
             Assert.NotEqual(input[i], val);
         }

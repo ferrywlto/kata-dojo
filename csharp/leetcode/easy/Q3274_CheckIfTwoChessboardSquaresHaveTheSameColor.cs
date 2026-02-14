@@ -1,4 +1,4 @@
-public class Q3274_CheckIfTwoChessboardSquaresHaveTheSameColor
+﻿public class Q3274_CheckIfTwoChessboardSquaresHaveTheSameColor
 {
     // TC: O(1), time used is constant
     // SC: O(1), space used is constant

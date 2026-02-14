@@ -1,4 +1,4 @@
-public class Q3200_MaxHeightOfTriangle
+﻿public class Q3200_MaxHeightOfTriangle
 {
     // TC: O(n), n scale with larger of red and blue
     // SC: O(1), space used does not scale with input

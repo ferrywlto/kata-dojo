@@ -1,4 +1,4 @@
-public class Q3766_MinOpsToMakeBinaryPalindrome
+﻿public class Q3766_MinOpsToMakeBinaryPalindrome
 {
     // TC: O(n log n), each item in nums needs log n for binary search time. This is a bit cheating to generate all known binary palindromes from 1 to 5000 but the hints say so.
     // SC: O(1), modify the input in-place as result.

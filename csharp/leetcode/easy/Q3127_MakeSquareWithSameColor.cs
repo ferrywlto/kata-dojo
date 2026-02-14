@@ -1,4 +1,4 @@
-public class Q3127_MakeSquareWithSameColor
+﻿public class Q3127_MakeSquareWithSameColor
 {
     // TC: O(1), because the input is always 3x3, and we only need to iterate 4 times
     // SC: O(1), the dictionary is always has two entries only
@@ -30,7 +30,7 @@ public class Q3127_MakeSquareWithSameColor
         }
         return false;
     }
-    
+
     public static TheoryData<char[][], bool> TestData => new()
     {
         {[['B','W','B'],['B','W','W'],['B','W','B']], true},

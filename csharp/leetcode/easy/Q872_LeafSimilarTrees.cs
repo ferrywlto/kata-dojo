@@ -1,4 +1,4 @@
-// TC: O(n), all nodes need to traverse once
+﻿// TC: O(n), all nodes need to traverse once
 // SC: O(tree1.depth + tree2.depth)
 class Q872_LeafSimilarTrees
 {
@@ -6,12 +6,12 @@ class Q872_LeafSimilarTrees
     readonly Stack<TreeNode> ParallelStack2 = new();
     int? Leaf1Value = null;
     int? Leaf2Value = null;
-    public bool LeafSimilar(TreeNode root1, TreeNode root2) 
+    public bool LeafSimilar(TreeNode root1, TreeNode root2)
     {
         ParallelStack1.Push(root1);
         ParallelStack2.Push(root2);
-        
-        while(ParallelStack1.Count > 0 || ParallelStack2.Count > 0)
+
+        while (ParallelStack1.Count > 0 || ParallelStack2.Count > 0)
         {
             Leaf1Value = GetNextLeaf(ParallelStack1);
             Leaf2Value = GetNextLeaf(ParallelStack2);
@@ -22,14 +22,14 @@ class Q872_LeafSimilarTrees
 
     public int? GetNextLeaf(Stack<TreeNode> stack)
     {
-        while(stack.Count > 0)
+        while (stack.Count > 0)
         {
             var node = stack.Pop();
-            if(node.IsLeaf)
+            if (node.IsLeaf)
             {
                 return node.val;
             }
-            else 
+            else
             {
                 if (node.right != null) stack.Push(node.right);
                 if (node.left != null) stack.Push(node.left);
@@ -41,7 +41,7 @@ class Q872_LeafSimilarTrees
 
 class Q872_LeafSimilarTreesTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             new int?[]{3,5,1,6,2,9,8,null,null,7,4},

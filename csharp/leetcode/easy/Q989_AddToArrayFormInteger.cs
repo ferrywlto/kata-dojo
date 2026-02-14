@@ -1,4 +1,4 @@
-class Q989_AddToArrayFormInteger
+﻿class Q989_AddToArrayFormInteger
 {
     // TC: O(n), n = length of max(num, array form of k)
     // SC: O(n), n = length of max(num, array form of k)
@@ -8,7 +8,7 @@ class Q989_AddToArrayFormInteger
         var kList = ToArrayForm(k);
         List<int> longer, shorter;
 
-        if(numList.Count >= kList.Count)
+        if (numList.Count >= kList.Count)
         {
             longer = numList;
             shorter = kList;
@@ -21,7 +21,7 @@ class Q989_AddToArrayFormInteger
 
         var idx = 1;
         var carry = false;
-        while(idx <= shorter.Count)
+        while (idx <= shorter.Count)
         {
             longer[^idx] += shorter[^idx];
             if (carry) longer[^idx]++;
@@ -35,7 +35,7 @@ class Q989_AddToArrayFormInteger
             idx++;
         }
 
-        while(carry && idx <= longer.Count)
+        while (carry && idx <= longer.Count)
         {
             if (carry) longer[^idx]++;
 
@@ -47,8 +47,8 @@ class Q989_AddToArrayFormInteger
             else carry = false;
             idx++;
         }
-        
-        if(carry)
+
+        if (carry)
         {
             var list = new List<int> { 1 };
             list.AddRange(longer);
@@ -61,7 +61,7 @@ class Q989_AddToArrayFormInteger
     {
         if (input == 0) return [0];
         var stack = new Stack<int>();
-        while(input > 0)
+        while (input > 0)
         {
             stack.Push((int)(input % 10));
             input /= 10;
@@ -93,8 +93,8 @@ public class Q989_AddToArrayFormIntegerTests
         Assert.Equal(expected, actual);
     }
     [Theory]
-    [InlineData(100, new int[]{1,0,0})]
-    [InlineData(0, new int[]{0})]
+    [InlineData(100, new int[] { 1, 0, 0 })]
+    [InlineData(0, new int[] { 0 })]
     public void ToArrayForm(int input, int[] expected)
     {
         var sut = new Q989_AddToArrayFormInteger();

@@ -1,4 +1,4 @@
-class Q1379_FindCorrespondingNodeInCloneTree
+﻿class Q1379_FindCorrespondingNodeInCloneTree
 {
     // TC: O(n), as n need to traverse all nodes once worst case.
     // SC: O(h), stack need to store all nodes if tree is skewed worst case
@@ -6,12 +6,12 @@ class Q1379_FindCorrespondingNodeInCloneTree
     {
         var stack = new Stack<(TreeNode nodeFromOriginal, TreeNode nodeFromCloned)>();
         stack.Push((original, cloned));
-        while(stack.Count > 0)
+        while (stack.Count > 0)
         {
             var (nodeFromOriginal, nodeFromCloned) = stack.Pop();
-            if(ReferenceEquals(nodeFromOriginal, target)) return nodeFromCloned;
-            if(nodeFromOriginal.right != null) stack.Push((nodeFromOriginal.right, nodeFromCloned.right!));
-            if(nodeFromOriginal.left != null) stack.Push((nodeFromOriginal.left, nodeFromCloned.left!));
+            if (ReferenceEquals(nodeFromOriginal, target)) return nodeFromCloned;
+            if (nodeFromOriginal.right != null) stack.Push((nodeFromOriginal.right, nodeFromCloned.right!));
+            if (nodeFromOriginal.left != null) stack.Push((nodeFromOriginal.left, nodeFromCloned.left!));
         }
         return cloned;
     }
@@ -19,19 +19,19 @@ class Q1379_FindCorrespondingNodeInCloneTree
     {
         var stack = new Stack<TreeNode>();
         stack.Push(tree);
-        while(stack.Count > 0)
+        while (stack.Count > 0)
         {
             var node = stack.Pop();
-            if(node.val == value) return node;
-            if(node.right != null) stack.Push(node.right);
-            if(node.left != null) stack.Push(node.left);
+            if (node.val == value) return node;
+            if (node.right != null) stack.Push(node.right);
+            if (node.left != null) stack.Push(node.left);
         }
         return tree;
     }
     public TreeNode GetNodeFromPath(TreeNode tree, string path)
     {
         TreeNode? node = tree;
-        foreach(var choice in path)
+        foreach (var choice in path)
         {
             if (choice == '0') node = node?.left;
             else node = node?.right;

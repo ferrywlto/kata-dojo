@@ -1,4 +1,4 @@
-public class Q3483_UniqueThreeDigitsEvenNumbers
+﻿public class Q3483_UniqueThreeDigitsEvenNumbers
 {
     // TC: O(n^3), n scale with length of digits
     // SC: O(1), space used does not scale with input
@@ -14,18 +14,18 @@ public class Q3483_UniqueThreeDigitsEvenNumbers
         for (var num = 100; num < 1000; num++)
         {
             if (num % 2 != 0) continue;  // only even numbers
-            
+
             // Decompose the number into hundreds, tens, and ones digits
             var a = num / 100;
             var b = num / 10 % 10;
             var c = num % 10;
-            
+
             // Build candidate frequency
             var candidateFreq = new int[10];
             candidateFreq[a]++;
             candidateFreq[b]++;
             candidateFreq[c]++;
-            
+
             var canForm = true;
             for (var d = 0; d < 10; d++)
             {

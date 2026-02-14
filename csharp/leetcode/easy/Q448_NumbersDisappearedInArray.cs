@@ -1,18 +1,18 @@
-class Q448_NumbersDisappearedInArray
+﻿class Q448_NumbersDisappearedInArray
 {
     // TC: O(n), SC: O(n)
     public IList<int> FindDisappearedNumbers(int[] nums)
     {
         var disappeared = Enumerable.Range(1, nums.Length).ToHashSet();
-        for(var i=0; i<nums.Length; i++)
+        for (var i = 0; i < nums.Length; i++)
         {
             disappeared.Remove(nums[i]);
-        }         
+        }
         return disappeared.ToList();
     }
 }
 
-class Q448_NumbersDisappearedInArrayTestData: TestData
+class Q448_NumbersDisappearedInArrayTestData : TestData
 {
     protected override List<object[]> Data =>
     [

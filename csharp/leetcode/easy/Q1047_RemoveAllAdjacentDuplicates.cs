@@ -1,4 +1,4 @@
-class Q1047_RemoveAllAdjacentDuplicates
+﻿class Q1047_RemoveAllAdjacentDuplicates
 {
     // TC: O(n), n is length of s
     // SC: O(n), n is length of s in worst cases
@@ -13,7 +13,7 @@ class Q1047_RemoveAllAdjacentDuplicates
             else stack.Push(s[i]);
         }
 
-        return string.Join(string.Empty,stack.Reverse());
+        return string.Join(string.Empty, stack.Reverse());
     }
 }
 class Q1047_RemoveAllAdjacentDuplicatesTestData : TestData

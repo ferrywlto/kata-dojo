@@ -1,4 +1,4 @@
-public class Q1861_RotatingTheBox
+﻿public class Q1861_RotatingTheBox
 {
     public char[][] RotateTheBox(char[][] boxGrid)
     {
@@ -24,7 +24,7 @@ public class Q1861_RotatingTheBox
         }
         return result;
     }
-    
+
     private void Backfill(char[] row, int stoneCount, int wallIdx)
     {
         var idx = wallIdx - 1;

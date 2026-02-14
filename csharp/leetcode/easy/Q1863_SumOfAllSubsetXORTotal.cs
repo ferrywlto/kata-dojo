@@ -1,4 +1,4 @@
-class Q1863_SumOfAllSubsetXORTotal
+﻿class Q1863_SumOfAllSubsetXORTotal
 {
     // TC: O(2^n * n), where n is length of nums, times 2^n for all possible subset combinations  
     // SC: O(1), space used does not scale with input

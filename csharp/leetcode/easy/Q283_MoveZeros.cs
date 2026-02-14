@@ -1,4 +1,4 @@
-class Q283_MoveZeros
+﻿class Q283_MoveZeros
 {
     public void MoveZeroes(int[] nums)
     {
@@ -6,33 +6,33 @@ class Q283_MoveZeros
         var haveZero = false;
         var zeroIdx = 0;
         var zeroPassed = 0;
-        for(var i=0; i<nums.Length; i++)
+        for (var i = 0; i < nums.Length; i++)
         {
             if (nums[i] == 0)
             {
-                if(haveZero) 
+                if (haveZero)
                 {
                     zeroPassed++;
                 }
-                else 
+                else
                 {
                     zeroIdx = i;
                     haveZero = true;
                 }
             }
-            else if(haveZero)
+            else if (haveZero)
             {
                 nums[zeroIdx] = nums[i];
                 nums[i] = 0;
-                zeroIdx = i-zeroPassed;
+                zeroIdx = i - zeroPassed;
             }
         }
     }
 }
 
-class Q283_MoveZerosTestData: TestData
+class Q283_MoveZerosTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[]{0,1,0,3,12}, new int[]{1,3,12,0,0}],
         [new int[]{0}, new int[]{0}],

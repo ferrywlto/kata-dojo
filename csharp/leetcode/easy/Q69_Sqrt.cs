@@ -1,4 +1,4 @@
-class Q69_SqrtTestData : TestData
+﻿class Q69_SqrtTestData : TestData
 {
     protected override List<object[]> Data =>
     [
@@ -98,7 +98,7 @@ class Q69_Sqrt
                 }
             }
             else
-            { 
+            {
                 // middleSq < x
                 // check if (middle+1)^2 > x
                 var middlePlusOneSq = (middle + 1) * (middle + 1);

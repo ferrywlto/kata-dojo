@@ -1,4 +1,4 @@
-class Q961_NRepeatedElementIn2NArray
+﻿class Q961_NRepeatedElementIn2NArray
 {
     // TC: O(n), worst case nums length / 2
     // SC: O(n), worst case need to store all unique number if the repeated one is all packed at the end
@@ -9,7 +9,7 @@ class Q961_NRepeatedElementIn2NArray
         // that means the only repeated element is the answer
 
         var hashset = new HashSet<int>();
-        foreach(var n in nums)
+        foreach (var n in nums)
         {
             if (!hashset.Add(n)) return n;
         }

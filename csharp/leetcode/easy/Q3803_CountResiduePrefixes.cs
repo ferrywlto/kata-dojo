@@ -1,4 +1,4 @@
-public class Q3803_CountResiduePrefixes
+﻿public class Q3803_CountResiduePrefixes
 {
     // TC: O(n), n scale with length of s
     // SC: O(1)

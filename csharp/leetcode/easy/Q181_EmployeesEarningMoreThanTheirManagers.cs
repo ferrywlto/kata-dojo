@@ -1,4 +1,4 @@
-class Q181_EmployeesEarningMoreThanTheirManagers : SqlQuestion
+﻿class Q181_EmployeesEarningMoreThanTheirManagers : SqlQuestion
 {
     public override string Query =>
     """

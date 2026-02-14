@@ -1,4 +1,4 @@
-
+﻿
 class Q884_UncommonWordsInTwoSentences
 {
     // TC: O(n), n is total length of s1 + s2
@@ -16,9 +16,9 @@ class Q884_UncommonWordsInTwoSentences
         {
             for (var i = 0; i < words.Length; i++)
             {
-                if (!dict.TryGetValue(words[i], out var value)) 
+                if (!dict.TryGetValue(words[i], out var value))
                     dict.Add(words[i], 1);
-                else 
+                else
                     dict[words[i]] = ++value;
             }
         }

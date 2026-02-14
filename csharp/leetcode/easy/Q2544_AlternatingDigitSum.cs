@@ -1,4 +1,4 @@
-public class Q2544_AlternatingDigitSum
+﻿public class Q2544_AlternatingDigitSum
 {
     // TC: O(n), n scale with number of digits in n
     // SC: O(n), same as time

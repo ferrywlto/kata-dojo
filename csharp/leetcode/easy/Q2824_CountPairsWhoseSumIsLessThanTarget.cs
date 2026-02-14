@@ -1,13 +1,13 @@
-public class Q2824_CountPairsWhoseSumIsLessThanTarget
+﻿public class Q2824_CountPairsWhoseSumIsLessThanTarget
 {
     public int CountPairs(IList<int> nums, int target)
     {
         var result = 0;
-        for(var i=0; i<nums.Count-1; i++)
+        for (var i = 0; i < nums.Count - 1; i++)
         {
-            for(var j=i+1; j<nums.Count; j++)
+            for (var j = i + 1; j < nums.Count; j++)
             {
-                if(nums[i] + nums[j] < target) result++;
+                if (nums[i] + nums[j] < target) result++;
             }
         }
         return result;

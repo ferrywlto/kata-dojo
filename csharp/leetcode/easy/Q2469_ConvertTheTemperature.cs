@@ -1,4 +1,4 @@
-public class Q2469_ConvertTheTemperature
+﻿public class Q2469_ConvertTheTemperature
 {
     // TC: O(1)
     // SC: O(1)

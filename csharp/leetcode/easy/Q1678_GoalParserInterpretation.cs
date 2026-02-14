@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 
 class Q1678_GoalParserInterpretation
 {
@@ -7,17 +7,17 @@ class Q1678_GoalParserInterpretation
     public string Interpret(string command)
     {
         var sb = new StringBuilder();
-        for(var i=0; i<command.Length; i++)
+        for (var i = 0; i < command.Length; i++)
         {
             if (command[i] == 'G') sb.Append('G');
-            else if(command[i] == '(')
+            else if (command[i] == '(')
             {
                 if (command[i + 1] == ')')
                 {
                     sb.Append('o');
                     i++;
                 }
-                else 
+                else
                 {
                     sb.Append("al");
                     i += 3;
@@ -29,7 +29,7 @@ class Q1678_GoalParserInterpretation
 }
 class Q1678_GoalParserInterpretationTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["G()(al)", "Goal"],
         ["G()()()()(al)", "Gooooal"],

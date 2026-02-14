@@ -1,4 +1,4 @@
-public class Q2482_DifferenceBetweenOnesAndZerosInRowAndColumn
+﻿public class Q2482_DifferenceBetweenOnesAndZerosInRowAndColumn
 {
     // TC: O(n * m), scale with number of elements in grid
     // SC: O(n + m)

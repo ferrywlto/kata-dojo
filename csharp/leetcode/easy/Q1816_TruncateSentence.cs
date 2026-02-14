@@ -1,4 +1,4 @@
-class Q1816_TruncateSentence
+﻿class Q1816_TruncateSentence
 {
     // TC: O(n), where n is the length of s
     // SC: O(1), space used is fixed

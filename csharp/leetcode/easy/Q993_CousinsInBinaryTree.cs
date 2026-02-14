@@ -1,4 +1,4 @@
-class Q997_CousinsInBinaryTree
+﻿class Q997_CousinsInBinaryTree
 {
     // TC: O(n), n is nodes in tree
     // SC: O(n+h), n nodes in tree + h height of stack
@@ -9,20 +9,20 @@ class Q997_CousinsInBinaryTree
         stack.Push((root, 0));
         dict.Add(root.val, (null, 0));
 
-        while(stack.Count > 0) 
+        while (stack.Count > 0)
         {
             var (node, height) = stack.Pop();
-            if(node.right != null)
+            if (node.right != null)
             {
                 dict.Add(node.right.val, (node.val, height + 1));
                 stack.Push((node.right, height + 1));
             }
-            if(node.left != null) 
+            if (node.left != null)
             {
                 dict.Add(node.left.val, (node.val, height + 1));
                 stack.Push((node.left, height + 1));
             }
-            if(dict.TryGetValue(x, out var nodeX) && dict.TryGetValue(y, out var nodeY))
+            if (dict.TryGetValue(x, out var nodeX) && dict.TryGetValue(y, out var nodeY))
             {
                 return nodeX.height == nodeY.height && nodeX.parent != nodeY.parent;
             }

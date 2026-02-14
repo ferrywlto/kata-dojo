@@ -1,4 +1,4 @@
-class Q476_NumberComplement
+﻿class Q476_NumberComplement
 {
     // Constraints
     // 1 <= num < 2^31
@@ -27,9 +27,9 @@ class Q476_NumberComplement
     }
 }
 
-class Q476_NumberComplementTestData: TestData
+class Q476_NumberComplementTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [5, 2],
         [1, 0],

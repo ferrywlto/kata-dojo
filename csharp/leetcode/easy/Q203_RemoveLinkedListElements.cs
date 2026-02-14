@@ -1,4 +1,4 @@
-public class Q203_RemoveLinkeListElementsTests(ITestOutputHelper output) : ListNodeTest(output)
+﻿public class Q203_RemoveLinkeListElementsTests(ITestOutputHelper output) : ListNodeTest(output)
 {
     [Theory]
     [ClassData(typeof(Q203_RemoveLinkeListElementsTestData))]
@@ -48,9 +48,9 @@ class Q203_RemoveLinkeListElements
         if (head == null) return null;
 
         var current = head;
-        while(current != null)
+        while (current != null)
         {
-            while (current.Next != null) 
+            while (current.Next != null)
             {
                 if (current.Next.Val == val)
                 {
@@ -68,7 +68,7 @@ class Q203_RemoveLinkeListElements
             {
                 return null;
             }
-            else 
+            else
             {
                 head = head.Next;
             }

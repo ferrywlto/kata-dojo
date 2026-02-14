@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 
 // TC: O(n), n scale with length of s
 // SC: O(n), space used to store the result

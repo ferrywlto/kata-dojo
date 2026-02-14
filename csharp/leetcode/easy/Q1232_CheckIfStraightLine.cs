@@ -1,4 +1,4 @@
-class Q1232_CheckIfStraightLine
+﻿class Q1232_CheckIfStraightLine
 {
     // TC: O(n), need to iterate the length of input to calculate the slopes
     // SC: O(1), space not scale with length of input
@@ -7,7 +7,7 @@ class Q1232_CheckIfStraightLine
         // coordinates must have at least 2 elements
         if (coordinates.Length < 2) return false;
         double? slope = null;
-        for(var i=0; i<coordinates.Length-1; i++)
+        for (var i = 0; i < coordinates.Length - 1; i++)
         {
             if (coordinates[i][0] == coordinates[i + 1][0]
             && coordinates[i][1] == coordinates[i + 1][1]) continue;

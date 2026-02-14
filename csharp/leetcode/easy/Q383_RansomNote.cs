@@ -1,4 +1,4 @@
-class Q383_RansomNote
+﻿class Q383_RansomNote
 {
     // TC: O(n), SC: O(n)
     public bool CanConstruct(string ransomNote, string magazine)
@@ -16,9 +16,9 @@ class Q383_RansomNote
     }
 }
 
-class Q383_RansomNoteTestData: TestData
+class Q383_RansomNoteTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["a", "b", false],
         ["aa", "ab", false],

@@ -1,4 +1,4 @@
-public class Q2154_KeepMultiplyingFoundValuesByTwo
+﻿public class Q2154_KeepMultiplyingFoundValuesByTwo
 {
     // TC: O(n log n), n scale with length of nums, dominant by Array.Sort() thus n log n times log n for binary search, 
     // SC: O(1), space used does not scale with input
@@ -11,7 +11,7 @@ public class Q2154_KeepMultiplyingFoundValuesByTwo
         while (searchResult >= 0)
         {
             result = nums[searchResult] * 2;
-            searchResult = Array.BinarySearch(nums, 
+            searchResult = Array.BinarySearch(nums,
                 searchResult, nums.Length - searchResult, result);
         }
         return result;

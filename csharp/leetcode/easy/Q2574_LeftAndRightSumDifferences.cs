@@ -1,4 +1,4 @@
-public class Q2574_LeftAndRightSumDifferences
+﻿public class Q2574_LeftAndRightSumDifferences
 {
     // TC: O(n), n scale with length of nums
     // SC: O(n), same as time for holding result

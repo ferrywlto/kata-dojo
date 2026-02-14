@@ -1,4 +1,4 @@
-public class Q2409_CountDaysSpentTogether
+﻿public class Q2409_CountDaysSpentTogether
 {
     public readonly Dictionary<int, int> daysBeforeMonth = new Dictionary<int, int>() {
         {1,0},

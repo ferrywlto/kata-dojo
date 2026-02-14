@@ -1,4 +1,4 @@
-class Q1491_AvgSalaryExcludingMinAndMax
+﻿class Q1491_AvgSalaryExcludingMinAndMax
 {
     // TC: O(n), where n is the length of salary, have to iterate all to find the min and max
     // SC: O(1), space used is fixed to 3 integer variables

@@ -1,4 +1,4 @@
-public class Q2974_MinNumberGame
+﻿public class Q2974_MinNumberGame
 {
     // TC: O(n log n), n scale with length of nums due to Array.Sort()
     // SC: O(n), n scale with length of nums to hold the result

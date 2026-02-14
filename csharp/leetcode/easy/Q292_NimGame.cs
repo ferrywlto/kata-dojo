@@ -1,6 +1,7 @@
-class Q292_NimGame
+﻿class Q292_NimGame
 {
-    public bool CanWinNim(int n) {
+    public bool CanWinNim(int n)
+    {
         // if reminder <= 3, I win, else I cannot win
         // combinations: [1,1], [1,2], [1,3], [2,1], [2,2], [2,3], [3,1], [3,2], [3,3]
         // outcome: 2, 3, 3, 4, 4, 4, 5, 5, 6 
@@ -14,9 +15,9 @@ class Q292_NimGame
     }
 }
 
-class Q292_NimGameTestData: TestData
+class Q292_NimGameTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [4, false],
         [1, true],

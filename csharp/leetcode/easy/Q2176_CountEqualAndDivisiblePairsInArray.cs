@@ -1,4 +1,4 @@
-public class Q2176_CountEqualAndDivisiblePairsInArray
+﻿public class Q2176_CountEqualAndDivisiblePairsInArray
 {
     // TC: O(n^2), due to nested loop
     // SC: O(1), space used does not scale with input

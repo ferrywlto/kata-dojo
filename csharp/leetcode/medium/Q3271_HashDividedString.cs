@@ -1,4 +1,4 @@
-public class Q3271_HashDividedString
+﻿public class Q3271_HashDividedString
 {
     // TC: O(n). n scale with length of s
     // SC: O(n), to store the result

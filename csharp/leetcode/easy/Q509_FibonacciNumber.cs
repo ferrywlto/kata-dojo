@@ -1,4 +1,4 @@
-class Q509_FibonacciNumber
+﻿class Q509_FibonacciNumber
 {
     // TC: From O(n^2) with recursion to O(n) with dynamic programming
     // SC: O(n)
@@ -11,16 +11,16 @@ class Q509_FibonacciNumber
         nums[0] = 0;
         nums[1] = 1;
 
-        for (var i=2; i<=n; i++)
+        for (var i = 2; i <= n; i++)
             nums[i] = nums[i - 2] + nums[i - 1];
 
         return nums[n];
     }
 }
 
-class Q509_FibonacciNumberTestData: TestData
+class Q509_FibonacciNumberTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [2, 1],
         [3, 2],

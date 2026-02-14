@@ -1,4 +1,4 @@
-public class Q3195_FindMinAreaCoverAllOnes
+﻿public class Q3195_FindMinAreaCoverAllOnes
 {
     // TC: O(n * m), where n scale with row of grid and m scale with columns of grid
     // SC: O(1), space used does not scale with input

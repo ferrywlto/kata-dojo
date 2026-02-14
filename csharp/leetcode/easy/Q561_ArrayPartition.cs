@@ -1,4 +1,4 @@
-class Q561_ArrayPartition
+﻿class Q561_ArrayPartition
 {
     // TC: O(n log n)
     // SC: O(1)
@@ -6,7 +6,7 @@ class Q561_ArrayPartition
     {
         Array.Sort(nums);
         var max = 0;
-        for(var i=0; i<nums.Length; i+=2)
+        for (var i = 0; i < nums.Length; i += 2)
         {
             // no need Math.Min(nums[i], nums[i + 1]) as nums[i] must smaller than nums[i+1] after sorted
             max += nums[i];

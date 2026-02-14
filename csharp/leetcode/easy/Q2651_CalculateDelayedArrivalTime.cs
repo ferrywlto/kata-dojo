@@ -1,4 +1,4 @@
-public class Q2651_CalculateDelayedArrivalTime
+﻿public class Q2651_CalculateDelayedArrivalTime
 {
     // TC: O(1) obviously
     // SC: O(1)

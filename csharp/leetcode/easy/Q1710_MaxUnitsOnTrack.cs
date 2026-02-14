@@ -1,4 +1,4 @@
-class BoxComparer : IComparer
+﻿class BoxComparer : IComparer
 {
     public int Compare(object? x, object? y)
     {

@@ -1,4 +1,4 @@
-class Q1572_MatrixDiagonalSum
+﻿class Q1572_MatrixDiagonalSum
 {
     // TC: O(n), where n is number of rows in mat
     // SC: O(1), space used is fixed to two integer variables

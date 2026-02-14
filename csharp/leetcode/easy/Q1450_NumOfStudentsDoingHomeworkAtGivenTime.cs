@@ -1,11 +1,11 @@
-class Q1450_NumOfStudentsDoingHomeworkAtGivenTime
+﻿class Q1450_NumOfStudentsDoingHomeworkAtGivenTime
 {
     // TC: O(n), where n is length of startTime, it have to run through all pairs
     // SC: O(1), no space used in operations
     public int BusyStudent(int[] startTime, int[] endTime, int queryTime)
     {
         var count = 0;
-        for(var i=0; i<startTime.Length; i++)
+        for (var i = 0; i < startTime.Length; i++)
         {
             if (queryTime >= startTime[i] && queryTime <= endTime[i]) count++;
         }

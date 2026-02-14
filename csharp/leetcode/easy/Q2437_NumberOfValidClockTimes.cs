@@ -1,4 +1,4 @@
-public class Q2437_NumberOfValidClockTimes//(ITestOutputHelper output)
+﻿public class Q2437_NumberOfValidClockTimes//(ITestOutputHelper output)
 {
     // TC: O(1), time to compute is constant
     // SC: O(1), space used does not scale with input 

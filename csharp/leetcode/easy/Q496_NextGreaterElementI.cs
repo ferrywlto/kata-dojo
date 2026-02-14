@@ -1,4 +1,4 @@
-class Q496_NextGreaterElementI
+﻿class Q496_NextGreaterElementI
 {
     // Constraints:
     // 1 <= nums1.length <= nums2.length <= 1000
@@ -12,10 +12,10 @@ class Q496_NextGreaterElementI
     {
         var dict = new Dictionary<int, int>();
         var stack = new Stack<int>();
-        
-        foreach(var n in nums2)
+
+        foreach (var n in nums2)
         {
-            while(stack.Count > 0 && stack.Peek() < n)
+            while (stack.Count > 0 && stack.Peek() < n)
             {
                 // n is just larger than stack top item, pop it and set next larger 
                 dict[stack.Pop()] = n;
@@ -23,7 +23,7 @@ class Q496_NextGreaterElementI
             // keep adding if not larger
             stack.Push(n);
         }
-        for(var i = 0; i<nums1.Length; i++)
+        for (var i = 0; i < nums1.Length; i++)
         {
             nums1[i] = dict.ContainsKey(nums1[i]) ? dict[nums1[i]] : -1;
         }
@@ -32,9 +32,9 @@ class Q496_NextGreaterElementI
     }
 }
 
-class Q496_NextGreaterElementITestData: TestData
+class Q496_NextGreaterElementITestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[] {4,1,2}, new int[] {1,3,4,2}, new int[] {-1,3,-1}],
         [new int[] {2,4}, new int[] {1,2,3,4}, new int[] {3,-1}],

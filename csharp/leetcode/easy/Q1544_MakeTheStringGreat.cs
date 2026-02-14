@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 
 class Q1544_MakeTheStringGreat
 {
@@ -6,24 +6,24 @@ class Q1544_MakeTheStringGreat
     // SC: O(n), where n is the length of s, no matter which version used, the same amount of space are needed for the string builder
     public string MakeGood(string s)
     {
-            var sb = new StringBuilder(s);
-            int i = 0;
-            while (i < sb.Length - 1)
+        var sb = new StringBuilder(s);
+        int i = 0;
+        while (i < sb.Length - 1)
+        {
+            // Both version use this to detect upper-lower pair
+            if (Math.Abs(sb[i] - sb[i + 1]) == 32)
             {
-                // Both version use this to detect upper-lower pair
-                if (Math.Abs(sb[i] - sb[i + 1]) == 32)
-                {
-                    sb.Remove(i, 2); // Remove the matching pair directly.
-                    if (i > 0) i--; // Step back to check for new adjacent matches.
-                }
-                else i++;
+                sb.Remove(i, 2); // Remove the matching pair directly.
+                if (i > 0) i--; // Step back to check for new adjacent matches.
             }
-            return sb.ToString();
+            else i++;
+        }
+        return sb.ToString();
     }
 }
 class Q1544_MakeTheStringGreatTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["leEeetcode", "leetcode"],
         ["abBAcC", ""],

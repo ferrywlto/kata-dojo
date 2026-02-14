@@ -1,4 +1,4 @@
-public class Q3079_FindSumOfEncryptedIntegers
+﻿public class Q3079_FindSumOfEncryptedIntegers
 {
     // TC: O(n), n scale with length of nums
     // SC: O(1), space used does not scale with input

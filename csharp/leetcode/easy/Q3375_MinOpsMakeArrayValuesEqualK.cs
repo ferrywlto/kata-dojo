@@ -1,4 +1,4 @@
-public class Q3375_MinOpsMakeArrayValuesEqualK
+﻿public class Q3375_MinOpsMakeArrayValuesEqualK
 {
     // TC: O(n), n sacle with length of nums
     // SC: O(m), m sacle with unique numbers in nums

@@ -1,4 +1,4 @@
-class Q1684_CountTheNumberOfConsistentString
+﻿class Q1684_CountTheNumberOfConsistentString
 {
     // TC: O(n), it have to walkthough all character in words worst case if all characters are allowed
     // TC: O(m), m is length of allowed

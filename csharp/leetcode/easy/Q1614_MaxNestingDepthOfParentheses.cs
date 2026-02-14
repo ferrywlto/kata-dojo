@@ -1,4 +1,4 @@
-class Q1614_MaxNestingDepthOfParaentheses
+﻿class Q1614_MaxNestingDepthOfParaentheses
 {
     // TC: O(n), where n is length of s, it has to run through the whole string to find the max depth
     // SC: O(1), space used is fixed

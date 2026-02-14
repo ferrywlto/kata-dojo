@@ -1,4 +1,4 @@
-public class Q3545_MinDeletionsForAtMostKDistinctCharacters
+﻿public class Q3545_MinDeletionsForAtMostKDistinctCharacters
 {
     // TC: O(n log n), n scale with length of s, due to Array.Sort(), but the constraints is small s.Length <= 16
     // Non sorting approach can be faster, but not worth the effort

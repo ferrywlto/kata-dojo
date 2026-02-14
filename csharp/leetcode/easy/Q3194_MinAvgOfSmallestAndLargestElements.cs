@@ -1,4 +1,4 @@
-public class Q3194_MinAvgOfSmallestAndLargestElements
+﻿public class Q3194_MinAvgOfSmallestAndLargestElements
 {
     // TC: O(n log n), n scale with length of nums
     // SC: O(1), space used does not scale with input

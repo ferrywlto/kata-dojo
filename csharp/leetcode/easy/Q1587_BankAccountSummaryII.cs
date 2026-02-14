@@ -1,4 +1,4 @@
-using Row = (string name, int balance);
+﻿using Row = (string name, int balance);
 class Q1587_BankAccountSummaryII : SqlQuestion
 {
     public override string Query =>

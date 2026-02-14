@@ -1,19 +1,20 @@
-class Q202_HappyNumbers
+﻿class Q202_HappyNumbers
 {
     // each digit could only be 0-9, can store the sum first
-    private readonly Dictionary<int,int> dictOfSq = 
+    private readonly Dictionary<int, int> dictOfSq =
         Enumerable
             .Range(0, 10)
             .Select(n => n.ToString()[0])
-            .Select(n => new KeyValuePair<int,int>(n, (int)Math.Pow(n - 48, 2)))
+            .Select(n => new KeyValuePair<int, int>(n, (int)Math.Pow(n - 48, 2)))
             .ToDictionary();
 
     // TC:O(log n), SC:O(long n)
     public bool IsHappy(int n)
-    {        
+    {
         var seen = new HashSet<int>();
 
-        while(n != 1) {
+        while (n != 1)
+        {
             n = SumOfDigitSquare(n);
             if (seen.Contains(n)) return false;
             seen.Add(n);
@@ -22,16 +23,16 @@ class Q202_HappyNumbers
         return true;
     }
 
-    private int SumOfDigitSquare(long n) 
+    private int SumOfDigitSquare(long n)
     {
         var result = 0;
         var str = n.ToString();
-        foreach(var i in str) result += dictOfSq[i];
-        return result; 
+        foreach (var i in str) result += dictOfSq[i];
+        return result;
     }
 }
 
-class Q202_HappyNumbersTestData: TestData
+class Q202_HappyNumbersTestData : TestData
 {
     protected override List<object[]> Data =>
     [

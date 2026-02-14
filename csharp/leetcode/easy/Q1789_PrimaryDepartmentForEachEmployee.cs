@@ -1,4 +1,4 @@
-using Row = (int employee_id, int department_id);
+﻿using Row = (int employee_id, int department_id);
 class Q1789_PrimaryDepartmentForEachEmployee : SqlQuestion
 {
     public override string Query =>

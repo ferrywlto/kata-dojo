@@ -1,4 +1,4 @@
-public class Q2644_FindMaxDivisibilityScore
+﻿public class Q2644_FindMaxDivisibilityScore
 {
     // TC: O(n * m), n scale with length of divisors, m scale with length of nums
     // SC: O(1), space used does not scale with input

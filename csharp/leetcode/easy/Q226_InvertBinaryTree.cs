@@ -1,14 +1,14 @@
-
+﻿
 class Q226_InvertBinaryTree
 {
-    public TreeNode? InvertTree(TreeNode? root) 
+    public TreeNode? InvertTree(TreeNode? root)
     {
         if (root == null) return null;
         Invert(root);
-        return root;    
+        return root;
     }
     // TC:O(n), SC:O(n)
-    public void Invert(TreeNode? node) 
+    public void Invert(TreeNode? node)
     {
         if (node == null) return;
 
@@ -19,7 +19,7 @@ class Q226_InvertBinaryTree
     }
 
     // TC:O(n), SC:O(1)
-    public TreeNode? InvertTree_Iterative(TreeNode? root) 
+    public TreeNode? InvertTree_Iterative(TreeNode? root)
     {
         if (root == null) return null;
 
@@ -38,9 +38,9 @@ class Q226_InvertBinaryTree
     }
 }
 
-class Q226_InvertBinaryTreeTestData: TestData
+class Q226_InvertBinaryTreeTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[]{4,2,7,1,3,6,9}, new int[]{4,7,2,9,6,3,1}],
         [new int[]{2,1,3}, new int[]{2,3,1}],
@@ -48,7 +48,7 @@ class Q226_InvertBinaryTreeTestData: TestData
     ];
 }
 
-public class Q226_InvertBinaryTreeTests(ITestOutputHelper output): TreeNodeTest(output)
+public class Q226_InvertBinaryTreeTests(ITestOutputHelper output) : TreeNodeTest(output)
 {
     [Theory]
     [ClassData(typeof(Q226_InvertBinaryTreeTestData))]

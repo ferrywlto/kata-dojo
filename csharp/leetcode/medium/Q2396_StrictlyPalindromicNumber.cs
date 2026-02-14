@@ -1,4 +1,4 @@
-public class Q2396_StrictlyPalindromicNumber
+﻿public class Q2396_StrictlyPalindromicNumber
 {
     // TC: O(1)
     // SC: O(1)

@@ -1,4 +1,4 @@
-public class Q2427_NumberOfCommonFactors
+﻿public class Q2427_NumberOfCommonFactors
 {
     // TC: O(n), n scale with minimum between a and b
     // SC: O(1), space used does not scale with input

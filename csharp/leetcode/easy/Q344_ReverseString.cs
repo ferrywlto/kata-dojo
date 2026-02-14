@@ -1,22 +1,22 @@
-class Q344_ReverseString
+﻿class Q344_ReverseString
 {
     // TC:O(n), SC:O(1)
     public void ReverseString(char[] s)
     {
         char temp = ' ';
         var times = s.Length / 2;
-        for (var i = 0; i < times; i++ )
+        for (var i = 0; i < times; i++)
         {
             temp = s[i];
-            s[i] = s[^(i+1)];
-            s[^(i+1)] = temp;
+            s[i] = s[^(i + 1)];
+            s[^(i + 1)] = temp;
         }
     }
 }
 
-class Q344_ReverseStringTestData: TestData
+class Q344_ReverseStringTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new char[]{'h','e','l','l','o'}, new char[]{'o','l','l','e','h'}],
         [new char[]{'H','a','n','n','a','h'}, new char[]{'h','a','n','n','a','H'}],

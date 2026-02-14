@@ -1,55 +1,58 @@
-public class Q1442_CountTripletsThatCanFormTwoArraysOfEqualXor(ITestOutputHelper output)
+﻿public class Q1442_CountTripletsThatCanFormTwoArraysOfEqualXor(ITestOutputHelper output)
 {
     public int CountTriplets(int[] arr)
     {
-        if(arr.Length < 3) return 0;
+        if (arr.Length < 3) return 0;
 
         var len = arr.Length;
-        
+
         var result = 0;
-        for(var i = 0; i<len-2; i++)
+        for (var i = 0; i < len - 2; i++)
         {
-            for(var j = i+1; j<len-1; j++)
+            for (var j = i + 1; j < len - 1; j++)
             {
-                for(var k = j; k<len; k++)
+                for (var k = j; k < len; k++)
                 {
-                    if(XorEqual(arr, i, j, k))
+                    if (XorEqual(arr, i, j, k))
                     {
-                        result++;   
+                        result++;
                     }
                 }
             }
         }
         return result;
     }
-    Dictionary<int, (int count, List<int[]> indexes)> Cache = new(); 
+    Dictionary<int, (int count, List<int[]> indexes)> Cache = new();
 
     private bool XorEqual(int[] input, int i, int j, int k)
     {
         var a = input[i];
-        for(var aStart = i+1; aStart<j; aStart++)
+        for (var aStart = i + 1; aStart < j; aStart++)
         {
             a ^= input[aStart];
         }
         var b = input[j];
-        for(var bStart = j+1; bStart<=k; bStart++)
+        for (var bStart = j + 1; bStart <= k; bStart++)
         {
             b ^= input[bStart];
         }
         return a == b;
     }
 
-    private void Xor(int[] arr, int startIdx) 
+    private void Xor(int[] arr, int startIdx)
     {
         var temp = arr[startIdx];
-        for(var i=startIdx+1; i<arr.Length; i++) {
+        for (var i = startIdx + 1; i < arr.Length; i++)
+        {
             temp ^= arr[i];
-            if(startIdx == 0 && i == arr.Length - 1) continue;
+            if (startIdx == 0 && i == arr.Length - 1) continue;
 
-            if(!Cache.TryGetValue(temp, out var val)) {
-                Cache.Add(temp, (1, [[startIdx,i]]));
+            if (!Cache.TryGetValue(temp, out var val))
+            {
+                Cache.Add(temp, (1, [[startIdx, i]]));
             }
-            else {
+            else
+            {
                 var (count, indexes) = val;
                 indexes.Add([startIdx, i]);
                 Cache[temp] = (++count, indexes);
@@ -60,13 +63,15 @@ public class Q1442_CountTripletsThatCanFormTwoArraysOfEqualXor(ITestOutputHelper
     private void Xor2(int[] arr, int j)
     {
         var left = arr[0];
-        for(var i=1; i<j; i++)
+        for (var i = 1; i < j; i++)
         {
             left ^= arr[i];
-            if(!Cache.TryGetValue(left, out var val_left)) {
+            if (!Cache.TryGetValue(left, out var val_left))
+            {
                 Cache.Add(left, (1, [[0, i]]));
             }
-            else {
+            else
+            {
                 var (count, indexes) = val_left;
                 indexes.Add([0, i]);
                 Cache[left] = (++count, indexes);
@@ -75,19 +80,19 @@ public class Q1442_CountTripletsThatCanFormTwoArraysOfEqualXor(ITestOutputHelper
         }
         var right = arr[j];
 
-        for(var k=j; k<arr.Length; k++)
+        for (var k = j; k < arr.Length; k++)
         {
             right ^= arr[k];
-            if(!Cache.TryGetValue(right, out var val_right2))
+            if (!Cache.TryGetValue(right, out var val_right2))
             {
                 Cache.Add(right, (1, [[j, k]]));
             }
-            else 
+            else
             {
                 var (count, indexes) = val_right2;
                 indexes.Add([j, k]);
                 Cache[right] = (++count, indexes);
-                output.WriteLine("right Xor: {0}, start: {1}, end: {2}", left, j, k);            
+                output.WriteLine("right Xor: {0}, start: {1}, end: {2}", left, j, k);
             }
         }
     }

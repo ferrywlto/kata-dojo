@@ -1,4 +1,4 @@
-using System.Data;
+﻿using System.Data;
 using Microsoft.Data.Sqlite;
 
 class Q511_GamePlayAnalysis1 : SqlQuestion

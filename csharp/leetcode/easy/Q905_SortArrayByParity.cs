@@ -1,4 +1,4 @@
-class Q905_SortArrayByParity
+﻿class Q905_SortArrayByParity
 {
     // TC: O(n/2) -> O(n), which improves time from original O(2n) 
     public int[] SortArrayByParity_TwoPointers(int[] nums)
@@ -13,8 +13,8 @@ class Q905_SortArrayByParity
                 (nums[startIdx], nums[endIdx]) = (nums[endIdx], nums[startIdx]);
             }
 
-            if(nums[startIdx] % 2 == 0) startIdx++;
-            if(nums[endIdx] % 2 == 1) endIdx--;
+            if (nums[startIdx] % 2 == 0) startIdx++;
+            if (nums[endIdx] % 2 == 1) endIdx--;
         }
         return nums;
     }

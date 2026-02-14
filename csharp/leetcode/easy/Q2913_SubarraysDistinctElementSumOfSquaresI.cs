@@ -1,4 +1,4 @@
-public class Q2913_SubarraysDistinctElementSumOfSquaresI//(ITestOutputHelper output)
+﻿public class Q2913_SubarraysDistinctElementSumOfSquaresI//(ITestOutputHelper output)
 {
     // TC: O(n^2), n scale with length of nums
     // SC: O(m), m scale with unique numbers in nums, worst case nums

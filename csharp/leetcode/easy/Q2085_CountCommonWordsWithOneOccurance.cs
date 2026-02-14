@@ -1,4 +1,4 @@
-public class Q2085_CountCommonWordsWithOneOccurance
+﻿public class Q2085_CountCommonWordsWithOneOccurance
 {
     // TC: O(n+m), where n sacle with length of words1 and m scales with length of words2
     // SC: O(n+m), for the dictionary sizes
@@ -13,11 +13,11 @@ public class Q2085_CountCommonWordsWithOneOccurance
             .ToDictionary(g => g.Key, g => g.Count());
 
         var bothExistCount = 0;
-        foreach(var pair in set1)
+        foreach (var pair in set1)
         {
-            if(pair.Value == 1) 
+            if (pair.Value == 1)
             {
-                if(set2.TryGetValue(pair.Key, out var value))
+                if (set2.TryGetValue(pair.Key, out var value))
                 {
                     if (value == 1) bothExistCount++;
                 }

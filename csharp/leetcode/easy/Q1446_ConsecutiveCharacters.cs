@@ -1,4 +1,4 @@
-class Q1446_ConsecutiveCharacters
+﻿class Q1446_ConsecutiveCharacters
 {
     // TC: O(n), it have to iterate to the end to determine the longest
     // SC: O(1), no space used in operations
@@ -7,18 +7,18 @@ class Q1446_ConsecutiveCharacters
         var maxLength = 1;
         var currentLength = 1;
         var lastChar = s[0];
-        for(var i=1; i<s.Length; i++)
+        for (var i = 1; i < s.Length; i++)
         {
-            if(s[i] == lastChar) currentLength++;
+            if (s[i] == lastChar) currentLength++;
             else
             {
-                if (currentLength > maxLength) 
+                if (currentLength > maxLength)
                     maxLength = currentLength;
                 lastChar = s[i];
                 currentLength = 1;
             }
         }
-        if (currentLength > maxLength) 
+        if (currentLength > maxLength)
             maxLength = currentLength;
         return maxLength;
     }

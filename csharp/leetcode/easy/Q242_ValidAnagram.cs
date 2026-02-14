@@ -1,13 +1,13 @@
-class Q242_ValidAnagram
+﻿class Q242_ValidAnagram
 {
-    public bool IsAnagram(string s, string t) 
+    public bool IsAnagram(string s, string t)
     {
         if (s.Length != t.Length) return false;
 
         var dict_s = CharacterAnalysis(s);
         var dict_t = CharacterAnalysis(t);
 
-        foreach(var pair in dict_t)
+        foreach (var pair in dict_t)
         {
             if (!dict_s.TryGetValue(pair.Key, out int value)) return false;
 
@@ -20,14 +20,14 @@ class Q242_ValidAnagram
     {
         var dict = new Dictionary<string, int>();
 
-        foreach(var c in input)
+        foreach (var c in input)
         {
             var str = c.ToString();
-            if(dict.TryGetValue(str, out var value)) 
+            if (dict.TryGetValue(str, out var value))
             {
                 dict[str]++;
             }
-            else 
+            else
             {
                 dict.Add(str, 1);
             }
@@ -36,9 +36,9 @@ class Q242_ValidAnagram
     }
 }
 
-class Q242_ValidAnagramTestData: TestData
+class Q242_ValidAnagramTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["anagram", "nagaram", true],
         ["anagram😀", "😀nagaram", true],

@@ -1,4 +1,4 @@
-public class Q3774_AbsoluteDiffBetweenMaxAndMinKElements
+﻿public class Q3774_AbsoluteDiffBetweenMaxAndMinKElements
 {
     // TC: O(n log n), dominated by Array.Sort()
     // SC: O(1), space used does not scale with input.
@@ -19,7 +19,7 @@ public class Q3774_AbsoluteDiffBetweenMaxAndMinKElements
         {[5,2,2,4], 2, 5},
         {[100], 1, 0},
     };
-    
+
     [Theory]
     [MemberData(nameof(TestData))]
     public void Test(int[] input, int k, int expected)

@@ -1,26 +1,26 @@
-class Q594_LongestHarmoniousSubsequence
+﻿class Q594_LongestHarmoniousSubsequence
 {
     // TC: O(n)
     // SC: O(n)
-    public int FindLHS(int[] nums) 
+    public int FindLHS(int[] nums)
     {
         var dict = nums
             .GroupBy(n => n)
             .ToDictionary(group => group.Key, group => group.Count());
 
         var maxLength = 0;
-        foreach(var pair in dict)
+        foreach (var pair in dict)
         {
             // find it's +1 exists, no need to check -1 as starting from the minimum all pairs will be bound in the 2 number sliding window
             // suppose in -1, 0, 1, 2, 3, at last 3 doesn't need to check 2 but 4 instead. However it won't find 4
-            if(dict.TryGetValue(pair.Key+1, out var plusOneCount))
+            if (dict.TryGetValue(pair.Key + 1, out var plusOneCount))
             {
                 var pairLength = pair.Value + plusOneCount;
-                if(pairLength > maxLength)
+                if (pairLength > maxLength)
                 {
                     maxLength = pairLength;
                 }
-            }    
+            }
         }
 
         return maxLength;
@@ -37,7 +37,7 @@ class Q594_LongestHarmoniousSubsequenceTestData : TestData
         [new int[]{1,2,3,4}, 2],
         [new int[]{1,1,1,1}, 0],
     ];
-} 
+}
 
 public class Q594_LongestHarmoniousSubsequenceTests
 {

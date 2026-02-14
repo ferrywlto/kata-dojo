@@ -1,4 +1,4 @@
-public class Q2206_DivideArrayIntoRqualPairs
+﻿public class Q2206_DivideArrayIntoRqualPairs
 {
     // TC: O(1), always operate 501 times
     // SC: O(1), same as time
@@ -6,13 +6,13 @@ public class Q2206_DivideArrayIntoRqualPairs
     {
         if (nums.Length % 2 != 0) return false;
         var count = new int[501];
-        for(var i=0; i<nums.Length; i++)
+        for (var i = 0; i < nums.Length; i++)
         {
             count[nums[i]]++;
         }
-        for(var j=0; j<count.Length; j++)
+        for (var j = 0; j < count.Length; j++)
         {
-            if(count[j] % 2 != 0) return false;
+            if (count[j] % 2 != 0) return false;
         }
         return true;
     }

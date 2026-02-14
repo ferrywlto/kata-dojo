@@ -1,4 +1,4 @@
-class Q459_RepeatedSubstring
+﻿class Q459_RepeatedSubstring
 {
     // TC: O(n^2), SC: O(n)
     public bool RepeatedSubstringPattern(string s)
@@ -12,12 +12,12 @@ class Q459_RepeatedSubstring
         // if temp == s return true 
 
         var windowSize = s.Length / 2;
-        for (var i=windowSize; i>0; i--)
+        for (var i = windowSize; i > 0; i--)
         {
             if (s.Length % i != 0) continue;
 
             var substr = s[..i];
-            for (var j=i; j<s.Length; j++) 
+            for (var j = i; j < s.Length; j++)
             {
                 if (!substr[j % i].Equals(s[j])) break;
                 if (j == s.Length - 1) return true;
@@ -39,9 +39,9 @@ class Q459_RepeatedSubstring
     }
 }
 
-class Q459_RepeatedSubstringTestData: TestData
+class Q459_RepeatedSubstringTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["abab", true],
         ["aba", false],

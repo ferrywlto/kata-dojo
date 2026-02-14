@@ -1,4 +1,4 @@
-public class Q2908_MinSumOfMountainTripletsI
+﻿public class Q2908_MinSumOfMountainTripletsI
 {
     // TC: O(n^3), n scale with length of nums because of triplets
     // SC: O(1), space used does not sacle with input

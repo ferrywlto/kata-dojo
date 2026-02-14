@@ -1,4 +1,4 @@
-public class Q3781_MaxScoreAfterBinarySwaps
+﻿public class Q3781_MaxScoreAfterBinarySwaps
 {
     // TC: O(n log n), due to the use of PQ
     // SC: O(n), worst case pq store n - 1 items (last one is one, all others are zeros)

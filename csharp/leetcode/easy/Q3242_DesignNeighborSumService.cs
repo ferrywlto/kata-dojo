@@ -1,4 +1,4 @@
-public class NeighborSum
+﻿public class NeighborSum
 {
     private readonly Dictionary<int, int[]> _coords = [];
     private readonly int[][] _grid;

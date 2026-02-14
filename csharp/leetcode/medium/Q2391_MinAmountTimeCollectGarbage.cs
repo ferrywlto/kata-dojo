@@ -1,4 +1,4 @@
-public class Q2391_MinAmountTimeCollectGarbage
+﻿public class Q2391_MinAmountTimeCollectGarbage
 {
     // TC: O(n * m), n scale with length of garbage, m scale with length of travel
     // SC: O(1), space used does not scale with input

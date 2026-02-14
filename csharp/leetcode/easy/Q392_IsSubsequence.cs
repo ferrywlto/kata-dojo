@@ -1,4 +1,4 @@
-class Q392_IsSubsequence
+﻿class Q392_IsSubsequence
 {
     // TC: O(n), SC: O(1)
     public bool IsSubsequence(string s, string t)
@@ -9,9 +9,9 @@ class Q392_IsSubsequence
         var longIdx = 0;
         var shortIdx = 0;
 
-        while(longIdx < t.Length && shortIdx < s.Length)
+        while (longIdx < t.Length && shortIdx < s.Length)
         {
-            if(t[longIdx] == s[shortIdx])
+            if (t[longIdx] == s[shortIdx])
             {
                 shortIdx++;
             }
@@ -21,7 +21,7 @@ class Q392_IsSubsequence
     }
 }
 
-class Q392_IsSubsequenceTestData: TestData
+class Q392_IsSubsequenceTestData : TestData
 {
     protected override List<object[]> Data =>
     [

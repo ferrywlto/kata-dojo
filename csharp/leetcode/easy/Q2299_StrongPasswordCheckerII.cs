@@ -1,4 +1,4 @@
-public class Q2299_StrongPasswordCheckerII
+﻿public class Q2299_StrongPasswordCheckerII
 {
     // TC: O(n), n scales with length of password
     // SC: O(1), space used does not scale with input

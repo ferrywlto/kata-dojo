@@ -1,4 +1,4 @@
-public class Q3074_AppleRedistributionIntoBoxes
+﻿public class Q3074_AppleRedistributionIntoBoxes
 {
     // TC: O(n+m+m log m), n scale with length of apple and m scale with length of capacity
     // SC: O(1), space used does not scale with input

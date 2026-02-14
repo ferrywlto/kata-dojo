@@ -1,4 +1,4 @@
-public class Q861_ScoreAfterFlippingMatrix
+﻿public class Q861_ScoreAfterFlippingMatrix
 {
     // TC: O(row + col)
     // SC: O(1)

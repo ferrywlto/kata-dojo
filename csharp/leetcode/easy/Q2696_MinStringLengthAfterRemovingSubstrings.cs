@@ -1,4 +1,4 @@
-public class Q2696_MinStringLengthAfterRemovingSubstrings
+﻿public class Q2696_MinStringLengthAfterRemovingSubstrings
 {
     // TC: O(n), n scale with length of s
     // SC: O(n), space used equals to length of s in worst case

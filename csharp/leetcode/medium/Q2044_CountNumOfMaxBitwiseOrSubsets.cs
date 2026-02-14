@@ -1,4 +1,4 @@
-public class Q2044_CountNumOfMaxBitwiseOrSubsets
+﻿public class Q2044_CountNumOfMaxBitwiseOrSubsets
 {
     // TC: O(2^n), used brute force for small constraints
     // SC: O(1), space used does not scale with input

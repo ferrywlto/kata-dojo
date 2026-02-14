@@ -1,4 +1,4 @@
-class Q771_JewelsAndStones
+﻿class Q771_JewelsAndStones
 {
     // TC: O(j+s)
     // SC: O(j)

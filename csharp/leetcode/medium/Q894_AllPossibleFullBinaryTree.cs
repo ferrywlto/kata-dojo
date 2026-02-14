@@ -1,4 +1,4 @@
-
+﻿
 public class Q894_AllPossibleFullBinaryTree : TreeNodeTest
 {
     public Q894_AllPossibleFullBinaryTree(ITestOutputHelper output) : base(output)
@@ -8,23 +8,27 @@ public class Q894_AllPossibleFullBinaryTree : TreeNodeTest
     public IList<TreeNode> AllPossibleFBT(int n)
     {
         var result = new List<TreeNode>();
-        if(n == 1) {
+        if (n == 1)
+        {
             result.Add(new TreeNode(0));
             return result;
         }
-        else if (n==3) {
+        else if (n == 3)
+        {
             result.Add(new TreeNode(0, new TreeNode(0), new TreeNode(0)));
             return result;
         }
 
         // it must be n - 2 possibilities
         var len = n - 2;
-        for(var i=0; i<len; i++) {
+        for (var i = 0; i < len; i++)
+        {
             result.Add(ConstructTree(i));
         }
         return result;
     }
-    private TreeNode DefaultRoot() {
+    private TreeNode DefaultRoot()
+    {
         return new TreeNode(0, new TreeNode(0), new TreeNode(0));
     }
     // 4 choices
@@ -32,11 +36,13 @@ public class Q894_AllPossibleFullBinaryTree : TreeNodeTest
     // 01
     // 10
     // 11
-    private TreeNode ConstructTree(int option) {
+    private TreeNode ConstructTree(int option)
+    {
         // var 
-        while(option > 0) {
+        while (option > 0)
+        {
             // if()
-            option >>= 1; 
+            option >>= 1;
         }
         return new TreeNode();
     }

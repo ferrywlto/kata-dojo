@@ -1,4 +1,4 @@
-class Q1317_ConvertIntegerToSumOfTwoNonZeroIntegers
+﻿class Q1317_ConvertIntegerToSumOfTwoNonZeroIntegers
 {
     // TC: O(n), it have to iterate at least half the elements in worst case to check if all numbers contains no zero
     // SC: O(1), no space used for calculation
@@ -8,7 +8,7 @@ class Q1317_ConvertIntegerToSumOfTwoNonZeroIntegers
         var times = n / 2;
         if (n % 2 != 0) times++;
         // try brute force method
-        for(var i=1; i<times; i++)
+        for (var i = 1; i < times; i++)
         {
             var compement = n - i;
             if (HasZeroInDigits(compement) || HasZeroInDigits(i)) continue;
@@ -19,7 +19,7 @@ class Q1317_ConvertIntegerToSumOfTwoNonZeroIntegers
     }
     public bool HasZeroInDigits(int input)
     {
-        while(input > 0)
+        while (input > 0)
         {
             if (input % 10 == 0) return true;
             input /= 10;

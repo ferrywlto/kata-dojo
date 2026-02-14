@@ -1,4 +1,4 @@
-public class Q3178_FindTheChildWhoHasTheBallAfterKSeconds
+﻿public class Q3178_FindTheChildWhoHasTheBallAfterKSeconds
 {
     // TC: O(k)
     // SC: O(1)

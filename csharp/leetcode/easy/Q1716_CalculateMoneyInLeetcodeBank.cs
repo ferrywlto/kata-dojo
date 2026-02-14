@@ -1,4 +1,4 @@
-class Q1716_CalculateMoneyInLeetcodeBank
+﻿class Q1716_CalculateMoneyInLeetcodeBank
 {
     // TC: O(n), where n is size of n
     // SC: O(1), space use is fixed
@@ -7,13 +7,13 @@ class Q1716_CalculateMoneyInLeetcodeBank
         const int sumOfWeek = 28;
         var multiplier = 0;
         var result = 0;
-        while(n > 7)
+        while (n > 7)
         {
             n -= 7;
             result += sumOfWeek + 7 * multiplier;
             multiplier++;
         }
-        for(var i=1; i<=n; i++)
+        for (var i = 1; i <= n; i++)
         {
             result += i + multiplier;
         }
@@ -22,7 +22,7 @@ class Q1716_CalculateMoneyInLeetcodeBank
 }
 class Q1716_CalculateMoneyInLeetcodeBankTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [4,10],
         [10,37],

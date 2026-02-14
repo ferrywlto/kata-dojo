@@ -1,4 +1,4 @@
-class Q1757_RecyclableAndLowFatProducts : SqlQuestion
+﻿class Q1757_RecyclableAndLowFatProducts : SqlQuestion
 {
     public override string Query =>
     """

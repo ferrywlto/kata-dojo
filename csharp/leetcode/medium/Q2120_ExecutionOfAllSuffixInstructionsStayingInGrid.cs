@@ -1,4 +1,4 @@
-public class Q2120_ExecutionOfAllSuffixInstructionsStayingInGrid
+﻿public class Q2120_ExecutionOfAllSuffixInstructionsStayingInGrid
 {
     public int[] ExecuteInstructions(int n, int[] startPos, string s)
     {

@@ -1,22 +1,22 @@
-class Q696_CountBinarySubstring
+﻿class Q696_CountBinarySubstring
 {
     // The fact is for each group, the number of groups inside determines by Min(0s, 1s)
     // e.g. 00011 = 2, 111000 = 3, 10 = 1
     // TC: O(n)
     // SC: O(1)
-    public int CountBinarySubstrings(string s) 
+    public int CountBinarySubstrings(string s)
     {
         if (s.Length == 1) return 0;
 
         int prevGroup = 0, currentGroup = 1, count = 0;
-        for(var i=1; i< s.Length; i++)
+        for (var i = 1; i < s.Length; i++)
         {
-            if (s[i] != s[i-1]) 
+            if (s[i] != s[i - 1])
             {
                 count += Math.Min(prevGroup, currentGroup);
                 prevGroup = currentGroup;
                 currentGroup = 1;
-            } 
+            }
             else currentGroup++;
         }
         count += Math.Min(prevGroup, currentGroup);
@@ -26,7 +26,7 @@ class Q696_CountBinarySubstring
 
 class Q696_CountBinarySubstringTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["000111", 3],
         ["00110011", 6],

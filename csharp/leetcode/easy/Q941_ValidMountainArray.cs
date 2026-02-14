@@ -1,4 +1,4 @@
-
+﻿
 class Q941_ValidMountainArray
 {
     // TC: O(n), n is length of array
@@ -9,7 +9,7 @@ class Q941_ValidMountainArray
 
         bool wentUp = false;
         bool wentDown = false;
-        for(var i=1; i<arr.Length; i++)
+        for (var i = 1; i < arr.Length; i++)
         {
             if (arr[i] > arr[i - 1])
             {

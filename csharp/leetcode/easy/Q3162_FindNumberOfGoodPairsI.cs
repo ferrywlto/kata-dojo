@@ -1,4 +1,4 @@
-public class Q3162_FindNumberOfGoodPairsI
+﻿public class Q3162_FindNumberOfGoodPairsI
 {
     // TC: O(n * m), n scale with length of nums1, and m scale with length of nums2
     // SC: O(1), space used does not scale with input 

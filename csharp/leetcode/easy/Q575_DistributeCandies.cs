@@ -1,4 +1,4 @@
-class Q575_DistributeCandies
+﻿class Q575_DistributeCandies
 {
     // hashset<int> -> Math.Min(hashset.length, candyType.length/2)
     // [1,2,3,4] -> 2
@@ -9,8 +9,8 @@ class Q575_DistributeCandies
     public int DistributeCandies(int[] candyType)
     {
         var hashset = candyType.ToHashSet<int>();
-        
-        return Math.Min(hashset.Count, candyType.Length/2);
+
+        return Math.Min(hashset.Count, candyType.Length / 2);
     }
 }
 

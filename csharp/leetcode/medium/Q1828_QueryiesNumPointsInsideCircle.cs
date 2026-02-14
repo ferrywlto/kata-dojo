@@ -1,4 +1,4 @@
-public class Q1828_QueryiesNumPointsInsideCircle
+﻿public class Q1828_QueryiesNumPointsInsideCircle
 {
     // TC: O(n * m), n scale with number of points, m scale with number of queries
     // SC: O(m), to hold the result

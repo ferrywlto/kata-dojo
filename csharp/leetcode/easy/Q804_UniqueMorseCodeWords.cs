@@ -1,13 +1,13 @@
-using System.Text;
+﻿using System.Text;
 
 class Q804_UniqueMoreseCodeWords
 {
     public static readonly string[] MorseCode = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."];
- 
+
     public string GetMorseCodeFromChar(char c)
     {
         c = char.ToLower(c);
-        if (c < 'a' || c > 'z') 
+        if (c < 'a' || c > 'z')
             return string.Empty;
         return MorseCode[c - 'a'];
     }

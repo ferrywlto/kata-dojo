@@ -1,4 +1,4 @@
-class Q883_ProjectionAreaOf3DShape
+﻿class Q883_ProjectionAreaOf3DShape
 {
     /*
         [1,2]

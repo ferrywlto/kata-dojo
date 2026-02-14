@@ -1,4 +1,4 @@
-class Q206_ReverseLinkedList
+﻿class Q206_ReverseLinkedList
 {
     // TC: O(n), SC:O(1)
     public ListNode? ReverseList(ListNode? head)

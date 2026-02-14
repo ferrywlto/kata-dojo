@@ -1,4 +1,4 @@
-class Q268_MissingNumber
+﻿class Q268_MissingNumber
 {
     // TC: O(n), SC:O(1)
     // This version make use of the properties of arithmetic series

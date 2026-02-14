@@ -1,4 +1,4 @@
-class Q1399_CountLargestGroup
+﻿class Q1399_CountLargestGroup
 {
     // TC: O(n), n scale with size of n
     // SC: O(1), space used does not scale with input. Constraint 9999 max -> sum = 36

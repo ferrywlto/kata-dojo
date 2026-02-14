@@ -1,4 +1,4 @@
-public class Q2733_NeitherMinOrMax//(ITestOutputHelper output)
+﻿public class Q2733_NeitherMinOrMax//(ITestOutputHelper output)
 {
     // TC: O(n log n), due to Array.Sort()
     // SC: O(1), space used does not scale with input

@@ -1,4 +1,4 @@
-class Q1470_ShuffleTheArray
+﻿class Q1470_ShuffleTheArray
 {
     // TC: O(n), where n is the length of nums, all elements need to copy to result array
     // SC: O(n), where n is the length of nums to hold the result, as this cannot be done in-place.

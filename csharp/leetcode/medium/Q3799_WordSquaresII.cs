@@ -1,4 +1,4 @@
-public class Q3799_WordSquaresII(ITestOutputHelper output)
+﻿public class Q3799_WordSquaresII(ITestOutputHelper output)
 {
     List<List<string>> result = [];
     public IList<IList<string>> WordSquares(string[] words)
@@ -6,13 +6,13 @@ public class Q3799_WordSquaresII(ITestOutputHelper output)
         Array.Sort(words);
         var list = new List<string>();
 
-        for(var i=0; i<words.Length - 3; i++)
+        for (var i = 0; i < words.Length - 3; i++)
         {
-            for(var j=i+1; j<words.Length - 2; j++)
+            for (var j = i + 1; j < words.Length - 2; j++)
             {
-                for(var k=j+1; k<words.Length - 1; k++)
+                for (var k = j + 1; k < words.Length - 1; k++)
                 {
-                    for(var m=k+1; m<words.Length; m++)
+                    for (var m = k + 1; m < words.Length; m++)
                     {
                         output.WriteLine($"{words[i]}, {words[j]}, {words[k]}, {words[m]}");
                     }
@@ -32,13 +32,13 @@ public class Q3799_WordSquaresII(ITestOutputHelper output)
         //     result.Add([words[topIdx], words[leftIdx], words[rightIdx], words[bottomIdx]]);
         //     return;
         // }
-        if(picks.Count == 4)
+        if (picks.Count == 4)
         {
             output.WriteLine(string.Join(',', picks));
             return;
         }
 
-        if(idx < words.Length)
+        if (idx < words.Length)
         {
             output.WriteLine($"i:{idx}, picksCount: {picks.Count}");
             // pick top
@@ -50,7 +50,7 @@ public class Q3799_WordSquaresII(ITestOutputHelper output)
 
     private bool IsSquare(string top, string left, string right, string bottom)
     {
-        return 
+        return
             top[0] == left[0] &&
             top[3] == right[0] &&
             bottom[0] == left[3] &&

@@ -1,4 +1,4 @@
-public abstract class TreeNodeTest(ITestOutputHelper output) : TestBase(output)
+﻿public abstract class TreeNodeTest(ITestOutputHelper output) : TestBase(output)
 {
     [Fact]
     public void ShouldEqualOnPerfectTree()
@@ -120,7 +120,7 @@ public abstract class TreeNodeTest(ITestOutputHelper output) : TestBase(output)
     protected void AssertTreeNodeEqual(TreeNode? expected, TreeNode? actual)
     {
         if (expected == null && actual == null) return;
-        
+
         Assert.Equal(expected?.val, actual?.val);
         AssertTreeNodeEqual(expected?.left, actual?.left);
         AssertTreeNodeEqual(expected?.right, actual?.right);
@@ -135,7 +135,8 @@ public abstract class TreeNodeTest(ITestOutputHelper output) : TestBase(output)
         expectedQ.Enqueue(expected);
         actualQ.Enqueue(actual);
 
-        while(expectedQ.Count > 0 && actualQ.Count > 0) {
+        while (expectedQ.Count > 0 && actualQ.Count > 0)
+        {
             // early termination if structure is not the same (i.e. one tree has subtee while the other doesn't)
             Assert.Equal(expectedQ.Count, actualQ.Count);
 
@@ -156,13 +157,13 @@ public abstract class TreeNodeTest(ITestOutputHelper output) : TestBase(output)
 
     protected void DebugTree(TreeNode root)
     {
-        if (Output == null) 
+        if (Output == null)
             throw new Exception("Pass ITestOutputHelper in constructor first!");
 
         var queue = new Queue<TreeNode>();
         queue.Enqueue(root);
 
-        while(queue.Count > 0)
+        while (queue.Count > 0)
         {
             var node = queue.Dequeue();
             Output!.WriteLine($"node.val: {node.val}, left: {node.left?.val.ToString() ?? "null"}, right: {node.right?.val.ToString() ?? "null"}");

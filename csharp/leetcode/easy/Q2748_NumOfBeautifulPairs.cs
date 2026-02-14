@@ -1,4 +1,4 @@
-public class Q2748_NumOfBeautifulPairs
+﻿public class Q2748_NumOfBeautifulPairs
 {
     // TC: O(n^2), the pre-calculation time is O(1), the nested loop to find pairs is O(n^2)
     // SC: O(1), the coprime hashset space is fixed, no other space used

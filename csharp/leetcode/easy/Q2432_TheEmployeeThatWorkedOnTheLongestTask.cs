@@ -1,4 +1,4 @@
-public class Q2432_TheEmployeeThatWorkedOnTheLongestTask
+﻿public class Q2432_TheEmployeeThatWorkedOnTheLongestTask
 {
     // TC: O(n), n scale with length of logs
     // SC: O(1), space used does not scale with input

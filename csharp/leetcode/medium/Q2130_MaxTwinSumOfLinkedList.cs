@@ -1,4 +1,4 @@
-
+﻿
 public class Q2130_MaxTwinSumOfLinkedList(ITestOutputHelper output) : ListNodeTest(output)
 {
     // TC: O(n), n scale with the length of the linked list

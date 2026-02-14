@@ -1,4 +1,4 @@
-class Q1859_SortingTheSentences
+﻿class Q1859_SortingTheSentences
 {
     // TC: O(n), where n is length of s
     // SC: O(1), the question constraints there are maximum 9 words

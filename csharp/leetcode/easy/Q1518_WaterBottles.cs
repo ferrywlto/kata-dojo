@@ -1,4 +1,4 @@
-class Q1518_WaterBottles
+﻿class Q1518_WaterBottles
 {
     // TC: O(log n), as numBottles keep divided by numExchange
     // SC: O(1), the space used is fixed to two variables

@@ -1,4 +1,4 @@
-public class Q2293_MinMaxGame
+﻿public class Q2293_MinMaxGame
 {
     // TC: O(n log 2), n scale with length of nums, shrink by factor of 2 each iteration
     // SC: O(n), n scale with length of nums initally, shrink by factor of 2 each time.  

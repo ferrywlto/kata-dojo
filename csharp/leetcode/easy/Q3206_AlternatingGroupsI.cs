@@ -1,4 +1,4 @@
-public class Q3206_AlternatingGroupsI
+﻿public class Q3206_AlternatingGroupsI
 {
     // TC: O(n), n scale with length of colors
     // SC: O(1), space used does not scale with input
@@ -8,7 +8,7 @@ public class Q3206_AlternatingGroupsI
         var len = colors.Length;
         for (var i = 0; i < len; i++)
         {
-            if (i<len-2)
+            if (i < len - 2)
             {
                 if
                 (
@@ -16,9 +16,9 @@ public class Q3206_AlternatingGroupsI
                     colors[i] == colors[i + 2]
                 ) result++;
             }
-            else 
+            else
             {
-                if(
+                if (
                     colors[i] != colors[(i + 1) % len] &&
                     colors[i] == colors[(i + 2) % len]
                 ) result++;

@@ -1,11 +1,11 @@
-class Q1346_CheckIfNAndItsDoubleExist
+﻿class Q1346_CheckIfNAndItsDoubleExist
 {
     // TC: O(n), n scale with length of arr
     // SC: O(n), n scale with distinct numbers in arr
     public bool CheckIfExist(int[] arr)
     {
         var hashset = new HashSet<int>();
-        foreach(var num in arr)
+        foreach (var num in arr)
         {
             if (hashset.Contains(num * 2) || (num % 2 == 0 && hashset.Contains(num / 2))) return true;
             hashset.Add(num);

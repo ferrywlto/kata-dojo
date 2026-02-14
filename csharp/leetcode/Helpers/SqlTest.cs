@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 using Microsoft.Data.Sqlite;
 using Xunit.Sdk;
 
@@ -9,7 +9,7 @@ public abstract class SqlTest : TestBase, IDisposable
 
     public SqlTest(ITestOutputHelper output) : base(output) { Initialize(); }
 
-    private void Initialize() 
+    private void Initialize()
     {
         connection.Open();
         CreateTestDatabase();
@@ -17,7 +17,7 @@ public abstract class SqlTest : TestBase, IDisposable
 
     protected abstract string TestSchema { get; }
     protected virtual string FormatOutput(string input) => $" {(input.Length <= ColumnWidth ? input.PadRight(ColumnWidth) : input)} |";
-    
+
     protected bool IsDatabaseConnectionOpened() => connection?.State == System.Data.ConnectionState.Open;
 
     protected int ExecuteCommand(string Sql) => CreateCommand(Sql).ExecuteNonQuery();
@@ -36,7 +36,7 @@ public abstract class SqlTest : TestBase, IDisposable
     {
         Assert.True(reader.HasRows);
         Assert.Equal(fieldNames.Length, reader.FieldCount);
-        for(var i=0; i<fieldNames.Length; i++)
+        for (var i = 0; i < fieldNames.Length; i++)
         {
             Assert.Equal(fieldNames[i], reader.GetName(i));
         }

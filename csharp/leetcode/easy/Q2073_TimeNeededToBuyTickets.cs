@@ -1,4 +1,4 @@
-public class Q2073_TimeNeededToBuyTickets
+﻿public class Q2073_TimeNeededToBuyTickets
 {
     // TC: O(n), n scale with length of tickets
     // SC: O(1), space used does not scale with input 

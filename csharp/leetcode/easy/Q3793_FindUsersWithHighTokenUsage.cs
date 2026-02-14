@@ -1,4 +1,4 @@
-using Row = (int user_id, int prompt_count, double avg_tokens);
+﻿using Row = (int user_id, int prompt_count, double avg_tokens);
 
 public class Q3793_FindUsersWithHighTokenUsage(ITestOutputHelper output) : SqlTest(output)
 {

@@ -1,4 +1,4 @@
-class Q1929_ConcatenationOfArray
+﻿class Q1929_ConcatenationOfArray
 {
     // TC: O(n), where n is length of nums
     // SC: O(n), where n scales with length of nums for storing the result

@@ -1,4 +1,4 @@
-public class Q2383_MinHoursOfTrainingToWinACompetition
+﻿public class Q2383_MinHoursOfTrainingToWinACompetition
 {
     // TC: O(n), n scale with length of energy
     // SC: O(1), space used does not scale with input

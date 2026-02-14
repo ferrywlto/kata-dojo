@@ -1,4 +1,4 @@
-class Q1886_DetermineMatrixCanBeObtainedByRotation
+﻿class Q1886_DetermineMatrixCanBeObtainedByRotation
 {
     // TC: O(n^2), where n is dimension of mat
     // SC: O(1), space used does not scale with dimension of mat

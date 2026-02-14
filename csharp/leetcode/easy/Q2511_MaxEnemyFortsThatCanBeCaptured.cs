@@ -1,4 +1,4 @@
-public class Q2511_MaxEnemyFortsThatCanBeCaptured
+﻿public class Q2511_MaxEnemyFortsThatCanBeCaptured
 {
     // TC: O(n^2), for each 1 found, search n-1 items worst case for both directions
     // SC: O(n), n scale with 1 in forts

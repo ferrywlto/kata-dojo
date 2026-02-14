@@ -1,4 +1,4 @@
-public class Q3270_FindKeyOfNumbers
+﻿public class Q3270_FindKeyOfNumbers
 {
     // TC: O(1)
     // SC: O(1)

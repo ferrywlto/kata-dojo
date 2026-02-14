@@ -1,4 +1,4 @@
-public class Q2706_BuyTwoChocolates
+﻿public class Q2706_BuyTwoChocolates
 {
     // TC: O(n), n sacle with length of prices
     // SC: O(1), space used doest not scale with input

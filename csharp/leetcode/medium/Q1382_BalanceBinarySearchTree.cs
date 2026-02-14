@@ -1,4 +1,4 @@
-public class Q1382_BalanceBinarySearchTree(ITestOutputHelper output) : TreeNodeTest(output)
+﻿public class Q1382_BalanceBinarySearchTree(ITestOutputHelper output) : TreeNodeTest(output)
 {
     // Solution is to do inorder transversal to get a sorted node list.
     // Then reconstruct the tree back with binary search.

@@ -1,6 +1,7 @@
-public class Q3814_DesignAuctionSystem(ITestOutputHelper output)
+﻿public class Q3814_DesignAuctionSystem(ITestOutputHelper output)
 {
-    private class AuctionSystem {
+    private class AuctionSystem
+    {
         class DescComparer : IComparer<int>
         {
             public int Compare(int x, int y)
@@ -20,11 +21,13 @@ public class Q3814_DesignAuctionSystem(ITestOutputHelper output)
         Dictionary<int, SortedDictionary<int, SortedSet<int>>> itemAmountUsers = [];
 
         private readonly ITestOutputHelper _output;
-        public AuctionSystem(ITestOutputHelper output) {
+        public AuctionSystem(ITestOutputHelper output)
+        {
             _output = output;
         }
-        
-        public void AddBid(int userId, int itemId, int bidAmount) {
+
+        public void AddBid(int userId, int itemId, int bidAmount)
+        {
             var comparer = new DescComparer();
             var sortedSet = new SortedSet<int>(comparer);
             var sortedDict = new SortedDictionary<int, SortedSet<int>>(comparer);
@@ -35,7 +38,7 @@ public class Q3814_DesignAuctionSystem(ITestOutputHelper output)
             var amountHistory = itemAmountUsers[itemId];
 
             // Need to clear existing 
-            foreach(var history in amountHistory)
+            foreach (var history in amountHistory)
             {
                 var users = history.Value;
                 users.Remove(userId);
@@ -43,14 +46,14 @@ public class Q3814_DesignAuctionSystem(ITestOutputHelper output)
             amountHistory[bidAmount].Add(userId);
 
             var historyToRemove = new List<int>();
-            foreach(var history in amountHistory)
+            foreach (var history in amountHistory)
             {
-                if(history.Value.Count == 0)
+                if (history.Value.Count == 0)
                 {
                     historyToRemove.Add(history.Key);
                 }
             }
-            foreach(var h in historyToRemove)
+            foreach (var h in historyToRemove)
             {
                 amountHistory.Remove(h);
             }
@@ -61,15 +64,16 @@ public class Q3814_DesignAuctionSystem(ITestOutputHelper output)
             // DebugUserBids();
             DebugAuctions();
         }
-        
-        public void UpdateBid(int userId, int itemId, int newAmount) {
+
+        public void UpdateBid(int userId, int itemId, int newAmount)
+        {
             AddBid(userId, itemId, newAmount);
 
             // var itemAmountHistory = itemAmountUsers[itemId];
 
             // // Bid on same amount
             // itemAmountHistory.TryAdd(newAmount, new SortedSet<int>(new DescComparer()));
-            
+
             // var amountHistory = itemAmountUsers[itemId];
             // // Need to clear existing
             // foreach(var history in amountHistory)
@@ -83,23 +87,24 @@ public class Q3814_DesignAuctionSystem(ITestOutputHelper output)
 
             _output.WriteLine("--- Debug: UpdateBid ---");
             // DebugUserBids();
-            DebugAuctions();            
+            DebugAuctions();
         }
-        
+
         private void UpdateHighestBidder(int itemId)
         {
-            if(itemAmountUsers.ContainsKey(itemId))
+            if (itemAmountUsers.ContainsKey(itemId))
             {
                 var amountHistory = itemAmountUsers[itemId];
-                if(amountHistory.Count == 0) {
-                    HighestBidder[itemId] = -1;    
+                if (amountHistory.Count == 0)
+                {
+                    HighestBidder[itemId] = -1;
                 }
                 else
                 {
                     var highestAmountUsers = amountHistory.First().Value;
-                    if(highestAmountUsers.Count == 0)
+                    if (highestAmountUsers.Count == 0)
                     {
-                        HighestBidder[itemId] = -1;    
+                        HighestBidder[itemId] = -1;
                     }
                     else
                     {
@@ -113,27 +118,28 @@ public class Q3814_DesignAuctionSystem(ITestOutputHelper output)
             }
         }
 
-        public void RemoveBid(int userId, int itemId) {
+        public void RemoveBid(int userId, int itemId)
+        {
             var item = itemAmountUsers[itemId];
             var itemAmountToRemove = new List<int>();
 
-            foreach(var amountHistory in item)
+            foreach (var amountHistory in item)
             {
                 var users = amountHistory.Value;
                 users.Remove(userId);
-                
-                if(users.Count == 0)
+
+                if (users.Count == 0)
                 {
                     itemAmountToRemove.Add(amountHistory.Key);
                 }
             }
 
-            foreach(var amount in itemAmountToRemove)
+            foreach (var amount in itemAmountToRemove)
             {
                 item.Remove(amount);
             }
 
-            if(item.Count == 0)
+            if (item.Count == 0)
             {
                 itemAmountUsers.Remove(itemId);
             }
@@ -144,9 +150,10 @@ public class Q3814_DesignAuctionSystem(ITestOutputHelper output)
 
             DebugAuctions();
         }
-        
-        public int GetHighestBidder(int itemId) {
-            if(HighestBidder.TryGetValue(itemId, out var value))
+
+        public int GetHighestBidder(int itemId)
+        {
+            if (HighestBidder.TryGetValue(itemId, out var value))
             {
                 return value;
             }
@@ -156,17 +163,17 @@ public class Q3814_DesignAuctionSystem(ITestOutputHelper output)
         public void DebugAuctions()
         {
             _output.WriteLine("--- DebugAuctions ---");
-            foreach(var item in itemAmountUsers)
+            foreach (var item in itemAmountUsers)
             {
                 _output.WriteLine($"Item {item.Key}");
-                foreach(var amountHistory in item.Value)
+                foreach (var amountHistory in item.Value)
                 {
                     _output.WriteLine($"Amount: {amountHistory.Key}, bidders: {string.Join(',', amountHistory.Value)}");
                 }
             }
-        }        
+        }
     }
-    
+
     [Fact]
     public void Test()
     {

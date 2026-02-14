@@ -1,4 +1,4 @@
-public class Q2119_NumberAfterDoubleReversal
+﻿public class Q2119_NumberAfterDoubleReversal
 {
     // TC: O(1) obviously
     // SC: O(1) obviously

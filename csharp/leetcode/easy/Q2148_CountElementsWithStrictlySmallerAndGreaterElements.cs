@@ -1,4 +1,4 @@
-public class Q2148_CountElementsWithStrictlySmallerAndGreaterElements
+﻿public class Q2148_CountElementsWithStrictlySmallerAndGreaterElements
 {
     // For question constraints, nums.Length max is 100 thus brute force is acceptable.
     // Attempt to provide a non-brute-force based appraoch. 

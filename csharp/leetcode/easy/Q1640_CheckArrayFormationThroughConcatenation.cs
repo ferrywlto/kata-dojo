@@ -1,4 +1,4 @@
-class Q1640_CheckArrayFormationThroughConcatenation
+﻿class Q1640_CheckArrayFormationThroughConcatenation
 {
     // TC: O(n+m), where n is the size of arr plus total elements in pieces, in worst case n+m when all arrays is in 1 size and can form arr
     // SC: O(m), where m is number of pieces stored in dict

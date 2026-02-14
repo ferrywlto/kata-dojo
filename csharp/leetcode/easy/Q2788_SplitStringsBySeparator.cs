@@ -1,4 +1,4 @@
-public class Q2788_SplitStringsBySeparator
+﻿public class Q2788_SplitStringsBySeparator
 {
     // TC: O(n), n scale with length of words
     // SC: O(m), m scale with number of words split from input 

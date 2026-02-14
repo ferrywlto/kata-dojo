@@ -1,4 +1,4 @@
-class Q724_FindPivotIndex
+﻿class Q724_FindPivotIndex
 {
     // TC: O(n)
     // SC: O(1)

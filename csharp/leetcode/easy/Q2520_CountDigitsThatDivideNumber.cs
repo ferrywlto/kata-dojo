@@ -1,4 +1,4 @@
-public class Q2520_CountDigitsThatDivideNumber
+﻿public class Q2520_CountDigitsThatDivideNumber
 {
     // TC: O(log n), n scale with size of num, n shrink by factor of 10 per operation
     // SC: O(1), space used does not scale with input

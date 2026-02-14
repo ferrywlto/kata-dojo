@@ -1,4 +1,4 @@
-
+﻿
 class Q1137_NthTribonaacciNumber
 {
     // TC: O(n), n is how large input number is
@@ -9,21 +9,21 @@ class Q1137_NthTribonaacciNumber
         {2,1},
     };
 
-    public int Tribonacci(int n) 
+    public int Tribonacci(int n)
     {
         if (dict.TryGetValue(n, out var value))
             return value;
-        else 
+        else
         {
             var result = Tribonacci(n - 3) + Tribonacci(n - 2) + Tribonacci(n - 1);
             dict.Add(n, result);
             return result;
         }
-    }    
+    }
 }
 class Q1137_NthTribonaacciNumberTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [4,4],
         [25,1389537],

@@ -1,4 +1,4 @@
-class Q1935_MaxWordsYouCanType
+﻿class Q1935_MaxWordsYouCanType
 {
     // TC: O(n), where n is length of text
     // SC: O(m), where m is length of brokenLetters

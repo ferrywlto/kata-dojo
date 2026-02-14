@@ -1,4 +1,4 @@
-class Q1281_SubtractProductAndSum
+﻿class Q1281_SubtractProductAndSum
 {
     // TC: O(n), n is the size of n
     // SC: O(1), no space used in calculation

@@ -1,20 +1,20 @@
-class Q661_ImageSmoother
+﻿class Q661_ImageSmoother
 {
     public int[] HandleSingleRow(int[] row)
     {
         var result = new int[row.Length];
         var lastKnown = row[0] + row[1];
         result[0] = lastKnown / 2;
-        
-        for (var i=1; i<row.Length; i++) 
+
+        for (var i = 1; i < row.Length; i++)
         {
-            if(i == row.Length - 1)
+            if (i == row.Length - 1)
             {
                 result[i] = lastKnown / 2;
             }
             else
             {
-                result[i] = (lastKnown + row[i + 1])/3;
+                result[i] = (lastKnown + row[i + 1]) / 3;
                 lastKnown = row[i] + row[i + 1];
             }
         }
@@ -31,13 +31,13 @@ class Q661_ImageSmoother
         // the top and bottom row is the same so just need to do one pass
 
         var lastKnown = 0;
-        for(var i=0; i<colCount; i++)
+        for (var i = 0; i < colCount; i++)
         {
-            if(i == colCount-1)
+            if (i == colCount - 1)
             {
                 results[0][i] = lastKnown / 4;
             }
-            else if(i == 0) 
+            else if (i == 0)
             {
                 lastKnown =
                     input[0][i] + input[0][i + 1] +
@@ -45,11 +45,11 @@ class Q661_ImageSmoother
 
                 results[0][i] = lastKnown / 4;
             }
-            else 
+            else
             {
 
             }
-        } 
+        }
         return results;
     }
 
@@ -65,20 +65,21 @@ class Q661_ImageSmoother
         // if (img.Length == 2) return HandleTwoRows(img);
 
         var result = new int[img.Length][];
-        for(var n=0; n<result.Length; n++)
+        for (var n = 0; n < result.Length; n++)
         {
             result[n] = new int[img[0].Length];
-        };
+        }
+        ;
 
-        for(var row=0; row<img.Length; row++) 
+        for (var row = 0; row < img.Length; row++)
         {
-            for(var col=0; col<img[row].Length; col++) 
+            for (var col = 0; col < img[row].Length; col++)
             {
                 var list = GetSurroundCells(img, row, col);
                 var sum = img[row][col];
-                foreach (var (new_row, new_col) in list) 
+                foreach (var (new_row, new_col) in list)
                     sum += img[new_row][new_col];
-                result[row][col] = sum / (list.Count+1);
+                result[row][col] = sum / (list.Count + 1);
             }
         }
 
@@ -101,7 +102,7 @@ class Q661_ImageSmoother
             input[row + 1][col] +
             input[row + 1][col + 1];
 
-        var currentTopRow = 
+        var currentTopRow =
             input[row][col + 1] +
             input[row + 1][col + 1];
 
@@ -112,7 +113,7 @@ class Q661_ImageSmoother
             input[row][col + 1] +
             input[row - 1][col] +
             input[row - 1][col + 1];
-        
+
         var currentBottomRow =
             input[row][col + 1] +
             input[row - 1][col + 1];
@@ -127,17 +128,17 @@ class Q661_ImageSmoother
             input[row + 1][col] +
             input[row + 1][col + 1];
 
-        var currentMiddleRow = 
+        var currentMiddleRow =
             input[row][col + 1] +
             input[row - 1][col + 1] +
             input[row + 1][col + 1];
 
         var sum = input[row][col];
-        if(row == 0 && row + 1 < input.Length)
+        if (row == 0 && row + 1 < input.Length)
         {
             sum += input[row + 1][col];
         }
-        if(row + 1 < input.Length)
+        if (row + 1 < input.Length)
         {
 
         }
@@ -154,21 +155,21 @@ class Q661_ImageSmoother
         var bottom = row + 1;
         var hasTop = top >= 0;
         var hasBottom = bottom < input.Length;
-        
+
         if (hasLeft)
         {
             list.Add((row, left));
-            if(hasTop) list.Add((top, left));
-            if(hasBottom) list.Add((bottom, left)); 
-        } 
+            if (hasTop) list.Add((top, left));
+            if (hasBottom) list.Add((bottom, left));
+        }
         if (hasRight)
         {
             list.Add((row, right));
-            if(hasTop) list.Add((top, right));
-            if(hasBottom) list.Add((bottom, right)); 
+            if (hasTop) list.Add((top, right));
+            if (hasBottom) list.Add((bottom, right));
         }
-        if(hasTop) list.Add((top, col));
-        if(hasBottom) list.Add((bottom, col));
+        if (hasTop) list.Add((top, col));
+        if (hasBottom) list.Add((bottom, col));
 
         return list;
     }

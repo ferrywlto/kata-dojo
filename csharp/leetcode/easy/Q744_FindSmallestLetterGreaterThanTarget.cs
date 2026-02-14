@@ -1,13 +1,13 @@
-class Q744_FindSmallestLetterGreaterThanTarget
+﻿class Q744_FindSmallestLetterGreaterThanTarget
 {
     // TC: O(log n)
     // SC: O(1)
-    public char NextGreatestLetter(char[] letters, char target) 
+    public char NextGreatestLetter(char[] letters, char target)
     {
         var left = 0;
         var right = letters.Length;
 
-        while (left < right) 
+        while (left < right)
         {
             int mid = left + (right - left) / 2;
             if (letters[mid] <= target) left = mid + 1;

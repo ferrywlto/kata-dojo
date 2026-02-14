@@ -1,4 +1,4 @@
-public class Q2335_MinAmountTimeToFillCups
+﻿public class Q2335_MinAmountTimeToFillCups
 {
     // TC: O(n), n scale with size of number in amount
     // SC: O(1), space used does not scale with input

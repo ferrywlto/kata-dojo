@@ -1,4 +1,4 @@
-class Q762_PrimeNumberOfSetBitsInBinaryRepresentation
+﻿class Q762_PrimeNumberOfSetBitsInBinaryRepresentation
 {
     // TC: O((right-left*)*num_bits_1)
     // SC: O(distinct_bits_count)

@@ -1,4 +1,4 @@
-public class Q2221_FindTriangularSumOfArray
+﻿public class Q2221_FindTriangularSumOfArray
 {
     // TC: O(n), n scale with length of nums
     // SC: O(1)

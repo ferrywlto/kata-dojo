@@ -1,6 +1,6 @@
-class Q26_RemoveDuplicatesTestData : TestData
+﻿class Q26_RemoveDuplicatesTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[] { 1, 1, 2 }, 2], // 1, 2, 1
         [new int[] { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 }, 5], // 0, 1, 2, 3, 4, 0, 1, 1, 2, 3]
@@ -39,7 +39,7 @@ class Q26_RemoveDuplicates
         // used to keep track the index of the next element to swap.
         var idxToSwap = 1;
         int temp;
-        
+
         for (ushort i = 1; i < nums.Length; i++)
         {
             // whenever we found something larger, swap it to the front.

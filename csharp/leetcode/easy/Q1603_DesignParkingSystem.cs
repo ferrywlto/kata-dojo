@@ -1,4 +1,4 @@
-class Q1603_DesignParkingSystem
+﻿class Q1603_DesignParkingSystem
 {
     // TC: O(1), the time for method AddCar does not scale with input data
     // SC: O(1), space used are fixed to integer array with 3 elements

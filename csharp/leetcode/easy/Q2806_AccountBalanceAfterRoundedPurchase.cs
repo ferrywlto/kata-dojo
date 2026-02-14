@@ -1,4 +1,4 @@
-public class Q2806_AccountBalanceAfterRoundedPurchase
+﻿public class Q2806_AccountBalanceAfterRoundedPurchase
 {
     // TC: O(1) obviously
     // SC: O(1) same as time

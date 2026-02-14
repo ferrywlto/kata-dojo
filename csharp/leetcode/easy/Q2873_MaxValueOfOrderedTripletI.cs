@@ -1,4 +1,4 @@
-public class Q2873_MaxValueOfOrderedTripletI
+﻿public class Q2873_MaxValueOfOrderedTripletI
 {
     // TC: O(n^3), n scale with length of nums, it have to be n^3 as we are calculating triplets
     // SC: O(1), space used does not scale with input

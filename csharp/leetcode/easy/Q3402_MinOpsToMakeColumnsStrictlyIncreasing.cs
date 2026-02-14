@@ -1,4 +1,4 @@
-public class Q3402_MinOpsToMakeColumnsStrictlyIncreasing
+﻿public class Q3402_MinOpsToMakeColumnsStrictlyIncreasing
 {
     // TC: O(n^2), it have to iterate all rows except the first
     // SC: O(1), space used does not scale with input

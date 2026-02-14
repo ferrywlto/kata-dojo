@@ -1,4 +1,4 @@
-public class Q1963_MinNumberOfSwapsToMakeStringBalanced
+﻿public class Q1963_MinNumberOfSwapsToMakeStringBalanced
 {
     // Poor description and name, the question didn't need the answer to be symmetric.
     // TC: O(n)

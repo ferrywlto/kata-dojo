@@ -1,19 +1,19 @@
-class Q705_DesignHashSet
+﻿class Q705_DesignHashSet
 {
     private readonly Dictionary<int, int> dict = [];
-    
-    public void Add(int key) 
+
+    public void Add(int key)
     {
         var hash = key.GetHashCode();
         dict.TryAdd(hash, key);
     }
-    
-    public void Remove(int key) 
+
+    public void Remove(int key)
     {
         dict.Remove(key.GetHashCode());
     }
-    
-    public bool Contains(int key) 
+
+    public bool Contains(int key)
     {
         return dict.ContainsKey(key.GetHashCode());
     }
@@ -22,7 +22,7 @@ class Q705_DesignHashSet
 public enum TestCommands { Add, Contains, Remove }
 class Q705_DesignHashSetTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             new List<(TestCommands command, int param, bool? result)>
@@ -47,7 +47,7 @@ public class Q705_DesignHashSetTests
     public void OfficialTestCases(List<(TestCommands command, int param, bool? result)> input)
     {
         var sut = new Q705_DesignHashSet();
-        foreach(var (command, param, result) in input)
+        foreach (var (command, param, result) in input)
         {
             switch (command)
             {

@@ -1,4 +1,4 @@
-public class Q3000_MaxAreaOfLongestDiagonalRectangle
+﻿public class Q3000_MaxAreaOfLongestDiagonalRectangle
 {
     // TC: O(n), n scale with length of dimensions.  
     // SC: O(1), space used does not scale with input

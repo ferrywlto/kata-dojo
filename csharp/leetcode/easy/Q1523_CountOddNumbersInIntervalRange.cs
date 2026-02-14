@@ -1,4 +1,4 @@
-
+﻿
 class Q1523_CountOddNumbersInIntervalRange
 {
     // TC: O(1)

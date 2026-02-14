@@ -1,4 +1,4 @@
-using Row = (int user_id, int followers_count);
+﻿using Row = (int user_id, int followers_count);
 class Q1729_FindFollowersCount : SqlQuestion
 {
     public override string Query =>
@@ -21,7 +21,7 @@ class Q1729_FindFollowersCountTestData : TestData
              ('2', '0'),
              ('2', '1');
             """,
-            new Row[] 
+            new Row[]
             {
                 (0,1),
                 (1,1),
@@ -32,7 +32,7 @@ class Q1729_FindFollowersCountTestData : TestData
 }
 public class Q1729_FindFollowersCountTests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     Create table If Not Exists Followers(user_id int, follower_id int)
     """;
@@ -45,7 +45,7 @@ public class Q1729_FindFollowersCountTests(ITestOutputHelper output) : SqlTest(o
         var sut = new Q1729_FindFollowersCount();
         var reader = ExecuteQuery(sut.Query, true);
         AssertResultSchema(reader, ["user_id", "followers_count"]);
-        foreach((var user_id, var followers_count) in expected)
+        foreach ((var user_id, var followers_count) in expected)
         {
             Assert.True(reader.Read());
             Assert.Equal(user_id, reader.GetInt32(0));

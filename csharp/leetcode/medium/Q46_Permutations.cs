@@ -1,4 +1,4 @@
-public class Q46_Permutatiuons
+﻿public class Q46_Permutatiuons
 {
     // TC: O(n!) nPn = n!
     // SC: O(1)

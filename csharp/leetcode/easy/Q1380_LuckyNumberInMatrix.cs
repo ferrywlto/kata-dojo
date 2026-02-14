@@ -1,4 +1,4 @@
-class Q1380_LuckyNumberInMatrix
+﻿class Q1380_LuckyNumberInMatrix
 {
     // TC: O(m*n), it has to iterate all elements to find both the row min and col max
     // SC: O(m+n), number of rows + number of cols

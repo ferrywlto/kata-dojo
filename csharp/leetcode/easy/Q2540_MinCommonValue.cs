@@ -1,4 +1,4 @@
-public class Q2540_MinCommonValue
+﻿public class Q2540_MinCommonValue
 {
     // TC: O(n), n scale with total elements in both nums1 and nums2
     // SC: O(1), space used does not scale with input

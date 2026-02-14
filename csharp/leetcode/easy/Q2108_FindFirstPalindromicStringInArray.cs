@@ -1,4 +1,4 @@
-public class Q2108_FindFirstPalindromicStringInArray
+﻿public class Q2108_FindFirstPalindromicStringInArray
 {
     // TC: O(n), n scales with length of words
     // SC: O(1), space used does not scale with input

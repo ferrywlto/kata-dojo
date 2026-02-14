@@ -1,4 +1,4 @@
-public class Q3684_MaxSumOfAtMostKDistinctElements
+﻿public class Q3684_MaxSumOfAtMostKDistinctElements
 {
     // TC: O(N log N), dominated by sorting
     // SC: O(k), for the result list, worst case k equals number of distinct elements

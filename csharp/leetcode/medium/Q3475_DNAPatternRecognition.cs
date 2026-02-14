@@ -1,4 +1,4 @@
-using Row = (int sample_id, string dna_sequence, string species, int has_start, int has_stop, int has_atat, int has_ggg);
+﻿using Row = (int sample_id, string dna_sequence, string species, int has_start, int has_stop, int has_atat, int has_ggg);
 
 public class Q3475_DNAPatternRecognition(ITestOutputHelper output) : SqlTest(output)
 {

@@ -1,8 +1,8 @@
-class Q671_SecondMinNodeInBinaryTree
+﻿class Q671_SecondMinNodeInBinaryTree
 {
     // TC: O(n)
     // SC: O(n)
-    public int FindSecondMinimumValue(TreeNode root) 
+    public int FindSecondMinimumValue(TreeNode root)
     {
         // minimum is always at root in this question
         // all nodes have either 2 or 0 child in this question
@@ -11,7 +11,7 @@ class Q671_SecondMinNodeInBinaryTree
         var stack = new Stack<TreeNode>();
         stack.Push(root);
 
-        while(stack.Count > 0)
+        while (stack.Count > 0)
         {
             var node = stack.Pop();
             if (node.left?.val > node.right?.val)
@@ -30,13 +30,13 @@ class Q671_SecondMinNodeInBinaryTree
                     stack.Push(node.left);
                 }
             }
-            else if(node.left != null && node.right != null)
+            else if (node.left != null && node.right != null)
             {
                 stack.Push(node.left);
                 stack.Push(node.right);
             }
         }
-        return secMin == long.MaxValue ? -1 : (int)secMin;    
+        return secMin == long.MaxValue ? -1 : (int)secMin;
     }
 }
 

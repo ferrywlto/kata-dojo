@@ -1,4 +1,4 @@
-class Q1184_DistanceBetweenBusStops
+﻿class Q1184_DistanceBetweenBusStops
 {
     // TC: O(n), need to traverse each element once due to checking both ways
     // SC: O(1)
@@ -17,7 +17,7 @@ class Q1184_DistanceBetweenBusStops
         for (var j = start; j != destination; j--)
         {
             if (j == 0) j = distance.Length;
-            distanceACW += distance[j-1];
+            distanceACW += distance[j - 1];
         }
         return Math.Min(distanceCW, distanceACW);
     }

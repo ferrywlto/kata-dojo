@@ -1,4 +1,4 @@
-public class Q2125_NumLaserBeamsinBank
+﻿public class Q2125_NumLaserBeamsinBank
 {
     // TC: O(n^2), n scale with length of bank, have to iterate all characters
     // SC: O(1), space used does not scale with input

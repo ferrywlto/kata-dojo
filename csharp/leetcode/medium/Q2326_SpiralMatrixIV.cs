@@ -1,4 +1,4 @@
-public class Q2326_SpiralMatrixIV
+﻿public class Q2326_SpiralMatrixIV
 {
     // TC: O(n), n scale with length of head
     // SC: O(n * m), for storing the result, otherwise O(1)

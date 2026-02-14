@@ -1,6 +1,6 @@
-class Q1148_ArticleViewsI : SqlQuestion
+﻿class Q1148_ArticleViewsI : SqlQuestion
 {
-    public override string Query => 
+    public override string Query =>
     """
     select distinct viewer_id as id
     from Views
@@ -10,7 +10,7 @@ class Q1148_ArticleViewsI : SqlQuestion
 }
 class Q1148_ArticleViewsITestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -28,7 +28,7 @@ class Q1148_ArticleViewsITestData : TestData
 }
 public class Q1148_ArticleViewsITests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     Create table If Not Exists Views (article_id int, author_id int, viewer_id int, view_date date);
     """;

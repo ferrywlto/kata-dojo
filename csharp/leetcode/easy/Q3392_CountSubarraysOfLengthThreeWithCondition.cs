@@ -1,4 +1,4 @@
-public class Q3392_CountSubarraysOfLengthThreeWithCondition
+﻿public class Q3392_CountSubarraysOfLengthThreeWithCondition
 {
     // TC: O(n), n scale with length of nums
     // SC: O(1), space used does not scale with input

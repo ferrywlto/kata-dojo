@@ -1,27 +1,27 @@
-class Q674_LongestContinuousIncreasingSubSequence
+﻿class Q674_LongestContinuousIncreasingSubSequence
 {
     // TC: O(n)
     // SC: O(1)
-    public int FindLengthOfLCIS(int[] nums) 
+    public int FindLengthOfLCIS(int[] nums)
     {
         var maxLength = 1;
         var currentLength = 1;
-        for(var i=0; i<nums.Length-1; i++)
+        for (var i = 0; i < nums.Length - 1; i++)
         {
-            if(nums[i] < nums[i+1])
+            if (nums[i] < nums[i + 1])
             {
                 currentLength++;
                 maxLength = Math.Max(maxLength, currentLength);
             }
             else currentLength = 1;
         }
-        return maxLength;    
+        return maxLength;
     }
 }
 
 class Q674_LongestContinuousIncreasingSubSequenceTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[] {1,3,5,4,7}, 3],
         [new int[] {2,2,2,2,2}, 1],

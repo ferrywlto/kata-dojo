@@ -1,4 +1,4 @@
-public class Q1476_SubreectangleQueries
+﻿public class Q1476_SubreectangleQueries
 {
     private class SubrectangleQueries
     {

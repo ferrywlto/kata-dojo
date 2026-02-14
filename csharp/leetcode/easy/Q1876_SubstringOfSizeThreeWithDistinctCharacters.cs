@@ -1,4 +1,4 @@
-class Q1876_SubstringOfSizeThreeWithDistinctCharacters
+﻿class Q1876_SubstringOfSizeThreeWithDistinctCharacters
 {
     // TC: O(n), where n scale with length of s
     // SC: O(1), space used does not scale with input

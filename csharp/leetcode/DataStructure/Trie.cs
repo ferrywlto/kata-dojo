@@ -1,4 +1,4 @@
-public class TrieNode
+﻿public class TrieNode
 {
     public Dictionary<char, TrieNode> Children { get; } = new();
     public bool IsEndOfWord { get; set; }
@@ -39,7 +39,7 @@ public class Trie
     public bool SearchReverse(string word)
     {
         var node = _root;
-        for(var i = word.Length - 1; i>=0; i--)
+        for (var i = word.Length - 1; i >= 0; i--)
         {
             var ch = word[i];
             if (!node.Children.TryGetValue(ch, out var value))

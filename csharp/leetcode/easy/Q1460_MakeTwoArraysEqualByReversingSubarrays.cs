@@ -1,19 +1,19 @@
-
+﻿
 class Q1460_MakeTwoArraysEqualByReversingSubarrays
 {
     // TC: O(n log n), where n log n from Array.Sort() dominates n from SequenceEqual()
     // SC: O(1), no space used in operation 
-    public bool CanBeEqual(int[] target, int[] arr) 
+    public bool CanBeEqual(int[] target, int[] arr)
     {
         // if we break down the question to keep reversing 2 elements only, this is literally a sort 
         Array.Sort(target);
         Array.Sort(arr);
         return target.SequenceEqual(arr);
-    }     
+    }
 }
 class Q1460_MakeTwoArraysEqualByReversingSubarraysTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[] {1,2,3,4}, new int[] {2,4,1,3}, true],
         [new int[] {7}, new int[] {7}, true],

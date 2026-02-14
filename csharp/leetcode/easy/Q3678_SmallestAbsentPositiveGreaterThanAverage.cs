@@ -1,4 +1,4 @@
-public class Q3678_SmallestAbsentPositiveGreaterThanAverage
+﻿public class Q3678_SmallestAbsentPositiveGreaterThanAverage
 {
     // TC: O(n), n scale with nums.Length
     // SC: O(1), counts size is fixed

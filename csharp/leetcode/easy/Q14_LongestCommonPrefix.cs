@@ -1,9 +1,9 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 
 class Q14_LongestCommonPrefixTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new string[] { "flower", "flow", "flight" }, "fl"],
         [new string[] { "flower", "flower", "flower", "flower" }, "flower"],

@@ -1,4 +1,4 @@
-public class Q2037_MinNUmMovesToSeatEveryone
+﻿public class Q2037_MinNUmMovesToSeatEveryone
 {
     // TC: O(nlogn), due to Array.sort()
     // SC: O(1), space used does not scale with input 

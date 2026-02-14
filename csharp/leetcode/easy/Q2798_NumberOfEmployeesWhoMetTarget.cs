@@ -1,4 +1,4 @@
-public class Q2798_NumberOfEmployeesWhoMetTarget
+﻿public class Q2798_NumberOfEmployeesWhoMetTarget
 {
     // TC: O(n), n scale with length of hours
     // SC: O(1), space used does not scale with input

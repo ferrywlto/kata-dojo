@@ -1,4 +1,4 @@
-class Q1486_XOROperationsInArray
+﻿class Q1486_XOROperationsInArray
 {
     // TC: O(n), where n is the size of n, it will perform XOR n times
     // SC: O(1), the space used are fixed to 2 integer variables
@@ -6,7 +6,7 @@ class Q1486_XOROperationsInArray
     {
         var result = start;
         var current = start;
-        for(var i=0; i<n-1; i++)
+        for (var i = 0; i < n - 1; i++)
         {
             current += 2;
             result ^= current;
@@ -16,7 +16,7 @@ class Q1486_XOROperationsInArray
 }
 class Q1486_XOROperationsInArrayTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [5, 0, 8],
         [4, 3, 8],

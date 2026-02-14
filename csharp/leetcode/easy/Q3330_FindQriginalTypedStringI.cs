@@ -1,4 +1,4 @@
-public class Q3330_FindQriginalTypedStringI
+﻿public class Q3330_FindQriginalTypedStringI
 {
     // TC: O(n), n scale with length of word
     // SC: O(1), space used does not scale with input

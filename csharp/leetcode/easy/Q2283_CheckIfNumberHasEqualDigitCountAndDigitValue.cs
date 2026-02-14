@@ -1,4 +1,4 @@
-public class Q2283_CheckIfNumberHasEqualDigitCountAndDigitValue
+﻿public class Q2283_CheckIfNumberHasEqualDigitCountAndDigitValue
 {
     // TC: O(n), n scale with length of num, iterate once for getting the frequency, another iteration check if the digit index equals frequency
     // SC: O(m), m scale with unique digits in num 

@@ -1,4 +1,4 @@
-public class Q2351_FirstLetterToAppearTwice
+﻿public class Q2351_FirstLetterToAppearTwice
 {
     // TC: O(n), n scale with length of s
     // SC: O(1), as input contains only lowercase characters

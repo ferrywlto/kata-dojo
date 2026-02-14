@@ -1,4 +1,4 @@
-class Q1331_RankTransformOfArray
+﻿class Q1331_RankTransformOfArray
 {
     // TC: O(n log n), n log n for sort, n for getting the rank, n for writing result
     // SC: O(n), n to store the distinct ranks

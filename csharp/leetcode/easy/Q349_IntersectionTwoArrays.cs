@@ -1,8 +1,8 @@
-class Q349_IntersectionOfTwoArrays
+﻿class Q349_IntersectionOfTwoArrays
 {
     public int[] Intersection(int[] nums1, int[] nums2)
     {
-        var set3 = nums1.Intersect(nums2);        
+        var set3 = nums1.Intersect(nums2);
         return [.. set3];
     }
 
@@ -13,7 +13,7 @@ class Q349_IntersectionOfTwoArrays
         var set2 = nums2.ToHashSet();
         var result = new List<int>();
 
-        foreach(var i in set2) 
+        foreach (var i in set2)
         {
             if (set1.Contains(i)) result.Add(i);
         }

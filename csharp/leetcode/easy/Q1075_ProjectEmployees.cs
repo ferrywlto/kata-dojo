@@ -1,7 +1,7 @@
-
+﻿
 class Q1075_ProjectEmployees : SqlQuestion
 {
-    public override string Query => 
+    public override string Query =>
     """
     select p.project_id, ROUND(AVG(e.experience_years), 2) as average_years
     from Project p left join Employee e
@@ -11,7 +11,7 @@ class Q1075_ProjectEmployees : SqlQuestion
 }
 class Q1075_ProjectEmployeesTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -34,7 +34,7 @@ class Q1075_ProjectEmployeesTestData : TestData
 [Trait("QuestionType", "SQL")]
 public class Q1075_ProjectEmployeesTests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     Create table If Not Exists Project (project_id int, employee_id int);
     Create table If Not Exists Employee (employee_id int, name varchar(10), experience_years int);

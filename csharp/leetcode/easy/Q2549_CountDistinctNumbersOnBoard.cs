@@ -1,4 +1,4 @@
-public class Q2549_CountDistinctNumbersOnBoard
+﻿public class Q2549_CountDistinctNumbersOnBoard
 {
     // TC: O(1)
     // SC: O(1)

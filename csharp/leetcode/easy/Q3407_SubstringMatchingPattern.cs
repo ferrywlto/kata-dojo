@@ -1,4 +1,4 @@
-public class Q3407_SubstringMatchingPattern
+﻿public class Q3407_SubstringMatchingPattern
 {
     // TC: O(n), n scale with length of s due to s.IndexOf() and s.LastIndexOf()
     // SC: O(1), space used does not scale with input

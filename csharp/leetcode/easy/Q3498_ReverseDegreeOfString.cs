@@ -1,4 +1,4 @@
-public class Q3498_ReverseDegreeOfString
+﻿public class Q3498_ReverseDegreeOfString
 {
     // TC: O(n), n scale with length of s
     // SC: O(1), space used does not scale with input

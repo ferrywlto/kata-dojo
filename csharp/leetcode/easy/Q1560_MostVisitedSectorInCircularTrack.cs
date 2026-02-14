@@ -1,4 +1,4 @@
-class Q1560_MostVisitedSectorInCircularTrack
+﻿class Q1560_MostVisitedSectorInCircularTrack
 {
     // TC: O(n*m), where n is rounds - 1 * sectors visited per round
     // SC: O(n), where n is number of visited sector
@@ -8,7 +8,7 @@ class Q1560_MostVisitedSectorInCircularTrack
         var maxCount = 0;
         var dict = new Dictionary<int, int>();
 
-        for(var i=1; i<rounds.Length; i++)
+        for (var i = 1; i < rounds.Length; i++)
         {
             var current = rounds[i - 1];
             var next = rounds[i];
@@ -19,7 +19,7 @@ class Q1560_MostVisitedSectorInCircularTrack
                 else
                     dict[current] = 1;
 
-                if (dict[current] > maxCount) 
+                if (dict[current] > maxCount)
                     maxCount = dict[current];
 
                 if (current == n) current = 1;
@@ -32,7 +32,7 @@ class Q1560_MostVisitedSectorInCircularTrack
         else
             dict[last] = 1;
 
-        if (dict[last] > maxCount) 
+        if (dict[last] > maxCount)
             maxCount = dict[last];
 
         return dict

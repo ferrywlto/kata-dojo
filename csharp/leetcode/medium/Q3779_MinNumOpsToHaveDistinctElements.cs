@@ -1,4 +1,4 @@
-public class Q3779_MinNumOpsToHaveDistinctElements
+﻿public class Q3779_MinNumOpsToHaveDistinctElements
 {
     // TC: O(n), n scale with length of nums
     // SC: O(m), m scale with unique numbers in nums

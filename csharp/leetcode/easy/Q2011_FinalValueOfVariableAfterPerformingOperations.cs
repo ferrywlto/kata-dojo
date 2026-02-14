@@ -1,11 +1,11 @@
-public class Q2011_FinalValueOfVariableAfterPerformingOperations
+﻿public class Q2011_FinalValueOfVariableAfterPerformingOperations
 {
     // TC: O(n), n scale with length of operations
     // SC: O(1), space used does not scale with input
     public int FinalValueAfterOperations(string[] operations)
     {
         var result = 0;
-        foreach(var op in operations)
+        foreach (var op in operations)
         {
             if (op[1] == '+') result++;
             else result--;

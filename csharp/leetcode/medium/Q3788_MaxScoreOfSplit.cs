@@ -1,4 +1,4 @@
-public class Q3788_MaxScoreOfSplit
+﻿public class Q3788_MaxScoreOfSplit
 {
     // TC: O(n), n scale with nums.Length
     // SC: O(n)

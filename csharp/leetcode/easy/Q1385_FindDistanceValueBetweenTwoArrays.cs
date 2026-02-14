@@ -1,4 +1,4 @@
-class Q1385_FindDistanceValueBetweenTwoArrays
+﻿class Q1385_FindDistanceValueBetweenTwoArrays
 {
     // TC: O(n log n), n log n for Array.Sort + for each n items in arr1 perform once log n binary search thus n * log n again
     // SC: O(1), operations are done in-place.
@@ -6,7 +6,7 @@ class Q1385_FindDistanceValueBetweenTwoArrays
     {
         Array.Sort(arr2);
         var count = 0;
-        foreach(var num in arr1)
+        foreach (var num in arr1)
         {
             if (AllDiffLargerThanTarget(arr2, num, d)) count++;
         }

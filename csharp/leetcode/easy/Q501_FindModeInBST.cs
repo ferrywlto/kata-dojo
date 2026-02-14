@@ -1,19 +1,19 @@
-class Q501_FindModeInBST
+﻿class Q501_FindModeInBST
 {
     // TC: O(n) as have to traverse each node at least once
     // SC: O(n) as dictionary size = number of nodes in worst case 
     public int[] FindMode(TreeNode root)
     {
-        if (root.left == null && root.right == null) 
+        if (root.left == null && root.right == null)
             return [root.val];
 
         var demography = new Dictionary<int, int>();
         var queue = new Queue<TreeNode>();
         queue.Enqueue(root);
-        while(queue.Count > 0)
+        while (queue.Count > 0)
         {
             var node = queue.Dequeue();
-            if(demography.ContainsKey(node.val))
+            if (demography.ContainsKey(node.val))
             {
                 demography[node.val]++;
             }
@@ -27,7 +27,7 @@ class Q501_FindModeInBST
         }
 
         var mode = demography.Max(x => x.Value);
-        
+
         return demography
             .Where(x => x.Value == mode)
             .Select(x => x.Key)

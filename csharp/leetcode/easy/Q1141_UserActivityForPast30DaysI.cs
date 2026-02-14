@@ -1,7 +1,7 @@
-
+﻿
 class Q1141_UserActivityForPast30DaysI : SqlQuestion
 {
-    public override string Query => 
+    public override string Query =>
     """
     SELECT activity_date as day, count(user_id) as active_users 
     FROM 
@@ -28,7 +28,7 @@ class Q1141_UserActivityForPast30DaysI : SqlQuestion
 }
 class Q1141_UserActivityForPast30DaysITestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -50,7 +50,7 @@ class Q1141_UserActivityForPast30DaysITestData : TestData
 }
 public class Q1141_UserActivityForPast30DaysITests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     Create table If Not Exists Activity (user_id int, session_id int, activity_date date, activity_type varchar)
     """;

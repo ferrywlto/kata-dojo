@@ -1,4 +1,4 @@
-class Q1030_MatrixCellsInDistanceOrder
+﻿class Q1030_MatrixCellsInDistanceOrder
 {
     // TC: O(n log n), where n is rows*cols, .Sort() caused it to O(n log n)
     // SC: O(n), where n is also rows*cols as the answer need to list all cells

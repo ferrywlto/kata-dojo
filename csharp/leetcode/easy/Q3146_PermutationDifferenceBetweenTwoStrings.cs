@@ -1,4 +1,4 @@
-public class Q3146_PermutationDifferenceBetweenTwoStrings
+﻿public class Q3146_PermutationDifferenceBetweenTwoStrings
 {
     // TC: O(n), n scale with length of s and m scale with length of t
     // SC: O(n), n scale with length of s
@@ -11,7 +11,7 @@ public class Q3146_PermutationDifferenceBetweenTwoStrings
             arr[t[i] - 'a'] -= i;
         }
         var result = 0;
-        for (var j = 0; j<arr.Length; j++)
+        for (var j = 0; j < arr.Length; j++)
         {
             result += Math.Abs(arr[j]);
         }

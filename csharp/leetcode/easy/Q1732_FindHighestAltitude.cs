@@ -1,4 +1,4 @@
-class Q1732_FindHighestAltitude
+﻿class Q1732_FindHighestAltitude
 {
     // TC: O(n), where n is length of gain
     // SC: O(1), space used is fixed

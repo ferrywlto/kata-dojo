@@ -1,4 +1,4 @@
-public class Q1441_BuildArrayWithStackOperations
+﻿public class Q1441_BuildArrayWithStackOperations
 {
     // TC: O(n), n scale with length of target
     // SC: O(n), for storing the result, otherwise O(1)

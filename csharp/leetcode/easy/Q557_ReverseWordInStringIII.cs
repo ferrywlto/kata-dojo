@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 
 class Q557_ReverseWordInStringIII
 {
@@ -22,17 +22,17 @@ class Q557_ReverseWordInStringIII
 
         var startIdx = 0;
         var endIdx = 0;
-        for(var i=0; i<s.Length; i++)
+        for (var i = 0; i < s.Length; i++)
         {
-            if(s[i] == ' ')
+            if (s[i] == ' ')
             {
                 endIdx = i - 1;
                 ReverseStringByIndex(sb, startIdx, endIdx);
                 startIdx = ++i;
             }
-            else if(i == s.Length-1)
+            else if (i == s.Length - 1)
             {
-                ReverseStringByIndex(sb, startIdx, s.Length-1);
+                ReverseStringByIndex(sb, startIdx, s.Length - 1);
             }
         }
         return sb.ToString();

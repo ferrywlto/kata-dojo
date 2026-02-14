@@ -1,4 +1,4 @@
-public class Q3105_LongestStrictlyIncreasingOrStrictlyDecreasingSubarray
+﻿public class Q3105_LongestStrictlyIncreasingOrStrictlyDecreasingSubarray
 {
     // TC: O(n), n scale with length of nums
     // SC: O(1), space used does not scale with input

@@ -1,4 +1,4 @@
-public class Q3248_SnakeInMatrix
+﻿public class Q3248_SnakeInMatrix
 {
     // TC: O(n), n scale with length of commands
     // SC: O(1), space used does not scale with input

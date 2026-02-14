@@ -1,4 +1,4 @@
-class Q326_PowerOfThree
+﻿class Q326_PowerOfThree
 {
     /*
     The notation 1E-14 is a way of representing numbers using scientific notation in programming languages. 
@@ -12,8 +12,8 @@ class Q326_PowerOfThree
         if (n <= 0) return false;
         // the return type is double, so for n=243 it returns 4.999999999 instead of 5
         // therefore need to check if it is very close to an integer
-        var logResult = Math.Log(n, 3); 
-        
+        var logResult = Math.Log(n, 3);
+
         return Math.Abs(logResult - Math.Round(logResult)) < 1E-14;
     }
 
@@ -21,14 +21,14 @@ class Q326_PowerOfThree
     {
         if (n <= 0) return false;
         if (n == 1 || n == 3) return true;
-        
+
         long temp = 1;
-        while(temp <= n) 
+        while (temp <= n)
         {
             temp *= 3;
             if (temp == n) return true;
         }
-        
+
         return false;
     }
 
@@ -42,9 +42,9 @@ class Q326_PowerOfThree
     }
 }
 
-class Q326_PowerOfThreeTestData: TestData
+class Q326_PowerOfThreeTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [27, true],
         [0, false],

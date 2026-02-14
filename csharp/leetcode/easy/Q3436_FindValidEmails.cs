@@ -1,4 +1,4 @@
-using Row = (int user_id, string email);
+﻿using Row = (int user_id, string email);
 public class Q3436_FindValidEmails(ITestOutputHelper output) : SqlTest(output)
 
 {

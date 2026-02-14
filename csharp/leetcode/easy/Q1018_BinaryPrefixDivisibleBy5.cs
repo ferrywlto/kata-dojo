@@ -1,4 +1,4 @@
-class Q1018_BinaryPrefixDivisibleBy5
+﻿class Q1018_BinaryPrefixDivisibleBy5
 {
     // TC: O(n), n is length of nums
     // SC: O(1), no data structure used
@@ -7,7 +7,7 @@ class Q1018_BinaryPrefixDivisibleBy5
         long currentSum = 0;
         var result = new List<bool>();
 
-        for(var i=0; i<nums.Length; i++)
+        for (var i = 0; i < nums.Length; i++)
         {
             // distributive property of modular arithmetic
             // (a + b) % n = ((a % n) + (b % n)) % n
@@ -25,7 +25,7 @@ class Q1018_BinaryPrefixDivisibleBy5TestData : TestData
         [new int[] {0,1,1}, new bool[] {true,false,false}],
         [new int[] {1,1,1}, new bool[] {false,false,false}],
         [
-            new int[] {1,0,0,1,0,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,0,1,0,0,0,0,1,1,0,1,0,0,0,1}, 
+            new int[] {1,0,0,1,0,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,0,1,0,0,0,0,1,1,0,1,0,0,0,1},
             new bool[] {false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,true,true,true,true,false}
         ],
         [

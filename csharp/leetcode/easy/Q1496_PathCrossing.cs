@@ -1,4 +1,4 @@
-class Q1496_PathCrossing
+﻿class Q1496_PathCrossing
 {
     // TC: O(n), where n is the length of path string
     // SC: O(n), worst case path never cross itselt thus holding all steps

@@ -1,4 +1,4 @@
-
+﻿
 class Q1437_CheckIfAllOnesAtLeastLengthKPlacesAway
 {
     // TC: O(n), it have to iterate all n elements in nums, then iterate m 1's index, since m <= n thus O(n)
@@ -8,9 +8,9 @@ class Q1437_CheckIfAllOnesAtLeastLengthKPlacesAway
         int? lastOne = null;
         for (var i = 0; i < nums.Length; i++)
         {
-            if(nums[i] == 1)
+            if (nums[i] == 1)
             {
-                if (lastOne != null && i-lastOne-1 < k) return false;
+                if (lastOne != null && i - lastOne - 1 < k) return false;
                 lastOne = i;
             }
         }

@@ -1,4 +1,4 @@
-public class Q3658_GCDofOddAndEvenSums
+﻿public class Q3658_GCDofOddAndEvenSums
 {
     // Actually it just need to return n, as the different of sum is always n
     // TC: O(1)

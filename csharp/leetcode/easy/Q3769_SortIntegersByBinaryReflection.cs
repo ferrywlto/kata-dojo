@@ -1,4 +1,4 @@
-namespace Leetcode.Easy;
+﻿namespace Leetcode.Easy;
 
 // TC: O(n log n), n is the length of nums, n log n from Array.Sort()
 // SC: O(n), space used to store the data structure for sorting, which is the same as the input nums

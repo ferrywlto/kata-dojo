@@ -1,4 +1,4 @@
-class Q1304_FindNUniqueIntegersSumUpToZero
+﻿class Q1304_FindNUniqueIntegersSumUpToZero
 {
     // TC: O(n), n = input
     // SC: O(n), n/2 + 1 space needed to return the result
@@ -6,7 +6,7 @@ class Q1304_FindNUniqueIntegersSumUpToZero
     {
         var times = n / 2;
         var result = new List<int>();
-        for(var i=1; i<=times; i++)
+        for (var i = 1; i <= times; i++)
         {
             result.Add(-i);
             result.Add(i);
@@ -18,14 +18,14 @@ class Q1304_FindNUniqueIntegersSumUpToZero
     {
         var result = new int[n];
         var value = 1;
-        for(var i=0; i<n-1; i+=2)
+        for (var i = 0; i < n - 1; i += 2)
         {
             result[i] = value;
-            result[i+1] = -value;
+            result[i + 1] = -value;
             value++;
         }
         return result;
-    }    
+    }
 }
 class Q1304_FindNUniqueIntegersSumUpToZeroTestData : TestData
 {

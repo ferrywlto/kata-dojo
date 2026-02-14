@@ -1,4 +1,4 @@
-public class Q3232_FindIfDigitGameCanBeWon
+﻿public class Q3232_FindIfDigitGameCanBeWon
 {
     // TC: O(n), n scale with length of nums
     // SC: O(1), space used does not scale with input

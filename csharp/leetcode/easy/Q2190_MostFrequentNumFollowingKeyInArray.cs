@@ -1,4 +1,4 @@
-public class Q2190_MostFrequentNumberFollowingKeyInArray
+﻿public class Q2190_MostFrequentNumberFollowingKeyInArray
 {
     // TC: O(n), n scale with length of nums
     // SC: O(m), m scale with unique numbers in nums

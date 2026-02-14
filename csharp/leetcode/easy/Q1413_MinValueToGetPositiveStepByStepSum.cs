@@ -1,13 +1,13 @@
-
+﻿
 class Q1413_MinValueToGetPositiveStepByStepSum
 {
     // TC: O(n), n is the size of nums
     // SC: O(1), no space used in operations
-    public int MinStartValue(int[] nums) 
+    public int MinStartValue(int[] nums)
     {
         var min = 0;
         var sum = 0;
-        foreach(var n in nums)
+        foreach (var n in nums)
         {
             sum += n;
             if (sum < min) min = sum;
@@ -17,7 +17,7 @@ class Q1413_MinValueToGetPositiveStepByStepSum
 }
 class Q1413_MinValueToGetPositiveStepByStepSumTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[] {-3,2,-3,4,2}, 5],
         [new int[] {1,2}, 1],

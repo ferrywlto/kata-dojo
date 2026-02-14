@@ -1,4 +1,4 @@
-
+﻿
 using System.Data.Common;
 
 class Q627_SwapSalary : SqlQuestion
@@ -15,7 +15,7 @@ class Q627_SwapSalary : SqlQuestion
 
 class Q627_SwapSalaryTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [[
         """
         INSERT INTO Salary VALUES
@@ -29,7 +29,7 @@ class Q627_SwapSalaryTestData : TestData
 [Trait("QuestionType", "SQL")]
 public class Q627_SwapSalaryTests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     CREATE TABLE IF NOT EXISTS Salary (id INT, name VARCHAR, sex ENUM, salary INT)
     """;
@@ -43,7 +43,7 @@ public class Q627_SwapSalaryTests(ITestOutputHelper output) : SqlTest(output)
         var sut = new Q627_SwapSalary();
         ExecuteCommand(sut.Query);
         var reader = ExecuteQuery("SELECT * FROM Salary", true);
-        AssertResultSchema(reader, ["id","name","sex","salary"]);
+        AssertResultSchema(reader, ["id", "name", "sex", "salary"]);
         AssertReader(reader);
     }
 

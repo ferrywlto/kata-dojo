@@ -1,4 +1,4 @@
-public class Q1952_ThreeDivisors
+﻿public class Q1952_ThreeDivisors
 {
     // TC: O(n), n scale with size of n
     // SC: O(1), space used does not sacle with input

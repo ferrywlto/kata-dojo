@@ -1,10 +1,10 @@
-class Q628_MaxProductOfThreeNumbers
+﻿class Q628_MaxProductOfThreeNumbers
 {
     // TC: O(n log n)
     // SC: O(1)
-    public int MaximumProduct(int[] nums) 
+    public int MaximumProduct(int[] nums)
     {
-        if (nums.Length == 3) 
+        if (nums.Length == 3)
             return nums[0] * nums[1] * nums[2];
 
         Array.Sort(nums);
@@ -14,7 +14,7 @@ class Q628_MaxProductOfThreeNumbers
 
 class Q628_MaxProductOfThreeNumbersTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[] {1,2,3}, 6],
         [new int[] {1,2,3,4}, 24],

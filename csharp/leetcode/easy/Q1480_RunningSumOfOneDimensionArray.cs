@@ -1,4 +1,4 @@
-class Q1480_RunningSumOfOneDimensionArray
+﻿class Q1480_RunningSumOfOneDimensionArray
 {
     // TC: O(n), where n is length of nums, have to sum to the end.
     // SC: O(1), space used are fixed to the variable that hold the current sum

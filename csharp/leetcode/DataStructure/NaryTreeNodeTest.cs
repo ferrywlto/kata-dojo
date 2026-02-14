@@ -1,17 +1,17 @@
-public abstract class NaryTreeTest : TestBase
+﻿public abstract class NaryTreeTest : TestBase
 {
-    public NaryTreeTest(ITestOutputHelper output) : base(output) {}
+    public NaryTreeTest(ITestOutputHelper output) : base(output) { }
 
     protected void DebugTree(NaryTreeNode root)
     {
-        if (Output == null) 
+        if (Output == null)
             throw new Exception("Pass ITestOutputHelper in constructor first!");
 
         var queue = new Queue<NaryTreeNode>();
         queue.Enqueue(root);
-        while(queue.Count > 0)
+        while (queue.Count > 0)
         {
-            var node = queue.Dequeue();   
+            var node = queue.Dequeue();
             string childStr = (node.children == null || node.children.Count == 0)
                 ? "No child"
                 : string.Join(',', node.children.Select(x => x.val));

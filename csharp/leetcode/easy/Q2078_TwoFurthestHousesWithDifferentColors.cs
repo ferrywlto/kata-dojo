@@ -1,4 +1,4 @@
-public class Q2078_TwoFurthestHousesWithDifferentColors
+﻿public class Q2078_TwoFurthestHousesWithDifferentColors
 {
     // TC: O(n), n scale with length of colors
     // SC: O(1), space used does not scale with input

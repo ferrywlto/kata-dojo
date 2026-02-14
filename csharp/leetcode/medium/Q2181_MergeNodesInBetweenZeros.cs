@@ -1,4 +1,4 @@
-public class Q2181_MergeNodesInBetweenZeros(ITestOutputHelper output)
+﻿public class Q2181_MergeNodesInBetweenZeros(ITestOutputHelper output)
 {
     // TC: O(n), n scale with length of input list
     // SC: O(1), space used does not scale with input
@@ -13,11 +13,11 @@ public class Q2181_MergeNodesInBetweenZeros(ITestOutputHelper output)
             {
                 temp.Val = sum;
                 sum = 0;
-                if(curr.Next != null) 
+                if (curr.Next != null)
                 {
                     temp.Next = curr;
                     temp = curr;
-                } 
+                }
                 else temp.Next = null;
             }
             else sum += curr.Val;

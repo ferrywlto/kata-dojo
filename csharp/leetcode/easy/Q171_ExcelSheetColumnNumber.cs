@@ -1,4 +1,4 @@
-class Q171_ExcelSheetColumnNumberTestData : TestData
+﻿class Q171_ExcelSheetColumnNumberTestData : TestData
 {
     protected override List<object[]> Data =>
     [

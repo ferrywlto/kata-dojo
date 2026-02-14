@@ -1,8 +1,8 @@
-class Q191_NumberOfOneBitsTestData : TestData
+﻿class Q191_NumberOfOneBitsTestData : TestData
 {
     // 0b means binary literal
     // U means unsigned integer
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [0b00000000000000000000000000001011U, 3],
         [0b00000000000000000000000010000000U, 1],
@@ -24,13 +24,13 @@ public class Q191_NumberOfOneBitsTests
 
 class Q191_NumberOfOneBits
 {
-    public int HammingWeight(uint n) 
+    public int HammingWeight(uint n)
     {
         var result = 0;
         var bits = 32;
         while (bits > 0)
         {
-            if ((n & 1) == 1) 
+            if ((n & 1) == 1)
             {
                 result++;
             }

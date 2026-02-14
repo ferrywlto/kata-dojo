@@ -1,4 +1,4 @@
-class Q1869_LongerContiguousSegmentsOfOnesThanZeros
+﻿class Q1869_LongerContiguousSegmentsOfOnesThanZeros
 {
     // TC: O(n), where n is length of s
     // SC: O(1), space used does not scale with input
@@ -8,15 +8,15 @@ class Q1869_LongerContiguousSegmentsOfOnesThanZeros
         var lengthOnes = 0;
         var maxLengthZeros = int.MinValue;
         var maxLengthOnes = int.MinValue;
-        for(var i = 0; i<s.Length; i++)
+        for (var i = 0; i < s.Length; i++)
         {
-            if(s[i] == '0')
+            if (s[i] == '0')
             {
                 lengthOnes = 0;
                 lengthZeros++;
                 if (lengthZeros > maxLengthZeros) maxLengthZeros = lengthZeros;
             }
-            else 
+            else
             {
                 lengthZeros = 0;
                 lengthOnes++;

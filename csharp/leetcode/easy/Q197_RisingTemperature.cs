@@ -1,4 +1,4 @@
-class Q197_RisingTemperature : SqlQuestion
+﻿class Q197_RisingTemperature : SqlQuestion
 {
     public override string Query =>
     """
@@ -39,7 +39,7 @@ public class Q197_RisingTemperatureTests(ITestOutputHelper output) : SqlTest(out
         var sut = new Q197_RisingTemperature();
         var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["id"]);
-        
+
         Assert.True(reader.Read());
         Assert.Equal(2, reader.GetInt32(0));
 

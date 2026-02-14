@@ -1,4 +1,4 @@
-class Q1211_QueriesQualityAndPercentage : SqlQuestion
+﻿class Q1211_QueriesQualityAndPercentage : SqlQuestion
 {
     public override string Query =>
     """

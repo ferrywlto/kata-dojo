@@ -1,4 +1,4 @@
-public class Q2946_MatrixSimilarityAfterCyclicShifts
+﻿public class Q2946_MatrixSimilarityAfterCyclicShifts
 {
     // TC: O(n*m), n scale with length of mat, for each row, do the shift k times, each shift do n operations
     // SC: O(m), m scale with length of a row

@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 
 public class Q3794_ReverseStringPrefix
 {

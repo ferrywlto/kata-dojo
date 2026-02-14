@@ -1,4 +1,4 @@
-class Q922_SortArrayByParityII
+﻿class Q922_SortArrayByParityII
 {
     // TC: O(n), n is length of nums, 2n for worst case that all positions are wrong
     // SC: O(n), n is the number of wrong positions

@@ -1,4 +1,4 @@
-public class Q2423_RemoveLetterToEqualizeFrequency
+﻿public class Q2423_RemoveLetterToEqualizeFrequency
 {
     // TC: O(n), n scale with length of word
     // SC: O(m), m scale with distinct frequency count in word

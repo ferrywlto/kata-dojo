@@ -1,4 +1,4 @@
-public class Q2610_ConvertArrayInto2DArrayWithConditions
+﻿public class Q2610_ConvertArrayInto2DArrayWithConditions
 {
     // TC: O(n + n*m), n scale with length of nums, m sacle with max occurance of a number
     // SC: O(n)

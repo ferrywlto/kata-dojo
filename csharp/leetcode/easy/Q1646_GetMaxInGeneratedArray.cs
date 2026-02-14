@@ -1,4 +1,4 @@
-class Q1646_GetMaxInGeneratedArray
+﻿class Q1646_GetMaxInGeneratedArray
 {
     // TC: O(n), scale with how large n is
     // SC: O(n), scale with how large n is, as have to cache value for fast calculation
@@ -10,7 +10,7 @@ class Q1646_GetMaxInGeneratedArray
         nums[0] = 0;
         nums[1] = 1;
         var max = 1;
-        
+
         for (var i = 2; i <= n; i++)
         {
             var temp = nums[i / 2];

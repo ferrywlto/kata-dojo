@@ -1,4 +1,4 @@
-public abstract class Kthlargest 
+﻿public abstract class Kthlargest
 {
 
     public abstract int Add(int val);
@@ -29,7 +29,7 @@ class Q703_KthLargestElementInStream : Kthlargest
         {
             list.Add(val);
             return;
-        } 
+        }
         else if (val < list[0])
         {
             list.Insert(0, val);
@@ -38,10 +38,10 @@ class Q703_KthLargestElementInStream : Kthlargest
 
         var left = 0;
         var right = list.Count - 1;
-        while(right - left > 1)
+        while (right - left > 1)
         {
             var middle = (right + left) / 2;
-            if(val > list[middle])
+            if (val > list[middle])
             {
                 left = middle;
             }
@@ -49,7 +49,7 @@ class Q703_KthLargestElementInStream : Kthlargest
             {
                 right = middle;
             }
-            else 
+            else
             {
                 list.Insert(middle + 1, val);
                 return;
@@ -77,9 +77,9 @@ public class Q703_KthLargestElementInStreamTests
         var sut = new Q703_KthLargestElementInStream(targetRank, input);
         var actual = new int?[expected.Length];
         actual[0] = null;
-        for(var i=0; i<ops.Length; i++)
+        for (var i = 0; i < ops.Length; i++)
         {
-            actual[i+1] = sut.Add(ops[i]);
+            actual[i + 1] = sut.Add(ops[i]);
         }
         Assert.Equal(expected, actual);
     }

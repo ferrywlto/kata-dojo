@@ -1,4 +1,4 @@
-class Q257_BinaryTreePaths
+﻿class Q257_BinaryTreePaths
 {
     public IList<string> BinaryTreePaths(TreeNode? root)
     {
@@ -10,16 +10,16 @@ class Q257_BinaryTreePaths
         return result;
     }
 
-    public void PrintPath(TreeNode? node, List<int> path, List<string> result) 
+    public void PrintPath(TreeNode? node, List<int> path, List<string> result)
     {
         if (node == null) return;
 
         path.Add(node.val);
-        if (node.IsLeaf) 
+        if (node.IsLeaf)
         {
             result.Add(string.Join("->", path));
         }
-        else 
+        else
         {
             PrintPath(node.left, path, result);
             PrintPath(node.right, path, result);
@@ -29,9 +29,9 @@ class Q257_BinaryTreePaths
     }
 }
 
-class Q257_BinaryTreePathsTestData: TestData
+class Q257_BinaryTreePathsTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int?[]{1,2,3,null,5}, new string[]{"1->2->5","1->3"}],
         [new int?[]{1}, new string[]{"1"}],

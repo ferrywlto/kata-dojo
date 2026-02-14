@@ -1,4 +1,4 @@
-public class Q3442_MaxDiffBetweenEvenAndOddFrequencyI
+﻿public class Q3442_MaxDiffBetweenEvenAndOddFrequencyI
 {
     // TC: O(n), n scale with length of s
     // SC: O(1)
@@ -16,7 +16,7 @@ public class Q3442_MaxDiffBetweenEvenAndOddFrequencyI
         for (var j = 0; j < freq.Length; j++)
         {
             var count = freq[j];
-            if(count == 0) continue;
+            if (count == 0) continue;
             if (count % 2 == 0 && count < evenMin) evenMin = count;
             else if (count % 2 == 1 && count > oddMax) oddMax = count;
         }

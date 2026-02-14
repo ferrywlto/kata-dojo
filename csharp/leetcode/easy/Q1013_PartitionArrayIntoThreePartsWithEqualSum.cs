@@ -1,4 +1,4 @@
-class Q1013_PartitionArrayIntoThreePartsWithEqualSum
+﻿class Q1013_PartitionArrayIntoThreePartsWithEqualSum
 {
     // TC: O(n^2) n is length of arr, the ^2 comes from Array.IndexOf in order to find the complement part, 
     // otherwise if the array is skewed with large numbers at the beginning or end even the array can be partitioned into 3 equal sum groups, 
@@ -9,18 +9,19 @@ class Q1013_PartitionArrayIntoThreePartsWithEqualSum
         if (arr.All(c => c == 0)) return true;
         var sum = arr.Sum();
         if (sum % 3 != 0) return false;
-        
+
         var target = sum / 3;
         var processed = new HashSet<int>();
         var groupFormed = 0;
         var currentSum = 0;
-        for(var i=0; i<arr.Length; i++)
+        for (var i = 0; i < arr.Length; i++)
         {
-            if(processed.Contains(i))
+            if (processed.Contains(i))
             {
                 continue;
             }
-            if(arr[i] == target) {
+            if (arr[i] == target)
+            {
                 processed.Add(i);
                 groupFormed++;
                 continue;
@@ -29,7 +30,7 @@ class Q1013_PartitionArrayIntoThreePartsWithEqualSum
             currentSum += arr[i];
             processed.Add(i);
 
-            if(currentSum == target)
+            if (currentSum == target)
             {
                 groupFormed++;
                 currentSum = 0;
@@ -39,7 +40,7 @@ class Q1013_PartitionArrayIntoThreePartsWithEqualSum
             var lookfor = target - currentSum;
             var lookResult = Array.IndexOf(arr, lookfor, i + 1);
 
-            if(lookResult != -1 && !processed.Contains(lookResult))
+            if (lookResult != -1 && !processed.Contains(lookResult))
             {
                 groupFormed++;
                 currentSum = 0;

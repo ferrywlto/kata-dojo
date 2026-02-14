@@ -1,4 +1,4 @@
-class Q1800_MaxAscendingSubarraySum
+﻿class Q1800_MaxAscendingSubarraySum
 {
     // TC: O(n), where n is the length of nums
     // SC: O(1), space used is fixed

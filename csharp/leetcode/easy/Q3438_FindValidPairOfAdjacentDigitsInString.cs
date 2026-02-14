@@ -1,4 +1,4 @@
-public class Q3438_FindValidPairOfAdjacentDigitsInString
+﻿public class Q3438_FindValidPairOfAdjacentDigitsInString
 {
     // TC: O(n), n scale with length of s
     // SC: O(m), m scale with unique characters in s

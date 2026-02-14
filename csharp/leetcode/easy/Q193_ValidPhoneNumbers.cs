@@ -1,6 +1,6 @@
-class Q193_ValidPhoneNumbersTestData : TestData
+﻿class Q193_ValidPhoneNumbersTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -22,19 +22,19 @@ public class Q193_ValidPhoneNumbersTests(ITestOutputHelper output) : ShellTest(o
 {
     [Theory]
     [ClassData(typeof(Q193_ValidPhoneNumbersTestData))]
-    public void Test(string input, string expected) 
+    public void Test(string input, string expected)
     {
         File.WriteAllText("./q193.txt", input.Trim());
 
         var sut = new Q193_ValidPhoneNumbers();
         var actual = Run(sut.Command);
-        
+
         File.Delete("./q193.txt");
 
         var expectedLines = expected.Trim().Split(Environment.NewLine);
         var actualLines = actual.Trim().Split(Environment.NewLine);
 
-        foreach(var line in actualLines)
+        foreach (var line in actualLines)
         {
             Output!.WriteLine(line);
             Assert.Contains(line, expectedLines);

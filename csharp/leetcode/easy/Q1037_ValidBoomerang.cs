@@ -1,4 +1,4 @@
-class Q1037_ValidBoomerang
+﻿class Q1037_ValidBoomerang
 {
     // TC: O(1)
     // SC: O(1)
@@ -16,7 +16,7 @@ class Q1037_ValidBoomerang
         This can avoid precision loss from very big/small number, also prevent division by zero issue
         */
         return slopeCheck1 != slopeCheck2;
-   }
+    }
 }
 class Q1037_ValidBoomerangTestData : TestData
 {

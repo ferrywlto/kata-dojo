@@ -1,4 +1,4 @@
-using Row = (int employee_id, int bonus);
+﻿using Row = (int employee_id, int bonus);
 class Q1873_CalculateSpecialBonus : SqlQuestion
 {
     public override string Query =>

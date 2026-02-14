@@ -1,4 +1,4 @@
-public class Q2399_CheckDistancesBetweenSameLetters
+﻿public class Q2399_CheckDistancesBetweenSameLetters
 {
     // TC: O(n), n scale with length of s
     // SC: O(1), space used does not scale with input, it is always size 26 array 

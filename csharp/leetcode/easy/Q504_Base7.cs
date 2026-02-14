@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 
 class Q504_Base7
 {
@@ -22,7 +22,7 @@ class Q504_Base7
         {
             sb.Append(input % numBase);
             input /= numBase;
-        } while(input > 0);
+        } while (input > 0);
 
         if (negative) sb.Append('-');
 

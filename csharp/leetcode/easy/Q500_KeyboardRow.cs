@@ -1,4 +1,4 @@
-class Q500_KeyboardRow
+﻿class Q500_KeyboardRow
 {
     private readonly HashSet<char> row1 = new("qwertyuiop");
     private readonly HashSet<char> row2 = new("asdfghjkl");
@@ -15,7 +15,7 @@ class Q500_KeyboardRow
         else if (row2.Contains(firstChar)) row = row2;
         else row = row3;
 
-        for(var i=1; i<input.Length; i++)
+        for (var i = 1; i < input.Length; i++)
         {
             if (!row.Contains(input[i])) return false;
         }
@@ -27,12 +27,12 @@ class Q500_KeyboardRow
     {
         var result = new List<string>();
 
-        foreach(var w in words)
+        foreach (var w in words)
         {
             var lower = w.ToLower();
             if (InOneRow(lower)) result.Add(w);
         }
-        return result.ToArray();        
+        return result.ToArray();
     }
 }
 

@@ -1,10 +1,10 @@
-using System.Text;
+﻿using System.Text;
 
 class Q844_BackspaceStringCompare
 {
     // TC: O(n), n is length of s + length of t
     // SC: O(n) is not count the string builder
-    public bool BackspaceCompare(string s, string t) 
+    public bool BackspaceCompare(string s, string t)
     {
         return Print(s).Trim() == Print(t).Trim();
     }
@@ -13,7 +13,7 @@ class Q844_BackspaceStringCompare
     {
         var idx1 = 0;
         var sb = new StringBuilder(input);
-        for(var i=0; i<input.Length; i++)
+        for (var i = 0; i < input.Length; i++)
         {
             if (sb[i] == '#')
             {

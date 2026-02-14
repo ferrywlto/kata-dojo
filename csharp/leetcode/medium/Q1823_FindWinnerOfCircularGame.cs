@@ -1,4 +1,4 @@
-public class Q1823_FindWinnerOfCircularGame(ITestOutputHelper output) : ListNodeTest(output)
+﻿public class Q1823_FindWinnerOfCircularGame(ITestOutputHelper output) : ListNodeTest(output)
 {
     // TC: O(n)
     // SC: O(n)

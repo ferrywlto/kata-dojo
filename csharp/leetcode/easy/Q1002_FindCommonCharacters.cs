@@ -1,4 +1,4 @@
-class Q1002_FindCommonCharacters
+﻿class Q1002_FindCommonCharacters
 {
     // TC: O(n*m^2), where n is the number of words and m is the average length of the words. 
     // This is because for each word, it checks each character against the common list (O(m)), and the FindIndex and Remove methods have a time complexity of O(m). The space complexity is O(m) for the lists.
@@ -10,22 +10,22 @@ class Q1002_FindCommonCharacters
         // the common chars must be subset of any 1 word, thus we pick the first 1
         // as size of common will keep trimming and converge to end result
         var common = words[0].ToCharArray().ToList();
-        for(var i=1; i<words.Length; i++)
+        for (var i = 1; i < words.Length; i++)
         {
             var charArray = words[i].ToCharArray().ToList();
             var keysToRemove = new List<char>();
             for (var j = 0; j < common.Count; j++)
             {
-                if(charArray.FindIndex(c => c == common[j]) == -1)
+                if (charArray.FindIndex(c => c == common[j]) == -1)
                 {
                     keysToRemove.Add(common[j]);
                 }
-                else 
+                else
                 {
                     charArray.Remove(common[j]);
                 }
             }
-            for(var k=0; k<keysToRemove.Count; k++)
+            for (var k = 0; k < keysToRemove.Count; k++)
             {
                 common.Remove(keysToRemove[k]);
             }

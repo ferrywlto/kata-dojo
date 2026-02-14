@@ -1,4 +1,4 @@
-public class Q2248_IntersectionOfMultipleArrays
+﻿public class Q2248_IntersectionOfMultipleArrays
 {
     // TC: O(n), n scale with total number of items in nums
     // SC: O(m), m scale with unique numbers in nums

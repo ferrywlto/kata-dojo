@@ -1,4 +1,4 @@
-using Row = (int customer_id, int count_no_trans);
+﻿using Row = (int customer_id, int count_no_trans);
 class Q1581_CustomerWhoVisitedButDidNotMakeAnyTransactions : SqlQuestion
 {
     public override string Query =>
@@ -17,7 +17,7 @@ class Q1581_CustomerWhoVisitedButDidNotMakeAnyTransactions : SqlQuestion
 }
 class Q1581_CustomerWhoVisitedButDidNotMakeAnyTransactionsTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -37,7 +37,7 @@ class Q1581_CustomerWhoVisitedButDidNotMakeAnyTransactionsTestData : TestData
             ('12', '1', '910'),
             ('13', '2', '970');
             """,
-            new Row[] 
+            new Row[]
             {
                 (54, 2),
                 (30, 1),
@@ -48,7 +48,7 @@ class Q1581_CustomerWhoVisitedButDidNotMakeAnyTransactionsTestData : TestData
 }
 public class Q1581_CustomerWhoVisitedButDidNotMakeAnyTransactionsTests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     Create table If Not Exists Visits(visit_id int, customer_id int);
     Create table If Not Exists Transactions(transaction_id int, visit_id int, amount int);
@@ -62,7 +62,7 @@ public class Q1581_CustomerWhoVisitedButDidNotMakeAnyTransactionsTests(ITestOutp
         var sut = new Q1581_CustomerWhoVisitedButDidNotMakeAnyTransactions();
         var reader = ExecuteQuery(sut.Query, true);
         AssertResultSchema(reader, ["customer_id", "count_no_trans"]);
-        foreach((int customer_id, int count_no_trans) in expected)
+        foreach ((int customer_id, int count_no_trans) in expected)
         {
             Assert.True(reader.Read());
             Assert.Equal(customer_id, reader.GetInt32(0));

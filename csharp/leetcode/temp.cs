@@ -1,4 +1,4 @@
-public class Temp
+﻿public class Temp
 {
     public string Format(float value)
     {
@@ -11,7 +11,7 @@ public class Temp
         // Console.WriteLine($"Formatting value: {B}");
         Console.WriteLine($"{A}\t | {B}");
         return $"{value:f2}".PadLeft(13, '0');
-    }    
+    }
     public static TheoryData<float, string> TestData => new()
     {
         {245.567f,   "0000000245.57"},

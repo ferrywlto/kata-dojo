@@ -1,4 +1,4 @@
-class Q455_AssignCookies
+﻿class Q455_AssignCookies
 {
     // TC: O(n log n), SC: O(1)
     public int FindContentChildren(int[] g, int[] s)
@@ -6,16 +6,16 @@ class Q455_AssignCookies
         var match = 0;
         Array.Sort(g);
         Array.Sort(s);
-        for(var i = 0; i<s.Length; i++)
+        for (var i = 0; i < s.Length; i++)
         {
-            if(s[i] >= g[match]) { match++; }
+            if (s[i] >= g[match]) { match++; }
             if (match >= g.Length) break;
         }
         return match;
     }
 }
 
-class Q455_AssignCookiesTestData: TestData
+class Q455_AssignCookiesTestData : TestData
 {
     protected override List<object[]> Data =>
     [

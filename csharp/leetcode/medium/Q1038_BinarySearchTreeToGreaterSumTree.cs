@@ -1,4 +1,4 @@
-
+﻿
 public class Q1038_BinarySearchTreeToGreaterSumTree(ITestOutputHelper output) : TreeNodeTest(output)
 {
     // TC: O(n), n scale with number of nodes in tree

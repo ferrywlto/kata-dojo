@@ -1,19 +1,19 @@
-class Q387_FirstUniqueCharacter
+﻿class Q387_FirstUniqueCharacter
 {
     // TC: O(n), SC: O(n)
-    public int FirstUniqChar(string s) 
+    public int FirstUniqChar(string s)
     {
         var dict = new Dictionary<char, CharInfo>();
-     
-        for (var i=0; i<s.Length; i++)
+
+        for (var i = 0; i < s.Length; i++)
         {
             if (dict.TryGetValue(s[i], out CharInfo? info))
             {
-                dict[s[i]] = info with { Count = info.Count+1 };
+                dict[s[i]] = info with { Count = info.Count + 1 };
             }
-            else 
+            else
             {
-                dict.Add(s[i], new CharInfo(i,1));
+                dict.Add(s[i], new CharInfo(i, 1));
             }
         }
 
@@ -27,12 +27,12 @@ class Q387_FirstUniqueCharacter
         }
         return minIdx == int.MaxValue ? -1 : minIdx;
     }
-    record CharInfo(int FisrtSeenIdx,int Count);
+    record CharInfo(int FisrtSeenIdx, int Count);
 }
 
-class Q387_FirstUniqueCharacterTestData: TestData
+class Q387_FirstUniqueCharacterTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["leetcode", 0],
         ["loveleetcode", 2],

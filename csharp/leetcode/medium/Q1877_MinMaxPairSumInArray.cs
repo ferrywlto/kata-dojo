@@ -1,4 +1,4 @@
-public class Q1877_MinMaxPairSumInArray
+﻿public class Q1877_MinMaxPairSumInArray
 {
     // TC: O(n log n) due to sort
     // SC: O(1), space used does not scale with input

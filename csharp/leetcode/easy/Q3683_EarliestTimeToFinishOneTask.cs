@@ -1,4 +1,4 @@
-public class Q3683_EarliestTimeToFinishOneTask
+﻿public class Q3683_EarliestTimeToFinishOneTask
 {
     // TC: O(n), n scale with length of tasks.
     // SC: O(1), space used does not scale with input.

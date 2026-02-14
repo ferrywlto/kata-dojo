@@ -1,4 +1,4 @@
-class Q1185_DayOfTheWeek
+﻿class Q1185_DayOfTheWeek
 {
     // TC: O(1),
     // SC: O(1),
@@ -39,14 +39,14 @@ class Q1185_DayOfTheWeek
 
         // get number of leap year
         var numLeapYear = 0;
-        for(var i = 1900; i < year; i++)
+        for (var i = 1900; i < year; i++)
         {
             if (IsLeapYear(i)) numLeapYear++;
         }
         var daysBeforeInputYear = ((year - 1900) * 365) + numLeapYear;
 
-        var daysSinceYearStart = 0; 
-        for(var i=1; i<month; i++)
+        var daysSinceYearStart = 0;
+        for (var i = 1; i < month; i++)
         {
             daysSinceYearStart += daysInMonth[i];
         }

@@ -1,4 +1,4 @@
-class Q577_EmployeeBonus : SqlQuestion
+﻿class Q577_EmployeeBonus : SqlQuestion
 {
     public override string Query =>
     """

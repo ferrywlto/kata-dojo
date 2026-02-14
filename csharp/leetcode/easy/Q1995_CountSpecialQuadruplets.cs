@@ -1,4 +1,4 @@
-public class Q1995_CountSpecialQuadruplets
+﻿public class Q1995_CountSpecialQuadruplets
 {
     // TC: O(n^4), n scale with length of nums, n(n-1)(n-2)(n-3) thus n^4
     // SC: O(m), m scale with unique index combinations in nums 

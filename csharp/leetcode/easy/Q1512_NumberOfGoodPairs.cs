@@ -1,13 +1,13 @@
-
+﻿
 class Q1512_NumberOfGoodPairs
 {
     // TC: O(n), where n is length of nums as all items need to iterate once
     // TC: O(m), where m is the number of unique numbers in nums
-    public int NumIdenticalPairs(int[] nums) 
+    public int NumIdenticalPairs(int[] nums)
     {
         var pairs = 0;
         var dict = new Dictionary<int, int>();
-        foreach(var n in nums)
+        foreach (var n in nums)
         {
             if (!dict.TryGetValue(n, out var value)) dict.Add(n, 0);
             else
@@ -21,7 +21,7 @@ class Q1512_NumberOfGoodPairs
 }
 class Q1512_NumberOfGoodPairsTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[] {1,2,3,1,1,3}, 4],
         [new int[] {1,1,1}, 3],

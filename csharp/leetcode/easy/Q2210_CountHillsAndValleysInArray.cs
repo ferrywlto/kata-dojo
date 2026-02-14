@@ -1,4 +1,4 @@
-public class Q2210_CountHillsAndValleysInArray
+﻿public class Q2210_CountHillsAndValleysInArray
 {
     // TC: O(n), n scale with length of nums, it has to iterate all elements in nums
     // SC: O(1), space used does not scale with input

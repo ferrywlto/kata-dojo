@@ -1,8 +1,8 @@
-class Q860_LemonadeChange
+﻿class Q860_LemonadeChange
 {
     // TC: O(n), n is length of bills
     // SC: O(1), the dictionry size is fixed
-    public bool LemonadeChange(int[] bills) 
+    public bool LemonadeChange(int[] bills)
     {
         var cashier = new Dictionary<int, int>()
         {
@@ -10,13 +10,13 @@ class Q860_LemonadeChange
             {10,0},
         };
 
-        for(var i=0; i<bills.Length; i++)
+        for (var i = 0; i < bills.Length; i++)
         {
-            if(bills[i] == 5)
+            if (bills[i] == 5)
             {
                 cashier[5]++;
-            } 
-            else if(bills[i] == 10 && cashier[5] > 0)
+            }
+            else if (bills[i] == 10 && cashier[5] > 0)
             {
                 cashier[10]++;
                 cashier[5]--;
@@ -35,13 +35,13 @@ class Q860_LemonadeChange
                 else return false;
             }
         }
-        return true;    
+        return true;
     }
 }
 
 class Q860_LemonadeChangeTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[] {5,5,5,10,20}, true],
         [new int[] {5,5,10,10,20}, false],

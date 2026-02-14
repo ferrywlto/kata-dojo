@@ -1,4 +1,4 @@
-class Q222_CountCompleteTreeNodes
+﻿class Q222_CountCompleteTreeNodes
 {
     // Constraints: O(log n), at most O((log n)^2), still need to be recursive, 
     // iterative approach requires using quene and even slower : O(n)
@@ -7,7 +7,7 @@ class Q222_CountCompleteTreeNodes
     // else the right subtree must be perfrect and left is complete, right nodes = 2^(subtree height-1), only need to calculate to left subtree
     // THe height difference between left and right subtree cannot > 1 
     // Repeat until no more subtree, each iteration the complete subtree will shrink half
-    public int CountNodes(TreeNode? root) 
+    public int CountNodes(TreeNode? root)
     {
         return CountNodes(root, -1);
     }
@@ -38,7 +38,7 @@ class Q222_CountCompleteTreeNodes
         if (node == null) return 0;
         // as it's a complete binary tree, it cannot be right only
         // either left only, left and right thus just need to count left
-        return 1 + GetHeight(node.left); 
+        return 1 + GetHeight(node.left);
     }
 
     // try recursive O(n) first
@@ -52,9 +52,9 @@ class Q222_CountCompleteTreeNodes
     }
 }
 
-class Q222_CountCompleteTreeNodesTestData: TestData
+class Q222_CountCompleteTreeNodesTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[]{1,2,3,4,5,6}, 6],
         [Array.Empty<int>(), 0],

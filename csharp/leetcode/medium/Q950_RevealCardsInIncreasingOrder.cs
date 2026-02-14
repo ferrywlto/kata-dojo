@@ -1,4 +1,4 @@
-public class Q950_RevealCardsInIncreasingOrder
+﻿public class Q950_RevealCardsInIncreasingOrder
 {
     // The trick is to reverse the algorithm
     // TC: O(n log n + n^2), dominated by Array.Sort()

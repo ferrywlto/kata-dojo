@@ -1,4 +1,4 @@
-public class Q3069_DistributeElementsIntoTwoArraysI
+﻿public class Q3069_DistributeElementsIntoTwoArraysI
 {
     // TC: O(n), n scale with length of nums
     // SC: O(n), same as time

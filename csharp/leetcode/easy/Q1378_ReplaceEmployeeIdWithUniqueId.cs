@@ -1,4 +1,4 @@
-using Row = (int? unique_id, string name);
+﻿using Row = (int? unique_id, string name);
 class Q1378_ReplaceEmployeeIdWithUniqueId : SqlQuestion
 {
     public override string Query =>

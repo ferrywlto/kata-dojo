@@ -1,4 +1,4 @@
-class Q1941_CheckIfAllCharactersHaveEqualNumberOfOccurances
+﻿class Q1941_CheckIfAllCharactersHaveEqualNumberOfOccurances
 {
     // TC: O(n), where n is length of s
     // SC: O(1), space used does not scale with s

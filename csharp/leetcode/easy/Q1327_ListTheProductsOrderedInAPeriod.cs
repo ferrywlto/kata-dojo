@@ -1,4 +1,4 @@
-using Row = (string product_name, int unit);
+﻿using Row = (string product_name, int unit);
 class Q1327_ListTheProductsOrderedInAPeriod : SqlQuestion
 {
     public override string Query =>
@@ -13,7 +13,7 @@ class Q1327_ListTheProductsOrderedInAPeriod : SqlQuestion
 }
 class Q1327_ListTheProductsOrderedInAPeriodTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -38,17 +38,17 @@ class Q1327_ListTheProductsOrderedInAPeriodTestData : TestData
             ('5', '2020-02-27', '50'),
             ('5', '2020-03-01', '50');
             """,
-            new Row[] 
+            new Row[]
             {
-                new("Leetcode Solutions", 130), 
-                new("Leetcode Kit", 100) 
+                new("Leetcode Solutions", 130),
+                new("Leetcode Kit", 100)
             }
         ]
     ];
 }
-public class Q1327_ListTheProductsOrderedInAPeriodTests(ITestOutputHelper output): SqlTest(output)
+public class Q1327_ListTheProductsOrderedInAPeriodTests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     Create table If Not Exists Products (product_id int, product_name varchar(40), product_category varchar(40));
     Create table If Not Exists Orders (product_id int, order_date date, unit int);
@@ -62,7 +62,7 @@ public class Q1327_ListTheProductsOrderedInAPeriodTests(ITestOutputHelper output
         var sut = new Q1327_ListTheProductsOrderedInAPeriod();
         var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["product_name", "unit"]);
-        foreach(var row in expected)
+        foreach (var row in expected)
         {
             Assert.True(reader.Read());
             Assert.Equal(row.product_name, reader.GetString(0));

@@ -1,4 +1,4 @@
-class Q225_ImnplementStackUsingQueues
+﻿class Q225_ImnplementStackUsingQueues
 {
     private Queue<int> main = new(), buffer = new();
 
@@ -13,7 +13,7 @@ class Q225_ImnplementStackUsingQueues
         buffer = new();
         buffer.Enqueue(x);
 
-        while(main.Count > 0) 
+        while (main.Count > 0)
         {
             buffer.Enqueue(main.Dequeue());
         }
@@ -44,7 +44,7 @@ class Q225_ImnplementStackUsingQueues
 public class Q225_ImnplementStackUsingQueuesTests
 {
     [Fact]
-    public void OfficialTestCase() 
+    public void OfficialTestCase()
     {
         var sut = new Q225_ImnplementStackUsingQueues();
         sut.Push(1);

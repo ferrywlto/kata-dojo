@@ -1,4 +1,4 @@
-class Q944_DeleteColumnToMakeSorted
+﻿class Q944_DeleteColumnToMakeSorted
 {
     // TC: O(n), n is total characters in strs
     // SC: O(1), didn't use any data structure
@@ -7,14 +7,14 @@ class Q944_DeleteColumnToMakeSorted
         if (strs.Length <= 1 || strs[0].Length == 0) return 0;
 
         var cols = strs[0].Length;
-        
+
         var result = 0;
 
-        for(var col = 0; col<cols; col++)
+        for (var col = 0; col < cols; col++)
         {
-            for(var row = 1; row < strs.Length; row++)
+            for (var row = 1; row < strs.Length; row++)
             {
-                if(strs[row][col] < strs[row - 1][col]) 
+                if (strs[row][col] < strs[row - 1][col])
                 {
                     result++;
                     break;

@@ -1,4 +1,4 @@
-class Q1796_SecondLargestDigitInString
+﻿class Q1796_SecondLargestDigitInString
 {
     // TC: O(n), where n is length of s
     // SC: O(1), space used is fixed

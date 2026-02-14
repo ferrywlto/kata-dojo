@@ -1,8 +1,8 @@
-using Row = (int user_id, string name, string mail);
+﻿using Row = (int user_id, string name, string mail);
 class Q1517_FindUsersWithValidEmails : SqlQuestion
 {
     // SQLite does not support regex as well, the most it can do is the ensure the start and end
-    public override string Query => 
+    public override string Query =>
     """
     select user_id, name, mail from Users
     where mail like '%@leetcode.com' and
@@ -26,7 +26,7 @@ class Q1517_FindUsersWithValidEmails : SqlQuestion
 }
 class Q1517_FindUsersWithValidEmailsTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             // This have to remove to make the test cases passed due to SQLite limitations
@@ -45,7 +45,7 @@ class Q1517_FindUsersWithValidEmailsTestData : TestData
             ('6', 'DavidX', '_david69@gmail.com'),
             ('7', 'Shapiro', '.shapo@leetcode.com');
             """,
-            new Row[] 
+            new Row[]
             {
                 (1, "Winston", "winston@leetcode.com"),
                 (3, "Annabelle", "bella-@leetcode.com"),
@@ -54,9 +54,9 @@ class Q1517_FindUsersWithValidEmailsTestData : TestData
         ]
     ];
 }
-public class Q1517_FindUsersWithValidEmailsTests(ITestOutputHelper output): SqlTest(output)
+public class Q1517_FindUsersWithValidEmailsTests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     Create table If Not Exists Users (user_id int, name varchar(30), mail varchar(50));
     """;
@@ -69,7 +69,7 @@ public class Q1517_FindUsersWithValidEmailsTests(ITestOutputHelper output): SqlT
         var sut = new Q1517_FindUsersWithValidEmails();
         var reader = ExecuteQuery(sut.Query, true);
         AssertResultSchema(reader, ["user_id", "name", "mail"]);
-        foreach(var (user_id, name, mail) in expected)
+        foreach (var (user_id, name, mail) in expected)
         {
             Assert.True(reader.Read());
             Assert.Equal(user_id, reader.GetInt32(0));

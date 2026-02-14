@@ -1,4 +1,4 @@
-public class Q2451_OddStringDifference
+﻿public class Q2451_OddStringDifference
 {
     // TC: O(n*m), n scale with length of words and m scale with characters in each word
     // SC: O(n*m), same as time.

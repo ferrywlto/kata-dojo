@@ -1,4 +1,4 @@
-public class Q3606_CouponCodeValidator
+﻿public class Q3606_CouponCodeValidator
 {
     // TC: O(n log n), n scale with length of code due to sorting
     // SC: O(n), to hold the result, otherwise O(1)

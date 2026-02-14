@@ -1,4 +1,4 @@
-class Q409_LongestPalindrome
+﻿class Q409_LongestPalindrome
 {
     // TC: O(n), SC: O(n)
     public int LongestPalindrome(string s)
@@ -10,7 +10,7 @@ class Q409_LongestPalindrome
         var hasOdd = false;
         var sumOfEven = 0;
         var sumOfOdd = 0;
-        foreach(var kv in dict)
+        foreach (var kv in dict)
         {
             if (kv.Value % 2 == 0)
             {

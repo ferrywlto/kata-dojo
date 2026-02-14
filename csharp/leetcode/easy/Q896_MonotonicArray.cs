@@ -1,4 +1,4 @@
-class Q896_MonotonicArray
+﻿class Q896_MonotonicArray
 {
     // TC: O(n), n is length of nums, it have to iterate all items except the first once
     // SC: O(1), no extra memory used

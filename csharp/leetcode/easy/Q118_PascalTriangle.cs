@@ -1,4 +1,4 @@
-class Q118_PascalTriangle
+﻿class Q118_PascalTriangle
 {
     // TC: O(n^2), SC: O(n^2) - Cannot be improved as we need to return the entire triangle
     public IList<IList<int>> Generate(int numRows)

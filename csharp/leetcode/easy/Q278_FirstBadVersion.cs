@@ -1,4 +1,4 @@
-class VersionControl
+﻿class VersionControl
 {
     protected readonly int BadVersion;
     public VersionControl(int bad) { BadVersion = bad; }
@@ -10,7 +10,7 @@ class Q278_FirstBadVersion(int bad) : VersionControl(bad)
     public int FirstBadVersion(int n)
     {
         if (n == 1 || IsBadVersion(1)) return 1;
-        if (IsBadVersion(n) && !IsBadVersion(n-1)) return n;
+        if (IsBadVersion(n) && !IsBadVersion(n - 1)) return n;
 
         var start = 1;
         var end = n;
@@ -19,7 +19,7 @@ class Q278_FirstBadVersion(int bad) : VersionControl(bad)
         while (middle != start && middle != end)
         {
             if (IsBadVersion(middle) && !IsBadVersion(middle - 1)) return middle;
-            else 
+            else
             {
                 if (IsBadVersion(middle - 1))
                     end = middle;
@@ -31,16 +31,16 @@ class Q278_FirstBadVersion(int bad) : VersionControl(bad)
         return int.MaxValue;
     }
 
-    public int Middle(int start, int end) 
+    public int Middle(int start, int end)
     {
         var temp = start + (long)end;
         return (int)(temp / 2);
-    } 
+    }
 }
 
-class Q278_FirstBadVersionTestData: TestData
+class Q278_FirstBadVersionTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [5, 4, 4],
         [1, 1, 1],

@@ -1,4 +1,4 @@
-using Microsoft.Data.Sqlite;
+﻿using Microsoft.Data.Sqlite;
 
 class Q1179_ReformatDepartmentTable : SqlQuestion
 {

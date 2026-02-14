@@ -1,4 +1,4 @@
-
+﻿
 class Q942_DIStringMatch
 {
     // TC: O(n), n is length of s
@@ -9,7 +9,7 @@ class Q942_DIStringMatch
         var min = 0;
         var result = new int[max + 1];
 
-        for(var i=0; i<result.Length - 1; i++)
+        for (var i = 0; i < result.Length - 1; i++)
         {
             if (s[i] == 'D') result[i] = max--;
             else result[i] = min++;

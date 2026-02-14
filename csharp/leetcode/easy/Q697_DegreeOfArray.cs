@@ -1,4 +1,4 @@
-class Q697_DegreeOfArray
+﻿class Q697_DegreeOfArray
 {
     // TC: O(n^2)
     // SC: O(n)
@@ -8,7 +8,7 @@ class Q697_DegreeOfArray
         var degree = analysis.Max(x => x.Value);
         var mode = analysis.Where(x => x.Value == degree).ToList();
         var minLength = int.MaxValue;
-        foreach(var m in mode)
+        foreach (var m in mode)
         {
             var start = Array.IndexOf(nums, m.Key);
             var end = Array.LastIndexOf(nums, m.Key);
@@ -24,13 +24,13 @@ class Q697_DegreeOfArray
     public int FindShortestSubArrayMoreEfficient(int[] nums)
     {
         var tracking = new Dictionary<int, (int firstIdx, int lastIdx, int count)>();
-        for(var i=0; i<nums.Length; i++)
+        for (var i = 0; i < nums.Length; i++)
         {
             if (!tracking.TryGetValue(nums[i], out var value))
             {
                 tracking.Add(nums[i], (i, i, 1));
             }
-            else 
+            else
             {
                 var tuple = tracking[nums[i]];
                 tuple.lastIdx = i;
@@ -41,7 +41,7 @@ class Q697_DegreeOfArray
         var degree = tracking.Max(x => { return x.Value.count; });
         var mode = tracking.Where(x => x.Value.count == degree).ToList();
         var minLength = int.MaxValue;
-        foreach(var m in mode)
+        foreach (var m in mode)
         {
             var length = m.Value.lastIdx - m.Value.firstIdx + 1;
             if (length < minLength) minLength = length;
@@ -62,7 +62,7 @@ class Q697_DegreeOfArrayTestData : TestData
     ];
 }
 
-public class Q697_DegreeOfArrayTests 
+public class Q697_DegreeOfArrayTests
 {
     [Theory]
     [ClassData(typeof(Q697_DegreeOfArrayTestData))]

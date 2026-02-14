@@ -1,4 +1,4 @@
-
+﻿
 class Q908_SmallestRangeI
 {
     // TC: O(2n) -> O(n), n is length of nums
@@ -6,17 +6,17 @@ class Q908_SmallestRangeI
     public int SmallestRangeI(int[] nums, int k)
     {
         if (nums.Length <= 1) return 0;
-        
+
         var avg = nums.Average();
         var max = int.MinValue;
         var min = int.MaxValue;
-        for(var i=0; i<nums.Length; i++)
+        for (var i = 0; i < nums.Length; i++)
         {
-            if(nums[i] > avg) 
+            if (nums[i] > avg)
             {
                 max = Math.Max(max, nums[i] - k);
             }
-            else if(nums[i] < avg)
+            else if (nums[i] < avg)
             {
                 min = Math.Min(min, nums[i] + k);
             }
@@ -47,7 +47,7 @@ class Q908_SmallestRangeI
 
 class Q908_SmallestRangeITestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[]{0}, 0, 0],
         [new int[]{1,1,1}, 0, 0],

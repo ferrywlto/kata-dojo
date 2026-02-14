@@ -1,4 +1,4 @@
-class Q1619_MeanOfArrayAfterRemovingElements
+﻿class Q1619_MeanOfArrayAfterRemovingElements
 {
     // TC: O(n log n), due to Array.Sort();
     // SC: O(1), space used is fixed
@@ -8,7 +8,7 @@ class Q1619_MeanOfArrayAfterRemovingElements
         // arr.Length is multiple of 20
         var trimSize = arr.Length / 20;
         double total = arr.Sum();
-        for(var i=0; i<trimSize; i++)
+        for (var i = 0; i < trimSize; i++)
         {
             total -= arr[i];
             total -= arr[^(i + 1)];

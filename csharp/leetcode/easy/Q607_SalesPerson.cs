@@ -1,6 +1,6 @@
-class Q607_SalesPerson : SqlQuestion
+﻿class Q607_SalesPerson : SqlQuestion
 {
-    public override string Query => 
+    public override string Query =>
     """
     SELECT s.name
     FROM SalesPerson s
@@ -17,7 +17,7 @@ class Q607_SalesPerson : SqlQuestion
 
 class Q607_SalesPersonTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [[
         """
         INSERT INTO SalesPerson VALUES
@@ -44,7 +44,7 @@ class Q607_SalesPersonTestData : TestData
 [Trait("QuestionType", "SQL")]
 public class Q607_SalesPersonTests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     CREATE TABLE IF NOT EXISTS SalesPerson (sales_id INT, name VARCHAR, salary INT, commission_rate INT, hire_date DATE);
     CREATE TABLE IF NOT EXISTS Company (com_id INT, name VARCHAR, city VARCHAR);

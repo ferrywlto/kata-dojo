@@ -1,4 +1,4 @@
-public class Q3110_ScoreOfString
+﻿public class Q3110_ScoreOfString
 {
     // TC: O(n), n scale with length of s
     // SC: O(1), space used does not scale with input

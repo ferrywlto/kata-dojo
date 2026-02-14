@@ -1,4 +1,4 @@
-class Q234_PalindromeLinkedList
+﻿class Q234_PalindromeLinkedList
 {
     // Use 2 pointer, turtle-hare race technique to find the half of the list
     public bool IsPalindrome(ListNode head)
@@ -12,7 +12,7 @@ class Q234_PalindromeLinkedList
 
         var listA = head;
         var listB = reverse;
-        while(listA != middle) 
+        while (listA != middle)
         {
             if (listA?.Val != listB?.Val) return false;
             listA = listA?.Next;
@@ -30,7 +30,7 @@ class Q234_PalindromeLinkedList
         var slow = head;
         var fast = head;
 
-        while(fast != null && fast.Next != null) 
+        while (fast != null && fast.Next != null)
         {
             slow = slow?.Next;
             fast = fast.Next?.Next;
@@ -72,9 +72,9 @@ class Q234_PalindromeLinkedList
     }
 }
 
-class Q234_PalindromeLinkedListTestData: TestData
+class Q234_PalindromeLinkedListTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[]{1,2,2,1}, true],
         [new int[]{1,2,3,2,1}, true],

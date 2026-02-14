@@ -1,4 +1,4 @@
-
+﻿
 using System.Text;
 
 class Q290_WordPattern
@@ -12,13 +12,13 @@ class Q290_WordPattern
         if (patternTokens.Length != strTokensDistinct.Length) return false;
 
         var dict = new Dictionary<string, char>();
-        for (var i=0; i<strTokensDistinct.Length; i++)
+        for (var i = 0; i < strTokensDistinct.Length; i++)
         {
             dict.Add(strTokensDistinct[i], patternTokens[i]);
         }
 
         var strBuilder = new StringBuilder();
-        for (var j=0; j<strTokens.Length; j++)
+        for (var j = 0; j < strTokens.Length; j++)
         {
             strBuilder.Append(dict[strTokens[j]]);
         }
@@ -26,9 +26,9 @@ class Q290_WordPattern
     }
 }
 
-class Q290_WordPatternTestData: TestData
+class Q290_WordPatternTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["abba", "dog cat cat dog", true],
         ["abba", "dog cat cat fish", false],

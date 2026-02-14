@@ -1,4 +1,4 @@
-class Q1893_CheckAllIntegersInRangeCovered
+﻿class Q1893_CheckAllIntegersInRangeCovered
 {
     // TC: O(n * m), where n is length of ranges and m is (right - left + 1)
     // SC: O(1), space used does not scale with input

@@ -1,4 +1,4 @@
-class Q183_CustomersWhoNeverOrder : SqlQuestion
+﻿class Q183_CustomersWhoNeverOrder : SqlQuestion
 {
     public override string Query =>
     """
@@ -49,7 +49,7 @@ public class Q183_CustomersWhoNeverOrderTests(ITestOutputHelper output) : SqlTes
         AssertResultSchema(reader, ["Customers"]);
         Assert.True(reader.Read());
         Assert.Equal("Henry", reader.GetString(0));
-        
+
         Assert.True(reader.Read());
         Assert.Equal("Max", reader.GetString(0));
     }

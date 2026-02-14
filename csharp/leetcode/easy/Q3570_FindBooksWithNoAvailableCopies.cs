@@ -1,4 +1,4 @@
-using Row = (int book_id, string title, string author, string genre, int publication_year, int current_borrowers);
+﻿using Row = (int book_id, string title, string author, string genre, int publication_year, int current_borrowers);
 public class Q3570_FindBooksWithNoAvailableCopies(ITestOutputHelper output) : SqlTest(output)
 {
     public string Query =>

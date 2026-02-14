@@ -1,4 +1,4 @@
-public class Q2980_CheckIfBitwiseOrHasTrailingZeros
+﻿public class Q2980_CheckIfBitwiseOrHasTrailingZeros
 {
     // TC: O(n), n scale with length of nums
     // SC: O(1), space used does not scale with input

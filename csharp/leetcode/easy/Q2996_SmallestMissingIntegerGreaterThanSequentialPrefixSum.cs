@@ -1,4 +1,4 @@
-public class Q2996_SmallestMissingIntegerGreaterThanSequentialPrefixSum
+﻿public class Q2996_SmallestMissingIntegerGreaterThanSequentialPrefixSum
 {
     // TC: O(n), n scale with length of nums
     // SC: O(m), m scale with unique numbers in nums

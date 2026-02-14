@@ -1,4 +1,4 @@
-class Q434_NumberOfSegmentsInString
+﻿class Q434_NumberOfSegmentsInString
 {
 
     // Constraints
@@ -8,26 +8,26 @@ class Q434_NumberOfSegmentsInString
     {
         int count = 0;
         bool inSegment = false;
-        for(var i=0; i<s.Length; i++) 
+        for (var i = 0; i < s.Length; i++)
         {
-            if(s[i] != ' ' && !inSegment) 
+            if (s[i] != ' ' && !inSegment)
             {
                 count++;
                 inSegment = true;
             }
-            else if(s[i] == ' ' && inSegment)
+            else if (s[i] == ' ' && inSegment)
             {
                 inSegment = false;
             }
         }
-        
+
         return count;
     }
 }
 
-class Q434_NumberOfSegmentsInStringTestData: TestData
+class Q434_NumberOfSegmentsInStringTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["Hello, my name is John", 5],
         ["Hello", 1],

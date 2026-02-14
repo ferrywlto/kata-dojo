@@ -1,7 +1,7 @@
-
+﻿
 class Q1050_ActorsAndDirectorsWhoCooperatedAtLeastThreeTimes : SqlQuestion
 {
-    public override string Query => 
+    public override string Query =>
     """
     SELECT actor_id, director_id FROM ActorDirector
     GROUP BY actor_id, director_id
@@ -10,7 +10,7 @@ class Q1050_ActorsAndDirectorsWhoCooperatedAtLeastThreeTimes : SqlQuestion
 }
 class Q1050_ActorsAndDirectorsWhoCooperatedAtLeastThreeTimesTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """

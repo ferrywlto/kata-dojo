@@ -1,4 +1,4 @@
-public class Q3014_MinNumberOfPushesToTypeWordI
+﻿public class Q3014_MinNumberOfPushesToTypeWordI
 {
     // TC: O(1) obviously
     // SC: O(1)

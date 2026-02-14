@@ -1,4 +1,4 @@
-public class Q2652_SumMultiples
+﻿public class Q2652_SumMultiples
 {
     // TC: O(n)
     // SC: O(1)

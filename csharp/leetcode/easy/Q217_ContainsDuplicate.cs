@@ -1,4 +1,4 @@
-class Q217_ContainsDuplicate
+﻿class Q217_ContainsDuplicate
 {
     // Inefficient way first
     // TC:O(n), SC:O(n)

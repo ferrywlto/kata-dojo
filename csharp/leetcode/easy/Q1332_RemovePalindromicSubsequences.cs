@@ -1,4 +1,4 @@
-class Q1332_RemovePalindromicSubsequences
+﻿class Q1332_RemovePalindromicSubsequences
 {
     // TC: O(n), n is length of s
     // SC: O(1), no space used in operation
@@ -17,7 +17,7 @@ class Q1332_RemovePalindromicSubsequences
     public bool IsPalindrome(string sb)
     {
         var times = sb.Length / 2;
-        for(var i=0; i<times; i++)
+        for (var i = 0; i < times; i++)
         {
             if (sb[i] != sb[^(i + 1)]) return false;
         }

@@ -1,4 +1,4 @@
-class Q892_SurfaceAreaOf3DShape
+﻿class Q892_SurfaceAreaOf3DShape
 {
     // TC: O(n), n is total cells in grid, all iterate only once
     // SC: O(1), no data stucture used for the solution

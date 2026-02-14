@@ -1,4 +1,4 @@
-public class Q3688_BitwiseOrOfEvenNumbersInArray
+﻿public class Q3688_BitwiseOrOfEvenNumbersInArray
 {
     // TC: O(n), n scale with nums.Length
     // SC: O(1), space used does not scale with input

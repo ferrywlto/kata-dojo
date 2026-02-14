@@ -1,4 +1,4 @@
-using Row = (int user_id, string name);
+﻿using Row = (int user_id, string name);
 class Q1667_FixNamesInTable : SqlQuestion
 {
     // MySQL dialect:

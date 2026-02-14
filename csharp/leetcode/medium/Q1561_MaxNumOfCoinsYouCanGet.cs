@@ -1,4 +1,4 @@
-public class Q1561_MaxNumOfCoinsYouCanGet
+﻿public class Q1561_MaxNumOfCoinsYouCanGet
 {
     // TC: O(n log n), n scale with length of piles
     // SC: O(1), spaces used does not scale with input
@@ -12,13 +12,13 @@ public class Q1561_MaxNumOfCoinsYouCanGet
         var idx = piles.Length - 2;
         var result = 0;
 
-        while(groups > 0) 
+        while (groups > 0)
         {
             result += piles[idx];
             idx -= 2;
             groups--;
         }
-        
+
         return result;
     }
     public static TheoryData<int[], int> TestData => new()

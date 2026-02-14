@@ -1,4 +1,4 @@
-public class Q2200_FindAllKDistinctIndicesInArray
+﻿public class Q2200_FindAllKDistinctIndicesInArray
 {
     // TC: O(n * k), n scale with length of nums, for each n it iterate k more times
     // SC: O(n), an array is used to avoid the duplicate index sorting to improve speed from O(nlogn) to O(n)

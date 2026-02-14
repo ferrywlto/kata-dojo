@@ -1,4 +1,4 @@
-public class Q2710_RemoveTrailingZerosFromString
+﻿public class Q2710_RemoveTrailingZerosFromString
 {
     // TC: O(n), n scale with length of num
     // SC: O(1) if not count the result string, O(n) otherwise 

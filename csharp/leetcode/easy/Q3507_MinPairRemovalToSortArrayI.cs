@@ -1,4 +1,4 @@
-public class Q3507_MinPairRemovalToSortArrayI
+﻿public class Q3507_MinPairRemovalToSortArrayI
 {
     // TC: O(n^2), n scale with length of nums
     // SC: O(n), for the list used to create a new array

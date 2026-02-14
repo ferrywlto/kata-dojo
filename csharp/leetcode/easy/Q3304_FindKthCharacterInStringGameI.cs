@@ -1,10 +1,11 @@
-using System.Text;
+﻿using System.Text;
 
 public class Q3304_FindKthCharacterInStringGameI
 {
     // TC: O(log k)
     // SC: O(k), the string builder will have minimum k characters
-    public char KthCharacter(int k) {
+    public char KthCharacter(int k)
+    {
         var sb1 = new StringBuilder("a");
         var sb2 = new StringBuilder();
         while (sb1.Length < k)
@@ -13,14 +14,14 @@ public class Q3304_FindKthCharacterInStringGameI
             for (var i = 0; i < sb1.Length; i++)
             {
                 var c = sb1[i];
-                if(c == 'z') c = 'a';
+                if (c == 'z') c = 'a';
                 else c++;
                 sb2.Append(c);
             }
             sb1.Append(sb2);
         }
         // a b bc bccd bccdcdde
-        return sb1[k-1];
+        return sb1[k - 1];
     }
     public static TheoryData<int, char> TestData => new()
     {

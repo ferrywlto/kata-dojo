@@ -1,4 +1,4 @@
-class Q1725_NumOfRectanglesCanFormLargestSquare
+﻿class Q1725_NumOfRectanglesCanFormLargestSquare
 {
     // TC: O(n), where n is length of rectangles
     // SC: O(m), where m is unique square size

@@ -1,4 +1,4 @@
-class Q1566_DetectPatternOfLengthMRepeatedKOrMoreTimes
+﻿class Q1566_DetectPatternOfLengthMRepeatedKOrMoreTimes
 {
     // TC: O(n), where n is length of arr * m * k
     // SC: O(1), space used is fixed

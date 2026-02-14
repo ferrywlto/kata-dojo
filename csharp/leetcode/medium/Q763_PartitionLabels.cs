@@ -1,4 +1,4 @@
-public class Q763_PartitionLabels
+﻿public class Q763_PartitionLabels
 {
     // TC: O(n), n scale with the length of the string
     // SC: O(n) if we consider the output as well, O(1) otherwise

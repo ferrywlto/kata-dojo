@@ -1,4 +1,4 @@
-public class Q3016_MinNumberOfPushesToTypeWordII(ITestOutputHelper output)
+﻿public class Q3016_MinNumberOfPushesToTypeWordII(ITestOutputHelper output)
 {
     // TC: O(n), n scale with length of word
     // SC: O(1), space used does not scale with input

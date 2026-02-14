@@ -1,12 +1,12 @@
-// TC: O(n), n is 1.5 * list length
+﻿// TC: O(n), n is 1.5 * list length
 // SC: O(1), no extra space used
 class Q876_MiddleOfLinkedList
 {
-    public ListNode MiddleNode(ListNode head) 
+    public ListNode MiddleNode(ListNode head)
     {
         var count = 0;
         var current = head;
-        while(current != null)
+        while (current != null)
         {
             count++;
             current = current.Next;
@@ -15,19 +15,19 @@ class Q876_MiddleOfLinkedList
         var middle = Math.Ceiling((float)count / 2);
         current = head;
         // starting from head therefore it is 1 based instead of 0
-        while(middle > 1 && current != null)
+        while (middle > 1 && current != null)
         {
             current = current.Next;
             middle--;
         }
-        if (current != null && count % 2 == 0) 
+        if (current != null && count % 2 == 0)
             current = current.Next;
 
         return current!;
     }
 
     // Add faster 2 pointer approach for reference
-    public ListNode MiddleNode_Faster(ListNode head) 
+    public ListNode MiddleNode_Faster(ListNode head)
     {
         var slow = head;
         var fast = head;
@@ -42,7 +42,7 @@ class Q876_MiddleOfLinkedList
 
 class Q876_MiddleOfLinkedListTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[] {1,2,3,4,5}, new int[] {3,4,5}],
         [new int[] {1,2,3,4,5,6}, new int[] {4,5,6}],
@@ -54,7 +54,7 @@ class Q876_MiddleOfLinkedListTestData : TestData
 
 public class Q876_MiddleOfLinkedListTests : ListNodeTest
 {
-    public Q876_MiddleOfLinkedListTests(ITestOutputHelper output) : base(output) {}
+    public Q876_MiddleOfLinkedListTests(ITestOutputHelper output) : base(output) { }
 
     [Theory]
     [ClassData(typeof(Q876_MiddleOfLinkedListTestData))]

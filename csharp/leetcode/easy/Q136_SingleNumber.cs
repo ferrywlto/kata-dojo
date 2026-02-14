@@ -1,4 +1,4 @@
-class Q136_SingleNumberTestData : TestData
+﻿class Q136_SingleNumberTestData : TestData
 {
     protected override List<object[]> Data =>
     [

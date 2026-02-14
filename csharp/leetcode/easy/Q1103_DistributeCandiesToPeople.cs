@@ -1,24 +1,24 @@
-class Q1103_DistributeCandiesToPeople
+﻿class Q1103_DistributeCandiesToPeople
 {
 
     // TC: O(n), n is num_people
     // SC: O(n), n is num_people to store the result 
-    public int[] DistributeCandies(int candies, int num_people) 
+    public int[] DistributeCandies(int candies, int num_people)
     {
         if (num_people == 1) return [candies];
         var result = new int[num_people];
         var give = 1;
-        while(candies > 0)
+        while (candies > 0)
         {
-            for(var i=0; i<result.Length; i++)
+            for (var i = 0; i < result.Length; i++)
             {
-                if(give <= candies) 
+                if (give <= candies)
                 {
                     result[i] += give;
                     candies -= give;
                     give++;
                 }
-                else 
+                else
                 {
                     result[i] += candies;
                     candies = 0;
@@ -26,11 +26,11 @@ class Q1103_DistributeCandiesToPeople
             }
         }
         return result;
-    }    
+    }
 }
 class Q1103_DistributeCandiesToPeopleTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [7,4,new int[]{1,2,3,1}],
         [10,3,new int[]{5,2,3}],

@@ -1,4 +1,4 @@
-public class Q3090_MaxLengthSubstringWithTwoOccurences
+﻿public class Q3090_MaxLengthSubstringWithTwoOccurences
 {
     // TC: O(n), n scale with length of s with sliding window technique
     // SC: O(1), space used does not scale with input

@@ -1,21 +1,21 @@
-class Q605_CanPlaceFlowers
+﻿class Q605_CanPlaceFlowers
 {
     // Siliding window, 1 pass
     // TC: O(n)
     // SC: O(1)
-    public bool CanPlaceFlowers(int[] flowerbed, int n) 
+    public bool CanPlaceFlowers(int[] flowerbed, int n)
     {
         int i = 0, count = 0;
         while (i < flowerbed.Length)
         {
-            if (flowerbed[i] == 0 && 
+            if (flowerbed[i] == 0 &&
                 (i == 0 || flowerbed[i - 1] == 0) &&
                 (i == flowerbed.Length - 1 || flowerbed[i + 1] == 0))
             {
                 flowerbed[i++] = 1;
                 count++;
             }
-            if(count>=n)
+            if (count >= n)
                 return true;
             i++;
         }
@@ -23,9 +23,9 @@ class Q605_CanPlaceFlowers
     }
 }
 
-class Q605_CanPlaceFlowersTestData: TestData
+class Q605_CanPlaceFlowersTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[]{0}, 1, true],
         [new int[]{0}, 2, false],

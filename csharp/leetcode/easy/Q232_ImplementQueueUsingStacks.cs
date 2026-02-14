@@ -1,4 +1,4 @@
-class Q232_ImplementQueueUsingStacks
+﻿class Q232_ImplementQueueUsingStacks
 {
     private readonly Stack<int> In = new();
     private readonly Stack<int> Out = new();
@@ -12,9 +12,9 @@ class Q232_ImplementQueueUsingStacks
     // Do it once only when the output list is empty is more efficient
     public int Pop()
     {
-        if(Out.Count == 0) 
+        if (Out.Count == 0)
         {
-            while(In.Count > 0) 
+            while (In.Count > 0)
             {
                 Out.Push(In.Pop());
             }
@@ -24,9 +24,9 @@ class Q232_ImplementQueueUsingStacks
 
     public int Peek()
     {
-        if(Out.Count == 0) 
+        if (Out.Count == 0)
         {
-            while(In.Count > 0) 
+            while (In.Count > 0)
             {
                 Out.Push(In.Pop());
             }

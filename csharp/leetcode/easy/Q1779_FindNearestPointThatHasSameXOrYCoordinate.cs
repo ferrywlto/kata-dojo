@@ -1,4 +1,4 @@
-class Q1779_FindNearestPointThatHasSameXOrYCoordinate
+﻿class Q1779_FindNearestPointThatHasSameXOrYCoordinate
 {
     // TC: O(n), where n is length of points
     // SC: O(1), space used is fixed

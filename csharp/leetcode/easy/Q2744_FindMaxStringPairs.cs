@@ -1,4 +1,4 @@
-public class Q2744_FindMaxStringPairs
+﻿public class Q2744_FindMaxStringPairs
 {
     // TC: O(n), n scale with length of words in single pass
     // SC: O(n), same as time.

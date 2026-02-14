@@ -1,4 +1,4 @@
-public class Q1282_GroupPeopleGivenGroupSizeTheyBelongTo
+﻿public class Q1282_GroupPeopleGivenGroupSizeTheyBelongTo
 {
     // TC: O(n * m), n scale with length of group size, m scale with number of different group sizes
     // SC: O(m)

@@ -1,4 +1,4 @@
-class Q747_LargestNumberAtLeastTwiceOfOthers
+﻿class Q747_LargestNumberAtLeastTwiceOfOthers
 {
     // TC: O(n)
     // SC: O(1)
@@ -7,7 +7,7 @@ class Q747_LargestNumberAtLeastTwiceOfOthers
         var largest = int.MinValue;
         var secondLargest = largest;
         var idx = -1;
-        for(var i=0; i<nums.Length; i++)
+        for (var i = 0; i < nums.Length; i++)
         {
             if (nums[i] > largest)
             {
@@ -15,7 +15,7 @@ class Q747_LargestNumberAtLeastTwiceOfOthers
                 largest = nums[i];
                 idx = i;
             }
-            else if(nums[i] > secondLargest)
+            else if (nums[i] > secondLargest)
             {
                 secondLargest = nums[i];
             }

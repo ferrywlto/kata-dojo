@@ -1,4 +1,4 @@
-public class Q1689_PartitioningIntoMinimumNumberOfDeciBinaryNumbers
+﻿public class Q1689_PartitioningIntoMinimumNumberOfDeciBinaryNumbers
 {
     // TC: O(n), n scale with length of n
     // SC: O(1), space used does not scale with input

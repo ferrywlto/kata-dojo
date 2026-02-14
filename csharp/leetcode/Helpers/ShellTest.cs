@@ -1,4 +1,4 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 public abstract class ShellTest(ITestOutputHelper output) : TestBase(output)
 {

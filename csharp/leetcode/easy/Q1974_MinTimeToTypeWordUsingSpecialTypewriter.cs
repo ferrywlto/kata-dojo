@@ -1,4 +1,4 @@
-public class Q1974_MinTimeToTypeWordUsingSpecialTypewriter
+﻿public class Q1974_MinTimeToTypeWordUsingSpecialTypewriter
 {
     // TC: O(n), n scale with length of word
     // SC: O(1), space used does not sacle with input

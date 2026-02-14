@@ -1,4 +1,4 @@
-public class Q2103_RingsAndRods
+﻿public class Q2103_RingsAndRods
 {
     // TC: O(n), n scale with length of rings
     // SC: O(1), as space used in dictionary will never exceed 10 items, worst case always 10 entries with a 3 entries hashset 

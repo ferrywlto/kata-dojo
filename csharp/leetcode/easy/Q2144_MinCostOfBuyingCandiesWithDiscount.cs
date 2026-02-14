@@ -1,4 +1,4 @@
-public class Q2144_MinCostOfBuyingCandiesWithDiscount
+﻿public class Q2144_MinCostOfBuyingCandiesWithDiscount
 {
     // TC: O(nlogn), n scale with length of cost, dominant by Array.Sort();
     // SC: O(1), space used does not scale with input

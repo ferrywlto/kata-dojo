@@ -1,16 +1,17 @@
-public class Q2900_LongestUnequalAdjacentGroupsSubsequenceI(ITestOutputHelper output)
+﻿public class Q2900_LongestUnequalAdjacentGroupsSubsequenceI(ITestOutputHelper output)
 {
     public IList<string> GetLongestSubsequence(string[] words, int[] groups)
     {
         var longestLen = -1;
         List<int> longestIdxList = new();
-        for (var i=0; i<groups.Length; i++)
+        for (var i = 0; i < groups.Length; i++)
         {
-            var currentList = new List<int> {i};
+            var currentList = new List<int> { i };
             var last = groups[i];
-            for(var j=i+1; j<groups.Length; j++)
+            for (var j = i + 1; j < groups.Length; j++)
             {
-                if(groups[j] != last) {
+                if (groups[j] != last)
+                {
                     currentList.Add(j);
                     last = groups[j];
                 }
@@ -21,7 +22,7 @@ public class Q2900_LongestUnequalAdjacentGroupsSubsequenceI(ITestOutputHelper ou
                 longestLen = currentList.Count;
                 longestIdxList = currentList;
             }
-            if (groups.Length < longestLen) 
+            if (groups.Length < longestLen)
             {
                 break;
             }

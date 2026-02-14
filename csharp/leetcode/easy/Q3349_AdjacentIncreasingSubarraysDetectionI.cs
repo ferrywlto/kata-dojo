@@ -1,4 +1,4 @@
-public class Q3349_AdjacentIncreasingSubarraysDetectionI
+﻿public class Q3349_AdjacentIncreasingSubarraysDetectionI
 {
     // TC: O(n + m), n scale with length of nums, m scale with number of incresing segments found in nums
     // SC: O(m)

@@ -1,4 +1,4 @@
-public class Q2739_TotalDistanceTraveled
+﻿public class Q2739_TotalDistanceTraveled
 {
     // TC: O(n), n scale with size of mainTank
     // SC: O(1), space used does not scale with input

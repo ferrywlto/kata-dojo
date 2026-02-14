@@ -1,4 +1,4 @@
-class Q1189_MaximumNUmberOfBalloons
+﻿class Q1189_MaximumNUmberOfBalloons
 {
     private const string balloon = "balloon";
     // TC: O(n), n is length of text
@@ -10,9 +10,9 @@ class Q1189_MaximumNUmberOfBalloons
             .ToDictionary(grp => grp.Key, grp => grp.Count());
 
         var balloonCount = 0;
-        while(true)
+        while (true)
         {
-            for(var i=0; i<balloon.Length; i++)
+            for (var i = 0; i < balloon.Length; i++)
             {
                 if (!charsCount.TryGetValue(balloon[i], out var count) || count == 0) return balloonCount;
                 charsCount[balloon[i]] = --count;
@@ -31,7 +31,7 @@ class Q1189_MaximumNUmberOfBalloons
             {'o', 0},
             {'n', 0},
         };
-        for(var i=0; i<text.Length; i++)
+        for (var i = 0; i < text.Length; i++)
         {
             if (dict.ContainsKey(text[i]))
             {
@@ -41,7 +41,7 @@ class Q1189_MaximumNUmberOfBalloons
         dict['l'] /= 2;
         dict['o'] /= 2;
         return dict.Min(x => x.Value);
-    }    
+    }
 }
 class Q1189_MaximumNUmberOfBalloonsTestData : TestData
 {

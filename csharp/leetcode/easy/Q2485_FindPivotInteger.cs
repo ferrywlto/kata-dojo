@@ -1,4 +1,4 @@
-public class Q2485_FindPivotInteger
+﻿public class Q2485_FindPivotInteger
 {
     // TC: O(n), n scale with size of n
     // SC: O(1), space used does not scale with input

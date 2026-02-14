@@ -1,4 +1,4 @@
-class Q1897_RedistributeCharactersTomakeAllStringsEqual
+﻿class Q1897_RedistributeCharactersTomakeAllStringsEqual
 {
     // TC: O(n + m), where n is total characters in words, m is constant to 26
     // SC: O(1), space used in dictionary is constant

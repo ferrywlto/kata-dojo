@@ -1,4 +1,4 @@
-class Q1784_CheckIfBinaryStringHasAtMostOneSegmentOfOnes
+﻿class Q1784_CheckIfBinaryStringHasAtMostOneSegmentOfOnes
 {
     // TC: O(n), where n is length of s
     // SC: O(1), space used is fixed

@@ -1,4 +1,4 @@
-class Q175_CombineTwoTables : SqlQuestion
+﻿class Q175_CombineTwoTables : SqlQuestion
 {
     public override string Query =>
     """

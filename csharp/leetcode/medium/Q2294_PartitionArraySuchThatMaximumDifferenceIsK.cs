@@ -1,4 +1,4 @@
-public class Q2294_PartitionArraySuchThatMaximumDifferenceIsK
+﻿public class Q2294_PartitionArraySuchThatMaximumDifferenceIsK
 {
     // TC: O(n log n), due to Array.Sort();
     // SC: O(m), m scale with unique numbers in nums

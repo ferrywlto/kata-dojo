@@ -1,4 +1,4 @@
-public class Q1641_CountSortedVowelStrings(ITestOutputHelper output)
+﻿public class Q1641_CountSortedVowelStrings(ITestOutputHelper output)
 {
     Dictionary<int, int> accumulatedSum = [];
     Dictionary<int, int> sumFromOne = [];
@@ -13,7 +13,7 @@ public class Q1641_CountSortedVowelStrings(ITestOutputHelper output)
         // 55
         var sum1 = 0;
         var sum2 = 0;
-        for(var i = 1; i<=5+n; i++)
+        for (var i = 1; i <= 5 + n; i++)
         {
             sum1 += i;
             sumFromOne.Add(i, sum1);
@@ -22,13 +22,13 @@ public class Q1641_CountSortedVowelStrings(ITestOutputHelper output)
         }
 
         output.WriteLine($"sum from 1 to n");
-        foreach(var p in sumFromOne)
+        foreach (var p in sumFromOne)
         {
             output.WriteLine($"key: {p.Key}, val: {p.Value}");
         }
 
         output.WriteLine($"accumulated sum of (sum from 1 to n)");
-        foreach(var p in accumulatedSum)
+        foreach (var p in accumulatedSum)
         {
             output.WriteLine($"key: {p.Key}, val: {p.Value}");
         }
@@ -86,7 +86,7 @@ public class Q1641_CountSortedVowelStrings(ITestOutputHelper output)
     }
     int Cal(int input)
     {
-        if(input == 1) return 5;
+        if (input == 1) return 5;
         else
         {
             return Cal(input - 1) + accumulatedSum[Math.Abs(input - 5)];

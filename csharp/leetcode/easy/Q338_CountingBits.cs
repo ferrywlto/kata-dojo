@@ -1,4 +1,4 @@
-class Q338_CountingBits
+﻿class Q338_CountingBits
 {
     // Suggested by Copilot in Q401 but only fast for single number 
     int CountBits_Single(int num)
@@ -15,19 +15,19 @@ class Q338_CountingBits
     // TC: O(mn), not faster
     public int[] CountBits_OneLine(int n)
     {
-        return Enumerable.Range(0, n+1).Select(CountBits_Single).ToArray();
+        return Enumerable.Range(0, n + 1).Select(CountBits_Single).ToArray();
     }
 
     // Provided by Copilot, use fewer memory and loop less, fastest among 3
     public int[] CountBits_Faster(int n)
     {
         var head = new List<int> { 0, 1 };
-        
-        while(head.Count <= n)
+
+        while (head.Count <= n)
         {
             var count = head.Count;
             // The && head.Count <= n is to stop the loop once it hit n, better than mine which create the expansion then shrink
-            for(int i = 0; i < count && head.Count <= n; i++)
+            for (int i = 0; i < count && head.Count <= n; i++)
             {
                 head.Add(head[i] + 1);
             }
@@ -40,15 +40,15 @@ class Q338_CountingBits
     {
         var num = n;
         var head = new List<int> { 0, 1 };
-        
+
         List<int> temp = [1];
-        while(num > 0)
+        while (num > 0)
         {
             temp = ReplicateThenExpand(temp);
             head.AddRange(temp);
             num /= 2;
         }
-        var result = head[..(n+1)];
+        var result = head[..(n + 1)];
         return [.. result];
     }
 
@@ -69,9 +69,9 @@ class Q338_CountingBits
     }
 }
 
-class Q338_CountingBitsTestData: TestData
+class Q338_CountingBitsTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [2, new int[] {0,1,1}],
         [5, new int[] {0,1,1,2,1,2}],
@@ -101,9 +101,9 @@ public class Q338_CountingBitsTests(ITestOutputHelper helper)
     }
 }
 
-class Q338_CountingBitsExtraTestData: TestData
+class Q338_CountingBitsExtraTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new List<int>{1}, new List<int>{1,2}],
         [new List<int>{1,2}, new List<int>{1,2,2,3}],

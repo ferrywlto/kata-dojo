@@ -1,4 +1,4 @@
-public class Q3423_MaxDiffBetweenAdjacentElementsInCircularArray
+﻿public class Q3423_MaxDiffBetweenAdjacentElementsInCircularArray
 {
     // TC: O(n), n scale with length of nums
     // SC: O(1), space used does not scale with input

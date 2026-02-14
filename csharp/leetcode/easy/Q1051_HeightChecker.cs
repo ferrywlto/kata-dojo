@@ -1,4 +1,4 @@
-class Q1051_HeightCHecker
+﻿class Q1051_HeightCHecker
 {
     // TC:O(n log n), n is length of heights, n log n caused by Array.Sort()
     // SC:O(n), as need ot copy heights

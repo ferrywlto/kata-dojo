@@ -1,4 +1,4 @@
-class Q746_MinCostClimbingStairs
+﻿class Q746_MinCostClimbingStairs
 {
     // TC: O(n)
     // SC: O(1)

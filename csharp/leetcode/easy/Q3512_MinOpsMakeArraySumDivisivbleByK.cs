@@ -1,4 +1,4 @@
-public class Q3512_MinOpsMakeArraySumDivisivbleByK
+﻿public class Q3512_MinOpsMakeArraySumDivisivbleByK
 {
     // TC: O(n), n scale with lenght of nums
     // SC: O(1), space used does not scale with input

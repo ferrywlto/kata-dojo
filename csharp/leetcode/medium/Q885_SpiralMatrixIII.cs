@@ -1,4 +1,4 @@
-public class Q885_SpiralMatrixIII(ITestOutputHelper output)
+﻿public class Q885_SpiralMatrixIII(ITestOutputHelper output)
 {
     // TC: O(n), n scale with rows * cols
     // SC: O(n), the result list must equals to rows * cols

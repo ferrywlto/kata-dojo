@@ -1,4 +1,4 @@
-class Q70_ClimbingStairsTestData : TestData
+﻿class Q70_ClimbingStairsTestData : TestData
 {
     protected override List<object[]> Data =>
     [

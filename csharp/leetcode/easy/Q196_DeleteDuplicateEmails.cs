@@ -1,4 +1,4 @@
-class Q196_DeleteDuplicateEmails : SqlQuestion
+﻿class Q196_DeleteDuplicateEmails : SqlQuestion
 {
     public override string Query =>
     """
@@ -45,7 +45,7 @@ public class Q196_DeleteDuplicateEmailsTests(ITestOutputHelper output) : SqlTest
 
         var reader = ExecuteQuery("SELECT * FROM Person;");
         AssertResultSchema(reader, ["id", "email"]);
-        
+
         Assert.True(reader.Read());
         Assert.Equal(1, reader.GetInt32(0));
         Assert.Equal("john@example.com", reader.GetString(1));

@@ -1,4 +1,4 @@
-public class Q1381_DesignStackWithIncrementOperation
+﻿public class Q1381_DesignStackWithIncrementOperation
 {
     public class CustomStack
     {

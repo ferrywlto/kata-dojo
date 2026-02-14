@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 
 class Q1021_RemoveOutermostParentheses
 {
@@ -10,22 +10,22 @@ class Q1021_RemoveOutermostParentheses
         var openIdx = 0;
         var openCount = 0;
         var sb = new StringBuilder();
-        for(var i=0; i< s.Length; i++)
+        for (var i = 0; i < s.Length; i++)
         {
-            if(s[i] == '(' && !started)
+            if (s[i] == '(' && !started)
             {
                 started = true;
                 openIdx = i;
                 openCount++;
             }
-            else if(s[i] == '(' && started)
+            else if (s[i] == '(' && started)
             {
                 openCount++;
             }
-            else if(s[i] == ')')
+            else if (s[i] == ')')
             {
                 openCount--;
-                if (openCount == 0) 
+                if (openCount == 0)
                 {
                     sb.Append(s.AsSpan(openIdx + 1, i - 1 - openIdx));
                     started = false;

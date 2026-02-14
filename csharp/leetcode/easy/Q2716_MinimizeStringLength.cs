@@ -1,4 +1,4 @@
-public class Q2716_MinimizeStringLength
+﻿public class Q2716_MinimizeStringLength
 {
     // TC: O(n), worst case all characters are unique
     // SC: O(n), same as time

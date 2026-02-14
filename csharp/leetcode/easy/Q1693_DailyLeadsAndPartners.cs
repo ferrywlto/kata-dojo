@@ -1,7 +1,7 @@
-using Row = (string date_id, string make_name, int unique_leads, int unique_partners);
+﻿using Row = (string date_id, string make_name, int unique_leads, int unique_partners);
 class Q1693_DailyLeadsAndPartners : SqlQuestion
 {
-    public override string Query => 
+    public override string Query =>
     """
     select date_id, make_name, 
     count(distinct lead_id) as 'unique_leads', 
@@ -15,7 +15,7 @@ class Q1693_DailyLeadsAndPartners : SqlQuestion
 }
 class Q1693_DailyLeadsAndPartnersTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -43,7 +43,7 @@ class Q1693_DailyLeadsAndPartnersTestData : TestData
 }
 public class Q1693_DailyLeadsAndPartnersTests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     Create table If Not Exists DailySales(date_id date, make_name varchar(20), lead_id int, partner_id int);
     """;
@@ -55,7 +55,7 @@ public class Q1693_DailyLeadsAndPartnersTests(ITestOutputHelper output) : SqlTes
         var sut = new Q1693_DailyLeadsAndPartners();
         var reader = ExecuteQuery(sut.Query, true);
         AssertResultSchema(reader, ["date_id", "make_name", "unique_leads", "unique_partners"]);
-        foreach(var row in expected)
+        foreach (var row in expected)
         {
             Assert.True(reader.Read());
             Assert.Equal(row.date_id, reader.GetDateTimeOffset(0).ToString("yyyy-MM-d"));

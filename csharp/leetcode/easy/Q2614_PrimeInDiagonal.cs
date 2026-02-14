@@ -1,4 +1,4 @@
-public class Q2614_PrimeInDiagonal
+﻿public class Q2614_PrimeInDiagonal
 {
     // TC: O(n), n scale with elements in diagonal
     // SC: O(m), m scale with unique numbers in diagonal for cache

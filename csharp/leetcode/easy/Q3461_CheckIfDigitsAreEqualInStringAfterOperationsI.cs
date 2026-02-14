@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 
 public class Q3461_CheckIfDigitsAreEqualInStringAfterOperationsI
 {
@@ -10,16 +10,16 @@ public class Q3461_CheckIfDigitsAreEqualInStringAfterOperationsI
         var currentSize = s.Length;
         var chArr = s.ToCharArray();
         // init;
-        for(var i=0; i<currentSize; i++)
+        for (var i = 0; i < currentSize; i++)
         {
             arr[i] = chArr[i] - '0';
         }
 
-        while(currentSize > 2)
+        while (currentSize > 2)
         {
-            for(var i = 1; i<currentSize; i++)
+            for (var i = 1; i < currentSize; i++)
             {
-                arr[i-1] = (arr[i] + arr[i-1]) % 10;
+                arr[i - 1] = (arr[i] + arr[i - 1]) % 10;
             }
             currentSize--;
         }

@@ -1,4 +1,4 @@
-/*
+﻿/*
 Follow up:
 
 What if the given array is already sorted? How would you optimize your algorithm?
@@ -21,11 +21,11 @@ class Q350_IntersectionTwoArrays2
         List<int> longerList = longer.ToList();
 
         var result = new List<int>();
-        foreach(var i in shorter) 
-        {            
-            for(var j=0; j<longerList.Count; j++)
+        foreach (var i in shorter)
+        {
+            for (var j = 0; j < longerList.Count; j++)
             {
-                if(longer[j] == i)
+                if (longer[j] == i)
                 {
                     result.Add(i);
                     longerList.RemoveAt(j);
@@ -43,11 +43,11 @@ class Q350_IntersectionTwoArrays2
         (longer, shorter) = Longer(nums1, nums2);
 
         var dict = shorter.Analyze();
-         
+
         var result = new List<int>();
         foreach (var l in longer)
         {
-            if(dict.TryGetValue(l, out var value))
+            if (dict.TryGetValue(l, out var value))
             {
                 result.Add(l);
                 if (--dict[l] == 0) dict.Remove(l);
@@ -69,9 +69,9 @@ class Q350_IntersectionTwoArrays2
 
         var startIdx = 0;
         var result = new List<int>();
-        foreach(var s in shorter)
+        foreach (var s in shorter)
         {
-            for(var i=startIdx; i<longer.Length; i++)
+            for (var i = startIdx; i < longer.Length; i++)
             {
                 if (longer[i] < s) startIdx++;
                 else if (longer[i] == s)
@@ -79,10 +79,10 @@ class Q350_IntersectionTwoArrays2
                     result.Add(s);
                     startIdx++;
                     break;
-                } 
+                }
             }
         }
-        
+
         return result.ToArray();
     }
 

@@ -1,14 +1,14 @@
-class Q700_SearchInBST
+﻿class Q700_SearchInBST
 {
     // TC: O(n)
     // SC: O(1)
-    public TreeNode? SearchBST(TreeNode root, int val) 
+    public TreeNode? SearchBST(TreeNode root, int val)
     {
         var node = root;
-        while(node != null)
+        while (node != null)
         {
-            if(val > node.val) node = node.right;
-            else if(val < node.val) node = node.left;
+            if (val > node.val) node = node.right;
+            else if (val < node.val) node = node.left;
             else return node;
         }
         return null;
@@ -17,7 +17,7 @@ class Q700_SearchInBST
 
 class Q700_SearchInBSTTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int?[]{4, 2, 7, 1, 3}, 2, new int?[]{2, 1, 3}],
         [new int?[]{4, 2, 7, 1, 3}, 5, Array.Empty<int?>()],

@@ -1,4 +1,4 @@
-public class Q3780_MaxSumOfThreeNumbersDivisibleByThree
+﻿public class Q3780_MaxSumOfThreeNumbersDivisibleByThree
 {
     /*
     What to learn here are:

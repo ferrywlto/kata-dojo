@@ -1,4 +1,4 @@
-public class Q2433_FindTheOriginalArrayPrefixXor
+﻿public class Q2433_FindTheOriginalArrayPrefixXor
 {
     // TC: O(n), n scale with length of pref
     // SC: O(1), space used does not scale with input as using in-place replace

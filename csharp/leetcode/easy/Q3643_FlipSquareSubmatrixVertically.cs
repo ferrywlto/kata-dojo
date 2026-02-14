@@ -1,4 +1,4 @@
-public class Q3643_FlipSquareSubmatrixVertically
+﻿public class Q3643_FlipSquareSubmatrixVertically
 {
     // TC: O(k ^ 2), k rows * k cols
     // SC: O(1)

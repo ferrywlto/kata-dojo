@@ -1,4 +1,4 @@
-class Q595_BigCountries : SqlQuestion
+﻿class Q595_BigCountries : SqlQuestion
 {
     public override string Query =>
     """

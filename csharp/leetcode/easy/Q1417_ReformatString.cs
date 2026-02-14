@@ -1,16 +1,16 @@
-using System.Text;
+﻿using System.Text;
 
 class Q1417_ReformatString
 {
     // TC: O(n), n is the length of s, first n to analyse the frequency, another n for forming the result string
     // SC: O(n), n is the length of s
-    public string Reformat(string s) 
+    public string Reformat(string s)
     {
         if (s.Length == 1) return s;
 
         var chars = new Stack<char>();
         var nums = new Stack<char>();
-        foreach(var c in s)
+        foreach (var c in s)
         {
             if (char.IsAsciiDigit(c)) nums.Push(c);
             else if (char.IsAsciiLetterLower(c)) chars.Push(c);
@@ -19,11 +19,11 @@ class Q1417_ReformatString
         if (chars.Count == 0 || nums.Count == 0 || lengthDiff > 1) return string.Empty;
 
         var sb = new StringBuilder();
-        if(chars.Count > nums.Count) 
+        if (chars.Count > nums.Count)
         {
             sb.Append(chars.Pop());
         }
-        while(chars.Count > 0 && nums.Count > 0)
+        while (chars.Count > 0 && nums.Count > 0)
         {
             sb.Append(nums.Pop());
             sb.Append(chars.Pop());
@@ -37,7 +37,7 @@ class Q1417_ReformatString
 }
 class Q1417_ReformatStringTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["a0b1c2", "2c1b0a"],
         ["leetcode", string.Empty],

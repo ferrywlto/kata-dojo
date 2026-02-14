@@ -1,4 +1,4 @@
-public class Q3258_CountSubstringsThatSatisfyKConstraintI
+﻿public class Q3258_CountSubstringsThatSatisfyKConstraintI
 {
     // TC: O(n^3), n^2 for length of s to find all substrings
     // SC: O(1), space used does not scale with input

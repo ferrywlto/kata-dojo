@@ -1,4 +1,4 @@
-public class Q2833_FurthestPointFromOrigin
+﻿public class Q2833_FurthestPointFromOrigin
 {
     // TC: O(n), n scale with length of moves
     // SC: O(1), space used does not scale with input

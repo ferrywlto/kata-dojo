@@ -1,11 +1,11 @@
-class Q1337_TheWeakestRowsInMatrix
+﻿class Q1337_TheWeakestRowsInMatrix
 {
     // TC: O(log n), scale on number of 1s in matrix
     // SC: O(m+k), m is number of row, worse case each row have distinct number of soliders + k space for result holding list
     public int[] KWeakestRows(int[][] mat, int k)
     {
         var dict = new SortedDictionary<int, List<int>>();
-        for(var i=0; i<mat.Length; i++)
+        for (var i = 0; i < mat.Length; i++)
         {
             var row = mat[i];
             // use binary search
@@ -21,15 +21,15 @@ class Q1337_TheWeakestRowsInMatrix
             // To find the number of soldiers (1's), we check if the element at 'start' is a '1' to handle the case where all elements are '1's.
             int soliders = (start == row.Length || row[start] == 0) ? start : start + 1;
 
-            if(dict.TryGetValue(soliders, out var list)) list.Add(i);
+            if (dict.TryGetValue(soliders, out var list)) list.Add(i);
             else dict.Add(soliders, [i]);
         }
-        
+
         var result = new List<int>();
-        foreach(var pair in dict)
+        foreach (var pair in dict)
         {
             var list = pair.Value;
-            foreach(var l in list)
+            foreach (var l in list)
             {
                 result.Add(l);
                 if (result.Count == k) return result.ToArray();

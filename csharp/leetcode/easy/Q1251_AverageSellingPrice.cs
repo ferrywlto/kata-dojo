@@ -1,6 +1,6 @@
-class Q1251_AverageSellingPrice : SqlQuestion
+﻿class Q1251_AverageSellingPrice : SqlQuestion
 {
-    public override string Query => 
+    public override string Query =>
     """
     select p.product_id, 
     COALESCE(
@@ -15,7 +15,7 @@ class Q1251_AverageSellingPrice : SqlQuestion
 }
 class Q1251_AverageSellingPriceTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -74,11 +74,11 @@ public class Q1251_AverageSellingPriceTests(ITestOutputHelper output) : SqlTest(
         var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["product_id", "average_price"]);
 
-        for(var i=0; i<expected.Length; i++)
+        for (var i = 0; i < expected.Length; i++)
         {
             Assert.True(reader.Read());
             Assert.Equal(expected[i][0], reader.GetInt32(0));
-            Assert.Equal(Math.Round(expected[i][1] , 2), Math.Round(reader.GetFloat(1), 2));
+            Assert.Equal(Math.Round(expected[i][1], 2), Math.Round(reader.GetFloat(1), 2));
         }
     }
 }

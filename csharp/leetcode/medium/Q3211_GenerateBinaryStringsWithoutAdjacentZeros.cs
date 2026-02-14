@@ -1,4 +1,4 @@
-public class Q3211_GenerateBinaryStringsWithoutAdjacentZeros
+﻿public class Q3211_GenerateBinaryStringsWithoutAdjacentZeros
 {
     // TC: O(n^2), n scale with size of n
     // SC: O(n)

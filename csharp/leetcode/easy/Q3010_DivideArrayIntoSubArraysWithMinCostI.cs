@@ -1,4 +1,4 @@
-public class Q3010_DivideArrayIntoSubArraysWithMinCostI
+﻿public class Q3010_DivideArrayIntoSubArraysWithMinCostI
 {
     // TC: O(n), n scale with length of nums
     // SC: O(1), space used does not scale with input, fixed at 2 elements

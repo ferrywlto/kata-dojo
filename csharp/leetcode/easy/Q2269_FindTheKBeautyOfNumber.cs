@@ -1,4 +1,4 @@
-public class Q2269_FindTheKBeautyOfNumber
+﻿public class Q2269_FindTheKBeautyOfNumber
 {
     // TC: O(d), d scale with digits of num
     // SC: O(k), k scale with size of k to hold k size substring to convert into number

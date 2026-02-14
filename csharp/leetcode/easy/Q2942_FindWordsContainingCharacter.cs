@@ -1,4 +1,4 @@
-public class Q2942_FindWordsContainingCharacter
+﻿public class Q2942_FindWordsContainingCharacter
 {
     // TC: O(n), n scale with length of words, it iterates total characters of times in all words
     // SC: O(m), m scale with number of words containing x to hold the result

@@ -1,4 +1,4 @@
-class Q28_NeedleInHaystackTestData : TestData
+﻿class Q28_NeedleInHaystackTestData : TestData
 {
     protected override List<object[]> Data =>
     [

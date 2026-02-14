@@ -1,4 +1,4 @@
-public class Q2317_MaxXorAfterOperations
+﻿public class Q2317_MaxXorAfterOperations
 {
     // The trick is if a bit is set to 1 at least once, take it.
     // The result is the number created by the bit positions that at least 1

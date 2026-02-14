@@ -1,11 +1,11 @@
-public class Q1979_FindGreatestCommonDivisorOfArray
+﻿public class Q1979_FindGreatestCommonDivisorOfArray
 {
     // TC: O(nlogn), due to Array.Sort()
     // SC: O(1), space used does not scale with nums 
     public int FindGCD(int[] nums)
     {
         Array.Sort(nums);
-        if (nums[^1] % nums[0] == 0) 
+        if (nums[^1] % nums[0] == 0)
             return nums[0];
 
         var largest = 1;

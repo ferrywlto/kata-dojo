@@ -1,4 +1,4 @@
-public class Q2558_TakeGiftsFromRichestPile
+﻿public class Q2558_TakeGiftsFromRichestPile
 {
     // TC: O((n + k) log n), n scale with length of gifts, n log n from Array.Sort() * k times, plus n at the end
     // SC: O(n), for priority queue
@@ -13,7 +13,8 @@ public class Q2558_TakeGiftsFromRichestPile
             x.Enqueue(sqrt, -sqrt);
         }
         var total = 0L;
-        while(x.Count > 0) {
+        while (x.Count > 0)
+        {
             total += x.Dequeue();
         }
         // foreach (var n in gifts) total += n;

@@ -1,4 +1,4 @@
-class Q441_ArrangingCoins
+﻿class Q441_ArrangingCoins
 {
     // Constraints
     // 1 <= n <= 2^31 - 1
@@ -12,7 +12,7 @@ class Q441_ArrangingCoins
         // find SumFromOneTo(middle) >= n
         long start = 0;
         long end = n;
-        
+
         long middle = (end + start) / 2;
         long temp = 0;
         while (end - start > 1)
@@ -36,7 +36,7 @@ class Q441_ArrangingCoins
     }
 }
 
-class Q441_ArrangingCoinsTestData: TestData
+class Q441_ArrangingCoinsTestData : TestData
 {
     protected override List<object[]> Data =>
     [

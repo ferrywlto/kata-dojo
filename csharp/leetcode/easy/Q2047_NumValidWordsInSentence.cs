@@ -1,4 +1,4 @@
-public class Q2047_NumValidWordsInSentence
+﻿public class Q2047_NumValidWordsInSentence
 {
     // TC: O(n), n scale with length of sentence
     // SC: O(1), space used does not scale with input

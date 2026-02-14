@@ -1,4 +1,4 @@
-class Q999_AvailableCapturesForRook
+﻿class Q999_AvailableCapturesForRook
 {
     // TC: O(n), n is the total cells in board
     // SC: O(1), no extra data structure used

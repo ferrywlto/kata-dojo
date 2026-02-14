@@ -1,4 +1,4 @@
-public class Q3300_MinElementAfterReplacementWithDigitSum
+﻿public class Q3300_MinElementAfterReplacementWithDigitSum
 {
     // TC: O(n), n scale with length of nums
     // SC: O(1), space used does not scale with input

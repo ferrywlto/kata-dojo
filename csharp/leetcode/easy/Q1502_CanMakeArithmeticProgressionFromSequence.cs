@@ -1,4 +1,4 @@
-class Q1502_CanMakeArithmeticProgressionFromSequence
+﻿class Q1502_CanMakeArithmeticProgressionFromSequence
 {
     // TC: O(n log n), dominated by Array.Sort(), then n-1 to get the diff of each pair, thus O(n log n)
     // SC: O(1), the space used are fixed.

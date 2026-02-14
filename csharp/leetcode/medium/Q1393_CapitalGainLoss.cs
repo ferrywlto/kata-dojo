@@ -1,4 +1,4 @@
-using Row = (string stock_name, int capital_gain_loss);
+﻿using Row = (string stock_name, int capital_gain_loss);
 public class Q1393_CapitalGainLoss(ITestOutputHelper output) : SqlTest(output)
 {
     public string Query =>

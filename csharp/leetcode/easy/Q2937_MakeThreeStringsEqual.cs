@@ -1,4 +1,4 @@
-public class Q2937_MakeThreeStringsEqual
+﻿public class Q2937_MakeThreeStringsEqual
 {
     // TC: O(n), n scale with min length in s1,s2,s3
     // SC: O(1), space used does not scale with input

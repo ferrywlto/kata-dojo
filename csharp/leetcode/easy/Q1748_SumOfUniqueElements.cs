@@ -1,4 +1,4 @@
-class Q1748_SumOfUniqueElements
+﻿class Q1748_SumOfUniqueElements
 {
     // TC: O(n+m), where n is length of nums and m is number of unique numbers
     // SC: O(m), where m is number of unique numbers in nums   
@@ -15,19 +15,19 @@ class Q1748_SumOfUniqueElements
     public int SumOfUnique(int[] nums)
     {
         var dict = new Dictionary<int, int>();
-        foreach(var n in nums)
+        foreach (var n in nums)
         {
-            if(dict.TryGetValue(n, out var value))
+            if (dict.TryGetValue(n, out var value))
             {
                 dict[n] = ++value;
             }
-            else 
+            else
             {
                 dict.Add(n, 1);
             }
         }
         var result = 0;
-        foreach(var d in dict)
+        foreach (var d in dict)
         {
             if (d.Value == 1) result += d.Key;
         }
@@ -36,7 +36,7 @@ class Q1748_SumOfUniqueElements
 }
 class Q1748_SumOfUniqueElementsTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[] {1,2,3,2}, 4],
         [new int[] {1,1,1,1,1}, 0],

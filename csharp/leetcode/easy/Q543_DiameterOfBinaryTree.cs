@@ -1,4 +1,4 @@
-class Q543_DiameterOfBinaryTree
+﻿class Q543_DiameterOfBinaryTree
 {
     private int max = 0;
     // TC: O(n)
@@ -9,7 +9,7 @@ class Q543_DiameterOfBinaryTree
         return max;
     }
     public int GetLongerDepth(TreeNode? node)
-    {        
+    {
         if (node == null) return 0;
 
         var maxLeftDepth = GetLongerDepth(node.left);
@@ -19,13 +19,13 @@ class Q543_DiameterOfBinaryTree
         if (sum > max)
             max = sum;
 
-        return 1 + Math.Max(maxLeftDepth, maxRightDepth);;
+        return 1 + Math.Max(maxLeftDepth, maxRightDepth); ;
     }
 }
 
 class Q543_DiameterOfBinaryTreeTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int?[] {1,2,3,4,5}, 3],
         [new int?[] {1,2}, 1],

@@ -1,4 +1,4 @@
-public class Q3264_FinalArrayStateAfterKMultiplicationOperationsI
+﻿public class Q3264_FinalArrayStateAfterKMultiplicationOperationsI
 {
     // TC: O(n * k), n scale with length of nums
     // SC: O(1), space used does not scale with input

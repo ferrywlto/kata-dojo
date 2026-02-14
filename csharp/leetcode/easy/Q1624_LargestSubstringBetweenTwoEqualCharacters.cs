@@ -1,4 +1,4 @@
-class Q1624_LargestSubstringBetweenTwoEqualCharacters
+﻿class Q1624_LargestSubstringBetweenTwoEqualCharacters
 {
     // TC: O(n), where n is length of s
     // SC: O(n), where n is number of unique characters in s

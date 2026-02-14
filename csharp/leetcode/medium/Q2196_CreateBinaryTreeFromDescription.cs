@@ -1,4 +1,4 @@
-
+﻿
 public class Q2196_CreateBinaryTreeFromDescription(ITestOutputHelper output) : TreeNodeTest(output)
 {
     // TC: O(n + d), n scale with length of descriptions, d scale with depth of result tree

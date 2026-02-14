@@ -1,4 +1,4 @@
-public class Q3663_FindTheLeastFrequentDigit
+﻿public class Q3663_FindTheLeastFrequentDigit
 {
     // TC: O(log n), n scale with size of n
     // SC: O(1), space used does not scale with input.

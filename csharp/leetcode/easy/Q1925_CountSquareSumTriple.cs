@@ -1,4 +1,4 @@
-public class Q1925_CountSquareSumTriple
+﻿public class Q1925_CountSquareSumTriple
 {
     // TC: O(n + n^2), n scale with size of n
     // SC: O(1), space used does not sacle with input 

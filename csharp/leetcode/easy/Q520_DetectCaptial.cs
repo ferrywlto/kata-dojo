@@ -1,4 +1,4 @@
-class Q520_DetectCaptial
+﻿class Q520_DetectCaptial
 {
     // TC: O(n)
     // SC: O(1)

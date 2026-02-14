@@ -1,4 +1,4 @@
-public class Q2446_DetermineIfTwoEventsHaveConflict
+﻿public class Q2446_DetermineIfTwoEventsHaveConflict
 {
     // TC: O(1), time used in operation is does not scale with input
     // SC: O(1), same as time

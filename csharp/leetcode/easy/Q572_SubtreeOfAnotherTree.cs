@@ -1,4 +1,4 @@
-class Q572_SubtreeOfAnotherTree
+﻿class Q572_SubtreeOfAnotherTree
 {
     // find the node with in root tree that have val == subroot.val
     // do a double tree traverse in same node, if in any step the node value is not equal, return false;
@@ -8,7 +8,7 @@ class Q572_SubtreeOfAnotherTree
     public bool IsSubtree(TreeNode? root, TreeNode? subRoot)
     {
         if (root == null || subRoot == null) return false;
-        
+
         var traverseStack = new Stack<TreeNode>();
         traverseStack.Push(root);
 
@@ -32,12 +32,12 @@ class Q572_SubtreeOfAnotherTree
         while (parallelStack.Count > 0)
         {
             var (nodeFromRoot, nodeFromSubRoot) = parallelStack.Pop();
-            if(nodeFromRoot.val != nodeFromSubRoot.val)
+            if (nodeFromRoot.val != nodeFromSubRoot.val)
             {
                 return false;
             }
 
-            if(nodeFromRoot.left != null && nodeFromSubRoot.left != null)
+            if (nodeFromRoot.left != null && nodeFromSubRoot.left != null)
             {
                 parallelStack.Push((nodeFromRoot.left, nodeFromSubRoot.left));
             }
@@ -50,7 +50,7 @@ class Q572_SubtreeOfAnotherTree
             {
                 parallelStack.Push((nodeFromRoot.right, nodeFromSubRoot.right));
             }
-            else if(nodeFromRoot.right != null || nodeFromSubRoot.right != null)
+            else if (nodeFromRoot.right != null || nodeFromSubRoot.right != null)
             {
                 return false;
             }

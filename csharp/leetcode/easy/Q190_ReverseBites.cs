@@ -1,10 +1,10 @@
-class Q190_ReverseBits
+﻿class Q190_ReverseBits
 {
-    public uint reverseBits(uint n) 
+    public uint reverseBits(uint n)
     {
-        var binaryString = Convert.ToString(n, 2).PadLeft(32, '0');;
+        var binaryString = Convert.ToString(n, 2).PadLeft(32, '0'); ;
         var reversedString = new string(binaryString.Reverse().ToArray());
-        
+
         uint result = 0;
         for (int i = 0; i < reversedString!.Length; i++)
         {
@@ -14,10 +14,10 @@ class Q190_ReverseBits
             }
         }
 
-        return result;    
+        return result;
     }
 
-    public uint reverseBits_BitWiseOps(uint n) 
+    public uint reverseBits_BitWiseOps(uint n)
     {
         uint result = 0;
         int bits = 32;
@@ -43,7 +43,7 @@ class Q190_ReverseBits
 
 class Q190_ReverseBitsTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [43261596, 964176192],
         [4294967293, 3221225471],

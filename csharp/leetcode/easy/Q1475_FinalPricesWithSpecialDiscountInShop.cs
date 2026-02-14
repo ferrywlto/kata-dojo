@@ -1,4 +1,4 @@
-class Q1475_FinalPricesWithSpecialDiscountInShop
+﻿class Q1475_FinalPricesWithSpecialDiscountInShop
 {
     // TC: O(n^2), it cannot be faster due to question constraints
     // SC: O(1), the space used is fixed, array items are updated in-place and

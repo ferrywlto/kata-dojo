@@ -1,6 +1,6 @@
-class Q586_CustomerPlacingLargestNumberOrders : SqlQuestion
+﻿class Q586_CustomerPlacingLargestNumberOrders : SqlQuestion
 {
-    public override string Query => 
+    public override string Query =>
     // This SQL is for PostgreSQL as some syntax of T-SQL are not supported in SQLite 
     """
     SELECT customer_number 
@@ -13,7 +13,7 @@ class Q586_CustomerPlacingLargestNumberOrders : SqlQuestion
 
 class Q586_CustomerPlacingLargestNumberOrdersTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [[
         """
         INSERT INTO Orders VALUES
@@ -27,7 +27,7 @@ class Q586_CustomerPlacingLargestNumberOrdersTestData : TestData
 [Trait("QuestionType", "SQL")]
 public class Q586_CustomerPlacingLargestNumberOrdersTests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     CREATE TABLE IF NOT EXISTS Orders (order_number INT, customer_number INT);
     """;

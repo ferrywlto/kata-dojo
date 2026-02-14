@@ -1,4 +1,4 @@
-public class Q2068_CheckWhetherTwoStringsAreAlmostEquivalent
+﻿public class Q2068_CheckWhetherTwoStringsAreAlmostEquivalent
 {
     // TC: O(n), n scale with length of word1
     // SC: O(1), space used does not scale with input

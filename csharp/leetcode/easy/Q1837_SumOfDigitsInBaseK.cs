@@ -1,4 +1,4 @@
-class Q1837_SumOfDigitsInBaseK
+﻿class Q1837_SumOfDigitsInBaseK
 {
     // TC: O(log_k n), as n will keep smaller by k factor each operation
     // SC: O(1), space used if fixed

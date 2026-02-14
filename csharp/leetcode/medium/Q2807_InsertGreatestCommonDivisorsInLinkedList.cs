@@ -1,4 +1,4 @@
-public class Q2807_InsertGreatestCommonDivisorsInLinkedList
+﻿public class Q2807_InsertGreatestCommonDivisorsInLinkedList
 {
     // TC: O(n), n scale with length of head
     // SC: O(1), space used does not scale with input

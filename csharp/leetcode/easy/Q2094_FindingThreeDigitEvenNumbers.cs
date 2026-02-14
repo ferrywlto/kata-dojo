@@ -1,4 +1,4 @@
-public class Q2094_FindingThreeDigitEvenNumbers(ITestOutputHelper output)
+﻿public class Q2094_FindingThreeDigitEvenNumbers(ITestOutputHelper output)
 {
     // Correct implmentation
     // Digits to find always within 100-998, just need to check if all digits can be find in array...

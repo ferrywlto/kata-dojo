@@ -1,7 +1,7 @@
-using Row = (int student_id, string student_name, string subject_name, int attended_exams);
+﻿using Row = (int student_id, string student_name, string subject_name, int attended_exams);
 class Q1280_StudentsAndExaminations : SqlQuestion
 {
-    public override string Query => 
+    public override string Query =>
     """
     select s.student_id, student_name, sub.subject_name, count(e.subject_name) as attended_exams
     from Students s
@@ -14,7 +14,7 @@ class Q1280_StudentsAndExaminations : SqlQuestion
 }
 class Q1280_StudentsAndExaminationsTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -44,25 +44,25 @@ class Q1280_StudentsAndExaminationsTestData : TestData
             """,
             new Row[]
             {
-                (1, "Alice", "Math", 3), 
-                (1, "Alice", "Physics", 2), 
-                (1, "Alice", "Programming", 1), 
-                (2, "Bob", "Math", 1), 
-                (2, "Bob", "Physics", 0), 
-                (2, "Bob", "Programming", 1), 
-                (6, "Alex", "Math", 0), 
-                (6, "Alex", "Physics", 0), 
-                (6, "Alex", "Programming", 0), 
-                (13, "John", "Math", 1), 
-                (13, "John", "Physics", 1), 
-                (13, "John", "Programming", 1),                 
+                (1, "Alice", "Math", 3),
+                (1, "Alice", "Physics", 2),
+                (1, "Alice", "Programming", 1),
+                (2, "Bob", "Math", 1),
+                (2, "Bob", "Physics", 0),
+                (2, "Bob", "Programming", 1),
+                (6, "Alex", "Math", 0),
+                (6, "Alex", "Physics", 0),
+                (6, "Alex", "Programming", 0),
+                (13, "John", "Math", 1),
+                (13, "John", "Physics", 1),
+                (13, "John", "Programming", 1),
             },
         ],
     ];
 }
 public class Q1280_StudentsAndExaminationsTests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     Create table If Not Exists Students (student_id int, student_name varchar(20));
     Create table If Not Exists Subjects (subject_name varchar(20));
@@ -78,13 +78,13 @@ public class Q1280_StudentsAndExaminationsTests(ITestOutputHelper output) : SqlT
         var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["student_id", "student_name", "subject_name", "attended_exams"]);
 
-        for(var i = 0; i< values.Length; i++)
+        for (var i = 0; i < values.Length; i++)
         {
             Assert.True(reader.Read());
             Assert.Equal(values[i].student_id, reader.GetInt32(0));
             Assert.Equal(values[i].student_name, reader.GetString(1));
             Assert.Equal(values[i].subject_name, reader.GetString(2));
             Assert.Equal(values[i].attended_exams, reader.GetInt32(3));
-        }        
+        }
     }
 }

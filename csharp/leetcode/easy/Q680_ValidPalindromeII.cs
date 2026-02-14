@@ -1,4 +1,4 @@
-public class Q680_ValidPalindromeII
+﻿public class Q680_ValidPalindromeII
 {
     // use two pointers approach
     // TC: O(n), n scale with length of s

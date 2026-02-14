@@ -1,4 +1,4 @@
-public class Q2966_DivideArrayIntoArraysWithMaxDiff
+﻿public class Q2966_DivideArrayIntoArraysWithMaxDiff
 {
     // TC: O(n log n), dominated by Array.Sort()
     // SC: O(n), n scale with length of nums to store the result

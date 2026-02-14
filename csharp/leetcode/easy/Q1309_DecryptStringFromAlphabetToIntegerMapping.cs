@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 
 class Q1309_DecryptStringFromAlphabetToIntegerMapping
 {
@@ -33,10 +33,10 @@ class Q1309_DecryptStringFromAlphabetToIntegerMapping
     };
     // TC: O(n), n is length of s
     // SC: O(n), n is length of s, due to the stack and string builder used  
-    public string FreqAlphabets(string s) 
+    public string FreqAlphabets(string s)
     {
         var stack = new Stack<string>();
-        for(var i=s.Length-1; i>=0; i--)
+        for (var i = s.Length - 1; i >= 0; i--)
         {
             if (s[i] == '#')
             {
@@ -47,12 +47,12 @@ class Q1309_DecryptStringFromAlphabetToIntegerMapping
         }
         var sb = new StringBuilder();
         while (stack.Count > 0) sb.Append(Mapping[stack.Pop()]);
-        return sb.ToString();   
+        return sb.ToString();
     }
 }
 class Q1309_DecryptStringFromAlphabetToIntegerMappingTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["10#11#12", "jkab"],
         ["1326#", "acz"],

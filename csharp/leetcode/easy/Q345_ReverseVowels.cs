@@ -1,15 +1,15 @@
-class Q345_ReverseVowels
+﻿class Q345_ReverseVowels
 {
     private readonly HashSet<char> vows = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
     // TC: O(n), SC: O(n)
-    public string ReverseVowels(string s) 
+    public string ReverseVowels(string s)
     {
         var temp = ' ';
         var charArr = s.ToCharArray();
         var start = 0;
         var end = s.Length - 1;
 
-        while(start < end)
+        while (start < end)
         {
             while (!vows.Contains(charArr[start]))
             {
@@ -37,12 +37,12 @@ class Q345_ReverseVowels
     }
 }
 
-class Q345_ReverseVowelsTestData: TestData
+class Q345_ReverseVowelsTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
-        ["hello", "holle"],    
-        ["leetcode", "leotcede"],    
+        ["hello", "holle"],
+        ["leetcode", "leotcede"],
     ];
 }
 

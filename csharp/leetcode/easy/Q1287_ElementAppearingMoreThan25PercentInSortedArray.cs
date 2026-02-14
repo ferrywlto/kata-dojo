@@ -1,17 +1,17 @@
-class Q1287_ElementAppearingMoreThan25PercentInSortedArray
+﻿class Q1287_ElementAppearingMoreThan25PercentInSortedArray
 {
     // TC: O(n), n is length of arr
     // SC: O(1), no space used in operations
     public int FindSpecialInteger(int[] arr)
     {
         if (arr.Length == 1) return arr[0];
-        
+
         double thresold = arr.Length / 4;
         var current = arr[0];
         var idx = 0;
-        for(var i=1; i<arr.Length; i++)
+        for (var i = 1; i < arr.Length; i++)
         {
-            if(arr[i] != current)
+            if (arr[i] != current)
             {
                 if (i - idx > thresold) return arr[i - 1];
                 current = arr[i];

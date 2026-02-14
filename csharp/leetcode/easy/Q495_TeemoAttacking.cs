@@ -1,4 +1,4 @@
-class Q495_TeemoAttacking
+﻿class Q495_TeemoAttacking
 {
     // TC:O(n), SC: O(1)
     public int FindPoisonedDuration(int[] timeSeries, int duration)

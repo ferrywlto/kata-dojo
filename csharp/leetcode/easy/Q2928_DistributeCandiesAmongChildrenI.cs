@@ -1,4 +1,4 @@
-public class Q2928_DistributeCandiesAmongChildrenI
+﻿public class Q2928_DistributeCandiesAmongChildrenI
 {
     // TC: O(n^2), due to triplet calculation
     // SC: O(1), space used does not scale with input
@@ -10,7 +10,7 @@ public class Q2928_DistributeCandiesAmongChildrenI
             for (var j = 0; j <= limit; j++)
             {
                 var possibleK = n - i - j;
-                if(i + j <= n && possibleK <= limit) result++;    
+                if (i + j <= n && possibleK <= limit) result++;
             }
         }
         return result;

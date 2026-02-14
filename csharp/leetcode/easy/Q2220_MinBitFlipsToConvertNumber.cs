@@ -1,4 +1,4 @@
-public class Q2220_MinBitFlipsToConvertNumber
+﻿public class Q2220_MinBitFlipsToConvertNumber
 {
     // TC: O(log n), n scale with Max(start, goal)
     // SC: O(1), space used does not scale with input
@@ -7,7 +7,7 @@ public class Q2220_MinBitFlipsToConvertNumber
         var xor = start ^ goal;
         var result = 0;
 
-        while(xor > 0)
+        while (xor > 0)
         {
             // if bit is different it will be 1
             result += xor & 1;

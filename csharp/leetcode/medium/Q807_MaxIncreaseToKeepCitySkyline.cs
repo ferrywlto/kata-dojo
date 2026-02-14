@@ -1,4 +1,4 @@
-public class Q807_MaxIncreaseToKeepCitySkyline
+﻿public class Q807_MaxIncreaseToKeepCitySkyline
 {
     // TC: O(n^2), n scale with rows in grid, it have to iterate all elements twice
     // SC: O(n), only need to store the skylines
@@ -34,7 +34,7 @@ public class Q807_MaxIncreaseToKeepCitySkyline
         }
         return result;
     }
-    
+
     public static TheoryData<int[][], int> TestData => new()
     {
         {[

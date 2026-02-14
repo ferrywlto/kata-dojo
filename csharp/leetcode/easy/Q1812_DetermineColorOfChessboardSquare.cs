@@ -1,4 +1,4 @@
-class Q1812_DetermineColorOfChessboardSquare
+﻿class Q1812_DetermineColorOfChessboardSquare
 {
     // 97 - 104
     // readonly char[] d1 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];

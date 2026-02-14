@@ -1,4 +1,4 @@
-class Q205_IsomorphicStrings
+﻿class Q205_IsomorphicStrings
 {
     public bool IsIsomorphic(string s, string t)
     {
@@ -8,7 +8,7 @@ class Q205_IsomorphicStrings
         // 2. If one char map to multiple chars, it must be false
         // 3. There should be no two keys map to the same character 
         var dict = new Dictionary<char, char>();
-        for(var i = 0; i<s.Length; i++) 
+        for (var i = 0; i < s.Length; i++)
         {
             if (!dict.TryGetValue(s[i], out char value))
             {
@@ -32,7 +32,7 @@ class Q205_IsomorphicStrings
 
 class Q205_IsomorphicStringsTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["egg", "add", true],
         ["foo", "bar", false],

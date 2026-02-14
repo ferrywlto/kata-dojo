@@ -1,4 +1,4 @@
-class Q415_AddStrings
+﻿class Q415_AddStrings
 {
     private const int charBase = 48;
     private static int CharToInt(char c) => c - charBase;
@@ -11,17 +11,19 @@ class Q415_AddStrings
         // pad 2 string to same size
         // start from end
         // track carry forward
-        if (num1.Length > num2.Length) {
+        if (num1.Length > num2.Length)
+        {
             num2 = num2.PadLeft(num1.Length, '0');
         }
-        else if(num2.Length > num1.Length) {
+        else if (num2.Length > num1.Length)
+        {
             num1 = num1.PadLeft(num2.Length, '0');
         }
 
         var stack = new Stack<char>();
         // char '0' => dec 48
         bool carryForward = false;
-        for(var i = num1.Length-1; i>=0; i--)
+        for (var i = num1.Length - 1; i >= 0; i--)
         {
             var x = CharToInt(num1[i]) + CharToInt(num2[i]);
             if (carryForward) x++;
@@ -35,9 +37,9 @@ class Q415_AddStrings
     }
 }
 
-class Q415_AddStringsTestData: TestData
+class Q415_AddStringsTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["11", "123", "134"],
         ["456", "77", "533"],

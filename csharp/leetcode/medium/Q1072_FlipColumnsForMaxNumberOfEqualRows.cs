@@ -1,4 +1,4 @@
-public class Q1072_FlipColumnsForMaxNumberOfEqualRows
+﻿public class Q1072_FlipColumnsForMaxNumberOfEqualRows
 {
     public int MaxEqualRowsAfterFlips(int[][] matrix)
     {

@@ -1,6 +1,6 @@
-class Q619_BiggestSingleNumber : SqlQuestion
+﻿class Q619_BiggestSingleNumber : SqlQuestion
 {
-    public override string Query => 
+    public override string Query =>
     """
     SELECT COALESCE(
     (
@@ -20,7 +20,7 @@ class Q619_BiggestSingleNumber : SqlQuestion
 
 class Q619_BiggestSingleNumberTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -41,7 +41,7 @@ class Q619_BiggestSingleNumberTestData : TestData
 [Trait("QuestionType", "SQL")]
 public class Q619_BiggestSingleNumberTests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     CREATE TABLE IF NOT EXISTS MyNumbers (num INT);
     """;
@@ -55,10 +55,10 @@ public class Q619_BiggestSingleNumberTests(ITestOutputHelper output) : SqlTest(o
         var sut = new Q619_BiggestSingleNumber();
         var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["num"]);
-        
+
         Assert.True(reader.Read());
-        
-        if(expected != int.MinValue)
+
+        if (expected != int.MinValue)
         {
             Assert.Equal(expected, reader.GetInt32(0));
         }

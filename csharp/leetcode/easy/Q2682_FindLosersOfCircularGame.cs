@@ -1,4 +1,4 @@
-public class Q2682_FindLosersOfCircularGame
+﻿public class Q2682_FindLosersOfCircularGame
 {
     //TC: O(n), n scale with size of n, worst case all 1 to n are traversed, plus n to select those not traversed into result
     //SC: O(n), initially the hashset has n items

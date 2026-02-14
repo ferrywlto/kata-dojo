@@ -1,4 +1,4 @@
-class Q1903_LargestOddNumberInString
+﻿class Q1903_LargestOddNumberInString
 {
     // TC: O(n), where n is the length of num worst case (no odd number found)
     // SC: O(1), space used does not scale with num 

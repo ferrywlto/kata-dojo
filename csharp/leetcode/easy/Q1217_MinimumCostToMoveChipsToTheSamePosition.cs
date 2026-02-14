@@ -1,4 +1,4 @@
-class Q1217_MinimumCostToMoveChipsToTheSamePosition
+﻿class Q1217_MinimumCostToMoveChipsToTheSamePosition
 {
     // TC: O(n), each position have to iterate once
     // SC: O(1), fixed to 2 variables

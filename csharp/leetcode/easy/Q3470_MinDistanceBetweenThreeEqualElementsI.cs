@@ -1,4 +1,4 @@
-public class Q3470_MinDistanceBetweenThreeEqualElementsI
+﻿public class Q3470_MinDistanceBetweenThreeEqualElementsI
 {
     // TC: O(n * f * k) where n is the length of nums, f is the frequency of the elements count > 3, k is the number of such elements
     // SC: O(d), where d is the number of distinct elements in nums

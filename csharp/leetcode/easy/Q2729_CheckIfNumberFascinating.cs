@@ -1,4 +1,4 @@
-public class Q2729_CheckIfNumberFascinating
+﻿public class Q2729_CheckIfNumberFascinating
 {
     // TC: O(n), n scale with number of digits in n
     // SC: O(1), space used does not scale with input

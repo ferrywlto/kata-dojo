@@ -1,4 +1,4 @@
-class Q1805_NumDiffIntegersInString
+﻿class Q1805_NumDiffIntegersInString
 {
     // TC: O(n), where n is lenght of word
     // SC: O(m), where m is unique number exists in word
@@ -7,14 +7,14 @@ class Q1805_NumDiffIntegersInString
         var set = new HashSet<string>();
         var startIdx = -1;
         var inSequence = false;
-        for(var i=0; i<word.Length; i++)
+        for (var i = 0; i < word.Length; i++)
         {
-            if(word[i] <= '9' && !inSequence)
+            if (word[i] <= '9' && !inSequence)
             {
                 startIdx = i;
                 inSequence = true;
             }
-            else if(word[i] > '9' && inSequence) 
+            else if (word[i] > '9' && inSequence)
             {
                 set.Add(word[startIdx..i].TrimStart('0'));
                 inSequence = false;
@@ -28,7 +28,7 @@ class Q1805_NumDiffIntegersInString
     }
     public string removeLeadingZeros(string input)
     {
-        for(var i=0; i<input.Length; i++)
+        for (var i = 0; i < input.Length; i++)
         {
             if (input[i] > '0') return input[i..];
         }

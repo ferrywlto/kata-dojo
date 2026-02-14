@@ -1,4 +1,4 @@
-public class Q2717_SemiOrderedPermutation
+﻿public class Q2717_SemiOrderedPermutation
 {
     // TC: O(n), n sacle with length of nums to iterate all items to find the idx of 1 and N
     // SC: O(1), space used does not scale with input

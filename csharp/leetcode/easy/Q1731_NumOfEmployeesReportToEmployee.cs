@@ -1,8 +1,8 @@
-using Row = (int employee_id, string name, int reports_count, double average_age);
+﻿using Row = (int employee_id, string name, int reports_count, double average_age);
 class Q1731_NumOfEmployeesReportToEmployee : SqlQuestion
 {
     // MySQL Dialect
-    public override string Query => 
+    public override string Query =>
     """
     select 
     managers.employee_id as 'employee_id', 
@@ -33,7 +33,7 @@ class Q1731_NumOfEmployeesReportToEmployee : SqlQuestion
 }
 class Q1731_NumOfEmployeesReportToEmployeeTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -65,13 +65,13 @@ class Q1731_NumOfEmployeesReportToEmployeeTestData : TestData
                 (1, "Michael", 2, 40),
                 (2, "Alice", 2, 37),
                 (3, "Bob", 1, 37),
-            }            
+            }
         ]
     ];
 }
 public class Q1731_NumOfEmployeesReportToEmployeeTests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     Create table If Not Exists Employees(employee_id int, name varchar(20), reports_to int, age int);
     """;
@@ -84,7 +84,7 @@ public class Q1731_NumOfEmployeesReportToEmployeeTests(ITestOutputHelper output)
         var sut = new Q1731_NumOfEmployeesReportToEmployee();
         var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["employee_id", "name", "reports_count", "average_age"]);
-        foreach(var (employee_id, name, reports_count, average_age) in expected)
+        foreach (var (employee_id, name, reports_count, average_age) in expected)
         {
             Assert.True(reader.Read());
             Assert.Equal(employee_id, reader.GetInt32(0));

@@ -1,4 +1,4 @@
-public class Q3622_CheckDivisibilityByDigitSumAndProduct
+﻿public class Q3622_CheckDivisibilityByDigitSumAndProduct
 {
     // TC: O(d), where d is the number of digits in n.
     // SC: O(1), since we are using a constant amount of space.

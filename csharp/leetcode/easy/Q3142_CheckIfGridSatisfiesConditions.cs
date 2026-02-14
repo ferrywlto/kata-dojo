@@ -1,4 +1,4 @@
-public class Q3142_CheckIfGridSatisfiesConditions
+﻿public class Q3142_CheckIfGridSatisfiesConditions
 {
     // TC: O(n), n scale with rows x columns in grid
     // SC: O(1), space used does not scale with input

@@ -1,4 +1,4 @@
-class Q367_ValidPerfectSquare
+﻿class Q367_ValidPerfectSquare
 {
     // TC: O(log n), SC: O(1)
     public bool IsPerfectSquare(int num)
@@ -9,7 +9,7 @@ class Q367_ValidPerfectSquare
         long end = num;
 
         long middle = (end + start) / 2;
-        while(end - start > 1)
+        while (end - start > 1)
         {
             long temp = middle * middle;
             if (temp > num)
@@ -22,7 +22,7 @@ class Q367_ValidPerfectSquare
                 start = middle;
                 middle = (end + start) / 2;
             }
-            else 
+            else
             {
                 return true;
             }
@@ -31,15 +31,15 @@ class Q367_ValidPerfectSquare
     }
 }
 
-class Q367_ValidPerfectSquareTestData: TestData
+class Q367_ValidPerfectSquareTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
-        [16, true],       
-        [14, false],       
-        [1, true],      
-        [5, false], 
-        [2147483647, false], 
+        [16, true],
+        [14, false],
+        [1, true],
+        [5, false],
+        [2147483647, false],
     ];
 }
 

@@ -1,12 +1,12 @@
-class Q412_FizzBuzz
+﻿class Q412_FizzBuzz
 {
     // TC: O(n), SC: O(n)
     public IList<string> FizzBuzz(int n)
     {
         var result = new List<string>();
-        for(var i=0; i<n; i++)
+        for (var i = 0; i < n; i++)
         {
-            result.Add(FizzOrBuzz(i+1));
+            result.Add(FizzOrBuzz(i + 1));
         }
         return result;
     }
@@ -20,32 +20,32 @@ class Q412_FizzBuzz
     }
 
     // Same efficiency, slightly faster only if n is very large
-    public IList<string> FizzBuzz_NoModulo(int n) 
+    public IList<string> FizzBuzz_NoModulo(int n)
     {
         var result = new List<string>();
         int fizz = 0, buzz = 0;
 
-        for (int i = 1; i <= n; i++) 
+        for (int i = 1; i <= n; i++)
         {
             fizz++;
             buzz++;
-            if (fizz == 3 && buzz == 5) 
+            if (fizz == 3 && buzz == 5)
             {
                 result.Add("FizzBuzz");
                 fizz = 0;
                 buzz = 0;
-            } 
-            else if (fizz == 3) 
+            }
+            else if (fizz == 3)
             {
                 result.Add("Fizz");
                 fizz = 0;
-            } 
-            else if (buzz == 5) 
+            }
+            else if (buzz == 5)
             {
                 result.Add("Buzz");
                 buzz = 0;
-            } 
-            else 
+            }
+            else
             {
                 result.Add(i.ToString());
             }
@@ -55,9 +55,9 @@ class Q412_FizzBuzz
     }
 }
 
-class Q412_FizzBuzzTestData: TestData
+class Q412_FizzBuzzTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [15, new List<string> { "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz" }],
         [1, new List<string> { "1" }],

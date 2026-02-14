@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 class Foo
 {
     protected int step = 0;
@@ -9,13 +9,13 @@ class Foo
     }
     public string Second()
     {
-        while(step <= 0) Thread.Sleep(1);
+        while (step <= 0) Thread.Sleep(1);
         step++;
         return "second";
     }
     public string Third()
     {
-        while(step <= 1) Thread.Sleep(1);
+        while (step <= 1) Thread.Sleep(1);
         step++;
         return "third";
     }

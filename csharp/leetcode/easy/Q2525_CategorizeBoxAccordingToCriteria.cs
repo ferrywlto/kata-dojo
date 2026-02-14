@@ -1,4 +1,4 @@
-public class Q2525_CategorizeBoxAccordingToCriteria
+﻿public class Q2525_CategorizeBoxAccordingToCriteria
 {
     // TC: O(1)
     // SC: O(1)

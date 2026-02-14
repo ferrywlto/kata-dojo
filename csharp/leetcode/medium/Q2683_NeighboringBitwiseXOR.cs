@@ -1,4 +1,4 @@
-public class Q2683_NeighboringBitwiseXOR
+﻿public class Q2683_NeighboringBitwiseXOR
 {
     public bool DoesValidArrayExist(int[] derived)
     {
@@ -21,11 +21,11 @@ public class Q2683_NeighboringBitwiseXOR
                         original[i + 1] = 0;
                     }
                 }
-                 
-                if (i == len - 1)
-                    {
 
-                    }
+                if (i == len - 1)
+                {
+
+                }
             }
         }
         return false;

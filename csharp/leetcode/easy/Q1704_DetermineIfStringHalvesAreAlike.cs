@@ -1,4 +1,4 @@
-class Q1704_DetermineIfStringHalvesAreAlike
+﻿class Q1704_DetermineIfStringHalvesAreAlike
 {
     // TC: O(n), where n is length of s, it have to iterate all characters
     // SC: O(1), space used is fixed
@@ -13,11 +13,11 @@ class Q1704_DetermineIfStringHalvesAreAlike
             {'u'},{'U'},
         };
         var count = 0;
-        for(var i=0; i<s.Length/2; i++)
+        for (var i = 0; i < s.Length / 2; i++)
         {
-            if(set.Contains(s[i])) count++;
+            if (set.Contains(s[i])) count++;
         }
-        for(var j=s.Length/2; j<s.Length; j++)
+        for (var j = s.Length / 2; j < s.Length; j++)
         {
             if (set.Contains(s[j])) count--;
         }

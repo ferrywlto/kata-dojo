@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 
 class Q1592_RearrangeSpacesBetweenWords
 {
@@ -37,9 +37,9 @@ class Q1592_RearrangeSpacesBetweenWords
 
         var remainingSpaces = spaceCount % (words.Count - 1);
         var spaceBetweenWords = spaceCount / (words.Count - 1);
-        for(var i=0; i<words.Count; i++)
+        for (var i = 0; i < words.Count; i++)
         {
-            if(i>0) sb.Append(' ', spaceBetweenWords);
+            if (i > 0) sb.Append(' ', spaceBetweenWords);
             sb.Append(words[i]);
         }
         sb.Append(' ', remainingSpaces);

@@ -1,4 +1,4 @@
-public class Q2562_FindArrayConcatenationValue
+﻿public class Q2562_FindArrayConcatenationValue
 {
     // TC: O(n), n scale with length of nums. Have to iterate all elements
     // SC: O(1), space used does not scale with input

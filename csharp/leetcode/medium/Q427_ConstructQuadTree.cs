@@ -1,4 +1,4 @@
-public class Q427_ConstructQuadTree(ITestOutputHelper output)
+﻿public class Q427_ConstructQuadTree(ITestOutputHelper output)
 {
     public class Node
     {

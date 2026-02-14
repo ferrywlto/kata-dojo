@@ -1,4 +1,4 @@
-public class Q3083_ExistenceOfSubstringInStringAndItsReverse
+﻿public class Q3083_ExistenceOfSubstringInStringAndItsReverse
 {
     // TC: O(n^2), n scale with length of s
     // SC: O(1), space used does not scale with input

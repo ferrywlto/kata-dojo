@@ -1,13 +1,13 @@
-class Q1351_CountNegativeNumbersInSortedMatrix
+﻿class Q1351_CountNegativeNumbersInSortedMatrix
 {
     // TC: O(n), n = total elements in grid worst case (all negative)
     // SC: O(1), no space used for operation
     public int CountNegatives(int[][] grid)
     {
         var count = 0;
-        for(var i=grid.Length-1; i>=0; i--)
+        for (var i = grid.Length - 1; i >= 0; i--)
         {
-            for(var j=grid[i].Length-1; j>=0; j--)
+            for (var j = grid[i].Length - 1; j >= 0; j--)
             {
                 if (grid[i][j] >= 0) break;
                 count++;
@@ -21,7 +21,7 @@ class Q1351_CountNegativeNumbersInSortedMatrix
         var count = 0;
         int i = 0;
         int j = grid[0].Length - 1;
-        while (i < grid.Length && j >=0)
+        while (i < grid.Length && j >= 0)
         {
             if (grid[i][j] < 0)
             {
@@ -29,7 +29,7 @@ class Q1351_CountNegativeNumbersInSortedMatrix
                 j--;
             }
             else i++;
-        }        
+        }
         return count;
     }
     public int CountNegatives_BinarySearch(int[][] grid)
@@ -59,7 +59,7 @@ class Q1351_CountNegativeNumbersInSortedMatrix
             count += row.Length - firstPositiveIndex;
         }
         return count;
-    }    
+    }
 }
 class Q1351_CountNegativeNumbersInSortedMatrixTestData : TestData
 {

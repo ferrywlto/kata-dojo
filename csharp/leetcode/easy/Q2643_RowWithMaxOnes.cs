@@ -1,4 +1,4 @@
-public class Q2643_RowWithMaxOnes
+﻿public class Q2643_RowWithMaxOnes
 {
     // TC: O(n * m), scale with rows times columns in mat, equals to total elements in mat
     // SC: O(1), space used does not scale with input

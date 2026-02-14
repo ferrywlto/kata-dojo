@@ -1,4 +1,4 @@
-class Q1773_CountItemsMatchingRule
+﻿class Q1773_CountItemsMatchingRule
 {
     // TC: O(n), where n is length of items
     // SC: O(1), space used is fixed

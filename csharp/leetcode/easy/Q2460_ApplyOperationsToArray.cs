@@ -1,4 +1,4 @@
-public class Q2460_ApplyOperationsToArray
+﻿public class Q2460_ApplyOperationsToArray
 {
     // TC: O(n), n scale with length of nums
     // SC: O(n), same as time to hold the result

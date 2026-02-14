@@ -1,6 +1,6 @@
-using System.Text;
+﻿using System.Text;
 
-class WordsHelper 
+class WordsHelper
 {
     private readonly string[] _words;
     public readonly int TotalLength;
@@ -18,7 +18,7 @@ class WordsHelper
         if (position >= TotalLength) return '\0';
 
         position++;
-        if(charIdx == _words[wordIdx].Length)
+        if (charIdx == _words[wordIdx].Length)
         {
             charIdx = 0;
             wordIdx++;
@@ -38,7 +38,7 @@ class Q1662_CheckIfTwoStringArraysAreEquivalent
         if (helper1.TotalLength != helper2.TotalLength) return false;
 
         var idx = 0;
-        while(idx < helper1.TotalLength)
+        while (idx < helper1.TotalLength)
         {
             if (helper1.NextChar() != helper2.NextChar()) return false;
             idx++;
@@ -55,18 +55,18 @@ class Q1662_CheckIfTwoStringArraysAreEquivalent
         var idx1 = 0;
         var idx2 = 0;
         var compareIdx = 0;
-        while(idx1 < word1.Length || idx2 < word2.Length)
+        while (idx1 < word1.Length || idx2 < word2.Length)
         {
-            if(idx1 < word1.Length)
+            if (idx1 < word1.Length)
             {
                 sb1.Append(word1[idx1++]);
             }
-            if(idx2 < word2.Length)
+            if (idx2 < word2.Length)
             {
                 sb2.Append(word2[idx2++]);
             }
             var end = Math.Min(sb1.Length, sb2.Length) - 1;
-            for(var i = compareIdx; i<=end; i++)
+            for (var i = compareIdx; i <= end; i++)
             {
                 if (sb1[i] != sb2[i]) return false;
             }

@@ -1,4 +1,4 @@
-public class Q2255_CountPrefixesOfGivenString
+﻿public class Q2255_CountPrefixesOfGivenString
 {
     // TC: O(n), where n sacle with number of total characters in words
     // SC: O(1), space used does not sacle with input

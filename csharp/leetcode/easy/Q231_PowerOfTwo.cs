@@ -1,7 +1,7 @@
-class Q231_PowerOfTwo
+﻿class Q231_PowerOfTwo
 {
     // TC:O(1), SC:O(1)
-    public bool IsPowerOfTwo(int n) 
+    public bool IsPowerOfTwo(int n)
     {
         return Math.Log2(n) % 1 == 0;
     }
@@ -16,7 +16,7 @@ class Q231_PowerOfTwo
         // actually just need to return false if less than zero
         if (n < 0) return false;
 
-        for(byte i=0; i<32; i++)
+        for (byte i = 0; i < 32; i++)
         {
             if (1 << i == n) return true;
         }
@@ -24,9 +24,9 @@ class Q231_PowerOfTwo
     }
 }
 
-class Q231_PowerOfTwoTestData: TestData
+class Q231_PowerOfTwoTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [1, true],
         [2, true],

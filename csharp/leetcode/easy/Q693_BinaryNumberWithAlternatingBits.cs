@@ -1,4 +1,4 @@
-class Q693_BinaryNumberWithAlternatingBits
+﻿class Q693_BinaryNumberWithAlternatingBits
 {
     // TC: O(n)
     // SC: O(n)

@@ -1,4 +1,4 @@
-public class Q3318_FindXSumOfAllKLongSubarraysI
+﻿public class Q3318_FindXSumOfAllKLongSubarraysI
 {
     // TC: O(n^2), n scale with length of nums, for each result it iterates 5n times in XSum
     // SC: O(n+m), n sacle with the result size, m scale with unique numbers in each subarray

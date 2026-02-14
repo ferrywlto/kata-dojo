@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 
 class Q482_LicenseKeyFormatting
 {
@@ -22,7 +22,7 @@ class Q482_LicenseKeyFormatting
         }
         return sb.ToString();
     }
- }
+}
 
 class Q482_LicenseKeyFormattingTestData : TestData
 {

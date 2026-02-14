@@ -1,4 +1,4 @@
-class Q1360_NumberOfDaysBetweenTwoDates
+﻿class Q1360_NumberOfDaysBetweenTwoDates
 {
     // TC: O(1)
     // SC: O(1), obviously

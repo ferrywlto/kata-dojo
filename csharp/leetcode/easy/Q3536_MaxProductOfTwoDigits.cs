@@ -1,4 +1,4 @@
-public class Q3536_MaxProductOfTwoDigits
+﻿public class Q3536_MaxProductOfTwoDigits
 {
     // TC: O(n), n scale with number of digits in n
     // SC: O(1), space used does not scale with input

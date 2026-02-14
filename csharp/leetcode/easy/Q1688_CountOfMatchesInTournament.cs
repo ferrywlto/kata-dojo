@@ -1,4 +1,4 @@
-class Q1688_CountOfMatchesInTournament
+﻿class Q1688_CountOfMatchesInTournament
 {
     // TC: O(1)
     // SC: O(1), obviously

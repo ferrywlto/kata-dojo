@@ -1,4 +1,4 @@
-public class Q1984_MinDiffBetweenHighestAndLowestKScores
+﻿public class Q1984_MinDiffBetweenHighestAndLowestKScores
 {
 
     // TC: O(n log n), due to Array.Sort() + (n - k) 

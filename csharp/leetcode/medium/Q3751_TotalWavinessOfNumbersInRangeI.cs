@@ -1,4 +1,4 @@
-public class Q3751_TotalWavinessOfNumbersInRangeI
+﻿public class Q3751_TotalWavinessOfNumbersInRangeI
 {
     // TC: O(n), where n scale with Abs(num1 - num2)
     // SC: O(1), space used does not scale with input

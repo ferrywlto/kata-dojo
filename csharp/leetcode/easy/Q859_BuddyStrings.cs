@@ -1,4 +1,4 @@
-
+﻿
 class Q859_BuddyStrings
 {
     // TC: O(n), n is length of s

@@ -1,4 +1,4 @@
-public class Q3364_MinPositiveSumSubarray
+﻿public class Q3364_MinPositiveSumSubarray
 {
     // TC: O(m * n), n scale with length of nums, m scale with r-l
     // SC: O(1), space used does not scale with input 
@@ -15,11 +15,11 @@ public class Q3364_MinPositiveSumSubarray
             }
 
             if (sum > 0 && sum < min) min = sum;
-            
+
             for (var i = 1; i < nums.Count - size + 1; i++)
             {
-                sum -= nums[i-1];
-                sum += nums[i+size-1];
+                sum -= nums[i - 1];
+                sum += nums[i + size - 1];
 
                 if (sum > 0 && sum < min) min = sum;
             }

@@ -1,4 +1,4 @@
-using Row = (string sell_date, int num_sold, string products);
+﻿using Row = (string sell_date, int num_sold, string products);
 class Q1484_GroupSoldProductsByDate : SqlQuestion
 {
     public override string Query =>
@@ -92,23 +92,23 @@ class Q1484_GroupSoldProductsByDateTestData : TestData
             ('2020-06-20','Mascara');
             """,
             new Row[] {
-                ("2020-06-03",1,"Flip-flops"),            
-                ("2020-06-04",1,"Hat"),                   
-                ("2020-06-05",1,"Cap"),                   
-                ("2020-06-09",3,"Boots,Handbag,Jacket"),  
-                ("2020-06-10",1,"Cap"),                   
-                ("2020-06-11",1,"Cap"),                   
-                ("2020-06-13",1,"Handbag"),               
-                ("2020-06-14",1,"Mascara"),               
-                ("2020-06-18",1,"Socks"),                 
-                ("2020-06-20",1,"Mascara"),               
-                ("2020-06-22",2,"Diaper,Mortarboard"),    
-                ("2020-06-24",2,"Mortarboard,Socks"),     
-                ("2020-06-25",1,"Socks"),                 
-                ("2020-06-28",1,"Mortarboard"),           
-                ("2020-06-29",1,"Boots"),                 
-                ("2020-07-02",2,"Mortarboard,Socks"),     
-                ("2020-07-03",1,"Handbag"),               
+                ("2020-06-03",1,"Flip-flops"),
+                ("2020-06-04",1,"Hat"),
+                ("2020-06-05",1,"Cap"),
+                ("2020-06-09",3,"Boots,Handbag,Jacket"),
+                ("2020-06-10",1,"Cap"),
+                ("2020-06-11",1,"Cap"),
+                ("2020-06-13",1,"Handbag"),
+                ("2020-06-14",1,"Mascara"),
+                ("2020-06-18",1,"Socks"),
+                ("2020-06-20",1,"Mascara"),
+                ("2020-06-22",2,"Diaper,Mortarboard"),
+                ("2020-06-24",2,"Mortarboard,Socks"),
+                ("2020-06-25",1,"Socks"),
+                ("2020-06-28",1,"Mortarboard"),
+                ("2020-06-29",1,"Boots"),
+                ("2020-07-02",2,"Mortarboard,Socks"),
+                ("2020-07-03",1,"Handbag"),
                 ("2020-07-05",2,"Bronzer,Mortarboard"),
             }
         ]
@@ -129,7 +129,7 @@ public class Q1484_GroupSoldProductsByDateTests(ITestOutputHelper output) : SqlT
         var sut = new Q1484_GroupSoldProductsByDate();
         var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["sell_date", "num_sold", "products"]);
-        foreach(var (sell_date, num_sold, products) in expected)
+        foreach (var (sell_date, num_sold, products) in expected)
         {
             Assert.True(reader.Read());
             Assert.Equal(sell_date, reader.GetDateTime(0).ToString("yyyy-MM-dd"));

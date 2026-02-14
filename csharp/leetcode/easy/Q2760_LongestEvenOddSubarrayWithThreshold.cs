@@ -1,4 +1,4 @@
-public class Q2760_LongestEvenOddSubarrayWithThreshold
+﻿public class Q2760_LongestEvenOddSubarrayWithThreshold
 {
     // TC: O(n), n scale with length of nums
     // SC: O(1), space used does not scale with input

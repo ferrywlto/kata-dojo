@@ -1,4 +1,4 @@
-using Row = (int contest_id, float percentage);
+﻿using Row = (int contest_id, float percentage);
 class Q1633_PercentageOfUsersAttendedContest : SqlQuestion
 {
     public override string Query =>

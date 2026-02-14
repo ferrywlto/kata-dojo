@@ -1,4 +1,4 @@
-class Q401_BinaryWatch
+﻿class Q401_BinaryWatch
 {
     int[]? Bits;
     Dictionary<int, List<string>> PossibleTime = [];
@@ -28,7 +28,7 @@ class Q401_BinaryWatch
             .Where(x => x.i == turnedOn)
             .Select(x => (x.idx >> 6, x.idx & 0b111111))
             .Where(x => x.Item1 < 12 && x.Item2 < 60)
-            .Select(x => $"{x.Item1}:{x.Item2.ToString().PadLeft(2,'0')}")
+            .Select(x => $"{x.Item1}:{x.Item2.ToString().PadLeft(2, '0')}")
             .ToList();
 
         PossibleTime.Add(turnedOn, filtered);

@@ -1,4 +1,4 @@
-class Q1913_MaxProductDiffBetweenTwoPairs
+﻿class Q1913_MaxProductDiffBetweenTwoPairs
 {
     // TC: O(n log n), due to Array.Sort();
     // SC: O(1), space used does not scale with input

@@ -1,4 +1,4 @@
-public class Q3345_SmallestDivisibleDigitProductI
+﻿public class Q3345_SmallestDivisibleDigitProductI
 {
     // TC: O(n log 10), n scale inversely, the smaller the n, the more operation required
     // SC: O(1), space used does not scale with input 

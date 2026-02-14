@@ -1,4 +1,4 @@
-public class Q1817_FindingUsersActiveMinutes
+﻿public class Q1817_FindingUsersActiveMinutes
 {
     // TC: O(n + p + m), n scale with length of logs, p scale with number of user, m scale with unique UAM
     // SC: O(p + m) 

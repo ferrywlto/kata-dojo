@@ -1,4 +1,4 @@
-class Q728_SelfDividingNumbers
+﻿class Q728_SelfDividingNumbers
 {
     public IList<int> SelfDividingNumbers(int left, int right)
     {
@@ -17,7 +17,7 @@ class Q728_SelfDividingNumbers
                     if (digit == 0 || i % digit != 0) selfDividing = false;
                     else n /= 10;
                 }
-                
+
                 if (selfDividing) result.Add(i);
             }
         }

@@ -15,7 +15,7 @@
         {
             if (nums[i] != target[i])
             {
-                if(++freq[nums[i]] == 1)
+                if (++freq[nums[i]] == 1)
                 {
                     result++;
                 }

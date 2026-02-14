@@ -1,9 +1,9 @@
-
+﻿
 class Q1025_DivisorGame
 {
     // TC: O(1)
     // SC: O(1)
-    public bool DivisorGame(int n) 
+    public bool DivisorGame(int n)
     {
         // who start with odd always lose, not matter what.
         // while whoever start with even always win, 
@@ -14,7 +14,7 @@ class Q1025_DivisorGame
 }
 class Q1025_DivisorGameTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [2, true],
         [3, false],

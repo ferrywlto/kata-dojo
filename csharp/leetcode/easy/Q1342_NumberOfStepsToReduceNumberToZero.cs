@@ -1,4 +1,4 @@
-class Q1342_NumberOfStepsToReduceNumberToZero
+﻿class Q1342_NumberOfStepsToReduceNumberToZero
 {
     // TC: O(n), scale with size of num
     // SC: O(1), no space used in calculation
@@ -19,13 +19,13 @@ class Q1342_NumberOfStepsToReduceNumberToZero
     {
         if (num == 0) return 0;
         var count = 0;
-        while(num > 0)
+        while (num > 0)
         {
             if ((num & 1) == 1) count++;
             num >>= 1;
             count++;
         }
-        return count-1;
+        return count - 1;
     }
 }
 class Q1342_NumberOfStepsToReduceNumberToZeroTestData : TestData

@@ -1,9 +1,9 @@
-class Q888_FairCandySwap
+﻿class Q888_FairCandySwap
 {
     // This use one pass instead of nested n^2 approach
     // TC: O(n)
     // SC: O(n), n is distinct values from both Alice and Bob 
-    public int[] FairCandySwap(int[] aliceSizes, int[] bobSizes) 
+    public int[] FairCandySwap(int[] aliceSizes, int[] bobSizes)
     {
         var aliceSum = aliceSizes.Sum();
         var bobSum = bobSizes.Sum();
@@ -26,7 +26,7 @@ class Q888_FairCandySwap
 
 class Q888_FairCandySwapTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[]{1,1}, new int[] {2,2}, new int[] {1,2}],
         [new int[]{1,2}, new int[] {2,3}, new int[] {1,2}],

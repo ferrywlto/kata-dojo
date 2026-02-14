@@ -1,6 +1,6 @@
-class Q1683_InvalidTweets : SqlQuestion
+﻿class Q1683_InvalidTweets : SqlQuestion
 {
-    public override string Query => 
+    public override string Query =>
     """
     select tweet_id from Tweets
     where length(content) > 15;
@@ -8,7 +8,7 @@ class Q1683_InvalidTweets : SqlQuestion
 }
 class Q1683_InvalidTweetsTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -20,7 +20,7 @@ class Q1683_InvalidTweetsTestData : TestData
 }
 public class Q1683_InvalidTweetsTests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     Create table If Not Exists Tweets(tweet_id int, content varchar(50));
     """;

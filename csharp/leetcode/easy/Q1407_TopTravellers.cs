@@ -1,4 +1,4 @@
-using Row = (string name, int travelled_distance);
+﻿using Row = (string name, int travelled_distance);
 class Q1407_TopTravellers : SqlQuestion
 {
     public override string Query =>
@@ -16,7 +16,7 @@ class Q1407_TopTravellers : SqlQuestion
 }
 class Q1407_TopTravellersTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -54,7 +54,7 @@ class Q1407_TopTravellersTestData : TestData
 }
 public class Q1407_TopTravellersTests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     Create Table If Not Exists Users (id int, name varchar(30));
     Create Table If Not Exists Rides (id int, user_id int, distance int);
@@ -68,7 +68,7 @@ public class Q1407_TopTravellersTests(ITestOutputHelper output) : SqlTest(output
         var sut = new Q1407_TopTravellers();
         var reader = ExecuteQuery(sut.Query);
         AssertResultSchema(reader, ["name", "travelled_distance"]);
-        foreach(var (name, travelled_distance) in expected)
+        foreach (var (name, travelled_distance) in expected)
         {
             Assert.True(reader.Read());
             Assert.Equal(name, reader.GetString(0));

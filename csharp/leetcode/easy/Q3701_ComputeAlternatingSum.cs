@@ -1,4 +1,4 @@
-public class Q3701_ComputeAlternatingSum
+﻿public class Q3701_ComputeAlternatingSum
 {
     // TC: O(n), n is the length of nums
     // SC: O(1), space used does not scale with input size

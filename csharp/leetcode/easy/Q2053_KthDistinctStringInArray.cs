@@ -1,4 +1,4 @@
-public class Q2053_KthDistinctStringInArray
+﻿public class Q2053_KthDistinctStringInArray
 {
     // TC: O(n + m), n scale with length of arr plus m unique values in arr
     // SC: O(m + j), m scale with unique values in arr plus j values that exist more than once 
@@ -6,14 +6,14 @@ public class Q2053_KthDistinctStringInArray
     {
         var setAll = new HashSet<string>();
         var setDup = new HashSet<string>();
-        foreach(var s in arr)
+        foreach (var s in arr)
         {
             if (!setAll.Add(s)) setDup.Add(s);
         }
         var passed = 0;
-        foreach(var s in setAll)
+        foreach (var s in setAll)
         {
-            if(setDup.Add(s))
+            if (setDup.Add(s))
             {
                 passed++;
                 if (passed == k) return s;

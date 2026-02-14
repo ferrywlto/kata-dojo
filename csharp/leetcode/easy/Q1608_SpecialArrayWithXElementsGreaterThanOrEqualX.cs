@@ -1,4 +1,4 @@
-class Q1608_SpecialArrayWithXElementsGreaterThanOrEqualX
+﻿class Q1608_SpecialArrayWithXElementsGreaterThanOrEqualX
 {
     // TC: O(n log n), where n is the length of nums and dominated by Array.Sort();
     // SC: O(1), space used is fixed
@@ -9,11 +9,11 @@ class Q1608_SpecialArrayWithXElementsGreaterThanOrEqualX
         // 2. x must be less than or equal to nums.Length, it cannot have 8 elements larger than or equals to 8 in a 7 elements array 
         if (nums[0] >= nums.Length) return nums.Length;
 
-        for(var i=0; i<nums.Length-1; i++)
+        for (var i = 0; i < nums.Length - 1; i++)
         {
             var normalized = i + 1;
             var larger = nums[^normalized];
-            var smaller = nums[^(normalized+1)];
+            var smaller = nums[^(normalized + 1)];
             if (normalized > smaller && normalized <= larger) return normalized;
         }
         return -1;
@@ -21,7 +21,7 @@ class Q1608_SpecialArrayWithXElementsGreaterThanOrEqualX
 }
 class Q1608_SpecialArrayWithXElementsGreaterThanOrEqualXTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[] {2}, 1],
         [new int[] {2,1}, -1],

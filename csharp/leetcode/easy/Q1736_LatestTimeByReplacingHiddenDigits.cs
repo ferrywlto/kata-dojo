@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 
 class Q1736_LatestTimeByReplacingHiddenDigits
 {
@@ -8,7 +8,7 @@ class Q1736_LatestTimeByReplacingHiddenDigits
     {
         const char hidden = '?';
         var sb = new StringBuilder(time);
-        if (sb[0] == hidden && sb[1] == hidden) 
+        if (sb[0] == hidden && sb[1] == hidden)
         {
             sb[0] = '2'; sb[1] = '3';
         }
@@ -22,14 +22,14 @@ class Q1736_LatestTimeByReplacingHiddenDigits
             if (sb[1] == '0' || sb[1] == '1' || sb[1] == '2' || sb[1] == '3') sb[0] = '2';
             else sb[0] = '1';
         }
-        if(sb[1] == hidden) 
+        if (sb[1] == hidden)
         {
             if (sb[0] == '2') sb[1] = '3';
             else sb[1] = '9';
         }
         if (sb[3] == hidden) sb[3] = '5';
         if (sb[4] == hidden) sb[4] = '9';
-        
+
         return sb.ToString();
     }
 }

@@ -1,4 +1,4 @@
-public class Q3456_FindSpecialSubstringOfLengthK
+﻿public class Q3456_FindSpecialSubstringOfLengthK
 {
     // TC: O(n), n scale with length of s
     // SC: O(1), space used does not sacle with input

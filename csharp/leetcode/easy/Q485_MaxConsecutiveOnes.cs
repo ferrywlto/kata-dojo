@@ -1,16 +1,16 @@
-class Q485_MaxConsecutiveOnes
+﻿class Q485_MaxConsecutiveOnes
 {
     // TC: O(n), SC: O(1)
     public int FindMaxConsecutiveOnes(int[] nums)
     {
         var max = 0;
         var oneSoFar = 0;
-        for (var i=0; i<nums.Length; i++)
+        for (var i = 0; i < nums.Length; i++)
         {
-            if(nums[i] == 1) 
+            if (nums[i] == 1)
             {
                 oneSoFar++;
-                if (oneSoFar > max) 
+                if (oneSoFar > max)
                 {
                     max = oneSoFar;
                 }
@@ -24,14 +24,14 @@ class Q485_MaxConsecutiveOnes
     }
 }
 
-class Q485_MaxConsecutiveOnesTestData: TestData
+class Q485_MaxConsecutiveOnesTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [new int[] {1,1,0,1,1,1}, 3],
         [new int[] {1,0,1,1,0,1}, 2],
         [new int[] {0,0,0,0,0,0}, 0],
-        [new int[] {1,1,1,1,1,1}, 6],        
+        [new int[] {1,1,1,1,1,1}, 6],
         [new int[] {1,1,1,0,0,0}, 3],
     ];
 }

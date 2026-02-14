@@ -1,4 +1,4 @@
-public class Q2389_LongestSubsequenceWithlimitedSum
+﻿public class Q2389_LongestSubsequenceWithlimitedSum
 {
     // TC: O(n * m), n scale with length nums, m scale with length of queries
     // SC: O(n) if counting result, O(1) otherwise

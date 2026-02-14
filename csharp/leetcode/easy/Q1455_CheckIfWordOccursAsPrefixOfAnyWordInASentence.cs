@@ -1,11 +1,11 @@
-class Q1455_CheckIFWordOccursAsPrefixOfAnyWordInASentence
+﻿class Q1455_CheckIFWordOccursAsPrefixOfAnyWordInASentence
 {
     // TC: O(n+m), where n is the length of sentence for .Split() and m is the number of words splited to loop through. 
     // SC: O(n), where n is the words splited from sentence
     public int IsPrefixOfWord(string sentence, string searchWord)
     {
         var words = sentence.Split(' ');
-        for(var i=0; i<words.Length; i++)
+        for (var i = 0; i < words.Length; i++)
         {
             if (words[i].StartsWith(searchWord)) return i + 1;
         }

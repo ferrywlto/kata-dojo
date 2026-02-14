@@ -1,4 +1,4 @@
-class Q1431_KidsWithGreatestNumberOfCandies
+﻿class Q1431_KidsWithGreatestNumberOfCandies
 {
     // TC: O(n), n to get max and then another n to calculate if x + extra candies > max, thus 2n -> n
     // SC: O(n), n for holding the result

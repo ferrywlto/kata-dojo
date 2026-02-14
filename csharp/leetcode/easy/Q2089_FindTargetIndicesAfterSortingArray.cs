@@ -1,4 +1,4 @@
-public class Q2089_FindTargetIndicesAfterSortingArray
+﻿public class Q2089_FindTargetIndicesAfterSortingArray
 {
     // TC: O(n), where n scale with length of nums, once for counting how many items are target while counting how many less than target.
     // SC: O(m), where m scale with items equals to target to hold the result; 
@@ -6,7 +6,7 @@ public class Q2089_FindTargetIndicesAfterSortingArray
     {
         var targetCount = 0;
         var lessThanCount = 0;
-        foreach(var n in nums)
+        foreach (var n in nums)
         {
             if (n == target) targetCount++;
             else if (n < target) lessThanCount++;
@@ -14,7 +14,7 @@ public class Q2089_FindTargetIndicesAfterSortingArray
         if (targetCount == 0) return [];
 
         var list = new List<int>();
-        for (var i=0; i<targetCount; i++)
+        for (var i = 0; i < targetCount; i++)
         {
             list.Add(lessThanCount + i);
         }

@@ -1,4 +1,4 @@
-class Q112_BinaryTreePathSumTestData : TestData
+﻿class Q112_BinaryTreePathSumTestData : TestData
 {
     protected override List<object[]> Data =>
     [

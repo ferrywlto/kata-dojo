@@ -1,10 +1,10 @@
-public class Q2057_SmallestIndexWithEqualValue
+﻿public class Q2057_SmallestIndexWithEqualValue
 {
     // TC: O(n), n scale with length of nums
     // SC: O(1), space used does not scale with input
     public int SmallestEqual(int[] nums)
     {
-        for(var i=0; i<nums.Length; i++)
+        for (var i = 0; i < nums.Length; i++)
         {
             if (i % 10 == nums[i]) return i;
         }

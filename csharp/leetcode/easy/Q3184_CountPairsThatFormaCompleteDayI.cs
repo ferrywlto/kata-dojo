@@ -1,4 +1,4 @@
-public class Q3184_CountPairsThatFormaCompleteDayI
+﻿public class Q3184_CountPairsThatFormaCompleteDayI
 {
     // TC: O(n^2), n scale with length of hours, n^2 due to all pairs
     // SC: O(1), space used does not scale with input

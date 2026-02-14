@@ -1,4 +1,4 @@
-public class Q2960_CountTestedDevicesAfterTestOperations
+﻿public class Q2960_CountTestedDevicesAfterTestOperations
 {
     // TC: O(n), n scale with length of batteryPercentages
     // SC: O(1), space used does not scale with input

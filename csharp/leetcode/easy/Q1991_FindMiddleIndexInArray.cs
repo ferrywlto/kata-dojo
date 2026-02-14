@@ -1,4 +1,4 @@
-public class Q1991_FindMiddleIndexInArray
+﻿public class Q1991_FindMiddleIndexInArray
 {
     // TC: O(n), n scale with length of nums, n for first sum, another n to find the middle idx
     // SC: O(1), space used does not sacle with nums

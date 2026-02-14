@@ -1,6 +1,6 @@
-class Q620_NotBoringMovies : SqlQuestion
+﻿class Q620_NotBoringMovies : SqlQuestion
 {
-    public override string Query => 
+    public override string Query =>
     """
     SELECT *
     FROM Cinema
@@ -12,7 +12,7 @@ class Q620_NotBoringMovies : SqlQuestion
 
 class Q620_NotBoringMoviesTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [[
         """
         INSERT INTO Cinema VALUES
@@ -27,7 +27,7 @@ class Q620_NotBoringMoviesTestData : TestData
 [Trait("QuestionType", "SQL")]
 public class Q620_NotBoringMoviesTests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     CREATE TABLE IF NOT EXISTS Cinema (id INT, movie VARCHAR, description VARCHAR, rating FLOAT);
     """;

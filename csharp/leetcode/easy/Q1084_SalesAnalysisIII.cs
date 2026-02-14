@@ -1,4 +1,4 @@
-
+﻿
 using System.ComponentModel;
 using Xunit;
 
@@ -24,7 +24,7 @@ class Q1084_SalesAnalysisIII : SqlQuestion
 }
 class Q1084_SalesAnalysisIIITestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             """
@@ -44,7 +44,7 @@ class Q1084_SalesAnalysisIIITestData : TestData
 [Trait("QuestionType", "SQL")]
 public class Q1084_SalesAnalysisIIITests(ITestOutputHelper output) : SqlTest(output)
 {
-    protected override string TestSchema => 
+    protected override string TestSchema =>
     """
     Create table If Not Exists Product (product_id int, product_name varchar(10), unit_price int);
     Create table If Not Exists Sales (seller_id int, product_id int, buyer_id int, sale_date date, quantity int, price int);

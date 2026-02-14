@@ -1,4 +1,4 @@
-public class Q2815_MaxPairSumInArray
+﻿public class Q2815_MaxPairSumInArray
 {
     // TC: O(n), n scale with length of nums
     // SC: O(m), m scale with unique max digits in nums

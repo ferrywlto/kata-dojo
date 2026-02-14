@@ -1,4 +1,4 @@
-public class Q1008_ConstructBinarySearchTreeFromPreorderTraversal(ITestOutputHelper output) : TreeNodeTest(output)
+﻿public class Q1008_ConstructBinarySearchTreeFromPreorderTraversal(ITestOutputHelper output) : TreeNodeTest(output)
 {
     // TC: (n * d), n scale with length of preorder, d scale with depth of result tree
     // SC: O(d), d scale with depth of tree for stack used in search

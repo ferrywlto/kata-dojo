@@ -1,4 +1,4 @@
-public class Q2566_MaxDifferenceByRemappingDigit
+﻿public class Q2566_MaxDifferenceByRemappingDigit
 {
     // TC: O(d), d scale with digits of num
     // SC: O(d), same as time for storing the num in string

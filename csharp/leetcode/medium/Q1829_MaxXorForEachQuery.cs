@@ -1,4 +1,4 @@
-public class Q1829_MaxXorForEachQuery
+﻿public class Q1829_MaxXorForEachQuery
 {
     // TC: O(n), n scale with length of nums
     // SC: O(n), to hold the result, otherwise O(1)

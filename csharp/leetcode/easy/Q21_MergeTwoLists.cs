@@ -1,4 +1,4 @@
-class Q21_MergeTwoListsTestData : TestData
+﻿class Q21_MergeTwoListsTestData : TestData
 {
     protected override List<object[]> Data =>
     [

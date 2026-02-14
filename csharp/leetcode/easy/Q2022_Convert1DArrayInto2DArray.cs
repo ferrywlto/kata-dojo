@@ -1,4 +1,4 @@
-public class Q2022_Convert1DArrayInto2DArray
+﻿public class Q2022_Convert1DArrayInto2DArray
 {
     // TC: O(n), n scale with length of original
     // SC: O(n), the result will be the same space used as original

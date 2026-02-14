@@ -1,7 +1,7 @@
-public abstract class MyHashMap 
+﻿public abstract class MyHashMap
 {
 
-    public MyHashMap() {}
+    public MyHashMap() { }
 
     public abstract void Put(int key, int value);
 
@@ -15,14 +15,14 @@ class Q706_DesignHashMap : MyHashMap
     protected readonly Dictionary<int, int> map = [];
     public override int Get(int key)
     {
-        if (!map.TryGetValue(key, out int value)) 
+        if (!map.TryGetValue(key, out int value))
             return -1;
         return value;
     }
 
     public override void Put(int key, int value)
     {
-        if(!map.TryAdd(key, value))
+        if (!map.TryAdd(key, value))
         {
             map[key] = value;
         }
@@ -36,7 +36,7 @@ class Q706_DesignHashMap : MyHashMap
 
 class Q706_DesignHashMapTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         [
             new string[]{"init", "put", "put", "get", "get", "put", "get", "remove", "get"},
@@ -53,9 +53,9 @@ public class Q706_DesignHashMapTests
     public void OfficialTestCases(string[] ops, int[][] @params, int?[] expected)
     {
         var sut = new Q706_DesignHashMap();
-        for(var i=0; i<ops.Length; i++)
+        for (var i = 0; i < ops.Length; i++)
         {
-            switch(ops[i])
+            switch (ops[i])
             {
                 case "init": break;
                 case "put":

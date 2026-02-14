@@ -1,4 +1,4 @@
-public class Q3095_ShortestSubarrayWithOrAtLeastKI
+﻿public class Q3095_ShortestSubarrayWithOrAtLeastKI
 {
     // TC: O(n^3), n scale with length of nums
     // SC: O(1)

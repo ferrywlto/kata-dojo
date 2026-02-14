@@ -1,4 +1,4 @@
-class Q1200_MinimumAbsoluteDifference
+﻿class Q1200_MinimumAbsoluteDifference
 {
     // TC: O(n log n), due to Array.Sort(), after the sort its O(n)
     // SC: O(n), n is the length of arr
@@ -11,14 +11,14 @@ class Q1200_MinimumAbsoluteDifference
         var result = new Dictionary<int, IList<IList<int>>>();
         var minDiff = int.MaxValue;
         int diff;
-        for(var i=0; i<arr.Length-1; i++)
+        for (var i = 0; i < arr.Length - 1; i++)
         {
             diff = Math.Abs(arr[i + 1] - arr[i]);
             // no need to further process if the diff is not minimal
-            if(diff <= minDiff)
+            if (diff <= minDiff)
             {
                 minDiff = diff;
-                if(result.TryGetValue(diff, out var list))
+                if (result.TryGetValue(diff, out var list))
                 {
                     list.Add([arr[i], arr[i + 1]]);
                 }

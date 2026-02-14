@@ -1,4 +1,4 @@
-
+﻿
 class Q836_RectangleOverlap
 {
     // TC: O(1), constant calculate everytime
@@ -17,7 +17,7 @@ class Q836_RectangleOverlap
 
         if (rec2MinX >= rec1MaxX || rec2MaxX <= rec1MinX || rec2MinY >= rec1MaxY || rec2MaxY <= rec1MinY)
             return false;
-        
+
         return true;
     }
 }

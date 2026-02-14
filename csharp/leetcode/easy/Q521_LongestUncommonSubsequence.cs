@@ -1,8 +1,8 @@
-class Q521_LongestUncommonSubsequence
+﻿class Q521_LongestUncommonSubsequence
 {
     // TC: O(n), because of == operator
     // SC: O(1)
-    public int FindLUSlength(string a, string b) 
+    public int FindLUSlength(string a, string b)
     {
         if (a == b) return -1;
         if (a.Length > b.Length) return a.Length;
@@ -10,9 +10,9 @@ class Q521_LongestUncommonSubsequence
     }
 }
 
-class Q521_LongestUncommonSubsequenceTestData: TestData
+class Q521_LongestUncommonSubsequenceTestData : TestData
 {
-    protected override List<object[]> Data => 
+    protected override List<object[]> Data =>
     [
         ["aba", "cdc", 3],
         ["aba", "aba", -1],

@@ -1,4 +1,4 @@
-
+﻿
 using System.Diagnostics;
 
 /* Constraints
@@ -91,7 +91,7 @@ public class Q303_RangeSumQueryStressTests(ITestOutputHelper output)
         // Arrange test data
         var random = new Random();
         var input = Enumerable.Repeat(0, 10000).ToArray();
-        for(var i = 0; i<input.Length; i++)
+        for (var i = 0; i < input.Length; i++)
         {
             input[i] = random.Next(100000);
         }
@@ -100,14 +100,14 @@ public class Q303_RangeSumQueryStressTests(ITestOutputHelper output)
         const int batch = 5000;
         var batchSize = timesToRun / batch;
 
-        for (var i=0; i<batch; i++)
+        for (var i = 0; i < batch; i++)
         {
-            var rndStart = random.Next(input.Length-1);
-            var rndEnd = random.Next(input.Length-1);
+            var rndStart = random.Next(input.Length - 1);
+            var rndEnd = random.Next(input.Length - 1);
             var entry = (Math.Min(rndStart, rndEnd), Math.Max(rndStart, rndEnd));
-             
-            for(var j=0; j<batchSize; j++)
-                list.Add(entry);            
+
+            for (var j = 0; j < batchSize; j++)
+                list.Add(entry);
         }
 
         var sut = new Q303_RangeSumQuery(input);
@@ -121,13 +121,14 @@ public class Q303_RangeSumQueryStressTests(ITestOutputHelper output)
         Assert.True(timePassedFast < timePassedSlow);
     }
 
-    private double Benchmark(IEnumerable<(int, int)> input, Func<int, int, int> sumFunc) {
+    private double Benchmark(IEnumerable<(int, int)> input, Func<int, int, int> sumFunc)
+    {
         Stopwatch.StartNew();
         var timeStart = Stopwatch.GetTimestamp();
         foreach (var d in input)
         {
             _ = sumFunc(d.Item1, d.Item2);
-        } 
+        }
         var timePassed = Stopwatch.GetElapsedTime(timeStart);
         return timePassed.TotalSeconds;
     }

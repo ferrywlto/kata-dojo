@@ -1,4 +1,4 @@
-public class Q2903_FindIndicesWithIndexAndValueDifferenceI
+﻿public class Q2903_FindIndicesWithIndexAndValueDifferenceI
 {
     // TC: O(n^2), n scale with length of nums
     // SC: O(1), space used does not scale with input

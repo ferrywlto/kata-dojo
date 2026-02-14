@@ -1,4 +1,4 @@
-public class Q1967_NumStringsAppearSubstringsInWords
+﻿public class Q1967_NumStringsAppearSubstringsInWords
 {
     // TC: O(n*m), n scales with total characters in patterns times total characters in word
     // SC: O(1), space used does not scale with input

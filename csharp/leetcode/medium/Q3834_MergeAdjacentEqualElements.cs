@@ -2,7 +2,21 @@
 {
     public IList<long> MergeAdjacent(int[] nums)
     {
-        return [];
+        var stack = new Stack<long>();
+        stack.Push(nums[0]);
+
+        for(var i=1; i<nums.Length; i++)
+        {
+            long current = nums[i];
+            // go backward to the start
+            while(stack.Count > 0 && stack.Peek() == current)
+            {
+                current += stack.Pop();
+            }
+            stack.Push(current);
+        }
+
+        return stack.Reverse().ToList();
     }
     public static TheoryData<int[], List<long>> TestData => new()
     {

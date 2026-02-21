@@ -1,8 +1,21 @@
 ﻿public class Q3842_ToggleLightBulbs
 {
+    // TC: O(n), n scale with length of bulbs
+    // SC: O(n), for storing result, otherwise O(1)
     public IList<int> ToggleLightBulbs(IList<int> bulbs)
     {
-        return [];
+        Span<int> b = stackalloc int[101];
+        foreach (var n in bulbs)
+        {
+            if (b[n] == 0) b[n] = 1;
+            else b[n] = 0;
+        }
+        var result = new List<int>();
+        for (var i = 0; i < b.Length; i++)
+        {
+            if (b[i] == 1) result.Add(i);
+        }
+        return result;
     }
     public static TheoryData<List<int>, List<int>> TestData => new()
     {

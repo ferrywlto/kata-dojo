@@ -1,15 +1,18 @@
 ﻿public class Q3834_MergeAdjacentEqualElements
 {
+    // Faster way is to use List to perform the backward check rather than stack to save the reverse cost.
+    // TC: O(n^2), worst case all merge to 1 element remain
+    // SC: O(n)
     public IList<long> MergeAdjacent(int[] nums)
     {
         var stack = new Stack<long>();
         stack.Push(nums[0]);
 
-        for(var i=1; i<nums.Length; i++)
+        for (var i = 1; i < nums.Length; i++)
         {
             long current = nums[i];
             // go backward to the start
-            while(stack.Count > 0 && stack.Peek() == current)
+            while (stack.Count > 0 && stack.Peek() == current)
             {
                 current += stack.Pop();
             }

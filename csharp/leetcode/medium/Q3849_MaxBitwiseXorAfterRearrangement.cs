@@ -13,7 +13,7 @@ public class Q3849_MaxBitwiseXorAfterRearrangement
         // then if still have one left in t, flip the 1 from right to left to minimize loss
         var zeroIdx = new List<int>();
         var oneIdx = new List<int>();
-        
+
         for (var i = 0; i < s.Length; i++)
         {
             if (s[i] == '0')
@@ -26,7 +26,7 @@ public class Q3849_MaxBitwiseXorAfterRearrangement
 
         var sb = new StringBuilder(s);
         var startIdx = 0;
-        while(oneCount > 0 && startIdx < zeroIdx.Count)
+        while (oneCount > 0 && startIdx < zeroIdx.Count)
         {
             sb[zeroIdx[startIdx++]] = '1';
             oneCount--;

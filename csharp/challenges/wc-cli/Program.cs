@@ -32,7 +32,7 @@ async Task<string[]> ReadLinesFromFile(string input)
 {
     if (!File.Exists(input)) 
     {
-        Console.WriteLine("The specificed file does not exist");
+        Console.WriteLine("The specified file does not exist");
         return [];
     }
     return await File.ReadAllLinesAsync(input, Encoding.UTF8);

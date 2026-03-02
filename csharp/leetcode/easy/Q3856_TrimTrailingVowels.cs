@@ -7,9 +7,9 @@ public class Q3856_TrimTrailingVowels
     public string TrimTrailingVowels(string s)
     {
         var sb = new StringBuilder(s);
-        while(sb.Length > 0 && IsVowel(sb[^1]))
+        while (sb.Length > 0 && IsVowel(sb[^1]))
         {
-            sb.Remove(sb.Length - 1 , 1);
+            sb.Remove(sb.Length - 1, 1);
         }
         return sb.ToString();
     }

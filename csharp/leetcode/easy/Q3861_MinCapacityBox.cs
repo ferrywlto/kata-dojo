@@ -1,8 +1,21 @@
 ﻿public class Q3861_MinCapacityBox
 {
+    // TC: O(n), n scale with length of capacity
+    // SC: O(1), space used does not scale with input
     public int MinimumIndex(int[] capacity, int itemSize)
     {
-        return 0;
+        var minSize = int.MaxValue;
+        var resultIdx = -1;
+        for (var i = 0; i < capacity.Length; i++)
+        {
+            if (capacity[i] >= itemSize && capacity[i] < minSize)
+            {
+                minSize = capacity[i];
+                resultIdx = i;
+            }
+        }
+
+        return resultIdx;
     }
 
     public static TheoryData<int[], int, int> TestData => new()

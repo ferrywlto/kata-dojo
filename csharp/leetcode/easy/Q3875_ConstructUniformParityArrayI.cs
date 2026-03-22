@@ -1,6 +1,10 @@
 ﻿public class Q3875_ConstructUniformParityArrayI
 {
+    // TC: O(1)
+    // SC: O(1)
+#pragma warning disable IDE0060 // Remove unused parameter
     public bool UniformArray(int[] nums1)
+#pragma warning restore IDE0060 // Remove unused parameter
     {
         // Properties
         // even - even = even
@@ -17,7 +21,7 @@
         return true;
     }
 
-    public static TheoryData<int[], bool> TestData => new() { { [2, 3], true }, { [4, 6], false }, };
+    public static TheoryData<int[], bool> TestData => new() { { [2, 3], true }, { [4, 6], true }, };
 
     [Theory]
     [MemberData(nameof(TestData))]

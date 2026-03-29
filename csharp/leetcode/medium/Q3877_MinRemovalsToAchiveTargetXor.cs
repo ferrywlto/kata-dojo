@@ -30,6 +30,7 @@ public class Q3877_MinRemovalsToAchiveTargetXor(ITestOutputHelper output)
         {
             matrix[i] = max;
         }
+
         // [6, 12, 5, 14]
         // 0110
         // 1100
@@ -68,12 +69,17 @@ public class Q3877_MinRemovalsToAchiveTargetXor(ITestOutputHelper output)
             // }
             // Console.WriteLine(sb.ToString());
         }
+
         return -1;
     }
 
     public static TheoryData<int[], int, int> TestData => new()
     {
-        { [1, 2, 3], 2, 1 }, { [2, 4], 2, 1 }, { [7], 7, 0 }, {[0,6], 0, 1}, {[6, 12, 5, 14], 3, 2}
+        { [1, 2, 3], 2, 1 },
+        { [2, 4], 2, 1 },
+        { [7], 7, 0 },
+        { [0, 6], 0, 1 },
+        { [6, 12, 5, 14], 3, 2 }
     };
 
     [Theory]

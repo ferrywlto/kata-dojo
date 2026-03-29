@@ -11,7 +11,7 @@
             if (s[idx] == s[len - idx - 1]) return idx;
             idx++;
         }
-        
+
         return -1;
     }
 

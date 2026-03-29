@@ -26,7 +26,7 @@ public class Q3877_MinRemovalsToAchiveTargetXor(ITestOutputHelper output)
 
         // initialize matrix
         var matrix = new int[nums.Length];
-        for(var i = 0; i < matrix.Length; i++)
+        for (var i = 0; i < matrix.Length; i++)
         {
             matrix[i] = max;
         }
@@ -41,7 +41,7 @@ public class Q3877_MinRemovalsToAchiveTargetXor(ITestOutputHelper output)
         {
             for (var j = 0; j < matrix.Length; j++)
             {
-                var numIdx = (i+j) % len;
+                var numIdx = (i + j) % len;
                 matrix[j] ^= nums[numIdx];
                 output.WriteLine($"matrix[{j}] ^= nums[{numIdx}] = {matrix[j]}");
                 if (matrix[j] == target) return i + 1;
@@ -51,20 +51,20 @@ public class Q3877_MinRemovalsToAchiveTargetXor(ITestOutputHelper output)
             // sb.Clear();
             // for (var j = i; j < i+len; j++)
             // {
-                // sb.Append(j%len);
-                // temp ^= nums[j%len];
+            // sb.Append(j%len);
+            // temp ^= nums[j%len];
 
-                // var removed = (j - i + 1);
-                // output.WriteLine($"removed: {removed}");
-                // if (temp == target) return removed;
-                // {
-                //     return result;
-                // }
+            // var removed = (j - i + 1);
+            // output.WriteLine($"removed: {removed}");
+            // if (temp == target) return removed;
+            // {
+            //     return result;
+            // }
 
-                // set.Add(newVal);
-                // 1 2 3 4
-                // 2 1 3 4
-                //   2 3 4
+            // set.Add(newVal);
+            // 1 2 3 4
+            // 2 1 3 4
+            //   2 3 4
             // }
             // Console.WriteLine(sb.ToString());
         }

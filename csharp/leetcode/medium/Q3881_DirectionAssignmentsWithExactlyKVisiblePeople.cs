@@ -3,8 +3,8 @@
     // Question provided mod, it is a prime.
     const long MOD = 1_000_000_007;
 
-    
-    public int CountVisiblePeople(int n, int pos, int k)
+
+    public int CountVisiblePeople(int n, int _, int k)
     {
         // The trick here is we doesn't need to separate the question into left and right part.
         // For total k people visible:

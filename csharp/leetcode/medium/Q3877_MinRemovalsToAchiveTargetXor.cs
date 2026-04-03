@@ -1,75 +1,56 @@
-﻿using System.Text;
-
-public class Q3877_MinRemovalsToAchiveTargetXor(ITestOutputHelper output)
+﻿public class Q3877_MinRemovalsToAchiveTargetXor
 {
+    // TC: O(n * U), n scales with length of n, U scales with total distinct XOR
+    // SC: O(U)
     public int MinRemovals(int[] nums, int target)
     {
         // solution
-        // rotation sequence
-        // since XOR is associative, the order of XOR does not matters
-        // only need to do XOR nums.Length times
-        // 1. 1,2,3,4
-        // 2. 2,3,4,1
-        // 3. 3,4,1,2
-        // 4. 4,1,2,3
+        // Due to XOR associative and commutative nature
+        // A ^ B ^ C ^ B == A ^ C
+        // We can get the XOR of all items first.
+        // Then XOR each item again to cancel the effect
+        // Which is faster than doing in reverse.
         var len = nums.Length;
-
-        if (len == 1) return 0;
 
         var max = nums[0];
         for (var i = 1; i < len; i++)
-        {
             max ^= nums[i];
-        }
 
         if (max == target) return 0;
 
-        // initialize matrix
-        var matrix = new int[nums.Length];
-        for (var i = 0; i < matrix.Length; i++)
-        {
-            matrix[i] = max;
-        }
-
-        // [6, 12, 5, 14]
-        // 0110
-        // 1100
-        // 0101
-        // 1110
-        output.WriteLine($"max = {max}");
+        var seen = new HashSet<int>();
+        var newToProcess = new HashSet<int>();
 
         for (var i = 0; i < len; i++)
         {
-            for (var j = 0; j < matrix.Length; j++)
+            var xor = max ^ nums[i];
+            if (xor == target)
+                return 1;
+            if (seen.Add(xor))
+                newToProcess.Add(xor);
+        }
+        
+        // Use DP to reduce duplicated result, we need to get all unique combinations of Xor results
+        // The first hit is minimal removal.
+        for (var removed = 2; newToProcess.Count > 0; removed++)
+        {
+            var next = new HashSet<int>();
+            foreach (var n in newToProcess)
             {
-                var numIdx = (i + j) % len;
-                matrix[j] ^= nums[numIdx];
-                output.WriteLine($"matrix[{j}] ^= nums[{numIdx}] = {matrix[j]}");
-                if (matrix[j] == target) return i + 1;
+                for (var j = 0; j < len; j++)
+                {
+                    var xor = n ^ nums[j];
+                    if (xor == target)
+                        return removed;
+
+                    // only process those unseen to prevent re-adding previous calculated ones
+                    if (seen.Add(xor))
+                        next.Add(xor);
+                }
             }
 
-            // var temp = max;
-            // sb.Clear();
-            // for (var j = i; j < i+len; j++)
-            // {
-            // sb.Append(j%len);
-            // temp ^= nums[j%len];
-
-            // var removed = (j - i + 1);
-            // output.WriteLine($"removed: {removed}");
-            // if (temp == target) return removed;
-            // {
-            //     return result;
-            // }
-
-            // set.Add(newVal);
-            // 1 2 3 4
-            // 2 1 3 4
-            //   2 3 4
-            // }
-            // Console.WriteLine(sb.ToString());
+            newToProcess = next;
         }
-
         return -1;
     }
 
@@ -79,7 +60,9 @@ public class Q3877_MinRemovalsToAchiveTargetXor(ITestOutputHelper output)
         { [2, 4], 2, 1 },
         { [7], 7, 0 },
         { [0, 6], 0, 1 },
-        { [6, 12, 5, 14], 3, 2 }
+        { [6, 12, 5, 14], 3, 2 },
+        { [0], 1, -1 },
+        { [1], 0, 1 },
     };
 
     [Theory]

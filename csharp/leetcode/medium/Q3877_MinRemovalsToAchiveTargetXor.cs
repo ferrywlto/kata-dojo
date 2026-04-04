@@ -29,7 +29,7 @@
             if (seen.Add(xor))
                 newToProcess.Add(xor);
         }
-        
+
         // Use DP to reduce duplicated result, we need to get all unique combinations of Xor results
         // The first hit is minimal removal.
         for (var removed = 2; newToProcess.Count > 0; removed++)

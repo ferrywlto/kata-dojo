@@ -21,10 +21,10 @@
         for (var col = 1; col < numCols; col++)
         {
             var currentPossible = possibleXors[col];
-            var possibleFromLeft = possibleXors[col-1];
+            var possibleFromLeft = possibleXors[col - 1];
             for (var s = 0; s < possibleFromLeft.Length; s++)
             {
-                if(possibleFromLeft[s])
+                if (possibleFromLeft[s])
                     currentPossible[s ^ grid[0][col]] = true;
             }
         }

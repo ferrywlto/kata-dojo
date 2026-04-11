@@ -13,7 +13,7 @@
         public EventManager(int[][] events)
         {
             _pq = new PriorityQueue<int, (int priority, int eventId)>(comparer);
-                    
+
             foreach (var evt in events)
             {
                 var eventId = evt[0];

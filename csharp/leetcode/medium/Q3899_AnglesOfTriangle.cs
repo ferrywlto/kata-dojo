@@ -1,5 +1,7 @@
 ﻿public class Q3899_AnglesOfTriangle
 {
+    // TC: O(1)
+    // SC: O(1)
     public double[] InternalAngles(int[] sides)
     {
         var sideA = sides[0];

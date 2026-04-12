@@ -8,7 +8,7 @@
         foreach (var n in nums)
         {
             var curr = n;
-            while(curr > 0)
+            while (curr > 0)
             {
                 if (curr % 10 == digit)
                     result++;

@@ -5,7 +5,7 @@
     public int[] FindDegrees(int[][] matrix)
     {
         var result = new int[matrix.Length];
-        for(var row = 0; row < matrix.Length; row++)
+        for (var row = 0; row < matrix.Length; row++)
         {
             for (var col = 0; col < matrix[row].Length; col++)
             {

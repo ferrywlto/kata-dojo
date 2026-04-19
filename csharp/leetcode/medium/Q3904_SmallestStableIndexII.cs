@@ -1,5 +1,6 @@
-﻿public class Q3903_SmallestStableIndexI
+﻿public class Q3904_SmallestStableIndexII
 {
+    // This is the same question of Q3903 with constraints nums.Length from 100 to 10^5, the solution is the same.
     // TC: O(n), n scale with nums.Length
     // SC: O(n)
     public int FirstStableIndex(int[] nums, int k)

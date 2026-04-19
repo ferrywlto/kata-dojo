@@ -1,8 +1,32 @@
 ﻿public class Q3903_SmallestStableIndexI
 {
+    // TC: O(n), n scale with nums.Length
+    // SC: O(n)
     public int FirstStableIndex(int[] nums, int k)
     {
-        return 0;
+        var len = nums.Length;
+
+        Span<int> minTrack = stackalloc int[len];
+        
+        minTrack[^1] = nums[^1];
+
+        var max = int.MinValue;
+        var min = minTrack[^1];
+
+        for (var i = len - 2; i >= 0; i--)
+        {            
+            if (nums[i] < min) min = nums[i];
+            minTrack[i] = min;
+        }
+
+        for (var i = 0; i < len; i++)
+        {
+            if (nums[i] > max) max = nums[i];
+
+            if (max - minTrack[i] <= k) return i;
+        }
+
+        return -1;
     }
 
     public static TheoryData<int[], int, int> TestData => new()
@@ -17,6 +41,4 @@
         var actual = FirstStableIndex(input, k);
         Assert.Equal(expected, actual);
     }
-
-
 }

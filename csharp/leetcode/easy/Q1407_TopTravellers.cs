@@ -1,4 +1,4 @@
-﻿using Row = (string name, int travelled_distance);
+using Row = (string name, int travelled_distance);
 class Q1407_TopTravellers : SqlQuestion
 {
     public override string Query =>

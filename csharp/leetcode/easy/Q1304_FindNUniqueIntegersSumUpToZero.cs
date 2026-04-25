@@ -1,4 +1,4 @@
-﻿class Q1304_FindNUniqueIntegersSumUpToZero
+class Q1304_FindNUniqueIntegersSumUpToZero
 {
     // TC: O(n), n = input
     // SC: O(n), n/2 + 1 space needed to return the result

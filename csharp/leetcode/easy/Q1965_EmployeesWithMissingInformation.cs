@@ -1,4 +1,4 @@
-﻿public class Q1965_EmployeesWithMissingInformation(ITestOutputHelper output) : SqlTest(output)
+public class Q1965_EmployeesWithMissingInformation(ITestOutputHelper output) : SqlTest(output)
 {
     public static string Query =>
     """

@@ -1,4 +1,4 @@
-﻿class Q728_SelfDividingNumbers
+class Q728_SelfDividingNumbers
 {
     public IList<int> SelfDividingNumbers(int left, int right)
     {

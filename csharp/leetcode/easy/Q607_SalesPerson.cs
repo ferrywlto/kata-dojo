@@ -1,4 +1,4 @@
-﻿class Q607_SalesPerson : SqlQuestion
+class Q607_SalesPerson : SqlQuestion
 {
     public override string Query =>
     """

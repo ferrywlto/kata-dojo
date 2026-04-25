@@ -1,4 +1,4 @@
-﻿class Q1379_FindCorrespondingNodeInCloneTree
+class Q1379_FindCorrespondingNodeInCloneTree
 {
     // TC: O(n), as n need to traverse all nodes once worst case.
     // SC: O(h), stack need to store all nodes if tree is skewed worst case

@@ -1,4 +1,4 @@
-﻿class Q1805_NumDiffIntegersInString
+class Q1805_NumDiffIntegersInString
 {
     // TC: O(n), where n is lenght of word
     // SC: O(m), where m is unique number exists in word

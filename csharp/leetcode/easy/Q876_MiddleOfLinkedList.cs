@@ -1,4 +1,4 @@
-﻿// TC: O(n), n is 1.5 * list length
+// TC: O(n), n is 1.5 * list length
 // SC: O(1), no extra space used
 class Q876_MiddleOfLinkedList
 {

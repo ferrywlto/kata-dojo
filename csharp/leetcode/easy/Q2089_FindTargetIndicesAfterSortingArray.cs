@@ -1,4 +1,4 @@
-﻿public class Q2089_FindTargetIndicesAfterSortingArray
+public class Q2089_FindTargetIndicesAfterSortingArray
 {
     // TC: O(n), where n scale with length of nums, once for counting how many items are target while counting how many less than target.
     // SC: O(m), where m scale with items equals to target to hold the result; 

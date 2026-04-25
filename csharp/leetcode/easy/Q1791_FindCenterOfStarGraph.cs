@@ -1,4 +1,4 @@
-﻿class Q1791_FindCenterOfStartGraph
+class Q1791_FindCenterOfStartGraph
 {
     // TC: O(n), where n is length of edges
     // SC: O(m), where m is number of nodes, which is n+1

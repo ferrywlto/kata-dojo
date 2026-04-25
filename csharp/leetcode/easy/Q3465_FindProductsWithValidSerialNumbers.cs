@@ -1,4 +1,4 @@
-﻿using Row = (int product_id, string product_name, string description);
+using Row = (int product_id, string product_name, string description);
 public class Q3465_FindProductsWithValidSerialNumbers(ITestOutputHelper output) : SqlTest(output)
 {
 

@@ -1,4 +1,4 @@
-﻿class Q441_ArrangingCoins
+class Q441_ArrangingCoins
 {
     // Constraints
     // 1 <= n <= 2^31 - 1

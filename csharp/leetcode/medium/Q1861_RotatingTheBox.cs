@@ -1,4 +1,4 @@
-﻿public class Q1861_RotatingTheBox
+public class Q1861_RotatingTheBox
 {
     public char[][] RotateTheBox(char[][] boxGrid)
     {

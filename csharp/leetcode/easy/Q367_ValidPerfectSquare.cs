@@ -1,4 +1,4 @@
-﻿class Q367_ValidPerfectSquare
+class Q367_ValidPerfectSquare
 {
     // TC: O(log n), SC: O(1)
     public bool IsPerfectSquare(int num)

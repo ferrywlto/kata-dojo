@@ -1,4 +1,4 @@
-﻿public class Q3136_ValidWord
+public class Q3136_ValidWord
 {
     // TC: O(n), n scale with length of word
     // SC: O(1), space used does not scale with input

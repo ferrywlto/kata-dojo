@@ -1,4 +1,4 @@
-﻿public class Q2224_MinNumberOfOperationsToConvertTime
+public class Q2224_MinNumberOfOperationsToConvertTime
 {
     // TC: O(1), operations are static each run
     // SC: O(1), space used does not scale with input

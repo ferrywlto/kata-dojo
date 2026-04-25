@@ -1,4 +1,4 @@
-﻿class Q766_ToeplitzMatrix
+class Q766_ToeplitzMatrix
 {
     // TC: O(n*m)
     // SC: O(1)

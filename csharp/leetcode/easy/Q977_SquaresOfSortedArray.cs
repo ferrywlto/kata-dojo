@@ -1,4 +1,4 @@
-﻿class Q977_SquaresOfSortedArray
+class Q977_SquaresOfSortedArray
 {
     // TC: O(n^2), n is length of nums, worst case each node need to goes to bottom for skewed tree.
     // SC: O(n*h), n is length of nums, n tree nodes + h tree height for stack 

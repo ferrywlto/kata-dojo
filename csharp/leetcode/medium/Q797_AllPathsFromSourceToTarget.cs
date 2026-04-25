@@ -1,4 +1,4 @@
-﻿public class Q797_AllPathsFromSourceToTarget
+public class Q797_AllPathsFromSourceToTarget
 {
     private Dictionary<int, int[]> _paths = [];
     private List<IList<int>> _result = [];

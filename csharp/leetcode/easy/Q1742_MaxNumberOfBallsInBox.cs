@@ -1,4 +1,4 @@
-﻿class Q1742_MaxNumberOfBallsInBox
+class Q1742_MaxNumberOfBallsInBox
 {
     public int CountBalls(int lowLimit, int highLimit)
     {

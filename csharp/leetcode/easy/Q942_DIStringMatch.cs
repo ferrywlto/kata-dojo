@@ -1,4 +1,4 @@
-﻿
+
 class Q942_DIStringMatch
 {
     // TC: O(n), n is length of s

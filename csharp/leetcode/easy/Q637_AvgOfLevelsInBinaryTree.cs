@@ -1,4 +1,4 @@
-﻿class Q637_AvgOfLevelsInBinaryTree
+class Q637_AvgOfLevelsInBinaryTree
 {
     // TC: O(n)
     // SC: O(n)

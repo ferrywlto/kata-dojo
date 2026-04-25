@@ -1,4 +1,4 @@
-﻿using Row = (int patient_id, string patient_name, string conditions);
+using Row = (int patient_id, string patient_name, string conditions);
 class Q1527_PatientsWithACondition : SqlQuestion
 {
     public override string Query =>

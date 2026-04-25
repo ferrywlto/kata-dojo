@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 
 class Q1356_SortIntegersByNumberOfOneBits
 {

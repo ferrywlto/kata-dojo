@@ -1,4 +1,4 @@
-﻿class Q1920_BuildArrayFromPermutation
+class Q1920_BuildArrayFromPermutation
 {
     // TC: O(n), where n is length of nums
     // SC: O(1), where n scale with length of nums

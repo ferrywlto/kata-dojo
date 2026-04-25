@@ -1,4 +1,4 @@
-﻿using Row = (int employee_id, string name, int reports_count, double average_age);
+using Row = (int employee_id, string name, int reports_count, double average_age);
 class Q1731_NumOfEmployeesReportToEmployee : SqlQuestion
 {
     // MySQL Dialect

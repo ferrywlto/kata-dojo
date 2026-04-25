@@ -1,4 +1,4 @@
-﻿public class Q3750_MinFlipsToReverseBinaryString
+public class Q3750_MinFlipsToReverseBinaryString
 {
     // TC: O(d), d is number of digits in binary representation, worse case d = 32
     // SC: O(d)

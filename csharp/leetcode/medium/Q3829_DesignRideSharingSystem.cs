@@ -1,4 +1,4 @@
-﻿public class Q3829_DesignRideSharingSystem
+public class Q3829_DesignRideSharingSystem
 {
     private class RideSharingSystem
     {

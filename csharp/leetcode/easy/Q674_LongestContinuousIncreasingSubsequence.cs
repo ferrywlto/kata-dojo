@@ -1,4 +1,4 @@
-﻿class Q674_LongestContinuousIncreasingSubSequence
+class Q674_LongestContinuousIncreasingSubSequence
 {
     // TC: O(n)
     // SC: O(1)

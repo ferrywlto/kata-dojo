@@ -1,4 +1,4 @@
-﻿class Q1588_SumOfAllOddLengthSubarrays
+class Q1588_SumOfAllOddLengthSubarrays
 {
     // TC: O(n*m*k), where n is length of arr n * group size m * number of groups k
     // SC: O(1), space used is fixed 

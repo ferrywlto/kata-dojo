@@ -1,4 +1,4 @@
-﻿public abstract class MyHashMap
+public abstract class MyHashMap
 {
 
     public MyHashMap() { }

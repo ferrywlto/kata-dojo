@@ -1,4 +1,4 @@
-﻿class Q657_RobotReturnToOrigin
+class Q657_RobotReturnToOrigin
 {
     // TC: O(n)
     // SC: O(1)

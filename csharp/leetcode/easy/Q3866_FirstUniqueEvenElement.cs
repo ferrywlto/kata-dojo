@@ -1,4 +1,4 @@
-﻿public class Q3866_FirstUniqueEvenElement
+public class Q3866_FirstUniqueEvenElement
 {
     // TC: O(n), n scale with length of nums
     // SC: O(1), space used does not scale with input

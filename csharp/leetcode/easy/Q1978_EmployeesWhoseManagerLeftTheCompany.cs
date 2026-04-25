@@ -1,4 +1,4 @@
-﻿public class Q1978_EmployeesWhoseManagerLeftTheCompany(ITestOutputHelper output) : SqlTest(output)
+public class Q1978_EmployeesWhoseManagerLeftTheCompany(ITestOutputHelper output) : SqlTest(output)
 {
     protected override string TestSchema =>
     """

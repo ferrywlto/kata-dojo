@@ -1,4 +1,4 @@
-﻿class Q349_IntersectionOfTwoArrays
+class Q349_IntersectionOfTwoArrays
 {
     public int[] Intersection(int[] nums1, int[] nums2)
     {

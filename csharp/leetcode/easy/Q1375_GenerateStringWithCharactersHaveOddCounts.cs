@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 
 class Q1375_GenerateStringWithCharactersHaveOddCounts
 {

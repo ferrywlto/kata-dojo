@@ -1,4 +1,4 @@
-﻿class Q1313_DecompressRunLengthEncodedList
+class Q1313_DecompressRunLengthEncodedList
 {
     // TC: O(n), n is size of nums
     // SC: O(n), n is resulting expended size of nums

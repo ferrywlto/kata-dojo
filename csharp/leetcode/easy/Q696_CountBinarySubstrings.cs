@@ -1,4 +1,4 @@
-﻿class Q696_CountBinarySubstring
+class Q696_CountBinarySubstring
 {
     // The fact is for each group, the number of groups inside determines by Min(0s, 1s)
     // e.g. 00011 = 2, 111000 = 3, 10 = 1

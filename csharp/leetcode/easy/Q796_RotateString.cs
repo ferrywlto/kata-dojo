@@ -1,4 +1,4 @@
-﻿class Q796_RotateString
+class Q796_RotateString
 {
     public bool RotateString(string s, string goal)
     {

@@ -1,4 +1,4 @@
-﻿class Q111_MinDepthBinaryTreeTestData : TestData
+class Q111_MinDepthBinaryTreeTestData : TestData
 {
     protected override List<object[]> Data =>
     [

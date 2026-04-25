@@ -1,4 +1,4 @@
-﻿class Q953_VerifyAlienDictionary
+class Q953_VerifyAlienDictionary
 {
     Dictionary<char, int> alienDict = [];
     public bool IsAlienSorted_WordsCompare(string[] words, string order)

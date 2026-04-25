@@ -1,4 +1,4 @@
-﻿using Row = (int student_id, string student_name, string subject_name, int attended_exams);
+using Row = (int student_id, string student_name, string subject_name, int attended_exams);
 class Q1280_StudentsAndExaminations : SqlQuestion
 {
     public override string Query =>

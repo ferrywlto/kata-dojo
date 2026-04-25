@@ -1,4 +1,4 @@
-﻿class Q1403_MinSubsequenceInNonIncreasingOrder
+class Q1403_MinSubsequenceInNonIncreasingOrder
 {
     // TC: O(n log n), due to Array.Sort();
     // SC: O(n), for holding the results

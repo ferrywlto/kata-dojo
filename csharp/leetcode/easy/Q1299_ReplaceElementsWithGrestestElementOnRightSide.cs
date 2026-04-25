@@ -1,4 +1,4 @@
-﻿class Q1299_ReplaceElementsWithGreatestElementOnRightSide
+class Q1299_ReplaceElementsWithGreatestElementOnRightSide
 {
     // TC: O(n), n is length of arr
     // SC: O(1), no space used in operations

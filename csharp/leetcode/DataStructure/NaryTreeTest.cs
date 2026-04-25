@@ -1,4 +1,4 @@
-﻿public abstract class NaryTreeNodeTest : TestBase
+public abstract class NaryTreeNodeTest : TestBase
 {
     public NaryTreeNodeTest(ITestOutputHelper output) : base(output) { }
 

@@ -1,4 +1,4 @@
-﻿class Q234_PalindromeLinkedList
+class Q234_PalindromeLinkedList
 {
     // Use 2 pointer, turtle-hare race technique to find the half of the list
     public bool IsPalindrome(ListNode head)

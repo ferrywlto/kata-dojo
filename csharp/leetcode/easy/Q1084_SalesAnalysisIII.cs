@@ -1,7 +1,3 @@
-﻿
-using System.ComponentModel;
-using Xunit;
-
 class Q1084_SalesAnalysisIII : SqlQuestion
 {
     public override string Query =>

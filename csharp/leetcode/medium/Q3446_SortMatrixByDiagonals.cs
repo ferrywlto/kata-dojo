@@ -1,4 +1,4 @@
-﻿public class Q3446_SortMatrixByDiagonals
+public class Q3446_SortMatrixByDiagonals
 {
     // TC: O(row + col) of grid
     // SC: O(1)

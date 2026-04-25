@@ -1,4 +1,4 @@
-﻿
+
 class Q226_InvertBinaryTree
 {
     public TreeNode? InvertTree(TreeNode? root)

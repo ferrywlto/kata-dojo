@@ -1,4 +1,4 @@
-﻿class Q1351_CountNegativeNumbersInSortedMatrix
+class Q1351_CountNegativeNumbersInSortedMatrix
 {
     // TC: O(n), n = total elements in grid worst case (all negative)
     // SC: O(1), no space used for operation

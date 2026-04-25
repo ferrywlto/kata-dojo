@@ -1,4 +1,4 @@
-﻿public class Q3898_FindDegreeOfEachVertex
+public class Q3898_FindDegreeOfEachVertex
 {
     // TC: O(n * m), scale with size of input
     // SC: O(n), scale with rows of input

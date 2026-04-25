@@ -1,4 +1,4 @@
-﻿public class Q3827_CountMonobitIntegers
+public class Q3827_CountMonobitIntegers
 {
     // The constraints are small, n < 1000
     // The answer maximum is 9 because 2^10 = 1024

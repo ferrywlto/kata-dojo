@@ -1,4 +1,4 @@
-﻿public class Q3877_MinRemovalsToAchiveTargetXor
+public class Q3877_MinRemovalsToAchiveTargetXor
 {
     // TC: O(n * U), n scales with length of n, U scales with total distinct XOR
     // SC: O(U)

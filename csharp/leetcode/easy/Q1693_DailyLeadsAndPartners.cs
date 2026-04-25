@@ -1,4 +1,4 @@
-﻿using Row = (string date_id, string make_name, int unique_leads, int unique_partners);
+using Row = (string date_id, string make_name, int unique_leads, int unique_partners);
 class Q1693_DailyLeadsAndPartners : SqlQuestion
 {
     public override string Query =>

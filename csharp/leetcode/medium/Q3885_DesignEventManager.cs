@@ -1,4 +1,4 @@
-﻿public class Q3885_DesignEventManager
+public class Q3885_DesignEventManager
 {
     private class EventManager
     {

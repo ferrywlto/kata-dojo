@@ -1,4 +1,4 @@
-﻿// TC: O(n), n scale with length of nums
+// TC: O(n), n scale with length of nums
 // SC: O(1), space used does not scale with input
 public class Q3833_CountDominantIndices
 {

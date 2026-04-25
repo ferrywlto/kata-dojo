@@ -1,4 +1,4 @@
-﻿class Q590_NaryTreePostorderTraversal
+class Q590_NaryTreePostorderTraversal
 {
     List<int> result = [];
     public IList<int> Postorder(NaryTreeNode root)

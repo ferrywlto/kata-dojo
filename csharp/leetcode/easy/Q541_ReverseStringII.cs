@@ -1,4 +1,4 @@
-﻿
+
 using System.Text;
 
 class Q541_ReverseStringII

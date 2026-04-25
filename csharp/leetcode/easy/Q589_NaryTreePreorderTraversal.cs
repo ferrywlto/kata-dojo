@@ -1,4 +1,4 @@
-﻿class Q589_NaryTreePreorderTraversal
+class Q589_NaryTreePreorderTraversal
 {
     // TC: O(n)
     // SC: O(n)

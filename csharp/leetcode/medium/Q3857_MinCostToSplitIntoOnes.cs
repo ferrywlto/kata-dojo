@@ -1,4 +1,4 @@
-﻿public class Q3857_MinCostToSplitIntoOnes
+public class Q3857_MinCostToSplitIntoOnes
 {
     // TC: O(n), n scale with input
     // SC: O(1), space used does not scale with input

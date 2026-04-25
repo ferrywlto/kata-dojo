@@ -1,4 +1,4 @@
-﻿class Q27_RemoveElement
+class Q27_RemoveElement
 {
     // whenever hit nums[i] == val
     // will try 2 versions

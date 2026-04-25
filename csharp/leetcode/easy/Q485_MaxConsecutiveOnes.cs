@@ -1,4 +1,4 @@
-﻿class Q485_MaxConsecutiveOnes
+class Q485_MaxConsecutiveOnes
 {
     // TC: O(n), SC: O(1)
     public int FindMaxConsecutiveOnes(int[] nums)

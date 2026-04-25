@@ -1,4 +1,4 @@
-﻿public class Q3818_MinPrefixRemovalToMakeArrayStrictlyIncreasing
+public class Q3818_MinPrefixRemovalToMakeArrayStrictlyIncreasing
 {
     // TC: O(n), n scale with length of nums
     // SC: O(1), space used does not scale with input

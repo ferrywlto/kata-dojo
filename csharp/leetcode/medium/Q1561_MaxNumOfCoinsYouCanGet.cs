@@ -1,4 +1,4 @@
-﻿public class Q1561_MaxNumOfCoinsYouCanGet
+public class Q1561_MaxNumOfCoinsYouCanGet
 {
     // TC: O(n log n), n scale with length of piles
     // SC: O(1), spaces used does not scale with input

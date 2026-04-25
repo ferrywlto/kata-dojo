@@ -1,4 +1,4 @@
-﻿
+
 using System.Data.Common;
 
 class Q627_SwapSalary : SqlQuestion

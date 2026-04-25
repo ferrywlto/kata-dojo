@@ -1,4 +1,4 @@
-﻿class Q1854_MaxPopulationYear
+class Q1854_MaxPopulationYear
 {
     // TC: O(n + y), where n is length of logs, and y is the number of years in range
     // SC: O(y), where y is range of years

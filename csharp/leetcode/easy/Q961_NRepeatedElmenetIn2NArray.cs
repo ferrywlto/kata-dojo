@@ -1,4 +1,4 @@
-﻿class Q961_NRepeatedElementIn2NArray
+class Q961_NRepeatedElementIn2NArray
 {
     // TC: O(n), worst case nums length / 2
     // SC: O(n), worst case need to store all unique number if the repeated one is all packed at the end

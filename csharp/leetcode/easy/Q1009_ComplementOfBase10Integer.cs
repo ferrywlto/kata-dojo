@@ -1,4 +1,4 @@
-﻿
+
 class Q1009_ComplementOfBase10Integer
 {
     public int BitwiseComplement(int n)

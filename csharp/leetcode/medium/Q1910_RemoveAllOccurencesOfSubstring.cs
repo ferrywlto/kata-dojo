@@ -1,4 +1,4 @@
-﻿public class Q1910_RemoveAllOccurencesOfSubstring(ITestOutputHelper output)
+public class Q1910_RemoveAllOccurencesOfSubstring(ITestOutputHelper output)
 {
     public string RemoveOccurrences(string s, string part)
     {

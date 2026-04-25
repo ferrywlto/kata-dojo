@@ -1,4 +1,4 @@
-﻿class Q1287_ElementAppearingMoreThan25PercentInSortedArray
+class Q1287_ElementAppearingMoreThan25PercentInSortedArray
 {
     // TC: O(n), n is length of arr
     // SC: O(1), no space used in operations

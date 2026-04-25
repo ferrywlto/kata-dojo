@@ -1,4 +1,4 @@
-﻿public class Q3280_ConvertDateToBinary
+public class Q3280_ConvertDateToBinary
 {
     // TC: O(1)
     // SC: O(1)

@@ -1,4 +1,4 @@
-﻿class Q561_ArrayPartition
+class Q561_ArrayPartition
 {
     // TC: O(n log n)
     // SC: O(1)

@@ -1,4 +1,4 @@
-﻿class Q1560_MostVisitedSectorInCircularTrack
+class Q1560_MostVisitedSectorInCircularTrack
 {
     // TC: O(n*m), where n is rounds - 1 * sectors visited per round
     // SC: O(n), where n is number of visited sector

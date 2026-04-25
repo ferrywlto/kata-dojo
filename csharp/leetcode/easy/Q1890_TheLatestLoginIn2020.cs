@@ -1,4 +1,4 @@
-﻿using Row = (int user_id, string last_stamp);
+using Row = (int user_id, string last_stamp);
 class Q1890_TheLatestLoginIn2020 : SqlQuestion
 {
     public override string Query =>

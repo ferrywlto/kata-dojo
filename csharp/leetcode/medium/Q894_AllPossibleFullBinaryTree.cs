@@ -1,4 +1,4 @@
-﻿
+
 public class Q894_AllPossibleFullBinaryTree : TreeNodeTest
 {
     public Q894_AllPossibleFullBinaryTree(ITestOutputHelper output) : base(output)

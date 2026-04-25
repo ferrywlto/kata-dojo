@@ -1,4 +1,4 @@
-﻿class Q492_ConstructTheRectangle
+class Q492_ConstructTheRectangle
 {
     public int[] ConstructRectangle(int area)
     {

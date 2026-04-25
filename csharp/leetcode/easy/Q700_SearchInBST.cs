@@ -1,4 +1,4 @@
-﻿class Q700_SearchInBST
+class Q700_SearchInBST
 {
     // TC: O(n)
     // SC: O(1)

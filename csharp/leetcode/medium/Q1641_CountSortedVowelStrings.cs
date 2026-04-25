@@ -1,4 +1,4 @@
-﻿public class Q1641_CountSortedVowelStrings(ITestOutputHelper output)
+public class Q1641_CountSortedVowelStrings(ITestOutputHelper output)
 {
     Dictionary<int, int> accumulatedSum = [];
     Dictionary<int, int> sumFromOne = [];

@@ -1,4 +1,4 @@
-﻿public class Q3876_ConstructUniformParityArrayII
+public class Q3876_ConstructUniformParityArrayII
 {
     // TC: O(n), n scale with length of nums1
     // SC: O(1), space used does not scale with input

@@ -1,4 +1,4 @@
-﻿class Q242_ValidAnagram
+class Q242_ValidAnagram
 {
     public bool IsAnagram(string s, string t)
     {

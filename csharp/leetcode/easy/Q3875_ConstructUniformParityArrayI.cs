@@ -1,4 +1,4 @@
-﻿public class Q3875_ConstructUniformParityArrayI
+public class Q3875_ConstructUniformParityArrayI
 {
     // TC: O(1)
     // SC: O(1)

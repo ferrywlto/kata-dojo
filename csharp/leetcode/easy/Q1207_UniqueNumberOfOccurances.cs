@@ -1,4 +1,4 @@
-﻿class Q1207_UniqueNumberOfOccurances
+class Q1207_UniqueNumberOfOccurances
 {
     // TC: O(n), n is length of arr
     // SC: O(n), n is distinct element in arr

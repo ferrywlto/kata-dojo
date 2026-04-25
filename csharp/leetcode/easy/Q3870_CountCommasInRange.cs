@@ -1,4 +1,4 @@
-﻿public class Q3870_CountCommasInRange
+public class Q3870_CountCommasInRange
 {
     // TC: O(1)
     // SC: O(1)

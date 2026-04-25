@@ -1,4 +1,4 @@
-﻿class Q455_AssignCookies
+class Q455_AssignCookies
 {
     // TC: O(n log n), SC: O(1)
     public int FindContentChildren(int[] g, int[] s)

@@ -1,4 +1,4 @@
-﻿public class Q3842_ToggleLightBulbs
+public class Q3842_ToggleLightBulbs
 {
     // TC: O(n), n scale with length of bulbs
     // SC: O(n), for storing result, otherwise O(1)

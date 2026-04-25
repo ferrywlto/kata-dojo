@@ -1,4 +1,4 @@
-﻿
+
 class Q836_RectangleOverlap
 {
     // TC: O(1), constant calculate everytime

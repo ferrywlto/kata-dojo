@@ -1,4 +1,4 @@
-﻿class TwoSumTestData : TestData
+class TwoSumTestData : TestData
 {
     protected override List<object[]> Data =>
     [

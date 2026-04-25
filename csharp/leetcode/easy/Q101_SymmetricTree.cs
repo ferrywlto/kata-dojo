@@ -1,4 +1,4 @@
-﻿class Q101_SymmetricTreeTestData : TestData
+class Q101_SymmetricTreeTestData : TestData
 {
     protected override List<object[]> Data =>
     [

@@ -1,4 +1,4 @@
-﻿
+
 class Q1068_ProductSalesAnalysis : SqlQuestion
 {
     // The T-SQL test cases on leetcode is broken, it still timeout as most other developers encountered.

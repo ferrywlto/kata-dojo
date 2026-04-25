@@ -1,4 +1,4 @@
-﻿class Q461_HammingDistance
+class Q461_HammingDistance
 {
     // TC: O(num of bits in int) -> O(1), SC: O(1)
     public int HammingDistance(int x, int y)

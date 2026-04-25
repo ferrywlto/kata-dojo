@@ -1,4 +1,4 @@
-﻿class Q1148_ArticleViewsI : SqlQuestion
+class Q1148_ArticleViewsI : SqlQuestion
 {
     public override string Query =>
     """

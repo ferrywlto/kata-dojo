@@ -1,4 +1,4 @@
-﻿class Q1450_NumOfStudentsDoingHomeworkAtGivenTime
+class Q1450_NumOfStudentsDoingHomeworkAtGivenTime
 {
     // TC: O(n), where n is length of startTime, it have to run through all pairs
     // SC: O(1), no space used in operations

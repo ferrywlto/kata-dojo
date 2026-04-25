@@ -1,4 +1,4 @@
-﻿class Q292_NimGame
+class Q292_NimGame
 {
     public bool CanWinNim(int n)
     {

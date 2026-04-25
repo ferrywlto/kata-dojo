@@ -1,4 +1,4 @@
-﻿public class Q3492_MaximumContainersOnShip
+public class Q3492_MaximumContainersOnShip
 {
     // TC: O(1)
     // SC: O(1)

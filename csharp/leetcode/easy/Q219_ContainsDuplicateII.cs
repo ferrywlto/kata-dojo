@@ -1,4 +1,4 @@
-﻿class Q219_ContainsDuplicateII
+class Q219_ContainsDuplicateII
 {
     /*
     Constraints:

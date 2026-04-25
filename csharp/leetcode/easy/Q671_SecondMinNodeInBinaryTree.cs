@@ -1,4 +1,4 @@
-﻿class Q671_SecondMinNodeInBinaryTree
+class Q671_SecondMinNodeInBinaryTree
 {
     // TC: O(n)
     // SC: O(n)

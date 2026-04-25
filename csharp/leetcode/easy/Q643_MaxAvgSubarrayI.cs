@@ -1,4 +1,4 @@
-﻿class Q643_MaxAvgSubarrayI
+class Q643_MaxAvgSubarrayI
 {
     // TC: O(n^2)
     // SC: O(1)

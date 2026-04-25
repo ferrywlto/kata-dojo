@@ -1,4 +1,4 @@
-﻿class Q507_PerfectNumber
+class Q507_PerfectNumber
 {
     readonly HashSet<int> cache = [1];
     // TC: O(sqrt(n)), SC: O(n)

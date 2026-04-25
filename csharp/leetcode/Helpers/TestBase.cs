@@ -1,4 +1,4 @@
-﻿public abstract class TestBase
+public abstract class TestBase
 {
     protected readonly ITestOutputHelper Output;
     public TestBase(ITestOutputHelper output)

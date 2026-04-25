@@ -1,4 +1,4 @@
-﻿
+
 class Q1122_RelativeSortArray
 {
     // TC: O(n log n) due to notInArr2.Sort(), worst case almost all numbers in arr1 is not in arr2

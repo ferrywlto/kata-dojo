@@ -1,4 +1,4 @@
-﻿class Q1346_CheckIfNAndItsDoubleExist
+class Q1346_CheckIfNAndItsDoubleExist
 {
     // TC: O(n), n scale with length of arr
     // SC: O(n), n scale with distinct numbers in arr

@@ -1,4 +1,4 @@
-﻿class Q1464_MaxProductOfTwoElementsInArray
+class Q1464_MaxProductOfTwoElementsInArray
 {
     // TC: O(n), where n is the length of nums
     // SC: O(1), the space used are fixed

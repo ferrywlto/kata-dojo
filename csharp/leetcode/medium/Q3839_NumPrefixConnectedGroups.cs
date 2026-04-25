@@ -1,4 +1,4 @@
-﻿public class Q3839_NumPrefixConnectedGroups
+public class Q3839_NumPrefixConnectedGroups
 {
     // TC: O(n), n scale with length of words
     // SC: O(n), worst case all prefix are unique

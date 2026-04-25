@@ -1,4 +1,4 @@
-﻿class Q617_MergeTwoBinaryTrees
+class Q617_MergeTwoBinaryTrees
 {
     // TC: O(n)
     // SC: O(n)

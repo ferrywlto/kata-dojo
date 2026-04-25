@@ -1,4 +1,4 @@
-﻿public class Q3146_PermutationDifferenceBetweenTwoStrings
+public class Q3146_PermutationDifferenceBetweenTwoStrings
 {
     // TC: O(n), n scale with length of s and m scale with length of t
     // SC: O(n), n scale with length of s

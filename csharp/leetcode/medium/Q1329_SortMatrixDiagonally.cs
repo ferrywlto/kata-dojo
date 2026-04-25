@@ -1,4 +1,4 @@
-﻿public class Q1329_SortMatrixDiagonally
+public class Q1329_SortMatrixDiagonally
 {
     // TC: O(n^2)
     // SC: O(1)

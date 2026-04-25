@@ -1,4 +1,4 @@
-﻿class Q1748_SumOfUniqueElements
+class Q1748_SumOfUniqueElements
 {
     // TC: O(n+m), where n is length of nums and m is number of unique numbers
     // SC: O(m), where m is number of unique numbers in nums   

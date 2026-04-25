@@ -1,4 +1,4 @@
-﻿class Q598_RangeAdditionII
+class Q598_RangeAdditionII
 {
     // TC: O(n)
     // SC: O(1)

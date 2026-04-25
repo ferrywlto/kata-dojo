@@ -1,4 +1,4 @@
-﻿class Q1582_SpecialPositionsInBinaryMatrix
+class Q1582_SpecialPositionsInBinaryMatrix
 {
     // TC: O(n), where n is the number of cells in total + m number of 1s to check, in worst case m is the length of mat (rows) (all 1 lies on diagnoal)
     // SC: O(n+m), where n is number of rows and m is number of columns

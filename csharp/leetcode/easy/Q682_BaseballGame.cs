@@ -1,4 +1,4 @@
-﻿class Q682_BaseballGame
+class Q682_BaseballGame
 {
     // TC: O(n)
     // SC: O(n)

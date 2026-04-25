@@ -1,4 +1,4 @@
-﻿class Q1189_MaximumNUmberOfBalloons
+class Q1189_MaximumNUmberOfBalloons
 {
     private const string balloon = "balloon";
     // TC: O(n), n is length of text

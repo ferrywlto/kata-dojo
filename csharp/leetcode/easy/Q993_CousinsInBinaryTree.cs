@@ -1,4 +1,4 @@
-﻿class Q997_CousinsInBinaryTree
+class Q997_CousinsInBinaryTree
 {
     // TC: O(n), n is nodes in tree
     // SC: O(n+h), n nodes in tree + h height of stack

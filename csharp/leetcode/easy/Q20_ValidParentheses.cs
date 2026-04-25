@@ -1,4 +1,4 @@
-﻿class Q20_ValidParenthesesTestData : TestData
+class Q20_ValidParenthesesTestData : TestData
 {
     protected override List<object[]> Data =>
     [

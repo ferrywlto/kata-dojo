@@ -1,4 +1,4 @@
-﻿public class Q2824_CountPairsWhoseSumIsLessThanTarget
+public class Q2824_CountPairsWhoseSumIsLessThanTarget
 {
     public int CountPairs(IList<int> nums, int target)
     {

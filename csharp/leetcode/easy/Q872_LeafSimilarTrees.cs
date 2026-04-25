@@ -1,4 +1,4 @@
-﻿// TC: O(n), all nodes need to traverse once
+// TC: O(n), all nodes need to traverse once
 // SC: O(tree1.depth + tree2.depth)
 class Q872_LeafSimilarTrees
 {

@@ -1,4 +1,4 @@
-﻿class Q476_NumberComplement
+class Q476_NumberComplement
 {
     // Constraints
     // 1 <= num < 2^31

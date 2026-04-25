@@ -1,4 +1,4 @@
-﻿class Q383_RansomNote
+class Q383_RansomNote
 {
     // TC: O(n), SC: O(n)
     public bool CanConstruct(string ransomNote, string magazine)

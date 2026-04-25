@@ -1,4 +1,4 @@
-﻿class Q1608_SpecialArrayWithXElementsGreaterThanOrEqualX
+class Q1608_SpecialArrayWithXElementsGreaterThanOrEqualX
 {
     // TC: O(n log n), where n is the length of nums and dominated by Array.Sort();
     // SC: O(1), space used is fixed

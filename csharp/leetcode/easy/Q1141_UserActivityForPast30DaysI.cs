@@ -1,4 +1,4 @@
-﻿
+
 class Q1141_UserActivityForPast30DaysI : SqlQuestion
 {
     public override string Query =>

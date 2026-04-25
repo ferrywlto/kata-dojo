@@ -1,4 +1,4 @@
-﻿public class Temp
+public class Temp
 {
     public string Format(float value)
     {

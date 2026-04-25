@@ -1,4 +1,4 @@
-﻿class Q1683_InvalidTweets : SqlQuestion
+class Q1683_InvalidTweets : SqlQuestion
 {
     public override string Query =>
     """

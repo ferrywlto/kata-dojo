@@ -1,4 +1,4 @@
-﻿class Q1422_MaxScoreAfterSpiltString
+class Q1422_MaxScoreAfterSpiltString
 {
     // TC: O(n), n for initial left and right score, + n-1 ops for sliding window calculate new scores  
     // SC: O(1), comparisons doing in-place

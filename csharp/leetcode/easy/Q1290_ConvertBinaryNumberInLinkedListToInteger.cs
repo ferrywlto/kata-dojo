@@ -1,4 +1,4 @@
-﻿class Q1290_ConvertBinaryNumberInLinkedListToInteger
+class Q1290_ConvertBinaryNumberInLinkedListToInteger
 {
     // TC: O(n), all elements need to traverse twice, once for list, another for stack
     // SC: O(n), stack size equals to list length

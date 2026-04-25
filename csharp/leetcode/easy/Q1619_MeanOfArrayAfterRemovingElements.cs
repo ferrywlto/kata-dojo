@@ -1,4 +1,4 @@
-﻿class Q1619_MeanOfArrayAfterRemovingElements
+class Q1619_MeanOfArrayAfterRemovingElements
 {
     // TC: O(n log n), due to Array.Sort();
     // SC: O(1), space used is fixed

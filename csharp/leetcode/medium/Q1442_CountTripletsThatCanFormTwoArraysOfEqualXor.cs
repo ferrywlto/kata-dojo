@@ -1,4 +1,4 @@
-﻿public class Q1442_CountTripletsThatCanFormTwoArraysOfEqualXor(ITestOutputHelper output)
+public class Q1442_CountTripletsThatCanFormTwoArraysOfEqualXor(ITestOutputHelper output)
 {
     public int CountTriplets(int[] arr)
     {

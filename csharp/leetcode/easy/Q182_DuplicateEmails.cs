@@ -1,4 +1,4 @@
-﻿class Q182_DuplicateEmails : SqlQuestion
+class Q182_DuplicateEmails : SqlQuestion
 {
     public override string Query =>
     """

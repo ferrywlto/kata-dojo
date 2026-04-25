@@ -1,4 +1,4 @@
-﻿class Q415_AddStrings
+class Q415_AddStrings
 {
     private const int charBase = 48;
     private static int CharToInt(char c) => c - charBase;

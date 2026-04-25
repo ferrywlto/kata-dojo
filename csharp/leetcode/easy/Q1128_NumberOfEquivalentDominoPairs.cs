@@ -1,4 +1,4 @@
-﻿class Q1128_NumberOfEquivalentDominoPairs
+class Q1128_NumberOfEquivalentDominoPairs
 {
     // TC: O(n^2), (n*(n+1))/2 where n is number of dominoes
     // SC: O(1)

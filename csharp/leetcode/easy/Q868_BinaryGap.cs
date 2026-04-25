@@ -1,4 +1,4 @@
-﻿class Q868_BinaryGap
+class Q868_BinaryGap
 {
     // TC: O(n), n is number of bits of input
     // SC: O(1), no extra memory used

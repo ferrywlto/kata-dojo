@@ -1,4 +1,4 @@
-﻿class Q1394_FindLuckyIntegerInArray
+class Q1394_FindLuckyIntegerInArray
 {
     // TC: O(n), n is length of arr
     // SC: O(n), n is unique values of arr

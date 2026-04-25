@@ -1,4 +1,4 @@
-﻿
+
 class Q1050_ActorsAndDirectorsWhoCooperatedAtLeastThreeTimes : SqlQuestion
 {
     public override string Query =>

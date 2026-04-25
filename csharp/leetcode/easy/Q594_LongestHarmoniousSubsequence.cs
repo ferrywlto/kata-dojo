@@ -1,4 +1,4 @@
-﻿class Q594_LongestHarmoniousSubsequence
+class Q594_LongestHarmoniousSubsequence
 {
     // TC: O(n)
     // SC: O(n)

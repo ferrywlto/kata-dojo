@@ -1,4 +1,4 @@
-﻿class Q1047_RemoveAllAdjacentDuplicates
+class Q1047_RemoveAllAdjacentDuplicates
 {
     // TC: O(n), n is length of s
     // SC: O(n), n is length of s in worst cases

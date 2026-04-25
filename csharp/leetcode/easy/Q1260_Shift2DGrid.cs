@@ -1,4 +1,4 @@
-﻿class Q1260_Shift2DGrid
+class Q1260_Shift2DGrid
 {
     // TC: O(n), n is total elements in grid * k times
     // SC: O(n) if count the conversion needed for the result type, otherwise O(1)

@@ -1,4 +1,4 @@
-﻿public class Q2900_LongestUnequalAdjacentGroupsSubsequenceI(ITestOutputHelper output)
+public class Q2900_LongestUnequalAdjacentGroupsSubsequenceI(ITestOutputHelper output)
 {
     public IList<string> GetLongestSubsequence(string[] words, int[] groups)
     {

@@ -1,4 +1,4 @@
-﻿class Q1200_MinimumAbsoluteDifference
+class Q1200_MinimumAbsoluteDifference
 {
     // TC: O(n log n), due to Array.Sort(), after the sort its O(n)
     // SC: O(n), n is the length of arr

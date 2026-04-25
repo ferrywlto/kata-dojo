@@ -1,4 +1,4 @@
-﻿public class Q3867_SumOfGCDOfFormedPairs
+public class Q3867_SumOfGCDOfFormedPairs
 {
     // TC: O(n), n scale with length of nums
     // SC: O(n)

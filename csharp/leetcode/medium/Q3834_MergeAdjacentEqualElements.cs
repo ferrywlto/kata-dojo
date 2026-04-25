@@ -1,4 +1,4 @@
-﻿public class Q3834_MergeAdjacentEqualElements
+public class Q3834_MergeAdjacentEqualElements
 {
     // Faster way is to use List to perform the backward check rather than stack to save the reverse cost.
     // TC: O(n^2), worst case all merge to 1 element remain

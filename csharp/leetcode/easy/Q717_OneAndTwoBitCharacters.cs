@@ -1,4 +1,4 @@
-﻿class Q717_OneAndTwoBitCharacters
+class Q717_OneAndTwoBitCharacters
 {
     public bool IsOneBitCharacter(int[] bits)
     {

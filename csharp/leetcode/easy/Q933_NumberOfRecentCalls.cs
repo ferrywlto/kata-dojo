@@ -1,4 +1,4 @@
-﻿public interface RecentCounter
+public interface RecentCounter
 {
     public int Ping(int t);
 }

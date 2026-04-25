@@ -1,4 +1,4 @@
-﻿public class Q2481_MinCutsToDivideCircle
+public class Q2481_MinCutsToDivideCircle
 {
     public int NumberOfCuts(int n)
     {

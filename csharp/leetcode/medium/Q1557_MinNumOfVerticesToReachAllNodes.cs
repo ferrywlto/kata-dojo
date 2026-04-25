@@ -1,4 +1,4 @@
-﻿
+
 public class Q1557_MinNumOfVerticesToReachAllNodes
 {
 

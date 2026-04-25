@@ -1,4 +1,4 @@
-﻿class Q1534_CountGoodTriplets
+class Q1534_CountGoodTriplets
 {
     // TC: O(n^3), where n is length of arr -3
     // SC: O(1), the space used is fixed

@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 
 class Q504_Base7
 {

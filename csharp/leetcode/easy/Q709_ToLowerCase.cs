@@ -1,4 +1,4 @@
-﻿class Q709_ToLowerCase
+class Q709_ToLowerCase
 {
     // TC: O(n)
     // SC: O(n)

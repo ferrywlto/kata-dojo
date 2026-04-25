@@ -1,5 +1,3 @@
-﻿using System.Text;
-
 public class Q2062_CountVowelSubstringsOfString
 {
     readonly HashSet<char> vowels = ['a', 'e', 'i', 'o', 'u'];

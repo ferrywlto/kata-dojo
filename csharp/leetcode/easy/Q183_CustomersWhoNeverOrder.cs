@@ -1,4 +1,4 @@
-﻿class Q183_CustomersWhoNeverOrder : SqlQuestion
+class Q183_CustomersWhoNeverOrder : SqlQuestion
 {
     public override string Query =>
     """

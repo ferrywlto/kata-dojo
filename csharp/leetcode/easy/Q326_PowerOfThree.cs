@@ -1,4 +1,4 @@
-﻿class Q326_PowerOfThree
+class Q326_PowerOfThree
 {
     /*
     The notation 1E-14 is a way of representing numbers using scientific notation in programming languages. 

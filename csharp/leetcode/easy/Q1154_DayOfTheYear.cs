@@ -1,4 +1,4 @@
-﻿class Q1154_DayOfTheYear
+class Q1154_DayOfTheYear
 {
     // TC: O(1)
     // SC: O(1)

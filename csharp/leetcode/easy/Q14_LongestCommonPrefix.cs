@@ -1,4 +1,3 @@
-﻿using System.Collections.Generic;
 using System.Text;
 
 class Q14_LongestCommonPrefixTestData : TestData

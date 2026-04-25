@@ -1,4 +1,4 @@
-﻿class Q1704_DetermineIfStringHalvesAreAlike
+class Q1704_DetermineIfStringHalvesAreAlike
 {
     // TC: O(n), where n is length of s, it have to iterate all characters
     // SC: O(1), space used is fixed

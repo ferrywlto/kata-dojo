@@ -1,4 +1,4 @@
-﻿using Row = (string product_name, int unit);
+using Row = (string product_name, int unit);
 class Q1327_ListTheProductsOrderedInAPeriod : SqlQuestion
 {
     public override string Query =>

@@ -1,4 +1,4 @@
-﻿class Q563_BinaryTreeTilt
+class Q563_BinaryTreeTilt
 {
     public int FindTilt(TreeNode? root)
     {

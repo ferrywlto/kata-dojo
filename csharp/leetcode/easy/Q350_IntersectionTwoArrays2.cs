@@ -1,4 +1,4 @@
-﻿/*
+/*
 Follow up:
 
 What if the given array is already sorted? How would you optimize your algorithm?

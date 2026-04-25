@@ -1,4 +1,4 @@
-﻿class Q1005_MaxSumOfArrayAfterNegations
+class Q1005_MaxSumOfArrayAfterNegations
 {
     // TC: O(n+2n log n), n is length of nums
     // SC: O(1), the operations are done in-place

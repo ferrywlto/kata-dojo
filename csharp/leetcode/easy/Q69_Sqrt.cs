@@ -1,4 +1,4 @@
-﻿class Q69_SqrtTestData : TestData
+class Q69_SqrtTestData : TestData
 {
     protected override List<object[]> Data =>
     [

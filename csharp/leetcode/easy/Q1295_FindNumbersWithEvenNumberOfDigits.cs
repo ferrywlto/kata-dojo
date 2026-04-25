@@ -1,4 +1,4 @@
-﻿class Q1295_FindNumbersWithEvenNumberOfDigits
+class Q1295_FindNumbersWithEvenNumberOfDigits
 {
     // TC: O(n), n is length of nums * how large is each number
     // SC: O(1), no space used for operations

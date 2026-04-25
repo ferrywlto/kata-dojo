@@ -1,4 +1,4 @@
-﻿class Q997_FindTheTownJudge
+class Q997_FindTheTownJudge
 {
     // TC: O(n), n is length of trust
     // SC: O(n+m), n is distinct vote from trust, m is distinct people in town

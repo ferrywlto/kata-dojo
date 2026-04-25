@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 class Foo
 {
     protected int step = 0;

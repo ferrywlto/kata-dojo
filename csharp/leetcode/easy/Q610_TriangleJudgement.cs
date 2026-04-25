@@ -1,4 +1,4 @@
-﻿class Q610_TriangleJudgement : SqlQuestion
+class Q610_TriangleJudgement : SqlQuestion
 {
     public override string Query =>
     """

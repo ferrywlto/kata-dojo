@@ -1,4 +1,4 @@
-﻿class Q1365_HowManyNumbersAreSmallerThanTheCurrentNumber
+class Q1365_HowManyNumbersAreSmallerThanTheCurrentNumber
 {
     // TC: O(n log n), due to Array.Sort()
     // SC: O(n+m) for the n unique number in dictionary, and m for the copied array

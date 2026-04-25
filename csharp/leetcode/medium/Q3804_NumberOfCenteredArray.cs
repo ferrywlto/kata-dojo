@@ -1,4 +1,4 @@
-﻿public class Q3804_NumberOfCanteredArray
+public class Q3804_NumberOfCanteredArray
 {
     // TC: O(n^2)
     // SC: O(n), worst case set contains all elements (first run)

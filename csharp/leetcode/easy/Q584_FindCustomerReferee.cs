@@ -1,4 +1,4 @@
-﻿class Q584_FindCustomerReferee : SqlQuestion
+class Q584_FindCustomerReferee : SqlQuestion
 {
     public override string Query =>
     """

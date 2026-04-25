@@ -1,4 +1,4 @@
-﻿public abstract class Kthlargest
+public abstract class Kthlargest
 {
 
     public abstract int Add(int val);

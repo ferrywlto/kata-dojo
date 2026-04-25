@@ -1,4 +1,4 @@
-﻿class Q1827_MinOperationsMakeArrayIncreasing
+class Q1827_MinOperationsMakeArrayIncreasing
 {
     // TC: O(n), where n is length of nums
     // SC: O(1), space used is fixed

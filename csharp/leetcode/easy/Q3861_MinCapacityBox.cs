@@ -1,4 +1,4 @@
-﻿public class Q3861_MinCapacityBox
+public class Q3861_MinCapacityBox
 {
     // TC: O(n), n scale with length of capacity
     // SC: O(1), space used does not scale with input

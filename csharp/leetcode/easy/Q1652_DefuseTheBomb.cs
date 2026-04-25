@@ -1,4 +1,4 @@
-﻿class Q1652_DefuseTheBomb
+class Q1652_DefuseTheBomb
 {
     // TC: O(n), where n is length of code
     // SC: O(n), where n is length of code to hold the result array

@@ -1,4 +1,4 @@
-﻿class Q1332_RemovePalindromicSubsequences
+class Q1332_RemovePalindromicSubsequences
 {
     // TC: O(n), n is length of s
     // SC: O(1), no space used in operation

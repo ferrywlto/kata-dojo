@@ -1,4 +1,4 @@
-﻿public class Q2545_SortStudentsByKthScore
+public class Q2545_SortStudentsByKthScore
 {
     // TC: O(n log n), n scale with length of score
     // SC: O(n)

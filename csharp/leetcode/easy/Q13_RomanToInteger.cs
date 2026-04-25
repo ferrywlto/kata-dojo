@@ -1,4 +1,4 @@
-﻿public class Q13_RomashortoshortegerTests
+public class Q13_RomashortoshortegerTests
 {
     [Theory]
     [InlineData("I")]

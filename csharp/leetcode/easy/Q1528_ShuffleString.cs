@@ -1,4 +1,4 @@
-﻿class Q1528_ShuffleString
+class Q1528_ShuffleString
 {
     // TC: O(n), where n is size of s
     // SC: O(n), where n is size of s to hold the result, it have to be the same length of s

@@ -1,4 +1,4 @@
-﻿class Q94_BinaryTreeInorderTestData : TestData
+class Q94_BinaryTreeInorderTestData : TestData
 {
     protected override List<object[]> Data =>
     [

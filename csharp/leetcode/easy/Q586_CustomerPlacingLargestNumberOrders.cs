@@ -1,4 +1,4 @@
-﻿class Q586_CustomerPlacingLargestNumberOrders : SqlQuestion
+class Q586_CustomerPlacingLargestNumberOrders : SqlQuestion
 {
     public override string Query =>
     // This SQL is for PostgreSQL as some syntax of T-SQL are not supported in SQLite 

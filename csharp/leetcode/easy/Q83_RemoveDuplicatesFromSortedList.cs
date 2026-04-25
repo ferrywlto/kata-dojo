@@ -1,4 +1,4 @@
-﻿class Q83_RemoveDuplicatesFromSortedListTestData : TestData
+class Q83_RemoveDuplicatesFromSortedListTestData : TestData
 {
     protected override List<object[]> Data =>
     [

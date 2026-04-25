@@ -1,4 +1,4 @@
-﻿public class Q3736_MinMovesToEqualArrayElementsIII
+public class Q3736_MinMovesToEqualArrayElementsIII
 {
     // TC: O(n), n scale with length of nums
     // SC: O(1), space used is constant

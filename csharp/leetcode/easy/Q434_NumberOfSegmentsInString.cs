@@ -1,4 +1,4 @@
-﻿class Q434_NumberOfSegmentsInString
+class Q434_NumberOfSegmentsInString
 {
 
     // Constraints

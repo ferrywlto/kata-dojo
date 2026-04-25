@@ -1,4 +1,4 @@
-﻿public class Q3774_AbsoluteDiffBetweenMaxAndMinKElements
+public class Q3774_AbsoluteDiffBetweenMaxAndMinKElements
 {
     // TC: O(n log n), dominated by Array.Sort()
     // SC: O(1), space used does not scale with input.

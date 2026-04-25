@@ -1,4 +1,4 @@
-﻿class Q747_LargestNumberAtLeastTwiceOfOthers
+class Q747_LargestNumberAtLeastTwiceOfOthers
 {
     // TC: O(n)
     // SC: O(1)

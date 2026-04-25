@@ -1,4 +1,4 @@
-﻿class Q1037_ValidBoomerang
+class Q1037_ValidBoomerang
 {
     // TC: O(1)
     // SC: O(1)

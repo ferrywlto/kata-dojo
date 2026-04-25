@@ -1,4 +1,4 @@
-﻿public class Q3814_DesignAuctionSystem(ITestOutputHelper output)
+public class Q3814_DesignAuctionSystem(ITestOutputHelper output)
 {
     private class AuctionSystem
     {

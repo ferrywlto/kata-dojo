@@ -1,4 +1,4 @@
-﻿public class Q3340_CheckBalancedString
+public class Q3340_CheckBalancedString
 {
     // TC: O(n), n sacle with length of num
     // SC: O(1), space used does not scale with input

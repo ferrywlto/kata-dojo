@@ -1,4 +1,4 @@
-﻿class Q599_MinIndexSumOfTwoList
+class Q599_MinIndexSumOfTwoList
 {
     // TC: O(n+m)
     // SC: O(n+m)

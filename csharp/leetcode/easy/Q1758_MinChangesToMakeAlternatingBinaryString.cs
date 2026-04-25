@@ -1,5 +1,3 @@
-﻿using System.Text;
-
 class Q1758_MinChangesToMakeAlternatingBinaryString
 {
     // TC: O(n), where n is the length of s

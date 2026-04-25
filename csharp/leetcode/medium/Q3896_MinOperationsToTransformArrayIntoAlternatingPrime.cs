@@ -1,4 +1,4 @@
-﻿
+
 public class Q3896_MinOperationsToTransformArrayIntoAlternatingPrime
 {
 

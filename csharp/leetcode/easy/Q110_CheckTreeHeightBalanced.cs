@@ -1,4 +1,4 @@
-﻿class Q110_CheckTreeHeightBalanced
+class Q110_CheckTreeHeightBalanced
 {
     public bool IsBalanced(TreeNode? root)
     {

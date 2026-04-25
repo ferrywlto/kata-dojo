@@ -1,4 +1,4 @@
-﻿class GuessGame
+class GuessGame
 {
     public int pick = 0;
     public int guess(int num)

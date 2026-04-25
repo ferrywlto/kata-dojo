@@ -1,4 +1,4 @@
-﻿public class Q3760_MaxSubstringWithDistinctStart
+public class Q3760_MaxSubstringWithDistinctStart
 {
     // TC: O(n), n scale with length of s
     // SC: O(1), space used does not scale with input

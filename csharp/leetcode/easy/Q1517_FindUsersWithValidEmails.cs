@@ -1,4 +1,4 @@
-﻿using Row = (int user_id, string name, string mail);
+using Row = (int user_id, string name, string mail);
 class Q1517_FindUsersWithValidEmails : SqlQuestion
 {
     // SQLite does not support regex as well, the most it can do is the ensure the start and end

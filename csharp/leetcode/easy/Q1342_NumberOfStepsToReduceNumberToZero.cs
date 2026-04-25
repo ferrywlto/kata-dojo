@@ -1,4 +1,4 @@
-﻿class Q1342_NumberOfStepsToReduceNumberToZero
+class Q1342_NumberOfStepsToReduceNumberToZero
 {
     // TC: O(n), scale with size of num
     // SC: O(1), no space used in calculation

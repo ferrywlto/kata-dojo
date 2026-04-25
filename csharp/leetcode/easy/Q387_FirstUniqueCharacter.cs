@@ -1,4 +1,4 @@
-﻿class Q387_FirstUniqueCharacter
+class Q387_FirstUniqueCharacter
 {
     // TC: O(n), SC: O(n)
     public int FirstUniqChar(string s)

@@ -1,4 +1,4 @@
-﻿class Q500_KeyboardRow
+class Q500_KeyboardRow
 {
     private readonly HashSet<char> row1 = new("qwertyuiop");
     private readonly HashSet<char> row2 = new("asdfghjkl");

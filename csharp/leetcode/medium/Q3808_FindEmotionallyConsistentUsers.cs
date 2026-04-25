@@ -1,4 +1,4 @@
-﻿using Row = (int user_id, string dominant_reaction, double reaction_ratio);
+using Row = (int user_id, string dominant_reaction, double reaction_ratio);
 public class Q3808_FindEmotionallyConsistentUsers(ITestOutputHelper output) : SqlTest(output)
 {
     // Optimal query for reference

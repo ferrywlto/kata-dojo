@@ -1,4 +1,4 @@
-﻿class Q412_FizzBuzz
+class Q412_FizzBuzz
 {
     // TC: O(n), SC: O(n)
     public IList<string> FizzBuzz(int n)

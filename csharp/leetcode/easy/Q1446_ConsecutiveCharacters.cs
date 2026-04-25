@@ -1,4 +1,4 @@
-﻿class Q1446_ConsecutiveCharacters
+class Q1446_ConsecutiveCharacters
 {
     // TC: O(n), it have to iterate to the end to determine the longest
     // SC: O(1), no space used in operations

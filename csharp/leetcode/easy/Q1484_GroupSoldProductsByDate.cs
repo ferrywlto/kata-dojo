@@ -1,4 +1,4 @@
-﻿using Row = (string sell_date, int num_sold, string products);
+using Row = (string sell_date, int num_sold, string products);
 class Q1484_GroupSoldProductsByDate : SqlQuestion
 {
     public override string Query =>

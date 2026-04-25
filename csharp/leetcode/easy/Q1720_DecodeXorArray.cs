@@ -1,4 +1,4 @@
-﻿class Q1720_DecodeXorArray
+class Q1720_DecodeXorArray
 {
     // TC: O(n), where n is the length of encoded
     // SC: O(n), where n is length of encoded + 1, if not counting the space to hold the result, its O(1)

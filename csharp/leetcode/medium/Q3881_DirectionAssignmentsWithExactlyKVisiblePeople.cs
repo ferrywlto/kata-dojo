@@ -1,4 +1,4 @@
-﻿public class Q3881_DirectionAssignmentsWithExactlyKVisiblePeople
+public class Q3881_DirectionAssignmentsWithExactlyKVisiblePeople
 {
     // Question provided mod, it is a prime.
     const long MOD = 1_000_000_007;

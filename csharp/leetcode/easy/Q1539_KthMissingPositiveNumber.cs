@@ -1,4 +1,4 @@
-﻿class Q1539_KthMissingPositiveNumber
+class Q1539_KthMissingPositiveNumber
 {
     // TC: O(n), where n is length of arr + k
     // SC: O(m), where m is length of arr

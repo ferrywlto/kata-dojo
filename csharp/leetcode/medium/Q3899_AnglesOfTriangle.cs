@@ -1,4 +1,4 @@
-﻿public class Q3899_AnglesOfTriangle
+public class Q3899_AnglesOfTriangle
 {
     // TC: O(1)
     // SC: O(1)

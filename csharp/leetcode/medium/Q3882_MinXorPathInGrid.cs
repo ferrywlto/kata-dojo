@@ -1,4 +1,4 @@
-﻿public class Q3882_MinXorPathInGrid(ITestOutputHelper output)
+public class Q3882_MinXorPathInGrid(ITestOutputHelper output)
 {
     // TC: O(m * n * 1024)
     // SC: O(n * 1024)

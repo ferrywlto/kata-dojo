@@ -1,4 +1,4 @@
-﻿using Row = (int customer_id, int count_no_trans);
+using Row = (int customer_id, int count_no_trans);
 class Q1581_CustomerWhoVisitedButDidNotMakeAnyTransactions : SqlQuestion
 {
     public override string Query =>

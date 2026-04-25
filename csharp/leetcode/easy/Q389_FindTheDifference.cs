@@ -1,4 +1,4 @@
-﻿class Q389_FindTheDifference
+class Q389_FindTheDifference
 {
     // Constaints
     // t.length == s.length + 1

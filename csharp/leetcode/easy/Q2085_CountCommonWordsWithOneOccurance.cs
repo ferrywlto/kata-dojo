@@ -1,4 +1,4 @@
-﻿public class Q2085_CountCommonWordsWithOneOccurance
+public class Q2085_CountCommonWordsWithOneOccurance
 {
     // TC: O(n+m), where n sacle with length of words1 and m scales with length of words2
     // SC: O(n+m), for the dictionary sizes

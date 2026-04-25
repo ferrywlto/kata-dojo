@@ -1,4 +1,4 @@
-﻿class Q1221_SplitStringInBalancedStrings
+class Q1221_SplitStringInBalancedStrings
 {
     // TC: O(n), n is length of s
     // SC: O(1), the dictionary size is fixed

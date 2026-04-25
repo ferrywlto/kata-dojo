@@ -1,4 +1,4 @@
-﻿public class Q1277_CountSquareSubmatricesWithAllOnes(ITestOutputHelper output)
+public class Q1277_CountSquareSubmatricesWithAllOnes(ITestOutputHelper output)
 {
     // private readonly int[][] _matrix;
     public int CountSquares(int[][] matrix)

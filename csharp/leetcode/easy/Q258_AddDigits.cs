@@ -1,4 +1,4 @@
-﻿class Q258_AddDigits
+class Q258_AddDigits
 {
 
     public int AddDigits(int num)

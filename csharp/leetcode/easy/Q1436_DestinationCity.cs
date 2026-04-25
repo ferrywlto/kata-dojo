@@ -1,4 +1,4 @@
-﻿class Q1436_DestinationCity
+class Q1436_DestinationCity
 {
     // TC: O(n), n length of paths to get the origins + n length of paths to get the destinations + n length of paths to check which destination is not origin
     // SC: O(n), n to store all origins, n to store all destinations  

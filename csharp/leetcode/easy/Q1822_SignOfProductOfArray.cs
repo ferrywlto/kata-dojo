@@ -1,4 +1,4 @@
-﻿class Q1822_SignOfProductOfArray
+class Q1822_SignOfProductOfArray
 {
     // TC: O(n), where n is length of nums
     // SC: O(1), space use is fixed

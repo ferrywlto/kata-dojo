@@ -1,4 +1,4 @@
-﻿public class Q3364_MinPositiveSumSubarray
+public class Q3364_MinPositiveSumSubarray
 {
     // TC: O(m * n), n scale with length of nums, m scale with r-l
     // SC: O(1), space used does not scale with input 

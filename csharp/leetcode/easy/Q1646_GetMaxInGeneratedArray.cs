@@ -1,4 +1,4 @@
-﻿class Q1646_GetMaxInGeneratedArray
+class Q1646_GetMaxInGeneratedArray
 {
     // TC: O(n), scale with how large n is
     // SC: O(n), scale with how large n is, as have to cache value for fast calculation

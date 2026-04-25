@@ -1,4 +1,4 @@
-﻿public class Q3903_SmallestStableIndexI
+public class Q3903_SmallestStableIndexI
 {
     // TC: O(n), n scale with nums.Length
     // SC: O(n)

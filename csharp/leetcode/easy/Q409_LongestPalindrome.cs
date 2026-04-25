@@ -1,4 +1,4 @@
-﻿class Q409_LongestPalindrome
+class Q409_LongestPalindrome
 {
     // TC: O(n), SC: O(n)
     public int LongestPalindrome(string s)

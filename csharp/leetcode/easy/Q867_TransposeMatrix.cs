@@ -1,4 +1,4 @@
-﻿class Q867_TransposeMatrix
+class Q867_TransposeMatrix
 {
     // TC: O(n), n is total elements in matrix
     // SC: O(n) if count resulting matrix, O(1) else

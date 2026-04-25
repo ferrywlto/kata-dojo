@@ -1,4 +1,4 @@
-﻿class Q543_DiameterOfBinaryTree
+class Q543_DiameterOfBinaryTree
 {
     private int max = 0;
     // TC: O(n)

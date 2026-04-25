@@ -1,4 +1,4 @@
-﻿class Q35_SearchInsertPositionTestData : TestData
+class Q35_SearchInsertPositionTestData : TestData
 {
     protected override List<object[]> Data =>
     [

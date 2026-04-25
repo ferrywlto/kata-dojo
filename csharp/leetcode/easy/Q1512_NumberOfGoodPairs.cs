@@ -1,4 +1,4 @@
-﻿
+
 class Q1512_NumberOfGoodPairs
 {
     // TC: O(n), where n is length of nums as all items need to iterate once

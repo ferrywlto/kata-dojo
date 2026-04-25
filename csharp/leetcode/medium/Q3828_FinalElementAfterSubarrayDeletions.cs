@@ -1,4 +1,4 @@
-﻿public class Q3828_FinalElementAfterSubarrayDeletions
+public class Q3828_FinalElementAfterSubarrayDeletions
 {
     // TC: O(1)
     // SC: O(1)

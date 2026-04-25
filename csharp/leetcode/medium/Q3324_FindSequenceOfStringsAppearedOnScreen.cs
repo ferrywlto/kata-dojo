@@ -1,5 +1,3 @@
-﻿using System.Text;
-
 public class Q3324_FindSequenceOfStringsAppearedOnScreen
 {
     // TC: O(n), n scale with length of target

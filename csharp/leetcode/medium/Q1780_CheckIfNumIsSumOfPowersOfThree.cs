@@ -1,4 +1,4 @@
-﻿public class Q1780_CheckIfNumIsSumOfPowersOfThree
+public class Q1780_CheckIfNumIsSumOfPowersOfThree
 {
     int[] powers = [
         3,

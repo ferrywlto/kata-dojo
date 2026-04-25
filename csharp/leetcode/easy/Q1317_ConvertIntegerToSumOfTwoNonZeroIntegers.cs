@@ -1,4 +1,4 @@
-﻿class Q1317_ConvertIntegerToSumOfTwoNonZeroIntegers
+class Q1317_ConvertIntegerToSumOfTwoNonZeroIntegers
 {
     // TC: O(n), it have to iterate at least half the elements in worst case to check if all numbers contains no zero
     // SC: O(1), no space used for calculation

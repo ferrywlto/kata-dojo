@@ -1,4 +1,4 @@
-﻿
+
 class Q1460_MakeTwoArraysEqualByReversingSubarrays
 {
     // TC: O(n log n), where n log n from Array.Sort() dominates n from SequenceEqual()

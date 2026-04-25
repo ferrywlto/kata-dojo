@@ -1,4 +1,4 @@
-﻿public class Q1979_FindGreatestCommonDivisorOfArray
+public class Q1979_FindGreatestCommonDivisorOfArray
 {
     // TC: O(nlogn), due to Array.Sort()
     // SC: O(1), space used does not scale with nums 

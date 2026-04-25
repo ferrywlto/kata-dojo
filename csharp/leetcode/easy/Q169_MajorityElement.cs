@@ -1,4 +1,4 @@
-﻿class Q169_MajorityElementTestData : TestData
+class Q169_MajorityElementTestData : TestData
 {
     protected override List<object[]> Data =>
     [

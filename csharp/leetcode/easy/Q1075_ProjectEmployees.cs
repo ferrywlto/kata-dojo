@@ -1,4 +1,4 @@
-﻿
+
 class Q1075_ProjectEmployees : SqlQuestion
 {
     public override string Query =>

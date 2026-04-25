@@ -1,4 +1,4 @@
-﻿class Q1251_AverageSellingPrice : SqlQuestion
+class Q1251_AverageSellingPrice : SqlQuestion
 {
     public override string Query =>
     """

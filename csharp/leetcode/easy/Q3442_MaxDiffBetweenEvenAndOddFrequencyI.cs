@@ -1,4 +1,4 @@
-﻿public class Q3442_MaxDiffBetweenEvenAndOddFrequencyI
+public class Q3442_MaxDiffBetweenEvenAndOddFrequencyI
 {
     // TC: O(n), n scale with length of s
     // SC: O(1)

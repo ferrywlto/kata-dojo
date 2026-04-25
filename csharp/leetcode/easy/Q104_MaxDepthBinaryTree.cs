@@ -1,4 +1,4 @@
-﻿class Q104_MaxDepthBinaryTreeTestData : TestData
+class Q104_MaxDepthBinaryTreeTestData : TestData
 {
     protected override List<object[]> Data =>
     [

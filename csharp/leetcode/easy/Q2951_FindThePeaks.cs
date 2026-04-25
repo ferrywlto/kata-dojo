@@ -1,4 +1,4 @@
-﻿public class Q2951_FindThePeaks
+public class Q2951_FindThePeaks
 {
     // TC: O(n), n scale with length of mountain
     // SC: O(n), to hold the result, if not counting it then O(1)

@@ -1,4 +1,4 @@
-﻿public class Q2220_MinBitFlipsToConvertNumber
+public class Q2220_MinBitFlipsToConvertNumber
 {
     // TC: O(log n), n scale with Max(start, goal)
     // SC: O(1), space used does not scale with input

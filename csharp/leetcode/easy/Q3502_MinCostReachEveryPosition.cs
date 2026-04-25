@@ -1,4 +1,4 @@
-﻿public class Q3502_MinCostReachEveryPosition
+public class Q3502_MinCostReachEveryPosition
 {
     // TC: O(n), n scale with length of cost
     // SC: O(1), space used does not scale with input

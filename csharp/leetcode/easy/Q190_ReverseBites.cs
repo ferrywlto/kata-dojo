@@ -1,4 +1,4 @@
-﻿class Q190_ReverseBits
+class Q190_ReverseBits
 {
     public uint reverseBits(uint n)
     {

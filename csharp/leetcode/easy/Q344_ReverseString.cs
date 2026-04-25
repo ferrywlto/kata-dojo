@@ -1,4 +1,4 @@
-﻿class Q344_ReverseString
+class Q344_ReverseString
 {
     // TC:O(n), SC:O(1)
     public void ReverseString(char[] s)

@@ -1,4 +1,4 @@
-﻿class Q575_DistributeCandies
+class Q575_DistributeCandies
 {
     // hashset<int> -> Math.Min(hashset.length, candyType.length/2)
     // [1,2,3,4] -> 2

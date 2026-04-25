@@ -1,4 +1,4 @@
-﻿class Q1046_LastStoneWeight
+class Q1046_LastStoneWeight
 {
     // TC: O(n^2), n is length of stones, it needs to run n-1 times in while loop
     // and  

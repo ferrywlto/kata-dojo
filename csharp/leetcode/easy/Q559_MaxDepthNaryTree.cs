@@ -1,4 +1,4 @@
-﻿class Q559_MaxDepthNaryTree
+class Q559_MaxDepthNaryTree
 {
     // TC: O(n)
     // SC: O(n)

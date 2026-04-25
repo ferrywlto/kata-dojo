@@ -1,4 +1,4 @@
-﻿class Q58_LengthOfLastWordTestData : TestData
+class Q58_LengthOfLastWordTestData : TestData
 {
     protected override List<object[]> Data =>
     [

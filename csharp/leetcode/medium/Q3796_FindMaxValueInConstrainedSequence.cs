@@ -1,4 +1,4 @@
-﻿public class Q3796_FindMaxValueInConstrainedSequence
+public class Q3796_FindMaxValueInConstrainedSequence
 {
     public int FindMaxVal(int n, int[][] restrictions, int[] diff)
     {

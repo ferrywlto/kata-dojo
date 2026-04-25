@@ -1,4 +1,4 @@
-﻿class Q944_DeleteColumnToMakeSorted
+class Q944_DeleteColumnToMakeSorted
 {
     // TC: O(n), n is total characters in strs
     // SC: O(1), didn't use any data structure

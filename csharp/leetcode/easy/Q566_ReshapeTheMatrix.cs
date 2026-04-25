@@ -1,5 +1,3 @@
-﻿using System.Data;
-
 class Q566_ReshapeTheMatrix
 {
     // check r * c == mat.length * mat[0].length

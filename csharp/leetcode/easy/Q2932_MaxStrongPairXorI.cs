@@ -1,4 +1,4 @@
-﻿public class Q2932_MaxStrongPairXorI
+public class Q2932_MaxStrongPairXorI
 {
     // Even though the question state that the same number can pick twice to
     // form a strong pair, x ^ x is always 0, so we can ignore same index

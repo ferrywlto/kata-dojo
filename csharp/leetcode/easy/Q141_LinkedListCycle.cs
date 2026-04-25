@@ -1,4 +1,4 @@
-﻿class Q141_LinkedListCycleTestData : TestData
+class Q141_LinkedListCycleTestData : TestData
 {
     protected override List<object[]> Data =>
     [

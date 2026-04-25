@@ -1,4 +1,4 @@
-﻿class Q1550_ThreeConsecutiveOdds
+class Q1550_ThreeConsecutiveOdds
 {
     // TC: O(n), where n is the length of arr, as it have to iterate all items once
     // SC: O(1), space used is fixed

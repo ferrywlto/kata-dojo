@@ -1,4 +1,4 @@
-﻿public class Q3776_MinMovesToBalanceCircularArray
+public class Q3776_MinMovesToBalanceCircularArray
 {
     public long MinMoves(int[] balance)
     {

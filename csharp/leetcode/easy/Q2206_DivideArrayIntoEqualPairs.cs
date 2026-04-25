@@ -1,4 +1,4 @@
-﻿public class Q2206_DivideArrayIntoRqualPairs
+public class Q2206_DivideArrayIntoRqualPairs
 {
     // TC: O(1), always operate 501 times
     // SC: O(1), same as time

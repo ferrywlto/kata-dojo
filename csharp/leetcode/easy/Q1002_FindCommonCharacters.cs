@@ -1,4 +1,4 @@
-﻿class Q1002_FindCommonCharacters
+class Q1002_FindCommonCharacters
 {
     // TC: O(n*m^2), where n is the number of words and m is the average length of the words. 
     // This is because for each word, it checks each character against the common list (O(m)), and the FindIndex and Remove methods have a time complexity of O(m). The space complexity is O(m) for the lists.

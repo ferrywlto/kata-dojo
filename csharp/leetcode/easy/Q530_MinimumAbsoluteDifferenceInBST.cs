@@ -1,4 +1,4 @@
-﻿class Q530_MinimumAbsoluteDifferenceInBST
+class Q530_MinimumAbsoluteDifferenceInBST
 {
     public int GetMinimumDifference(TreeNode root)
     {

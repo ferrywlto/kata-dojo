@@ -1,4 +1,4 @@
-﻿class Q1507_ReformatDate
+class Q1507_ReformatDate
 {
     // TC: O(1)
     // SC: O(1)

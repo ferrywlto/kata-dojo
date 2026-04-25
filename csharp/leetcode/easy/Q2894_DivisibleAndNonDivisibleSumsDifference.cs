@@ -1,4 +1,4 @@
-﻿public class Q2894_DivisibleAndNonDivisibleSumsDifference
+public class Q2894_DivisibleAndNonDivisibleSumsDifference
 {
     // TC: O(n), n scale with size of n
     // SC: O(1), space used does not scale with input

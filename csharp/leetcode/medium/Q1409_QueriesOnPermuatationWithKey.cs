@@ -1,4 +1,4 @@
-﻿public class Q1409_QueriesOnPermutationWithKey
+public class Q1409_QueriesOnPermutationWithKey
 {
     // TC: O(n*m), n scale with length of queries
     // SC: O(m)   

@@ -1,4 +1,4 @@
-﻿using Row = (int user_id, int followers_count);
+using Row = (int user_id, int followers_count);
 class Q1729_FindFollowersCount : SqlQuestion
 {
     public override string Query =>

@@ -1,4 +1,4 @@
-﻿class Q1232_CheckIfStraightLine
+class Q1232_CheckIfStraightLine
 {
     // TC: O(n), need to iterate the length of input to calculate the slopes
     // SC: O(1), space not scale with length of input

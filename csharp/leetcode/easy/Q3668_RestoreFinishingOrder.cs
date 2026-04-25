@@ -1,4 +1,4 @@
-﻿public class Q3668_RestoreFinishingOrder
+public class Q3668_RestoreFinishingOrder
 {
     // TC: O(n+m), n scale with length of order, m scale with length of friends
     // SC: O(n)

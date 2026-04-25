@@ -1,4 +1,4 @@
-﻿public class Q1175_PrimeArrangements
+public class Q1175_PrimeArrangements
 {
     // Since constraint of n is 1<=n<=100, we can cache number of primes in n to speed up 
     // nPn = n!

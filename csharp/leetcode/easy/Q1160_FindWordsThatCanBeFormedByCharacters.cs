@@ -1,4 +1,4 @@
-﻿class Q1160_FindWordsThatCanBeFormedByCharacters
+class Q1160_FindWordsThatCanBeFormedByCharacters
 {
     // TC: O(n), n = total chars in words + length in chars
     // SC: O(n), n = lenth in chars + max length in words

@@ -1,4 +1,4 @@
-﻿public class Q3718_SmallestMissingMultipleOfK
+public class Q3718_SmallestMissingMultipleOfK
 {
     // TC: O(n), n scale with length of nums
     // SC: O(m), m scale with max divisible number

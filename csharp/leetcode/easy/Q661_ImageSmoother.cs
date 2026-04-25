@@ -1,4 +1,4 @@
-﻿class Q661_ImageSmoother
+class Q661_ImageSmoother
 {
     public int[] HandleSingleRow(int[] row)
     {

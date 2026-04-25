@@ -1,4 +1,4 @@
-﻿class Q605_CanPlaceFlowers
+class Q605_CanPlaceFlowers
 {
     // Siliding window, 1 pass
     // TC: O(n)

@@ -1,4 +1,4 @@
-﻿class Q1018_BinaryPrefixDivisibleBy5
+class Q1018_BinaryPrefixDivisibleBy5
 {
     // TC: O(n), n is length of nums
     // SC: O(1), no data structure used

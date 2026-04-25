@@ -1,4 +1,4 @@
-﻿public class Q3799_WordSquaresII(ITestOutputHelper output)
+public class Q3799_WordSquaresII(ITestOutputHelper output)
 {
     List<List<string>> result = [];
     public IList<IList<string>> WordSquares(string[] words)

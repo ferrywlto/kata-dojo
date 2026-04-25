@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 
 // TC: O(n^2), where n is length of sequece and n again for each word appended
 // SC: O(n), where n is the length of sequence worst case if sequence == word

@@ -1,4 +1,4 @@
-﻿using Row = (string day, int emp_id, int total_time);
+using Row = (string day, int emp_id, int total_time);
 class Q1741_FindTotalTimeSpentByEachEmployee : SqlQuestion
 {
     public override string Query =>

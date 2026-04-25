@@ -1,4 +1,4 @@
-﻿using Row = (int teacher_id, int cnt);
+using Row = (int teacher_id, int cnt);
 public class Q2356_UniqueSubjectsTaughtByEachTeacher(ITestOutputHelper output) : SqlTest(output)
 {
     public string Query =>

@@ -1,4 +1,4 @@
-﻿public class Q2917_FindKOrOfArray
+public class Q2917_FindKOrOfArray
 {
     // TC: O(n), n sacle with length of nums
     // SC: O(1), space used is constant

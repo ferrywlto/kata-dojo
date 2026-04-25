@@ -1,4 +1,4 @@
-﻿class Q905_SortArrayByParity
+class Q905_SortArrayByParity
 {
     // TC: O(n/2) -> O(n), which improves time from original O(2n) 
     public int[] SortArrayByParity_TwoPointers(int[] nums)

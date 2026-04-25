@@ -1,4 +1,4 @@
-﻿class Q144_PreorderTraversalTestData : TestData
+class Q144_PreorderTraversalTestData : TestData
 {
     protected override List<object[]> Data =>
     [

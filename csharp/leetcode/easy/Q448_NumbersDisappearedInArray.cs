@@ -1,4 +1,4 @@
-﻿class Q448_NumbersDisappearedInArray
+class Q448_NumbersDisappearedInArray
 {
     // TC: O(n), SC: O(n)
     public IList<int> FindDisappearedNumbers(int[] nums)

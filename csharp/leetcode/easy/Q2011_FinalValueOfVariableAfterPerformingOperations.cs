@@ -1,4 +1,4 @@
-﻿public class Q2011_FinalValueOfVariableAfterPerformingOperations
+public class Q2011_FinalValueOfVariableAfterPerformingOperations
 {
     // TC: O(n), n scale with length of operations
     // SC: O(1), space used does not scale with input

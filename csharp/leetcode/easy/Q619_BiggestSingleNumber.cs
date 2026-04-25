@@ -1,4 +1,4 @@
-﻿class Q619_BiggestSingleNumber : SqlQuestion
+class Q619_BiggestSingleNumber : SqlQuestion
 {
     public override string Query =>
     """

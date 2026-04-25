@@ -1,4 +1,4 @@
-﻿class Q1013_PartitionArrayIntoThreePartsWithEqualSum
+class Q1013_PartitionArrayIntoThreePartsWithEqualSum
 {
     // TC: O(n^2) n is length of arr, the ^2 comes from Array.IndexOf in order to find the complement part, 
     // otherwise if the array is skewed with large numbers at the beginning or end even the array can be partitioned into 3 equal sum groups, 

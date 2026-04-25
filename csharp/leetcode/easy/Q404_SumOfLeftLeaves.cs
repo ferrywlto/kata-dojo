@@ -1,4 +1,4 @@
-﻿class Q404_SumOfLeftLeaves
+class Q404_SumOfLeftLeaves
 {
     // TC: O(n), SC: O(n)
     public int SumOfLeftLeaves(TreeNode? root)

@@ -1,4 +1,4 @@
-﻿class Q338_CountingBits
+class Q338_CountingBits
 {
     // Suggested by Copilot in Q401 but only fast for single number 
     int CountBits_Single(int num)

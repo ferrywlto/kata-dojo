@@ -1,4 +1,4 @@
-﻿class Q705_DesignHashSet
+class Q705_DesignHashSet
 {
     private readonly Dictionary<int, int> dict = [];
 

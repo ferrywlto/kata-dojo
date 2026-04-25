@@ -1,4 +1,4 @@
-﻿class Q257_BinaryTreePaths
+class Q257_BinaryTreePaths
 {
     public IList<string> BinaryTreePaths(TreeNode? root)
     {

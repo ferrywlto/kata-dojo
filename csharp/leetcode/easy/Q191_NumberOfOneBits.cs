@@ -1,4 +1,4 @@
-﻿class Q191_NumberOfOneBitsTestData : TestData
+class Q191_NumberOfOneBitsTestData : TestData
 {
     // 0b means binary literal
     // U means unsigned integer

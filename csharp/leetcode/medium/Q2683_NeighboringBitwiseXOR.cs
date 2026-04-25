@@ -1,4 +1,4 @@
-﻿public class Q2683_NeighboringBitwiseXOR
+public class Q2683_NeighboringBitwiseXOR
 {
     // TC: O(n), n scale with length of derived
     // SC: O(1), space used does not scale with input    

@@ -1,4 +1,4 @@
-﻿class Q509_FibonacciNumber
+class Q509_FibonacciNumber
 {
     // TC: From O(n^2) with recursion to O(n) with dynamic programming
     // SC: O(n)

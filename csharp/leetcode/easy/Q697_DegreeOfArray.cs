@@ -1,4 +1,4 @@
-﻿class Q697_DegreeOfArray
+class Q697_DegreeOfArray
 {
     // TC: O(n^2)
     // SC: O(n)

@@ -1,4 +1,4 @@
-﻿class Q744_FindSmallestLetterGreaterThanTarget
+class Q744_FindSmallestLetterGreaterThanTarget
 {
     // TC: O(log n)
     // SC: O(1)

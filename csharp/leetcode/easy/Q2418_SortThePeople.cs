@@ -1,4 +1,4 @@
-﻿public class Q2418_SortThePeople
+public class Q2418_SortThePeople
 {
     // TC: O(nlogn), n scale with length of names, n log n due to Array.Sort()
     // SC: O(n), n scale with length of names to hold the result

@@ -1,4 +1,4 @@
-﻿public class Q2236_RootEqualsSumOfChildren
+public class Q2236_RootEqualsSumOfChildren
 {
     // TC: O(1), obviously
     // SC: O(1), obviously

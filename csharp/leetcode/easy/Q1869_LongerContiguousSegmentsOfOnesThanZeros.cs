@@ -1,4 +1,4 @@
-﻿class Q1869_LongerContiguousSegmentsOfOnesThanZeros
+class Q1869_LongerContiguousSegmentsOfOnesThanZeros
 {
     // TC: O(n), where n is length of s
     // SC: O(1), space used does not scale with input

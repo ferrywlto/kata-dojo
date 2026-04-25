@@ -1,4 +1,4 @@
-﻿class ReverseComparer : IComparer<int>
+class ReverseComparer : IComparer<int>
 {
     public int Compare(int x, int y)
     {

@@ -1,4 +1,4 @@
-﻿class Q748_ShortestCompletingWord
+class Q748_ShortestCompletingWord
 {
     // TC: O(n*m)
     // SC: less than O(n)

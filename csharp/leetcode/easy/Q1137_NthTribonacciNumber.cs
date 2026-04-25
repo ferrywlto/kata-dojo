@@ -1,4 +1,4 @@
-﻿
+
 class Q1137_NthTribonaacciNumber
 {
     // TC: O(n), n is how large input number is

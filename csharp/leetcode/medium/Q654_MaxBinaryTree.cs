@@ -1,4 +1,4 @@
-﻿
+
 public class Q654_MaxBinaryTree(ITestOutputHelper output) : TreeNodeTest(output)
 {
     // TC: O(n^2), n scale with length nums, worst case if sorted always run to end to get the max

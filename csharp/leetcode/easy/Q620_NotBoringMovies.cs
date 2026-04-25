@@ -1,4 +1,4 @@
-﻿class Q620_NotBoringMovies : SqlQuestion
+class Q620_NotBoringMovies : SqlQuestion
 {
     public override string Query =>
     """

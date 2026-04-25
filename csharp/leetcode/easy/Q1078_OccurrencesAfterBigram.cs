@@ -1,4 +1,4 @@
-﻿class Q1078_OccurancesAfterBigram
+class Q1078_OccurancesAfterBigram
 {
     // TC: O(n), n is words in text
     // SC: O(n), n is words in text from split 

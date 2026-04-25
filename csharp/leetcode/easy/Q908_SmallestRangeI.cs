@@ -1,4 +1,4 @@
-﻿
+
 class Q908_SmallestRangeI
 {
     // TC: O(2n) -> O(n), n is length of nums

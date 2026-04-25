@@ -1,4 +1,4 @@
-﻿public class Q3868_MinCostToEqualizeArraysUsingSwaps
+public class Q3868_MinCostToEqualizeArraysUsingSwaps
 {
     // TC: O(n), n scale with length of nums1
     // SC: O(d), d scale with unique numbers in nums1 and nums2

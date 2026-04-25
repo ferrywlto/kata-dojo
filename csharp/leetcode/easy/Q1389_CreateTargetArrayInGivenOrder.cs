@@ -1,4 +1,4 @@
-﻿class Q1389_CreateTargetArrayInGivenOrder
+class Q1389_CreateTargetArrayInGivenOrder
 {
     // TC: O(n^2), n is length of nums, ^2 due to list.Insert() is not O(1)
     // SC: O(n), n is length of nums

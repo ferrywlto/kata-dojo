@@ -1,4 +1,4 @@
-﻿class Q1266_MinimumTimeVisitingAllPoints
+class Q1266_MinimumTimeVisitingAllPoints
 {
     // TC: O(n), n is size of points
     // SC: O(1), no space used in operation

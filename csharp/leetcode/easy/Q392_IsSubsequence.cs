@@ -1,4 +1,4 @@
-﻿class Q392_IsSubsequence
+class Q392_IsSubsequence
 {
     // TC: O(n), SC: O(1)
     public bool IsSubsequence(string s, string t)

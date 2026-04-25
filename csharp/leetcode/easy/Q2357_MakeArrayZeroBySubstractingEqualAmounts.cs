@@ -1,4 +1,4 @@
-﻿public class Q2357_MakeArrayZeroBySubstractingEqualAmounts
+public class Q2357_MakeArrayZeroBySubstractingEqualAmounts
 {
     // TC: O(n), n scale with length of nums
     // SC: O(m), m scale with unique numbers in nums

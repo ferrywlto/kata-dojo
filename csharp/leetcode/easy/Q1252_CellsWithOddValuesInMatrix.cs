@@ -1,4 +1,4 @@
-﻿class Q1252_CellsWithOddValuesInMatrix
+class Q1252_CellsWithOddValuesInMatrix
 {
     public int OddCells(int m, int n, int[][] indices)
     {

@@ -1,4 +1,4 @@
-﻿public class Q3771_TotalScoreOfDungeonRuns(ITestOutputHelper output)
+public class Q3771_TotalScoreOfDungeonRuns(ITestOutputHelper output)
 {
     // Recursion or forward + backward propagation
     // Think of Score(n) = Score(n)

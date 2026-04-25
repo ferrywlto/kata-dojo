@@ -1,4 +1,4 @@
-﻿class Q1716_CalculateMoneyInLeetcodeBank
+class Q1716_CalculateMoneyInLeetcodeBank
 {
     // TC: O(n), where n is size of n
     // SC: O(1), space use is fixed

@@ -1,4 +1,4 @@
-﻿class Q1700_NumberOfStudentsUnableToEat
+class Q1700_NumberOfStudentsUnableToEat
 {
     // TC: O(n), where n is number of sandwiches
     // SC: O(n+m), where 2 queues are needed

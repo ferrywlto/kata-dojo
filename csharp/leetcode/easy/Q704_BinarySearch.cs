@@ -1,4 +1,4 @@
-﻿class Q704_BinarySearch
+class Q704_BinarySearch
 {
     // TC: O(log n)
     // SC: O(1)

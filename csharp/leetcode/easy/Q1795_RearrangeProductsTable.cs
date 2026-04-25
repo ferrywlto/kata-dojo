@@ -1,4 +1,4 @@
-﻿using Row = (int product_id, string store, int price);
+using Row = (int product_id, string store, int price);
 class Q1795_RearrangeProductsTable : SqlQuestion
 {
     public override string Query =>

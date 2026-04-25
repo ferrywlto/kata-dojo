@@ -1,4 +1,4 @@
-﻿public class Q3895_CountDigitAppeasrances
+public class Q3895_CountDigitAppeasrances
 {
     // TC: O(log n)
     // SC: O(1)

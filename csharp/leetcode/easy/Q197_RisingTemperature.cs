@@ -1,4 +1,4 @@
-﻿class Q197_RisingTemperature : SqlQuestion
+class Q197_RisingTemperature : SqlQuestion
 {
     public override string Query =>
     """

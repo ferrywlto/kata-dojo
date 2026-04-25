@@ -1,4 +1,4 @@
-﻿public class Q2970_CountNumberOfIncremovableSubarraysI
+public class Q2970_CountNumberOfIncremovableSubarraysI
 {
     // TC: O(n^3), n scale with length of nums
     // SC: O(n), temp is the same size as input

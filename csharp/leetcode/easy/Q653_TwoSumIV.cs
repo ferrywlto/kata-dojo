@@ -1,4 +1,4 @@
-﻿class Q653_TwoSumIV
+class Q653_TwoSumIV
 {
     // TC: O(n)
     // SC: O(n)

@@ -1,4 +1,4 @@
-﻿public class Q3843_FirstElementWithUniqueFrequency
+public class Q3843_FirstElementWithUniqueFrequency
 {
     // TC: O(n), n scale with length of num
     // SC: O(n + f + d), n scale with unique numbers in num, f scale with unique frequencies, d scale with number of frequency count is 1

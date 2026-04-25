@@ -1,4 +1,4 @@
-﻿public static class EnumerableExtension
+public static class EnumerableExtension
 {
     public static Dictionary<T, int> Analyze<T>(this IEnumerable<T> input) where T : notnull
     {

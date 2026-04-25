@@ -1,4 +1,4 @@
-﻿class Q551_StudentAttendanceRecordI
+class Q551_StudentAttendanceRecordI
 {
     // TC: O(n)
     // SC: O(1)

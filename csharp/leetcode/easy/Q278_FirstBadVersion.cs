@@ -1,4 +1,4 @@
-﻿class VersionControl
+class VersionControl
 {
     protected readonly int BadVersion;
     public VersionControl(int bad) { BadVersion = bad; }

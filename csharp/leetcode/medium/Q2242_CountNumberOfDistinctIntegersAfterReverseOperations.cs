@@ -1,5 +1,3 @@
-﻿using System.Text;
-
 public class Q2242_CountNumberOfDistinctIntegersAfterReverseOperations
 {
     // TC: O(n), n scale with length of nums

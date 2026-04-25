@@ -1,4 +1,4 @@
-﻿public class Q3411_MaxSubarrayWithEqualProducts
+public class Q3411_MaxSubarrayWithEqualProducts
 {
     // TC: O(n^2)
     // SC: O(1), space used does not scale with input

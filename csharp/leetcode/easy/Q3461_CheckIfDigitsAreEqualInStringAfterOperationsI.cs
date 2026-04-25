@@ -1,5 +1,3 @@
-﻿using System.Text;
-
 public class Q3461_CheckIfDigitsAreEqualInStringAfterOperationsI
 {
     // TC: O(n^2), n scale with length of s, iterates whole string until length is 2

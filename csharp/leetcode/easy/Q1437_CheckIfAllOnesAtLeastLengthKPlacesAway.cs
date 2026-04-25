@@ -1,4 +1,4 @@
-﻿
+
 class Q1437_CheckIfAllOnesAtLeastLengthKPlacesAway
 {
     // TC: O(n), it have to iterate all n elements in nums, then iterate m 1's index, since m <= n thus O(n)

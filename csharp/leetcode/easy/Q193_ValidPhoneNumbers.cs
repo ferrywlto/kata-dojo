@@ -1,4 +1,4 @@
-﻿class Q193_ValidPhoneNumbersTestData : TestData
+class Q193_ValidPhoneNumbersTestData : TestData
 {
     protected override List<object[]> Data =>
     [

@@ -1,4 +1,4 @@
-﻿public class Q2843_CountSymmetricIntegers
+public class Q2843_CountSymmetricIntegers
 {
     // TC: O(n), n scale with difference between low and high
     // SC: O(1), space used does not scale with input

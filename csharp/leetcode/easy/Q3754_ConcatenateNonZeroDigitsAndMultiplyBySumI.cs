@@ -1,4 +1,4 @@
-﻿public class Q3754_ConcatenateNonZeroDigitsAndMultiplyBySumI
+public class Q3754_ConcatenateNonZeroDigitsAndMultiplyBySumI
 {
     // TC: O(d) where d is the number of digits in n
     // SC: O(1)

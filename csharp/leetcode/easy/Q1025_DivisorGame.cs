@@ -1,4 +1,4 @@
-﻿
+
 class Q1025_DivisorGame
 {
     // TC: O(1)

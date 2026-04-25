@@ -1,4 +1,4 @@
-﻿
+
 class Q884_UncommonWordsInTwoSentences
 {
     // TC: O(n), n is total length of s1 + s2

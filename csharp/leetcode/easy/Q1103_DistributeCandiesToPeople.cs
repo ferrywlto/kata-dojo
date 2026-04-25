@@ -1,4 +1,4 @@
-﻿class Q1103_DistributeCandiesToPeople
+class Q1103_DistributeCandiesToPeople
 {
 
     // TC: O(n), n is num_people

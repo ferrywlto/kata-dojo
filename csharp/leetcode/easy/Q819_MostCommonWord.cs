@@ -1,4 +1,4 @@
-﻿class Q819_MostCommonWord
+class Q819_MostCommonWord
 {
     // TC: O(n), n is length of paragraph
     // SC: O(n), n is number of distinct words found 

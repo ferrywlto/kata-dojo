@@ -1,4 +1,4 @@
-﻿public class Q1763_LongestNiceSubstring
+public class Q1763_LongestNiceSubstring
 {
     public string LongestNiceSubstring(string s)
     {

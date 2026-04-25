@@ -1,4 +1,4 @@
-﻿class Q196_DeleteDuplicateEmails : SqlQuestion
+class Q196_DeleteDuplicateEmails : SqlQuestion
 {
     public override string Query =>
     """

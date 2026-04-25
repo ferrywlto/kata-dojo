@@ -1,4 +1,4 @@
-﻿class Q459_RepeatedSubstring
+class Q459_RepeatedSubstring
 {
     // TC: O(n^2), SC: O(n)
     public bool RepeatedSubstringPattern(string s)

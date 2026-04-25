@@ -1,4 +1,4 @@
-﻿class Q26_RemoveDuplicatesTestData : TestData
+class Q26_RemoveDuplicatesTestData : TestData
 {
     protected override List<object[]> Data =>
     [

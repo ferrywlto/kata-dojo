@@ -1,4 +1,4 @@
-﻿class Q806_NumLinesToWriteString
+class Q806_NumLinesToWriteString
 {
     // TC: O(n), where n = total characters in string s
     // SC: O(1)

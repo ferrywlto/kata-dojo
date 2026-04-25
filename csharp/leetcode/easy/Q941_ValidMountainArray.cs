@@ -1,4 +1,4 @@
-﻿
+
 class Q941_ValidMountainArray
 {
     // TC: O(n), n is length of array

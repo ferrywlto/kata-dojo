@@ -1,4 +1,4 @@
-﻿class Q521_LongestUncommonSubsequence
+class Q521_LongestUncommonSubsequence
 {
     // TC: O(n), because of == operator
     // SC: O(1)

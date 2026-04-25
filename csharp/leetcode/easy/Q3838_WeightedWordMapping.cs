@@ -1,4 +1,4 @@
-﻿public class Q3838_WeightedWordMapping
+public class Q3838_WeightedWordMapping
 {
     // TC: O(n), n scale with total characters in words
     // SC: O(n), n scale with length of words

@@ -1,4 +1,4 @@
-﻿public class Q2591_DistributeMoneyToMaxChildren(ITestOutputHelper output)
+public class Q2591_DistributeMoneyToMaxChildren(ITestOutputHelper output)
 {
     // TC: O(n), n scale with size of children
     // SC: O(1), space used does not scale with input

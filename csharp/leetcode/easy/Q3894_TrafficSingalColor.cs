@@ -1,4 +1,4 @@
-﻿public class Q3894_TrafficSingalColor
+public class Q3894_TrafficSingalColor
 {
     // TC: O(1)
     // SC: O(1)

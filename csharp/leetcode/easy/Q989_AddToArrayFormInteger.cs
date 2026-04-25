@@ -1,4 +1,4 @@
-﻿class Q989_AddToArrayFormInteger
+class Q989_AddToArrayFormInteger
 {
     // TC: O(n), n = length of max(num, array form of k)
     // SC: O(n), n = length of max(num, array form of k)

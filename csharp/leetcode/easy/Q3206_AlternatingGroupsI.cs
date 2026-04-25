@@ -1,4 +1,4 @@
-﻿public class Q3206_AlternatingGroupsI
+public class Q3206_AlternatingGroupsI
 {
     // TC: O(n), n scale with length of colors
     // SC: O(1), space used does not scale with input

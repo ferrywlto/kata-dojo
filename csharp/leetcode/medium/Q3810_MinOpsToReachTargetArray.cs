@@ -1,4 +1,4 @@
-﻿public class Q3810_MinOpsToReachTargetArray
+public class Q3810_MinOpsToReachTargetArray
 {
     // TC: O(n), n scale with length of nums
     // SC: O(1)

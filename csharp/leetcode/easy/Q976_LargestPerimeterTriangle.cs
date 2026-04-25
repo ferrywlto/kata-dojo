@@ -1,4 +1,4 @@
-﻿
+
 class Q976_LargestPerimeterTriangle
 {
     // TC: O(n log n), n is length of nums, dominated by Array.Sort, which is O(n log n)

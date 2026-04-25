@@ -1,4 +1,4 @@
-﻿public abstract class TreeNodeTest(ITestOutputHelper output) : TestBase(output)
+public abstract class TreeNodeTest(ITestOutputHelper output) : TestBase(output)
 {
     [Fact]
     public void ShouldEqualOnPerfectTree()

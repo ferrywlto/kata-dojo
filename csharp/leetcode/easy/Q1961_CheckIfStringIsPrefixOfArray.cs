@@ -1,4 +1,3 @@
-﻿using System.Text;
 public class Q1961_CheckIfStringIsPrefixOfArray
 {
     // TC: O(n), n scale with length of s

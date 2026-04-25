@@ -1,4 +1,4 @@
-﻿public class Q2657_FindPrefixCommanArrayOfTwoArrays
+public class Q2657_FindPrefixCommanArrayOfTwoArrays
 {
     // TC: O(n^2), n scale with length of A
     // SC: O(n), n scale with length of A

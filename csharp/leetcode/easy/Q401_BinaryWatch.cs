@@ -1,4 +1,4 @@
-﻿class Q401_BinaryWatch
+class Q401_BinaryWatch
 {
     int[]? Bits;
     Dictionary<int, List<string>> PossibleTime = [];

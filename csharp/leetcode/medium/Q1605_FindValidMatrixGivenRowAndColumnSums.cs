@@ -1,4 +1,4 @@
-﻿public class Q1605_FindValidMatrixGivenRowAndColumnSums
+public class Q1605_FindValidMatrixGivenRowAndColumnSums
 {
     public int[][] RestoreMatrix(int[] rowSum, int[] colSum)
     {

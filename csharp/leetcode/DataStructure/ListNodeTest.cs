@@ -1,4 +1,4 @@
-﻿public abstract class ListNodeTest(ITestOutputHelper output) : TestBase(output)
+public abstract class ListNodeTest(ITestOutputHelper output) : TestBase(output)
 {
     public static void AssertListNodeEquals(ListNode? expected, ListNode? actual)
     {

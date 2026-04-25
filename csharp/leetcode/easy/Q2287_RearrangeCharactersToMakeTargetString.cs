@@ -1,4 +1,4 @@
-﻿public class Q2287_RearrangeCharactersToMakeTargetString
+public class Q2287_RearrangeCharactersToMakeTargetString
 {
     // TC: O(n+m), n scale with length of s, plus n length of target, plus m unique characters in target
     // SC: O(m), m scale with unique characters in target, another m for sDict

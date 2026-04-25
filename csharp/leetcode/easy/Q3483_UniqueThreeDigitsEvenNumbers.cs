@@ -1,4 +1,4 @@
-﻿public class Q3483_UniqueThreeDigitsEvenNumbers
+public class Q3483_UniqueThreeDigitsEvenNumbers
 {
     // TC: O(n^3), n scale with length of digits
     // SC: O(1), space used does not scale with input

@@ -1,4 +1,4 @@
-﻿class Q414_ThirdMaximum
+class Q414_ThirdMaximum
 {
     // TC: O(n long n), SC: O(n)
     public int ThirdMax_Trival(int[] nums)

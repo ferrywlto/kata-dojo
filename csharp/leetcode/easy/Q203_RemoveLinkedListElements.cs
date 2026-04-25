@@ -1,4 +1,4 @@
-﻿public class Q203_RemoveLinkeListElementsTests(ITestOutputHelper output) : ListNodeTest(output)
+public class Q203_RemoveLinkeListElementsTests(ITestOutputHelper output) : ListNodeTest(output)
 {
     [Theory]
     [ClassData(typeof(Q203_RemoveLinkeListElementsTestData))]

@@ -1,4 +1,4 @@
-﻿class Q496_NextGreaterElementI
+class Q496_NextGreaterElementI
 {
     // Constraints:
     // 1 <= nums1.length <= nums2.length <= 1000

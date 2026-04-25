@@ -1,4 +1,4 @@
-﻿class Q1185_DayOfTheWeek
+class Q1185_DayOfTheWeek
 {
     // TC: O(1),
     // SC: O(1),

@@ -1,4 +1,4 @@
-﻿class Q1184_DistanceBetweenBusStops
+class Q1184_DistanceBetweenBusStops
 {
     // TC: O(n), need to traverse each element once due to checking both ways
     // SC: O(1)

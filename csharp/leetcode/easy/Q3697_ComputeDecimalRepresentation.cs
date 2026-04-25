@@ -1,4 +1,4 @@
-﻿public class Q3697_ComputeDecimalRepresentation
+public class Q3697_ComputeDecimalRepresentation
 {
     // TC: O(log n), n scale with the size of the number
     // SC: O(d), d is the number of digits in n

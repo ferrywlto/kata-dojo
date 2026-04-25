@@ -1,4 +1,4 @@
-﻿
+
 class Q1413_MinValueToGetPositiveStepByStepSum
 {
     // TC: O(n), n is the size of nums

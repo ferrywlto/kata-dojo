@@ -1,45 +1,77 @@
-public class Q3905_MultiSourceFloodFill//(ITestOutputHelper output)
+public class Q3905_MultiSourceFloodFill
 {
+    // TC: O(n * m)
+    // SC: O(n * m)
     public int[][] ColorGrid(int n, int m, int[][] sources)
     {
         // initialize result
         var result = new int[n][];
-        for (var row = 0; row<n; row++)
+        for (var row = 0; row < n; row++)
             result[row] = new int[m];
 
-        var processList = new HashSet<(int row, int col)>();
+        var q = new Queue<int>();
+        var queued = new bool[n * m];
+
+        void Enqueue(int row, int col)
+        {
+            if (row < 0 || row >= n || col < 0 || col >= m) return;
+            if (result[row][col] != 0) return;  // already colored
+
+            var idx = ToIdx(row, col);
+            if (queued[idx]) return;            // already scheduled
+
+            queued[idx] = true;
+            q.Enqueue(idx);
+        }
+        void EnqueueNeighbors(int row, int col)
+        {
+            Enqueue(row - 1, col);
+            Enqueue(row + 1, col);
+            Enqueue(row, col - 1);
+            Enqueue(row, col + 1);
+        }
+        int ToIdx(int row, int col) => row * m + col;
+        (int row, int col) ToRowCol(int idx) => (idx / m, idx % m);
 
         foreach (var input in sources)
             result[input[0]][input[1]] = input[2];
 
         // Get the surrounding cells
         foreach (var input in sources)
-            AddSurroundingZeros(input[0], input[1], result, processList);
+            EnqueueNeighbors(input[0], input[1]);
 
-        while (processList.Count > 0)
+        var cellIdxList = new List<(int row, int col)>();
+        var cellValList = new List<int>();
+
+        while (q.Count > 0)
         {
-            var toBeUpdated = new List<(int row, int col, int val)>();
-
-            var newProcessList = new HashSet<(int row, int col)>();
-            foreach (var (row, col) in processList)
+            // clear the current queue
+            while(q.Count > 0)
             {
+                var (row, col) = ToRowCol(q.Dequeue());
                 // calculate max for surroundings
-                var max = GetSurroundingMax(row, col, result);
-                toBeUpdated.Add((row, col, max));
+                cellValList.Add(GetSurroundingMax(row, col, result));
+                cellIdxList.Add((row, col));
             }
 
-            foreach (var (row, col, val) in toBeUpdated)
-                result[row][col] = val;
+            for (var i = 0; i < cellIdxList.Count; i++)
+            {
+                var (row, col) = cellIdxList[i];
+                result[row][col] = cellValList[i];
+            }
 
-            foreach (var (row, col, _) in toBeUpdated)
-                AddSurroundingZeros(row, col, result, newProcessList);
+            for (var i = 0; i < cellIdxList.Count; i++)
+            {
+                var (row, col) = cellIdxList[i];
+                EnqueueNeighbors(row, col);
+            }
 
-            processList = newProcessList;
+            cellIdxList.Clear();
+            cellValList.Clear();
         }
 
         return result;
     }
-
     private int GetSurroundingMax(int row, int col, int[][] source)
     {
         var max = 0;
@@ -48,13 +80,6 @@ public class Q3905_MultiSourceFloodFill//(ITestOutputHelper output)
         if (col > 0) max = Math.Max(max, source[row][col - 1]);
         if (col < source[row].Length - 1) max = Math.Max(max, source[row][col + 1]);
         return max;
-    }
-    private void AddSurroundingZeros(int row, int col, int[][] source, HashSet<(int row, int col)> processList)
-    {
-        if (row > 0 && source[row - 1][col] == 0) processList.Add((row - 1, col));
-        if (row < source.Length - 1 && source[row + 1][col] == 0) processList.Add((row + 1, col));
-        if (col > 0 && source[row][col - 1] == 0) processList.Add((row, col - 1));
-        if (col < source[row].Length - 1 && source[row][col + 1] == 0) processList.Add((row, col + 1));
     }
 
     public static TheoryData<int, int, int[][], int[][]> TestData => new()

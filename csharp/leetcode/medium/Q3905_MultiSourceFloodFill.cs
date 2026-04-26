@@ -10,17 +10,15 @@ public class Q3905_MultiSourceFloodFill
             result[row] = new int[m];
 
         var q = new Queue<int>();
-        var queued = new bool[n * m];
 
         void Enqueue(int row, int col)
         {
             if (row < 0 || row >= n || col < 0 || col >= m) return;
             if (result[row][col] != 0) return;  // already colored
 
-            var idx = ToIdx(row, col);
-            if (queued[idx]) return;            // already scheduled
+            result[row][col] = -1;            // already scheduled
 
-            queued[idx] = true;
+            var idx = ToIdx(row, col);
             q.Enqueue(idx);
         }
         void EnqueueNeighbors(int row, int col)
@@ -46,7 +44,7 @@ public class Q3905_MultiSourceFloodFill
         while (q.Count > 0)
         {
             // clear the current queue
-            while(q.Count > 0)
+            while (q.Count > 0)
             {
                 var (row, col) = ToRowCol(q.Dequeue());
                 // calculate max for surroundings
@@ -75,10 +73,12 @@ public class Q3905_MultiSourceFloodFill
     private int GetSurroundingMax(int row, int col, int[][] source)
     {
         var max = 0;
-        if (row > 0) max = Math.Max(max, source[row - 1][col]);
-        if (row < source.Length - 1) max = Math.Max(max, source[row + 1][col]);
-        if (col > 0) max = Math.Max(max, source[row][col - 1]);
-        if (col < source[row].Length - 1) max = Math.Max(max, source[row][col + 1]);
+
+        if (row > 0 && source[row - 1][col] > max) max = source[row - 1][col];
+        if (row < source.Length - 1 && source[row + 1][col] > max) max = source[row + 1][col];
+        if (col > 0 && source[row][col - 1] > max) max = source[row][col - 1];
+        if (col < source[row].Length - 1 && source[row][col + 1] > max) max = source[row][col + 1];
+
         return max;
     }
 

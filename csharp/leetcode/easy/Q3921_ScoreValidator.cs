@@ -8,15 +8,15 @@ public class Q3921_ScoreValidator
         var counter = 0;
         for (var i = 0; i < events.Length; i++)
         {
-            var evt= events[i];
+            var evt = events[i];
             switch (evt)
             {
                 case "W":
-                {
-                    if(++counter == 10)
-                        return [result, counter];
-                    break;
-                }
+                    {
+                        if (++counter == 10)
+                            return [result, counter];
+                        break;
+                    }
                 case "WD":
                 case "NB":
                     result += 1;

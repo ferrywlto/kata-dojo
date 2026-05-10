@@ -1,8 +1,17 @@
 public class Q3925_ConcatenateArrayWithReverse
 {
+    // TC: O(n)
+    // SC: O(n)
     public int[] ConcatWithReverse(int[] nums)
     {
-        return [];
+        var len = nums.Length;
+        var result = new int[len * 2];
+        for (var i = 0; i < len; i++)
+        {
+            result[i] = nums[i];
+            result[i + len] = nums[len - 1 - i];
+        }
+        return result;
     }
 
     public static TheoryData<int[], int[]> TestData = new()

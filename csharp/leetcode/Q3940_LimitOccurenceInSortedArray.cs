@@ -1,8 +1,19 @@
 public class Q3940_LimitOccurenceInSortedArray
 {
+    // TC: O(n), n scale with nums.Length
+    // SC: O(n), O(1) if not counting the result
     public int[] LimitOccurrences(int[] nums, int k)
     {
-        return [];
+        if (nums.Length <= k) return nums;
+
+        Span<int> freq = stackalloc int[101];
+        var result = new List<int>();
+        for (var i = 0; i < nums.Length; i++)
+        {
+            if (freq[nums[i]]++ < k)
+                result.Add(nums[i]);
+        }
+        return result.ToArray();
     }
 
     public static TheoryData<int[], int, int[]> TestData => new()

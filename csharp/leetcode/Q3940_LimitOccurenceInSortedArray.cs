@@ -7,13 +7,22 @@ public class Q3940_LimitOccurenceInSortedArray
         if (nums.Length <= k) return nums;
 
         Span<int> freq = stackalloc int[101];
-        var result = new List<int>();
+
+        var writeIdx = 0;
         for (var i = 0; i < nums.Length; i++)
         {
-            if (freq[nums[i]]++ < k)
-                result.Add(nums[i]);
+            if(freq[nums[i]] == k) continue;
+
+            // can be a bit faster if we compare the last k items the same as current item to avoid counting frequencies due to the array has been already sorted. But it doesn't worth the effort.
+            freq[nums[i]]++;
+            nums[writeIdx] = nums[i];
+            writeIdx++;
         }
-        return result.ToArray();
+
+        var result = new int[writeIdx];
+        for (var i = 0; i < writeIdx; i++) result[i] = nums[i];
+
+        return result;
     }
 
     public static TheoryData<int[], int, int[]> TestData => new()

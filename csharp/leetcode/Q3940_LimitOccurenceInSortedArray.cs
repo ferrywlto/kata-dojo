@@ -11,7 +11,7 @@ public class Q3940_LimitOccurenceInSortedArray
         var writeIdx = 0;
         for (var i = 0; i < nums.Length; i++)
         {
-            if(freq[nums[i]] == k) continue;
+            if (freq[nums[i]] == k) continue;
 
             // can be a bit faster if we compare the last k items the same as current item to avoid counting frequencies due to the array has been already sorted. But it doesn't worth the effort.
             freq[nums[i]]++;

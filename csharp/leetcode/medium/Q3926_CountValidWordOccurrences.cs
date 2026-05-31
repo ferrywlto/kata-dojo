@@ -40,7 +40,7 @@ public class Q3926_CountValidWordOccurrences
         return result;
     }
 
-    public static TheoryData<string[], string[], int[]> TestData => new TheoryData<string[], string[], int[]>
+    public static TheoryData<string[], string[], int[]> TestData => new()
     {
         { ["hello wor", "ld hello"], ["hello", "world", "wor"], [2, 1, 0] },
         { ["a-b a--b ", "a-", "b"], ["a-b", "a", "b"], [2, 1, 1] },

@@ -1,8 +1,22 @@
 public class Q3945_DigitFrequencyScore
 {
+    // TC: O(log n)
+    // SC: O(1)
     public int DigitFrequencyScore(int n)
     {
-        return 0;
+        Span<int> freq = stackalloc int[10];
+        while (n > 0)
+        {
+            freq[n % 10]++;
+            n /= 10;
+        }
+
+        var result = 0;
+        for (var i = 1; i < 10; i++)
+        {
+            result += i * freq[i];
+        }
+        return result;
     }
 
     public static TheoryData<int, int> TestData => new()

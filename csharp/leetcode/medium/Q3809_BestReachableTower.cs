@@ -1,15 +1,82 @@
 public class Q3809_BestReachableTower
 {
+    // TC: O(n + n + n log n)
+    // SC: O(n)
     public int[] BestTower(int[][] towers, int[] center, int radius)
     {
-        return [];
+        var tLen = towers.Length;
+        var reachableTowerIdx = new List<int>(tLen);
+
+        var cx = center[0];
+        var cy = center[1];
+        var maxQ = int.MinValue;
+
+        for (var i = 0; i < tLen; i++)
+        {
+            var tower = towers[i];
+            var tx = tower[0];
+            var ty = tower[1];
+            var tq = tower[2];
+            if (Math.Abs(tx - cx) + Math.Abs(ty - cy) <= radius)
+            {
+                reachableTowerIdx.Add(i);
+                if (tq > maxQ) maxQ = tq;
+            }
+        }
+
+        if (reachableTowerIdx.Count == 0) return [-1, -1];
+
+        var result = new List<Coord>();
+
+        for (var i = 0; i < reachableTowerIdx.Count; i++)
+        {
+            var t = towers[reachableTowerIdx[i]];
+            if (t[2] == maxQ) result.Add(new Coord(t[0], t[1], reachableTowerIdx[i]));
+        }
+
+        result.Sort(((a, b) =>
+        {
+            if (
+                (a.x < b.x) ||
+                ((a.x == b.x) && (a.y < b.y))
+            ) return -1;
+            return 1;
+        }));
+
+        var bestTower = towers[result[0].idx];
+        return [bestTower[0], bestTower[1]];
     }
+
+    record Coord(int x, int y, int idx);
 
     public static TheoryData<int[][], int[], int, int[]> TestData => new()
     {
         { [[1, 2, 5], [2, 1, 7], [3, 1, 9]], [1, 1], 2, [3, 1] },
         { [[1, 3, 4], [2, 2, 4], [4, 4, 7]], [0, 0], 5, [1, 3] },
-        { [[5, 6, 8], [0, 3, 5]], [1, 2], 1, [-1, -1] }
+        { [[5, 6, 8], [0, 3, 5]], [1, 2], 1, [-1, -1] },
+        {
+            [
+                [27, 3, 85670], [27, 7, 92192], [13, 11, 13865], [24, 8, 74014], [7, 23, 81106], [19, 14, 91506],
+                [10, 27, 9214], [17, 11, 25108], [3, 29, 8889], [9, 23, 3485]
+            ],
+            [41236, 10996], 52196, [10, 27]
+        },
+        {
+            [
+                [139, 29, 99079], [26, 7, 63751], [134, 108, 46733], [25, 143, 34540], [116, 5, 67477],
+                [93, 100, 46708], [76, 99, 27040], [61, 21, 95120], [6, 151, 63642], [64, 91, 89178], [125, 34, 53980],
+                [70, 130, 83117], [140, 154, 11023], [98, 154, 3166], [12, 41, 60022], [59, 136, 55493],
+                [134, 127, 20373], [133, 135, 78955], [39, 96, 51898], [91, 60, 37870], [1, 86, 42833],
+                [39, 135, 10686], [69, 152, 94094], [64, 135, 33963], [137, 153, 30505], [66, 119, 64818],
+                [24, 130, 99079], [87, 118, 56869], [118, 99, 40401], [135, 108, 46289], [134, 108, 50174],
+                [21, 50, 54496], [130, 139, 46467], [17, 102, 63902], [102, 48, 71001], [149, 39, 26361],
+                [135, 100, 98270], [1, 26, 43491], [3, 142, 631], [32, 134, 90156], [10, 146, 23222], [79, 48, 50443],
+                [129, 151, 96992], [73, 40, 95798], [139, 51, 26380], [107, 144, 41474], [71, 52, 68837],
+                [111, 66, 59990], [51, 140, 50010], [111, 138, 32892], [136, 12, 9379], [55, 85, 635]
+            ],
+            [55853, 10284],
+            70045, [24, 130]
+        }
     };
 
     [Theory]

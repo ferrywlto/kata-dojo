@@ -27,7 +27,7 @@ public class Q3919_MinCostToMoveBetweenIndices
 
         var qLen = queries.Length;
         var result = new int[qLen];
-        for(var i = 0; i<qLen; i++)
+        for (var i = 0; i < qLen; i++)
         {
             var currentQuery = queries[i];
             // Array.Sort(currentQuery);

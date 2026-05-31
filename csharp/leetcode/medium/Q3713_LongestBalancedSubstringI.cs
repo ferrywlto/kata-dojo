@@ -34,7 +34,7 @@ public class Q3713_LongestBalancedSubstringI
             var valid = true;
             for (var k = 0; k < freq.Length; k++)
             {
-                if(freq[k] > 0 && freq[k] != occuranceRequired)
+                if (freq[k] > 0 && freq[k] != occuranceRequired)
                 {
                     valid = false;
                     break;
@@ -46,10 +46,10 @@ public class Q3713_LongestBalancedSubstringI
         return longestLen;
     }
 
-    private int[] Frequency(string input)
-    {
-
-    }
+    // private int[] Frequency(string input)
+    // {
+    //     return new int[];
+    // }
 
     private bool EvenlyDistributed(int[] input, int requiredOccurance)
     {

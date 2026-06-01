@@ -9,7 +9,7 @@ public class Q3809_BestReachableTower
         var cy = center[1];
         var maxQ = int.MinValue;
 
-        var answer = new[]{-1, -1};
+        var answer = new[] { -1, -1 };
         for (var i = 0; i < tLen; i++)
         {
             var tower = towers[i];

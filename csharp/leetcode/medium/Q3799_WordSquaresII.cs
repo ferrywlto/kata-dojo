@@ -1,80 +1,117 @@
-public class Q3799_WordSquaresII(ITestOutputHelper output)
+public class Q3799_WordSquaresII
 {
-    List<List<string>> result = [];
     public IList<IList<string>> WordSquares(string[] words)
     {
-        Array.Sort(words);
-        var list = new List<string>();
+        var heads = new Dictionary<char, HashSet<string>>();
+        var tails = new Dictionary<char, HashSet<string>>();
 
-        for (var i = 0; i < words.Length - 3; i++)
+        for (var i = 0; i < words.Length; i++)
         {
-            for (var j = i + 1; j < words.Length - 2; j++)
+            if (heads.TryGetValue(words[i][0], out var headSet))
             {
-                for (var k = j + 1; k < words.Length - 1; k++)
+                headSet.Add(words[i]);
+            }
+            else
+            {
+                headSet = [words[i]];
+                heads.Add(words[i][0], headSet);
+            }
+
+            if (tails.TryGetValue(words[i][3], out var tailSet))
+            {
+                tailSet.Add(words[i]);
+            }
+            else
+            {
+                tailSet = [words[i]];
+                tails.Add(words[i][3], tailSet);
+            }
+        }
+
+        var result = new List<IList<string>>();
+        foreach (var top in tails)
+        {
+            var topTail = top.Key;
+            foreach (var topCandidate in top.Value)
+            {
+                var topHead = topCandidate[0];
+
+                if (heads.TryGetValue(topTail, out HashSet<string>? wordsStartWithTopTail))
                 {
-                    for (var m = k + 1; m < words.Length; m++)
+                    foreach (var rightCandidate in wordsStartWithTopTail)
                     {
-                        output.WriteLine($"{words[i]}, {words[j]}, {words[k]}, {words[m]}");
+                        if(rightCandidate != topCandidate)
+                        {
+                            var rightTail = rightCandidate[3];
+                            if (tails.TryGetValue(rightTail, out HashSet<string>? wordsEndWithRightTail))
+                            {
+                                foreach (var bottomCandidate in wordsEndWithRightTail)
+                                {
+                                    if (bottomCandidate != rightCandidate && bottomCandidate != topCandidate)
+                                    {
+                                        var bottomHead = bottomCandidate[0];
+                                        if (tails.TryGetValue(bottomHead, out HashSet<string>? wordsEndWithBottomHead))
+                                        {
+                                            foreach (var leftCandidate in wordsEndWithBottomHead)
+                                            {
+                                                if (leftCandidate != bottomCandidate && leftCandidate != rightCandidate && leftCandidate != topCandidate)
+                                                {
+                                                    var leftHead = leftCandidate[0];
+                                                    if (leftHead == topHead)
+                                                    {
+                                                        List<string> square =
+                                                        [
+                                                            topCandidate, leftCandidate, rightCandidate, bottomCandidate
+                                                        ];
+
+                                                        result.Add(square);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
 
-
-        // BT(words, list, 0);
-        return [];
+        // ascending lexicographic sort
+        result.Sort((a, b) =>
+        {
+            for (var i = 0; i < 4; i++)
+            {
+                for (var j = 0; j < 4; j++)
+                {
+                    if (a[i][j] < b[i][j]) return -1;
+                    if (a[i][j] > b[i][j]) return 1;
+                }
+            }
+            return 0;
+        });
+        return result;
     }
 
-    private void BT(string[] words, List<string> picks, int idx)
+    public static TheoryData<string[], IList<IList<string>>> TestData => new()
     {
-        // if(IsSquare(words[topIdx], words[leftIdx], words[rightIdx], words[bottomIdx]))
-        // {
-        //     result.Add([words[topIdx], words[leftIdx], words[rightIdx], words[bottomIdx]]);
-        //     return;
-        // }
-        if (picks.Count == 4)
         {
-            output.WriteLine(string.Join(',', picks));
-            return;
-        }
-
-        if (idx < words.Length)
+            ["able","area","echo","also"],
+            [["able","area","echo","also"],["area","able","also","echo"]]
+        },
         {
-            output.WriteLine($"i:{idx}, picksCount: {picks.Count}");
-            // pick top
-            picks.Add(words[idx]);
-            BT(words, picks, idx + 1);
-            picks.RemoveAt(picks.Count - 1);
-        }
-    }
-
-    private bool IsSquare(string top, string left, string right, string bottom)
-    {
-        return
-            top[0] == left[0] &&
-            top[3] == right[0] &&
-            bottom[0] == left[3] &&
-            bottom[3] == right[3];
-    }
-
-    public static TheoryData<string[], string[][]> TestData => new()
-    {
-        // {
-        //     ["able","area","echo","also"],
-        //     [["able","area","echo","also"],["area","able","also","echo"]]
-        // },
-        // {
-        //     ["code","cafe","eden","edge"],
-        //     []
-        // },
+            ["code","cafe","eden","edge"],
+            []
+        },
         {
-            ["a","b","c","d","e"],
-            [["a"]]
+            ["avvj","dooe","exxj","diia"],
+            [["diia","dooe","avvj","exxj"],["dooe","diia","exxj","avvj"]]
         }
     };
     [Theory]
     [MemberData(nameof(TestData))]
-    public void Test(string[] input, string[][] expected)
+    public void Test(string[] input, IList<IList<string>> expected)
     {
         var actual = WordSquares(input);
         Assert.Equal(expected, actual);

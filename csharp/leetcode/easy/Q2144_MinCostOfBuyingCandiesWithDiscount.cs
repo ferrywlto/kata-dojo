@@ -4,8 +4,13 @@ public class Q2144_MinCostOfBuyingCandiesWithDiscount
     // SC: O(1), space used does not scale with input
     public int MinimumCost(int[] cost)
     {
-        if (cost.Length == 1) return cost[0];
-        else if (cost.Length == 2) return cost[0] + cost[1];
+        switch (cost.Length)
+        {
+            case 1:
+                return cost[0];
+            case 2:
+                return cost[0] + cost[1];
+        }
 
         Array.Sort(cost);
         var result = 0;
@@ -16,14 +21,17 @@ public class Q2144_MinCostOfBuyingCandiesWithDiscount
         }
         return result;
     }
-    public static List<object[]> TestData =>
-    [
-        [new int[] {1,2,3}, 5],
-        [new int[] {6,5,7,9,2,2}, 23],
-        [new int[] {6,5,7,9,2,2,2}, 25],
-        [new int[] {6,5,7,9,2,2,2,2}, 27],
-        [new int[] {5,5}, 10],
-    ];
+
+    public static TheoryData<int[], int> TestData =>
+        new()
+        {
+            { [1, 2, 3], 5 },
+            { [6, 5, 7, 9, 2, 2], 23 },
+            { [6, 5, 7, 9, 2, 2, 2], 25 },
+            { [6, 5, 7, 9, 2, 2, 2, 2], 27 },
+            { [5, 5], 10 }
+        };
+
     [Theory]
     [MemberData(nameof(TestData))]
     public void Test(int[] input, int expected)

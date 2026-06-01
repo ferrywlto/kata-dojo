@@ -1,53 +1,39 @@
 public class Q3809_BestReachableTower
 {
-    // TC: O(n + n + n log n)
-    // SC: O(n)
+    // TC: O(n)
+    // SC: O(1)
     public int[] BestTower(int[][] towers, int[] center, int radius)
     {
         var tLen = towers.Length;
-        var reachableTowerIdx = new List<int>(tLen);
-
         var cx = center[0];
         var cy = center[1];
         var maxQ = int.MinValue;
 
+        var answer = new[]{-1, -1};
         for (var i = 0; i < tLen; i++)
         {
             var tower = towers[i];
             var tx = tower[0];
             var ty = tower[1];
             var tq = tower[2];
-            if (Math.Abs(tx - cx) + Math.Abs(ty - cy) <= radius)
+            if (Math.Abs(tx - cx) + Math.Abs(ty - cy) > radius) continue;
+            if (tq > maxQ)
             {
-                reachableTowerIdx.Add(i);
-                if (tq > maxQ) maxQ = tq;
+                maxQ = tq;
+                answer[0] = tx;
+                answer[1] = ty;
+            }
+            else if (tq == maxQ)
+            {
+                if ((tx >= answer[0]) &&
+                    (tx != answer[0] || ty >= answer[1])) continue;
+                answer[0] = tx;
+                answer[1] = ty;
             }
         }
 
-        if (reachableTowerIdx.Count == 0) return [-1, -1];
-
-        var result = new List<Coord>();
-
-        for (var i = 0; i < reachableTowerIdx.Count; i++)
-        {
-            var t = towers[reachableTowerIdx[i]];
-            if (t[2] == maxQ) result.Add(new Coord(t[0], t[1], reachableTowerIdx[i]));
-        }
-
-        result.Sort(((a, b) =>
-        {
-            if (
-                (a.x < b.x) ||
-                ((a.x == b.x) && (a.y < b.y))
-            ) return -1;
-            return 1;
-        }));
-
-        var bestTower = towers[result[0].idx];
-        return [bestTower[0], bestTower[1]];
+        return answer;
     }
-
-    record Coord(int x, int y, int idx);
 
     public static TheoryData<int[][], int[], int, int[]> TestData => new()
     {

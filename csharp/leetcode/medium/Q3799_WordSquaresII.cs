@@ -2,95 +2,45 @@ public class Q3799_WordSquaresII
 {
     public IList<IList<string>> WordSquares(string[] words)
     {
-        var heads = new Dictionary<char, HashSet<string>>();
-        var tails = new Dictionary<char, HashSet<string>>();
+        Array.Sort(words, StringComparer.Ordinal);
 
-        for (var i = 0; i < words.Length; i++)
+        var byFirst = new List<string>[26];
+        var byPair = new List<string>[26 * 26];
+
+        for (var i = 0; i < 26; i++) byFirst[i] = [];
+        for (var i = 0; i < 26 * 26; i++) byPair[i] = [];
+
+        static int C(char c) => c - 'a';
+        static int Key(char first, char last) => C(first) * 26 + C(last);
+
+        foreach (var word in words)
         {
-            if (heads.TryGetValue(words[i][0], out var headSet))
-            {
-                headSet.Add(words[i]);
-            }
-            else
-            {
-                headSet = [words[i]];
-                heads.Add(words[i][0], headSet);
-            }
-
-            if (tails.TryGetValue(words[i][3], out var tailSet))
-            {
-                tailSet.Add(words[i]);
-            }
-            else
-            {
-                tailSet = [words[i]];
-                tails.Add(words[i][3], tailSet);
-            }
+            byFirst[C(word[0])].Add(word);
+            byPair[Key(word[0], word[3])].Add(word);
         }
 
         var result = new List<IList<string>>();
-        foreach (var top in tails)
+
+        foreach (var top in words)
         {
-            var topTail = top.Key;
-            foreach (var topCandidate in top.Value)
+            foreach (var left in byFirst[C(top[0])])
             {
-                var topHead = topCandidate[0];
+                if (left == top) continue;
 
-                if (heads.TryGetValue(topTail, out HashSet<string>? wordsStartWithTopTail))
+                foreach (var right in byFirst[C(top[3])])
                 {
-                    foreach (var rightCandidate in wordsStartWithTopTail)
-                    {
-                        if(rightCandidate != topCandidate)
-                        {
-                            var rightTail = rightCandidate[3];
-                            if (tails.TryGetValue(rightTail, out HashSet<string>? wordsEndWithRightTail))
-                            {
-                                foreach (var bottomCandidate in wordsEndWithRightTail)
-                                {
-                                    if (bottomCandidate != rightCandidate && bottomCandidate != topCandidate)
-                                    {
-                                        var bottomHead = bottomCandidate[0];
-                                        if (tails.TryGetValue(bottomHead, out HashSet<string>? wordsEndWithBottomHead))
-                                        {
-                                            foreach (var leftCandidate in wordsEndWithBottomHead)
-                                            {
-                                                if (leftCandidate != bottomCandidate && leftCandidate != rightCandidate && leftCandidate != topCandidate)
-                                                {
-                                                    var leftHead = leftCandidate[0];
-                                                    if (leftHead == topHead)
-                                                    {
-                                                        List<string> square =
-                                                        [
-                                                            topCandidate, leftCandidate, rightCandidate, bottomCandidate
-                                                        ];
+                    if (right == top || right == left) continue;
 
-                                                        result.Add(square);
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                    foreach (var bottom in byPair[Key(left[3], right[3])])
+                    {
+                        if (bottom == top || bottom == left || bottom == right) continue;
+
+                        result.Add([top, left, right, bottom]);
                     }
                 }
             }
         }
 
-        // ascending lexicographic sort
-        result.Sort((a, b) =>
-        {
-            for (var i = 0; i < 4; i++)
-            {
-                for (var j = 0; j < 4; j++)
-                {
-                    if (a[i][j] < b[i][j]) return -1;
-                    if (a[i][j] > b[i][j]) return 1;
-                }
-            }
-            return 0;
-        });
         return result;
     }
 

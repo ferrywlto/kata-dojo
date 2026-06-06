@@ -34,6 +34,7 @@ public class Q3951_MinEnergyToMaintainBrightness
                 buckets.Add(intervals[i]);
                 prevIdx++;
             }
+            // Extend previous bucket
             else if (end > preEnd)
                 buckets[prevIdx][1] = end;
         }

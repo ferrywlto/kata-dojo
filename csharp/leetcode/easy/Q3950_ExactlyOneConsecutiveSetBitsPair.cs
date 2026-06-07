@@ -10,7 +10,7 @@ public class Q3950_ExactlyOneConsecutiveSetBitsPair
         while (n > 0)
         {
             var bit = n & 1;
-            if(last == 1 && bit == 1)
+            if (last == 1 && bit == 1)
             {
                 if (!pairSeen) pairSeen = true;
                 else return false;

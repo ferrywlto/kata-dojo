@@ -45,9 +45,9 @@ public class Q3923_MinGenerationsToTargetPoint
         {
             var next = new List<Point>();
             // all x frontier
-            for (var i=0; i<all.Count; i++)
+            for (var i = 0; i < all.Count; i++)
             {
-                for(var j=0; j<frontier.Count; j++)
+                for (var j = 0; j < frontier.Count; j++)
                 {
                     var p = GenPoint(all[i], frontier[j]);
                     if (p == targetPoint) return result;
@@ -61,7 +61,7 @@ public class Q3923_MinGenerationsToTargetPoint
             // frontier x frontier
             for (var i = 0; i < frontier.Count - 1; i++)
             {
-                for (var j= i + 1 ; j< frontier.Count; j++)
+                for (var j = i + 1; j < frontier.Count; j++)
                 {
                     var p = GenPoint(frontier[i], frontier[j]);
                     if (p == targetPoint) return result;

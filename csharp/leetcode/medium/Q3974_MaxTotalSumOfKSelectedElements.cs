@@ -1,8 +1,24 @@
 public class Q3974_MaxTotalSumOfKSelectedElements
 {
+    // TC: O(n log n)
+    // SC: O(1)
+    // Since k can be equals to nums.Length, using full sort is pragmatic rather than over-fitting leetcode test cases.
+    // Use top K heap only if k explicitly <<< nums.Length to reduce unnecessary sorting the num.Length - k numbers.
     public long MaxSum(int[] nums, int k, int mul)
     {
-        return 0L;
+        Array.Sort(nums);
+        var result = 0L;
+        var start = nums.Length - 1;
+        var end = start - k;
+        for (var i = start; i > end; i--)
+        {
+            if (mul >= 2)
+                result += (long)nums[i] * mul;
+            else
+                result += nums[i];
+            mul--;
+        }
+        return result;
     }
 
     public static TheoryData<int[], int, int, int> TestData => new()

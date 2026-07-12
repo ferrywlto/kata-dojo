@@ -27,7 +27,7 @@ public class Q3986_NumElapsedSecondsBetweenTwoTimes
     {
         { "01:00:00", "01:00:25", 25 },
         { "12:34:56", "13:00:00", 1504 }
-    };1
+    };
 
     [Theory]
     [MemberData(nameof(TestData))]

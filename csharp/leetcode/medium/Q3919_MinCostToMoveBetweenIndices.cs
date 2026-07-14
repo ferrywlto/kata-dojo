@@ -1,74 +1,73 @@
-public class Q3919_MinCostToMoveBetweenIndices
+public class Q3919_MinCostToMoveBetweenIndices(ITestOutputHelper output)
 {
     public int[] MinCost(int[] nums, int[][] queries)
     {
-        var nLen = nums.Length;
-        var closestIdx = new int[nLen];
+        var len = nums.Length;
+        var costs = new int[len][];
+        for (var i = 0; i < costs.Length; i++) costs[i] = new int[len];
 
-        // Calculate the closest
-        for (var i = 0; i < nLen; i++)
+        var closestIdx = new int[len];
+
+        for (var i = 0; i < len; i++)
         {
-            if (i == 0)
+            var minCost = int.MaxValue;
+            for (var j = 0; j < len; j++)
             {
-                closestIdx[i] = 1;
-                continue;
-            }
-            if (i == nLen - 1)
-            {
-                closestIdx[i] = nLen - 2;
-                continue;
-            }
-
-            var fromLeft = Math.Abs(nums[i] - nums[i - 1]);
-            var fromRight = Math.Abs(nums[i] - nums[i + 1]);
-            if (fromRight < fromLeft) closestIdx[i] = i + 1;
-            else closestIdx[i] = i - 1;
-        }
-
-        var qLen = queries.Length;
-        var result = new int[qLen];
-        for (var i = 0; i < qLen; i++)
-        {
-            var currentQuery = queries[i];
-            // Array.Sort(currentQuery);
-            var start = currentQuery[0];
-            var end = currentQuery[1];
-
-            var directCost = Math.Abs(nums[start] - nums[end]);
-            var minCost = directCost;
-            var currentCost = 0;
-            if (start < end)
-            {
-                for (var idx = start; idx < end; idx++)
+                var cost = Math.Abs(nums[i] - nums[j]);
+                costs[i][j] = cost;
+                if (i != j && cost < minCost)
                 {
-                    var nextidx = closestIdx[idx];
-                    currentCost += 1;
-                    var intermCost = currentCost + Math.Abs(nums[nextidx] - nums[end]);
-                    if (intermCost < minCost)
-                    {
-                        minCost = intermCost;
-                        idx = nextidx;
-                    }
+                    minCost = cost;
+                    closestIdx[i] = j;
                 }
             }
-            else
+        }
+        output.WriteLine($"closest: [{string.Join(',', closestIdx)}]");
+        for (var i = 0; i < costs.Length; i++)
+        {
+            output.WriteLine($"cost: [{string.Join(',', costs[i])}]");
+        }
+
+        var result = new int[queries.Length];
+        // prevent circular path
+        var seen = new HashSet<int>();
+        for (var i = 0; i < queries.Length; i++)
+        {
+            var q = queries[i];
+            var start = q[0];
+            var end = q[1];
+            var closestCost = 0;
+
+            seen.Clear();
+            seen.Add(start);
+            while (start != end)
             {
-                for (var idx = end; idx > start; idx--)
+                if (Math.Abs(start - end) == 1)
                 {
-                    var nextidx = closestIdx[idx];
-                    currentCost += 1;
-                    var intermCost = currentCost + Math.Abs(nums[nextidx] - nums[end]);
-                    if (intermCost < minCost)
-                    {
-                        minCost = intermCost;
-                        idx = nextidx;
-                    }
+                    closestCost += costs[start][end];
+                    break;
+                }
+
+                var next = closestIdx[start];
+                if (seen.Add(next))
+                {
+                    output.WriteLine($"next: {next}");
+                    closestCost++;
+                    start = next;
+                }
+                else
+                {
+                    output.WriteLine($"final: cost[{start}][{end}]: {costs[start][end]}");
+                    closestCost += costs[start][end];
+                    break;
                 }
             }
 
-            result[i] = minCost;
+            result[i] = closestCost;
         }
+
         return result;
+
     }
 
     public static TheoryData<int[], int[][], int[]> TestData => new()

@@ -1,15 +1,13 @@
-public class Q3975_FilterOccupiedIntervals(ITestOutputHelper output)
+public class Q3975_FilterOccupiedIntervals
 {
-    // TC: O(n)
+    // TC: O(n log n) for the sort. O(n) otherwise
     // SC: O(n), for storing result, worst case all intervals are included.
     public IList<IList<int>> FilterOccupiedIntervals(int[][] occupiedIntervals, int freeStart, int freeEnd)
     {
-        Array.Sort(occupiedIntervals, (a, b) =>
+        Array.Sort(occupiedIntervals, static(a, b) =>
         {
             if (a[0] > b[0]) return 1;
             if (a[0] < b[0]) return -1;
-            if (a[1] > b[1]) return 1;
-            if (a[1] < b[1]) return -1;
             return 0;
         });
 
@@ -28,7 +26,7 @@ public class Q3975_FilterOccupiedIntervals(ITestOutputHelper output)
                 // further shrink before adding
                 // interval start later then free period end, continue
                 // interval end earlier than free period start, continue
-                if(lastStart > freeEnd || lastEnd < freeStart)
+                if (lastStart > freeEnd || lastEnd < freeStart)
                 {
                     merged.Add([lastStart, lastEnd]);
                 }
@@ -41,7 +39,7 @@ public class Q3975_FilterOccupiedIntervals(ITestOutputHelper output)
                 {
                     merged.Add([lastStart, Math.Min(lastEnd, freeStart - 1)]);
                 }
-                else if(lastEnd > freeEnd)
+                else if (lastEnd > freeEnd)
                 {
                     merged.Add([Math.Max(lastStart, freeEnd + 1), lastEnd]);
                 }
@@ -69,7 +67,6 @@ public class Q3975_FilterOccupiedIntervals(ITestOutputHelper output)
             merged.Add([Math.Max(lastStart, freeEnd + 1), lastEnd]);
         }
 
-        output.WriteLine($"{string.Join(',', merged.Select(p => $"[{p[0]}, {p[1]}]"))}");
         return merged;
     }
 

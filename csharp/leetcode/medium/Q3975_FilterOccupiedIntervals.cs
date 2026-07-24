@@ -4,7 +4,7 @@ public class Q3975_FilterOccupiedIntervals
     // SC: O(n), for storing result, worst case all intervals are included.
     public IList<IList<int>> FilterOccupiedIntervals(int[][] occupiedIntervals, int freeStart, int freeEnd)
     {
-        Array.Sort(occupiedIntervals, static(a, b) =>
+        Array.Sort(occupiedIntervals, static (a, b) =>
         {
             if (a[0] > b[0]) return 1;
             if (a[0] < b[0]) return -1;

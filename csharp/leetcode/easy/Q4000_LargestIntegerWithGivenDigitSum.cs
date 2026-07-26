@@ -7,9 +7,9 @@ public class Q4000_LargestIntegerWithGivenDigitSum
         if (s == 0) return 0;
 
         var result = 0;
-        while(n > 0)
+        while (n > 0)
         {
-            if(s > 9)
+            if (s > 9)
             {
                 s -= 9;
                 result += 9;
@@ -20,7 +20,7 @@ public class Q4000_LargestIntegerWithGivenDigitSum
                 s = 0;
             }
             n--;
-            if(n > 0) result *= 10;
+            if (n > 0) result *= 10;
         }
 
         return s == 0 ? result : -1;

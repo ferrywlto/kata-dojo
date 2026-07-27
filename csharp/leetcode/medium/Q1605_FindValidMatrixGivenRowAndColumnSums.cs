@@ -8,70 +8,35 @@ public class Q1605_FindValidMatrixGivenRowAndColumnSums
             result[i] = new int[colSum.Length];
         }
 
-
-        var (idx, val, who) = FindSmallest(rowSum, colSum);
-        if (who == "row")
+        // using two-pointers with while loop will be fastest, but not push for that now.
+        for(var row = 0; row < rowSum.Length; row++)
         {
-            rowSum[idx] -= val;
-            colSum[idx] -= val;
-            result[idx][idx] = val;
-        }
-
-        return [[]];
-    }
-
-    private (int idx, int val, string who) FindSmallest(int[] rowSum, int[] colSum)
-    {
-        var (srIdx, sr) = FindSmallest(rowSum);
-        var (scIdx, sc) = FindSmallest(colSum);
-
-        if (sr > sc) return (srIdx, sr, "row");
-        else return (scIdx, sc, "col");
-    }
-
-    private (int idx, int val) FindSmallest(int[] input)
-    {
-        var smallest = int.MaxValue;
-        var smallestIdx = int.MaxValue;
-        for (var i = 0; i < input.Length; i++)
-        {
-            if (input[i] < smallest)
+            for(var col = 0; col < colSum.Length; col++)
             {
-                smallest = input[i];
-                smallestIdx = i;
+                if (rowSum[row] == 0 || colSum[col] == 0) continue;
+
+                // From the hints
+                var smaller = Math.Min(rowSum[row], colSum[col]);
+                result[row][col] = smaller;
+                rowSum[row] -= smaller;
+                colSum[col] -= smaller;
             }
         }
-        return (smallestIdx, smallest);
+
+        return result;
     }
 
-    public static TheoryData<int[], int[]> TestData => new()
+    public static TheoryData<int[], int[], int[][]> TestData => new()
     {
-        {[3,8], [4,7]},
-        {[5,7,10], [8,6,8]},
+        { [3, 8], [4, 7], [[3, 0], [1, 7]] },
+        { [5, 7, 10], [8, 6, 8], [[5, 0, 0], [3, 4, 0], [0, 2, 8]] },
     };
+
     [Theory]
     [MemberData(nameof(TestData))]
-    public void Test(int[] rowSum, int[] colSum)
+    public void Test(int[] rowSum, int[] colSum, int[][] expected)
     {
         var actual = RestoreMatrix(rowSum, colSum);
-        var rows = new int[actual.Length];
-        var cols = new int[actual[0].Length];
-
-        for (var r = 0; r < rows.Length; r++)
-        {
-            rows[r] = actual[r].Sum();
-
-        }
-        var cSum = 0;
-        for (var c = 0; c < cols.Length; c++)
-        {
-            for (var r = 0; r < rows.Length; r++)
-            {
-                cSum += actual[r][c];
-            }
-        }
-
-        Assert.Equal(rowSum, rows);
-        Assert.Equal(colSum, cols);
+        Assert.Equal(expected, actual);
     }
 }

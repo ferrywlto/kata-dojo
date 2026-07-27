@@ -1,5 +1,7 @@
 public class Q1605_FindValidMatrixGivenRowAndColumnSums
 {
+    // TC: O(n * m)
+    // SC: O(n * m), O(1) if not counting the result
     public int[][] RestoreMatrix(int[] rowSum, int[] colSum)
     {
         var result = new int[rowSum.Length][];
@@ -9,13 +11,13 @@ public class Q1605_FindValidMatrixGivenRowAndColumnSums
         }
 
         // using two-pointers with while loop will be fastest, but not push for that now.
-        for(var row = 0; row < rowSum.Length; row++)
+        for (var row = 0; row < rowSum.Length; row++)
         {
-            for(var col = 0; col < colSum.Length; col++)
+            for (var col = 0; col < colSum.Length; col++)
             {
                 if (rowSum[row] == 0 || colSum[col] == 0) continue;
 
-                // From the hints
+                // From the hints. Use pen and paper will be much more easier to understand this.
                 var smaller = Math.Min(rowSum[row], colSum[col]);
                 result[row][col] = smaller;
                 rowSum[row] -= smaller;

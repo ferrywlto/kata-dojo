@@ -17,6 +17,36 @@ public class Q4010_MaxPairStrengthUsingGCD
         return max;
     }
 
+    // Faster version by AI
+    /*
+    public long MaxPairStrength(int[] nums)
+    {
+        Array.Sort(nums);
+
+        long max = 0;
+
+        for (var i = nums.Length - 1; i > 0; i--)
+        {
+            // nums[i - 1] is the largest remaining partner.
+            if ((long)nums[i] * nums[i - 1] <= max)
+                break;
+
+            for (var j = i - 1; j >= 0; j--)
+            {
+                // Products only get smaller as j decreases.
+                if ((long)nums[i] * nums[j] <= max)
+                    break;
+
+                var gcd = GCD(nums[i], nums[j]);
+                var strength = (long)(nums[i] / gcd) * (nums[j] / gcd);
+
+                max = Math.Max(max, strength);
+            }
+        }
+
+        return max;
+    }
+    */
     public static TheoryData<int[], long> TestData => new ()
     {
         {[2,3,5], 15},
@@ -27,8 +57,14 @@ public class Q4010_MaxPairStrengthUsingGCD
 
     private int GCD(int a, int b)
     {
-        if (b == 0) return a;
-        return GCD(b, a % b);
+        while (b != 0)
+        {
+            var remainder = a % b;
+            a = b;
+            b = remainder;
+        }
+
+        return a;
     }
 
     [Theory]

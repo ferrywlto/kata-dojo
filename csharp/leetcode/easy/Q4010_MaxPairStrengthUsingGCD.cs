@@ -5,13 +5,13 @@ public class Q4010_MaxPairStrengthUsingGCD
     public long MaxPairStrength(int[] nums)
     {
         long max = 0;
-        for(var i=0; i<nums.Length-1; i++)
+        for (var i = 0; i < nums.Length - 1; i++)
         {
-            for(var j=i+1; j<nums.Length; j++)
+            for (var j = i + 1; j < nums.Length; j++)
             {
                 var gcd = GCD(nums[i], nums[j]);
                 long strength = (long)nums[i] * nums[j] / (gcd * gcd);
-                if(strength > max) max = strength;
+                if (strength > max) max = strength;
             }
         }
         return max;
@@ -47,7 +47,7 @@ public class Q4010_MaxPairStrengthUsingGCD
         return max;
     }
     */
-    public static TheoryData<int[], long> TestData => new ()
+    public static TheoryData<int[], long> TestData => new()
     {
         {[2,3,5], 15},
         {[4,6,8], 12},

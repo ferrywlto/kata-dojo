@@ -1,8 +1,23 @@
 public class Q4024_NearestAvailableDrone
 {
+    // TC: O(n)
+    // SC: O(1)
     public int NearestDrone(int[][] drones, int[] target)
     {
-        return 0;
+        var resultIdx = -1;
+        var minDistance = int.MaxValue;
+
+        for(var i = 0; i<drones.Length; i++)
+        {
+            var drone = drones[i];
+            var distance = Math.Abs(drone[0] - target[0]) + Math.Abs(drone[1] - target[1]);
+            if (distance <= drone[2] && distance < minDistance)
+            {
+                minDistance = distance;
+                resultIdx = i;
+            }
+        }
+        return resultIdx;
     }
 
     public static TheoryData<int[][], int[], int> TestData => new()

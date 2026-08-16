@@ -1,8 +1,17 @@
 public class Q4020_ElevatorRequestsI
 {
+    // TC: O(n)
+    // SC: O(1)
     public int ElevatorRequests(int n, int[] requests)
     {
-        return 0;
+        var prevFloor = 0;
+        var result = 0;
+        for (var i = 0; i < requests.Length; i++)
+        {
+            result += Math.Abs(prevFloor - requests[i]);
+            prevFloor = requests[i];
+        }
+        return result;
     }
 
     public static TheoryData<int, int[], int> TestData => new()

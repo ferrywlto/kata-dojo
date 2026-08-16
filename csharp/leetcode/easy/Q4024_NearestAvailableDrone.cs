@@ -7,7 +7,7 @@ public class Q4024_NearestAvailableDrone
         var resultIdx = -1;
         var minDistance = int.MaxValue;
 
-        for(var i = 0; i<drones.Length; i++)
+        for (var i = 0; i < drones.Length; i++)
         {
             var drone = drones[i];
             var distance = Math.Abs(drone[0] - target[0]) + Math.Abs(drone[1] - target[1]);

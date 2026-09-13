@@ -1,8 +1,35 @@
 public class Q4048_CountValuesWithEquallySpacedOccurrencesI
 {
+    // TC: O(n)
+    // SC: O(1)
     public int CountSpecialIntegers(int[] nums)
     {
-        return 0;
+        const int len = 101;
+        var pos = new int[len][];
+        for (var i = 0; i < len; i++)
+        {
+            pos[i] = new int[3];
+        }
+
+        var count = new int[len];
+
+        for (var i = 0; i < nums.Length; i++)
+        {
+            var n = nums[i];
+            if (count[n] < 3)
+                pos[n][count[n]] = i;
+
+            count[n]++;
+        }
+
+        var result = 0;
+        for (var i = 0; i < len; i++)
+        {
+            if (count[i] != 3) continue;
+            if (pos[i][2] - pos[i][1] == pos[i][1] - pos[i][0]) result++;
+        }
+
+        return result;
     }
 
     public static TheoryData<int[], int> TestData => new()

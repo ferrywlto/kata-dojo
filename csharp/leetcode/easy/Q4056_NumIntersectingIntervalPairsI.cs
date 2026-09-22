@@ -1,8 +1,19 @@
 public class Q4056_NumIntersectingIntervalPairsI
 {
+    // TC: O(n^2)
+    // SC: O(1)
     public int CountIntersectingIntervals(int[][] intervals)
     {
-        return 0;
+        var result = 0;
+        for (var i = 0; i < intervals.Length - 1; i++)
+        {
+            for (var j = i + 1; j < intervals.Length; j++)
+            {
+                if (Math.Max(intervals[i][0], intervals[j][0]) <= Math.Min(intervals[i][1], intervals[j][1]))
+                    result++;
+            }
+        }
+        return result;
     }
 
     public static TheoryData<int[][], int> TestData => new()

@@ -22,7 +22,7 @@ public class Q4071_MinRotationsToDialANumberII(ITestOutputHelper output)
         var minIdx = -1;
         // var minDiff = int.MaxValue;
 
-        for(var i = 1; i<s.Length; i++)
+        for (var i = 1; i < s.Length; i++)
         {
             var prev = s[i - 1] - '0';
             var next = s[i] - '0';

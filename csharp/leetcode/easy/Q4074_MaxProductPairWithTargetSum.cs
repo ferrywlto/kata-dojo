@@ -10,6 +10,7 @@ public class Q4074_MaxProductPairWithTargetSum
 
         for (var i = 0; i < nums.Length; i++)
         {
+            // The tricks here is to find if any seen can form a valid pair, if not then skip it. Which reduce O(n^2) to O(n)
             var partner = target - nums[i];
 
             if (partner == nums[i]) continue;

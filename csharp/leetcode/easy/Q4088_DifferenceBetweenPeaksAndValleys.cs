@@ -1,8 +1,23 @@
 public class Q4088_DifferenceBetweenPeaksAndValleys
 {
+    // TC: O(n)
+    // SC: O(1)
     public int PeakValleyDifference(int[] nums)
     {
-        return 0;
+        var result = 0;
+        for (var i = 1; i < nums.Length - 1; i++)
+        {
+            if (nums[i] > nums[i + 1] && nums[i] > nums[i - 1])
+            {
+                result += nums[i];
+            }
+            else if (nums[i] < nums[i + 1] && nums[i] < nums[i - 1])
+            {
+                result -= nums[i];
+            }
+        }
+
+        return result;
     }
 
     public static TheoryData<int[], int> TestData => new()

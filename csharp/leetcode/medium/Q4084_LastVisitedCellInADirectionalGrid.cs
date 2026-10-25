@@ -1,64 +1,41 @@
 public class Q4084_LastVisitedCellInADirectionalGrid
 {
+    // TC: O(m * n), worst case all cells are not seen
+    // SC: O(1)
     public int[] LastVisitedCell(char[][] grid)
     {
-        var lastVisit = new int[2];
-        var rowIdx = 0;
-        var colIdx = 0;
-
-        var seen = new HashSet<(int, int)>();
+        var m = grid.Length - 1;
+        var n = grid[0].Length - 1;
+        var prevRowIdx = 0;
+        var prevColIdx = 0;
+        var currRowIdx = 0;
+        var currColIdx = 0;
 
         while (true)
         {
-            if (!seen.Add((rowIdx, colIdx))) return lastVisit;
+            var direction = grid[currRowIdx][currColIdx];
+            grid[currRowIdx][currColIdx] = 'X';
+            prevRowIdx = currRowIdx;
+            prevColIdx = currColIdx;
 
-            var direction = grid[rowIdx][colIdx];
-            lastVisit[0] = rowIdx;
-            lastVisit[1] = colIdx;
+            if (direction == 'R' && currColIdx++ == n) break;
 
-            if (direction == 'R')
-            {
-                if (colIdx == grid[rowIdx].Length - 1)
-                {
-                    return lastVisit;
-                }
+            if (direction == 'L' && currColIdx-- == 0) break;
 
-                colIdx++;
-            }
-            else if (direction == 'L')
-            {
-                if (colIdx == 0)
-                {
-                    return lastVisit;
-                }
+            if (direction == 'U' && currRowIdx-- == 0) break;
 
-                colIdx--;
-            }
-            else if (direction == 'U')
-            {
-                if (rowIdx == 0)
-                {
-                    return lastVisit;
-                }
+            if (direction == 'D' && currRowIdx++ == m) break;
 
-                rowIdx--;
-            }
-            else if (direction == 'D')
-            {
-                if (rowIdx == grid.Length - 1)
-                {
-                    return lastVisit;
-                }
-
-                rowIdx++;
-            }
+            if (grid[currRowIdx][currColIdx] == 'X') break;
         }
+
+        return [prevRowIdx, prevColIdx];
     }
 
     public static TheoryData<char[][], int[]> TestData => new()
     {
         { [['R', 'D'], ['U', 'L']], [1, 0] },
-        { [['R', 'R', 'R']], [0,2]},
+        { [['R', 'R', 'R']], [0, 2] },
     };
 
     [Theory]

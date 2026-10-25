@@ -2,7 +2,57 @@ public class Q4084_LastVisitedCellInADirectionalGrid
 {
     public int[] LastVisitedCell(char[][] grid)
     {
-        return [];
+        var lastVisit = new int[2];
+        var rowIdx = 0;
+        var colIdx = 0;
+
+        var seen = new HashSet<(int, int)>();
+
+        while (true)
+        {
+            if (!seen.Add((rowIdx, colIdx))) return lastVisit;
+
+            var direction = grid[rowIdx][colIdx];
+            lastVisit[0] = rowIdx;
+            lastVisit[1] = colIdx;
+
+            if (direction == 'R')
+            {
+                if (colIdx == grid[rowIdx].Length - 1)
+                {
+                    return lastVisit;
+                }
+
+                colIdx++;
+            }
+            else if (direction == 'L')
+            {
+                if (colIdx == 0)
+                {
+                    return lastVisit;
+                }
+
+                colIdx--;
+            }
+            else if (direction == 'U')
+            {
+                if (rowIdx == 0)
+                {
+                    return lastVisit;
+                }
+
+                rowIdx--;
+            }
+            else if (direction == 'D')
+            {
+                if (rowIdx == grid.Length - 1)
+                {
+                    return lastVisit;
+                }
+
+                rowIdx++;
+            }
+        }
     }
 
     public static TheoryData<char[][], int[]> TestData => new()

@@ -1,8 +1,23 @@
+using System.Text;
+
 public class Q4097_MinValueOfMergedIntegers
 {
+    // TC: O(n)
+    // SC: O(1), it caps at 8 characters long
     public int MinMergedInteger(int[] nums)
     {
-        return 0;
+        var min = int.MaxValue;
+
+        var sb = new StringBuilder();
+        for (var i = 0; i < nums.Length; i += 2)
+        {
+            sb.Append(nums[i]).Append(nums[i + 1]);
+            var num = int.Parse(sb.ToString());
+            if (num < min) min = num;
+            sb.Clear();
+        }
+
+        return min;
     }
 
     public static TheoryData<int[], int> TestData => new()
